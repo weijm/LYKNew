@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		205CA94C1B4B7A8E007BAC89 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 205CA94A1B4B7A8E007BAC89 /* LoginViewController.m */; };
+		205CA94D1B4B7A8E007BAC89 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 205CA94B1B4B7A8E007BAC89 /* LoginViewController.xib */; };
+		205CA9BA1B4BA23F007BAC89 /* CreateUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 205CA9B81B4BA23F007BAC89 /* CreateUserViewController.m */; };
+		205CA9BB1B4BA23F007BAC89 /* CreateUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 205CA9B91B4BA23F007BAC89 /* CreateUserViewController.xib */; };
+		205CA9BF1B4BA9CD007BAC89 /* CreateUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 205CA9BD1B4BA9CD007BAC89 /* CreateUserTableViewCell.m */; };
+		205CA9C01B4BA9CD007BAC89 /* CreateUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 205CA9BE1B4BA9CD007BAC89 /* CreateUserTableViewCell.xib */; };
+		205CA9C31B4BD9F4007BAC89 /* UIButton+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 205CA9C21B4BD9F4007BAC89 /* UIButton+Custom.m */; };
 		208EBD8A1B4A62AD00AB0730 /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 208EBD891B4A62AD00AB0730 /* RegisterView.m */; };
 		208EBD8C1B4A62C400AB0730 /* RegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 208EBD8B1B4A62C400AB0730 /* RegisterView.xib */; };
 		208EBD951B4A6B8700AB0730 /* RegisterUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 208EBD931B4A6B8700AB0730 /* RegisterUserViewController.m */; };
@@ -46,6 +53,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		205CA9491B4B7A8E007BAC89 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		205CA94A1B4B7A8E007BAC89 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		205CA94B1B4B7A8E007BAC89 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		205CA9B71B4BA23F007BAC89 /* CreateUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateUserViewController.h; sourceTree = "<group>"; };
+		205CA9B81B4BA23F007BAC89 /* CreateUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateUserViewController.m; sourceTree = "<group>"; };
+		205CA9B91B4BA23F007BAC89 /* CreateUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateUserViewController.xib; sourceTree = "<group>"; };
+		205CA9BC1B4BA9CD007BAC89 /* CreateUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateUserTableViewCell.h; sourceTree = "<group>"; };
+		205CA9BD1B4BA9CD007BAC89 /* CreateUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateUserTableViewCell.m; sourceTree = "<group>"; };
+		205CA9BE1B4BA9CD007BAC89 /* CreateUserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateUserTableViewCell.xib; sourceTree = "<group>"; };
+		205CA9C11B4BD9F4007BAC89 /* UIButton+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Custom.h"; sourceTree = "<group>"; };
+		205CA9C21B4BD9F4007BAC89 /* UIButton+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Custom.m"; sourceTree = "<group>"; };
 		208EBD881B4A62AD00AB0730 /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
 		208EBD891B4A62AD00AB0730 /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		208EBD8B1B4A62C400AB0730 /* RegisterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterView.xib; sourceTree = "<group>"; };
@@ -113,6 +131,9 @@
 		208EBD801B4A195100AB0730 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				205CA9491B4B7A8E007BAC89 /* LoginViewController.h */,
+				205CA94A1B4B7A8E007BAC89 /* LoginViewController.m */,
+				205CA94B1B4B7A8E007BAC89 /* LoginViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -124,6 +145,9 @@
 				208EBD921B4A6B8700AB0730 /* RegisterUserViewController.h */,
 				208EBD931B4A6B8700AB0730 /* RegisterUserViewController.m */,
 				208EBD941B4A6B8700AB0730 /* RegisterUserViewController.xib */,
+				205CA9B71B4BA23F007BAC89 /* CreateUserViewController.h */,
+				205CA9B81B4BA23F007BAC89 /* CreateUserViewController.m */,
+				205CA9B91B4BA23F007BAC89 /* CreateUserViewController.xib */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -137,6 +161,9 @@
 				208EBD971B4A701700AB0730 /* RegisterBottomView.h */,
 				208EBD981B4A701700AB0730 /* RegisterBottomView.m */,
 				208EBD9A1B4A702900AB0730 /* RegisterBottomView.xib */,
+				205CA9BC1B4BA9CD007BAC89 /* CreateUserTableViewCell.h */,
+				205CA9BD1B4BA9CD007BAC89 /* CreateUserTableViewCell.m */,
+				205CA9BE1B4BA9CD007BAC89 /* CreateUserTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -289,6 +316,8 @@
 				2097D31B1B46300C00611432 /* Config.h */,
 				2097D31C1B46390C00611432 /* Util.h */,
 				2097D31D1B46390C00611432 /* Util.m */,
+				205CA9C11B4BD9F4007BAC89 /* UIButton+Custom.h */,
+				205CA9C21B4BD9F4007BAC89 /* UIButton+Custom.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -382,15 +411,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				205CA9C01B4BA9CD007BAC89 /* CreateUserTableViewCell.xib in Resources */,
 				208EBD9B1B4A702900AB0730 /* RegisterBottomView.xib in Resources */,
 				208EBD8C1B4A62C400AB0730 /* RegisterView.xib in Resources */,
 				2097D3191B462F9900611432 /* BannerView.xib in Resources */,
 				2097D32F1B46961400611432 /* homepage_suppinfo_icon2@2x.png in Resources */,
 				2097D2E41B461E7000611432 /* LaunchScreen.xib in Resources */,
+				205CA9BB1B4BA23F007BAC89 /* CreateUserViewController.xib in Resources */,
 				2097D2E11B461E7000611432 /* Images.xcassets in Resources */,
 				208EBD961B4A6B8700AB0730 /* RegisterUserViewController.xib in Resources */,
 				2097D3131B462F0A00611432 /* RootViewController.xib in Resources */,
 				2097D30C1B462D5000611432 /* home_edit_btn@2x.png in Resources */,
+				205CA94D1B4B7A8E007BAC89 /* LoginViewController.xib in Resources */,
 				2097D32D1B46957B00611432 /* homepage_right_bt@2x.png in Resources */,
 				2097D30D1B462D5000611432 /* home_setting_btn_n@2x.png in Resources */,
 				2097D32B1B46928F00611432 /* HomePageTableViewCell.xib in Resources */,
@@ -411,14 +443,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				205CA9BF1B4BA9CD007BAC89 /* CreateUserTableViewCell.m in Sources */,
 				2097D31E1B46390C00611432 /* Util.m in Sources */,
 				208EBD8A1B4A62AD00AB0730 /* RegisterView.m in Sources */,
 				2097D3171B462F8500611432 /* BannerView.m in Sources */,
 				2097D2D91B461E7000611432 /* AppDelegate.m in Sources */,
 				2097D2D61B461E7000611432 /* main.m in Sources */,
+				205CA9BA1B4BA23F007BAC89 /* CreateUserViewController.m in Sources */,
 				208EBD991B4A701700AB0730 /* RegisterBottomView.m in Sources */,
+				205CA9C31B4BD9F4007BAC89 /* UIButton+Custom.m in Sources */,
 				2097D3121B462F0A00611432 /* RootViewController.m in Sources */,
 				2097D32A1B46928F00611432 /* HomePageTableViewCell.m in Sources */,
+				205CA94C1B4B7A8E007BAC89 /* LoginViewController.m in Sources */,
 				208EBDB21B4A82CE00AB0730 /* MarkupParser.m in Sources */,
 				208EBDB51B4A82D800AB0730 /* CustomLabel.m in Sources */,
 				208EBD951B4A6B8700AB0730 /* RegisterUserViewController.m in Sources */,

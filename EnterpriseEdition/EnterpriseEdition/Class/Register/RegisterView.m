@@ -1,8 +1,8 @@
 //
 //  RegisterView.m
-//  EnterpriseEdition
+//  注册和登录页面的编辑部分视图
 //
-//  Created by lyk on 15/7/6.
+//  Created by wjm on 15/7/6.
 //  Copyright (c) 2015年 lyk. All rights reserved.
 //
 
@@ -39,12 +39,15 @@
     }
 }
 #pragma mark - 下一步的触发事件
-- (void)nextStep:(id)sender {
-    BOOL isCorrect = [self checkString:YES];//需要检查验证码是否填写
-    if (isCorrect) {//手机号和验证码填写正确
-        
-    }
-    
+- (BOOL)nextStep {
+//    BOOL isCorrect = [self checkString:YES];//需要检查验证码是否填写
+//    if (isCorrect) {//yes手机号和验证码填写正确 no 不正确
+//        [[NSUserDefaults standardUserDefaults] setObject:numberTextField.text forKey:@"account"];
+//    }
+    //测试设置的值
+    BOOL isCorrect  = YES;
+    [[NSUserDefaults standardUserDefaults] setObject:numberTextField.text forKey:@"account"];
+    return isCorrect;
 }
 #pragma makr - 验证textField中得字符窜
 -(BOOL)checkString:(BOOL)isCode
@@ -91,5 +94,38 @@
         timer = nil;
     }
     
+}
+#pragma mark - 登录页面加载子视图
+-(void)loadSubView
+{
+    //将密码的输入框大小设置的和账号的一样
+    CGRect frame = codeTextField.frame;
+    frame.size.width = numberTextField.frame.size.width;
+    codeTextField.frame = frame;
+    UIView *supperView = [codeTextField superview];
+    [supperView addSubview:codeTextField];
+    //标记为登录
+    mark = 1;
+    //修改标题
+    numberLab.text = @"账号";
+    codeLab.text = @"密码";
+    
+    //修改编辑框提示语
+    numberTextField.placeholder = @"请输入账号";
+    codeTextField.placeholder = @"请输入密码";
+    
+    //隐藏不需要的视图
+    vLine.hidden = YES;
+    codeBt.hidden = YES;
+    
+    //设置密码安全输入
+    codeTextField.secureTextEntry = YES;
+    
+}
+#pragma mark -UITextFiled
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    
+    return YES;
 }
 @end

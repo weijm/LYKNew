@@ -1,8 +1,8 @@
 //
 //  RegisterBottomView.m
-//  EnterpriseEdition
+//  注册页面的 下一步按钮和协议
 //
-//  Created by lyk on 15/7/6.
+//  Created by wjm on 15/7/6.
 //  Copyright (c) 2015年 lyk. All rights reserved.
 //
 
