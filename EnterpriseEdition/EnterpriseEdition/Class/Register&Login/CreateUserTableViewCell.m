@@ -59,7 +59,7 @@
             UIButton *nextBt = [[UIButton alloc] initWithFrame:CGRectMake((kWidth-btW)/2, (self.frame.size.height-btH)/2, btW, btH)];
             nextBt.backgroundColor = [UIColor lightGrayColor];
             [nextBt setTitle:@"下一步" forState:UIControlStateNormal];
-            [nextBt setTitleColor:Rgb(255, 149, 121) forState:UIControlStateNormal];
+            [nextBt setTitleColor:Rgb(255, 149, 121,1.0) forState:UIControlStateNormal];
             [nextBt addTarget:self action:@selector(nextAction) forControlEvents:UIControlEventTouchUpInside];
             [self.contentView addSubview:nextBt];
             

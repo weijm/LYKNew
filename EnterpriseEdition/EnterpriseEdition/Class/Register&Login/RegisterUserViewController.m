@@ -28,7 +28,7 @@
     //登录入口
     UIButton *rightBt = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
     [rightBt setTitle:@"登录" forState:UIControlStateNormal];
-    [rightBt setTitleColor:Rgb(255, 149, 121) forState:UIControlStateNormal];
+    [rightBt setTitleColor:Rgb(255, 149, 121,1.0) forState:UIControlStateNormal];
     [rightBt addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
     self.navigationItem.rightBarButtonItem = rightItem;

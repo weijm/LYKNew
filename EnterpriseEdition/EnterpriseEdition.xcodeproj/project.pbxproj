@@ -7,19 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		205CA94C1B4B7A8E007BAC89 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 205CA94A1B4B7A8E007BAC89 /* LoginViewController.m */; };
-		205CA94D1B4B7A8E007BAC89 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 205CA94B1B4B7A8E007BAC89 /* LoginViewController.xib */; };
-		205CA9BA1B4BA23F007BAC89 /* CreateUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 205CA9B81B4BA23F007BAC89 /* CreateUserViewController.m */; };
-		205CA9BB1B4BA23F007BAC89 /* CreateUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 205CA9B91B4BA23F007BAC89 /* CreateUserViewController.xib */; };
-		205CA9BF1B4BA9CD007BAC89 /* CreateUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 205CA9BD1B4BA9CD007BAC89 /* CreateUserTableViewCell.m */; };
-		205CA9C01B4BA9CD007BAC89 /* CreateUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 205CA9BE1B4BA9CD007BAC89 /* CreateUserTableViewCell.xib */; };
+		203542CF1B4CBA89007FF4A8 /* community_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203542CB1B4CBA89007FF4A8 /* community_icon@2x.png */; };
+		203542D01B4CBA89007FF4A8 /* community_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203542CC1B4CBA89007FF4A8 /* community_icon@3x.png */; };
+		203542D11B4CBA89007FF4A8 /* home_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203542CD1B4CBA89007FF4A8 /* home_icon@2x.png */; };
+		203542D21B4CBA89007FF4A8 /* home_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203542CE1B4CBA89007FF4A8 /* home_icon@3x.png */; };
+		203542EF1B4CBB45007FF4A8 /* CreateUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 203542DE1B4CBB45007FF4A8 /* CreateUserTableViewCell.m */; };
+		203542F01B4CBB45007FF4A8 /* CreateUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203542DF1B4CBB45007FF4A8 /* CreateUserTableViewCell.xib */; };
+		203542F11B4CBB45007FF4A8 /* CreateUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203542E11B4CBB45007FF4A8 /* CreateUserViewController.m */; };
+		203542F21B4CBB45007FF4A8 /* CreateUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203542E21B4CBB45007FF4A8 /* CreateUserViewController.xib */; };
+		203542F31B4CBB45007FF4A8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203542E41B4CBB45007FF4A8 /* LoginViewController.m */; };
+		203542F41B4CBB45007FF4A8 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203542E51B4CBB45007FF4A8 /* LoginViewController.xib */; };
+		203542F51B4CBB45007FF4A8 /* RegisterBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 203542E71B4CBB45007FF4A8 /* RegisterBottomView.m */; };
+		203542F61B4CBB45007FF4A8 /* RegisterBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203542E81B4CBB45007FF4A8 /* RegisterBottomView.xib */; };
+		203542F71B4CBB45007FF4A8 /* RegisterUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203542EA1B4CBB45007FF4A8 /* RegisterUserViewController.m */; };
+		203542F81B4CBB45007FF4A8 /* RegisterUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203542EB1B4CBB45007FF4A8 /* RegisterUserViewController.xib */; };
+		203542F91B4CBB45007FF4A8 /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 203542ED1B4CBB45007FF4A8 /* RegisterView.m */; };
+		203542FA1B4CBB45007FF4A8 /* RegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203542EE1B4CBB45007FF4A8 /* RegisterView.xib */; };
+		203543041B4CBCB1007FF4A8 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203543021B4CBCB1007FF4A8 /* InfoViewController.m */; };
+		203543051B4CBCB1007FF4A8 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203543031B4CBCB1007FF4A8 /* InfoViewController.xib */; };
+		203543091B4CBD15007FF4A8 /* PositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203543071B4CBD15007FF4A8 /* PositionViewController.m */; };
+		2035430A1B4CBD15007FF4A8 /* PositionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203543081B4CBD15007FF4A8 /* PositionViewController.xib */; };
+		2035430E1B4CBD40007FF4A8 /* ResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2035430C1B4CBD40007FF4A8 /* ResumeViewController.m */; };
+		2035430F1B4CBD40007FF4A8 /* ResumeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2035430D1B4CBD40007FF4A8 /* ResumeViewController.xib */; };
+		203543131B4CBD8A007FF4A8 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203543111B4CBD8A007FF4A8 /* HomePageViewController.m */; };
+		203543141B4CBD8A007FF4A8 /* HomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203543121B4CBD8A007FF4A8 /* HomePageViewController.xib */; };
+		203543191B4CCB35007FF4A8 /* 11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203543181B4CCB35007FF4A8 /* 11@2x.png */; };
+		2035431F1B4CD7B0007FF4A8 /* HireView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2035431E1B4CD7B0007FF4A8 /* HireView.m */; };
+		203543211B4CD7C1007FF4A8 /* HireView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203543201B4CD7C1007FF4A8 /* HireView.xib */; };
+		203543231B4CF46F007FF4A8 /* homepage_hire_icon1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203543221B4CF46F007FF4A8 /* homepage_hire_icon1@2x.png */; };
+		203543291B4CF630007FF4A8 /* homepage_hire_icon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203543241B4CF630007FF4A8 /* homepage_hire_icon2@2x.png */; };
+		2035432A1B4CF630007FF4A8 /* homepage_hire_icon3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203543251B4CF630007FF4A8 /* homepage_hire_icon3@2x.png */; };
+		2035432B1B4CF630007FF4A8 /* homepage_hire_icon4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203543261B4CF630007FF4A8 /* homepage_hire_icon4@2x.png */; };
+		2035432C1B4CF630007FF4A8 /* homepage_hire_icon5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203543271B4CF630007FF4A8 /* homepage_hire_icon5@2x.png */; };
+		2035432D1B4CF630007FF4A8 /* homepage_hire_icon6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203543281B4CF630007FF4A8 /* homepage_hire_icon6@2x.png */; };
+		2035432F1B4CF9B6007FF4A8 /* homepage_hire_img@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2035432E1B4CF9B6007FF4A8 /* homepage_hire_img@2x.png */; };
+		203543321B4CFBAD007FF4A8 /* CommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 203543311B4CFBAD007FF4A8 /* CommendView.m */; };
+		203543341B4CFBC2007FF4A8 /* CommendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203543331B4CFBC2007FF4A8 /* CommendView.xib */; };
+		203543361B4D0225007FF4A8 /* homepage_commend_img@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203543351B4D0225007FF4A8 /* homepage_commend_img@2x.png */; };
 		205CA9C31B4BD9F4007BAC89 /* UIButton+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 205CA9C21B4BD9F4007BAC89 /* UIButton+Custom.m */; };
-		208EBD8A1B4A62AD00AB0730 /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 208EBD891B4A62AD00AB0730 /* RegisterView.m */; };
-		208EBD8C1B4A62C400AB0730 /* RegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 208EBD8B1B4A62C400AB0730 /* RegisterView.xib */; };
-		208EBD951B4A6B8700AB0730 /* RegisterUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 208EBD931B4A6B8700AB0730 /* RegisterUserViewController.m */; };
-		208EBD961B4A6B8700AB0730 /* RegisterUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 208EBD941B4A6B8700AB0730 /* RegisterUserViewController.xib */; };
-		208EBD991B4A701700AB0730 /* RegisterBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 208EBD981B4A701700AB0730 /* RegisterBottomView.m */; };
-		208EBD9B1B4A702900AB0730 /* RegisterBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 208EBD9A1B4A702900AB0730 /* RegisterBottomView.xib */; };
 		208EBDA01B4A7F4C00AB0730 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208EBD9F1B4A7F4C00AB0730 /* CoreText.framework */; };
 		208EBDB21B4A82CE00AB0730 /* MarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 208EBDB11B4A82CE00AB0730 /* MarkupParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		208EBDB51B4A82D800AB0730 /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 208EBDB41B4A82D800AB0730 /* CustomLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -53,26 +78,57 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		205CA9491B4B7A8E007BAC89 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		205CA94A1B4B7A8E007BAC89 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		205CA94B1B4B7A8E007BAC89 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		205CA9B71B4BA23F007BAC89 /* CreateUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateUserViewController.h; sourceTree = "<group>"; };
-		205CA9B81B4BA23F007BAC89 /* CreateUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateUserViewController.m; sourceTree = "<group>"; };
-		205CA9B91B4BA23F007BAC89 /* CreateUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateUserViewController.xib; sourceTree = "<group>"; };
-		205CA9BC1B4BA9CD007BAC89 /* CreateUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateUserTableViewCell.h; sourceTree = "<group>"; };
-		205CA9BD1B4BA9CD007BAC89 /* CreateUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateUserTableViewCell.m; sourceTree = "<group>"; };
-		205CA9BE1B4BA9CD007BAC89 /* CreateUserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateUserTableViewCell.xib; sourceTree = "<group>"; };
+		203542CB1B4CBA89007FF4A8 /* community_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "community_icon@2x.png"; sourceTree = "<group>"; };
+		203542CC1B4CBA89007FF4A8 /* community_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "community_icon@3x.png"; sourceTree = "<group>"; };
+		203542CD1B4CBA89007FF4A8 /* home_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_icon@2x.png"; sourceTree = "<group>"; };
+		203542CE1B4CBA89007FF4A8 /* home_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_icon@3x.png"; sourceTree = "<group>"; };
+		203542DD1B4CBB45007FF4A8 /* CreateUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateUserTableViewCell.h; sourceTree = "<group>"; };
+		203542DE1B4CBB45007FF4A8 /* CreateUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateUserTableViewCell.m; sourceTree = "<group>"; };
+		203542DF1B4CBB45007FF4A8 /* CreateUserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateUserTableViewCell.xib; sourceTree = "<group>"; };
+		203542E01B4CBB45007FF4A8 /* CreateUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateUserViewController.h; sourceTree = "<group>"; };
+		203542E11B4CBB45007FF4A8 /* CreateUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateUserViewController.m; sourceTree = "<group>"; };
+		203542E21B4CBB45007FF4A8 /* CreateUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateUserViewController.xib; sourceTree = "<group>"; };
+		203542E31B4CBB45007FF4A8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		203542E41B4CBB45007FF4A8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		203542E51B4CBB45007FF4A8 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		203542E61B4CBB45007FF4A8 /* RegisterBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterBottomView.h; sourceTree = "<group>"; };
+		203542E71B4CBB45007FF4A8 /* RegisterBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterBottomView.m; sourceTree = "<group>"; };
+		203542E81B4CBB45007FF4A8 /* RegisterBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterBottomView.xib; sourceTree = "<group>"; };
+		203542E91B4CBB45007FF4A8 /* RegisterUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterUserViewController.h; sourceTree = "<group>"; };
+		203542EA1B4CBB45007FF4A8 /* RegisterUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterUserViewController.m; sourceTree = "<group>"; };
+		203542EB1B4CBB45007FF4A8 /* RegisterUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterUserViewController.xib; sourceTree = "<group>"; };
+		203542EC1B4CBB45007FF4A8 /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
+		203542ED1B4CBB45007FF4A8 /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
+		203542EE1B4CBB45007FF4A8 /* RegisterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterView.xib; sourceTree = "<group>"; };
+		203543011B4CBCB1007FF4A8 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		203543021B4CBCB1007FF4A8 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		203543031B4CBCB1007FF4A8 /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
+		203543061B4CBD15007FF4A8 /* PositionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionViewController.h; sourceTree = "<group>"; };
+		203543071B4CBD15007FF4A8 /* PositionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionViewController.m; sourceTree = "<group>"; };
+		203543081B4CBD15007FF4A8 /* PositionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PositionViewController.xib; sourceTree = "<group>"; };
+		2035430B1B4CBD40007FF4A8 /* ResumeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResumeViewController.h; sourceTree = "<group>"; };
+		2035430C1B4CBD40007FF4A8 /* ResumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResumeViewController.m; sourceTree = "<group>"; };
+		2035430D1B4CBD40007FF4A8 /* ResumeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResumeViewController.xib; sourceTree = "<group>"; };
+		203543101B4CBD8A007FF4A8 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
+		203543111B4CBD8A007FF4A8 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
+		203543121B4CBD8A007FF4A8 /* HomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageViewController.xib; sourceTree = "<group>"; };
+		203543181B4CCB35007FF4A8 /* 11@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "11@2x.png"; sourceTree = "<group>"; };
+		2035431D1B4CD7B0007FF4A8 /* HireView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HireView.h; sourceTree = "<group>"; };
+		2035431E1B4CD7B0007FF4A8 /* HireView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HireView.m; sourceTree = "<group>"; };
+		203543201B4CD7C1007FF4A8 /* HireView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HireView.xib; sourceTree = "<group>"; };
+		203543221B4CF46F007FF4A8 /* homepage_hire_icon1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_hire_icon1@2x.png"; sourceTree = "<group>"; };
+		203543241B4CF630007FF4A8 /* homepage_hire_icon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_hire_icon2@2x.png"; sourceTree = "<group>"; };
+		203543251B4CF630007FF4A8 /* homepage_hire_icon3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_hire_icon3@2x.png"; sourceTree = "<group>"; };
+		203543261B4CF630007FF4A8 /* homepage_hire_icon4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_hire_icon4@2x.png"; sourceTree = "<group>"; };
+		203543271B4CF630007FF4A8 /* homepage_hire_icon5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_hire_icon5@2x.png"; sourceTree = "<group>"; };
+		203543281B4CF630007FF4A8 /* homepage_hire_icon6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_hire_icon6@2x.png"; sourceTree = "<group>"; };
+		2035432E1B4CF9B6007FF4A8 /* homepage_hire_img@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_hire_img@2x.png"; sourceTree = "<group>"; };
+		203543301B4CFBAD007FF4A8 /* CommendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommendView.h; sourceTree = "<group>"; };
+		203543311B4CFBAD007FF4A8 /* CommendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommendView.m; sourceTree = "<group>"; };
+		203543331B4CFBC2007FF4A8 /* CommendView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommendView.xib; sourceTree = "<group>"; };
+		203543351B4D0225007FF4A8 /* homepage_commend_img@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_commend_img@2x.png"; sourceTree = "<group>"; };
 		205CA9C11B4BD9F4007BAC89 /* UIButton+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Custom.h"; sourceTree = "<group>"; };
 		205CA9C21B4BD9F4007BAC89 /* UIButton+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Custom.m"; sourceTree = "<group>"; };
-		208EBD881B4A62AD00AB0730 /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
-		208EBD891B4A62AD00AB0730 /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
-		208EBD8B1B4A62C400AB0730 /* RegisterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterView.xib; sourceTree = "<group>"; };
-		208EBD921B4A6B8700AB0730 /* RegisterUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterUserViewController.h; sourceTree = "<group>"; };
-		208EBD931B4A6B8700AB0730 /* RegisterUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterUserViewController.m; sourceTree = "<group>"; };
-		208EBD941B4A6B8700AB0730 /* RegisterUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterUserViewController.xib; sourceTree = "<group>"; };
-		208EBD971B4A701700AB0730 /* RegisterBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterBottomView.h; sourceTree = "<group>"; };
-		208EBD981B4A701700AB0730 /* RegisterBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterBottomView.m; sourceTree = "<group>"; };
-		208EBD9A1B4A702900AB0730 /* RegisterBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterBottomView.xib; sourceTree = "<group>"; };
 		208EBD9F1B4A7F4C00AB0730 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		208EBDB01B4A82CE00AB0730 /* MarkupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkupParser.h; sourceTree = "<group>"; };
 		208EBDB11B4A82CE00AB0730 /* MarkupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkupParser.m; sourceTree = "<group>"; };
@@ -91,9 +147,9 @@
 		2097D2FE1B4622BB00611432 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		2097D30A1B462D5000611432 /* home_edit_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_edit_btn@2x.png"; sourceTree = "<group>"; };
 		2097D30B1B462D5000611432 /* home_setting_btn_n@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_setting_btn_n@2x.png"; sourceTree = "<group>"; };
-		2097D30F1B462F0A00611432 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		2097D3101B462F0A00611432 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		2097D3111B462F0A00611432 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		2097D30F1B462F0A00611432 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = Class/HomePage/RootViewController.h; sourceTree = "<group>"; };
+		2097D3101B462F0A00611432 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = Class/HomePage/RootViewController.m; sourceTree = "<group>"; };
+		2097D3111B462F0A00611432 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RootViewController.xib; path = Class/HomePage/RootViewController.xib; sourceTree = "<group>"; };
 		2097D3151B462F8500611432 /* BannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerView.h; sourceTree = "<group>"; };
 		2097D3161B462F8500611432 /* BannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerView.m; sourceTree = "<group>"; };
 		2097D3181B462F9900611432 /* BannerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BannerView.xib; sourceTree = "<group>"; };
@@ -128,44 +184,83 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		208EBD801B4A195100AB0730 /* Login */ = {
+		203542DC1B4CBB45007FF4A8 /* Register&Login */ = {
 			isa = PBXGroup;
 			children = (
-				205CA9491B4B7A8E007BAC89 /* LoginViewController.h */,
-				205CA94A1B4B7A8E007BAC89 /* LoginViewController.m */,
-				205CA94B1B4B7A8E007BAC89 /* LoginViewController.xib */,
+				203542FD1B4CBB6F007FF4A8 /* Register */,
+				203542FC1B4CBB58007FF4A8 /* View */,
+				203542FB1B4CBB4B007FF4A8 /* Login */,
 			);
-			path = Login;
+			path = "Register&Login";
 			sourceTree = "<group>";
 		};
-		208EBD811B4A195100AB0730 /* Register */ = {
+		203542FB1B4CBB4B007FF4A8 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				208EBD871B4A628F00AB0730 /* View */,
-				208EBD921B4A6B8700AB0730 /* RegisterUserViewController.h */,
-				208EBD931B4A6B8700AB0730 /* RegisterUserViewController.m */,
-				208EBD941B4A6B8700AB0730 /* RegisterUserViewController.xib */,
-				205CA9B71B4BA23F007BAC89 /* CreateUserViewController.h */,
-				205CA9B81B4BA23F007BAC89 /* CreateUserViewController.m */,
-				205CA9B91B4BA23F007BAC89 /* CreateUserViewController.xib */,
+				203542E31B4CBB45007FF4A8 /* LoginViewController.h */,
+				203542E41B4CBB45007FF4A8 /* LoginViewController.m */,
+				203542E51B4CBB45007FF4A8 /* LoginViewController.xib */,
 			);
-			path = Register;
+			name = Login;
 			sourceTree = "<group>";
 		};
-		208EBD871B4A628F00AB0730 /* View */ = {
+		203542FC1B4CBB58007FF4A8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				208EBD881B4A62AD00AB0730 /* RegisterView.h */,
-				208EBD891B4A62AD00AB0730 /* RegisterView.m */,
-				208EBD8B1B4A62C400AB0730 /* RegisterView.xib */,
-				208EBD971B4A701700AB0730 /* RegisterBottomView.h */,
-				208EBD981B4A701700AB0730 /* RegisterBottomView.m */,
-				208EBD9A1B4A702900AB0730 /* RegisterBottomView.xib */,
-				205CA9BC1B4BA9CD007BAC89 /* CreateUserTableViewCell.h */,
-				205CA9BD1B4BA9CD007BAC89 /* CreateUserTableViewCell.m */,
-				205CA9BE1B4BA9CD007BAC89 /* CreateUserTableViewCell.xib */,
+				203542EC1B4CBB45007FF4A8 /* RegisterView.h */,
+				203542ED1B4CBB45007FF4A8 /* RegisterView.m */,
+				203542EE1B4CBB45007FF4A8 /* RegisterView.xib */,
+				203542E61B4CBB45007FF4A8 /* RegisterBottomView.h */,
+				203542E71B4CBB45007FF4A8 /* RegisterBottomView.m */,
+				203542E81B4CBB45007FF4A8 /* RegisterBottomView.xib */,
+				203542DD1B4CBB45007FF4A8 /* CreateUserTableViewCell.h */,
+				203542DE1B4CBB45007FF4A8 /* CreateUserTableViewCell.m */,
+				203542DF1B4CBB45007FF4A8 /* CreateUserTableViewCell.xib */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		203542FD1B4CBB6F007FF4A8 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				203542E91B4CBB45007FF4A8 /* RegisterUserViewController.h */,
+				203542EA1B4CBB45007FF4A8 /* RegisterUserViewController.m */,
+				203542EB1B4CBB45007FF4A8 /* RegisterUserViewController.xib */,
+				203542E01B4CBB45007FF4A8 /* CreateUserViewController.h */,
+				203542E11B4CBB45007FF4A8 /* CreateUserViewController.m */,
+				203542E21B4CBB45007FF4A8 /* CreateUserViewController.xib */,
+			);
+			name = Register;
+			sourceTree = "<group>";
+		};
+		203542FE1B4CBC83007FF4A8 /* Infomation */ = {
+			isa = PBXGroup;
+			children = (
+				203543011B4CBCB1007FF4A8 /* InfoViewController.h */,
+				203543021B4CBCB1007FF4A8 /* InfoViewController.m */,
+				203543031B4CBCB1007FF4A8 /* InfoViewController.xib */,
+			);
+			path = Infomation;
+			sourceTree = "<group>";
+		};
+		203542FF1B4CBC83007FF4A8 /* Position */ = {
+			isa = PBXGroup;
+			children = (
+				203543061B4CBD15007FF4A8 /* PositionViewController.h */,
+				203543071B4CBD15007FF4A8 /* PositionViewController.m */,
+				203543081B4CBD15007FF4A8 /* PositionViewController.xib */,
+			);
+			path = Position;
+			sourceTree = "<group>";
+		};
+		203543001B4CBC83007FF4A8 /* Resume */ = {
+			isa = PBXGroup;
+			children = (
+				2035430B1B4CBD40007FF4A8 /* ResumeViewController.h */,
+				2035430C1B4CBD40007FF4A8 /* ResumeViewController.m */,
+				2035430D1B4CBD40007FF4A8 /* ResumeViewController.xib */,
+			);
+			path = Resume;
 			sourceTree = "<group>";
 		};
 		208EBDAE1B4A82C000AB0730 /* Third */ = {
@@ -210,6 +305,9 @@
 			isa = PBXGroup;
 			children = (
 				2097D3011B46235500611432 /* Class */,
+				2097D30F1B462F0A00611432 /* RootViewController.h */,
+				2097D3101B462F0A00611432 /* RootViewController.m */,
+				2097D3111B462F0A00611432 /* RootViewController.xib */,
 				2097D2D71B461E7000611432 /* AppDelegate.h */,
 				2097D2D81B461E7000611432 /* AppDelegate.m */,
 				2097D2E01B461E7000611432 /* Images.xcassets */,
@@ -250,10 +348,12 @@
 		2097D3011B46235500611432 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				208EBDAE1B4A82C000AB0730 /* Third */,
-				208EBD801B4A195100AB0730 /* Login */,
-				208EBD811B4A195100AB0730 /* Register */,
 				2097D31A1B462FD500611432 /* Util */,
+				208EBDAE1B4A82C000AB0730 /* Third */,
+				203542DC1B4CBB45007FF4A8 /* Register&Login */,
+				203542FF1B4CBC83007FF4A8 /* Position */,
+				203542FE1B4CBC83007FF4A8 /* Infomation */,
+				203543001B4CBC83007FF4A8 /* Resume */,
 				2097D30E1B462F0A00611432 /* HomePage */,
 			);
 			path = Class;
@@ -278,6 +378,19 @@
 		2097D3091B462D3D00611432 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				203543351B4D0225007FF4A8 /* homepage_commend_img@2x.png */,
+				2035432E1B4CF9B6007FF4A8 /* homepage_hire_img@2x.png */,
+				203543221B4CF46F007FF4A8 /* homepage_hire_icon1@2x.png */,
+				203543241B4CF630007FF4A8 /* homepage_hire_icon2@2x.png */,
+				203543251B4CF630007FF4A8 /* homepage_hire_icon3@2x.png */,
+				203543261B4CF630007FF4A8 /* homepage_hire_icon4@2x.png */,
+				203543271B4CF630007FF4A8 /* homepage_hire_icon5@2x.png */,
+				203543281B4CF630007FF4A8 /* homepage_hire_icon6@2x.png */,
+				203543181B4CCB35007FF4A8 /* 11@2x.png */,
+				203542CB1B4CBA89007FF4A8 /* community_icon@2x.png */,
+				203542CC1B4CBA89007FF4A8 /* community_icon@3x.png */,
+				203542CD1B4CBA89007FF4A8 /* home_icon@2x.png */,
+				203542CE1B4CBA89007FF4A8 /* home_icon@3x.png */,
 				2097D32E1B46961400611432 /* homepage_suppinfo_icon2@2x.png */,
 				2097D32C1B46957B00611432 /* homepage_right_bt@2x.png */,
 				2097D30A1B462D5000611432 /* home_edit_btn@2x.png */,
@@ -290,9 +403,9 @@
 			isa = PBXGroup;
 			children = (
 				2097D3141B462F5900611432 /* View */,
-				2097D30F1B462F0A00611432 /* RootViewController.h */,
-				2097D3101B462F0A00611432 /* RootViewController.m */,
-				2097D3111B462F0A00611432 /* RootViewController.xib */,
+				203543101B4CBD8A007FF4A8 /* HomePageViewController.h */,
+				203543111B4CBD8A007FF4A8 /* HomePageViewController.m */,
+				203543121B4CBD8A007FF4A8 /* HomePageViewController.xib */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -306,6 +419,12 @@
 				2097D3271B46928F00611432 /* HomePageTableViewCell.h */,
 				2097D3281B46928F00611432 /* HomePageTableViewCell.m */,
 				2097D3291B46928F00611432 /* HomePageTableViewCell.xib */,
+				2035431D1B4CD7B0007FF4A8 /* HireView.h */,
+				2035431E1B4CD7B0007FF4A8 /* HireView.m */,
+				203543201B4CD7C1007FF4A8 /* HireView.xib */,
+				203543301B4CFBAD007FF4A8 /* CommendView.h */,
+				203543311B4CFBAD007FF4A8 /* CommendView.m */,
+				203543331B4CFBC2007FF4A8 /* CommendView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -411,21 +530,40 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				205CA9C01B4BA9CD007BAC89 /* CreateUserTableViewCell.xib in Resources */,
-				208EBD9B1B4A702900AB0730 /* RegisterBottomView.xib in Resources */,
-				208EBD8C1B4A62C400AB0730 /* RegisterView.xib in Resources */,
+				203542F41B4CBB45007FF4A8 /* LoginViewController.xib in Resources */,
 				2097D3191B462F9900611432 /* BannerView.xib in Resources */,
+				203542D21B4CBA89007FF4A8 /* home_icon@3x.png in Resources */,
+				2035432A1B4CF630007FF4A8 /* homepage_hire_icon3@2x.png in Resources */,
+				2035430A1B4CBD15007FF4A8 /* PositionViewController.xib in Resources */,
 				2097D32F1B46961400611432 /* homepage_suppinfo_icon2@2x.png in Resources */,
 				2097D2E41B461E7000611432 /* LaunchScreen.xib in Resources */,
-				205CA9BB1B4BA23F007BAC89 /* CreateUserViewController.xib in Resources */,
+				203543341B4CFBC2007FF4A8 /* CommendView.xib in Resources */,
+				203543141B4CBD8A007FF4A8 /* HomePageViewController.xib in Resources */,
+				203542F21B4CBB45007FF4A8 /* CreateUserViewController.xib in Resources */,
 				2097D2E11B461E7000611432 /* Images.xcassets in Resources */,
-				208EBD961B4A6B8700AB0730 /* RegisterUserViewController.xib in Resources */,
 				2097D3131B462F0A00611432 /* RootViewController.xib in Resources */,
+				203543211B4CD7C1007FF4A8 /* HireView.xib in Resources */,
+				203542F01B4CBB45007FF4A8 /* CreateUserTableViewCell.xib in Resources */,
+				203542FA1B4CBB45007FF4A8 /* RegisterView.xib in Resources */,
+				203542F61B4CBB45007FF4A8 /* RegisterBottomView.xib in Resources */,
+				203542D11B4CBA89007FF4A8 /* home_icon@2x.png in Resources */,
 				2097D30C1B462D5000611432 /* home_edit_btn@2x.png in Resources */,
-				205CA94D1B4B7A8E007BAC89 /* LoginViewController.xib in Resources */,
+				203543361B4D0225007FF4A8 /* homepage_commend_img@2x.png in Resources */,
+				2035432C1B4CF630007FF4A8 /* homepage_hire_icon5@2x.png in Resources */,
+				203542F81B4CBB45007FF4A8 /* RegisterUserViewController.xib in Resources */,
+				203543191B4CCB35007FF4A8 /* 11@2x.png in Resources */,
 				2097D32D1B46957B00611432 /* homepage_right_bt@2x.png in Resources */,
+				203542D01B4CBA89007FF4A8 /* community_icon@3x.png in Resources */,
 				2097D30D1B462D5000611432 /* home_setting_btn_n@2x.png in Resources */,
+				203543291B4CF630007FF4A8 /* homepage_hire_icon2@2x.png in Resources */,
+				2035432B1B4CF630007FF4A8 /* homepage_hire_icon4@2x.png in Resources */,
+				2035432D1B4CF630007FF4A8 /* homepage_hire_icon6@2x.png in Resources */,
+				203543231B4CF46F007FF4A8 /* homepage_hire_icon1@2x.png in Resources */,
 				2097D32B1B46928F00611432 /* HomePageTableViewCell.xib in Resources */,
+				2035430F1B4CBD40007FF4A8 /* ResumeViewController.xib in Resources */,
+				203543051B4CBCB1007FF4A8 /* InfoViewController.xib in Resources */,
+				2035432F1B4CF9B6007FF4A8 /* homepage_hire_img@2x.png in Resources */,
+				203542CF1B4CBA89007FF4A8 /* community_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,21 +581,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				205CA9BF1B4BA9CD007BAC89 /* CreateUserTableViewCell.m in Sources */,
+				2035431F1B4CD7B0007FF4A8 /* HireView.m in Sources */,
+				203543091B4CBD15007FF4A8 /* PositionViewController.m in Sources */,
+				203542F11B4CBB45007FF4A8 /* CreateUserViewController.m in Sources */,
 				2097D31E1B46390C00611432 /* Util.m in Sources */,
-				208EBD8A1B4A62AD00AB0730 /* RegisterView.m in Sources */,
 				2097D3171B462F8500611432 /* BannerView.m in Sources */,
+				203543131B4CBD8A007FF4A8 /* HomePageViewController.m in Sources */,
 				2097D2D91B461E7000611432 /* AppDelegate.m in Sources */,
+				203543321B4CFBAD007FF4A8 /* CommendView.m in Sources */,
 				2097D2D61B461E7000611432 /* main.m in Sources */,
-				205CA9BA1B4BA23F007BAC89 /* CreateUserViewController.m in Sources */,
-				208EBD991B4A701700AB0730 /* RegisterBottomView.m in Sources */,
 				205CA9C31B4BD9F4007BAC89 /* UIButton+Custom.m in Sources */,
+				203542F51B4CBB45007FF4A8 /* RegisterBottomView.m in Sources */,
 				2097D3121B462F0A00611432 /* RootViewController.m in Sources */,
 				2097D32A1B46928F00611432 /* HomePageTableViewCell.m in Sources */,
-				205CA94C1B4B7A8E007BAC89 /* LoginViewController.m in Sources */,
+				203542F31B4CBB45007FF4A8 /* LoginViewController.m in Sources */,
+				203543041B4CBCB1007FF4A8 /* InfoViewController.m in Sources */,
 				208EBDB21B4A82CE00AB0730 /* MarkupParser.m in Sources */,
+				2035430E1B4CBD40007FF4A8 /* ResumeViewController.m in Sources */,
+				203542EF1B4CBB45007FF4A8 /* CreateUserTableViewCell.m in Sources */,
+				203542F71B4CBB45007FF4A8 /* RegisterUserViewController.m in Sources */,
 				208EBDB51B4A82D800AB0730 /* CustomLabel.m in Sources */,
-				208EBD951B4A6B8700AB0730 /* RegisterUserViewController.m in Sources */,
+				203542F91B4CBB45007FF4A8 /* RegisterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

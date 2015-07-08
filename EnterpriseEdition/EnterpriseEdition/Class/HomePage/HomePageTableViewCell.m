@@ -1,6 +1,6 @@
 //
 //  HomePageTableViewCell.m
-//  EnterpriseEdition
+//  无用
 //
 //  Created by lyk on 15/7/3.
 //  Copyright (c) 2015年 lyk. All rights reserved.

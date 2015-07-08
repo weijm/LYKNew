@@ -114,7 +114,7 @@ static CGFloat widthCallback(void *ref)
                 }];
                 
                 //add the image for drawing
-                [self.images addObject:[NSDictionary dictionaryWithObjectsAndKeys:width,@"width",height,@"height",fileName,@"fileName",[NSNumber numberWithInt:[aString length]],@"location", nil]];
+                [self.images addObject:[NSDictionary dictionaryWithObjectsAndKeys:width,@"width",height,@"height",fileName,@"fileName",[NSNumber numberWithInteger:[aString length]],@"location", nil]];
                 
                 //render empty space for drawing the image in the text //1
                 CTRunDelegateCallbacks callbacks;

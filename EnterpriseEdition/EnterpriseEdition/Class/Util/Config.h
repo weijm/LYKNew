@@ -28,7 +28,9 @@
 #define topBarheight      ([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0?64:44)
 
 //颜色
-#define Rgb(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
+#define Rgb(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+//导航栏颜色
+#define kNavigationBgColor [UIColor colorWithRed:21.0/255.0 green:94/255.0 blue:218/255.0 alpha:1.0]
 
 //导入公共文件
 #import "Util.h"
