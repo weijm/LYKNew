@@ -13,4 +13,12 @@
     
     
 }
+/**
+ 应聘部分的点击事件
+ */
+-(void)hireAction:(NSInteger)index;
+/**
+ 查看某个人的简历
+ */
+-(void)lookupPersonalResume:(NSInteger) index;
 @end

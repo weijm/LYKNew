@@ -4,7 +4,16 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HireView"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HireView">
+            <connections>
+                <outlet property="lab1" destination="686-M1-KON" id="vUl-Sy-x8U"/>
+                <outlet property="lab2" destination="As2-E7-a2m" id="ED2-zQ-KZp"/>
+                <outlet property="lab3" destination="b3B-Ag-tNw" id="xIc-zb-QEp"/>
+                <outlet property="lab4" destination="8ab-gu-DpI" id="1V1-G6-uU5"/>
+                <outlet property="lab5" destination="XAm-6W-dwm" id="RUh-WF-dk5"/>
+                <outlet property="lab6" destination="BZJ-3B-y2S" id="vz7-wt-SJq"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
@@ -24,10 +33,10 @@
                         <constraint firstAttribute="height" constant="1" id="2mg-lI-AIC"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFq-g9-cdR" userLabel="subbg1">
+                <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFq-g9-cdR" userLabel="subbg1">
                     <rect key="frame" x="20" y="0.0" width="80" height="79.5"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xW-gW-Kka" userLabel="bt1">
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xW-gW-Kka" userLabel="bt1">
                             <rect key="frame" x="12" y="10" width="55" height="55"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -37,10 +46,13 @@
                             <state key="normal" image="homepage_hire_icon1.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="clickedHireBtAction:" destination="-1" eventType="touchUpInside" id="zNu-Ok-JJs"/>
+                            </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="职位 10个" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="686-M1-KON" userLabel="lab1">
+                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="职位 10个" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="686-M1-KON" userLabel="lab1">
                             <rect key="frame" x="0.0" y="65" width="80" height="14.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -56,10 +68,10 @@
                         <constraint firstItem="686-M1-KON" firstAttribute="top" secondItem="5xW-gW-Kka" secondAttribute="bottom" id="r4U-rZ-dcb"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czK-Ya-RhT" userLabel="subbg2">
+                <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czK-Ya-RhT" userLabel="subbg2">
                     <rect key="frame" x="120" y="0.0" width="80" height="79"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Em-7G-07E" userLabel="bt2">
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Em-7G-07E" userLabel="bt2">
                             <rect key="frame" x="12" y="10" width="55" height="55"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="55" id="Ltg-pv-U3e"/>
@@ -68,10 +80,13 @@
                             <state key="normal" image="homepage_hire_icon2.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="clickedHireBtAction:" destination="-1" eventType="touchUpInside" id="R3M-k9-E7k"/>
+                            </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="急招 剩余12时" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="As2-E7-a2m" userLabel="lab2">
+                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="急招 剩余12时" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="As2-E7-a2m" userLabel="lab2">
                             <rect key="frame" x="0.0" y="65" width="80" height="14"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -87,10 +102,10 @@
                         <constraint firstItem="9Em-7G-07E" firstAttribute="top" secondItem="czK-Ya-RhT" secondAttribute="top" constant="10" id="xXc-Fl-dgc"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q7R-oD-eRp" userLabel="subbg3">
+                <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q7R-oD-eRp" userLabel="subbg3">
                     <rect key="frame" x="220" y="0.0" width="80" height="79"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WiC-RC-rfN" userLabel="bt3">
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WiC-RC-rfN" userLabel="bt3">
                             <rect key="frame" x="12" y="10" width="55" height="55"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="55" id="M1j-Lt-BF9"/>
@@ -99,10 +114,13 @@
                             <state key="normal" image="homepage_hire_icon3.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="clickedHireBtAction:" destination="-1" eventType="touchUpInside" id="Mld-Zx-cSB"/>
+                            </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已下载 100份" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3B-Ag-tNw" userLabel="lab3">
+                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已下载 100份" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3B-Ag-tNw" userLabel="lab3">
                             <rect key="frame" x="0.0" y="65" width="80" height="14"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -118,10 +136,10 @@
                         <constraint firstItem="b3B-Ag-tNw" firstAttribute="leading" secondItem="q7R-oD-eRp" secondAttribute="leading" id="zRe-L5-z9B"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N6f-ub-UUX" userLabel="subbg4">
+                <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N6f-ub-UUX" userLabel="subbg4">
                     <rect key="frame" x="20" y="80" width="80" height="79.5"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WK7-dx-qFT" userLabel="bt4">
+                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WK7-dx-qFT" userLabel="bt4">
                             <rect key="frame" x="12" y="0.0" width="55" height="55"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="55" id="PDR-LH-bvA"/>
@@ -130,10 +148,13 @@
                             <state key="normal" image="homepage_hire_icon4.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="clickedHireBtAction:" destination="-1" eventType="touchUpInside" id="nMR-4V-V6g"/>
+                            </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未处理 100份" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ab-gu-DpI" userLabel="lab4">
+                        <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未处理 100份" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ab-gu-DpI" userLabel="lab4">
                             <rect key="frame" x="0.0" y="55" width="80" height="14.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -149,10 +170,10 @@
                         <constraint firstAttribute="bottom" secondItem="8ab-gu-DpI" secondAttribute="bottom" constant="10" id="xFV-tc-IKg"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wI-fc-Y9u" userLabel="subbg5">
+                <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wI-fc-Y9u" userLabel="subbg5">
                     <rect key="frame" x="120" y="80" width="80" height="80"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qU0-HA-Og1" userLabel="bt5">
+                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qU0-HA-Og1" userLabel="bt5">
                             <rect key="frame" x="12" y="0.0" width="55" height="55"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="55" id="bHF-2R-uTb"/>
@@ -161,10 +182,13 @@
                             <state key="normal" image="homepage_hire_icon5.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="clickedHireBtAction:" destination="-1" eventType="touchUpInside" id="SQc-bx-SpQ"/>
+                            </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发布职位" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAm-6W-dwm" userLabel="lab5">
+                        <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发布职位" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAm-6W-dwm" userLabel="lab5">
                             <rect key="frame" x="0.0" y="55" width="80" height="15"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -180,10 +204,10 @@
                         <constraint firstAttribute="trailing" secondItem="XAm-6W-dwm" secondAttribute="trailing" id="qNe-HP-6bL"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="odb-5P-w7a" userLabel="subbg6">
+                <view tag="6" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="odb-5P-w7a" userLabel="subbg6">
                     <rect key="frame" x="220" y="80" width="80" height="80"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYl-7i-h23" userLabel="bt6">
+                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYl-7i-h23" userLabel="bt6">
                             <rect key="frame" x="12" y="0.0" width="55" height="55"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="55" id="DVM-tJ-nrR"/>
@@ -192,10 +216,13 @@
                             <state key="normal" image="homepage_hire_icon6.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="clickedHireBtAction:" destination="-1" eventType="touchUpInside" id="iVv-iC-zxv"/>
+                            </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收藏 100份" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZJ-3B-y2S" userLabel="lab6">
+                        <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收藏 100份" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZJ-3B-y2S" userLabel="lab6">
                             <rect key="frame" x="0.0" y="55" width="80" height="15"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>

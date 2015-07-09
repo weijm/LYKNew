@@ -7,6 +7,7 @@
 //
 
 #import "CommendView.h"
+#import "SinglePersonalView.h"
 
 @implementation CommendView
 
@@ -22,68 +23,33 @@
     }
     return self;
 }
-
+//加载子视图的数据
 -(void)loadSubView:(NSArray*)array
 {
-    [self setPortraitData:array];
-    [self setInfo:array];
-}
-//初始化头像的数据
--(void)setPortraitData:(NSArray*)array
-{
-    //头像 匹配度赋值数据
     for (int i =0; i<5; i++) {
-        UIImageView *portaitImg = (UIImageView *)[portraitBg viewWithTag:i+1];
-        UILabel *matchRateLab = (UILabel*)[portraitBg viewWithTag:(i+1)*10];
-        if (portaitImg) {
-            //赋值头像
-            portaitImg.backgroundColor = [Util randomColor];
-            matchRateLab.text = [NSString stringWithFormat:@"匹配度%.1f%%",[Util randomRate]];
-        }else
-        {
-            UIView *subBg = [portraitBg viewWithTag:(i+1)*100];
-            if (subBg) {//针对2、4头像赋值
-                portaitImg = (UIImageView *)[subBg viewWithTag:i];
-                portaitImg.backgroundColor = [Util randomColor];
-                matchRateLab = (UILabel*)[subBg viewWithTag:(i+1)*10];
-                matchRateLab.text = [NSString stringWithFormat:@"匹配度%f%%",[Util randomRate]];
-            }
+        NSDictionary *dic = [array objectAtIndex:i];
+        SinglePersonalView *singleView = (SinglePersonalView *)[bottombg viewWithTag:(i+1)];
+        if (!singleView) {
+            UIView *subBg = [bottombg viewWithTag:(i+1)*100];
+            singleView = (SinglePersonalView *)[subBg viewWithTag:i+1];
         }
-        //设置圆角
-        portaitImg.layer.cornerRadius = portaitImg.frame.size.width/2;
-        matchRateLab.layer.masksToBounds = YES;
-        matchRateLab.layer.cornerRadius = matchRateLab.frame.size.height/2;
-    }
-
-}
-//初始化岗位 专业信息等
--(void)setInfo:(NSArray*)array
-{
-    UILabel *jobLab;
-    UILabel *nameLab;
-    UILabel *proLab;
-    for (int i =0; i<5; i++) {
-        NSDictionary *dictionary = [array objectAtIndex:i];
-        UIView *ibg = [infoBg viewWithTag:(i+1)];
-        if (!ibg)
-        {
-            UIView *subView = [infoBg viewWithTag:(i+1)*100];
-            ibg = [subView viewWithTag:(i+1)];
-        }
+        //初始化子视图数据
+        [singleView loadSubView:dic];
         
-        jobLab = (UILabel *)[ibg viewWithTag:1];
-        nameLab = (UILabel *)[ibg viewWithTag:2];
-        proLab = (UILabel *)[ibg viewWithTag:3];
-        
-        NSLog(@"info tag == %d",ibg.tag);
-
-        if ([jobLab isKindOfClass:[UILabel class]]) {
-            jobLab.text = [dictionary objectForKey:@"job"];
-            nameLab.text = [dictionary objectForKey:@"name"];
-            proLab.text = [dictionary objectForKey:@"pro"];
-        }
-        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+        [singleView addGestureRecognizer:tap];
     }
     
+}
+//点击查看某人简历的触发事件
+-(void)tapAction:(UITapGestureRecognizer*)sender
+{
+    NSInteger tag = sender.view.tag;
+    self.clickPersonalInfo(tag);
+}
+- (IBAction)clickedMoreBt:(id)sender {
+    //查看更多
+    UIButton *bt = (UIButton*)sender;
+    self.clickPersonalInfo(bt.tag);
 }
 @end

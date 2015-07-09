@@ -113,12 +113,24 @@
 }
 -(void)rightAction
 {
+    NSLog(@"rightAvtion");
 }
 #pragma mark - 初始化应聘部分的视图
 -(void)initHireView
 {
     CGRect frame = CGRectMake(0, bannerView.frame.origin.y+bannerView.frame.size.height, kWidth, [Util myYOrHeight:kHireViewHeight]);
     hireView = [[HireView alloc] initWithFrame:frame];
+    
+    //假数据
+    NSArray *array = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"职位 10个",@"string",@"10个",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"急招 剩余12时",@"string",@"剩余12时",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"已下载 100份",@"string",@"100份",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"未处理 100份",@"string",@"100份",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"发布职位",@"string",@"",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"收藏 100份",@"string",@"100份",@"substring", nil], nil];
+    
+    [hireView loadData:array];
+    //点击事件的触发
+    __weak HomePageViewController *wSelf = self;
+    hireView.clickedHire = ^(NSInteger index){
+        HomePageViewController *sSelf = wSelf;
+        [sSelf hireAction:index];
+    };
     [self.view addSubview:hireView];
 }
 #pragma mark - 初始化推荐部分的视图
@@ -128,8 +140,55 @@
     float commendViewH = kHeight - commendViewY - [Util myYOrHeight:45];
     //假数据
     NSArray *dataArray = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"UI设计师",@"job",@"王伟",@"name",@"艺术设计",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"ios开发师",@"job",@"赵倩",@"name",@"计算机专业",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"java开发",@"job",@"王东志",@"name",@"软件工程",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"web开发",@"job",@"刘一民",@"name",@"数学专业",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"前段设计",@"job",@"李浩",@"name",@"外语专业",@"pro", nil], nil];
+    
     CommendView *commendView = [[CommendView alloc] initWithFrame:CGRectMake(0, commendViewY, kWidth, commendViewH)];
     [commendView loadSubView:dataArray];
+    //点击某个人的触发事件
+    
+    __weak HomePageViewController *wSelf = self;
+    commendView.clickPersonalInfo = ^(NSInteger index){
+        HomePageViewController *sself = wSelf;
+        [sself lookupPersonalResume:index];
+    };
     [self.view addSubview:commendView];
+}
+
+#pragma mark - 点击应聘部分的按钮的相应触发事件
+-(void)hireAction:(NSInteger)index
+{
+    switch (index) {
+        case 1:
+            NSLog(@"职位");
+            break;
+        case 2:
+            NSLog(@"急招");
+            break;
+        case 3:
+            NSLog(@"已下载");
+            break;
+        case 4:
+            NSLog(@"未处理");
+            break;
+        case 5:
+            NSLog(@"发布职位");
+            break;
+        case 6:
+            NSLog(@"收藏");
+            break;
+            
+        default:
+            break;
+    }
+}
+#pragma mark - 查看某个人的简历
+-(void)lookupPersonalResume:(NSInteger) index
+{
+    if (index == 100) {
+        NSLog(@"查看更多推荐简历");
+    }else
+    {
+        NSLog(@"查看第%ld个人的简历",index);
+    }
+    
 }
 @end

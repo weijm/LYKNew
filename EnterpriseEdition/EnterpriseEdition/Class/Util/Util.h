@@ -40,5 +40,5 @@
 /**
  随机生成匹配度
  */
-+(CGFloat)randomRate;
++(NSInteger)randomRate;
 @end

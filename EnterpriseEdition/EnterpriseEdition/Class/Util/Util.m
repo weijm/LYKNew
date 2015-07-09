@@ -132,10 +132,9 @@
     return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
 }
 // 随机生成匹配度
-+(CGFloat)randomRate
++(NSInteger)randomRate
 {
-    CGFloat result = (arc4random() % 9 + 1)*10+(arc4random() % 9 + 1)+(arc4random() % 9 + 1)*0.1;
+    CGFloat result = (arc4random() % 9 + 1)*10+(arc4random() % 9 + 1);
     return result;
 }
-
 @end

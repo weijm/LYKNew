@@ -65,6 +65,8 @@
 		2097D32B1B46928F00611432 /* HomePageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2097D3291B46928F00611432 /* HomePageTableViewCell.xib */; };
 		2097D32D1B46957B00611432 /* homepage_right_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2097D32C1B46957B00611432 /* homepage_right_bt@2x.png */; };
 		2097D32F1B46961400611432 /* homepage_suppinfo_icon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2097D32E1B46961400611432 /* homepage_suppinfo_icon2@2x.png */; };
+		20BB61EF1B4DFC25006BD455 /* SinglePersonalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BB61EE1B4DFC25006BD455 /* SinglePersonalView.m */; };
+		20BB61F11B4DFC72006BD455 /* SinglePersonalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BB61F01B4DFC72006BD455 /* SinglePersonalView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +164,9 @@
 		2097D3291B46928F00611432 /* HomePageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageTableViewCell.xib; sourceTree = "<group>"; };
 		2097D32C1B46957B00611432 /* homepage_right_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_right_bt@2x.png"; sourceTree = "<group>"; };
 		2097D32E1B46961400611432 /* homepage_suppinfo_icon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_suppinfo_icon2@2x.png"; sourceTree = "<group>"; };
+		20BB61ED1B4DFC25006BD455 /* SinglePersonalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinglePersonalView.h; sourceTree = "<group>"; };
+		20BB61EE1B4DFC25006BD455 /* SinglePersonalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinglePersonalView.m; sourceTree = "<group>"; };
+		20BB61F01B4DFC72006BD455 /* SinglePersonalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SinglePersonalView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,18 +418,14 @@
 		2097D3141B462F5900611432 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				20BB61F31B4E0B2E006BD455 /* hire */,
+				20BB61F21B4E0B18006BD455 /* commend */,
 				2097D3151B462F8500611432 /* BannerView.h */,
 				2097D3161B462F8500611432 /* BannerView.m */,
 				2097D3181B462F9900611432 /* BannerView.xib */,
 				2097D3271B46928F00611432 /* HomePageTableViewCell.h */,
 				2097D3281B46928F00611432 /* HomePageTableViewCell.m */,
 				2097D3291B46928F00611432 /* HomePageTableViewCell.xib */,
-				2035431D1B4CD7B0007FF4A8 /* HireView.h */,
-				2035431E1B4CD7B0007FF4A8 /* HireView.m */,
-				203543201B4CD7C1007FF4A8 /* HireView.xib */,
-				203543301B4CFBAD007FF4A8 /* CommendView.h */,
-				203543311B4CFBAD007FF4A8 /* CommendView.m */,
-				203543331B4CFBC2007FF4A8 /* CommendView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -448,6 +449,29 @@
 				2097D31F1B463D1300611432 /* UIKit.framework */,
 			);
 			name = Framework;
+			sourceTree = "<group>";
+		};
+		20BB61F21B4E0B18006BD455 /* commend */ = {
+			isa = PBXGroup;
+			children = (
+				203543301B4CFBAD007FF4A8 /* CommendView.h */,
+				203543311B4CFBAD007FF4A8 /* CommendView.m */,
+				203543331B4CFBC2007FF4A8 /* CommendView.xib */,
+				20BB61ED1B4DFC25006BD455 /* SinglePersonalView.h */,
+				20BB61EE1B4DFC25006BD455 /* SinglePersonalView.m */,
+				20BB61F01B4DFC72006BD455 /* SinglePersonalView.xib */,
+			);
+			name = commend;
+			sourceTree = "<group>";
+		};
+		20BB61F31B4E0B2E006BD455 /* hire */ = {
+			isa = PBXGroup;
+			children = (
+				2035431D1B4CD7B0007FF4A8 /* HireView.h */,
+				2035431E1B4CD7B0007FF4A8 /* HireView.m */,
+				203543201B4CD7C1007FF4A8 /* HireView.xib */,
+			);
+			name = hire;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -563,6 +587,7 @@
 				2035430F1B4CBD40007FF4A8 /* ResumeViewController.xib in Resources */,
 				203543051B4CBCB1007FF4A8 /* InfoViewController.xib in Resources */,
 				2035432F1B4CF9B6007FF4A8 /* homepage_hire_img@2x.png in Resources */,
+				20BB61F11B4DFC72006BD455 /* SinglePersonalView.xib in Resources */,
 				203542CF1B4CBA89007FF4A8 /* community_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -583,6 +608,7 @@
 			files = (
 				2035431F1B4CD7B0007FF4A8 /* HireView.m in Sources */,
 				203543091B4CBD15007FF4A8 /* PositionViewController.m in Sources */,
+				20BB61EF1B4DFC25006BD455 /* SinglePersonalView.m in Sources */,
 				203542F11B4CBB45007FF4A8 /* CreateUserViewController.m in Sources */,
 				2097D31E1B46390C00611432 /* Util.m in Sources */,
 				2097D3171B462F8500611432 /* BannerView.m in Sources */,
