@@ -180,7 +180,7 @@
             break;
     }
 }
-#pragma mark - 查看某个人的简历
+#pragma mark - 查看简历
 -(void)lookupPersonalResume:(NSInteger) index
 {
     if (index == 100) {

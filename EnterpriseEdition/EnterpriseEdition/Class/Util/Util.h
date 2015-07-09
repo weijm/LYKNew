@@ -41,4 +41,8 @@
  随机生成匹配度
  */
 +(NSInteger)randomRate;
+/**
+ 根据总数和每行显示的个数计算行数
+ */
++(int)getRow:(int)total eachCount:(int)count;
 @end

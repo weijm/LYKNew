@@ -30,7 +30,10 @@
 //颜色
 #define Rgb(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 //导航栏颜色
-#define kNavigationBgColor [UIColor colorWithRed:21.0/255.0 green:94/255.0 blue:218/255.0 alpha:1.0]
-
+#define kNavigationBgColor [UIColor colorWithRed:16.0/255.0 green:117/255.0 blue:224/255.0 alpha:1.0]
+//简历模块的cell中各视图高度
+#define kHeaderViewH [Util myYOrHeight:35]
+#define kMiddleViewH [Util myYOrHeight:80]
+#define kBottomEachH [Util myYOrHeight:35]
 //导入公共文件
 #import "Util.h"

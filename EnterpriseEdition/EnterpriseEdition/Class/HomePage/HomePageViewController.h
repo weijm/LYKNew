@@ -18,7 +18,7 @@
  */
 -(void)hireAction:(NSInteger)index;
 /**
- 查看某个人的简历
+ 查看简历
  */
 -(void)lookupPersonalResume:(NSInteger) index;
 @end

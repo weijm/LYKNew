@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CellBottomView">
+            <connections>
+                <outlet property="subBg" destination="mg4-5U-klu" id="BjW-xT-pBw"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YnW-XW-Dga" userLabel="line">
+                    <rect key="frame" x="5" y="0.0" width="310" height="1"/>
+                    <color key="backgroundColor" red="0.91764705882352937" green="0.92156862745098034" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="oyF-zR-jsV"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标签" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8i-Qx-NUP">
+                    <rect key="frame" x="10" y="8" width="40" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="Sdf-Ed-UZ1"/>
+                        <constraint firstAttribute="height" constant="21" id="alB-mA-97I"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.35294117647058826" green="0.35686274509803922" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mg4-5U-klu" userLabel="subBg">
+                    <rect key="frame" x="50" y="8" width="270" height="92"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="mg4-5U-klu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="04q-YY-CyM"/>
+                <constraint firstItem="YnW-XW-Dga" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Law-sU-CfS"/>
+                <constraint firstItem="o8i-Qx-NUP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="UdV-SV-ppu"/>
+                <constraint firstItem="mg4-5U-klu" firstAttribute="leading" secondItem="o8i-Qx-NUP" secondAttribute="trailing" id="Vkt-x3-P0L"/>
+                <constraint firstAttribute="bottom" secondItem="mg4-5U-klu" secondAttribute="bottom" id="X8T-J9-LL7"/>
+                <constraint firstAttribute="trailing" secondItem="YnW-XW-Dga" secondAttribute="trailing" constant="5" id="ekH-If-IGZ"/>
+                <constraint firstItem="YnW-XW-Dga" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="mCP-VF-v1Q"/>
+                <constraint firstItem="o8i-Qx-NUP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="uwV-jY-7oe"/>
+                <constraint firstAttribute="trailing" secondItem="mg4-5U-klu" secondAttribute="trailing" id="vAf-cQ-8I9"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

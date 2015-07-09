@@ -67,6 +67,23 @@
 		2097D32F1B46961400611432 /* homepage_suppinfo_icon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2097D32E1B46961400611432 /* homepage_suppinfo_icon2@2x.png */; };
 		20BB61EF1B4DFC25006BD455 /* SinglePersonalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BB61EE1B4DFC25006BD455 /* SinglePersonalView.m */; };
 		20BB61F11B4DFC72006BD455 /* SinglePersonalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BB61F01B4DFC72006BD455 /* SinglePersonalView.xib */; };
+		20BB62011B4E260A006BD455 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BB62001B4E260A006BD455 /* HeaderView.m */; };
+		20BB62031B4E264A006BD455 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BB62021B4E264A006BD455 /* HeaderView.xib */; };
+		20BB62061B4E4030006BD455 /* resume_search_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BB62051B4E4030006BD455 /* resume_search_bt@2x.png */; };
+		20BB62091B4E46CB006BD455 /* ResumeChooseBtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BB62081B4E46CB006BD455 /* ResumeChooseBtView.m */; };
+		20BB620B1B4E46DD006BD455 /* ResumeChooseBtView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BB620A1B4E46DD006BD455 /* ResumeChooseBtView.xib */; };
+		20BB620F1B4E54B9006BD455 /* ResumeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BB620D1B4E54B9006BD455 /* ResumeTableViewCell.m */; };
+		20BB62101B4E54B9006BD455 /* ResumeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BB620E1B4E54B9006BD455 /* ResumeTableViewCell.xib */; };
+		20BB62141B4E5611006BD455 /* CellHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BB62131B4E5611006BD455 /* CellHeaderView.m */; };
+		20BB62161B4E5622006BD455 /* CellHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BB62151B4E5622006BD455 /* CellHeaderView.xib */; };
+		20BB621A1B4E5A7B006BD455 /* resume_urgent_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BB62171B4E5A7B006BD455 /* resume_urgent_bt@2x.png */; };
+		20BB621B1B4E5A7B006BD455 /* resume_collected_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BB62181B4E5A7B006BD455 /* resume_collected_bt@2x.png */; };
+		20BB621C1B4E5A7B006BD455 /* resume_download_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BB62191B4E5A7B006BD455 /* resume_download_bt@2x.png */; };
+		20BB621F1B4E5C7C006BD455 /* CellMiddleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BB621E1B4E5C7C006BD455 /* CellMiddleView.m */; };
+		20BB62211B4E5C8D006BD455 /* CellMiddleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BB62201B4E5C8D006BD455 /* CellMiddleView.xib */; };
+		20BB62241B4E638A006BD455 /* CellBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BB62231B4E638A006BD455 /* CellBottomView.m */; };
+		20BB62261B4E639B006BD455 /* CellBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BB62251B4E639A006BD455 /* CellBottomView.xib */; };
+		20BB62281B4E6E6F006BD455 /* resume_protrait_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BB62271B4E6E6F006BD455 /* resume_protrait_default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +184,29 @@
 		20BB61ED1B4DFC25006BD455 /* SinglePersonalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinglePersonalView.h; sourceTree = "<group>"; };
 		20BB61EE1B4DFC25006BD455 /* SinglePersonalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinglePersonalView.m; sourceTree = "<group>"; };
 		20BB61F01B4DFC72006BD455 /* SinglePersonalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SinglePersonalView.xib; sourceTree = "<group>"; };
+		20BB61FF1B4E260A006BD455 /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
+		20BB62001B4E260A006BD455 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
+		20BB62021B4E264A006BD455 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		20BB62051B4E4030006BD455 /* resume_search_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_search_bt@2x.png"; sourceTree = "<group>"; };
+		20BB62071B4E46CB006BD455 /* ResumeChooseBtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResumeChooseBtView.h; sourceTree = "<group>"; };
+		20BB62081B4E46CB006BD455 /* ResumeChooseBtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResumeChooseBtView.m; sourceTree = "<group>"; };
+		20BB620A1B4E46DD006BD455 /* ResumeChooseBtView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResumeChooseBtView.xib; sourceTree = "<group>"; };
+		20BB620C1B4E54B9006BD455 /* ResumeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResumeTableViewCell.h; sourceTree = "<group>"; };
+		20BB620D1B4E54B9006BD455 /* ResumeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResumeTableViewCell.m; sourceTree = "<group>"; };
+		20BB620E1B4E54B9006BD455 /* ResumeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResumeTableViewCell.xib; sourceTree = "<group>"; };
+		20BB62121B4E5611006BD455 /* CellHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellHeaderView.h; sourceTree = "<group>"; };
+		20BB62131B4E5611006BD455 /* CellHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellHeaderView.m; sourceTree = "<group>"; };
+		20BB62151B4E5622006BD455 /* CellHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellHeaderView.xib; sourceTree = "<group>"; };
+		20BB62171B4E5A7B006BD455 /* resume_urgent_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_urgent_bt@2x.png"; sourceTree = "<group>"; };
+		20BB62181B4E5A7B006BD455 /* resume_collected_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_collected_bt@2x.png"; sourceTree = "<group>"; };
+		20BB62191B4E5A7B006BD455 /* resume_download_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_download_bt@2x.png"; sourceTree = "<group>"; };
+		20BB621D1B4E5C7C006BD455 /* CellMiddleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellMiddleView.h; sourceTree = "<group>"; };
+		20BB621E1B4E5C7C006BD455 /* CellMiddleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellMiddleView.m; sourceTree = "<group>"; };
+		20BB62201B4E5C8D006BD455 /* CellMiddleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellMiddleView.xib; sourceTree = "<group>"; };
+		20BB62221B4E638A006BD455 /* CellBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellBottomView.h; sourceTree = "<group>"; };
+		20BB62231B4E638A006BD455 /* CellBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellBottomView.m; sourceTree = "<group>"; };
+		20BB62251B4E639A006BD455 /* CellBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellBottomView.xib; sourceTree = "<group>"; };
+		20BB62271B4E6E6F006BD455 /* resume_protrait_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_protrait_default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +301,7 @@
 		203543001B4CBC83007FF4A8 /* Resume */ = {
 			isa = PBXGroup;
 			children = (
+				20BB61FE1B4E25F1006BD455 /* View */,
 				2035430B1B4CBD40007FF4A8 /* ResumeViewController.h */,
 				2035430C1B4CBD40007FF4A8 /* ResumeViewController.m */,
 				2035430D1B4CBD40007FF4A8 /* ResumeViewController.xib */,
@@ -375,6 +416,7 @@
 		2097D3081B462D3D00611432 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				20BB62041B4E4025006BD455 /* Resume */,
 				2097D3091B462D3D00611432 /* HomePage */,
 			);
 			path = Images;
@@ -474,6 +516,51 @@
 			name = hire;
 			sourceTree = "<group>";
 		};
+		20BB61FE1B4E25F1006BD455 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				20BB62111B4E55DC006BD455 /* cell */,
+				20BB61FF1B4E260A006BD455 /* HeaderView.h */,
+				20BB62001B4E260A006BD455 /* HeaderView.m */,
+				20BB62021B4E264A006BD455 /* HeaderView.xib */,
+				20BB62071B4E46CB006BD455 /* ResumeChooseBtView.h */,
+				20BB62081B4E46CB006BD455 /* ResumeChooseBtView.m */,
+				20BB620A1B4E46DD006BD455 /* ResumeChooseBtView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		20BB62041B4E4025006BD455 /* Resume */ = {
+			isa = PBXGroup;
+			children = (
+				20BB62271B4E6E6F006BD455 /* resume_protrait_default@2x.png */,
+				20BB62171B4E5A7B006BD455 /* resume_urgent_bt@2x.png */,
+				20BB62181B4E5A7B006BD455 /* resume_collected_bt@2x.png */,
+				20BB62191B4E5A7B006BD455 /* resume_download_bt@2x.png */,
+				20BB62051B4E4030006BD455 /* resume_search_bt@2x.png */,
+			);
+			path = Resume;
+			sourceTree = "<group>";
+		};
+		20BB62111B4E55DC006BD455 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				20BB620C1B4E54B9006BD455 /* ResumeTableViewCell.h */,
+				20BB620D1B4E54B9006BD455 /* ResumeTableViewCell.m */,
+				20BB620E1B4E54B9006BD455 /* ResumeTableViewCell.xib */,
+				20BB62121B4E5611006BD455 /* CellHeaderView.h */,
+				20BB62131B4E5611006BD455 /* CellHeaderView.m */,
+				20BB62151B4E5622006BD455 /* CellHeaderView.xib */,
+				20BB621D1B4E5C7C006BD455 /* CellMiddleView.h */,
+				20BB621E1B4E5C7C006BD455 /* CellMiddleView.m */,
+				20BB62201B4E5C8D006BD455 /* CellMiddleView.xib */,
+				20BB62221B4E638A006BD455 /* CellBottomView.h */,
+				20BB62231B4E638A006BD455 /* CellBottomView.m */,
+				20BB62251B4E639A006BD455 /* CellBottomView.xib */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -554,23 +641,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20BB620B1B4E46DD006BD455 /* ResumeChooseBtView.xib in Resources */,
 				203542F41B4CBB45007FF4A8 /* LoginViewController.xib in Resources */,
 				2097D3191B462F9900611432 /* BannerView.xib in Resources */,
 				203542D21B4CBA89007FF4A8 /* home_icon@3x.png in Resources */,
 				2035432A1B4CF630007FF4A8 /* homepage_hire_icon3@2x.png in Resources */,
+				20BB62211B4E5C8D006BD455 /* CellMiddleView.xib in Resources */,
 				2035430A1B4CBD15007FF4A8 /* PositionViewController.xib in Resources */,
 				2097D32F1B46961400611432 /* homepage_suppinfo_icon2@2x.png in Resources */,
 				2097D2E41B461E7000611432 /* LaunchScreen.xib in Resources */,
 				203543341B4CFBC2007FF4A8 /* CommendView.xib in Resources */,
 				203543141B4CBD8A007FF4A8 /* HomePageViewController.xib in Resources */,
 				203542F21B4CBB45007FF4A8 /* CreateUserViewController.xib in Resources */,
+				20BB62261B4E639B006BD455 /* CellBottomView.xib in Resources */,
 				2097D2E11B461E7000611432 /* Images.xcassets in Resources */,
 				2097D3131B462F0A00611432 /* RootViewController.xib in Resources */,
 				203543211B4CD7C1007FF4A8 /* HireView.xib in Resources */,
 				203542F01B4CBB45007FF4A8 /* CreateUserTableViewCell.xib in Resources */,
 				203542FA1B4CBB45007FF4A8 /* RegisterView.xib in Resources */,
+				20BB62031B4E264A006BD455 /* HeaderView.xib in Resources */,
 				203542F61B4CBB45007FF4A8 /* RegisterBottomView.xib in Resources */,
 				203542D11B4CBA89007FF4A8 /* home_icon@2x.png in Resources */,
+				20BB62101B4E54B9006BD455 /* ResumeTableViewCell.xib in Resources */,
+				20BB621A1B4E5A7B006BD455 /* resume_urgent_bt@2x.png in Resources */,
 				2097D30C1B462D5000611432 /* home_edit_btn@2x.png in Resources */,
 				203543361B4D0225007FF4A8 /* homepage_commend_img@2x.png in Resources */,
 				2035432C1B4CF630007FF4A8 /* homepage_hire_icon5@2x.png in Resources */,
@@ -578,14 +671,19 @@
 				203543191B4CCB35007FF4A8 /* 11@2x.png in Resources */,
 				2097D32D1B46957B00611432 /* homepage_right_bt@2x.png in Resources */,
 				203542D01B4CBA89007FF4A8 /* community_icon@3x.png in Resources */,
+				20BB62281B4E6E6F006BD455 /* resume_protrait_default@2x.png in Resources */,
 				2097D30D1B462D5000611432 /* home_setting_btn_n@2x.png in Resources */,
 				203543291B4CF630007FF4A8 /* homepage_hire_icon2@2x.png in Resources */,
 				2035432B1B4CF630007FF4A8 /* homepage_hire_icon4@2x.png in Resources */,
+				20BB621C1B4E5A7B006BD455 /* resume_download_bt@2x.png in Resources */,
 				2035432D1B4CF630007FF4A8 /* homepage_hire_icon6@2x.png in Resources */,
+				20BB62161B4E5622006BD455 /* CellHeaderView.xib in Resources */,
 				203543231B4CF46F007FF4A8 /* homepage_hire_icon1@2x.png in Resources */,
 				2097D32B1B46928F00611432 /* HomePageTableViewCell.xib in Resources */,
+				20BB621B1B4E5A7B006BD455 /* resume_collected_bt@2x.png in Resources */,
 				2035430F1B4CBD40007FF4A8 /* ResumeViewController.xib in Resources */,
 				203543051B4CBCB1007FF4A8 /* InfoViewController.xib in Resources */,
+				20BB62061B4E4030006BD455 /* resume_search_bt@2x.png in Resources */,
 				2035432F1B4CF9B6007FF4A8 /* homepage_hire_img@2x.png in Resources */,
 				20BB61F11B4DFC72006BD455 /* SinglePersonalView.xib in Resources */,
 				203542CF1B4CBA89007FF4A8 /* community_icon@2x.png in Resources */,
@@ -608,14 +706,18 @@
 			files = (
 				2035431F1B4CD7B0007FF4A8 /* HireView.m in Sources */,
 				203543091B4CBD15007FF4A8 /* PositionViewController.m in Sources */,
+				20BB62091B4E46CB006BD455 /* ResumeChooseBtView.m in Sources */,
 				20BB61EF1B4DFC25006BD455 /* SinglePersonalView.m in Sources */,
 				203542F11B4CBB45007FF4A8 /* CreateUserViewController.m in Sources */,
 				2097D31E1B46390C00611432 /* Util.m in Sources */,
 				2097D3171B462F8500611432 /* BannerView.m in Sources */,
 				203543131B4CBD8A007FF4A8 /* HomePageViewController.m in Sources */,
 				2097D2D91B461E7000611432 /* AppDelegate.m in Sources */,
+				20BB621F1B4E5C7C006BD455 /* CellMiddleView.m in Sources */,
 				203543321B4CFBAD007FF4A8 /* CommendView.m in Sources */,
+				20BB620F1B4E54B9006BD455 /* ResumeTableViewCell.m in Sources */,
 				2097D2D61B461E7000611432 /* main.m in Sources */,
+				20BB62011B4E260A006BD455 /* HeaderView.m in Sources */,
 				205CA9C31B4BD9F4007BAC89 /* UIButton+Custom.m in Sources */,
 				203542F51B4CBB45007FF4A8 /* RegisterBottomView.m in Sources */,
 				2097D3121B462F0A00611432 /* RootViewController.m in Sources */,
@@ -625,7 +727,9 @@
 				208EBDB21B4A82CE00AB0730 /* MarkupParser.m in Sources */,
 				2035430E1B4CBD40007FF4A8 /* ResumeViewController.m in Sources */,
 				203542EF1B4CBB45007FF4A8 /* CreateUserTableViewCell.m in Sources */,
+				20BB62241B4E638A006BD455 /* CellBottomView.m in Sources */,
 				203542F71B4CBB45007FF4A8 /* RegisterUserViewController.m in Sources */,
+				20BB62141B4E5611006BD455 /* CellHeaderView.m in Sources */,
 				208EBDB51B4A82D800AB0730 /* CustomLabel.m in Sources */,
 				203542F91B4CBB45007FF4A8 /* RegisterView.m in Sources */,
 			);

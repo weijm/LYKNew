@@ -137,4 +137,16 @@
     CGFloat result = (arc4random() % 9 + 1)*10+(arc4random() % 9 + 1);
     return result;
 }
+//根据总数和每行显示的个数计算行数
++(int)getRow:(int)total eachCount:(int)count
+{
+    int row;
+    if (total%count ==0) {
+        row = total/count;
+    }else
+    {
+        row = total/count+1;
+    }
+    return row;
+}
 @end
