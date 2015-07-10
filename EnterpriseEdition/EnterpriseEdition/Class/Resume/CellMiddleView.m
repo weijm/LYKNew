@@ -27,5 +27,18 @@
     return self;
 }
 
-
+-(void)loadData:(NSDictionary *)dictionary
+{
+    NSString *exp = [dictionary objectForKey:@"experience"];
+    if ([exp length]>0) {
+        experienceLab.text = exp;
+        experienceLab.hidden = NO;
+    }else
+    {
+        experienceLab.hidden = YES;
+    }
+    firstLab.text = [NSString stringWithFormat:@"%@  %@  %@",[dictionary objectForKey:@"name"],[dictionary objectForKey:@"sex"],[dictionary objectForKey:@"selfjob"]];
+    secondLab.text = [NSString stringWithFormat:@"%@ | %@ | %@",[dictionary objectForKey:@"age"],[dictionary objectForKey:@"record"],[dictionary objectForKey:@"money"]];
+    thirdLab.text = [NSString stringWithFormat:@"%@ | %@",[dictionary objectForKey:@"professional"],[dictionary objectForKey:@"school"]];
+}
 @end

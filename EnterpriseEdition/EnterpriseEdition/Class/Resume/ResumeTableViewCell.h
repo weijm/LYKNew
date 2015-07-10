@@ -17,5 +17,5 @@
     CellHeaderView *headerView;
     CellMiddleView *middleView;
 }
--(void)loadSubView:(NSArray*)array;
+-(void)loadSubView:(NSDictionary*)dictionary;
 @end

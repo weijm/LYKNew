@@ -15,6 +15,7 @@
 @interface ResumeViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView *dataTableView;
+    //数据数组
     NSArray *dataArray;
 }
 
@@ -33,7 +34,7 @@
     //初始化headerView
     [self initHeaderView];
     
-    dataArray = [[NSArray alloc] initWithObjects:[NSArray arrayWithObjects:@"标签名称",@"标签名称",@"标签名称", nil],[NSArray arrayWithObjects:@"标签名称",@"标签名称",@"标签名称",@"标签名称", nil],[NSArray arrayWithObjects:@"标签名称",@"标签名称",@"标签名称",@"标签名称",@"标签名称", nil],[NSArray arrayWithObjects:@"标签名称",@"标签名称",@"标签名称",@"标签名称",@"标签名称",@"标签名称",@"标签名称",@"标签名称",@"标签名称",@"标签名称",@"标签名称", nil],[NSArray arrayWithObjects:@"标签名称",@"标签名称",@"标签名称",@"标签名称",@"标签名称",@"标签名称",@"标签名称",@"标签名称",@"标签名称",@"标签名称", nil], nil];
+    dataArray = [[NSArray alloc] initWithArray:[self getContentData:0]];
     
     [self initTableView];
 }
@@ -75,16 +76,20 @@
     switch (index) {
         case 0:
             NSLog(@"收到的简历");
+            dataArray = [[NSArray alloc] initWithArray:[self getContentData:0]];
             break;
         case 1:
+            dataArray = [[NSArray alloc] initWithArray:[self getContentData:1]];
             NSLog(@"收藏的简历");
             break;
         case 2:
+            dataArray = [[NSArray alloc] initWithArray:[self getContentData:2]];
             NSLog(@"已下载的简历");
             break;
         default:
             break;
     }
+    [dataTableView reloadData];
 }
 #pragma mark - 初始化tableView
 -(void)initTableView
@@ -96,6 +101,7 @@
     dataTableView.dataSource = self;
     dataTableView.separatorColor = [UIColor clearColor];
     dataTableView.backgroundColor = [UIColor clearColor];
+    dataTableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:dataTableView];
 }
 #pragma mark -UITableViewDelegate
@@ -117,7 +123,8 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *subArray = [dataArray objectAtIndex:indexPath.row];
+    NSDictionary *dictionary = [dataArray objectAtIndex:indexPath.row];
+    NSArray *subArray = [dictionary objectForKey:@"sign"];
     int row = [Util getRow:(int)[subArray count] eachCount:4];
     float bottomH = [self getCellBottomHeight:row];
 
@@ -138,5 +145,39 @@
         bottomH = (kIphone6plus)?23:(kIphone6)?24:25;
     }
     return [Util myYOrHeight:bottomH]*row;
+}
+
+#pragma mark - 获取数据
+-(NSMutableArray*)getContentData:(int)index
+{
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    NSString *jobStr;
+    if (index==0) {
+        jobStr = @"软件工程师";
+    }else if (index ==1)
+    {
+        jobStr = @"交互设计师";
+    }else
+    {
+        jobStr = @"测试工程师";
+    }
+    for (int i =0; i < 6+index; i++) {
+        NSString *job = [NSString stringWithFormat:@"%@%d",jobStr,i];
+        NSString *time = [NSString stringWithFormat:@"15-08-0%d",i];
+        NSString *name = [NSString stringWithFormat:@"张晓%d%d",index,i];
+        NSString *age = [NSString stringWithFormat:@"%d%d",index+1,i];
+        NSString *money = [NSString stringWithFormat:@"%d-%d",500*(i+1),800*(i+1)];
+        NSString *exp = (i%(index+1)==0)?@"有工作经验":@"";
+        NSString *urgent = (i%(index+1)==0)?@"1":@"0";
+        NSString *colledted = (i%4==0)?@"1":@"0";
+        NSString *download = (i%2 == 0)?@"1":@"0";
+        NSMutableArray *subArr = [[NSMutableArray alloc] init];
+        for (int j =0; j<=i+index; j++) {
+            [subArr addObject:@"标签名称"];
+        }
+        [array addObject:[NSDictionary dictionaryWithObjectsAndKeys:job,@"job",urgent,@"urgent",colledted,@"collected",download,@"download",time,@"time",name,@"name",@"女",@"sex",@"UI设计师",@"selfjob",age,@"age",@"本科",@"record",money,@"money",@"艺术设计",@"professional",@"中国传媒大学",@"school",exp,@"experience",subArr,@"sign",nil]];
+    }
+    
+    return array;
 }
 @end

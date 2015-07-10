@@ -24,4 +24,8 @@
     //专业那行
     IBOutlet UILabel *thirdLab;
 }
+/**
+ 加载数据
+ */
+-(void)loadData:(NSDictionary *)dictionary;
 @end

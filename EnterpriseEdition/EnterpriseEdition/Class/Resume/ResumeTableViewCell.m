@@ -32,13 +32,17 @@
     // Configure the view for the selected state
 }
 
--(void)loadSubView:(NSArray*)array
+-(void)loadSubView:(NSDictionary*)dictionary
 {
     //初始化headerView数据
-    
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:dictionary];
+    [dic removeObjectForKey:@"sign"];
+    [headerView loadData:dic];
     //初始化middleView数据
+    [middleView loadData:dic];
     
     //初始化标签视图
+    NSArray *array = [NSArray arrayWithArray:[dictionary objectForKey:@"sign"]];
     [self initBottomView:array];
 }
 
