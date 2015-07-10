@@ -13,23 +13,77 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OjN-Jv-pns" userLabel="deleteBg">
+                        <rect key="frame" x="300" y="2" width="100" height="125.5"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ZL-Ww-GNG">
+                                <rect key="frame" x="18.5" y="15.5" width="63" height="95"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="ZXK-Lk-vd0"/>
+                                    <constraint firstAttribute="width" constant="63" id="aUh-cQ-haD"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="resume_delete_bt.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.83529411764705885" green="0.88235294117647056" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="0ZL-Ww-GNG" secondAttribute="centerY" id="4wM-gB-xd3"/>
+                            <constraint firstAttribute="centerX" secondItem="0ZL-Ww-GNG" secondAttribute="centerX" id="hMd-c8-Rbl"/>
+                        </constraints>
+                    </view>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ie0-Nc-kuD" userLabel="collectedBg">
+                        <rect key="frame" x="-80" y="2" width="100" height="125.5"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vx5-f9-7i3">
+                                <rect key="frame" x="18" y="16" width="63" height="94"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="63" id="FDD-wa-Vjb"/>
+                                    <constraint firstAttribute="height" constant="94" id="L5h-tk-3uh"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="resume_collected_bt.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80784313725490198" green="0.93333333333333335" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Vx5-f9-7i3" secondAttribute="centerX" id="ESB-tV-YTJ"/>
+                            <constraint firstAttribute="centerY" secondItem="Vx5-f9-7i3" secondAttribute="centerY" id="XTp-5M-zuE"/>
+                        </constraints>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="krm-PP-gga" userLabel="bg">
-                        <rect key="frame" x="10" y="2" width="300" height="125.5"/>
+                        <rect key="frame" x="10" y="2" width="300" height="126"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
+                    <constraint firstItem="krm-PP-gga" firstAttribute="leading" secondItem="Ie0-Nc-kuD" secondAttribute="trailing" constant="-10" id="0cE-6v-GLh"/>
                     <constraint firstItem="krm-PP-gga" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="Cji-8d-nRT"/>
                     <constraint firstAttribute="bottom" secondItem="krm-PP-gga" secondAttribute="bottom" constant="8" id="Iqe-o0-CQv"/>
+                    <constraint firstItem="Ie0-Nc-kuD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="JNQ-nM-3YH"/>
+                    <constraint firstItem="OjN-Jv-pns" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="KBJ-rW-4GB"/>
+                    <constraint firstAttribute="bottom" secondItem="OjN-Jv-pns" secondAttribute="bottom" constant="8" id="Mdw-jd-hlO"/>
+                    <constraint firstItem="Ie0-Nc-kuD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="-80" id="OpM-nY-U1B"/>
+                    <constraint firstAttribute="bottom" secondItem="Ie0-Nc-kuD" secondAttribute="bottom" constant="8" id="Sfb-5R-ukk"/>
                     <constraint firstItem="krm-PP-gga" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="SjG-NG-Pcl"/>
+                    <constraint firstItem="OjN-Jv-pns" firstAttribute="leading" secondItem="krm-PP-gga" secondAttribute="trailing" constant="-10" id="Thx-RK-Qx6"/>
+                    <constraint firstAttribute="trailing" secondItem="OjN-Jv-pns" secondAttribute="trailing" constant="-80" id="VRc-wc-rzo"/>
                     <constraint firstAttribute="trailing" secondItem="krm-PP-gga" secondAttribute="trailing" constant="10" id="npH-lS-0h8"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="bg" destination="krm-PP-gga" id="gsp-ac-qOU"/>
+                <outlet property="collectdBg" destination="Ie0-Nc-kuD" id="LMw-3q-F4b"/>
+                <outlet property="deleteBg" destination="OjN-Jv-pns" id="ZCm-jb-BN2"/>
             </connections>
             <point key="canvasLocation" x="225" y="406"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="resume_collected_bt.png" width="63" height="94"/>
+        <image name="resume_delete_bt.png" width="61" height="95"/>
+    </resources>
 </document>

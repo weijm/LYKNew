@@ -84,6 +84,8 @@
 		20F8FDC41B4F9F8C008BCEE7 /* resume_prompt2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20F8FDC11B4F9F8C008BCEE7 /* resume_prompt2@2x.png */; };
 		20F8FDC51B4F9F8C008BCEE7 /* resume_prompt1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20F8FDC21B4F9F8C008BCEE7 /* resume_prompt1@2x.png */; };
 		20F8FDC61B4F9F8C008BCEE7 /* resume_prompt3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20F8FDC31B4F9F8C008BCEE7 /* resume_prompt3@2x.png */; };
+		20F8FDC81B4FB88D008BCEE7 /* resume_collected_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20F8FDC71B4FB88D008BCEE7 /* resume_collected_bt@2x.png */; };
+		20F8FDCA1B4FBBD5008BCEE7 /* resume_delete_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20F8FDC91B4FBBD5008BCEE7 /* resume_delete_bt@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,6 +209,8 @@
 		20F8FDC11B4F9F8C008BCEE7 /* resume_prompt2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_prompt2@2x.png"; sourceTree = "<group>"; };
 		20F8FDC21B4F9F8C008BCEE7 /* resume_prompt1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_prompt1@2x.png"; sourceTree = "<group>"; };
 		20F8FDC31B4F9F8C008BCEE7 /* resume_prompt3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_prompt3@2x.png"; sourceTree = "<group>"; };
+		20F8FDC71B4FB88D008BCEE7 /* resume_collected_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_collected_bt@2x.png"; sourceTree = "<group>"; };
+		20F8FDC91B4FBBD5008BCEE7 /* resume_delete_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_delete_bt@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -533,6 +537,8 @@
 		20BB62041B4E4025006BD455 /* Resume */ = {
 			isa = PBXGroup;
 			children = (
+				20F8FDC91B4FBBD5008BCEE7 /* resume_delete_bt@2x.png */,
+				20F8FDC71B4FB88D008BCEE7 /* resume_collected_bt@2x.png */,
 				20F8FDC11B4F9F8C008BCEE7 /* resume_prompt2@2x.png */,
 				20F8FDC21B4F9F8C008BCEE7 /* resume_prompt1@2x.png */,
 				20F8FDC31B4F9F8C008BCEE7 /* resume_prompt3@2x.png */,
@@ -653,6 +659,7 @@
 				203543341B4CFBC2007FF4A8 /* CommendView.xib in Resources */,
 				203543141B4CBD8A007FF4A8 /* HomePageViewController.xib in Resources */,
 				203542F21B4CBB45007FF4A8 /* CreateUserViewController.xib in Resources */,
+				20F8FDCA1B4FBBD5008BCEE7 /* resume_delete_bt@2x.png in Resources */,
 				20BB62261B4E639B006BD455 /* CellBottomView.xib in Resources */,
 				2097D2E11B461E7000611432 /* Images.xcassets in Resources */,
 				2097D3131B462F0A00611432 /* RootViewController.xib in Resources */,
@@ -684,6 +691,7 @@
 				2035430F1B4CBD40007FF4A8 /* ResumeViewController.xib in Resources */,
 				203543051B4CBCB1007FF4A8 /* InfoViewController.xib in Resources */,
 				20BB62061B4E4030006BD455 /* resume_search_bt@2x.png in Resources */,
+				20F8FDC81B4FB88D008BCEE7 /* resume_collected_bt@2x.png in Resources */,
 				2035432F1B4CF9B6007FF4A8 /* homepage_hire_img@2x.png in Resources */,
 				20BB61F11B4DFC72006BD455 /* SinglePersonalView.xib in Resources */,
 				203542CF1B4CBA89007FF4A8 /* community_icon@2x.png in Resources */,

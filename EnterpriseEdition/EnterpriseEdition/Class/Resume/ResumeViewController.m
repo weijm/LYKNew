@@ -8,7 +8,7 @@
 
 #import "ResumeViewController.h"
 #import "HeaderView.h"
-#import "ResumeTableViewCell.h"
+
 
 #define kHeaderViewHeight [Util myYOrHeight:80]
 
@@ -17,6 +17,14 @@
     UITableView *dataTableView;
     //数据数组
     NSArray *dataArray;
+    
+    //当前操作的cell
+    ResumeTableViewCell *currentCell;
+    
+    //点击事件
+    UITapGestureRecognizer *tap;
+    
+   
 }
 
 @end
@@ -115,6 +123,7 @@
     ResumeTableViewCell *cell = (ResumeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ResumeTableViewCell" owner:self options:nil] lastObject];
+        cell.delegate = self;
     }
     [cell loadSubView:[dataArray objectAtIndex:indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -145,6 +154,26 @@
         bottomH = (kIphone6plus)?23:(kIphone6)?24:25;
     }
     return [Util myYOrHeight:bottomH]*row;
+}
+#pragma mark - ResumeTableViewCellDelegate
+-(void)revertLeftOrRightSwipView:(ResumeTableViewCell*)cell selected:(BOOL)isSelected
+{
+    if (isSelected) {
+        if (currentCell) {
+            [currentCell revertView];
+        }
+        currentCell = cell;
+        tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(revertCell)];
+        [dataTableView addGestureRecognizer:tap];
+        
+    }
+    
+}
+-(void)revertCell
+{
+    [currentCell revertView];
+    [dataTableView removeGestureRecognizer:tap];
+    
 }
 
 #pragma mark - 获取数据

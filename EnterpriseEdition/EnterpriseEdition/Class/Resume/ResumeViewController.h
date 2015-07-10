@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ResumeTableViewCell.h"
 
-@interface ResumeViewController : UIViewController
+@interface ResumeViewController : UIViewController<ResumeTableViewCellDelegate>
 
 @end
