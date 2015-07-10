@@ -14,16 +14,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="krm-PP-gga" userLabel="bg">
-                        <rect key="frame" x="5" y="2" width="310" height="127.5"/>
+                        <rect key="frame" x="10" y="2" width="300" height="125.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="krm-PP-gga" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="Cji-8d-nRT"/>
-                    <constraint firstAttribute="bottom" secondItem="krm-PP-gga" secondAttribute="bottom" constant="6" id="Iqe-o0-CQv"/>
-                    <constraint firstItem="krm-PP-gga" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="SjG-NG-Pcl"/>
-                    <constraint firstAttribute="trailing" secondItem="krm-PP-gga" secondAttribute="trailing" constant="5" id="npH-lS-0h8"/>
+                    <constraint firstAttribute="bottom" secondItem="krm-PP-gga" secondAttribute="bottom" constant="8" id="Iqe-o0-CQv"/>
+                    <constraint firstItem="krm-PP-gga" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="SjG-NG-Pcl"/>
+                    <constraint firstAttribute="trailing" secondItem="krm-PP-gga" secondAttribute="trailing" constant="10" id="npH-lS-0h8"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

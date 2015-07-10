@@ -16,4 +16,6 @@
     IBOutlet UIView *chooseBg;
     
 }
+
+@property (nonatomic,copy)void(^chooseHeaderBtAction)(NSInteger index);
 @end

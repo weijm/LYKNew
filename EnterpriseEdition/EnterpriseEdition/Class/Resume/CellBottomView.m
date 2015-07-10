@@ -27,9 +27,15 @@
 -(void)loadAllLabel:(NSArray*)array
 {
     float labHEdge = [Util myXOrWidth:8];
-    float labVEdge = [Util myYOrHeight:5];
+    float labVEdge = 5;
     
-    float labW = (kWidth - [Util myXOrWidth:60])/4-labHEdge;
+    float labW ;
+    if (kIphone6||kIphone6plus) {
+        labW = (kWidth - [Util myXOrWidth:60])/4-labHEdge;
+    }else
+    {
+        labW = (kWidth - [Util myXOrWidth:70])/4-labHEdge;
+    }
     float labH = [Util myYOrHeight:15];
     
     NSInteger count = array.count;
@@ -43,7 +49,7 @@
         labx = (labHEdge+labW)*(i%LabCount);
         //纵坐标
         row = [Util getRow:i+1 eachCount:LabCount];
-        laby = (labVEdge+labH)*(row -1)+[Util myYOrHeight:3];
+        laby = (labVEdge+labH)*(row -1);
         //frame
         frame = CGRectMake(labx, laby, labW, labH);
         

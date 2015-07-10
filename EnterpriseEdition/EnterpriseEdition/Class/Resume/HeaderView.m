@@ -10,8 +10,8 @@
 #import "ResumeChooseBtView.h"
 #import "UIButton+Custom.h"
 
-#define kEdgeWidth 20
-#define kBTHeight 35
+#define kEdgeWidth 25
+#define kBTHeight 30
 
 @implementation HeaderView
 
@@ -25,7 +25,7 @@
         containerView.frame = newFrame;
         [self addSubview:containerView];
         
-        CGRect frame1 = CGRectMake([Util myXOrWidth:kEdgeWidth], [Util myYOrHeight:10], (kWidth-[Util myXOrWidth:kEdgeWidth]*2), [Util myYOrHeight:kBTHeight]);
+        CGRect frame1 = CGRectMake([Util myXOrWidth:kEdgeWidth], [Util myYOrHeight:15], (kWidth-[Util myXOrWidth:kEdgeWidth]*2), [Util myYOrHeight:kBTHeight]);
         subbg = [[UIView alloc] initWithFrame:frame1];
         subbg.layer.cornerRadius = 5;
         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
@@ -55,6 +55,7 @@
 }
 -(void)chooseBtAction:(NSInteger)index
 {
+    //界面更改
     for (ResumeChooseBtView *view in [subbg subviews]) {
         if ([view isKindOfClass:[ResumeChooseBtView class]]) {
             if (view.tag != index) {
@@ -63,5 +64,7 @@
             }
         }
     }
+    //事件处理
+    self.chooseHeaderBtAction(index);
 }
 @end

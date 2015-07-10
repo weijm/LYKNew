@@ -22,7 +22,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标签" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8i-Qx-NUP">
-                    <rect key="frame" x="10" y="8" width="40" height="21"/>
+                    <rect key="frame" x="10" y="6" width="40" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="Sdf-Ed-UZ1"/>
                         <constraint firstAttribute="height" constant="21" id="alB-mA-97I"/>
@@ -32,7 +32,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mg4-5U-klu" userLabel="subBg">
-                    <rect key="frame" x="50" y="8" width="270" height="92"/>
+                    <rect key="frame" x="50" y="8" width="260" height="84"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
@@ -40,13 +40,13 @@
             <constraints>
                 <constraint firstItem="mg4-5U-klu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="04q-YY-CyM"/>
                 <constraint firstItem="YnW-XW-Dga" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Law-sU-CfS"/>
-                <constraint firstItem="o8i-Qx-NUP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="UdV-SV-ppu"/>
+                <constraint firstItem="o8i-Qx-NUP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="UdV-SV-ppu"/>
                 <constraint firstItem="mg4-5U-klu" firstAttribute="leading" secondItem="o8i-Qx-NUP" secondAttribute="trailing" id="Vkt-x3-P0L"/>
-                <constraint firstAttribute="bottom" secondItem="mg4-5U-klu" secondAttribute="bottom" id="X8T-J9-LL7"/>
+                <constraint firstAttribute="bottom" secondItem="mg4-5U-klu" secondAttribute="bottom" constant="8" id="X8T-J9-LL7"/>
                 <constraint firstAttribute="trailing" secondItem="YnW-XW-Dga" secondAttribute="trailing" constant="5" id="ekH-If-IGZ"/>
                 <constraint firstItem="YnW-XW-Dga" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="mCP-VF-v1Q"/>
                 <constraint firstItem="o8i-Qx-NUP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="uwV-jY-7oe"/>
-                <constraint firstAttribute="trailing" secondItem="mg4-5U-klu" secondAttribute="trailing" id="vAf-cQ-8I9"/>
+                <constraint firstAttribute="trailing" secondItem="mg4-5U-klu" secondAttribute="trailing" constant="10" id="vAf-cQ-8I9"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>

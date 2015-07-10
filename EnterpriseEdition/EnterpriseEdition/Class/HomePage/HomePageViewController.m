@@ -12,8 +12,8 @@
 #import "CommendView.h"
 
 
-#define kBannerViewHeight 200
-#define kHireViewHeight 160
+#define kBannerViewHeight [Util myYOrHeight:200]
+#define kHireViewHeight [Util myYOrHeight:160]
 @interface HomePageViewController ()
 {
     //横向滚动视图
@@ -21,6 +21,15 @@
     
     //应聘部分的视图
     HireView *hireView;
+    
+    //推荐部分的视图
+    CommendView *commendView;
+    
+    //应聘数组
+    NSArray *hireArray;
+
+    //推荐数组
+    NSArray *commendArray;
 }
 @end
 
@@ -36,18 +45,10 @@
     [self.navigationController.navigationBar setTranslucent:YES];
     self.navigationController.navigationBar.shadowImage = [Util imageWithColor:[UIColor clearColor]];
     
-//    self.view.backgroundColor = Rgb(210, 235, 247, 1.0);
     //初始化item
     [self initItems];
 
-    //初始化bannerView
-    [self initBannerView];
-    
-    //初始化应聘视图
-    [self initHireView];
-    
-    //初始化推荐视图
-    [self initCommendView];
+    contentTableView.separatorColor = [UIColor clearColor];
 
     //ios7以上的版本滚动视图自动产生竖向偏移
     if (kDeviceVersion>=7.0 &&[self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
@@ -67,23 +68,47 @@
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [UITableViewCell new];
-    cell.textLabel.text = @"aaaa";
+    static NSString *cellID = @"cellId";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];;
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        if (indexPath.row == 0) {
+            [self initBannerView:cell.contentView];
+        }else if (indexPath.row == 1)
+        {
+            [self initHireView:cell.contentView];
+        }else
+        {
+            [self initCommendView:cell.contentView];
+        }
+    }
     return cell;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        return kBannerViewHeight;
+    }else if(indexPath.row == 1)
+    {
+        return kHireViewHeight;
+    }else
+    {
+        return kHeight -kBannerViewHeight-kHireViewHeight-[Util myYOrHeight:45];
+    }
+}
 #pragma mark -bannerView 初始化
--(void)initBannerView
+-(void)initBannerView:(UIView*)view
 {
     CGRect frame;
     if (kIphone4) {
         frame = CGRectMake(0, 0, kWidth, 150);
     }else
     {
-        frame = CGRectMake(0, 0, kWidth, [Util myYOrHeight:kBannerViewHeight]);
+        frame = CGRectMake(0, 0, kWidth, kBannerViewHeight);
     }
     bannerView = [[BannerView alloc] initWithFrame:frame];
     [bannerView loadBannerImage:[NSArray arrayWithObjects:@"11",@"11",@"11", nil]];
-    [self.view addSubview:bannerView];
+    [view addSubview:bannerView];
 }
 #pragma mark - navigation上的左右按钮
 -(void)initItems
@@ -116,9 +141,9 @@
     NSLog(@"rightAvtion");
 }
 #pragma mark - 初始化应聘部分的视图
--(void)initHireView
+-(void)initHireView:(UIView*)view
 {
-    CGRect frame = CGRectMake(0, bannerView.frame.origin.y+bannerView.frame.size.height, kWidth, [Util myYOrHeight:kHireViewHeight]);
+    CGRect frame = CGRectMake(0, 0, kWidth,kHireViewHeight );
     hireView = [[HireView alloc] initWithFrame:frame];
     
     //假数据
@@ -131,17 +156,16 @@
         HomePageViewController *sSelf = wSelf;
         [sSelf hireAction:index];
     };
-    [self.view addSubview:hireView];
+    [view addSubview:hireView];
 }
 #pragma mark - 初始化推荐部分的视图
-- (void)initCommendView
+- (void)initCommendView:(UIView*)view
 {
-    float commendViewY = hireView.frame.origin.y+hireView.frame.size.height;
-    float commendViewH = kHeight - commendViewY - [Util myYOrHeight:45];
+    float commendViewH = kHeight - kBannerViewHeight-kHireViewHeight - [Util myYOrHeight:45];
     //假数据
     NSArray *dataArray = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"UI设计师",@"job",@"王伟",@"name",@"艺术设计",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"ios开发师",@"job",@"赵倩",@"name",@"计算机专业",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"java开发",@"job",@"王东志",@"name",@"软件工程",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"web开发",@"job",@"刘一民",@"name",@"数学专业",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"前段设计",@"job",@"李浩",@"name",@"外语专业",@"pro", nil], nil];
     
-    CommendView *commendView = [[CommendView alloc] initWithFrame:CGRectMake(0, commendViewY, kWidth, commendViewH)];
+    commendView = [[CommendView alloc] initWithFrame:CGRectMake(0, 0, kWidth, commendViewH)];
     [commendView loadSubView:dataArray];
     //点击某个人的触发事件
     
@@ -150,7 +174,7 @@
         HomePageViewController *sself = wSelf;
         [sself lookupPersonalResume:index];
     };
-    [self.view addSubview:commendView];
+    [view addSubview:commendView];
 }
 
 #pragma mark - 点击应聘部分的按钮的相应触发事件
@@ -191,4 +215,13 @@
     }
     
 }
+#pragma mark - 刷新数据
+-(void)reloadData
+{
+    //刷新 应聘部分 hireArray 按照假数据来重新获取
+    [hireView loadData:hireArray];
+    //刷新推荐部分 commendArray重新获取
+    [commendView loadSubView:commendArray];
+}
+
 @end

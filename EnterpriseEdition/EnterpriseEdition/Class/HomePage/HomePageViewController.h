@@ -12,6 +12,7 @@
 {
     
     
+    IBOutlet UITableView *contentTableView;
 }
 /**
  应聘部分的点击事件

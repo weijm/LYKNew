@@ -34,6 +34,6 @@
 //简历模块的cell中各视图高度
 #define kHeaderViewH [Util myYOrHeight:35]
 #define kMiddleViewH [Util myYOrHeight:80]
-#define kBottomEachH [Util myYOrHeight:35]
+#define kBottomEachH [Util myYOrHeight:30]
 //导入公共文件
 #import "Util.h"

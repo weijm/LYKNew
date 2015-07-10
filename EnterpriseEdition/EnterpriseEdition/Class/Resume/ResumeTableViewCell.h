@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+@class CellHeaderView;
+@class CellMiddleView;
 
 @interface ResumeTableViewCell : UITableViewCell
 {
     IBOutlet UIView *bg;
     
+    CellHeaderView *headerView;
+    CellMiddleView *middleView;
 }
 -(void)loadSubView:(NSArray*)array;
 @end

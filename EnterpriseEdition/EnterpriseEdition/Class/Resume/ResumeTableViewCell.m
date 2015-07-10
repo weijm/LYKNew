@@ -13,6 +13,7 @@
 
 
 #define LabCount 4
+#define Edge 10
 
 @implementation ResumeTableViewCell
 
@@ -20,6 +21,9 @@
     // Initialization code
     self.backgroundColor = [UIColor clearColor];
     bg.layer.cornerRadius = 5;
+    
+    [self initHeaderView];
+    [self initMiddleView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -30,36 +34,43 @@
 
 -(void)loadSubView:(NSArray*)array
 {
-    [self initHeaderView];
-    [self initMiddleView];
+    //初始化headerView数据
+    
+    //初始化middleView数据
+    
+    //初始化标签视图
     [self initBottomView:array];
 }
 
 -(void)initHeaderView
 {
-    CGRect frame = CGRectMake(0, 0, kWidth - [Util myXOrWidth:5]*2, kHeaderViewH);
-    CellHeaderView *headerView = [[CellHeaderView alloc] initWithFrame:frame];
+    CGRect frame = CGRectMake(0, 0, kWidth - [Util myXOrWidth:Edge]*2, kHeaderViewH);
+    headerView = [[CellHeaderView alloc] initWithFrame:frame];
     [bg addSubview:headerView];
 }
 
 -(void)initMiddleView
 {
-    CGRect frame = CGRectMake(0, kHeaderViewH, kWidth - [Util myXOrWidth:5]*2, kMiddleViewH);
-    CellMiddleView *middleView = [[CellMiddleView alloc] initWithFrame:frame];
+    CGRect frame = CGRectMake(0, kHeaderViewH, kWidth - [Util myXOrWidth:Edge]*2, kMiddleViewH);
+    middleView = [[CellMiddleView alloc] initWithFrame:frame];
     [bg addSubview:middleView];
 }
 -(void)initBottomView:(NSArray*)array
 {
+    CellBottomView *tempView = (CellBottomView *)[bg viewWithTag:10000];
+    [tempView removeFromSuperview];
+    
     int  count = (int)array.count;
     int row = [Util getRow:count eachCount:LabCount];;
     
     float labbgH = kBottomEachH*row;
-    NSLog(@"initBottomView row == %f",labbgH);
-    
-    CGRect frame = CGRectMake(0, kHeaderViewH+kMiddleViewH+[Util myYOrHeight:1], kWidth - [Util myXOrWidth:5]*2, labbgH);
+
+    CGRect frame = CGRectMake(0, kHeaderViewH+kMiddleViewH+[Util myYOrHeight:1], kWidth - [Util myXOrWidth:Edge]*2, labbgH);
     CellBottomView *bottomView = [[CellBottomView alloc] initWithFrame:frame];
+    bottomView.tag = 10000;
     [bottomView loadAllLabel:array];
     [bg addSubview:bottomView];
     
 }
+
 @end
