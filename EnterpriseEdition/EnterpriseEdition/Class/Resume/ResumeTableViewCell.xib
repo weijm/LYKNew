@@ -13,11 +13,35 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnd-Er-V3t" userLabel="chooseBg">
+                        <rect key="frame" x="-10" y="2" width="20" height="125.5"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYU-tS-OJT" userLabel="chooseBt" customClass="UIButton_Custom">
+                                <rect key="frame" x="-3.5" y="49.5" width="27" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="7ng-mm-iC3"/>
+                                    <constraint firstAttribute="width" constant="27" id="pMc-qj-5kq"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="resume_choose_bt.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ryf-5u-Awo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="IYU-tS-OJT" secondAttribute="centerY" id="fKJ-YG-tbi"/>
+                            <constraint firstAttribute="width" constant="20" id="qLH-dw-TN5"/>
+                            <constraint firstAttribute="centerX" secondItem="IYU-tS-OJT" secondAttribute="centerX" id="ulO-NK-O2K"/>
+                        </constraints>
+                    </view>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OjN-Jv-pns" userLabel="deleteBg">
                         <rect key="frame" x="300" y="2" width="100" height="125.5"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ZL-Ww-GNG">
-                                <rect key="frame" x="18.5" y="15.5" width="63" height="95"/>
+                                <rect key="frame" x="18" y="15" width="63" height="95"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="95" id="ZXK-Lk-vd0"/>
                                     <constraint firstAttribute="width" constant="63" id="aUh-cQ-haD"/>
@@ -61,6 +85,7 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="krm-PP-gga" firstAttribute="leading" secondItem="Ie0-Nc-kuD" secondAttribute="trailing" constant="-10" id="0cE-6v-GLh"/>
+                    <constraint firstItem="bnd-Er-V3t" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="-10" id="2no-WX-adY"/>
                     <constraint firstItem="krm-PP-gga" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="Cji-8d-nRT"/>
                     <constraint firstAttribute="bottom" secondItem="krm-PP-gga" secondAttribute="bottom" constant="8" id="Iqe-o0-CQv"/>
                     <constraint firstItem="Ie0-Nc-kuD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="JNQ-nM-3YH"/>
@@ -70,12 +95,19 @@
                     <constraint firstAttribute="bottom" secondItem="Ie0-Nc-kuD" secondAttribute="bottom" constant="8" id="Sfb-5R-ukk"/>
                     <constraint firstItem="krm-PP-gga" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="SjG-NG-Pcl"/>
                     <constraint firstItem="OjN-Jv-pns" firstAttribute="leading" secondItem="krm-PP-gga" secondAttribute="trailing" constant="-10" id="Thx-RK-Qx6"/>
+                    <constraint firstAttribute="bottom" secondItem="bnd-Er-V3t" secondAttribute="bottom" constant="8" id="VNb-tA-rWh"/>
                     <constraint firstAttribute="trailing" secondItem="OjN-Jv-pns" secondAttribute="trailing" constant="-80" id="VRc-wc-rzo"/>
                     <constraint firstAttribute="trailing" secondItem="krm-PP-gga" secondAttribute="trailing" constant="10" id="npH-lS-0h8"/>
+                    <constraint firstItem="bnd-Er-V3t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="xgJ-0e-l9C"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="bg" destination="krm-PP-gga" id="gsp-ac-qOU"/>
+                <outlet property="bgToLeft" destination="SjG-NG-Pcl" id="WfU-er-24r"/>
+                <outlet property="bgToRight" destination="npH-lS-0h8" id="4cr-r4-slD"/>
+                <outlet property="chooseBg" destination="bnd-Er-V3t" id="37g-3g-hff"/>
+                <outlet property="chooseBt" destination="IYU-tS-OJT" id="JGq-0W-YJj"/>
+                <outlet property="chooseToLeft" destination="2no-WX-adY" id="4AO-1f-HT6"/>
                 <outlet property="collectdBg" destination="Ie0-Nc-kuD" id="LMw-3q-F4b"/>
                 <outlet property="deleteBg" destination="OjN-Jv-pns" id="ZCm-jb-BN2"/>
             </connections>
@@ -83,6 +115,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="resume_choose_bt.png" width="27" height="27"/>
         <image name="resume_collected_bt.png" width="63" height="94"/>
         <image name="resume_delete_bt.png" width="61" height="95"/>
     </resources>

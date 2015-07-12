@@ -10,23 +10,55 @@
 @class CellHeaderView;
 @class CellMiddleView;
 @class ResumeTableViewCell;
-
+@class UIButton_Custom;
 @protocol ResumeTableViewCellDelegate <NSObject>
 
 @optional
+//取消左右滑动出现的功能
 -(void)revertLeftOrRightSwipView:(ResumeTableViewCell*)cell selected:(BOOL)isSelected;
-
+//点击选中按钮
+-(void)clickedChooseBtAction:(int)index Selected:(NSString*)isSelected;
 @end
 @interface ResumeTableViewCell : UITableViewCell
 {
+   //全选按钮背景
+    IBOutlet UIView *chooseBg;
+    //删除按钮背景
     IBOutlet UIView *deleteBg;
+    //收藏按钮背景
     IBOutlet UIView *collectdBg;
+    //cell上的内容背景
     IBOutlet UIView *bg;
     
     CellHeaderView *headerView;
     CellMiddleView *middleView;
+    //bg的相对左右距离
+    IBOutlet NSLayoutConstraint *bgToLeft;
+    
+    IBOutlet NSLayoutConstraint *bgToRight;
+    //chooseBg相对左边的距离
+    IBOutlet NSLayoutConstraint *chooseToLeft;
+    
+    
+    IBOutlet UIButton_Custom *chooseBt;
+    
 }
 @property (nonatomic,assign) id<ResumeTableViewCellDelegate> delegate;
+/**
+ 加载视图上的内容
+ */
 -(void)loadSubView:(NSDictionary*)dictionary;
+/**
+ 还原左右滑动视图
+ */
 -(void)revertView;
+/**
+ 全选时 出现选择按钮
+ */
+-(void)changeLocation:(BOOL)show Selected:(int)isSelected;
+/**
+ 选择按钮的触发事件
+ */
+- (IBAction)chooseAction:(id)sender;
+
 @end

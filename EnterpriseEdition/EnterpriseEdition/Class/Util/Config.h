@@ -35,5 +35,7 @@
 #define kHeaderViewH [Util myYOrHeight:35]
 #define kMiddleViewH [Util myYOrHeight:80]
 #define kBottomEachH [Util myYOrHeight:30]
+//简历页底部编辑视图高度
+#define kFOOTERVIEWH [Util myYOrHeight:45]
 //导入公共文件
 #import "Util.h"

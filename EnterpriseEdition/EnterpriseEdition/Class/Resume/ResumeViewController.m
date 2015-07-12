@@ -8,12 +8,16 @@
 
 #import "ResumeViewController.h"
 #import "HeaderView.h"
+#import "FooterView.h"
 
 
 #define kHeaderViewHeight [Util myYOrHeight:80]
 
 @interface ResumeViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
+    //头部点击的各个按钮
+    HeaderView *headerView;
+    
     UITableView *dataTableView;
     //数据数组
     NSArray *dataArray;
@@ -24,7 +28,14 @@
     //点击事件
     UITapGestureRecognizer *tap;
     
-   
+   //是否出现全部编辑的标志
+    BOOL isEdit;
+ 
+    //简历类别
+    int resumeCategory; //1:收到的简历 2：收藏的简历 3：已下载的简历
+    
+    //全选时 选择记录数组
+    NSMutableArray *chooseArray;
 }
 
 @end
@@ -45,6 +56,14 @@
     dataArray = [[NSArray alloc] initWithArray:[self getContentData:0]];
     
     [self initTableView];
+    
+    isEdit = NO;
+    //默认是收到的简历
+    resumeCategory = 1;
+    chooseArray = [[NSMutableArray alloc] init];
+    for (int i =0; i<[dataArray count]; i++) {
+        [chooseArray addObject:@"0"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,38 +86,107 @@
 #pragma mark - 导航条右侧按钮的点击事件
 -(void)rightAction
 {
-    NSLog(@"rightAction");
+    //只有收到的简历有编辑效果
+    if (resumeCategory==1) {
+        if (isEdit) {
+            isEdit = NO;
+            for (int i=0; i < [chooseArray count]; i++) {
+                NSString *string = [chooseArray objectAtIndex:i];
+                if ([string intValue]==1) {
+                    [chooseArray replaceObjectAtIndex:i withObject:@"0"];
+                }
+            }
+            //tableView取消编辑的时候 按钮之间可相互切换
+            headerView.userInteractionEnabled = YES;
+            
+            FooterView *fooerView = (FooterView*)[self.view.window viewWithTag:1000];
+            [fooerView cancelFooterView];
+            
+        }else
+        {
+            isEdit = YES;
+            //tableView可编辑的时候 按钮之间不能相互切换
+            headerView.userInteractionEnabled = NO;
+            [self initFooerView];
+        }
+        [dataTableView reloadData];
+    }
+ 
+}
+#pragma mark - 初始化footerView
+-(void)initFooerView
+{
+    float footerViewH = kFOOTERVIEWH;
+    CGRect frame = CGRectMake(0, kHeight, kWidth, footerViewH);
+    FooterView *footerView = [[FooterView alloc] initWithFrame:frame];
+    footerView.tag = 1000;
+    [footerView setButton:[NSArray arrayWithObjects:@"20",@"30", nil] Enable:NO];
+    footerView.chooseFooterBtAction = ^(NSInteger index){
+        [self chooseAction:index];
+    };
+    [self.view.window addSubview:footerView];
+    [footerView showFooterView:self.view];
 }
 #pragma mark - 初始化headerView
 -(void)initHeaderView
 {
-    HeaderView *headerView = [[HeaderView alloc] initWithFrame:CGRectMake(0, topBarheight, kWidth, kHeaderViewHeight)];
+    headerView = [[HeaderView alloc] initWithFrame:CGRectMake(0, topBarheight, kWidth, kHeaderViewHeight)];
+    __weak ResumeViewController *wself = self;
     headerView.chooseHeaderBtAction = ^(NSInteger index){
-        [self chooseAction:index];
+        ResumeViewController *sself = wself;
+        [sself chooseAction:index];
     };
     [self.view addSubview:headerView];
 }
-#pragma mark - headerView上的选择不同按钮的触发事件
+#pragma mark - headerView和fooerView上的选择不同按钮的触发事件
 -(void)chooseAction:(NSInteger)index
 {
-    switch (index) {
-        case 0:
-            NSLog(@"收到的简历");
-            dataArray = [[NSArray alloc] initWithArray:[self getContentData:0]];
-            break;
-        case 1:
-            dataArray = [[NSArray alloc] initWithArray:[self getContentData:1]];
-            NSLog(@"收藏的简历");
-            break;
-        case 2:
-            dataArray = [[NSArray alloc] initWithArray:[self getContentData:2]];
-            NSLog(@"已下载的简历");
-            break;
-        default:
-            break;
+    if (index < 10) {//HeaderView上的按钮的触发事件
+        switch (index) {
+            case 0:
+                NSLog(@"收到的简历");
+                dataArray = [[NSArray alloc] initWithArray:[self getContentData:0]];
+                resumeCategory = 1;
+                //编辑按钮可点
+                self.navigationItem.rightBarButtonItem.enabled = YES;
+                break;
+            case 1:
+                dataArray = [[NSArray alloc] initWithArray:[self getContentData:1]];
+                //编辑按钮不可点
+                self.navigationItem.rightBarButtonItem.enabled = NO;
+                NSLog(@"收藏的简历");
+                break;
+            case 2:
+                dataArray = [[NSArray alloc] initWithArray:[self getContentData:2]];
+                //编辑按钮不可点
+                self.navigationItem.rightBarButtonItem.enabled = NO;
+                NSLog(@"已下载的简历");
+                break;
+            default:
+                break;
+        }
+        resumeCategory = (int)index +1;
+        [dataTableView reloadData];
+    }else
+    {
+        switch (index) {
+            case 10:
+                NSLog(@"全选");
+                break;
+            case 20:
+                NSLog(@"收藏选中的简历");
+                break;
+            case 30:
+                NSLog(@"删除选中的简历");
+                break;
+                
+            default:
+                break;
+        }
     }
-    [dataTableView reloadData];
+   
 }
+#pragma mark -
 #pragma mark - 初始化tableView
 -(void)initTableView
 {
@@ -123,10 +211,24 @@
     ResumeTableViewCell *cell = (ResumeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ResumeTableViewCell" owner:self options:nil] lastObject];
-        cell.delegate = self;
     }
+    cell.delegate = self;
+    //加载视图数据
     [cell loadSubView:[dataArray objectAtIndex:indexPath.row]];
+    //全部选中按钮使用
+    cell.tag = indexPath.row;
+    NSString *isSelected;
+    if (isEdit) {
+        isSelected = [chooseArray objectAtIndex:indexPath.row];
+    }else
+    {
+        isSelected = @"0";
+    }
+    //加载全部选中按钮的状态
+    [cell changeLocation:isEdit Selected:[isSelected intValue] ];
+    //取消点击cell选中效果
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
 
 }
@@ -175,6 +277,14 @@
     [dataTableView removeGestureRecognizer:tap];
     
 }
+//点击选中按钮
+-(void)clickedChooseBtAction:(int)index Selected:(NSString*)isSelected
+{
+    [chooseArray replaceObjectAtIndex:index withObject:isSelected];
+    
+}
+#pragma mark - 全部选择视图
+
 
 #pragma mark - 获取数据
 -(NSMutableArray*)getContentData:(int)index

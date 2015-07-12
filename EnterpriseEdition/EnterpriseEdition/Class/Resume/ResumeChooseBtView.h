@@ -25,4 +25,8 @@
  初始化按钮
  */
 -(void)loadSubView;
+/**
+ 初始化底部视图上的按钮
+ */
+-(void)loadFooterSubView;
 @end

@@ -24,7 +24,6 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbZ-O2-vy3" userLabel="bt" customClass="UIButton_Custom">
                     <rect key="frame" x="0.0" y="0.0" width="195" height="105"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="收到的简历">
                         <color key="titleColor" red="0.19215686274509805" green="0.50588235294117645" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>

@@ -65,6 +65,8 @@
 		2097D32B1B46928F00611432 /* HomePageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2097D3291B46928F00611432 /* HomePageTableViewCell.xib */; };
 		2097D32D1B46957B00611432 /* homepage_right_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2097D32C1B46957B00611432 /* homepage_right_bt@2x.png */; };
 		2097D32F1B46961400611432 /* homepage_suppinfo_icon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2097D32E1B46961400611432 /* homepage_suppinfo_icon2@2x.png */; };
+		20A258B21B50C5F50082F04A /* resume_choose_selected_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A258B11B50C5F50082F04A /* resume_choose_selected_bt@2x.png */; };
+		20A258B41B50C5FF0082F04A /* resume_choose_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A258B31B50C5FF0082F04A /* resume_choose_bt@2x.png */; };
 		20BB61EF1B4DFC25006BD455 /* SinglePersonalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BB61EE1B4DFC25006BD455 /* SinglePersonalView.m */; };
 		20BB61F11B4DFC72006BD455 /* SinglePersonalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BB61F01B4DFC72006BD455 /* SinglePersonalView.xib */; };
 		20BB62011B4E260A006BD455 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BB62001B4E260A006BD455 /* HeaderView.m */; };
@@ -81,6 +83,8 @@
 		20BB62241B4E638A006BD455 /* CellBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BB62231B4E638A006BD455 /* CellBottomView.m */; };
 		20BB62261B4E639B006BD455 /* CellBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BB62251B4E639A006BD455 /* CellBottomView.xib */; };
 		20BB62281B4E6E6F006BD455 /* resume_protrait_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BB62271B4E6E6F006BD455 /* resume_protrait_default@2x.png */; };
+		20BE75901B51041E00A92504 /* FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BE758F1B51041E00A92504 /* FooterView.m */; };
+		20BE75921B51042D00A92504 /* FooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BE75911B51042D00A92504 /* FooterView.xib */; };
 		20F8FDC41B4F9F8C008BCEE7 /* resume_prompt2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20F8FDC11B4F9F8C008BCEE7 /* resume_prompt2@2x.png */; };
 		20F8FDC51B4F9F8C008BCEE7 /* resume_prompt1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20F8FDC21B4F9F8C008BCEE7 /* resume_prompt1@2x.png */; };
 		20F8FDC61B4F9F8C008BCEE7 /* resume_prompt3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20F8FDC31B4F9F8C008BCEE7 /* resume_prompt3@2x.png */; };
@@ -183,6 +187,8 @@
 		2097D3291B46928F00611432 /* HomePageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageTableViewCell.xib; sourceTree = "<group>"; };
 		2097D32C1B46957B00611432 /* homepage_right_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_right_bt@2x.png"; sourceTree = "<group>"; };
 		2097D32E1B46961400611432 /* homepage_suppinfo_icon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_suppinfo_icon2@2x.png"; sourceTree = "<group>"; };
+		20A258B11B50C5F50082F04A /* resume_choose_selected_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_choose_selected_bt@2x.png"; sourceTree = "<group>"; };
+		20A258B31B50C5FF0082F04A /* resume_choose_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_choose_bt@2x.png"; sourceTree = "<group>"; };
 		20BB61ED1B4DFC25006BD455 /* SinglePersonalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinglePersonalView.h; sourceTree = "<group>"; };
 		20BB61EE1B4DFC25006BD455 /* SinglePersonalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinglePersonalView.m; sourceTree = "<group>"; };
 		20BB61F01B4DFC72006BD455 /* SinglePersonalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SinglePersonalView.xib; sourceTree = "<group>"; };
@@ -206,6 +212,9 @@
 		20BB62231B4E638A006BD455 /* CellBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellBottomView.m; sourceTree = "<group>"; };
 		20BB62251B4E639A006BD455 /* CellBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellBottomView.xib; sourceTree = "<group>"; };
 		20BB62271B4E6E6F006BD455 /* resume_protrait_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_protrait_default@2x.png"; sourceTree = "<group>"; };
+		20BE758E1B51041E00A92504 /* FooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FooterView.h; sourceTree = "<group>"; };
+		20BE758F1B51041E00A92504 /* FooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FooterView.m; sourceTree = "<group>"; };
+		20BE75911B51042D00A92504 /* FooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FooterView.xib; sourceTree = "<group>"; };
 		20F8FDC11B4F9F8C008BCEE7 /* resume_prompt2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_prompt2@2x.png"; sourceTree = "<group>"; };
 		20F8FDC21B4F9F8C008BCEE7 /* resume_prompt1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_prompt1@2x.png"; sourceTree = "<group>"; };
 		20F8FDC31B4F9F8C008BCEE7 /* resume_prompt3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_prompt3@2x.png"; sourceTree = "<group>"; };
@@ -527,6 +536,9 @@
 				20BB61FF1B4E260A006BD455 /* HeaderView.h */,
 				20BB62001B4E260A006BD455 /* HeaderView.m */,
 				20BB62021B4E264A006BD455 /* HeaderView.xib */,
+				20BE758E1B51041E00A92504 /* FooterView.h */,
+				20BE758F1B51041E00A92504 /* FooterView.m */,
+				20BE75911B51042D00A92504 /* FooterView.xib */,
 				20BB62071B4E46CB006BD455 /* ResumeChooseBtView.h */,
 				20BB62081B4E46CB006BD455 /* ResumeChooseBtView.m */,
 				20BB620A1B4E46DD006BD455 /* ResumeChooseBtView.xib */,
@@ -537,6 +549,8 @@
 		20BB62041B4E4025006BD455 /* Resume */ = {
 			isa = PBXGroup;
 			children = (
+				20A258B31B50C5FF0082F04A /* resume_choose_bt@2x.png */,
+				20A258B11B50C5F50082F04A /* resume_choose_selected_bt@2x.png */,
 				20F8FDC91B4FBBD5008BCEE7 /* resume_delete_bt@2x.png */,
 				20F8FDC71B4FB88D008BCEE7 /* resume_collected_bt@2x.png */,
 				20F8FDC11B4F9F8C008BCEE7 /* resume_prompt2@2x.png */,
@@ -680,8 +694,10 @@
 				2097D32D1B46957B00611432 /* homepage_right_bt@2x.png in Resources */,
 				203542D01B4CBA89007FF4A8 /* community_icon@3x.png in Resources */,
 				20BB62281B4E6E6F006BD455 /* resume_protrait_default@2x.png in Resources */,
+				20A258B21B50C5F50082F04A /* resume_choose_selected_bt@2x.png in Resources */,
 				2097D30D1B462D5000611432 /* home_setting_btn_n@2x.png in Resources */,
 				203543291B4CF630007FF4A8 /* homepage_hire_icon2@2x.png in Resources */,
+				20A258B41B50C5FF0082F04A /* resume_choose_bt@2x.png in Resources */,
 				2035432B1B4CF630007FF4A8 /* homepage_hire_icon4@2x.png in Resources */,
 				2035432D1B4CF630007FF4A8 /* homepage_hire_icon6@2x.png in Resources */,
 				20F8FDC61B4F9F8C008BCEE7 /* resume_prompt3@2x.png in Resources */,
@@ -694,6 +710,7 @@
 				20F8FDC81B4FB88D008BCEE7 /* resume_collected_bt@2x.png in Resources */,
 				2035432F1B4CF9B6007FF4A8 /* homepage_hire_img@2x.png in Resources */,
 				20BB61F11B4DFC72006BD455 /* SinglePersonalView.xib in Resources */,
+				20BE75921B51042D00A92504 /* FooterView.xib in Resources */,
 				203542CF1B4CBA89007FF4A8 /* community_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -726,6 +743,7 @@
 				20BB620F1B4E54B9006BD455 /* ResumeTableViewCell.m in Sources */,
 				2097D2D61B461E7000611432 /* main.m in Sources */,
 				20BB62011B4E260A006BD455 /* HeaderView.m in Sources */,
+				20BE75901B51041E00A92504 /* FooterView.m in Sources */,
 				205CA9C31B4BD9F4007BAC89 /* UIButton+Custom.m in Sources */,
 				203542F51B4CBB45007FF4A8 /* RegisterBottomView.m in Sources */,
 				2097D3121B462F0A00611432 /* RootViewController.m in Sources */,

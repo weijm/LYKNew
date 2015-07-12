@@ -114,6 +114,15 @@
 -(void)initItems
 {
     CGRect frame = CGRectMake(0, 0, 50, 30);
+    UILabel *titleLab= [[UILabel alloc] initWithFrame:frame];
+    titleLab.backgroundColor = [UIColor clearColor];
+    titleLab.text = @"E朝朝企业版";
+    titleLab.textColor = [UIColor whiteColor];
+    titleLab.font = [UIFont systemFontOfSize:18];
+    
+    self.navigationItem.titleView = titleLab;
+    
+    
     UIButton *leftBt = [[UIButton alloc] initWithFrame:frame];
     [leftBt setImage:[UIImage imageNamed:@"home_setting_btn_n"] forState:UIControlStateNormal];
     UIEdgeInsets imageInsets = leftBt.imageEdgeInsets;
