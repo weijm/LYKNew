@@ -22,21 +22,43 @@
         CGRect newFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         containerView.frame = newFrame;
         [self addSubview:containerView];
-        
-        //初始化按钮
-        [self initButtonView];
     }
     return self;
 }
-
-
-- (void)initButtonView
+-(void)loadEditButton:(int)index
 {
-    for (int i =0; i <3; i++) {
-        float btW = kWidth/3;
+    switch (index) {
+        case 1:
+            [self initButtonView:3 index:index];
+            break;
+        case 2:
+            [self initButtonView:2 index:index];
+            break;
+        case 3:
+            [self initButtonView:3 index:index];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)initButtonView:(int)btCount index:(int)index
+{
+    int var = 10;
+    if (index == 1) {
+        var = 10;
+    }else if (index == 2)
+    {
+        var = 100;
+    }else
+    {
+        var = 1000;
+    }
+    for (int i =0; i <btCount; i++) {
+        float btW = kWidth/btCount;
         CGRect frame = CGRectMake(btW*i, 0, btW, kFOOTERVIEWH);
         ResumeChooseBtView *bt = [[ResumeChooseBtView alloc] initWithFrame:frame];
-        bt.tag = (i+1)*10;
+        bt.tag = (i+1)*var;
         bt.clickedBtAction = ^(NSInteger index){
             [self chooseBtAction:index];
         };
@@ -47,7 +69,7 @@
 -(void)chooseBtAction:(NSInteger)index
 {
     NSLog(@"footer index == %ld",index);
-    if (index == 10) {//判断 是全选 还是取消全选
+    if (index == 10||index ==100||index == 1000) {//判断 是全选 还是取消全选
         ResumeChooseBtView *btView = (ResumeChooseBtView *)[subView viewWithTag:index];
         if (btView.chooseBt.specialMark == 0) {
             btView.chooseBt.specialMark =1;

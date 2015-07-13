@@ -49,20 +49,49 @@
     _chooseBt.backgroundColor = Rgb(220, 221, 227, 1.0);
     [_chooseBt setTitleColor:Rgb(57, 57, 58, 1.0) forState:UIControlStateNormal];
     NSInteger index = self.tag;
-    switch (index) {
-        case 10:
-            [_chooseBt setTitle:@"全  选" forState:UIControlStateNormal];
-            break;
-        case 20:
-            [_chooseBt setTitle:@"收藏选中的简历" forState:UIControlStateNormal];
-            break;
-        case 30:
-            [_chooseBt setTitle:@"删除选中的简历" forState:UIControlStateNormal];
-            vline.hidden = YES;
-            break;
-            
-        default:
-            break;
+    if (index >=10 && index < 100) {
+        switch (index) {
+            case 10:
+                [_chooseBt setTitle:@"全  选" forState:UIControlStateNormal];
+                break;
+            case 20:
+                [_chooseBt setTitle:@"收藏选中的简历" forState:UIControlStateNormal];
+                break;
+            case 30:
+                [_chooseBt setTitle:@"删除选中的简历" forState:UIControlStateNormal];
+                vline.hidden = YES;
+                break;
+                
+            default:
+                break;
+        }
+    }else if (index >=100 && index<1000)
+    {
+        switch (index) {
+            case 100:
+                [_chooseBt setTitle:@"全  选" forState:UIControlStateNormal];
+                break;
+            case 200:
+                [_chooseBt setTitle:@"取消收藏选中简历" forState:UIControlStateNormal];
+                break;
+            default:
+                break;
+        }
+    }else
+    {
+        switch (index) {
+            case 1000:
+                [_chooseBt setTitle:@"全  选" forState:UIControlStateNormal];
+                break;
+            case 2000:
+                [_chooseBt setTitle:@"收藏选中的简历" forState:UIControlStateNormal];
+                break;
+            case 3000:
+                [_chooseBt setTitle:@"删除选中的简历" forState:UIControlStateNormal];
+                break;
+            default:
+                break;
+        }
     }
 }
 // 点击事件

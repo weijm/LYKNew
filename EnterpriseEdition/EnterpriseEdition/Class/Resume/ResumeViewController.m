@@ -88,32 +88,29 @@
 #pragma mark - 导航条右侧按钮的点击事件
 -(void)rightAction
 {
-    //只有收到的简历有编辑效果
-    if (resumeCategory==1) {
-        if (isEdit) {
-            isEdit = NO;
-            for (int i=0; i < [chooseArray count]; i++) {
-                NSString *string = [chooseArray objectAtIndex:i];
-                if ([string intValue]==1) {
-                    [chooseArray replaceObjectAtIndex:i withObject:@"0"];
-                }
-            }
-            //tableView取消编辑的时候 按钮之间可相互切换
-            headerView.userInteractionEnabled = YES;
-            
-            FooterView *fooerView = (FooterView*)[self.view.window viewWithTag:1000];
-            [fooerView cancelFooterView];
-            
-        }else
-        {
-            isEdit = YES;
-            //tableView可编辑的时候 按钮之间不能相互切换
-            headerView.userInteractionEnabled = NO;
-            [self initFooerView];
+    if (isEdit) {
+        isEdit = NO;
+        if (chooseArray) {
+            [chooseArray removeAllObjects];
         }
-        [dataTableView reloadData];
+        chooseArray = [[NSMutableArray alloc] initWithCapacity:[dataArray count]];
+        for (int i=0; i < [dataArray count]; i++) {
+            [chooseArray addObject:@"0"];
+        }
+        //tableView取消编辑的时候 按钮之间可相互切换
+        headerView.userInteractionEnabled = YES;
+        
+        FooterView *fooerView = (FooterView*)[self.view.window viewWithTag:1000];
+        [fooerView cancelFooterView];
+        
+    }else
+    {
+        isEdit = YES;
+        //tableView可编辑的时候 按钮之间不能相互切换
+        headerView.userInteractionEnabled = NO;
+        [self initFooerView];
     }
- 
+    [dataTableView reloadData];
 }
 #pragma mark - 初始化footerView
 -(void)initFooerView
@@ -122,7 +119,13 @@
     CGRect frame = CGRectMake(0, kHeight, kWidth, footerViewH);
     footerView = [[FooterView alloc] initWithFrame:frame];
     footerView.tag = 1000;
-    [footerView setButton:[NSArray arrayWithObjects:@"20",@"30", nil] Enable:NO];
+    //初始化按钮
+    [footerView loadEditButton:resumeCategory];
+    
+    
+    //设置除了全选按钮可点击 其余按钮不可点击
+    [footerView setButton:[self getEnableBtArray] Enable:NO];
+    //点击按钮的触发事件
     __weak ResumeViewController *wself = self;
     footerView.chooseFooterBtAction = ^(NSInteger index,BOOL isAll){
         ResumeViewController *sself = wself;
@@ -150,18 +153,12 @@
             case 0:
                 dataArray = [[NSMutableArray alloc] initWithArray:[self getContentData:0]];
                 resumeCategory = 1;
-                //编辑按钮可点
-                self.navigationItem.rightBarButtonItem.enabled = YES;
                 break;
             case 1:
                 dataArray = [[NSMutableArray alloc] initWithArray:[self getContentData:1]];
-                //编辑按钮不可点
-                self.navigationItem.rightBarButtonItem.enabled = NO;
                 break;
             case 2:
                 dataArray = [[NSMutableArray alloc] initWithArray:[self getContentData:2]];
-                //编辑按钮不可点
-                self.navigationItem.rightBarButtonItem.enabled = NO;
                 break;
             default:
                 break;
@@ -172,27 +169,51 @@
     {
         switch (index) {
             case 10:
+            case 100:
+            case 1000:
             {
                 NSString *allString = isAll?@"1":@"0";
                 for (int i =0; i < [chooseArray count]; i++) {
                     [chooseArray replaceObjectAtIndex:i withObject:allString];
                 }
                 [dataTableView reloadData];
-                [footerView setButton:[NSArray arrayWithObjects:@"20",@"30", nil] Enable:isAll];
+                [footerView setButton:[self getEnableBtArray] Enable:isAll];
             }
                 break;
             case 20:
-                NSLog(@"收藏选中的简历");
-                
+                NSLog(@"选中简历类型 1 收藏选中的简历");
                 break;
             case 30:
-                NSLog(@"删除选中的简历");
+                NSLog(@"选中简历类型 1 删除选中的简历");
+                break;
+            case 200:
+                NSLog(@"选中简历类型 2 取消收藏选中的简历");
+                break;
+            case 2000:
+                NSLog(@"选中简历类型 3 收藏选中的简历");
+                break;
+            case 3000:
+                NSLog(@"选中简历类型 3 删除选中的简历");
                 break;
             default:
                 break;
         }
     }
-   
+}
+#pragma mark - 可点或不可点击的按钮数组
+-(NSArray*)getEnableBtArray
+{
+    NSArray *enableArray = nil;
+    if (resumeCategory ==1) {
+        enableArray = [NSArray arrayWithObjects:@"20",@"30", nil];
+    }else if (resumeCategory ==2)
+    {
+        enableArray = [NSArray arrayWithObjects:@"200", nil];
+    }else
+    {
+        enableArray = [NSArray arrayWithObjects:@"2000",@"3000", nil];
+    }
+    return enableArray;
 }
 #pragma mark -
 #pragma mark - 初始化tableView
