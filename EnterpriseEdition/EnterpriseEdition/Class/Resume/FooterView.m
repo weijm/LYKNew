@@ -8,6 +8,7 @@
 
 #import "FooterView.h"
 #import "ResumeChooseBtView.h"
+#import "UIButton+Custom.h"
 
 
 
@@ -46,7 +47,21 @@
 -(void)chooseBtAction:(NSInteger)index
 {
     NSLog(@"footer index == %ld",index);
-    self.chooseFooterBtAction(index);
+    if (index == 10) {//判断 是全选 还是取消全选
+        ResumeChooseBtView *btView = (ResumeChooseBtView *)[subView viewWithTag:index];
+        if (btView.chooseBt.specialMark == 0) {
+            btView.chooseBt.specialMark =1;
+            self.chooseFooterBtAction(index,YES);
+        }else
+        {
+            btView.chooseBt.specialMark = 0;
+            self.chooseFooterBtAction(index,NO);
+        }
+    }else
+    {
+        self.chooseFooterBtAction(index,NO);
+    }
+    
 }
 //设置按钮可点击或不可点击
 -(void)setButton:(NSArray*)array Enable:(BOOL)isEnable
@@ -58,6 +73,12 @@
             tempView.userInteractionEnabled = isEnable;
         }
     }
+}
+//取消全选按钮 被选中的状态
+-(void)revertChooseBtByIndex:(int)index
+{
+    ResumeChooseBtView *tempView = (ResumeChooseBtView*)[subView viewWithTag:index];
+    tempView.chooseBt.specialMark = 0;
 }
 //显示footerView
 -(void)showFooterView:(UIView*)supview

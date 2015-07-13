@@ -13,11 +13,15 @@
     
     IBOutlet UIView *subView;
 }
-@property (nonatomic,copy)void(^chooseFooterBtAction)(NSInteger index);
+@property (nonatomic,copy)void(^chooseFooterBtAction)(NSInteger index,BOOL isAll);
 /**
  设置按钮可点击或不可点击
  */
 -(void)setButton:(NSArray*)array Enable:(BOOL)isEnable;
+/**
+ 取消全选按钮 被选中的状态
+ */
+-(void)revertChooseBtByIndex:(int)index;
 /**
  显示footerView
  */
