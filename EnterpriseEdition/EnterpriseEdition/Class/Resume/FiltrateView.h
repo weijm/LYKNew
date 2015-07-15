@@ -11,7 +11,7 @@
 //选中某一行进行编辑
 -(void)didSelectedRow:(int)row;
 //确定或取消的触发事件 yes确定 no取消
--(void)makeSureOrCancelAction:(BOOL)sureOrCancel;
+-(void)makeSureOrCancelAction:(BOOL)sureOrCancel Conditions:(NSArray*)conditionArray;
 @end
 @interface FiltrateView : UIView<UITableViewDelegate,UITableViewDataSource>
 {

@@ -21,6 +21,9 @@ typedef enum {
     NSArray *rightArray;
     //目前加载数据标记
     int currentIndex;
+    //是否选择完成
+    BOOL isFinished;
+    NSString *provinceString;
 }
 @property (nonatomic,copy)void(^didSelectedPickerRow)(int row,NSDictionary *dictionary);
 @property(strong,nonatomic) NSMutableDictionary *resultDic;
@@ -28,7 +31,7 @@ typedef enum {
 @property (strong, nonatomic) IBOutlet UILabel *titleLab;
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
 
-
+- (instancetype)initWithFrame:(CGRect)frame pickerStyle:(PickerStyle)pickerStyle;
 //加载不同的pickerView的内容
 -(void)loadData:(int)index;
 

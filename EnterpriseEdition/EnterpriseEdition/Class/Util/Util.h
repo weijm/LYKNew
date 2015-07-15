@@ -27,7 +27,10 @@
  根据数组中的类名称，title，image 生成tabbar的Viewcontrollers
  */
 +(NSMutableArray*)generateViewControllerByName:(NSDictionary*)classInfoDic;
-
+/**
+ 获取bundle下文件的路径
+ */
++(NSString*)getBundlePath:(NSString*)fileName;
 /**
  根据颜色获取对应色值的图片
  */

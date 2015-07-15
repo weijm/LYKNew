@@ -20,49 +20,34 @@
     HeaderView *headerView;
     //编辑全部的底部视图
     FooterView *footerView;
-    
     UITableView *dataTableView;
     //收到的简历数据数组
     NSMutableArray *dataArray;
-    
     //当前操作的cell
     ResumeTableViewCell *currentCell;
-    
     //点击事件
     UITapGestureRecognizer *tap;
-    
    //是否出现全部编辑的标志
     BOOL isEdit;
- 
     //简历类别
     int resumeCategory; //1:收到的简历 2：收藏的简历 3：已下载的简历
-    
     //全选时 选择记录数组
     NSMutableArray *chooseArray;
-    
     //筛选视图
     FiltrateView *filtrateView;
 }
-
 @end
-
 @implementation ResumeViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     //导航条右侧按钮
     [self initItems];
-    
     self.view.backgroundColor = Rgb(220, 241, 252, 1.0);
-    
     //初始化headerView
     [self initHeaderView];
-    
     dataArray = [[NSMutableArray alloc] initWithArray:[self getContentData:0]];
-    
     [self initTableView];
-    
     isEdit = NO;
     //默认是收到的简历
     resumeCategory = 1;
@@ -71,12 +56,10 @@
         [chooseArray addObject:@"0"];
     }
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 #pragma mark - navigation上的左右按钮
 -(void)initItems
 {
@@ -125,8 +108,6 @@
     footerView.tag = 1000;
     //初始化按钮
     [footerView loadEditButton:resumeCategory];
-    
-    
     //设置除了全选按钮可点击 其余按钮不可点击
     [footerView setButton:[self getEnableBtArray] Enable:NO];
     //点击按钮的触发事件
@@ -280,9 +261,7 @@
     [cell changeLocation:isEdit Selected:[isSelected intValue] ];
     //取消点击cell选中效果
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
     return cell;
-
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -290,8 +269,6 @@
     NSArray *subArray = [dictionary objectForKey:@"sign"];
     int row = [Util getRow:(int)[subArray count] eachCount:4];
     float bottomH = [self getCellBottomHeight:row];
-
-    
     return bottomH + kHeaderViewH+ kMiddleViewH + [Util myYOrHeight:6];
 }
 #pragma mark - 根据标签的行数确定cell的高度
@@ -319,15 +296,12 @@
         currentCell = cell;
         tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(revertCell)];
         [dataTableView addGestureRecognizer:tap];
-        
     }
-    
 }
 -(void)revertCell
 {
     [currentCell revertView];
     [dataTableView removeGestureRecognizer:tap];
-    
 }
 //点击选中按钮
 -(void)clickedChooseBtAction:(int)index Selected:(NSString*)isSelected
@@ -347,23 +321,33 @@
             [footerView revertChooseBtByIndex:10];
         }
     }
-    
 }
 #pragma mark - 综合筛选FiltrateViewDelegate
 -(void)didSelectedRow:(int)row
 {
     CGRect frame = CGRectMake(0, kHeight, kWidth, 258);
-    FiltratePickerView *pickerView = [[FiltratePickerView alloc] initWithFrame:frame];
+    int style = 0;
+    if(row == 5)
+    {
+        style = 1;
+    }
+    NSArray *titleArray = [NSArray arrayWithObjects:@"按 职  位",@"阅读状态",@"学      历",@"期望薪资",@"专      业",@"期望城市",@"工作经验", nil];
+    
+    FiltratePickerView *pickerView = [[FiltratePickerView alloc] initWithFrame:frame pickerStyle:style];
     pickerView.didSelectedPickerRow = ^(int index,NSDictionary *dictionary){
         [self showConditions:index Content:dictionary];
     };
+    pickerView.titleLab.text = [titleArray objectAtIndex:row];
     [pickerView loadData:row];
     [pickerView showInView:self.view];
+    
 }
--(void)makeSureOrCancelAction:(BOOL)sureOrCancel
+-(void)makeSureOrCancelAction:(BOOL)sureOrCancel Conditions:(NSArray *)conditionArray
 {
     if (sureOrCancel) {
         NSLog(@"确定 筛选条件");
+        NSMutableArray *conArray = [NSMutableArray arrayWithArray:conditionArray];
+        NSLog(@"conditionArray == %@",conArray);
         //确定搜索条件 进行搜索
         [filtrateView removeFromSuperview];
     }else
@@ -377,7 +361,6 @@
 #pragma mark -将筛选条件显示到界面
 -(void)showConditions:(int)row Content:(NSDictionary*)dictionary
 {
-    NSLog(@"row == %d,content== %@",row,[dictionary objectForKey:@"content"]);
     [filtrateView reloadTableView:row withContent:dictionary];
 }
 #pragma mark - 获取数据
@@ -410,7 +393,6 @@
         }
         [array addObject:[NSDictionary dictionaryWithObjectsAndKeys:job,@"job",urgent,@"urgent",colledted,@"collected",download,@"download",time,@"time",name,@"name",@"女",@"sex",@"UI设计师",@"selfjob",age,@"age",@"本科",@"record",money,@"money",@"艺术设计",@"professional",@"中国传媒大学",@"school",exp,@"experience",subArr,@"sign",nil]];
     }
-    
     return array;
 }
 @end

@@ -19,28 +19,13 @@
 
     // Configure the view for the selected state
 }
-//显示什么视图
--(void)showContentView:(int)index
-{
-    if(index == 5)
-    {
-        contentBg.hidden = YES;
-        areBg.hidden = NO;
-   
-    }else{
-        contentBg.hidden = NO;
-        areBg.hidden = YES;
-    }
-}
+
 //重置编辑视图
 -(void)resetEditTextField
 {
     _contentTextFiled.placeholder = @"不限";
     _contentTextFiled.text = nil;
-    _cityTextFiled.placeholder = @"不限";
-    _cityTextFiled.text = nil;
-    _provinceTextFiled.placeholder = @"不限";
-    _provinceTextFiled.text = nil;
+    
 }
 //设置编辑内容
 -(void)setEditContent:(NSObject*)object
@@ -48,6 +33,9 @@
     if ([object isKindOfClass:[NSDictionary class]]) {
         NSDictionary *dic = (NSDictionary*)object;
         _contentTextFiled.text = [dic objectForKey:@"content"];
+        
     }
 }
+
+
 @end

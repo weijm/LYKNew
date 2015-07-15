@@ -10,7 +10,6 @@
 #import "FiltrateTableViewCell.h"
 
 
-
 @implementation FiltrateView
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -41,9 +40,9 @@
     FiltrateTableViewCell *cell = (FiltrateTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"FiltrateTableViewCell" owner:self options:nil] lastObject];
-        [cell showContentView:(int)indexPath.row];
         
     }
+    cell.tag = indexPath.row;
     cell.titleLab.text = [titleArray objectAtIndex:indexPath.row];
     if (isReset) {
         //重置编辑视图
@@ -86,7 +85,6 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didSelectRowAtIndexPath == %ld",(long)indexPath.row);
     if ([_delegate respondsToSelector:@selector(didSelectedRow:)]) {
         [_delegate didSelectedRow:(int)indexPath.row];
     }
@@ -117,14 +115,14 @@
 }
 //确认的触发事件
 - (IBAction)makeSure:(id)sender {
-    if ([_delegate respondsToSelector:@selector(makeSureOrCancelAction:)]) {
-        [_delegate makeSureOrCancelAction:YES];
+    if ([_delegate respondsToSelector:@selector(makeSureOrCancelAction:Conditions:)]) {
+        [_delegate makeSureOrCancelAction:YES Conditions:contentArray];
         
     }
 }
 - (IBAction)cancelFiltrateView:(id)sender {
-    if ([_delegate respondsToSelector:@selector(makeSureOrCancelAction:)]) {
-        [_delegate makeSureOrCancelAction:NO];
+    if ([_delegate respondsToSelector:@selector(makeSureOrCancelAction:Conditions:)]) {
+        [_delegate makeSureOrCancelAction:NO Conditions:nil];
     }
 }
 

@@ -108,6 +108,12 @@
     }
     return vcArray;
 }
+#pragma mark - 获取bundle下文件的路径
++(NSString*)getBundlePath:(NSString*)fileName
+{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@""];
+    return filePath;
+}
 //根据颜色获取对应色值的图片
 + (UIImage *)imageWithColor:(UIColor *)color
 {
