@@ -10,6 +10,7 @@
 #import "BannerView.h"
 #import "HireView.h"
 #import "CommendView.h"
+#import "LocationViewController.h"
 
 
 #define kBannerViewHeight [Util myYOrHeight:200]
@@ -55,7 +56,12 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:Rgb(230, 230, 230,0.0)] forBarMetrics:UIBarMetricsDefault];
+    //导航栏下面是否显示内容
+    [self.navigationController.navigationBar setTranslucent:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -143,6 +149,9 @@
 -(void)leftAction
 {
     NSLog(@"leftAction");
+    LocationViewController *locationVC = [[LocationViewController alloc] init];
+    [self.navigationController pushViewController:locationVC animated:YES];
+    
     
 }
 -(void)rightAction

@@ -9,6 +9,7 @@
 #import "ResumeViewController.h"
 #import "HeaderView.h"
 #import "FooterView.h"
+#import "FiltratePickerView.h"
 
 
 #define kHeaderViewHeight [Util myYOrHeight:80]
@@ -38,6 +39,9 @@
     
     //全选时 选择记录数组
     NSMutableArray *chooseArray;
+    
+    //筛选视图
+    FiltrateView *filtrateView;
 }
 
 @end
@@ -143,6 +147,10 @@
         ResumeViewController *sself = wself;
         [sself chooseAction:index isChooseAll:NO];
     };
+    headerView.clickedFiltrateAction = ^{
+        ResumeViewController *sself = wself;
+        [sself filtrateAction];
+    };
     [self.view addSubview:headerView];
 }
 #pragma mark - headerView和fooerView上的选择不同按钮的触发事件
@@ -153,6 +161,7 @@
             case 0:
                 dataArray = [[NSMutableArray alloc] initWithArray:[self getContentData:0]];
                 resumeCategory = 1;
+                
                 break;
             case 1:
                 dataArray = [[NSMutableArray alloc] initWithArray:[self getContentData:1]];
@@ -165,6 +174,7 @@
         }
         resumeCategory = (int)index +1;
         [dataTableView reloadData];
+        [filtrateView changeTitleArray:resumeCategory];
     }else
     {
         switch (index) {
@@ -199,6 +209,19 @@
                 break;
         }
     }
+}
+#pragma mark - 筛选按钮触发的事件
+-(void)filtrateAction
+{
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    self.tabBarController.tabBar.hidden = YES;
+    float filtrateH = headerView.frame.origin.y+kHeaderViewHeight-[Util myYOrHeight:17];
+    CGRect frame = CGRectMake(0, filtrateH, kWidth, kHeight-filtrateH);
+    filtrateView = [[FiltrateView alloc] initWithFrame:frame];
+    filtrateView.delegate = self;
+    //根据所选简历分类 加载的筛选内容不同
+    [filtrateView changeTitleArray:resumeCategory];
+    [self.view addSubview:filtrateView];
 }
 #pragma mark - 可点或不可点击的按钮数组
 -(NSArray*)getEnableBtArray
@@ -325,6 +348,37 @@
         }
     }
     
+}
+#pragma mark - 综合筛选FiltrateViewDelegate
+-(void)didSelectedRow:(int)row
+{
+    CGRect frame = CGRectMake(0, kHeight, kWidth, 258);
+    FiltratePickerView *pickerView = [[FiltratePickerView alloc] initWithFrame:frame];
+    pickerView.didSelectedPickerRow = ^(int index,NSDictionary *dictionary){
+        [self showConditions:index Content:dictionary];
+    };
+    [pickerView loadData:row];
+    [pickerView showInView:self.view];
+}
+-(void)makeSureOrCancelAction:(BOOL)sureOrCancel
+{
+    if (sureOrCancel) {
+        NSLog(@"确定 筛选条件");
+        //确定搜索条件 进行搜索
+        [filtrateView removeFromSuperview];
+    }else
+    {
+        NSLog(@"取消");
+        [filtrateView removeFromSuperview];
+    }
+    self.tabBarController.tabBar.hidden = NO;
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+}
+#pragma mark -将筛选条件显示到界面
+-(void)showConditions:(int)row Content:(NSDictionary*)dictionary
+{
+    NSLog(@"row == %d,content== %@",row,[dictionary objectForKey:@"content"]);
+    [filtrateView reloadTableView:row withContent:dictionary];
 }
 #pragma mark - 获取数据
 -(NSMutableArray*)getContentData:(int)index

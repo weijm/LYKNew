@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import <QMapKit/QMapKit.h>
 
 @interface AppDelegate ()
 
@@ -20,6 +21,12 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
+    
+    [QMapServices sharedServices].apiKey = @"OXWBZ-MZHR4-77TUD-DXUNN-R2FPZ-YBB2J";
+    CLLocationManager* locationManager = [[CLLocationManager alloc] init];
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        [locationManager requestWhenInUseAuthorization];
+    }
     
     RootViewController *rootVC = [[RootViewController alloc] init];
     

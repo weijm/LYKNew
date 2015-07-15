@@ -67,4 +67,8 @@
     //事件处理
     self.chooseHeaderBtAction(index);
 }
+//点击删选按钮 触发的事件
+- (IBAction)clickedFiltreateBtAction:(id)sender {
+    self.clickedFiltrateAction();
+}
 @end
