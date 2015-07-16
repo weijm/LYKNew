@@ -26,6 +26,7 @@
         filtrateTableView.backgroundColor = [UIColor clearColor];
         titleArray = [[NSMutableArray alloc] initWithObjects:@"按 职  位",@"阅读状态",@"学      历",@"期望薪资",@"专      业",@"期望城市",@"工作经验", nil];
         contentArray = [[NSMutableArray alloc] initWithObjects:@"0",@"0",@"0",@"0",@"0",@"0",@"0", nil];
+        filtrateTableView.tableFooterView = [self footerView];
     }
     return self;
 }
@@ -59,10 +60,22 @@
     
     return cell;
 }
--(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    float cellH = 50;
-    
+    if ([_delegate respondsToSelector:@selector(didSelectedRow:)]) {
+        [_delegate didSelectedRow:(int)indexPath.row];
+    }
+}
+#pragma mark - TableFooterView
+-(UIView*)footerView
+{
+    float cellH ;
+    if (kIphone4) {
+        cellH = 40;
+    }else
+    {
+        cellH =50;
+    }
     float footerH = self.frame.size.height - cellH*7;
     UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, footerH)];
     footer.userInteractionEnabled = YES;
@@ -76,18 +89,6 @@
     [filtrateBt addTarget:self action:@selector(resetFiltrate) forControlEvents:UIControlEventTouchUpInside];
     [footer addSubview:filtrateBt];
     return footer;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    float cellH = 50;
-    float footerH = self.frame.size.height - cellH*7;
-    return footerH;
-}
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([_delegate respondsToSelector:@selector(didSelectedRow:)]) {
-        [_delegate didSelectedRow:(int)indexPath.row];
-    }
 }
 //根据选择不同的简历筛选标题不同
 -(void)changeTitleArray:(int)index

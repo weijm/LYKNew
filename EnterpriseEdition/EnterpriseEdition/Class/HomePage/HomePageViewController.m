@@ -93,12 +93,19 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
+        if(kIphone4)
+        {
+            return 150;
+        }
         return kBannerViewHeight;
     }else if(indexPath.row == 1)
     {
         return kHireViewHeight;
     }else
     {
+        if (kIphone4) {
+            return kHeight -150-kHireViewHeight;
+        }
         return kHeight -kBannerViewHeight-kHireViewHeight-[Util myYOrHeight:45];
     }
 }
@@ -180,6 +187,9 @@
 - (void)initCommendView:(UIView*)view
 {
     float commendViewH = kHeight - kBannerViewHeight-kHireViewHeight - [Util myYOrHeight:45];
+    if (kIphone4) {
+        commendViewH = kHeight - 150-kHireViewHeight ;
+    }
     //假数据
     NSArray *dataArray = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"UI设计师",@"job",@"王伟",@"name",@"艺术设计",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"ios开发师",@"job",@"赵倩",@"name",@"计算机专业",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"java开发",@"job",@"王东志",@"name",@"软件工程",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"web开发",@"job",@"刘一民",@"name",@"数学专业",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"前段设计",@"job",@"李浩",@"name",@"外语专业",@"pro", nil], nil];
     

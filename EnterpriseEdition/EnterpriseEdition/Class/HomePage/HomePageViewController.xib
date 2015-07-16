@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
@@ -16,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6uZ-9c-nJH" userLabel="contentTableVew">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="555"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="MTl-dA-Uvf"/>
@@ -28,7 +29,7 @@
             <constraints>
                 <constraint firstItem="6uZ-9c-nJH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4yw-h6-WOa"/>
                 <constraint firstItem="6uZ-9c-nJH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6gO-Eu-NhI"/>
-                <constraint firstAttribute="bottom" secondItem="6uZ-9c-nJH" secondAttribute="bottom" id="RIY-wk-Wyj"/>
+                <constraint firstAttribute="bottom" secondItem="6uZ-9c-nJH" secondAttribute="bottom" constant="45" id="RIY-wk-Wyj"/>
                 <constraint firstAttribute="trailing" secondItem="6uZ-9c-nJH" secondAttribute="trailing" id="SoE-W2-Lhb"/>
             </constraints>
         </view>
