@@ -15,6 +15,20 @@
 		201A9C881B538FC500664792 /* FiltratePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 201A9C871B538FC500664792 /* FiltratePickerView.xib */; };
 		201A9C8B1B53C37300664792 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 201A9C891B53C37300664792 /* area.plist */; };
 		201A9C8C1B53C37300664792 /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = 201A9C8A1B53C37300664792 /* city.plist */; };
+		201EDB101B575F0F0080A12A /* JobIntensionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 201EDB0E1B575F0F0080A12A /* JobIntensionTableViewCell.m */; };
+		201EDB111B575F0F0080A12A /* JobIntensionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 201EDB0F1B575F0F0080A12A /* JobIntensionTableViewCell.xib */; };
+		201EDB151B57819E0080A12A /* EducationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 201EDB131B57819E0080A12A /* EducationTableViewCell.m */; };
+		201EDB161B57819E0080A12A /* EducationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 201EDB141B57819E0080A12A /* EducationTableViewCell.xib */; };
+		201EDB1A1B5795AB0080A12A /* HobbiesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 201EDB181B5795AB0080A12A /* HobbiesTableViewCell.m */; };
+		201EDB1B1B5795AB0080A12A /* HobbiesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 201EDB191B5795AB0080A12A /* HobbiesTableViewCell.xib */; };
+		201EDB1F1B579BE90080A12A /* ExperienceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 201EDB1D1B579BE90080A12A /* ExperienceTableViewCell.m */; };
+		201EDB201B579BE90080A12A /* ExperienceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 201EDB1E1B579BE90080A12A /* ExperienceTableViewCell.xib */; };
+		201EDB2E1B579C7C0080A12A /* CertificateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 201EDB2C1B579C7C0080A12A /* CertificateTableViewCell.m */; };
+		201EDB2F1B579C7C0080A12A /* CertificateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 201EDB2D1B579C7C0080A12A /* CertificateTableViewCell.xib */; };
+		201EDB321B57AA6A0080A12A /* ExperienceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 201EDB311B57AA6A0080A12A /* ExperienceView.m */; };
+		201EDB341B57AA770080A12A /* ExperienceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 201EDB331B57AA770080A12A /* ExperienceView.xib */; };
+		201EDB371B57AA8F0080A12A /* CertificateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 201EDB361B57AA8F0080A12A /* CertificateView.m */; };
+		201EDB391B57AA9C0080A12A /* CertificateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 201EDB381B57AA9C0080A12A /* CertificateView.xib */; };
 		202223501B566E0C00D63910 /* back_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2022234F1B566E0C00D63910 /* back_bt@2x.png */; };
 		202223521B566EF000D63910 /* back_bt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 202223511B566EF000D63910 /* back_bt@3x.png */; };
 		202223561B5670A600D63910 /* IdentityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 202223541B5670A600D63910 /* IdentityTableViewCell.m */; };
@@ -143,6 +157,27 @@
 		201A9C871B538FC500664792 /* FiltratePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FiltratePickerView.xib; sourceTree = "<group>"; };
 		201A9C891B53C37300664792 /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
 		201A9C8A1B53C37300664792 /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city.plist; sourceTree = "<group>"; };
+		201EDB0D1B575F0F0080A12A /* JobIntensionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobIntensionTableViewCell.h; sourceTree = "<group>"; };
+		201EDB0E1B575F0F0080A12A /* JobIntensionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobIntensionTableViewCell.m; sourceTree = "<group>"; };
+		201EDB0F1B575F0F0080A12A /* JobIntensionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobIntensionTableViewCell.xib; sourceTree = "<group>"; };
+		201EDB121B57819E0080A12A /* EducationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationTableViewCell.h; sourceTree = "<group>"; };
+		201EDB131B57819E0080A12A /* EducationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationTableViewCell.m; sourceTree = "<group>"; };
+		201EDB141B57819E0080A12A /* EducationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EducationTableViewCell.xib; sourceTree = "<group>"; };
+		201EDB171B5795AB0080A12A /* HobbiesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HobbiesTableViewCell.h; sourceTree = "<group>"; };
+		201EDB181B5795AB0080A12A /* HobbiesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HobbiesTableViewCell.m; sourceTree = "<group>"; };
+		201EDB191B5795AB0080A12A /* HobbiesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HobbiesTableViewCell.xib; sourceTree = "<group>"; };
+		201EDB1C1B579BE90080A12A /* ExperienceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExperienceTableViewCell.h; sourceTree = "<group>"; };
+		201EDB1D1B579BE90080A12A /* ExperienceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExperienceTableViewCell.m; sourceTree = "<group>"; };
+		201EDB1E1B579BE90080A12A /* ExperienceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExperienceTableViewCell.xib; sourceTree = "<group>"; };
+		201EDB2B1B579C7C0080A12A /* CertificateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CertificateTableViewCell.h; sourceTree = "<group>"; };
+		201EDB2C1B579C7C0080A12A /* CertificateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CertificateTableViewCell.m; sourceTree = "<group>"; };
+		201EDB2D1B579C7C0080A12A /* CertificateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CertificateTableViewCell.xib; sourceTree = "<group>"; };
+		201EDB301B57AA6A0080A12A /* ExperienceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExperienceView.h; sourceTree = "<group>"; };
+		201EDB311B57AA6A0080A12A /* ExperienceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExperienceView.m; sourceTree = "<group>"; };
+		201EDB331B57AA770080A12A /* ExperienceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExperienceView.xib; sourceTree = "<group>"; };
+		201EDB351B57AA8F0080A12A /* CertificateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CertificateView.h; sourceTree = "<group>"; };
+		201EDB361B57AA8F0080A12A /* CertificateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CertificateView.m; sourceTree = "<group>"; };
+		201EDB381B57AA9C0080A12A /* CertificateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CertificateView.xib; sourceTree = "<group>"; };
 		2022234F1B566E0C00D63910 /* back_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_bt@2x.png"; sourceTree = "<group>"; };
 		202223511B566EF000D63910 /* back_bt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_bt@3x.png"; sourceTree = "<group>"; };
 		202223531B5670A600D63910 /* IdentityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdentityTableViewCell.h; sourceTree = "<group>"; };
@@ -696,6 +731,27 @@
 				202223531B5670A600D63910 /* IdentityTableViewCell.h */,
 				202223541B5670A600D63910 /* IdentityTableViewCell.m */,
 				202223551B5670A600D63910 /* IdentityTableViewCell.xib */,
+				201EDB0D1B575F0F0080A12A /* JobIntensionTableViewCell.h */,
+				201EDB0E1B575F0F0080A12A /* JobIntensionTableViewCell.m */,
+				201EDB0F1B575F0F0080A12A /* JobIntensionTableViewCell.xib */,
+				201EDB121B57819E0080A12A /* EducationTableViewCell.h */,
+				201EDB131B57819E0080A12A /* EducationTableViewCell.m */,
+				201EDB141B57819E0080A12A /* EducationTableViewCell.xib */,
+				201EDB171B5795AB0080A12A /* HobbiesTableViewCell.h */,
+				201EDB181B5795AB0080A12A /* HobbiesTableViewCell.m */,
+				201EDB191B5795AB0080A12A /* HobbiesTableViewCell.xib */,
+				201EDB1C1B579BE90080A12A /* ExperienceTableViewCell.h */,
+				201EDB1D1B579BE90080A12A /* ExperienceTableViewCell.m */,
+				201EDB1E1B579BE90080A12A /* ExperienceTableViewCell.xib */,
+				201EDB301B57AA6A0080A12A /* ExperienceView.h */,
+				201EDB311B57AA6A0080A12A /* ExperienceView.m */,
+				201EDB331B57AA770080A12A /* ExperienceView.xib */,
+				201EDB2B1B579C7C0080A12A /* CertificateTableViewCell.h */,
+				201EDB2C1B579C7C0080A12A /* CertificateTableViewCell.m */,
+				201EDB2D1B579C7C0080A12A /* CertificateTableViewCell.xib */,
+				201EDB351B57AA8F0080A12A /* CertificateView.h */,
+				201EDB361B57AA8F0080A12A /* CertificateView.m */,
+				201EDB381B57AA9C0080A12A /* CertificateView.xib */,
 				202223581B56710C00D63910 /* TitleView.h */,
 				202223591B56710C00D63910 /* TitleView.m */,
 				2022235B1B56711C00D63910 /* TitleView.xib */,
@@ -793,11 +849,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				201EDB341B57AA770080A12A /* ExperienceView.xib in Resources */,
 				20BB620B1B4E46DD006BD455 /* ResumeChooseBtView.xib in Resources */,
 				201A9C8B1B53C37300664792 /* area.plist in Resources */,
 				203542F41B4CBB45007FF4A8 /* LoginViewController.xib in Resources */,
 				2097D3191B462F9900611432 /* BannerView.xib in Resources */,
 				203542D21B4CBA89007FF4A8 /* home_icon@3x.png in Resources */,
+				201EDB111B575F0F0080A12A /* JobIntensionTableViewCell.xib in Resources */,
+				201EDB1B1B5795AB0080A12A /* HobbiesTableViewCell.xib in Resources */,
 				2035432A1B4CF630007FF4A8 /* homepage_hire_icon3@2x.png in Resources */,
 				20BB62211B4E5C8D006BD455 /* CellMiddleView.xib in Resources */,
 				2035430A1B4CBD15007FF4A8 /* PositionViewController.xib in Resources */,
@@ -806,6 +865,7 @@
 				2097D2E41B461E7000611432 /* LaunchScreen.xib in Resources */,
 				203543341B4CFBC2007FF4A8 /* CommendView.xib in Resources */,
 				203543141B4CBD8A007FF4A8 /* HomePageViewController.xib in Resources */,
+				201EDB391B57AA9C0080A12A /* CertificateView.xib in Resources */,
 				202223501B566E0C00D63910 /* back_bt@2x.png in Resources */,
 				201A9C7D1B535FDA00664792 /* FiltrateView.xib in Resources */,
 				203542F21B4CBB45007FF4A8 /* CreateUserViewController.xib in Resources */,
@@ -815,6 +875,7 @@
 				2022235C1B56711C00D63910 /* TitleView.xib in Resources */,
 				20D1CDF11B563ED900E97935 /* resume_edit@2x.png in Resources */,
 				20D1CDF31B563ED900E97935 /* resume_urgent@2x.png in Resources */,
+				201EDB2F1B579C7C0080A12A /* CertificateTableViewCell.xib in Resources */,
 				2097D3131B462F0A00611432 /* RootViewController.xib in Resources */,
 				203543211B4CD7C1007FF4A8 /* HireView.xib in Resources */,
 				203542F01B4CBB45007FF4A8 /* CreateUserTableViewCell.xib in Resources */,
@@ -838,6 +899,7 @@
 				203542D01B4CBA89007FF4A8 /* community_icon@3x.png in Resources */,
 				20BB62281B4E6E6F006BD455 /* resume_protrait_default@2x.png in Resources */,
 				20A258B21B50C5F50082F04A /* resume_choose_selected_bt@2x.png in Resources */,
+				201EDB201B579BE90080A12A /* ExperienceTableViewCell.xib in Resources */,
 				201A9C8C1B53C37300664792 /* city.plist in Resources */,
 				20D1CDF21B563ED900E97935 /* resume_download@2x.png in Resources */,
 				2097D30D1B462D5000611432 /* home_setting_btn_n@2x.png in Resources */,
@@ -850,6 +912,7 @@
 				20F8FDC61B4F9F8C008BCEE7 /* resume_prompt3@2x.png in Resources */,
 				20BB62161B4E5622006BD455 /* CellHeaderView.xib in Resources */,
 				203543231B4CF46F007FF4A8 /* homepage_hire_icon1@2x.png in Resources */,
+				201EDB161B57819E0080A12A /* EducationTableViewCell.xib in Resources */,
 				2097D32B1B46928F00611432 /* HomePageTableViewCell.xib in Resources */,
 				2035430F1B4CBD40007FF4A8 /* ResumeViewController.xib in Resources */,
 				203543051B4CBCB1007FF4A8 /* InfoViewController.xib in Resources */,
@@ -878,12 +941,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				201EDB1A1B5795AB0080A12A /* HobbiesTableViewCell.m in Sources */,
 				201A9C821B53634E00664792 /* FiltrateTableViewCell.m in Sources */,
 				2035431F1B4CD7B0007FF4A8 /* HireView.m in Sources */,
 				203543091B4CBD15007FF4A8 /* PositionViewController.m in Sources */,
 				202223561B5670A600D63910 /* IdentityTableViewCell.m in Sources */,
 				201A9C861B538FB500664792 /* FiltratePickerView.m in Sources */,
+				201EDB371B57AA8F0080A12A /* CertificateView.m in Sources */,
 				20BB62091B4E46CB006BD455 /* ResumeChooseBtView.m in Sources */,
+				201EDB1F1B579BE90080A12A /* ExperienceTableViewCell.m in Sources */,
+				201EDB321B57AA6A0080A12A /* ExperienceView.m in Sources */,
 				20BB61EF1B4DFC25006BD455 /* SinglePersonalView.m in Sources */,
 				203542F11B4CBB45007FF4A8 /* CreateUserViewController.m in Sources */,
 				2097D31E1B46390C00611432 /* Util.m in Sources */,
@@ -893,6 +960,7 @@
 				20D1CDF81B56474500E97935 /* ResumeInfoViewController.m in Sources */,
 				2097D2D91B461E7000611432 /* AppDelegate.m in Sources */,
 				20BB621F1B4E5C7C006BD455 /* CellMiddleView.m in Sources */,
+				201EDB101B575F0F0080A12A /* JobIntensionTableViewCell.m in Sources */,
 				203543321B4CFBAD007FF4A8 /* CommendView.m in Sources */,
 				20BB620F1B4E54B9006BD455 /* ResumeTableViewCell.m in Sources */,
 				2097D2D61B461E7000611432 /* main.m in Sources */,
@@ -909,12 +977,14 @@
 				20D1CDEA1B56325100E97935 /* InfoHeaderView.m in Sources */,
 				20D58BB11B54FACD007B2A3F /* LocationViewController.m in Sources */,
 				2035430E1B4CBD40007FF4A8 /* ResumeViewController.m in Sources */,
+				201EDB2E1B579C7C0080A12A /* CertificateTableViewCell.m in Sources */,
 				203542EF1B4CBB45007FF4A8 /* CreateUserTableViewCell.m in Sources */,
 				20BB62241B4E638A006BD455 /* CellBottomView.m in Sources */,
 				203542F71B4CBB45007FF4A8 /* RegisterUserViewController.m in Sources */,
 				20BB62141B4E5611006BD455 /* CellHeaderView.m in Sources */,
 				208EBDB51B4A82D800AB0730 /* CustomLabel.m in Sources */,
 				203542F91B4CBB45007FF4A8 /* RegisterView.m in Sources */,
+				201EDB151B57819E0080A12A /* EducationTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

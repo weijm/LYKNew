@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="身份信息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGZ-si-KM8" userLabel="titleLab">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="15"/>
+                    <rect key="frame" x="0.0" y="5" width="320" height="15"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="eLa-N4-eAl"/>
@@ -26,42 +26,54 @@
                     <color key="textColor" red="0.0" green="0.48627450980392156" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Od7-AL-8uw" userLabel="cornerView">
-                    <rect key="frame" x="156" y="77" width="7" height="7"/>
-                    <color key="backgroundColor" red="0.066579187480790933" green="0.49770351056311285" blue="0.94732341800356501" alpha="1" colorSpace="calibratedRGB"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EYw-ih-8rp" userLabel="bg">
+                    <rect key="frame" x="0.0" y="24" width="320" height="138"/>
+                    <subviews>
+                        <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NgR-Ab-jBl" userLabel="line1">
+                            <rect key="frame" x="159" y="0.0" width="1" height="63.5"/>
+                            <color key="backgroundColor" red="0.14929206007685575" green="0.5008177279556445" blue="0.92164916627373739" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="Uq3-Mv-uU8"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Od7-AL-8uw" userLabel="cornerView">
+                            <rect key="frame" x="156" y="65.5" width="7" height="7"/>
+                            <color key="backgroundColor" red="0.066579187480790933" green="0.49770351056311285" blue="0.94732341800356501" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="7" id="JDW-aT-xKL"/>
+                                <constraint firstAttribute="height" constant="7" id="ljQ-3w-9gA"/>
+                            </constraints>
+                        </view>
+                        <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aON-Iq-zg3" userLabel="line2">
+                            <rect key="frame" x="159.5" y="74.5" width="1" height="63.5"/>
+                            <color key="backgroundColor" red="0.14929206010000001" green="0.50081772800000002" blue="0.92164916630000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="nfG-KA-tJ4"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="7" id="JDW-aT-xKL"/>
-                        <constraint firstAttribute="height" constant="7" id="ljQ-3w-9gA"/>
-                    </constraints>
-                </view>
-                <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NgR-Ab-jBl" userLabel="line1">
-                    <rect key="frame" x="159" y="87" width="1" height="71.5"/>
-                    <color key="backgroundColor" red="0.14929206007685575" green="0.5008177279556445" blue="0.92164916627373739" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="1" id="Uq3-Mv-uU8"/>
-                    </constraints>
-                </view>
-                <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aON-Iq-zg3" userLabel="line2">
-                    <rect key="frame" x="159" y="18" width="1" height="56.5"/>
-                    <color key="backgroundColor" red="0.14929206010000001" green="0.50081772800000002" blue="0.92164916630000004" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="1" id="nfG-KA-tJ4"/>
+                        <constraint firstItem="NgR-Ab-jBl" firstAttribute="top" secondItem="EYw-ih-8rp" secondAttribute="top" id="ItH-YM-aAo"/>
+                        <constraint firstAttribute="centerX" secondItem="NgR-Ab-jBl" secondAttribute="centerX" id="K1D-d7-F63"/>
+                        <constraint firstAttribute="centerX" secondItem="aON-Iq-zg3" secondAttribute="centerX" id="Odx-jI-gdy"/>
+                        <constraint firstAttribute="centerX" secondItem="Od7-AL-8uw" secondAttribute="centerX" id="RrA-4n-s3u"/>
+                        <constraint firstItem="Od7-AL-8uw" firstAttribute="top" secondItem="NgR-Ab-jBl" secondAttribute="bottom" constant="2" id="hIR-no-sBg"/>
+                        <constraint firstAttribute="centerY" secondItem="Od7-AL-8uw" secondAttribute="centerY" id="mPR-gA-x1A"/>
+                        <constraint firstItem="aON-Iq-zg3" firstAttribute="top" secondItem="Od7-AL-8uw" secondAttribute="bottom" constant="2" id="mVt-0s-iy6"/>
+                        <constraint firstAttribute="bottom" secondItem="aON-Iq-zg3" secondAttribute="bottom" id="wEv-1I-41o"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="aON-Iq-zg3" firstAttribute="top" secondItem="VGZ-si-KM8" secondAttribute="bottom" constant="3" id="065-kS-f72"/>
-                <constraint firstAttribute="centerX" secondItem="aON-Iq-zg3" secondAttribute="centerX" id="2MI-9f-xRH"/>
-                <constraint firstAttribute="bottom" secondItem="NgR-Ab-jBl" secondAttribute="bottom" constant="3" id="A4b-Kw-ZVZ"/>
-                <constraint firstAttribute="centerX" secondItem="NgR-Ab-jBl" secondAttribute="centerX" id="GXG-aa-tHf"/>
-                <constraint firstItem="NgR-Ab-jBl" firstAttribute="top" secondItem="Od7-AL-8uw" secondAttribute="bottom" constant="3" id="OE3-4h-a7j"/>
+                <constraint firstAttribute="trailing" secondItem="EYw-ih-8rp" secondAttribute="trailing" id="9Zx-eM-wlH"/>
+                <constraint firstAttribute="bottom" secondItem="EYw-ih-8rp" secondAttribute="bottom" id="AzR-eX-F8A"/>
+                <constraint firstItem="EYw-ih-8rp" firstAttribute="top" secondItem="VGZ-si-KM8" secondAttribute="bottom" constant="4" id="OEQ-9f-Q4f"/>
                 <constraint firstItem="VGZ-si-KM8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="XVd-B3-I0p"/>
                 <constraint firstAttribute="trailing" secondItem="VGZ-si-KM8" secondAttribute="trailing" id="deG-41-8xq"/>
-                <constraint firstAttribute="centerY" secondItem="Od7-AL-8uw" secondAttribute="centerY" id="hF9-q8-xSL"/>
-                <constraint firstAttribute="centerX" secondItem="Od7-AL-8uw" secondAttribute="centerX" id="nny-23-kLA"/>
-                <constraint firstItem="Od7-AL-8uw" firstAttribute="top" secondItem="aON-Iq-zg3" secondAttribute="bottom" constant="3" id="sdj-98-G58"/>
-                <constraint firstItem="VGZ-si-KM8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zSW-x4-M0a"/>
+                <constraint firstItem="EYw-ih-8rp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="u0T-mY-49p"/>
+                <constraint firstItem="VGZ-si-KM8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="zSW-x4-M0a"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>

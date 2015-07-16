@@ -12,6 +12,5 @@
 {
     IBOutlet UITableView *infoTableView;
 
-    
 }
 @end

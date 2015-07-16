@@ -1,19 +1,19 @@
 //
-//  IdentityTableViewCell.m
-//  身份信息Cell
+//  JobIntensionTableViewCell.m
+//  求职意向Cell
 //
-//  Created by wjm on 15/7/15.
+//  Created by wjm on 15/7/16.
 //  Copyright (c) 2015年 lyk. All rights reserved.
 //
 
-#import "IdentityTableViewCell.h"
+#import "JobIntensionTableViewCell.h"
+#import "TitleView.h"
 
-@implementation IdentityTableViewCell
+@implementation JobIntensionTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
-    addressToTop.constant = 5.5;
-    
+    titleView.titleLab.text = @"求职意向";
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -22,8 +22,4 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)lookUpInfo:(id)sender {
-    littleInfoBg.hidden = YES;
-    infoBg.hidden = NO;
-}
 @end
