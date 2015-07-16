@@ -15,6 +15,12 @@
 		201A9C881B538FC500664792 /* FiltratePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 201A9C871B538FC500664792 /* FiltratePickerView.xib */; };
 		201A9C8B1B53C37300664792 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 201A9C891B53C37300664792 /* area.plist */; };
 		201A9C8C1B53C37300664792 /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = 201A9C8A1B53C37300664792 /* city.plist */; };
+		202223501B566E0C00D63910 /* back_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2022234F1B566E0C00D63910 /* back_bt@2x.png */; };
+		202223521B566EF000D63910 /* back_bt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 202223511B566EF000D63910 /* back_bt@3x.png */; };
+		202223561B5670A600D63910 /* IdentityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 202223541B5670A600D63910 /* IdentityTableViewCell.m */; };
+		202223571B5670A600D63910 /* IdentityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 202223551B5670A600D63910 /* IdentityTableViewCell.xib */; };
+		2022235A1B56710C00D63910 /* TitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 202223591B56710C00D63910 /* TitleView.m */; };
+		2022235C1B56711C00D63910 /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2022235B1B56711C00D63910 /* TitleView.xib */; };
 		203542CF1B4CBA89007FF4A8 /* community_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203542CB1B4CBA89007FF4A8 /* community_icon@2x.png */; };
 		203542D01B4CBA89007FF4A8 /* community_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203542CC1B4CBA89007FF4A8 /* community_icon@3x.png */; };
 		203542D11B4CBA89007FF4A8 /* home_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203542CD1B4CBA89007FF4A8 /* home_icon@2x.png */; };
@@ -93,6 +99,14 @@
 		20BB62281B4E6E6F006BD455 /* resume_protrait_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BB62271B4E6E6F006BD455 /* resume_protrait_default@2x.png */; };
 		20BE75901B51041E00A92504 /* FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BE758F1B51041E00A92504 /* FooterView.m */; };
 		20BE75921B51042D00A92504 /* FooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BE75911B51042D00A92504 /* FooterView.xib */; };
+		20D1CDEA1B56325100E97935 /* InfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D1CDE91B56325100E97935 /* InfoHeaderView.m */; };
+		20D1CDEC1B56326100E97935 /* InfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D1CDEB1B56326100E97935 /* InfoHeaderView.xib */; };
+		20D1CDF11B563ED900E97935 /* resume_edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D1CDED1B563ED900E97935 /* resume_edit@2x.png */; };
+		20D1CDF21B563ED900E97935 /* resume_download@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D1CDEE1B563ED900E97935 /* resume_download@2x.png */; };
+		20D1CDF31B563ED900E97935 /* resume_urgent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D1CDEF1B563ED900E97935 /* resume_urgent@2x.png */; };
+		20D1CDF41B563ED900E97935 /* resume_collected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D1CDF01B563ED900E97935 /* resume_collected@2x.png */; };
+		20D1CDF81B56474500E97935 /* ResumeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D1CDF61B56474500E97935 /* ResumeInfoViewController.m */; };
+		20D1CDF91B56474500E97935 /* ResumeInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D1CDF71B56474500E97935 /* ResumeInfoViewController.xib */; };
 		20D58BA71B54F814007B2A3F /* QMapKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20D58BA61B54F814007B2A3F /* QMapKit.bundle */; };
 		20D58BA91B54F82C007B2A3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D58BA81B54F82C007B2A3F /* QuartzCore.framework */; };
 		20D58BAB1B54F834007B2A3F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D58BAA1B54F834007B2A3F /* CoreLocation.framework */; };
@@ -129,6 +143,14 @@
 		201A9C871B538FC500664792 /* FiltratePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FiltratePickerView.xib; sourceTree = "<group>"; };
 		201A9C891B53C37300664792 /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
 		201A9C8A1B53C37300664792 /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city.plist; sourceTree = "<group>"; };
+		2022234F1B566E0C00D63910 /* back_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_bt@2x.png"; sourceTree = "<group>"; };
+		202223511B566EF000D63910 /* back_bt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_bt@3x.png"; sourceTree = "<group>"; };
+		202223531B5670A600D63910 /* IdentityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdentityTableViewCell.h; sourceTree = "<group>"; };
+		202223541B5670A600D63910 /* IdentityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdentityTableViewCell.m; sourceTree = "<group>"; };
+		202223551B5670A600D63910 /* IdentityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IdentityTableViewCell.xib; sourceTree = "<group>"; };
+		202223581B56710C00D63910 /* TitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleView.h; sourceTree = "<group>"; };
+		202223591B56710C00D63910 /* TitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleView.m; sourceTree = "<group>"; };
+		2022235B1B56711C00D63910 /* TitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleView.xib; sourceTree = "<group>"; };
 		203542CB1B4CBA89007FF4A8 /* community_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "community_icon@2x.png"; sourceTree = "<group>"; };
 		203542CC1B4CBA89007FF4A8 /* community_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "community_icon@3x.png"; sourceTree = "<group>"; };
 		203542CD1B4CBA89007FF4A8 /* home_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_icon@2x.png"; sourceTree = "<group>"; };
@@ -241,6 +263,16 @@
 		20BE758E1B51041E00A92504 /* FooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FooterView.h; sourceTree = "<group>"; };
 		20BE758F1B51041E00A92504 /* FooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FooterView.m; sourceTree = "<group>"; };
 		20BE75911B51042D00A92504 /* FooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FooterView.xib; sourceTree = "<group>"; };
+		20D1CDE81B56325100E97935 /* InfoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoHeaderView.h; sourceTree = "<group>"; };
+		20D1CDE91B56325100E97935 /* InfoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoHeaderView.m; sourceTree = "<group>"; };
+		20D1CDEB1B56326100E97935 /* InfoHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoHeaderView.xib; sourceTree = "<group>"; };
+		20D1CDED1B563ED900E97935 /* resume_edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_edit@2x.png"; sourceTree = "<group>"; };
+		20D1CDEE1B563ED900E97935 /* resume_download@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_download@2x.png"; sourceTree = "<group>"; };
+		20D1CDEF1B563ED900E97935 /* resume_urgent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_urgent@2x.png"; sourceTree = "<group>"; };
+		20D1CDF01B563ED900E97935 /* resume_collected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_collected@2x.png"; sourceTree = "<group>"; };
+		20D1CDF51B56474500E97935 /* ResumeInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResumeInfoViewController.h; sourceTree = "<group>"; };
+		20D1CDF61B56474500E97935 /* ResumeInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResumeInfoViewController.m; sourceTree = "<group>"; };
+		20D1CDF71B56474500E97935 /* ResumeInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResumeInfoViewController.xib; sourceTree = "<group>"; };
 		20D58BA61B54F814007B2A3F /* QMapKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = QMapKit.bundle; sourceTree = "<group>"; };
 		20D58BA81B54F82C007B2A3F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		20D58BAA1B54F834007B2A3F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -372,6 +404,9 @@
 				2035430B1B4CBD40007FF4A8 /* ResumeViewController.h */,
 				2035430C1B4CBD40007FF4A8 /* ResumeViewController.m */,
 				2035430D1B4CBD40007FF4A8 /* ResumeViewController.xib */,
+				20D1CDF51B56474500E97935 /* ResumeInfoViewController.h */,
+				20D1CDF61B56474500E97935 /* ResumeInfoViewController.m */,
+				20D1CDF71B56474500E97935 /* ResumeInfoViewController.xib */,
 			);
 			path = Resume;
 			sourceTree = "<group>";
@@ -595,6 +630,7 @@
 		20BB61FE1B4E25F1006BD455 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				20D1CDE71B56322400E97935 /* ResumeInfo */,
 				201A9C7E1B53608500664792 /* FiltrateView */,
 				20BB62111B4E55DC006BD455 /* cell */,
 				20BB61FF1B4E260A006BD455 /* HeaderView.h */,
@@ -613,6 +649,12 @@
 		20BB62041B4E4025006BD455 /* Resume */ = {
 			isa = PBXGroup;
 			children = (
+				202223511B566EF000D63910 /* back_bt@3x.png */,
+				2022234F1B566E0C00D63910 /* back_bt@2x.png */,
+				20D1CDED1B563ED900E97935 /* resume_edit@2x.png */,
+				20D1CDEE1B563ED900E97935 /* resume_download@2x.png */,
+				20D1CDEF1B563ED900E97935 /* resume_urgent@2x.png */,
+				20D1CDF01B563ED900E97935 /* resume_collected@2x.png */,
 				20A258B31B50C5FF0082F04A /* resume_choose_bt@2x.png */,
 				20A258B11B50C5F50082F04A /* resume_choose_selected_bt@2x.png */,
 				20F8FDC91B4FBBD5008BCEE7 /* resume_delete_bt@2x.png */,
@@ -643,6 +685,22 @@
 				20BB62251B4E639A006BD455 /* CellBottomView.xib */,
 			);
 			name = cell;
+			sourceTree = "<group>";
+		};
+		20D1CDE71B56322400E97935 /* ResumeInfo */ = {
+			isa = PBXGroup;
+			children = (
+				20D1CDE81B56325100E97935 /* InfoHeaderView.h */,
+				20D1CDE91B56325100E97935 /* InfoHeaderView.m */,
+				20D1CDEB1B56326100E97935 /* InfoHeaderView.xib */,
+				202223531B5670A600D63910 /* IdentityTableViewCell.h */,
+				202223541B5670A600D63910 /* IdentityTableViewCell.m */,
+				202223551B5670A600D63910 /* IdentityTableViewCell.xib */,
+				202223581B56710C00D63910 /* TitleView.h */,
+				202223591B56710C00D63910 /* TitleView.m */,
+				2022235B1B56711C00D63910 /* TitleView.xib */,
+			);
+			name = ResumeInfo;
 			sourceTree = "<group>";
 		};
 		20D58BA11B54F763007B2A3F /* QMap */ = {
@@ -703,6 +761,7 @@
 				TargetAttributes = {
 					2097D2CF1B461E7000611432 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 592RZ5R2AV;
 					};
 					2097D2E81B461E7000611432 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -743,14 +802,19 @@
 				20BB62211B4E5C8D006BD455 /* CellMiddleView.xib in Resources */,
 				2035430A1B4CBD15007FF4A8 /* PositionViewController.xib in Resources */,
 				2097D32F1B46961400611432 /* homepage_suppinfo_icon2@2x.png in Resources */,
+				20D1CDF91B56474500E97935 /* ResumeInfoViewController.xib in Resources */,
 				2097D2E41B461E7000611432 /* LaunchScreen.xib in Resources */,
 				203543341B4CFBC2007FF4A8 /* CommendView.xib in Resources */,
 				203543141B4CBD8A007FF4A8 /* HomePageViewController.xib in Resources */,
+				202223501B566E0C00D63910 /* back_bt@2x.png in Resources */,
 				201A9C7D1B535FDA00664792 /* FiltrateView.xib in Resources */,
 				203542F21B4CBB45007FF4A8 /* CreateUserViewController.xib in Resources */,
 				20F8FDCA1B4FBBD5008BCEE7 /* resume_delete_bt@2x.png in Resources */,
 				20BB62261B4E639B006BD455 /* CellBottomView.xib in Resources */,
 				2097D2E11B461E7000611432 /* Images.xcassets in Resources */,
+				2022235C1B56711C00D63910 /* TitleView.xib in Resources */,
+				20D1CDF11B563ED900E97935 /* resume_edit@2x.png in Resources */,
+				20D1CDF31B563ED900E97935 /* resume_urgent@2x.png in Resources */,
 				2097D3131B462F0A00611432 /* RootViewController.xib in Resources */,
 				203543211B4CD7C1007FF4A8 /* HireView.xib in Resources */,
 				203542F01B4CBB45007FF4A8 /* CreateUserTableViewCell.xib in Resources */,
@@ -765,19 +829,24 @@
 				20F8FDC41B4F9F8C008BCEE7 /* resume_prompt2@2x.png in Resources */,
 				203543361B4D0225007FF4A8 /* homepage_commend_img@2x.png in Resources */,
 				2035432C1B4CF630007FF4A8 /* homepage_hire_icon5@2x.png in Resources */,
+				20D1CDF41B563ED900E97935 /* resume_collected@2x.png in Resources */,
+				202223521B566EF000D63910 /* back_bt@3x.png in Resources */,
 				203542F81B4CBB45007FF4A8 /* RegisterUserViewController.xib in Resources */,
 				203543191B4CCB35007FF4A8 /* 11@2x.png in Resources */,
 				2097D32D1B46957B00611432 /* homepage_right_bt@2x.png in Resources */,
+				20D1CDEC1B56326100E97935 /* InfoHeaderView.xib in Resources */,
 				203542D01B4CBA89007FF4A8 /* community_icon@3x.png in Resources */,
 				20BB62281B4E6E6F006BD455 /* resume_protrait_default@2x.png in Resources */,
 				20A258B21B50C5F50082F04A /* resume_choose_selected_bt@2x.png in Resources */,
 				201A9C8C1B53C37300664792 /* city.plist in Resources */,
+				20D1CDF21B563ED900E97935 /* resume_download@2x.png in Resources */,
 				2097D30D1B462D5000611432 /* home_setting_btn_n@2x.png in Resources */,
 				203543291B4CF630007FF4A8 /* homepage_hire_icon2@2x.png in Resources */,
 				20A258B41B50C5FF0082F04A /* resume_choose_bt@2x.png in Resources */,
 				2035432B1B4CF630007FF4A8 /* homepage_hire_icon4@2x.png in Resources */,
 				2035432D1B4CF630007FF4A8 /* homepage_hire_icon6@2x.png in Resources */,
 				20D58BA71B54F814007B2A3F /* QMapKit.bundle in Resources */,
+				202223571B5670A600D63910 /* IdentityTableViewCell.xib in Resources */,
 				20F8FDC61B4F9F8C008BCEE7 /* resume_prompt3@2x.png in Resources */,
 				20BB62161B4E5622006BD455 /* CellHeaderView.xib in Resources */,
 				203543231B4CF46F007FF4A8 /* homepage_hire_icon1@2x.png in Resources */,
@@ -812,13 +881,16 @@
 				201A9C821B53634E00664792 /* FiltrateTableViewCell.m in Sources */,
 				2035431F1B4CD7B0007FF4A8 /* HireView.m in Sources */,
 				203543091B4CBD15007FF4A8 /* PositionViewController.m in Sources */,
+				202223561B5670A600D63910 /* IdentityTableViewCell.m in Sources */,
 				201A9C861B538FB500664792 /* FiltratePickerView.m in Sources */,
 				20BB62091B4E46CB006BD455 /* ResumeChooseBtView.m in Sources */,
 				20BB61EF1B4DFC25006BD455 /* SinglePersonalView.m in Sources */,
 				203542F11B4CBB45007FF4A8 /* CreateUserViewController.m in Sources */,
 				2097D31E1B46390C00611432 /* Util.m in Sources */,
 				2097D3171B462F8500611432 /* BannerView.m in Sources */,
+				2022235A1B56710C00D63910 /* TitleView.m in Sources */,
 				203543131B4CBD8A007FF4A8 /* HomePageViewController.m in Sources */,
+				20D1CDF81B56474500E97935 /* ResumeInfoViewController.m in Sources */,
 				2097D2D91B461E7000611432 /* AppDelegate.m in Sources */,
 				20BB621F1B4E5C7C006BD455 /* CellMiddleView.m in Sources */,
 				203543321B4CFBAD007FF4A8 /* CommendView.m in Sources */,
@@ -834,6 +906,7 @@
 				203542F31B4CBB45007FF4A8 /* LoginViewController.m in Sources */,
 				203543041B4CBCB1007FF4A8 /* InfoViewController.m in Sources */,
 				208EBDB21B4A82CE00AB0730 /* MarkupParser.m in Sources */,
+				20D1CDEA1B56325100E97935 /* InfoHeaderView.m in Sources */,
 				20D58BB11B54FACD007B2A3F /* LocationViewController.m in Sources */,
 				2035430E1B4CBD40007FF4A8 /* ResumeViewController.m in Sources */,
 				203542EF1B4CBB45007FF4A8 /* CreateUserTableViewCell.m in Sources */,
@@ -915,7 +988,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "1febdbd8-25de-4952-8749-9817e0609b78";
+				PROVISIONING_PROFILE = "23f754a4-db61-45c5-92c9-e72599161ce0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -954,7 +1027,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "1febdbd8-25de-4952-8749-9817e0609b78";
+				PROVISIONING_PROFILE = "23f754a4-db61-45c5-92c9-e72599161ce0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -966,6 +1039,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EnterpriseEdition/Class/Third/QMap",
@@ -976,7 +1051,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1febdbd8-25de-4952-8749-9817e0609b78";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -985,6 +1060,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EnterpriseEdition/Class/Third/QMap",
@@ -995,7 +1072,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1febdbd8-25de-4952-8749-9817e0609b78";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -10,6 +10,7 @@
 #import "HeaderView.h"
 #import "FooterView.h"
 #import "FiltratePickerView.h"
+#import "ResumeInfoViewController.h"
 
 
 #define kHeaderViewHeight [Util myYOrHeight:80]
@@ -55,7 +56,9 @@
     for (int i =0; i<[dataArray count]; i++) {
         [chooseArray addObject:@"0"];
     }
+    
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -270,6 +273,17 @@
     int row = [Util getRow:(int)[subArray count] eachCount:4];
     float bottomH = [self getCellBottomHeight:row];
     return bottomH + kHeaderViewH+ kMiddleViewH + [Util myYOrHeight:6];
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+        
+
+
+    ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
+ 
+    infoVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:infoVC animated:YES];
+    
 }
 #pragma mark - 根据标签的行数确定cell的高度
 -(CGFloat)getCellBottomHeight:(int)row

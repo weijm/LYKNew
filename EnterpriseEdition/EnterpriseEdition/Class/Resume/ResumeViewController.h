@@ -11,5 +11,7 @@
 #import "FiltrateView.h"
 
 @interface ResumeViewController : UIViewController<ResumeTableViewCellDelegate,FiltrateViewDelegate>
-
+{
+    
+}
 @end
