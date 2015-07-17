@@ -9,7 +9,13 @@
 #import "FiltratePickerView.h"
 
 @implementation FiltratePickerView
-
+-(Location*)locate
+{
+    if (_locate==nil) {
+        _locate = [[Location alloc] init];
+    }
+    return _locate;
+}
 - (instancetype)initWithFrame:(CGRect)frame pickerStyle:(PickerStyle)pickerStyle
 {
     self = [super initWithFrame:frame];
@@ -22,6 +28,7 @@
         
         _resultDic = [[NSMutableDictionary alloc] init];
         pStyle = pickerStyle;
+        
         [self loadData:0];
         
     }
@@ -30,9 +37,12 @@
 #pragma mark - PickerViewDelegate
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    if (pStyle == PickerStyleArea) {
+    if (pStyle == PickerStyleThreeColumn) {
+        return 3;
+    }else if (pStyle == PickerStyleTwoColumn) {
         return 2;
-    }else
+    }
+    else
     {
         return 1;
     }
@@ -44,8 +54,14 @@
             return [leftArray count];
             break;
         case 1:
-            if (pStyle == PickerStyleArea) {
+            if (pStyle == PickerStyleThreeColumn || pStyle == PickerStyleTwoColumn) {
                 return [rightArray count];
+                break;
+            }
+            
+        case 2:
+            if (pStyle == PickerStyleThreeColumn) {
+                return [subRightArray count];
                 break;
             }
         default:
@@ -55,10 +71,27 @@
 }
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    if (pStyle == PickerStyleArea) {
+    if (pStyle == PickerStyleThreeColumn) {
         switch (component) {
             case 0:
                 return [[leftArray objectAtIndex:row] objectForKey:@"state"];
+                break;
+            case 1:
+                return [[rightArray objectAtIndex:row] objectForKey:@"city"];
+                break;
+            case 2:
+                if ([subRightArray count]>0) {
+                    return [subRightArray objectAtIndex:row];
+                    break;
+                }
+            default:
+                return @"";
+                break;
+        }
+    }else if (pStyle == PickerStyleTwoColumn){
+        switch (component) {
+            case 0:
+                return [[leftArray objectAtIndex:row] objectForKey:@"firstName"];
                 break;
             case 1:
                 if ([rightArray count]>0) {
@@ -69,7 +102,8 @@
                 return @"";
                 break;
         }
-    }else
+    }
+    else
     {
         switch (component) {
             case 0:
@@ -83,32 +117,76 @@
 }
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    NSString *content = @"";
-    if (pStyle == PickerStyleArea) {
+    if (pStyle == PickerStyleThreeColumn) {
         
         switch (component) {
             case 0:
-                provinceString = [[leftArray objectAtIndex:row] objectForKey:@"state"];
                 rightArray = [NSArray arrayWithArray:[[leftArray objectAtIndex:row] objectForKey:@"cities"]];
-                isFinished = NO;
+                [_pickerView selectRow:0 inComponent:1 animated:YES];
                 [_pickerView reloadComponent:1];
+                
+                subRightArray = [[rightArray objectAtIndex:0] objectForKey:@"area"];
+                [_pickerView selectRow:0 inComponent:2 animated:YES];
+                [_pickerView reloadComponent:2];
+                self.locate.state = [[leftArray objectAtIndex:row] objectForKey:@"state"];
+                self.locate.city = [[rightArray objectAtIndex:0] objectForKey:@"city"];
+                if ([subRightArray count] > 0) {
+                    self.locate.district = [subRightArray objectAtIndex:0];
+                } else{
+                    self.locate.district = @"";
+                }
                 break;
             case 1:
-                content = [NSString stringWithFormat:@"%@ %@",provinceString,[rightArray objectAtIndex:row]];
-                isFinished = YES;
-                break;
+                subRightArray = [[rightArray objectAtIndex:row] objectForKey:@"area"];
+                [_pickerView selectRow:0 inComponent:2 animated:YES];
+                [_pickerView reloadComponent:2];
                 
+                self.locate.city = [[rightArray objectAtIndex:row] objectForKey:@"city"];
+                if ([subRightArray count] > 0) {
+                    _locate.district = [subRightArray objectAtIndex:0];
+                } else{
+                    self.locate.district = @"";
+                }
+                break;
+            case 2:
+                if ([subRightArray count] > 0) {
+                    self.locate.district = [subRightArray objectAtIndex:row];
+                } else{
+                    self.locate.district = @"";
+                }
+                break;
             default:
                 break;
         }
         
-    }else
+    }
+    else if (pStyle == PickerStyleTwoColumn){
+        switch (component) {
+            case 0:
+                rightArray = [[leftArray objectAtIndex:row] objectForKey:@"secondArray"];
+                
+                [_pickerView selectRow:0 inComponent:1 animated:YES];
+                [_pickerView reloadComponent:1];
+                
+                self.locate.state = [[leftArray objectAtIndex:row] objectForKey:@"firstName"];
+                if ([rightArray count]>0) {
+                    self.locate.city = [rightArray objectAtIndex:0];
+                }
+                break;
+            case 1:
+                self.locate.city = [rightArray objectAtIndex:row];
+                break;
+            default:
+                break;
+        }
+        
+    }
+    else
     {
         switch (component) {
             case 0:
             {
-                content = [leftArray objectAtIndex:row];
-                isFinished = YES;
+                self.locate.country = [leftArray objectAtIndex:row];
             }
             break;
             default:
@@ -116,41 +194,63 @@
         }
    
     }
-    if (isFinished) {
-        [_resultDic setObject:content forKey:@"content"];
-        self.didSelectedPickerRow(currentIndex,_resultDic);
-    }
-    isFinished = NO;
+    
 }
 -(void)loadData:(int)index
 {
     currentIndex = index;
     switch (index) {
-        case 0:
-            leftArray = [NSArray arrayWithObjects:@"java开发工程师", @"UI设计师",@"安卓开发工程师",@"ios开发工程师",@"前端设计师",nil];
-            break;
         case 1:
             leftArray = [NSArray arrayWithObjects:@"已查看", @"未查看",nil];
+            self.locate.country = [leftArray objectAtIndex:0];
             break;
         case 2:
             leftArray = [NSArray arrayWithObjects:@"中专", @"大专",@"本科",@"硕士",@"博士",@"博士后",nil];
+            self.locate.country = [leftArray objectAtIndex:0];
             break;
         case 3:
             leftArray = [NSArray arrayWithObjects:@"2000-3000", @"3000-4000",@"5000-10000",@"10000-15000",@"15000以上",@"面议",nil];
+            self.locate.country = [leftArray objectAtIndex:0];
             break;
+        case 0:
         case 4:
-            leftArray = [NSArray arrayWithObjects:@"UI设计", @"计算机专业",@"软件工程",@"电子自动化",@"会计",@"外语",nil];
+        {
+            NSString *fileName;
+            if (index == 0) {
+                fileName = @"jobType.plist";
+            }else
+            {
+                fileName = @"major.plist";
+            }
+            leftArray = [NSArray arrayWithContentsOfFile:[Util getBundlePath:fileName]];
+            self.locate.country = [leftArray objectAtIndex:0];
+            NSDictionary *dic = [leftArray objectAtIndex:0];
+            rightArray = [NSArray arrayWithArray:[dic objectForKey:@"secondArray"]];
+            self.locate.state = [dic objectForKey:@"firstName"];//省
+            if ([rightArray count]>0) {
+                self.locate.city = [rightArray objectAtIndex:0];
+            }
+        }
             break;
         case 5:
         {
             leftArray = [NSArray arrayWithContentsOfFile:[Util getBundlePath:@"city.plist"]];
             NSDictionary *dic = [leftArray objectAtIndex:0];
             rightArray = [NSArray arrayWithArray:[dic objectForKey:@"cities"]];
-            provinceString = [[leftArray objectAtIndex:0] objectForKey:@"state"];
+            self.locate.state = [dic objectForKey:@"state"];//省
+            self.locate.city = [[rightArray objectAtIndex:0] objectForKey:@"city"];//市
+            subRightArray = [[rightArray objectAtIndex:0] objectForKey:@"area"];
+            if (subRightArray.count > 0) {//区
+                self.locate.district = [subRightArray objectAtIndex:0];
+            } else{
+                self.locate.district = @"";
+            }
+            
         }
             break;
         case 6:
             leftArray = [NSArray arrayWithObjects:@"没有工作经验", @"工作经验2年",@"工作经验3-5年",@"工作经验5年以上",@"工作经验10年以上",nil];
+            self.locate.country = [leftArray objectAtIndex:0];
             break;
             
         default:
@@ -201,6 +301,30 @@
         [areaBg removeFromSuperview];
         [self removeFromSuperview];
     }];
+}
+
+- (IBAction)finishedAction:(id)sender {
+    
+    if (pStyle == PickerStyleNormal) {//普通的
+        if (self.locate.country !=nil) {
+            [_resultDic setObject:self.locate.country forKey:@"content"];
+            self.didSelectedPickerRow(currentIndex,_resultDic);
+        }
+        
+    }else//地区
+    {
+        [_resultDic setObject:self.locate.state forKey:@"province"];
+        [_resultDic setObject:self.locate.city forKey:@"city"];
+        if (self.locate.district!=nil) {
+            [_resultDic setObject:self.locate.district forKey:@"district"];
+        }else{
+            [_resultDic setObject:@"" forKey:@"district"];
+        }
+        
+        self.didSelectedPickerRow(currentIndex,_resultDic);
+
+    }
+    [self cancelPicker];
 }
 
 @end

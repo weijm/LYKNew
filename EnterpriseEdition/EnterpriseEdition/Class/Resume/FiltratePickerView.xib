@@ -43,6 +43,19 @@
                                 <constraint firstAttribute="height" constant="1" id="n9d-Y8-sZf"/>
                             </constraints>
                         </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Znb-NX-5dv" userLabel="finished">
+                            <rect key="frame" x="303" y="0.0" width="60" height="41"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="z3d-P2-IEQ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="完成">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="finishedAction:" destination="-1" eventType="touchUpInside" id="WIj-An-R4E"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -51,8 +64,11 @@
                         <constraint firstItem="keM-hC-Q98" firstAttribute="top" secondItem="9SG-oc-ej2" secondAttribute="top" id="EJf-PY-OTB"/>
                         <constraint firstAttribute="trailing" secondItem="keM-hC-Q98" secondAttribute="trailing" id="F6C-lm-jYj"/>
                         <constraint firstItem="5N6-uC-J16" firstAttribute="leading" secondItem="9SG-oc-ej2" secondAttribute="leading" id="Gpy-3C-nUp"/>
+                        <constraint firstAttribute="trailing" secondItem="Znb-NX-5dv" secondAttribute="trailing" constant="10" id="HON-cy-XhQ"/>
+                        <constraint firstAttribute="bottom" secondItem="Znb-NX-5dv" secondAttribute="bottom" id="Uiy-y7-j3X"/>
                         <constraint firstItem="keM-hC-Q98" firstAttribute="leading" secondItem="9SG-oc-ej2" secondAttribute="leading" id="Wno-6U-KPP"/>
                         <constraint firstAttribute="trailing" secondItem="5N6-uC-J16" secondAttribute="trailing" id="mNb-Jc-Qf1"/>
+                        <constraint firstItem="Znb-NX-5dv" firstAttribute="top" secondItem="9SG-oc-ej2" secondAttribute="top" id="wFd-7B-ag8"/>
                     </constraints>
                 </view>
             </subviews>

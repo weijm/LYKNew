@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Location.h"
 typedef enum {
-    PickerStyleNormal,
-    PickerStyleArea
+    PickerStyleNormal = 0,
+    PickerStyleTwoColumn,
+    PickerStyleThreeColumn
 }PickerStyle;
 
 @interface FiltratePickerView : UIView<UIPickerViewDataSource,UIPickerViewDelegate>
@@ -19,12 +21,14 @@ typedef enum {
     NSArray *leftArray;
     //pickerView坐起第二列的数组
     NSArray *rightArray;
+    //第3列数组
+    NSArray *subRightArray;
     //目前加载数据标记
     int currentIndex;
-    //是否选择完成
-    BOOL isFinished;
-    NSString *provinceString;
+    
+    
 }
+@property (strong,nonatomic) Location *locate;
 @property (nonatomic,copy)void(^didSelectedPickerRow)(int row,NSDictionary *dictionary);
 @property(strong,nonatomic) NSMutableDictionary *resultDic;
 //pickerView上的titlab
@@ -38,4 +42,7 @@ typedef enum {
 -(void)showInView:(UIView*)view;
 
 -(void)cancelPicker;
+
+- (IBAction)finishedAction:(id)sender;
+
 @end

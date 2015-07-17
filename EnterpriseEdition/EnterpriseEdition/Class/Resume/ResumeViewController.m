@@ -341,7 +341,10 @@
 {
     CGRect frame = CGRectMake(0, kHeight, kWidth, 258);
     int style = 0;
-    if(row == 5)
+    if(row == 5)//地区
+    {
+        style = 2;
+    }else if(row == 4||row==0)//专业
     {
         style = 1;
     }
@@ -375,7 +378,24 @@
 #pragma mark -将筛选条件显示到界面
 -(void)showConditions:(int)row Content:(NSDictionary*)dictionary
 {
-    [filtrateView reloadTableView:row withContent:dictionary];
+    if (row == 5 || row == 4 || row ==0) {//地区 此处可以查询对应的id
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        NSString *province = [dictionary objectForKey:@"province"];
+        NSString *city = [dictionary objectForKey:@"city"];
+        NSString *district = [dictionary objectForKey:@"district"];
+        NSString *content;
+        if ([province isEqualToString:city]) {
+            content = [NSString stringWithFormat:@"%@ %@",province,district];
+        }else
+        {
+            content = [NSString stringWithFormat:@"%@ %@ %@",province,city,district];
+        }
+        [dic setObject:content forKey:@"content"];
+        [filtrateView reloadTableView:row withContent:dic];
+    }else
+    {//其他
+        [filtrateView reloadTableView:row withContent:dictionary];
+    }
 }
 #pragma mark - 获取数据
 -(NSMutableArray*)getContentData:(int)index
