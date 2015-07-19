@@ -51,8 +51,6 @@
 		203542FA1B4CBB45007FF4A8 /* RegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203542EE1B4CBB45007FF4A8 /* RegisterView.xib */; };
 		203543041B4CBCB1007FF4A8 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203543021B4CBCB1007FF4A8 /* InfoViewController.m */; };
 		203543051B4CBCB1007FF4A8 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203543031B4CBCB1007FF4A8 /* InfoViewController.xib */; };
-		203543091B4CBD15007FF4A8 /* PositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203543071B4CBD15007FF4A8 /* PositionViewController.m */; };
-		2035430A1B4CBD15007FF4A8 /* PositionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203543081B4CBD15007FF4A8 /* PositionViewController.xib */; };
 		2035430E1B4CBD40007FF4A8 /* ResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2035430C1B4CBD40007FF4A8 /* ResumeViewController.m */; };
 		2035430F1B4CBD40007FF4A8 /* ResumeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2035430D1B4CBD40007FF4A8 /* ResumeViewController.xib */; };
 		203543131B4CBD8A007FF4A8 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203543111B4CBD8A007FF4A8 /* HomePageViewController.m */; };
@@ -229,9 +227,6 @@
 		203543011B4CBCB1007FF4A8 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		203543021B4CBCB1007FF4A8 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		203543031B4CBCB1007FF4A8 /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
-		203543061B4CBD15007FF4A8 /* PositionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionViewController.h; sourceTree = "<group>"; };
-		203543071B4CBD15007FF4A8 /* PositionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionViewController.m; sourceTree = "<group>"; };
-		203543081B4CBD15007FF4A8 /* PositionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PositionViewController.xib; sourceTree = "<group>"; };
 		2035430B1B4CBD40007FF4A8 /* ResumeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResumeViewController.h; sourceTree = "<group>"; };
 		2035430C1B4CBD40007FF4A8 /* ResumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResumeViewController.m; sourceTree = "<group>"; };
 		2035430D1B4CBD40007FF4A8 /* ResumeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResumeViewController.xib; sourceTree = "<group>"; };
@@ -481,9 +476,6 @@
 		203542FF1B4CBC83007FF4A8 /* Position */ = {
 			isa = PBXGroup;
 			children = (
-				203543061B4CBD15007FF4A8 /* PositionViewController.h */,
-				203543071B4CBD15007FF4A8 /* PositionViewController.m */,
-				203543081B4CBD15007FF4A8 /* PositionViewController.xib */,
 			);
 			path = Position;
 			sourceTree = "<group>";
@@ -1012,7 +1004,6 @@
 				2035432A1B4CF630007FF4A8 /* homepage_hire_icon3@2x.png in Resources */,
 				20A32A3B1B5909AD00E1B5F8 /* OpenPositionViewController.xib in Resources */,
 				20BB62211B4E5C8D006BD455 /* CellMiddleView.xib in Resources */,
-				2035430A1B4CBD15007FF4A8 /* PositionViewController.xib in Resources */,
 				2097D32F1B46961400611432 /* homepage_suppinfo_icon2@2x.png in Resources */,
 				20D1CDF91B56474500E97935 /* ResumeInfoViewController.xib in Resources */,
 				20A32A1A1B58DB9300E1B5F8 /* major.plist in Resources */,
@@ -1104,7 +1095,6 @@
 				201A9C821B53634E00664792 /* FiltrateTableViewCell.m in Sources */,
 				2035431F1B4CD7B0007FF4A8 /* HireView.m in Sources */,
 				20A32A071B58A2CB00E1B5F8 /* FMDatabase.m in Sources */,
-				203543091B4CBD15007FF4A8 /* PositionViewController.m in Sources */,
 				202223561B5670A600D63910 /* IdentityTableViewCell.m in Sources */,
 				201A9C861B538FB500664792 /* FiltratePickerView.m in Sources */,
 				201EDB371B57AA8F0080A12A /* CertificateView.m in Sources */,
