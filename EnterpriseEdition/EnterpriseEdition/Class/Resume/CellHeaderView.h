@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @interface CellHeaderView : UIView
 {
+    IBOutlet UILabel *jobTitLab;
     //应聘岗位
     IBOutlet UILabel *jobLab;
     //急招标志
@@ -18,6 +19,7 @@
     //时间
     IBOutlet UILabel *timeLab;
 }
+@property (nonatomic) int  type;// 0 显示应聘岗位的 1 不显示应聘岗位
 /**
  加载数据
  */

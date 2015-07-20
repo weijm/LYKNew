@@ -24,7 +24,7 @@
         
         filtrateTableView.separatorColor = [UIColor clearColor];
         filtrateTableView.backgroundColor = [UIColor clearColor];
-        titleArray = [[NSMutableArray alloc] initWithObjects:@"按 职  位",@"阅读状态",@"学      历",@"期望薪资",@"专      业",@"期望城市",@"工作经验", nil];
+        titleArray = [[NSMutableArray alloc] initWithObjects:@"按 职  位",@"学      历",@"期望薪资",@"专      业",@"职位类型",@"期望城市",@"工作经验", nil];
         contentArray = [[NSMutableArray alloc] initWithObjects:@"0",@"0",@"0",@"0",@"0",@"0",@"0", nil];
         filtrateTableView.tableFooterView = [self footerView];
     }
@@ -41,10 +41,20 @@
     FiltrateTableViewCell *cell = (FiltrateTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"FiltrateTableViewCell" owner:self options:nil] lastObject];
-        
     }
     cell.tag = indexPath.row;
-    cell.titleLab.text = [titleArray objectAtIndex:indexPath.row];
+    NSString *titleString = [titleArray objectAtIndex:indexPath.row];
+    if ([titleString isEqualToString:@"简历来源"]) {
+        cell.backgroundColor = [UIColor clearColor];
+        cell.titleLab.hidden = YES;
+        cell.contentBg.hidden = YES;
+    }else
+    {
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.titleLab.hidden = NO;
+        cell.contentBg.hidden = NO;
+    }
+    cell.titleLab.text = titleString;
     if (isReset) {
         //重置编辑视图
         [cell resetEditTextField];

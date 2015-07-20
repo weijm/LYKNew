@@ -17,6 +17,11 @@
 //每行的标题
 @property (strong, nonatomic) IBOutlet UILabel *titleLab;
 
+@property (strong,nonatomic)IBOutlet UIView *contentBg;
+/**
+ 加载默认信息
+ */
+-(void)loadDefaultInfo;
 /**
  重置编辑视图
  */

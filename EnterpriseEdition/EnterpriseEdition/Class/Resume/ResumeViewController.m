@@ -120,7 +120,12 @@
         [sself chooseAction:index isChooseAll:isAll];
     };
     [self.view.window addSubview:footerView];
-    [footerView showFooterView:self.view];
+    [UIView animateWithDuration:0.2 animations:^{
+        CGRect frame = footerView.frame;
+        frame.origin.y = kHeight - kFOOTERVIEWH;
+        footerView.frame = frame;
+    }];
+
 }
 #pragma mark - 初始化headerView
 -(void)initHeaderView
@@ -268,38 +273,35 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *dictionary = [dataArray objectAtIndex:indexPath.row];
-    NSArray *subArray = [dictionary objectForKey:@"sign"];
-    int row = [Util getRow:(int)[subArray count] eachCount:4];
-    float bottomH = [self getCellBottomHeight:row];
-    return bottomH + kHeaderViewH+ kMiddleViewH + [Util myYOrHeight:6];
+    //标签的高度
+//    NSDictionary *dictionary = [dataArray objectAtIndex:indexPath.row];
+//    NSArray *subArray = [dictionary objectForKey:@"sign"];
+//    int row = [Util getRow:(int)[subArray count] eachCount:4];
+//    float bottomH = [self getCellBottomHeight:row];
+    return kHeaderViewH+ kMiddleViewH + [Util myYOrHeight:6];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        
-
-
     ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
  
     infoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:infoVC animated:YES];
-    
 }
 #pragma mark - 根据标签的行数确定cell的高度
--(CGFloat)getCellBottomHeight:(int)row
-{
-    float bottomH;
-    if (row ==1) {
-        bottomH = (kIphone6plus)?30:(kIphone6)?33:35;
-    }else if(row==2)
-    {
-        bottomH = (kIphone6plus)?25:(kIphone6)?26:28;
-    }else
-    {
-        bottomH = (kIphone6plus)?23:(kIphone6)?24:25;
-    }
-    return [Util myYOrHeight:bottomH]*row;
-}
+//-(CGFloat)getCellBottomHeight:(int)row
+//{
+//    float bottomH;
+//    if (row ==1) {
+//        bottomH = (kIphone6plus)?30:(kIphone6)?33:35;
+//    }else if(row==2)
+//    {
+//        bottomH = (kIphone6plus)?25:(kIphone6)?26:28;
+//    }else
+//    {
+//        bottomH = (kIphone6plus)?23:(kIphone6)?24:25;
+//    }
+//    return [Util myYOrHeight:bottomH]*row;
+//}
 #pragma mark - ResumeTableViewCellDelegate
 -(void)revertLeftOrRightSwipView:(ResumeTableViewCell*)cell selected:(BOOL)isSelected
 {
@@ -325,12 +327,12 @@
     for (int i= 0; i< [chooseArray count]; i++) {
         NSString *isSelected = [chooseArray objectAtIndex:i];
         if ([isSelected intValue] == 1) {
-            [footerView setButton:[NSArray arrayWithObjects:@"20",@"30", nil] Enable:YES];
+            [footerView setButton:[self getEnableBtArray] Enable:YES];
             break;
         }else if (i == [chooseArray count]-1)
         {
             //后两个按钮不可点击
-            [footerView setButton:[NSArray arrayWithObjects:@"20",@"30", nil] Enable:NO];
+            [footerView setButton:[self getEnableBtArray] Enable:NO];
             //全选按钮取消选中状态
             [footerView revertChooseBtByIndex:10];
         }
@@ -344,17 +346,18 @@
     if(row == 5)//地区
     {
         style = 2;
-    }else if(row == 4||row==0)//专业
+    }else if(row == 3||row==0)//专业 此处修改[self showConditions: Content:]随着修改
     {
         style = 1;
     }
-    NSArray *titleArray = [NSArray arrayWithObjects:@"按 职  位",@"阅读状态",@"学      历",@"期望薪资",@"专      业",@"期望城市",@"工作经验", nil];
+//    NSArray *titleArray = [NSArray arrayWithObjects:@"按 职  位",@"阅读状态",@"学      历",@"期望薪资",@"专      业",@"期望城市",@"工作经验", nil];
     
     FiltratePickerView *pickerView = [[FiltratePickerView alloc] initWithFrame:frame pickerStyle:style];
     pickerView.didSelectedPickerRow = ^(int index,NSDictionary *dictionary){
         [self showConditions:index Content:dictionary];
     };
-    pickerView.titleLab.text = [titleArray objectAtIndex:row];
+    pickerView.categoryType = resumeCategory;
+//    pickerView.titleLab.text = [titleArray objectAtIndex:row];
     [pickerView loadData:row];
     [pickerView showInView:self.view];
     
@@ -378,7 +381,7 @@
 #pragma mark -将筛选条件显示到界面
 -(void)showConditions:(int)row Content:(NSDictionary*)dictionary
 {
-    if (row == 5 || row == 4 || row ==0) {//地区 此处可以查询对应的id
+    if (row == 5 || row == 3 || row ==0) {//地区 此处可以查询对应的id
         NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
         NSString *province = [dictionary objectForKey:@"province"];
         NSString *city = [dictionary objectForKey:@"city"];
@@ -421,11 +424,8 @@
         NSString *urgent = (i%(index+1)==0)?@"1":@"0";
         NSString *colledted = (i%4==0)?@"1":@"0";
         NSString *download = (i%2 == 0)?@"1":@"0";
-        NSMutableArray *subArr = [[NSMutableArray alloc] init];
-        for (int j =0; j<=i+index; j++) {
-            [subArr addObject:@"标签名称"];
-        }
-        [array addObject:[NSDictionary dictionaryWithObjectsAndKeys:job,@"job",urgent,@"urgent",colledted,@"collected",download,@"download",time,@"time",name,@"name",@"女",@"sex",@"UI设计师",@"selfjob",age,@"age",@"本科",@"record",money,@"money",@"艺术设计",@"professional",@"中国传媒大学",@"school",exp,@"experience",subArr,@"sign",nil]];
+        
+        [array addObject:[NSDictionary dictionaryWithObjectsAndKeys:job,@"job",urgent,@"urgent",colledted,@"collected",download,@"download",time,@"time",name,@"name",@"女",@"sex",@"UI设计师",@"selfjob",age,@"age",@"本科",@"record",money,@"money",@"艺术设计",@"professional",@"中国传媒大学",@"school",exp,@"experience",nil]];
     }
     return array;
 }

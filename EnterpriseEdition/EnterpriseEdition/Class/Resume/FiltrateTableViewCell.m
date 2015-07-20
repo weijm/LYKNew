@@ -23,9 +23,26 @@
 //重置编辑视图
 -(void)resetEditTextField
 {
-    _contentTextFiled.placeholder = @"不限";
+    if (self.tag == 5) {
+         _contentTextFiled.placeholder = @"省/市/区（县）";
+    }else
+    {
+         _contentTextFiled.placeholder = @"不限";
+    }
+   
     _contentTextFiled.text = nil;
     
+}
+-(void)loadDefaultInfo
+{
+    if (self.tag == 5) {
+        _contentTextFiled.placeholder = @"省/市/区（县）";
+    }else
+    {
+        _contentTextFiled.placeholder = @"不限";
+    }
+    
+    _contentTextFiled.text = nil;
 }
 //设置编辑内容
 -(void)setEditContent:(NSObject*)object
@@ -34,6 +51,9 @@
         NSDictionary *dic = (NSDictionary*)object;
         _contentTextFiled.text = [dic objectForKey:@"content"];
         
+    }else
+    {
+        [self loadDefaultInfo];
     }
 }
 

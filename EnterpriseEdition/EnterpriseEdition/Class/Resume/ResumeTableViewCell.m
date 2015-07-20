@@ -48,14 +48,13 @@
 {
     //初始化headerView数据
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:dictionary];
-    [dic removeObjectForKey:@"sign"];
     [headerView loadData:dic];
     //初始化middleView数据
     [middleView loadData:dic];
     
     //初始化标签视图
-    NSArray *array = [NSArray arrayWithArray:[dictionary objectForKey:@"sign"]];
-    [self initBottomView:array];
+//    NSArray *array = [NSArray arrayWithArray:[dictionary objectForKey:@"sign"]];
+//    [self initBottomView:array];
 }
 //初始化headerView
 -(void)initHeaderView
@@ -72,23 +71,23 @@
     [bg addSubview:middleView];
 }
 //初始化bottomView
--(void)initBottomView:(NSArray*)array
-{
-    CellBottomView *tempView = (CellBottomView *)[bg viewWithTag:10000];
-    [tempView removeFromSuperview];
-    
-    int  count = (int)array.count;
-    int row = [Util getRow:count eachCount:LabCount];;
-    
-    float labbgH = kBottomEachH*row;
-
-    CGRect frame = CGRectMake(0, kHeaderViewH+kMiddleViewH+[Util myYOrHeight:1], kWidth - [Util myXOrWidth:Edge]*2, labbgH);
-    CellBottomView *bottomView = [[CellBottomView alloc] initWithFrame:frame];
-    bottomView.tag = 10000;
-    [bottomView loadAllLabel:array];
-    [bg addSubview:bottomView];
-    
-}
+//-(void)initBottomView:(NSArray*)array
+//{
+//    CellBottomView *tempView = (CellBottomView *)[bg viewWithTag:10000];
+//    [tempView removeFromSuperview];
+//    
+//    int  count = (int)array.count;
+//    int row = [Util getRow:count eachCount:LabCount];;
+//    
+//    float labbgH = kBottomEachH*row;
+//
+//    CGRect frame = CGRectMake(0, kHeaderViewH+kMiddleViewH+[Util myYOrHeight:1], kWidth - [Util myXOrWidth:Edge]*2, labbgH);
+//    CellBottomView *bottomView = [[CellBottomView alloc] initWithFrame:frame];
+//    bottomView.tag = 10000;
+//    [bottomView loadAllLabel:array];
+//    [bg addSubview:bottomView];
+//    
+//}
 //手势响应事件
 -(void)swipAction:(UISwipeGestureRecognizer*)sender
 {

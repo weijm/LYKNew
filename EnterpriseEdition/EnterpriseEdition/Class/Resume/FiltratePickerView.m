@@ -201,25 +201,30 @@
     currentIndex = index;
     switch (index) {
         case 1:
-            leftArray = [NSArray arrayWithObjects:@"已查看", @"未查看",nil];
+            _titleLab.text = @"学    历 ";
+            leftArray = [NSArray arrayWithObjects:@"不限",@"中专", @"大专",@"本科",@"硕士",@"博士",@"博士后",nil];
             self.locate.country = [leftArray objectAtIndex:0];
             break;
         case 2:
-            leftArray = [NSArray arrayWithObjects:@"中专", @"大专",@"本科",@"硕士",@"博士",@"博士后",nil];
-            self.locate.country = [leftArray objectAtIndex:0];
-            break;
-        case 3:
-            leftArray = [NSArray arrayWithObjects:@"2000-3000", @"3000-4000",@"5000-10000",@"10000-15000",@"15000以上",@"面议",nil];
+            _titleLab.text = @"期望薪资";
+            leftArray = [NSArray arrayWithObjects:@"面议",@"2000-3000", @"3000-4000",@"5000-10000",@"10000-15000",@"15000以上",nil];
             self.locate.country = [leftArray objectAtIndex:0];
             break;
         case 0:
-        case 4:
+        case 3:
         {
             NSString *fileName;
             if (index == 0) {
                 fileName = @"jobType.plist";
+                if (_categoryType ==1) {
+                    _titleLab.text = @"按职位";
+                }else
+                {
+                    _titleLab.text = @"简历来源";
+                }
             }else
             {
+                _titleLab.text = @"专    业";
                 fileName = @"major.plist";
             }
             leftArray = [NSArray arrayWithContentsOfFile:[Util getBundlePath:fileName]];
@@ -232,8 +237,15 @@
             }
         }
             break;
+        case 4:
+            _titleLab.text = @"职位类型";
+            leftArray = [NSArray arrayWithObjects:@"不限", @"全职",@"兼职",@"实习",nil];
+            self.locate.country = [leftArray objectAtIndex:0];
+            break;
+        
         case 5:
         {
+            _titleLab.text = @"期望城市";
             leftArray = [NSArray arrayWithContentsOfFile:[Util getBundlePath:@"city.plist"]];
             NSDictionary *dic = [leftArray objectAtIndex:0];
             rightArray = [NSArray arrayWithArray:[dic objectForKey:@"cities"]];
@@ -249,7 +261,8 @@
         }
             break;
         case 6:
-            leftArray = [NSArray arrayWithObjects:@"没有工作经验", @"工作经验2年",@"工作经验3-5年",@"工作经验5年以上",@"工作经验10年以上",nil];
+            _titleLab.text = @"工作经验";
+            leftArray = [NSArray arrayWithObjects:@"不限", @"工作经验2年",@"工作经验3-5年",@"工作经验5年以上",@"工作经验10年以上",nil];
             self.locate.country = [leftArray objectAtIndex:0];
             break;
             

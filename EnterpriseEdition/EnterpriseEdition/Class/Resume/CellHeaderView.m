@@ -25,6 +25,16 @@
 //加载数据
 -(void)loadData:(NSDictionary*)dictionary
 {
+    if(_type==0)
+    {
+        jobTitLab.hidden = NO;
+        jobLab.hidden = NO;
+    }else
+    {
+        jobTitLab.hidden = YES;
+        jobLab.hidden = YES;
+        
+    }
 
     jobLab.text = [dictionary objectForKey:@"job"];
     timeLab.text = [dictionary objectForKey:@"time"];

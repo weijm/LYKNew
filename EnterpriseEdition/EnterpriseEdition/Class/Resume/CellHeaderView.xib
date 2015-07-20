@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
@@ -8,6 +9,7 @@
             <connections>
                 <outlet property="btbg" destination="hv7-BC-yoQ" id="jKm-bI-odY"/>
                 <outlet property="jobLab" destination="g7M-NL-cAT" id="9k6-S1-8kK"/>
+                <outlet property="jobTitLab" destination="sMG-ui-v7Q" id="35z-xe-PxZ"/>
                 <outlet property="timeLab" destination="xQR-PV-YeF" id="VCe-3f-yw6"/>
             </connections>
         </placeholder>
@@ -43,7 +45,7 @@
                         <constraint firstAttribute="height" constant="30" id="4lK-f4-dWJ"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15-07-09" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQR-PV-YeF" userLabel="timeLab">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07-20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQR-PV-YeF" userLabel="timeLab">
                     <rect key="frame" x="276" y="50" width="55" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="9Tu-Pf-6aD"/>

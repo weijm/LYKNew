@@ -28,6 +28,7 @@ typedef enum {
     
     
 }
+@property (nonatomic)int categoryType;
 @property (strong,nonatomic) Location *locate;
 @property (nonatomic,copy)void(^didSelectedPickerRow)(int row,NSDictionary *dictionary);
 @property(strong,nonatomic) NSMutableDictionary *resultDic;

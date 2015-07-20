@@ -69,6 +69,10 @@
 		203543341B4CFBC2007FF4A8 /* CommendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203543331B4CFBC2007FF4A8 /* CommendView.xib */; };
 		203543361B4D0225007FF4A8 /* homepage_commend_img@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203543351B4D0225007FF4A8 /* homepage_commend_img@2x.png */; };
 		205CA9C31B4BD9F4007BAC89 /* UIButton+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 205CA9C21B4BD9F4007BAC89 /* UIButton+Custom.m */; };
+		2076B2BA1B5C9A1E00BC7D97 /* SearchResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2076B2B81B5C9A1E00BC7D97 /* SearchResumeViewController.m */; };
+		2076B2BB1B5C9A1E00BC7D97 /* SearchResumeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2076B2B91B5C9A1E00BC7D97 /* SearchResumeViewController.xib */; };
+		2076B2BF1B5CA83C00BC7D97 /* SearchResumeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2076B2BD1B5CA83C00BC7D97 /* SearchResumeTableViewCell.m */; };
+		2076B2C01B5CA83C00BC7D97 /* SearchResumeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2076B2BE1B5CA83C00BC7D97 /* SearchResumeTableViewCell.xib */; };
 		208EBDA01B4A7F4C00AB0730 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208EBD9F1B4A7F4C00AB0730 /* CoreText.framework */; };
 		208EBDB21B4A82CE00AB0730 /* MarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 208EBDB11B4A82CE00AB0730 /* MarkupParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		208EBDB51B4A82D800AB0730 /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 208EBDB41B4A82D800AB0730 /* CustomLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -250,6 +254,12 @@
 		203543351B4D0225007FF4A8 /* homepage_commend_img@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_commend_img@2x.png"; sourceTree = "<group>"; };
 		205CA9C11B4BD9F4007BAC89 /* UIButton+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Custom.h"; sourceTree = "<group>"; };
 		205CA9C21B4BD9F4007BAC89 /* UIButton+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Custom.m"; sourceTree = "<group>"; };
+		2076B2B71B5C9A1E00BC7D97 /* SearchResumeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResumeViewController.h; sourceTree = "<group>"; };
+		2076B2B81B5C9A1E00BC7D97 /* SearchResumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResumeViewController.m; sourceTree = "<group>"; };
+		2076B2B91B5C9A1E00BC7D97 /* SearchResumeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResumeViewController.xib; sourceTree = "<group>"; };
+		2076B2BC1B5CA83C00BC7D97 /* SearchResumeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResumeTableViewCell.h; sourceTree = "<group>"; };
+		2076B2BD1B5CA83C00BC7D97 /* SearchResumeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResumeTableViewCell.m; sourceTree = "<group>"; };
+		2076B2BE1B5CA83C00BC7D97 /* SearchResumeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResumeTableViewCell.xib; sourceTree = "<group>"; };
 		208EBD9F1B4A7F4C00AB0730 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		208EBDB01B4A82CE00AB0730 /* MarkupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkupParser.h; sourceTree = "<group>"; };
 		208EBDB11B4A82CE00AB0730 /* MarkupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkupParser.m; sourceTree = "<group>"; };
@@ -494,6 +504,27 @@
 			path = Resume;
 			sourceTree = "<group>";
 		};
+		2076B2B61B5C99E300BC7D97 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				2076B2C11B5CA84200BC7D97 /* cell */,
+				2076B2B71B5C9A1E00BC7D97 /* SearchResumeViewController.h */,
+				2076B2B81B5C9A1E00BC7D97 /* SearchResumeViewController.m */,
+				2076B2B91B5C9A1E00BC7D97 /* SearchResumeViewController.xib */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		2076B2C11B5CA84200BC7D97 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				2076B2BC1B5CA83C00BC7D97 /* SearchResumeTableViewCell.h */,
+				2076B2BD1B5CA83C00BC7D97 /* SearchResumeTableViewCell.m */,
+				2076B2BE1B5CA83C00BC7D97 /* SearchResumeTableViewCell.xib */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
 		208EBDAE1B4A82C000AB0730 /* Third */ = {
 			isa = PBXGroup;
 			children = (
@@ -637,6 +668,7 @@
 		2097D30E1B462F0A00611432 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				2076B2B61B5C99E300BC7D97 /* Search */,
 				20A32A211B5908BD00E1B5F8 /* Position */,
 				20A32A1F1B5908BD00E1B5F8 /* NowHiring */,
 				20A32A1E1B5908BD00E1B5F8 /* HaveDownloaded */,
@@ -1027,6 +1059,7 @@
 				20A32A2C1B59096500E1B5F8 /* NowHiringViewController.xib in Resources */,
 				203542F01B4CBB45007FF4A8 /* CreateUserTableViewCell.xib in Resources */,
 				20A32A271B59094100E1B5F8 /* PositionViewController.xib in Resources */,
+				2076B2BB1B5C9A1E00BC7D97 /* SearchResumeViewController.xib in Resources */,
 				203542FA1B4CBB45007FF4A8 /* RegisterView.xib in Resources */,
 				20BB62031B4E264A006BD455 /* HeaderView.xib in Resources */,
 				203542F61B4CBB45007FF4A8 /* RegisterBottomView.xib in Resources */,
@@ -1053,6 +1086,7 @@
 				203543291B4CF630007FF4A8 /* homepage_hire_icon2@2x.png in Resources */,
 				20A32A311B59097C00E1B5F8 /* HaveDownloadViewController.xib in Resources */,
 				20A258B41B50C5FF0082F04A /* resume_choose_bt@2x.png in Resources */,
+				2076B2C01B5CA83C00BC7D97 /* SearchResumeTableViewCell.xib in Resources */,
 				20A32A1C1B58E49600E1B5F8 /* jobType.plist in Resources */,
 				2035432B1B4CF630007FF4A8 /* homepage_hire_icon4@2x.png in Resources */,
 				2035432D1B4CF630007FF4A8 /* homepage_hire_icon6@2x.png in Resources */,
@@ -1096,6 +1130,7 @@
 				2035431F1B4CD7B0007FF4A8 /* HireView.m in Sources */,
 				20A32A071B58A2CB00E1B5F8 /* FMDatabase.m in Sources */,
 				202223561B5670A600D63910 /* IdentityTableViewCell.m in Sources */,
+				2076B2BF1B5CA83C00BC7D97 /* SearchResumeTableViewCell.m in Sources */,
 				201A9C861B538FB500664792 /* FiltratePickerView.m in Sources */,
 				201EDB371B57AA8F0080A12A /* CertificateView.m in Sources */,
 				20BB62091B4E46CB006BD455 /* ResumeChooseBtView.m in Sources */,
@@ -1111,6 +1146,7 @@
 				20A32A261B59094100E1B5F8 /* PositionViewController.m in Sources */,
 				203543131B4CBD8A007FF4A8 /* HomePageViewController.m in Sources */,
 				20D1CDF81B56474500E97935 /* ResumeInfoViewController.m in Sources */,
+				2076B2BA1B5C9A1E00BC7D97 /* SearchResumeViewController.m in Sources */,
 				2097D2D91B461E7000611432 /* AppDelegate.m in Sources */,
 				20BB621F1B4E5C7C006BD455 /* CellMiddleView.m in Sources */,
 				201EDB101B575F0F0080A12A /* JobIntensionTableViewCell.m in Sources */,

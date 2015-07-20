@@ -10,7 +10,8 @@
 #import "BannerView.h"
 #import "HireView.h"
 #import "CommendView.h"
-#import "LocationViewController.h"
+//#import "LocationViewController.h"
+#import "SearchResumeViewController.h"
 
 
 #define kBannerViewHeight [Util myYOrHeight:200]
@@ -156,8 +157,9 @@
 -(void)leftAction
 {
     NSLog(@"leftAction");
-    LocationViewController *locationVC = [[LocationViewController alloc] init];
-    [self.navigationController pushViewController:locationVC animated:YES];
+    SearchResumeViewController *searchVC = [[SearchResumeViewController alloc] init];
+    searchVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:searchVC animated:YES];
     
     
 }
