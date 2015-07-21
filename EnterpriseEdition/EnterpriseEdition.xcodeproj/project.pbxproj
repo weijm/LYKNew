@@ -73,6 +73,10 @@
 		2076B2BB1B5C9A1E00BC7D97 /* SearchResumeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2076B2B91B5C9A1E00BC7D97 /* SearchResumeViewController.xib */; };
 		2076B2BF1B5CA83C00BC7D97 /* SearchResumeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2076B2BD1B5CA83C00BC7D97 /* SearchResumeTableViewCell.m */; };
 		2076B2C01B5CA83C00BC7D97 /* SearchResumeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2076B2BE1B5CA83C00BC7D97 /* SearchResumeTableViewCell.xib */; };
+		2076B2C71B5CEB3400BC7D97 /* NowHiringTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2076B2C51B5CEB3400BC7D97 /* NowHiringTableViewCell.m */; };
+		2076B2C81B5CEB3400BC7D97 /* NowHiringTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2076B2C61B5CEB3400BC7D97 /* NowHiringTableViewCell.xib */; };
+		2076B2CB1B5CEB7F00BC7D97 /* NowHiringHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2076B2CA1B5CEB7F00BC7D97 /* NowHiringHeaderView.m */; };
+		2076B2CD1B5CEB9100BC7D97 /* NowHiringHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2076B2CC1B5CEB9100BC7D97 /* NowHiringHeaderView.xib */; };
 		208EBDA01B4A7F4C00AB0730 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208EBD9F1B4A7F4C00AB0730 /* CoreText.framework */; };
 		208EBDB21B4A82CE00AB0730 /* MarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 208EBDB11B4A82CE00AB0730 /* MarkupParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		208EBDB51B4A82D800AB0730 /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 208EBDB41B4A82D800AB0730 /* CustomLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -150,6 +154,10 @@
 		20D58BB11B54FACD007B2A3F /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D58BAF1B54FACD007B2A3F /* LocationViewController.m */; };
 		20D58BB21B54FACD007B2A3F /* LocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D58BB01B54FACD007B2A3F /* LocationViewController.xib */; };
 		20D58BB61B54FC92007B2A3F /* QMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D58BB51B54FC92007B2A3F /* QMapKit.framework */; };
+		20F0F2221B5DD59400CB1D71 /* CircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F0F21F1B5DD59400CB1D71 /* CircleProgressView.m */; };
+		20F0F2231B5DD59400CB1D71 /* CircleShapeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F0F2211B5DD59400CB1D71 /* CircleShapeLayer.m */; };
+		20F0F2261B5DD5E200CB1D71 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F0F2251B5DD5E200CB1D71 /* Session.m */; };
+		20F0F2291B5DD67D00CB1D71 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 20F0F2271B5DD67D00CB1D71 /* Localizable.strings */; };
 		20F8FDC41B4F9F8C008BCEE7 /* resume_prompt2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20F8FDC11B4F9F8C008BCEE7 /* resume_prompt2@2x.png */; };
 		20F8FDC51B4F9F8C008BCEE7 /* resume_prompt1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20F8FDC21B4F9F8C008BCEE7 /* resume_prompt1@2x.png */; };
 		20F8FDC61B4F9F8C008BCEE7 /* resume_prompt3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20F8FDC31B4F9F8C008BCEE7 /* resume_prompt3@2x.png */; };
@@ -260,6 +268,12 @@
 		2076B2BC1B5CA83C00BC7D97 /* SearchResumeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResumeTableViewCell.h; sourceTree = "<group>"; };
 		2076B2BD1B5CA83C00BC7D97 /* SearchResumeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResumeTableViewCell.m; sourceTree = "<group>"; };
 		2076B2BE1B5CA83C00BC7D97 /* SearchResumeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResumeTableViewCell.xib; sourceTree = "<group>"; };
+		2076B2C41B5CEB3400BC7D97 /* NowHiringTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NowHiringTableViewCell.h; sourceTree = "<group>"; };
+		2076B2C51B5CEB3400BC7D97 /* NowHiringTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NowHiringTableViewCell.m; sourceTree = "<group>"; };
+		2076B2C61B5CEB3400BC7D97 /* NowHiringTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NowHiringTableViewCell.xib; sourceTree = "<group>"; };
+		2076B2C91B5CEB7F00BC7D97 /* NowHiringHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NowHiringHeaderView.h; sourceTree = "<group>"; };
+		2076B2CA1B5CEB7F00BC7D97 /* NowHiringHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NowHiringHeaderView.m; sourceTree = "<group>"; };
+		2076B2CC1B5CEB9100BC7D97 /* NowHiringHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NowHiringHeaderView.xib; sourceTree = "<group>"; };
 		208EBD9F1B4A7F4C00AB0730 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		208EBDB01B4A82CE00AB0730 /* MarkupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkupParser.h; sourceTree = "<group>"; };
 		208EBDB11B4A82CE00AB0730 /* MarkupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkupParser.m; sourceTree = "<group>"; };
@@ -374,6 +388,13 @@
 		20D58BAF1B54FACD007B2A3F /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		20D58BB01B54FACD007B2A3F /* LocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationViewController.xib; sourceTree = "<group>"; };
 		20D58BB51B54FC92007B2A3F /* QMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QMapKit.framework; sourceTree = "<group>"; };
+		20F0F21E1B5DD59400CB1D71 /* CircleProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleProgressView.h; sourceTree = "<group>"; };
+		20F0F21F1B5DD59400CB1D71 /* CircleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleProgressView.m; sourceTree = "<group>"; };
+		20F0F2201B5DD59400CB1D71 /* CircleShapeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleShapeLayer.h; sourceTree = "<group>"; };
+		20F0F2211B5DD59400CB1D71 /* CircleShapeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleShapeLayer.m; sourceTree = "<group>"; };
+		20F0F2241B5DD5E200CB1D71 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		20F0F2251B5DD5E200CB1D71 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
+		20F0F2281B5DD67D00CB1D71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		20F8FDC11B4F9F8C008BCEE7 /* resume_prompt2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_prompt2@2x.png"; sourceTree = "<group>"; };
 		20F8FDC21B4F9F8C008BCEE7 /* resume_prompt1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_prompt1@2x.png"; sourceTree = "<group>"; };
 		20F8FDC31B4F9F8C008BCEE7 /* resume_prompt3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_prompt3@2x.png"; sourceTree = "<group>"; };
@@ -525,9 +546,31 @@
 			name = cell;
 			sourceTree = "<group>";
 		};
+		2076B2C21B5CEB1800BC7D97 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2076B2C91B5CEB7F00BC7D97 /* NowHiringHeaderView.h */,
+				2076B2CA1B5CEB7F00BC7D97 /* NowHiringHeaderView.m */,
+				2076B2CC1B5CEB9100BC7D97 /* NowHiringHeaderView.xib */,
+				2076B2C31B5CEB2000BC7D97 /* cell */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2076B2C31B5CEB2000BC7D97 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				2076B2C41B5CEB3400BC7D97 /* NowHiringTableViewCell.h */,
+				2076B2C51B5CEB3400BC7D97 /* NowHiringTableViewCell.m */,
+				2076B2C61B5CEB3400BC7D97 /* NowHiringTableViewCell.xib */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
 		208EBDAE1B4A82C000AB0730 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				20F0F21D1B5DD59400CB1D71 /* CircularProgressView */,
 				20A329FB1B58A2CB00E1B5F8 /* FMDB */,
 				20D58BA11B54F763007B2A3F /* QMap */,
 				208EBDAF1B4A82C000AB0730 /* CustomLab */,
@@ -576,6 +619,7 @@
 				2097D2D81B461E7000611432 /* AppDelegate.m */,
 				2097D2E01B461E7000611432 /* Images.xcassets */,
 				2097D2E21B461E7000611432 /* LaunchScreen.xib */,
+				20F0F2271B5DD67D00CB1D71 /* Localizable.strings */,
 				2097D2D31B461E7000611432 /* Supporting Files */,
 			);
 			path = EnterpriseEdition;
@@ -777,6 +821,7 @@
 		20A32A1F1B5908BD00E1B5F8 /* NowHiring */ = {
 			isa = PBXGroup;
 			children = (
+				2076B2C21B5CEB1800BC7D97 /* View */,
 				20A32A281B59096500E1B5F8 /* NowHiringViewController.h */,
 				20A32A291B59096500E1B5F8 /* NowHiringViewController.m */,
 				20A32A2A1B59096500E1B5F8 /* NowHiringViewController.xib */,
@@ -943,6 +988,19 @@
 			path = QMap;
 			sourceTree = "<group>";
 		};
+		20F0F21D1B5DD59400CB1D71 /* CircularProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				20F0F2241B5DD5E200CB1D71 /* Session.h */,
+				20F0F2251B5DD5E200CB1D71 /* Session.m */,
+				20F0F21E1B5DD59400CB1D71 /* CircleProgressView.h */,
+				20F0F21F1B5DD59400CB1D71 /* CircleProgressView.m */,
+				20F0F2201B5DD59400CB1D71 /* CircleShapeLayer.h */,
+				20F0F2211B5DD59400CB1D71 /* CircleShapeLayer.m */,
+			);
+			path = CircularProgressView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1047,6 +1105,7 @@
 				201A9C7D1B535FDA00664792 /* FiltrateView.xib in Resources */,
 				203542F21B4CBB45007FF4A8 /* CreateUserViewController.xib in Resources */,
 				20F8FDCA1B4FBBD5008BCEE7 /* resume_delete_bt@2x.png in Resources */,
+				2076B2CD1B5CEB9100BC7D97 /* NowHiringHeaderView.xib in Resources */,
 				20BB62261B4E639B006BD455 /* CellBottomView.xib in Resources */,
 				20A32A361B59099600E1B5F8 /* UntreatedViewController.xib in Resources */,
 				2097D2E11B461E7000611432 /* Images.xcassets in Resources */,
@@ -1074,6 +1133,7 @@
 				20D1CDF41B563ED900E97935 /* resume_collected@2x.png in Resources */,
 				202223521B566EF000D63910 /* back_bt@3x.png in Resources */,
 				203542F81B4CBB45007FF4A8 /* RegisterUserViewController.xib in Resources */,
+				20F0F2291B5DD67D00CB1D71 /* Localizable.strings in Resources */,
 				203543191B4CCB35007FF4A8 /* 11@2x.png in Resources */,
 				2097D32D1B46957B00611432 /* homepage_right_bt@2x.png in Resources */,
 				20D1CDEC1B56326100E97935 /* InfoHeaderView.xib in Resources */,
@@ -1095,6 +1155,7 @@
 				20F8FDC61B4F9F8C008BCEE7 /* resume_prompt3@2x.png in Resources */,
 				20BB62161B4E5622006BD455 /* CellHeaderView.xib in Resources */,
 				203543231B4CF46F007FF4A8 /* homepage_hire_icon1@2x.png in Resources */,
+				2076B2C81B5CEB3400BC7D97 /* NowHiringTableViewCell.xib in Resources */,
 				201EDB161B57819E0080A12A /* EducationTableViewCell.xib in Resources */,
 				2097D32B1B46928F00611432 /* HomePageTableViewCell.xib in Resources */,
 				2035430F1B4CBD40007FF4A8 /* ResumeViewController.xib in Resources */,
@@ -1125,11 +1186,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				20A32A2B1B59096500E1B5F8 /* NowHiringViewController.m in Sources */,
+				2076B2C71B5CEB3400BC7D97 /* NowHiringTableViewCell.m in Sources */,
 				201EDB1A1B5795AB0080A12A /* HobbiesTableViewCell.m in Sources */,
 				201A9C821B53634E00664792 /* FiltrateTableViewCell.m in Sources */,
 				2035431F1B4CD7B0007FF4A8 /* HireView.m in Sources */,
+				20F0F2221B5DD59400CB1D71 /* CircleProgressView.m in Sources */,
 				20A32A071B58A2CB00E1B5F8 /* FMDatabase.m in Sources */,
 				202223561B5670A600D63910 /* IdentityTableViewCell.m in Sources */,
+				20F0F2261B5DD5E200CB1D71 /* Session.m in Sources */,
 				2076B2BF1B5CA83C00BC7D97 /* SearchResumeTableViewCell.m in Sources */,
 				201A9C861B538FB500664792 /* FiltratePickerView.m in Sources */,
 				201EDB371B57AA8F0080A12A /* CertificateView.m in Sources */,
@@ -1166,9 +1230,11 @@
 				2097D32A1B46928F00611432 /* HomePageTableViewCell.m in Sources */,
 				203542F31B4CBB45007FF4A8 /* LoginViewController.m in Sources */,
 				203543041B4CBCB1007FF4A8 /* InfoViewController.m in Sources */,
+				20F0F2231B5DD59400CB1D71 /* CircleShapeLayer.m in Sources */,
 				20A32A081B58A2CB00E1B5F8 /* FMDatabaseAdditions.m in Sources */,
 				20A32A151B58B34E00E1B5F8 /* Location.m in Sources */,
 				208EBDB21B4A82CE00AB0730 /* MarkupParser.m in Sources */,
+				2076B2CB1B5CEB7F00BC7D97 /* NowHiringHeaderView.m in Sources */,
 				20D1CDEA1B56325100E97935 /* InfoHeaderView.m in Sources */,
 				20D58BB11B54FACD007B2A3F /* LocationViewController.m in Sources */,
 				2035430E1B4CBD40007FF4A8 /* ResumeViewController.m in Sources */,
@@ -1209,6 +1275,14 @@
 				2097D2E31B461E7000611432 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		20F0F2271B5DD67D00CB1D71 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				20F0F2281B5DD67D00CB1D71 /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

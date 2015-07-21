@@ -11,7 +11,9 @@
 #import "HireView.h"
 #import "CommendView.h"
 //#import "LocationViewController.h"
-#import "SearchResumeViewController.h"
+#import "SearchResumeViewController.h"//搜索
+#import "NowHiringViewController.h"//急招
+
 
 
 #define kBannerViewHeight [Util myYOrHeight:200]
@@ -215,7 +217,13 @@
             NSLog(@"职位");
             break;
         case 2:
+        {
             NSLog(@"急招");
+            NowHiringViewController *nowhiringVC = [[NowHiringViewController alloc] init];
+            nowhiringVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:nowhiringVC animated:YES];
+
+        }
             break;
         case 3:
             NSLog(@"已下载");

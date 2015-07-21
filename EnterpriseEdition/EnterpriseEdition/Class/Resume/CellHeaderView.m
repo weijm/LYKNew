@@ -35,6 +35,7 @@
         jobLab.hidden = YES;
         
     }
+    [self showRateViewBg];
 
     jobLab.text = [dictionary objectForKey:@"job"];
     timeLab.text = [dictionary objectForKey:@"time"];
@@ -78,6 +79,19 @@
         bt.tag = 3;
         [bt addTarget:self action:@selector(clicked:) forControlEvents:UIControlEventTouchUpInside];
         [btbg addSubview:bt];
+    }
+}
+-(void)showRateViewBg
+{
+    if (_showRateView) {
+        rateView.hidden = NO;
+        infobgToLeft.constant = 30;
+        rateLab.transform = CGAffineTransformMakeRotation(-(180 / M_PI));
+        
+    }else
+    {
+        infobgToLeft.constant = 10;
+        rateView.hidden = YES;
     }
 }
 -(void)clicked:(id)sender

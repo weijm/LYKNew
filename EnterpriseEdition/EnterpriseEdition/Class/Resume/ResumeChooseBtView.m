@@ -42,6 +42,24 @@
             break;
     }
 }
+-(void)loadSubViewInNowHiring
+{
+    switch (self.tag) {
+        case 0:
+            [_chooseBt setTitle:@"收到的简历" forState:UIControlStateNormal];
+            _chooseBt.backgroundColor = Rgb(16, 117, 224, 1.0);
+            [_chooseBt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            break;
+        case 1:
+            [_chooseBt setTitle:@"简历推荐" forState:UIControlStateNormal];
+            break;
+        
+            break;
+        default:
+            break;
+    }
+
+}
 //初始化底部视图上的按钮
 -(void)loadFooterSubView
 {

@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface NowHiringViewController : UIViewController
-
+#import "NowHiringTableViewCell.h"
+@interface NowHiringViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,NowHiringTableViewCellDelegate>
+{
+    
+    IBOutlet UITableView *dataTableView;
+    int categaryType;
+    NSMutableArray *receivedArray;
+    NSMutableArray *commendArray;
+}
 @end

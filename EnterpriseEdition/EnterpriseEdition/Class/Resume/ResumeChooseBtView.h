@@ -26,6 +26,10 @@
  */
 -(void)loadSubView;
 /**
+ 初始化急招中的按钮
+ */
+-(void)loadSubViewInNowHiring;
+/**
  初始化底部视图上的按钮
  */
 -(void)loadFooterSubView;

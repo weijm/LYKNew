@@ -18,8 +18,17 @@
     
     //时间
     IBOutlet UILabel *timeLab;
+    //匹配度视图
+    
+    IBOutlet UIView *rateView;
+    //匹配度
+    IBOutlet UILabel *rateLab;
+    
+    
+    IBOutlet NSLayoutConstraint *infobgToLeft;
 }
 @property (nonatomic) int  type;// 0 显示应聘岗位的 1 不显示应聘岗位
+@property (nonatomic) BOOL showRateView;//yes显示 no不显示
 /**
  加载数据
  */
