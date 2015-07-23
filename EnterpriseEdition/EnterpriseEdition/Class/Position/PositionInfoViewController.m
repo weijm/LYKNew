@@ -14,6 +14,7 @@
 #import "PositionOperationView.h"
 #import "PositionSetUrgentView.h"
 #import "OpenPositionViewController.h"
+#import "CommendResumeForJobViewController.h"
 @interface PositionInfoViewController ()
 {
     UIView *headerView;
@@ -172,7 +173,9 @@
 }
 -(void)rightAction
 {
-    
+    CommendResumeForJobViewController *resumeVC = [[CommendResumeForJobViewController alloc] init];
+    resumeVC.isForPisition = YES;
+    [self.navigationController pushViewController:resumeVC animated:YES];
 }
 #pragma mark - 初始化footerView
 -(void)initFooerView

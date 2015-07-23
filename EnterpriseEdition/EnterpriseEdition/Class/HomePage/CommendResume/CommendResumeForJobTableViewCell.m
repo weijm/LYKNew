@@ -15,6 +15,7 @@
     // Initialization code
     [self initHeaderView];
     [self initMiddleView];
+    _isShowRateView = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -43,6 +44,10 @@
     [headerView loadData:dictionary];
     //初始化middleView数据
     [middleView loadData:dictionary];
+    NSLog(@"_isShowRateView==%d",_isShowRateView);
+    if (!_isShowRateView) {
+        headerView.showRateView = NO;
+    }
 }
 - (IBAction)chooseAction:(id)sender {
     NSString *string = @"0";

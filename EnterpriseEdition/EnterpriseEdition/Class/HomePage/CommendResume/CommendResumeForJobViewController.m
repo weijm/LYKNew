@@ -36,8 +36,11 @@
     //初始化headerView
     [self initHeaderView];
 
-    //导航条的颜色
-    [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
+    if (!_isForPisition) {
+        //导航条的颜色
+        [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
+    }
+   
     //设置tableView
     dataTableView.backgroundColor = [UIColor clearColor];
     dataTableView.separatorColor = [UIColor clearColor];
@@ -123,6 +126,9 @@
     cell.delegate = self;
     //加载视图数据
     NSDictionary *dic = [dataArray objectAtIndex:indexPath.row];
+    if (_isForPisition) {
+        cell.isShowRateView = NO;
+    }
     [cell loadSearchResumeData:dic];
     //全部选中按钮使用
     cell.tag = indexPath.row;

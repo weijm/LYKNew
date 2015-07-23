@@ -35,6 +35,7 @@
     IBOutlet UIButton_Custom *chooseBt;
 }
 @property (nonatomic,weak) id<CommendResumeForJobTableViewCellDelegate> delegate;
+@property (nonatomic) BOOL isShowRateView;
 /**
  加载数据
  */

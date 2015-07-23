@@ -99,4 +99,17 @@
     UIButton *bt = (UIButton *)sender;
     NSLog(@"bt tag == %ld",(long)bt.tag);
 }
+-(void)setShowRateView:(BOOL)showRateView
+{
+    _showRateView = showRateView;
+    
+    if (showRateView) {
+        rateView.hidden = NO;
+    }else
+    {
+        rateView.hidden = YES;
+    }
+    
+
+}
 @end
