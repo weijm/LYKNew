@@ -1,0 +1,214 @@
+//
+//  PositionInfoViewController.m
+//  职位详情
+//
+//  Created by wjm on 15/7/22.
+//  Copyright (c) 2015年 lyk. All rights reserved.
+//
+
+#import "PositionInfoViewController.h"
+#import "PositionInfoTableViewCell0.h"
+#import "PositionInfoTableViewCell1.h"
+#import "PositionInfoTableViewCell2.h"
+#import "FooterView.h"
+#import "FiltratePickerView.h"
+@interface PositionInfoViewController ()
+{
+    UIView *headerView;
+    FooterView *footerView;
+}
+@end
+
+@implementation PositionInfoViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    self.title = @"职位详情";
+    //初始化item
+    [self initItems];
+    
+    //初始化headerView
+    [self initHeaderView];
+    
+    //初始化footerView
+    [self initFooerView];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UITableViewDelegate
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 3;
+}
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        static NSString *cellid=@"PositionInfoTableViewCell0ID";
+        PositionInfoTableViewCell0 *cell = (PositionInfoTableViewCell0 *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"PositionInfoTableViewCell0" owner:self options:nil] lastObject];
+        }
+        //取消点击cell选中效果
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }else if (indexPath.row == 1)
+    {
+        static NSString *cellid=@"PositionInfoTableViewCell1ID";
+        PositionInfoTableViewCell1 *cell = (PositionInfoTableViewCell1 *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"PositionInfoTableViewCell1" owner:self options:nil] lastObject];
+        }
+        //取消点击cell选中效果
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }else
+    {
+        static NSString *cellid=@"PositionInfoTableViewCell2ID";
+        PositionInfoTableViewCell2 *cell = (PositionInfoTableViewCell2 *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"PositionInfoTableViewCell2" owner:self options:nil] lastObject];
+        }
+        //取消点击cell选中效果
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+
+    }
+
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        return 80;
+    }else if (indexPath.row == 1)
+    {
+        return 130;
+    }else
+    {
+        return 300;
+    }
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (_reviewTips) {
+        return [Util myYOrHeight:50];
+    }else
+    {
+        return 0;
+    }
+    
+}
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (_reviewTips) {
+        headerView.hidden = NO;
+    }else
+    {
+        headerView.hidden = YES;
+    }
+    return headerView;
+}
+#pragma mark - 初始化headerView
+-(void)initHeaderView
+{
+    CGRect frame = CGRectMake(0, 0, kWidth, [Util myYOrHeight:50]);
+    headerView = [[UIView alloc] initWithFrame:frame];
+    headerView.backgroundColor = Rgb(252, 248, 181, 1.0);
+    frame = CGRectMake(20, 0, kWidth-40, [Util myYOrHeight:50]);
+    UILabel *lab = [[UILabel alloc] initWithFrame:frame];
+    lab.text = @"提示：xx当前职位未审核通过，原因是xxxx，请修改职位相关内容，并重新提交审核，谢谢合作。";
+    lab.textColor = Rgb(173, 173, 123, 1.0);
+    lab.font = [UIFont systemFontOfSize:13];
+    lab.numberOfLines = 2;
+    [headerView addSubview:lab];
+}
+#pragma mark - 编辑按钮
+-(void)initItems
+{
+    CGRect frame = CGRectMake(0, 0, 50, 30);
+    
+    UIButton *leftBt = [[UIButton alloc] initWithFrame:frame];
+    [leftBt setImage:[UIImage imageNamed:@"back_bt"] forState:UIControlStateNormal];
+    UIEdgeInsets imageInsets = leftBt.imageEdgeInsets;
+    leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-30, imageInsets.bottom, imageInsets.right+20);
+    [leftBt addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    
+    frame = CGRectMake(0, 0, 80, 30);
+    UIButton *rightBt = [[UIButton alloc] initWithFrame:frame];
+    [rightBt setTitle:@"查看简历" forState:UIControlStateNormal];
+    rightBt.titleLabel.font = [UIFont systemFontOfSize:14];
+    UIEdgeInsets titleInsets = rightBt.titleEdgeInsets;
+    rightBt.titleEdgeInsets = UIEdgeInsetsMake(titleInsets.top, titleInsets.left+20, titleInsets.bottom, titleInsets.right-20);
+    [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
+    self.navigationItem.rightBarButtonItem = rightItem;
+   
+    
+}
+-(void)leftAction
+{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+-(void)rightAction
+{
+    
+}
+#pragma mark - 初始化footerView
+-(void)initFooerView
+{
+    float footerViewH = kFOOTERVIEWH;
+    CGRect frame = CGRectMake(0, kHeight-footerViewH, kWidth, footerViewH);
+    footerView = [[FooterView alloc] initWithFrame:frame];
+    footerView.position = 2;
+    //初始化按钮
+    [footerView loadEditButton:3];
+    //点击按钮的触发事件
+    __weak PositionInfoViewController *wself = self;
+    footerView.chooseFooterBtAction = ^(NSInteger index,BOOL isAll){
+        PositionInfoViewController *sself = wself;
+        [sself chooseAction:index isChooseAll:isAll];
+    };
+    [self.view addSubview:footerView];
+}
+#pragma mark - fooerView上的选择不同按钮的触发事件
+-(void)chooseAction:(NSInteger)index isChooseAll:(BOOL)isAll
+{
+    switch (index) {
+        case 10:
+        {
+           NSLog(@"操作");
+            CGRect frame = CGRectMake(0, kHeight, kWidth, 258);
+            FiltratePickerView *pickerView = [[FiltratePickerView alloc] initWithFrame:frame pickerStyle:0];
+            pickerView.didSelectedPickerRow = ^(int index,NSDictionary *dictionary){
+                [self showConditions:index Content:dictionary];
+            };
+            
+            [pickerView loadData:8];
+            [pickerView showInView:self.view];
+        }
+            break;
+        case 20:
+            NSLog(@"设置急招");
+            break;
+        case 30:
+            NSLog(@"编辑");
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+//操作的具体选择
+-(void)showConditions:(int)row Content:(NSDictionary*)dictionary
+{
+    
+}
+@end

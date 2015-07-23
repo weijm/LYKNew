@@ -1,18 +1,18 @@
 //
-//  PositionViewController.m
-//  职位
+//  MyInfoViewController.m
+//  EnterpriseEdition
 //
-//  Created by wjm on 15/7/17.
+//  Created by lyk on 15/7/21.
 //  Copyright (c) 2015年 lyk. All rights reserved.
 //
 
-#import "PositionViewController.h"
+#import "MyInfoViewController.h"
 
-@interface PositionViewController ()
+@interface MyInfoViewController ()
 
 @end
 
-@implementation PositionViewController
+@implementation MyInfoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

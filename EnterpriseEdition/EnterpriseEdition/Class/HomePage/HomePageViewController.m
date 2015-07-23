@@ -13,6 +13,8 @@
 //#import "LocationViewController.h"
 #import "SearchResumeViewController.h"//搜索
 #import "NowHiringViewController.h"//急招
+#import "CommendResumeViewController.h"//简历推荐
+#import "OpenPositionViewController.h" //发布职位
 
 
 
@@ -91,6 +93,7 @@
             [self initCommendView:cell.contentView];
         }
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -112,6 +115,7 @@
         return kHeight -kBannerViewHeight-kHireViewHeight-[Util myYOrHeight:45];
     }
 }
+
 #pragma mark -bannerView 初始化
 -(void)initBannerView:(UIView*)view
 {
@@ -233,6 +237,11 @@
             break;
         case 5:
             NSLog(@"发布职位");
+        {
+            OpenPositionViewController *openpVC = [[OpenPositionViewController alloc] init];
+            openpVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:openpVC animated:YES];
+        }
             break;
         case 6:
             NSLog(@"收藏");
@@ -247,6 +256,9 @@
 {
     if (index == 100) {
         NSLog(@"查看更多推荐简历");
+        CommendResumeViewController *commendVC = [[CommendResumeViewController alloc] init];
+        commendVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:commendVC animated:YES];
     }else
     {
         NSLog(@"查看第%ld个人的简历",index);

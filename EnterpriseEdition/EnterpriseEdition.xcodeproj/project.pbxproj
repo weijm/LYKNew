@@ -49,8 +49,6 @@
 		203542F81B4CBB45007FF4A8 /* RegisterUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203542EB1B4CBB45007FF4A8 /* RegisterUserViewController.xib */; };
 		203542F91B4CBB45007FF4A8 /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 203542ED1B4CBB45007FF4A8 /* RegisterView.m */; };
 		203542FA1B4CBB45007FF4A8 /* RegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203542EE1B4CBB45007FF4A8 /* RegisterView.xib */; };
-		203543041B4CBCB1007FF4A8 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203543021B4CBCB1007FF4A8 /* InfoViewController.m */; };
-		203543051B4CBCB1007FF4A8 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203543031B4CBCB1007FF4A8 /* InfoViewController.xib */; };
 		2035430E1B4CBD40007FF4A8 /* ResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2035430C1B4CBD40007FF4A8 /* ResumeViewController.m */; };
 		2035430F1B4CBD40007FF4A8 /* ResumeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2035430D1B4CBD40007FF4A8 /* ResumeViewController.xib */; };
 		203543131B4CBD8A007FF4A8 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203543111B4CBD8A007FF4A8 /* HomePageViewController.m */; };
@@ -109,8 +107,6 @@
 		20A32A181B58DB7200E1B5F8 /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20A32A171B58DB7200E1B5F8 /* city.plist */; };
 		20A32A1A1B58DB9300E1B5F8 /* major.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20A32A191B58DB9300E1B5F8 /* major.plist */; };
 		20A32A1C1B58E49600E1B5F8 /* jobType.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20A32A1B1B58E49600E1B5F8 /* jobType.plist */; };
-		20A32A261B59094100E1B5F8 /* PositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A32A241B59094100E1B5F8 /* PositionViewController.m */; };
-		20A32A271B59094100E1B5F8 /* PositionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A32A251B59094100E1B5F8 /* PositionViewController.xib */; };
 		20A32A2B1B59096500E1B5F8 /* NowHiringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A32A291B59096500E1B5F8 /* NowHiringViewController.m */; };
 		20A32A2C1B59096500E1B5F8 /* NowHiringViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A32A2A1B59096500E1B5F8 /* NowHiringViewController.xib */; };
 		20A32A301B59097C00E1B5F8 /* HaveDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A32A2E1B59097C00E1B5F8 /* HaveDownloadViewController.m */; };
@@ -154,10 +150,56 @@
 		20D58BB11B54FACD007B2A3F /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D58BAF1B54FACD007B2A3F /* LocationViewController.m */; };
 		20D58BB21B54FACD007B2A3F /* LocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D58BB01B54FACD007B2A3F /* LocationViewController.xib */; };
 		20D58BB61B54FC92007B2A3F /* QMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D58BB51B54FC92007B2A3F /* QMapKit.framework */; };
+		20E9E1451B5F471C0013A865 /* PositionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E9E1441B5F471C0013A865 /* PositionObject.m */; };
+		20E9E1471B5F47880013A865 /* data.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E1461B5F47880013A865 /* data.sqlite */; };
+		20E9E14C1B5F4B2E0013A865 /* PositionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E9E14B1B5F4B2E0013A865 /* PositionHeaderView.m */; };
+		20E9E14E1B5F4B3C0013A865 /* PositionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E14D1B5F4B3C0013A865 /* PositionHeaderView.xib */; };
+		20E9E1521B5F68DA0013A865 /* PositionShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E9E1501B5F68DA0013A865 /* PositionShowTableViewCell.m */; };
+		20E9E1531B5F68DA0013A865 /* PositionShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E1511B5F68DA0013A865 /* PositionShowTableViewCell.xib */; };
+		20E9E1551B5F751A0013A865 /* position_number_mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E1541B5F751A0013A865 /* position_number_mark@2x.png */; };
+		20E9E1591B5F886F0013A865 /* PositionInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E9E1571B5F886F0013A865 /* PositionInfoViewController.m */; };
+		20E9E15A1B5F886F0013A865 /* PositionInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E1581B5F886F0013A865 /* PositionInfoViewController.xib */; };
+		20E9E1641B5F8EAB0013A865 /* PositionInfoTableViewCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E9E1621B5F8EAB0013A865 /* PositionInfoTableViewCell0.m */; };
+		20E9E1651B5F8EAB0013A865 /* PositionInfoTableViewCell0.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E1631B5F8EAB0013A865 /* PositionInfoTableViewCell0.xib */; };
+		20E9E1691B5F8EBD0013A865 /* PositionInfoTableViewCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E9E1671B5F8EBD0013A865 /* PositionInfoTableViewCell1.m */; };
+		20E9E16A1B5F8EBD0013A865 /* PositionInfoTableViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E1681B5F8EBD0013A865 /* PositionInfoTableViewCell1.xib */; };
+		20E9E16E1B5F8ECD0013A865 /* PositionInfoTableViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E9E16C1B5F8ECD0013A865 /* PositionInfoTableViewCell2.m */; };
+		20E9E16F1B5F8ECD0013A865 /* PositionInfoTableViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E16D1B5F8ECD0013A865 /* PositionInfoTableViewCell2.xib */; };
+		20E9E1711B5F92660013A865 /* position_valid_mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E1701B5F92660013A865 /* position_valid_mark@2x.png */; };
+		20E9E1741B5F97960013A865 /* ItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E9E1731B5F97960013A865 /* ItemView.m */; };
+		20E9E1761B5F97A50013A865 /* ItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E1751B5F97A50013A865 /* ItemView.xib */; };
+		20E9E17B1B5F9BAA0013A865 /* position_item_icon0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E1771B5F9BAA0013A865 /* position_item_icon0@2x.png */; };
+		20E9E17C1B5F9BAA0013A865 /* position_item_icon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E1781B5F9BAA0013A865 /* position_item_icon2@2x.png */; };
+		20E9E17D1B5F9BAA0013A865 /* position_item_icon1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E1791B5F9BAA0013A865 /* position_item_icon1@2x.png */; };
+		20E9E17E1B5F9BAA0013A865 /* position_item_icon3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E17A1B5F9BAA0013A865 /* position_item_icon3@2x.png */; };
+		20E9E1811B5F9BBA0013A865 /* position_item_icon5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E17F1B5F9BBA0013A865 /* position_item_icon5@2x.png */; };
+		20E9E1821B5F9BBA0013A865 /* position_item_icon4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E1801B5F9BBA0013A865 /* position_item_icon4@2x.png */; };
+		20E9E1841B5F9D2B0013A865 /* position_item_icon6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E1831B5F9D2B0013A865 /* position_item_icon6@2x.png */; };
 		20F0F2221B5DD59400CB1D71 /* CircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F0F21F1B5DD59400CB1D71 /* CircleProgressView.m */; };
 		20F0F2231B5DD59400CB1D71 /* CircleShapeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F0F2211B5DD59400CB1D71 /* CircleShapeLayer.m */; };
 		20F0F2261B5DD5E200CB1D71 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F0F2251B5DD5E200CB1D71 /* Session.m */; };
 		20F0F2291B5DD67D00CB1D71 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 20F0F2271B5DD67D00CB1D71 /* Localizable.strings */; };
+		20F0F22E1B5DF89000CB1D71 /* CommendResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F0F22C1B5DF89000CB1D71 /* CommendResumeViewController.m */; };
+		20F0F22F1B5DF89000CB1D71 /* CommendResumeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20F0F22D1B5DF89000CB1D71 /* CommendResumeViewController.xib */; };
+		20F0F2351B5E137700CB1D71 /* CommendResumeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F0F2331B5E137700CB1D71 /* CommendResumeTableViewCell.m */; };
+		20F0F2361B5E137700CB1D71 /* CommendResumeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20F0F2341B5E137700CB1D71 /* CommendResumeTableViewCell.xib */; };
+		20F0F2391B5E161B00CB1D71 /* homepage_commendRe_urgent_mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20F0F2381B5E161B00CB1D71 /* homepage_commendRe_urgent_mark@2x.png */; };
+		20F0F23B1B5E18A500CB1D71 /* homepage_commendRe_numberMark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20F0F23A1B5E18A500CB1D71 /* homepage_commendRe_numberMark@2x.png */; };
+		20F0F23F1B5E1C6A00CB1D71 /* CommendResumeForJobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F0F23D1B5E1C6A00CB1D71 /* CommendResumeForJobViewController.m */; };
+		20F0F2401B5E1C6A00CB1D71 /* CommendResumeForJobViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20F0F23E1B5E1C6A00CB1D71 /* CommendResumeForJobViewController.xib */; };
+		20F0F2441B5E1C8400CB1D71 /* CommendResumeForJobTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F0F2421B5E1C8400CB1D71 /* CommendResumeForJobTableViewCell.m */; };
+		20F0F2451B5E1C8400CB1D71 /* CommendResumeForJobTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20F0F2431B5E1C8400CB1D71 /* CommendResumeForJobTableViewCell.xib */; };
+		20F0F2501B5E23F700CB1D71 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F0F24E1B5E23F700CB1D71 /* InfoViewController.m */; };
+		20F0F2511B5E23F700CB1D71 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20F0F24F1B5E23F700CB1D71 /* InfoViewController.xib */; };
+		20F0F2551B5E242E00CB1D71 /* MyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F0F2531B5E242E00CB1D71 /* MyInfoViewController.m */; };
+		20F0F2561B5E242E00CB1D71 /* MyInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20F0F2541B5E242E00CB1D71 /* MyInfoViewController.xib */; };
+		20F0F25B1B5E24D500CB1D71 /* PositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F0F2591B5E24D500CB1D71 /* PositionViewController.m */; };
+		20F0F25C1B5E24D500CB1D71 /* PositionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20F0F25A1B5E24D500CB1D71 /* PositionViewController.xib */; };
+		20F0F2621B5E310E00CB1D71 /* PositionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F0F2601B5E310E00CB1D71 /* PositionTableViewCell.m */; };
+		20F0F2631B5E310E00CB1D71 /* PositionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20F0F2611B5E310E00CB1D71 /* PositionTableViewCell.xib */; };
+		20F0F2661B5E32D000CB1D71 /* position_title_mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20F0F2651B5E32D000CB1D71 /* position_title_mark@2x.png */; };
+		20F0F2681B5E3D9E00CB1D71 /* position.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20F0F2671B5E3D9E00CB1D71 /* position.plist */; };
+		20F0F26A1B5E476200CB1D71 /* industry.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20F0F2691B5E476200CB1D71 /* industry.plist */; };
 		20F8FDC41B4F9F8C008BCEE7 /* resume_prompt2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20F8FDC11B4F9F8C008BCEE7 /* resume_prompt2@2x.png */; };
 		20F8FDC51B4F9F8C008BCEE7 /* resume_prompt1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20F8FDC21B4F9F8C008BCEE7 /* resume_prompt1@2x.png */; };
 		20F8FDC61B4F9F8C008BCEE7 /* resume_prompt3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20F8FDC31B4F9F8C008BCEE7 /* resume_prompt3@2x.png */; };
@@ -236,9 +278,6 @@
 		203542EC1B4CBB45007FF4A8 /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
 		203542ED1B4CBB45007FF4A8 /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		203542EE1B4CBB45007FF4A8 /* RegisterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterView.xib; sourceTree = "<group>"; };
-		203543011B4CBCB1007FF4A8 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
-		203543021B4CBCB1007FF4A8 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
-		203543031B4CBCB1007FF4A8 /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
 		2035430B1B4CBD40007FF4A8 /* ResumeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResumeViewController.h; sourceTree = "<group>"; };
 		2035430C1B4CBD40007FF4A8 /* ResumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResumeViewController.m; sourceTree = "<group>"; };
 		2035430D1B4CBD40007FF4A8 /* ResumeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResumeViewController.xib; sourceTree = "<group>"; };
@@ -326,9 +365,6 @@
 		20A32A171B58DB7200E1B5F8 /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city.plist; sourceTree = "<group>"; };
 		20A32A191B58DB9300E1B5F8 /* major.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = major.plist; sourceTree = "<group>"; };
 		20A32A1B1B58E49600E1B5F8 /* jobType.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = jobType.plist; sourceTree = "<group>"; };
-		20A32A231B59094100E1B5F8 /* PositionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionViewController.h; sourceTree = "<group>"; };
-		20A32A241B59094100E1B5F8 /* PositionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionViewController.m; sourceTree = "<group>"; };
-		20A32A251B59094100E1B5F8 /* PositionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PositionViewController.xib; sourceTree = "<group>"; };
 		20A32A281B59096500E1B5F8 /* NowHiringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NowHiringViewController.h; sourceTree = "<group>"; };
 		20A32A291B59096500E1B5F8 /* NowHiringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NowHiringViewController.m; sourceTree = "<group>"; };
 		20A32A2A1B59096500E1B5F8 /* NowHiringViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NowHiringViewController.xib; sourceTree = "<group>"; };
@@ -388,6 +424,39 @@
 		20D58BAF1B54FACD007B2A3F /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		20D58BB01B54FACD007B2A3F /* LocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationViewController.xib; sourceTree = "<group>"; };
 		20D58BB51B54FC92007B2A3F /* QMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QMapKit.framework; sourceTree = "<group>"; };
+		20E9E1431B5F471C0013A865 /* PositionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionObject.h; sourceTree = "<group>"; };
+		20E9E1441B5F471C0013A865 /* PositionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionObject.m; sourceTree = "<group>"; };
+		20E9E1461B5F47880013A865 /* data.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = data.sqlite; sourceTree = "<group>"; };
+		20E9E14A1B5F4B2E0013A865 /* PositionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionHeaderView.h; sourceTree = "<group>"; };
+		20E9E14B1B5F4B2E0013A865 /* PositionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionHeaderView.m; sourceTree = "<group>"; };
+		20E9E14D1B5F4B3C0013A865 /* PositionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PositionHeaderView.xib; sourceTree = "<group>"; };
+		20E9E14F1B5F68DA0013A865 /* PositionShowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionShowTableViewCell.h; sourceTree = "<group>"; };
+		20E9E1501B5F68DA0013A865 /* PositionShowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionShowTableViewCell.m; sourceTree = "<group>"; };
+		20E9E1511B5F68DA0013A865 /* PositionShowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PositionShowTableViewCell.xib; sourceTree = "<group>"; };
+		20E9E1541B5F751A0013A865 /* position_number_mark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_number_mark@2x.png"; sourceTree = "<group>"; };
+		20E9E1561B5F886F0013A865 /* PositionInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionInfoViewController.h; sourceTree = "<group>"; };
+		20E9E1571B5F886F0013A865 /* PositionInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionInfoViewController.m; sourceTree = "<group>"; };
+		20E9E1581B5F886F0013A865 /* PositionInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PositionInfoViewController.xib; sourceTree = "<group>"; };
+		20E9E1611B5F8EAB0013A865 /* PositionInfoTableViewCell0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionInfoTableViewCell0.h; sourceTree = "<group>"; };
+		20E9E1621B5F8EAB0013A865 /* PositionInfoTableViewCell0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionInfoTableViewCell0.m; sourceTree = "<group>"; };
+		20E9E1631B5F8EAB0013A865 /* PositionInfoTableViewCell0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PositionInfoTableViewCell0.xib; sourceTree = "<group>"; };
+		20E9E1661B5F8EBD0013A865 /* PositionInfoTableViewCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionInfoTableViewCell1.h; sourceTree = "<group>"; };
+		20E9E1671B5F8EBD0013A865 /* PositionInfoTableViewCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionInfoTableViewCell1.m; sourceTree = "<group>"; };
+		20E9E1681B5F8EBD0013A865 /* PositionInfoTableViewCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PositionInfoTableViewCell1.xib; sourceTree = "<group>"; };
+		20E9E16B1B5F8ECD0013A865 /* PositionInfoTableViewCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionInfoTableViewCell2.h; sourceTree = "<group>"; };
+		20E9E16C1B5F8ECD0013A865 /* PositionInfoTableViewCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionInfoTableViewCell2.m; sourceTree = "<group>"; };
+		20E9E16D1B5F8ECD0013A865 /* PositionInfoTableViewCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PositionInfoTableViewCell2.xib; sourceTree = "<group>"; };
+		20E9E1701B5F92660013A865 /* position_valid_mark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_valid_mark@2x.png"; sourceTree = "<group>"; };
+		20E9E1721B5F97960013A865 /* ItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemView.h; sourceTree = "<group>"; };
+		20E9E1731B5F97960013A865 /* ItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemView.m; sourceTree = "<group>"; };
+		20E9E1751B5F97A50013A865 /* ItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemView.xib; sourceTree = "<group>"; };
+		20E9E1771B5F9BAA0013A865 /* position_item_icon0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_item_icon0@2x.png"; sourceTree = "<group>"; };
+		20E9E1781B5F9BAA0013A865 /* position_item_icon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_item_icon2@2x.png"; sourceTree = "<group>"; };
+		20E9E1791B5F9BAA0013A865 /* position_item_icon1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_item_icon1@2x.png"; sourceTree = "<group>"; };
+		20E9E17A1B5F9BAA0013A865 /* position_item_icon3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_item_icon3@2x.png"; sourceTree = "<group>"; };
+		20E9E17F1B5F9BBA0013A865 /* position_item_icon5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_item_icon5@2x.png"; sourceTree = "<group>"; };
+		20E9E1801B5F9BBA0013A865 /* position_item_icon4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_item_icon4@2x.png"; sourceTree = "<group>"; };
+		20E9E1831B5F9D2B0013A865 /* position_item_icon6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_item_icon6@2x.png"; sourceTree = "<group>"; };
 		20F0F21E1B5DD59400CB1D71 /* CircleProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleProgressView.h; sourceTree = "<group>"; };
 		20F0F21F1B5DD59400CB1D71 /* CircleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleProgressView.m; sourceTree = "<group>"; };
 		20F0F2201B5DD59400CB1D71 /* CircleShapeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleShapeLayer.h; sourceTree = "<group>"; };
@@ -395,6 +464,35 @@
 		20F0F2241B5DD5E200CB1D71 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
 		20F0F2251B5DD5E200CB1D71 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		20F0F2281B5DD67D00CB1D71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		20F0F22B1B5DF89000CB1D71 /* CommendResumeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommendResumeViewController.h; sourceTree = "<group>"; };
+		20F0F22C1B5DF89000CB1D71 /* CommendResumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommendResumeViewController.m; sourceTree = "<group>"; };
+		20F0F22D1B5DF89000CB1D71 /* CommendResumeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommendResumeViewController.xib; sourceTree = "<group>"; };
+		20F0F2321B5E137700CB1D71 /* CommendResumeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommendResumeTableViewCell.h; sourceTree = "<group>"; };
+		20F0F2331B5E137700CB1D71 /* CommendResumeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommendResumeTableViewCell.m; sourceTree = "<group>"; };
+		20F0F2341B5E137700CB1D71 /* CommendResumeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommendResumeTableViewCell.xib; sourceTree = "<group>"; };
+		20F0F2381B5E161B00CB1D71 /* homepage_commendRe_urgent_mark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_commendRe_urgent_mark@2x.png"; sourceTree = "<group>"; };
+		20F0F23A1B5E18A500CB1D71 /* homepage_commendRe_numberMark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_commendRe_numberMark@2x.png"; sourceTree = "<group>"; };
+		20F0F23C1B5E1C6A00CB1D71 /* CommendResumeForJobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommendResumeForJobViewController.h; sourceTree = "<group>"; };
+		20F0F23D1B5E1C6A00CB1D71 /* CommendResumeForJobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommendResumeForJobViewController.m; sourceTree = "<group>"; };
+		20F0F23E1B5E1C6A00CB1D71 /* CommendResumeForJobViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommendResumeForJobViewController.xib; sourceTree = "<group>"; };
+		20F0F2411B5E1C8400CB1D71 /* CommendResumeForJobTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommendResumeForJobTableViewCell.h; sourceTree = "<group>"; };
+		20F0F2421B5E1C8400CB1D71 /* CommendResumeForJobTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommendResumeForJobTableViewCell.m; sourceTree = "<group>"; };
+		20F0F2431B5E1C8400CB1D71 /* CommendResumeForJobTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommendResumeForJobTableViewCell.xib; sourceTree = "<group>"; };
+		20F0F24D1B5E23F700CB1D71 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		20F0F24E1B5E23F700CB1D71 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		20F0F24F1B5E23F700CB1D71 /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
+		20F0F2521B5E242E00CB1D71 /* MyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInfoViewController.h; sourceTree = "<group>"; };
+		20F0F2531B5E242E00CB1D71 /* MyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInfoViewController.m; sourceTree = "<group>"; };
+		20F0F2541B5E242E00CB1D71 /* MyInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyInfoViewController.xib; sourceTree = "<group>"; };
+		20F0F2581B5E24D500CB1D71 /* PositionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionViewController.h; sourceTree = "<group>"; };
+		20F0F2591B5E24D500CB1D71 /* PositionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionViewController.m; sourceTree = "<group>"; };
+		20F0F25A1B5E24D500CB1D71 /* PositionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PositionViewController.xib; sourceTree = "<group>"; };
+		20F0F25F1B5E310E00CB1D71 /* PositionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionTableViewCell.h; sourceTree = "<group>"; };
+		20F0F2601B5E310E00CB1D71 /* PositionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionTableViewCell.m; sourceTree = "<group>"; };
+		20F0F2611B5E310E00CB1D71 /* PositionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PositionTableViewCell.xib; sourceTree = "<group>"; };
+		20F0F2651B5E32D000CB1D71 /* position_title_mark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_title_mark@2x.png"; sourceTree = "<group>"; };
+		20F0F2671B5E3D9E00CB1D71 /* position.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = position.plist; sourceTree = "<group>"; };
+		20F0F2691B5E476200CB1D71 /* industry.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = industry.plist; sourceTree = "<group>"; };
 		20F8FDC11B4F9F8C008BCEE7 /* resume_prompt2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_prompt2@2x.png"; sourceTree = "<group>"; };
 		20F8FDC21B4F9F8C008BCEE7 /* resume_prompt1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_prompt1@2x.png"; sourceTree = "<group>"; };
 		20F8FDC31B4F9F8C008BCEE7 /* resume_prompt3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_prompt3@2x.png"; sourceTree = "<group>"; };
@@ -492,23 +590,6 @@
 				203542E21B4CBB45007FF4A8 /* CreateUserViewController.xib */,
 			);
 			name = Register;
-			sourceTree = "<group>";
-		};
-		203542FE1B4CBC83007FF4A8 /* Infomation */ = {
-			isa = PBXGroup;
-			children = (
-				203543011B4CBCB1007FF4A8 /* InfoViewController.h */,
-				203543021B4CBCB1007FF4A8 /* InfoViewController.m */,
-				203543031B4CBCB1007FF4A8 /* InfoViewController.xib */,
-			);
-			path = Infomation;
-			sourceTree = "<group>";
-		};
-		203542FF1B4CBC83007FF4A8 /* Position */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Position;
 			sourceTree = "<group>";
 		};
 		203543001B4CBC83007FF4A8 /* Resume */ = {
@@ -659,8 +740,8 @@
 				208EBDAE1B4A82C000AB0730 /* Third */,
 				2097D31A1B462FD500611432 /* Util */,
 				203542DC1B4CBB45007FF4A8 /* Register&Login */,
-				203542FF1B4CBC83007FF4A8 /* Position */,
-				203542FE1B4CBC83007FF4A8 /* Infomation */,
+				20F0F2461B5E23D500CB1D71 /* Mine */,
+				20F0F2571B5E247E00CB1D71 /* Position */,
 				203543001B4CBC83007FF4A8 /* Resume */,
 				2097D30E1B462F0A00611432 /* HomePage */,
 			);
@@ -679,6 +760,7 @@
 		2097D3081B462D3D00611432 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				20F0F2641B5E32BF00CB1D71 /* Position */,
 				20BB62041B4E4025006BD455 /* Resume */,
 				2097D3091B462D3D00611432 /* HomePage */,
 			);
@@ -688,6 +770,7 @@
 		2097D3091B462D3D00611432 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				20F0F2371B5E160C00CB1D71 /* CommendResume */,
 				203543351B4D0225007FF4A8 /* homepage_commend_img@2x.png */,
 				2035432E1B4CF9B6007FF4A8 /* homepage_hire_img@2x.png */,
 				203543221B4CF46F007FF4A8 /* homepage_hire_icon1@2x.png */,
@@ -712,8 +795,8 @@
 		2097D30E1B462F0A00611432 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				20F0F22A1B5DF84400CB1D71 /* CommendResume */,
 				2076B2B61B5C99E300BC7D97 /* Search */,
-				20A32A211B5908BD00E1B5F8 /* Position */,
 				20A32A1F1B5908BD00E1B5F8 /* NowHiring */,
 				20A32A1E1B5908BD00E1B5F8 /* HaveDownloaded */,
 				20A32A221B5908BD00E1B5F8 /* Untreated */,
@@ -791,6 +874,9 @@
 		20A32A161B58DB7200E1B5F8 /* setting */ = {
 			isa = PBXGroup;
 			children = (
+				20E9E1461B5F47880013A865 /* data.sqlite */,
+				20F0F2691B5E476200CB1D71 /* industry.plist */,
+				20F0F2671B5E3D9E00CB1D71 /* position.plist */,
 				20A32A1B1B58E49600E1B5F8 /* jobType.plist */,
 				20A32A191B58DB9300E1B5F8 /* major.plist */,
 				20A32A171B58DB7200E1B5F8 /* city.plist */,
@@ -832,21 +918,13 @@
 		20A32A201B5908BD00E1B5F8 /* OpenPositions */ = {
 			isa = PBXGroup;
 			children = (
+				20E9E1421B5F47060013A865 /* Model */,
+				20F0F25D1B5E30EC00CB1D71 /* View */,
 				20A32A371B5909AD00E1B5F8 /* OpenPositionViewController.h */,
 				20A32A381B5909AD00E1B5F8 /* OpenPositionViewController.m */,
 				20A32A391B5909AD00E1B5F8 /* OpenPositionViewController.xib */,
 			);
 			path = OpenPositions;
-			sourceTree = "<group>";
-		};
-		20A32A211B5908BD00E1B5F8 /* Position */ = {
-			isa = PBXGroup;
-			children = (
-				20A32A231B59094100E1B5F8 /* PositionViewController.h */,
-				20A32A241B59094100E1B5F8 /* PositionViewController.m */,
-				20A32A251B59094100E1B5F8 /* PositionViewController.xib */,
-			);
-			path = Position;
 			sourceTree = "<group>";
 		};
 		20A32A221B5908BD00E1B5F8 /* Untreated */ = {
@@ -988,6 +1066,63 @@
 			path = QMap;
 			sourceTree = "<group>";
 		};
+		20E9E1411B5F46C80013A865 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		20E9E1421B5F47060013A865 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				20E9E1431B5F471C0013A865 /* PositionObject.h */,
+				20E9E1441B5F471C0013A865 /* PositionObject.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		20E9E1481B5F4B0F0013A865 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				20E9E1491B5F4B150013A865 /* Cell */,
+				20E9E14A1B5F4B2E0013A865 /* PositionHeaderView.h */,
+				20E9E14B1B5F4B2E0013A865 /* PositionHeaderView.m */,
+				20E9E14D1B5F4B3C0013A865 /* PositionHeaderView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		20E9E1491B5F4B150013A865 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				20E9E1601B5F8E8F0013A865 /* infoCell */,
+				20E9E14F1B5F68DA0013A865 /* PositionShowTableViewCell.h */,
+				20E9E1501B5F68DA0013A865 /* PositionShowTableViewCell.m */,
+				20E9E1511B5F68DA0013A865 /* PositionShowTableViewCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		20E9E1601B5F8E8F0013A865 /* infoCell */ = {
+			isa = PBXGroup;
+			children = (
+				20E9E1611B5F8EAB0013A865 /* PositionInfoTableViewCell0.h */,
+				20E9E1621B5F8EAB0013A865 /* PositionInfoTableViewCell0.m */,
+				20E9E1631B5F8EAB0013A865 /* PositionInfoTableViewCell0.xib */,
+				20E9E1661B5F8EBD0013A865 /* PositionInfoTableViewCell1.h */,
+				20E9E1671B5F8EBD0013A865 /* PositionInfoTableViewCell1.m */,
+				20E9E1681B5F8EBD0013A865 /* PositionInfoTableViewCell1.xib */,
+				20E9E16B1B5F8ECD0013A865 /* PositionInfoTableViewCell2.h */,
+				20E9E16C1B5F8ECD0013A865 /* PositionInfoTableViewCell2.m */,
+				20E9E16D1B5F8ECD0013A865 /* PositionInfoTableViewCell2.xib */,
+				20E9E1721B5F97960013A865 /* ItemView.h */,
+				20E9E1731B5F97960013A865 /* ItemView.m */,
+				20E9E1751B5F97A50013A865 /* ItemView.xib */,
+			);
+			name = infoCell;
+			sourceTree = "<group>";
+		};
 		20F0F21D1B5DD59400CB1D71 /* CircularProgressView */ = {
 			isa = PBXGroup;
 			children = (
@@ -999,6 +1134,122 @@
 				20F0F2211B5DD59400CB1D71 /* CircleShapeLayer.m */,
 			);
 			path = CircularProgressView;
+			sourceTree = "<group>";
+		};
+		20F0F22A1B5DF84400CB1D71 /* CommendResume */ = {
+			isa = PBXGroup;
+			children = (
+				20E9E1411B5F46C80013A865 /* Model */,
+				20F0F2301B5E135400CB1D71 /* View */,
+				20F0F22B1B5DF89000CB1D71 /* CommendResumeViewController.h */,
+				20F0F22C1B5DF89000CB1D71 /* CommendResumeViewController.m */,
+				20F0F22D1B5DF89000CB1D71 /* CommendResumeViewController.xib */,
+				20F0F23C1B5E1C6A00CB1D71 /* CommendResumeForJobViewController.h */,
+				20F0F23D1B5E1C6A00CB1D71 /* CommendResumeForJobViewController.m */,
+				20F0F23E1B5E1C6A00CB1D71 /* CommendResumeForJobViewController.xib */,
+			);
+			path = CommendResume;
+			sourceTree = "<group>";
+		};
+		20F0F2301B5E135400CB1D71 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				20F0F2311B5E135B00CB1D71 /* Cell */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		20F0F2311B5E135B00CB1D71 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				20F0F2321B5E137700CB1D71 /* CommendResumeTableViewCell.h */,
+				20F0F2331B5E137700CB1D71 /* CommendResumeTableViewCell.m */,
+				20F0F2341B5E137700CB1D71 /* CommendResumeTableViewCell.xib */,
+				20F0F2411B5E1C8400CB1D71 /* CommendResumeForJobTableViewCell.h */,
+				20F0F2421B5E1C8400CB1D71 /* CommendResumeForJobTableViewCell.m */,
+				20F0F2431B5E1C8400CB1D71 /* CommendResumeForJobTableViewCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		20F0F2371B5E160C00CB1D71 /* CommendResume */ = {
+			isa = PBXGroup;
+			children = (
+				20F0F23A1B5E18A500CB1D71 /* homepage_commendRe_numberMark@2x.png */,
+				20F0F2381B5E161B00CB1D71 /* homepage_commendRe_urgent_mark@2x.png */,
+			);
+			path = CommendResume;
+			sourceTree = "<group>";
+		};
+		20F0F2461B5E23D500CB1D71 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				20F0F24C1B5E23F700CB1D71 /* Infomation */,
+				20F0F2521B5E242E00CB1D71 /* MyInfoViewController.h */,
+				20F0F2531B5E242E00CB1D71 /* MyInfoViewController.m */,
+				20F0F2541B5E242E00CB1D71 /* MyInfoViewController.xib */,
+			);
+			name = Mine;
+			path = EnterpriseEdition/Class/Mine;
+			sourceTree = SOURCE_ROOT;
+		};
+		20F0F24C1B5E23F700CB1D71 /* Infomation */ = {
+			isa = PBXGroup;
+			children = (
+				20F0F24D1B5E23F700CB1D71 /* InfoViewController.h */,
+				20F0F24E1B5E23F700CB1D71 /* InfoViewController.m */,
+				20F0F24F1B5E23F700CB1D71 /* InfoViewController.xib */,
+			);
+			path = Infomation;
+			sourceTree = "<group>";
+		};
+		20F0F2571B5E247E00CB1D71 /* Position */ = {
+			isa = PBXGroup;
+			children = (
+				20E9E1481B5F4B0F0013A865 /* View */,
+				20F0F2581B5E24D500CB1D71 /* PositionViewController.h */,
+				20F0F2591B5E24D500CB1D71 /* PositionViewController.m */,
+				20F0F25A1B5E24D500CB1D71 /* PositionViewController.xib */,
+				20E9E1561B5F886F0013A865 /* PositionInfoViewController.h */,
+				20E9E1571B5F886F0013A865 /* PositionInfoViewController.m */,
+				20E9E1581B5F886F0013A865 /* PositionInfoViewController.xib */,
+			);
+			path = Position;
+			sourceTree = "<group>";
+		};
+		20F0F25D1B5E30EC00CB1D71 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				20F0F25E1B5E30F300CB1D71 /* Cell */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		20F0F25E1B5E30F300CB1D71 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				20F0F25F1B5E310E00CB1D71 /* PositionTableViewCell.h */,
+				20F0F2601B5E310E00CB1D71 /* PositionTableViewCell.m */,
+				20F0F2611B5E310E00CB1D71 /* PositionTableViewCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		20F0F2641B5E32BF00CB1D71 /* Position */ = {
+			isa = PBXGroup;
+			children = (
+				20E9E1771B5F9BAA0013A865 /* position_item_icon0@2x.png */,
+				20E9E1781B5F9BAA0013A865 /* position_item_icon2@2x.png */,
+				20E9E1791B5F9BAA0013A865 /* position_item_icon1@2x.png */,
+				20E9E17A1B5F9BAA0013A865 /* position_item_icon3@2x.png */,
+				20E9E1801B5F9BBA0013A865 /* position_item_icon4@2x.png */,
+				20E9E17F1B5F9BBA0013A865 /* position_item_icon5@2x.png */,
+				20E9E1831B5F9D2B0013A865 /* position_item_icon6@2x.png */,
+				20E9E1701B5F92660013A865 /* position_valid_mark@2x.png */,
+				20E9E1541B5F751A0013A865 /* position_number_mark@2x.png */,
+				20F0F2651B5E32D000CB1D71 /* position_title_mark@2x.png */,
+			);
+			path = Position;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1085,6 +1336,7 @@
 				201EDB341B57AA770080A12A /* ExperienceView.xib in Resources */,
 				20A32A181B58DB7200E1B5F8 /* city.plist in Resources */,
 				20BB620B1B4E46DD006BD455 /* ResumeChooseBtView.xib in Resources */,
+				20E9E1531B5F68DA0013A865 /* PositionShowTableViewCell.xib in Resources */,
 				203542F41B4CBB45007FF4A8 /* LoginViewController.xib in Resources */,
 				2097D3191B462F9900611432 /* BannerView.xib in Resources */,
 				203542D21B4CBA89007FF4A8 /* home_icon@3x.png in Resources */,
@@ -1092,14 +1344,24 @@
 				201EDB1B1B5795AB0080A12A /* HobbiesTableViewCell.xib in Resources */,
 				20A32A401B5909C200E1B5F8 /* CollectedViewController.xib in Resources */,
 				2035432A1B4CF630007FF4A8 /* homepage_hire_icon3@2x.png in Resources */,
+				20E9E1821B5F9BBA0013A865 /* position_item_icon4@2x.png in Resources */,
+				20F0F2661B5E32D000CB1D71 /* position_title_mark@2x.png in Resources */,
+				20E9E1761B5F97A50013A865 /* ItemView.xib in Resources */,
 				20A32A3B1B5909AD00E1B5F8 /* OpenPositionViewController.xib in Resources */,
+				20E9E14E1B5F4B3C0013A865 /* PositionHeaderView.xib in Resources */,
 				20BB62211B4E5C8D006BD455 /* CellMiddleView.xib in Resources */,
 				2097D32F1B46961400611432 /* homepage_suppinfo_icon2@2x.png in Resources */,
+				20F0F2391B5E161B00CB1D71 /* homepage_commendRe_urgent_mark@2x.png in Resources */,
 				20D1CDF91B56474500E97935 /* ResumeInfoViewController.xib in Resources */,
+				20F0F25C1B5E24D500CB1D71 /* PositionViewController.xib in Resources */,
+				20F0F2361B5E137700CB1D71 /* CommendResumeTableViewCell.xib in Resources */,
 				20A32A1A1B58DB9300E1B5F8 /* major.plist in Resources */,
 				2097D2E41B461E7000611432 /* LaunchScreen.xib in Resources */,
+				20F0F2561B5E242E00CB1D71 /* MyInfoViewController.xib in Resources */,
 				203543341B4CFBC2007FF4A8 /* CommendView.xib in Resources */,
 				203543141B4CBD8A007FF4A8 /* HomePageViewController.xib in Resources */,
+				20E9E15A1B5F886F0013A865 /* PositionInfoViewController.xib in Resources */,
+				20E9E1551B5F751A0013A865 /* position_number_mark@2x.png in Resources */,
 				201EDB391B57AA9C0080A12A /* CertificateView.xib in Resources */,
 				202223501B566E0C00D63910 /* back_bt@2x.png in Resources */,
 				201A9C7D1B535FDA00664792 /* FiltrateView.xib in Resources */,
@@ -1114,10 +1376,13 @@
 				20D1CDF31B563ED900E97935 /* resume_urgent@2x.png in Resources */,
 				201EDB2F1B579C7C0080A12A /* CertificateTableViewCell.xib in Resources */,
 				2097D3131B462F0A00611432 /* RootViewController.xib in Resources */,
+				20E9E17E1B5F9BAA0013A865 /* position_item_icon3@2x.png in Resources */,
+				20E9E1471B5F47880013A865 /* data.sqlite in Resources */,
+				20E9E17D1B5F9BAA0013A865 /* position_item_icon1@2x.png in Resources */,
 				203543211B4CD7C1007FF4A8 /* HireView.xib in Resources */,
 				20A32A2C1B59096500E1B5F8 /* NowHiringViewController.xib in Resources */,
 				203542F01B4CBB45007FF4A8 /* CreateUserTableViewCell.xib in Resources */,
-				20A32A271B59094100E1B5F8 /* PositionViewController.xib in Resources */,
+				20F0F23B1B5E18A500CB1D71 /* homepage_commendRe_numberMark@2x.png in Resources */,
 				2076B2BB1B5C9A1E00BC7D97 /* SearchResumeViewController.xib in Resources */,
 				203542FA1B4CBB45007FF4A8 /* RegisterView.xib in Resources */,
 				20BB62031B4E264A006BD455 /* HeaderView.xib in Resources */,
@@ -1131,24 +1396,35 @@
 				203543361B4D0225007FF4A8 /* homepage_commend_img@2x.png in Resources */,
 				2035432C1B4CF630007FF4A8 /* homepage_hire_icon5@2x.png in Resources */,
 				20D1CDF41B563ED900E97935 /* resume_collected@2x.png in Resources */,
+				20F0F2401B5E1C6A00CB1D71 /* CommendResumeForJobViewController.xib in Resources */,
+				20E9E1841B5F9D2B0013A865 /* position_item_icon6@2x.png in Resources */,
+				20E9E1651B5F8EAB0013A865 /* PositionInfoTableViewCell0.xib in Resources */,
 				202223521B566EF000D63910 /* back_bt@3x.png in Resources */,
+				20F0F2451B5E1C8400CB1D71 /* CommendResumeForJobTableViewCell.xib in Resources */,
 				203542F81B4CBB45007FF4A8 /* RegisterUserViewController.xib in Resources */,
 				20F0F2291B5DD67D00CB1D71 /* Localizable.strings in Resources */,
 				203543191B4CCB35007FF4A8 /* 11@2x.png in Resources */,
+				20F0F2511B5E23F700CB1D71 /* InfoViewController.xib in Resources */,
 				2097D32D1B46957B00611432 /* homepage_right_bt@2x.png in Resources */,
 				20D1CDEC1B56326100E97935 /* InfoHeaderView.xib in Resources */,
 				203542D01B4CBA89007FF4A8 /* community_icon@3x.png in Resources */,
+				20F0F22F1B5DF89000CB1D71 /* CommendResumeViewController.xib in Resources */,
 				20BB62281B4E6E6F006BD455 /* resume_protrait_default@2x.png in Resources */,
 				20A258B21B50C5F50082F04A /* resume_choose_selected_bt@2x.png in Resources */,
+				20F0F2631B5E310E00CB1D71 /* PositionTableViewCell.xib in Resources */,
 				201EDB201B579BE90080A12A /* ExperienceTableViewCell.xib in Resources */,
 				20D1CDF21B563ED900E97935 /* resume_download@2x.png in Resources */,
+				20E9E17C1B5F9BAA0013A865 /* position_item_icon2@2x.png in Resources */,
 				2097D30D1B462D5000611432 /* home_setting_btn_n@2x.png in Resources */,
 				203543291B4CF630007FF4A8 /* homepage_hire_icon2@2x.png in Resources */,
 				20A32A311B59097C00E1B5F8 /* HaveDownloadViewController.xib in Resources */,
 				20A258B41B50C5FF0082F04A /* resume_choose_bt@2x.png in Resources */,
 				2076B2C01B5CA83C00BC7D97 /* SearchResumeTableViewCell.xib in Resources */,
+				20E9E17B1B5F9BAA0013A865 /* position_item_icon0@2x.png in Resources */,
+				20F0F26A1B5E476200CB1D71 /* industry.plist in Resources */,
 				20A32A1C1B58E49600E1B5F8 /* jobType.plist in Resources */,
 				2035432B1B4CF630007FF4A8 /* homepage_hire_icon4@2x.png in Resources */,
+				20E9E16A1B5F8EBD0013A865 /* PositionInfoTableViewCell1.xib in Resources */,
 				2035432D1B4CF630007FF4A8 /* homepage_hire_icon6@2x.png in Resources */,
 				20D58BA71B54F814007B2A3F /* QMapKit.bundle in Resources */,
 				202223571B5670A600D63910 /* IdentityTableViewCell.xib in Resources */,
@@ -1159,14 +1435,17 @@
 				201EDB161B57819E0080A12A /* EducationTableViewCell.xib in Resources */,
 				2097D32B1B46928F00611432 /* HomePageTableViewCell.xib in Resources */,
 				2035430F1B4CBD40007FF4A8 /* ResumeViewController.xib in Resources */,
-				203543051B4CBCB1007FF4A8 /* InfoViewController.xib in Resources */,
 				20BB62061B4E4030006BD455 /* resume_search_bt@2x.png in Resources */,
 				20F8FDC81B4FB88D008BCEE7 /* resume_collected_bt@2x.png in Resources */,
 				2035432F1B4CF9B6007FF4A8 /* homepage_hire_img@2x.png in Resources */,
+				20E9E1811B5F9BBA0013A865 /* position_item_icon5@2x.png in Resources */,
 				20BB61F11B4DFC72006BD455 /* SinglePersonalView.xib in Resources */,
 				20BE75921B51042D00A92504 /* FooterView.xib in Resources */,
 				203542CF1B4CBA89007FF4A8 /* community_icon@2x.png in Resources */,
+				20E9E1711B5F92660013A865 /* position_valid_mark@2x.png in Resources */,
+				20F0F2681B5E3D9E00CB1D71 /* position.plist in Resources */,
 				201A9C831B53634E00664792 /* FiltrateTableViewCell.xib in Resources */,
+				20E9E16F1B5F8ECD0013A865 /* PositionInfoTableViewCell2.xib in Resources */,
 				20D58BB21B54FACD007B2A3F /* LocationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1187,19 +1466,23 @@
 			files = (
 				20A32A2B1B59096500E1B5F8 /* NowHiringViewController.m in Sources */,
 				2076B2C71B5CEB3400BC7D97 /* NowHiringTableViewCell.m in Sources */,
+				20F0F2501B5E23F700CB1D71 /* InfoViewController.m in Sources */,
 				201EDB1A1B5795AB0080A12A /* HobbiesTableViewCell.m in Sources */,
 				201A9C821B53634E00664792 /* FiltrateTableViewCell.m in Sources */,
 				2035431F1B4CD7B0007FF4A8 /* HireView.m in Sources */,
+				20E9E1691B5F8EBD0013A865 /* PositionInfoTableViewCell1.m in Sources */,
 				20F0F2221B5DD59400CB1D71 /* CircleProgressView.m in Sources */,
 				20A32A071B58A2CB00E1B5F8 /* FMDatabase.m in Sources */,
 				202223561B5670A600D63910 /* IdentityTableViewCell.m in Sources */,
 				20F0F2261B5DD5E200CB1D71 /* Session.m in Sources */,
 				2076B2BF1B5CA83C00BC7D97 /* SearchResumeTableViewCell.m in Sources */,
 				201A9C861B538FB500664792 /* FiltratePickerView.m in Sources */,
+				20E9E1451B5F471C0013A865 /* PositionObject.m in Sources */,
 				201EDB371B57AA8F0080A12A /* CertificateView.m in Sources */,
 				20BB62091B4E46CB006BD455 /* ResumeChooseBtView.m in Sources */,
 				201EDB1F1B579BE90080A12A /* ExperienceTableViewCell.m in Sources */,
 				201EDB321B57AA6A0080A12A /* ExperienceView.m in Sources */,
+				20F0F23F1B5E1C6A00CB1D71 /* CommendResumeForJobViewController.m in Sources */,
 				20A32A3A1B5909AD00E1B5F8 /* OpenPositionViewController.m in Sources */,
 				20BB61EF1B4DFC25006BD455 /* SinglePersonalView.m in Sources */,
 				203542F11B4CBB45007FF4A8 /* CreateUserViewController.m in Sources */,
@@ -1207,43 +1490,53 @@
 				2097D3171B462F8500611432 /* BannerView.m in Sources */,
 				2022235A1B56710C00D63910 /* TitleView.m in Sources */,
 				20A32A091B58A2CB00E1B5F8 /* FMDatabasePool.m in Sources */,
-				20A32A261B59094100E1B5F8 /* PositionViewController.m in Sources */,
 				203543131B4CBD8A007FF4A8 /* HomePageViewController.m in Sources */,
 				20D1CDF81B56474500E97935 /* ResumeInfoViewController.m in Sources */,
 				2076B2BA1B5C9A1E00BC7D97 /* SearchResumeViewController.m in Sources */,
 				2097D2D91B461E7000611432 /* AppDelegate.m in Sources */,
+				20F0F2441B5E1C8400CB1D71 /* CommendResumeForJobTableViewCell.m in Sources */,
 				20BB621F1B4E5C7C006BD455 /* CellMiddleView.m in Sources */,
 				201EDB101B575F0F0080A12A /* JobIntensionTableViewCell.m in Sources */,
 				203543321B4CFBAD007FF4A8 /* CommendView.m in Sources */,
 				20A32A351B59099600E1B5F8 /* UntreatedViewController.m in Sources */,
 				20BB620F1B4E54B9006BD455 /* ResumeTableViewCell.m in Sources */,
 				2097D2D61B461E7000611432 /* main.m in Sources */,
+				20F0F25B1B5E24D500CB1D71 /* PositionViewController.m in Sources */,
 				20BB62011B4E260A006BD455 /* HeaderView.m in Sources */,
 				20BE75901B51041E00A92504 /* FooterView.m in Sources */,
+				20F0F2621B5E310E00CB1D71 /* PositionTableViewCell.m in Sources */,
 				201A9C7B1B535FCA00664792 /* FiltrateView.m in Sources */,
 				205CA9C31B4BD9F4007BAC89 /* UIButton+Custom.m in Sources */,
+				20E9E16E1B5F8ECD0013A865 /* PositionInfoTableViewCell2.m in Sources */,
 				203542F51B4CBB45007FF4A8 /* RegisterBottomView.m in Sources */,
 				20A32A3F1B5909C200E1B5F8 /* CollectedViewController.m in Sources */,
 				20A32A301B59097C00E1B5F8 /* HaveDownloadViewController.m in Sources */,
+				20F0F22E1B5DF89000CB1D71 /* CommendResumeViewController.m in Sources */,
 				20A32A0B1B58A2CB00E1B5F8 /* FMResultSet.m in Sources */,
 				2097D3121B462F0A00611432 /* RootViewController.m in Sources */,
+				20F0F2551B5E242E00CB1D71 /* MyInfoViewController.m in Sources */,
 				2097D32A1B46928F00611432 /* HomePageTableViewCell.m in Sources */,
 				203542F31B4CBB45007FF4A8 /* LoginViewController.m in Sources */,
-				203543041B4CBCB1007FF4A8 /* InfoViewController.m in Sources */,
+				20F0F2351B5E137700CB1D71 /* CommendResumeTableViewCell.m in Sources */,
 				20F0F2231B5DD59400CB1D71 /* CircleShapeLayer.m in Sources */,
 				20A32A081B58A2CB00E1B5F8 /* FMDatabaseAdditions.m in Sources */,
+				20E9E1641B5F8EAB0013A865 /* PositionInfoTableViewCell0.m in Sources */,
 				20A32A151B58B34E00E1B5F8 /* Location.m in Sources */,
+				20E9E1591B5F886F0013A865 /* PositionInfoViewController.m in Sources */,
+				20E9E1741B5F97960013A865 /* ItemView.m in Sources */,
 				208EBDB21B4A82CE00AB0730 /* MarkupParser.m in Sources */,
 				2076B2CB1B5CEB7F00BC7D97 /* NowHiringHeaderView.m in Sources */,
 				20D1CDEA1B56325100E97935 /* InfoHeaderView.m in Sources */,
 				20D58BB11B54FACD007B2A3F /* LocationViewController.m in Sources */,
 				2035430E1B4CBD40007FF4A8 /* ResumeViewController.m in Sources */,
+				20E9E1521B5F68DA0013A865 /* PositionShowTableViewCell.m in Sources */,
 				201EDB2E1B579C7C0080A12A /* CertificateTableViewCell.m in Sources */,
 				203542EF1B4CBB45007FF4A8 /* CreateUserTableViewCell.m in Sources */,
 				20A32A0A1B58A2CB00E1B5F8 /* FMDatabaseQueue.m in Sources */,
 				20BB62241B4E638A006BD455 /* CellBottomView.m in Sources */,
 				203542F71B4CBB45007FF4A8 /* RegisterUserViewController.m in Sources */,
 				20BB62141B4E5611006BD455 /* CellHeaderView.m in Sources */,
+				20E9E14C1B5F4B2E0013A865 /* PositionHeaderView.m in Sources */,
 				208EBDB51B4A82D800AB0730 /* CustomLabel.m in Sources */,
 				203542F91B4CBB45007FF4A8 /* RegisterView.m in Sources */,
 				201EDB151B57819E0080A12A /* EducationTableViewCell.m in Sources */,

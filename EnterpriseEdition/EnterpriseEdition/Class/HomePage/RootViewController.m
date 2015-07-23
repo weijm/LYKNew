@@ -28,9 +28,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     //tabbar的title
-    NSArray *titleArray = [NSArray arrayWithObjects:@"首页",@"简历",@"信息",@"职位", nil];
+    NSArray *titleArray = [NSArray arrayWithObjects:@"首页",@"简历",@"职位",@"我的", nil];
     //tabbar的控制器类前缀 如 HomePageViewController这个控制器的名称为HomePage
-    NSArray *classArray = [NSArray arrayWithObjects:@"HomePage",@"Resume",@"Info",@"Position", nil];
+    NSArray *classArray = [NSArray arrayWithObjects:@"HomePage",@"Resume",@"Position",@"MyInfo", nil];
     NSArray *imageArray = [NSArray arrayWithObjects:@"home_icon",@"community_icon",@"home_icon",@"community_icon", nil];
     //生成tabbar的控制器数组
     NSMutableArray *vcArray = [Util generateViewControllerByName:[NSDictionary dictionaryWithObjectsAndKeys:titleArray,@"title",classArray,@"name",imageArray,@"image", nil]];

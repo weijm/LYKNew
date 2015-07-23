@@ -1,79 +1,54 @@
 //
-//  SearchResumeViewController.m
+//  CommendResumeForJobViewController.m
 //  EnterpriseEdition
 //
-//  Created by lyk on 15/7/20.
+//  Created by lyk on 15/7/21.
 //  Copyright (c) 2015年 lyk. All rights reserved.
 //
 
-#import "SearchResumeViewController.h"
+#import "CommendResumeForJobViewController.h"
 #import "UIButton+Custom.h"
 #import "FooterView.h"
 #import "FiltratePickerView.h"
 
-
-#define kSearchBarRect CGRectMake(30,22,(kWidth - 30*2),40)
-@interface SearchResumeViewController ()
+@interface CommendResumeForJobViewController ()
 {
-    UISearchBar *customSearchBar;
-    
     UIButton_Custom *rightBt;
     
     FooterView *footerView;
     
     FiltrateView *filtrateView;
     
+    UIView *headerView;
 }
 @end
 
-@implementation SearchResumeViewController
+@implementation CommendResumeForJobViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title = @"职位名称-简历推荐";
+    
     self.view.backgroundColor = Rgb(230, 244, 253, 1.0);
     //初始化编辑按钮
     [self initItems];
-    //初始化搜索条
-    [self initSearchBar];
+    //初始化headerView
+    [self initHeaderView];
+
     //导航条的颜色
     [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
     //设置tableView
     dataTableView.backgroundColor = [UIColor clearColor];
     dataTableView.separatorColor = [UIColor clearColor];
     
-  
+    //获取数据
+    [self getData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - 初始化搜索条
-//初始化导航条
--(void)initSearchBar
-{
-    customSearchBar = [[UISearchBar alloc] initWithFrame:kSearchBarRect];
-    //添加的searchBar标记
-    customSearchBar.delegate = self;
-    //设置searchBar的背景图片
-    customSearchBar.backgroundImage = [Util imageWithColor:[UIColor clearColor]];
-    //searchBar的提示文字
-    if (kIphone6) {
-        customSearchBar.placeholder = @"搜索                                    ";
-    }else if (kIphone6plus)
-    {
-        customSearchBar.placeholder = @"搜索                                                 ";
-    }else
-    {
-        customSearchBar.placeholder = @"搜索                           ";
-    }
-    
-    //设置textFiled的背景
-//    [customSearchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"homepage_searchbg"] forState:UIControlStateNormal];
-    //添加到页面上
-    self.navigationItem.titleView = customSearchBar;
 }
 
 #pragma mark - 编辑按钮
@@ -100,7 +75,7 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
     self.navigationItem.rightBarButtonItem = rightItem;
     self.navigationItem.rightBarButtonItem.enabled = NO;
-
+    
 }
 -(void)leftAction
 {
@@ -119,8 +94,7 @@
         //显示底部的编辑按钮
         [self initFooerView];
         
-        //编辑的时候 搜索条不可点
-        customSearchBar.userInteractionEnabled = NO;
+
         
     }else
     {//隐藏选中按钮
@@ -129,9 +103,8 @@
         rightBt.specialMark = 0;
         //取消底部视图
         [footerView cancelFooterView];
-        //取消编辑的时候 搜索条可点
-        customSearchBar.userInteractionEnabled = YES;
-   
+
+        
     }
     [dataTableView reloadData];
 }
@@ -142,10 +115,10 @@
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellid=@"SearchResumeId";
-    SearchResumeTableViewCell *cell = (SearchResumeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
+    static NSString *cellid=@"CommendForJobID";
+    CommendResumeForJobTableViewCell *cell = (CommendResumeForJobTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
     if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"SearchResumeTableViewCell" owner:self options:nil] lastObject];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"CommendResumeForJobTableViewCell" owner:self options:nil] lastObject];
     }
     cell.delegate = self;
     //加载视图数据
@@ -164,7 +137,7 @@
     [cell changeLocation:rightBt.specialMark Selected:[isSelected intValue] ];
     //取消点击cell选中效果
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+    
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -173,50 +146,46 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if ([dataArray count]!=0) {
-        return [Util myYOrHeight:40];
+    if (rightBt.specialMark == 1) {
+        return [Util myYOrHeight:20];
     }else
     {
-        return 0;
+        return [Util myYOrHeight:40];
     }
+    
     
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if ([dataArray count]!=0) {
-        
-        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, [Util myYOrHeight:40])];
-        headerView.userInteractionEnabled = YES;
-        headerView.backgroundColor = Rgb(230, 244, 253, 1.0);
-        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, [Util myYOrHeight:40]-0.8, kWidth, 0.8)];
-        line.backgroundColor = Rgb(150, 204, 243, 0.7);
-        [headerView addSubview:line];
-        
-        float btW = [Util myXOrWidth:150];
-        UIButton *filtrateBt = [[UIButton alloc] initWithFrame:CGRectMake((kWidth-btW)/2, 0, btW, [Util myYOrHeight:40]-0.8)];
-        [filtrateBt setTitle:@"综合筛选" forState:UIControlStateNormal];
-        [filtrateBt setTitleColor:Rgb(76, 80, 83, 1.0) forState:UIControlStateNormal];
-        [filtrateBt addTarget:self action:@selector(filtrateAction) forControlEvents:UIControlEventTouchUpInside];
-        filtrateBt.titleLabel.font = [UIFont systemFontOfSize:14];
-        [headerView addSubview:filtrateBt];
-        if (rightBt.specialMark==1) {
-            headerView.hidden = YES;
-        }else
-        {
-            headerView.hidden = NO;
-        }
-        return headerView;
+    if (rightBt.specialMark == 1) {
+        headerView.hidden = YES;
     }else
     {
-        return nil;
+        headerView.hidden = NO;
     }
+    return headerView;
+}
+-(void)initHeaderView
+{
+    headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, [Util myYOrHeight:40])];
+    headerView.userInteractionEnabled = YES;
+    headerView.backgroundColor = Rgb(230, 244, 253, 1.0);
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, [Util myYOrHeight:40]-0.8, kWidth, 0.8)];
+    line.backgroundColor = Rgb(150, 204, 243, 0.7);
+    [headerView addSubview:line];
     
+    float btW = [Util myXOrWidth:150];
+    UIButton *filtrateBt = [[UIButton alloc] initWithFrame:CGRectMake((kWidth-btW)/2, 0, btW, [Util myYOrHeight:40]-0.8)];
+    [filtrateBt setTitle:@"综合筛选" forState:UIControlStateNormal];
+    [filtrateBt setTitleColor:Rgb(76, 80, 83, 1.0) forState:UIControlStateNormal];
+    [filtrateBt addTarget:self action:@selector(filtrateAction) forControlEvents:UIControlEventTouchUpInside];
+    filtrateBt.titleLabel.font = [UIFont systemFontOfSize:14];
+    [headerView addSubview:filtrateBt];
 }
 #pragma -mark - 综合筛选的事件
 -(void)filtrateAction
 {
     self.navigationItem.rightBarButtonItem.enabled = NO;
-    customSearchBar.userInteractionEnabled = NO;
     float filtrateH = topBarheight;
     CGRect frame = CGRectMake(0, filtrateH, kWidth, kHeight-filtrateH);
     filtrateView = [[FiltrateView alloc] initWithFrame:frame];
@@ -224,7 +193,7 @@
     //根据所选简历分类 加载的筛选内容不同
     [filtrateView changeTitleArray:2];
     [self.view addSubview:filtrateView];
-
+    
 }
 #pragma mark - 综合筛选FiltrateViewDelegate
 -(void)didSelectedRow:(int)row
@@ -260,7 +229,6 @@
         NSLog(@"取消");
         [filtrateView removeFromSuperview];
     }
-    customSearchBar.userInteractionEnabled = YES;
     self.navigationItem.rightBarButtonItem.enabled = YES;
 }
 #pragma mark -将筛选条件显示到界面
@@ -285,42 +253,6 @@
         [filtrateView reloadTableView:row withContent:dictionary];
     }
 }
-
-#pragma mark - UISearchBarDelegate
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    //取消键盘
-    [self cancelKey];
-    //搜索内容
-    [self getData];
-    
-}
-- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
-{
-    NSLog(@"searchBarShouldBeginEditing");
-    [self addEditBg];
-    return YES;
-}
-#pragma mark-添加和取消键盘的事件
--(void)addEditBg
-{
-    UIView *bg = [[UIView alloc] initWithFrame:self.view.frame];
-    bg.backgroundColor = [UIColor lightGrayColor];
-    bg.alpha = 0.3;
-    bg.tag = 1000;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelKey)];
-    [bg addGestureRecognizer:tap];
-    [self.view addSubview:bg];
-}
--(void)cancelKey
-{
-    UIView *bg = [self.view viewWithTag:1000];
-    if (bg) {
-        [bg removeFromSuperview];
-    }
-    [customSearchBar resignFirstResponder];
-    customSearchBar.text = nil;
-}
 #pragma mark - 初始化footerView
 -(void)initFooerView
 {
@@ -332,9 +264,9 @@
     //设置除了全选按钮可点击 其余按钮不可点击
     [footerView setButton:[NSArray arrayWithObjects:@"200", nil]Enable:NO];
     //点击按钮的触发事件
-    __weak SearchResumeViewController *wself = self;
+    __weak CommendResumeForJobViewController *wself = self;
     footerView.chooseFooterBtAction = ^(NSInteger index,BOOL isAll){
-        SearchResumeViewController *sself = wself;
+        CommendResumeForJobViewController *sself = wself;
         [sself chooseAction:index isChooseAll:isAll];
     };
     [self.view.window addSubview:footerView];
@@ -361,11 +293,11 @@
         case 200:
             NSLog(@"选中简历类型 2 取消收藏选中的简历");
             break;
-        
+            
         default:
             break;
     }
-
+    
 }
 #pragma mark - SearchResumeTableViewCellDelegate
 -(void)clickedChooseBtAction:(int)index Selected:(NSString*)isSelected
@@ -411,8 +343,9 @@
     for (int i=0; i< [dataArray count]; i++) {
         [chooseArray addObject:@""];
     }
-    if ([dataArray count]>0) {
-         self.navigationItem.rightBarButtonItem.enabled = YES;
-    }
+    self.navigationItem.rightBarButtonItem.enabled = YES;
 }
+
+
+
 @end

@@ -33,4 +33,16 @@
  初始化底部视图上的按钮
  */
 -(void)loadFooterSubView;
+/**
+ 初始化职位底部视图上的按钮
+ */
+-(void)loadPositionFooterSubView;
+/**
+ 初始化职位详情底部视图上的按钮
+ */
+-(void)loadPositionInfoFooterSubView;
+/**
+ 初始化职位中的按钮
+ */
+-(void)loadSubViewInPosition;
 @end

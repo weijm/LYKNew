@@ -27,18 +27,40 @@
 }
 -(void)loadEditButton:(int)index
 {
-    switch (index) {
-        case 1:
-            [self initButtonView:3 index:index];
-            break;
-        case 2:
-            [self initButtonView:2 index:index];
-            break;
-        case 3:
-            [self initButtonView:3 index:index];
-            break;
-        default:
-            break;
+    if (_position==1) {//职位页面的编辑footer
+        switch (index) {
+            case 1:
+                [self initButtonView:4 index:index];
+                break;
+            case 2:
+                [self initButtonView:3 index:index];
+                break;
+            case 3:
+                [self initButtonView:2 index:index];
+                break;
+            default:
+                break;
+        }
+    }else if (_position ==2)
+    {//职位详情页面的编辑footer
+        [self initButtonView:3 index:1];
+    }
+    else
+    {
+        switch (index) {
+            case 1:
+                [self initButtonView:3 index:index];
+                break;
+            case 2:
+                [self initButtonView:2 index:index];
+                break;
+            case 3:
+                [self initButtonView:3 index:index];
+                break;
+            default:
+                break;
+        }
+
     }
 }
 
@@ -62,7 +84,17 @@
         bt.clickedBtAction = ^(NSInteger index){
             [self chooseBtAction:index];
         };
-        [bt loadFooterSubView];
+        if (_position ==1) {//职位页面的编辑footer
+            [bt loadPositionFooterSubView];
+        }else if (_position == 2)
+        {//职位详情页面的编辑footer
+            [bt loadPositionInfoFooterSubView];
+        }
+        else
+        {
+            [bt loadFooterSubView];
+        }
+        
         [subView addSubview:bt];
     }
 }

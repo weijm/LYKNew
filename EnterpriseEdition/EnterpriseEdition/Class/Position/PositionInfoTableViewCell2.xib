@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PositionInfoTableViewCell2ID" rowHeight="198" id="KGk-i7-Jjw" customClass="PositionInfoTableViewCell2">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="198"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmP-cm-Yns" userLabel="topbg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="position_item_icon6.png" translatesAutoresizingMaskIntoConstraints="NO" id="60R-sA-nbt" userLabel="iconimg">
+                                <rect key="frame" x="20" y="12" width="25" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="vpx-OP-G7m"/>
+                                    <constraint firstAttribute="height" constant="20" id="xma-Xw-yUI"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="职位描述" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l87-bZ-OS6">
+                                <rect key="frame" x="55" y="12" width="265" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="fIk-9M-Kdb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="60R-sA-nbt" secondAttribute="centerY" id="EPZ-VK-3Xd"/>
+                            <constraint firstAttribute="centerY" secondItem="l87-bZ-OS6" secondAttribute="centerY" id="R4A-gK-xgE"/>
+                            <constraint firstAttribute="trailing" secondItem="l87-bZ-OS6" secondAttribute="trailing" id="gfv-zE-13d"/>
+                            <constraint firstAttribute="height" constant="45" id="lcP-cp-50h"/>
+                            <constraint firstItem="l87-bZ-OS6" firstAttribute="leading" secondItem="60R-sA-nbt" secondAttribute="trailing" constant="10" id="vgM-yZ-Umh"/>
+                            <constraint firstItem="60R-sA-nbt" firstAttribute="leading" secondItem="rmP-cm-Yns" secondAttribute="leading" constant="20" id="zKb-eA-t6D"/>
+                        </constraints>
+                    </view>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述" translatesAutoresizingMaskIntoConstraints="NO" id="O2r-Kf-7OA" userLabel="contentTextView">
+                        <rect key="frame" x="20" y="45" width="285" height="152.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="O2r-Kf-7OA" secondAttribute="bottom" id="0SG-7A-Vmc"/>
+                    <constraint firstItem="rmP-cm-Yns" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="HmR-as-boi"/>
+                    <constraint firstItem="O2r-Kf-7OA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Vir-vT-txO"/>
+                    <constraint firstItem="O2r-Kf-7OA" firstAttribute="top" secondItem="rmP-cm-Yns" secondAttribute="bottom" id="be7-ro-R4c"/>
+                    <constraint firstItem="rmP-cm-Yns" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ggZ-6S-HQd"/>
+                    <constraint firstAttribute="trailing" secondItem="O2r-Kf-7OA" secondAttribute="trailing" constant="15" id="ktw-li-VBl"/>
+                    <constraint firstAttribute="trailing" secondItem="rmP-cm-Yns" secondAttribute="trailing" id="wLV-o6-Hpk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="179" y="262"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="position_item_icon6.png" width="30" height="24"/>
+    </resources>
+</document>

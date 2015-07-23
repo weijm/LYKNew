@@ -212,20 +212,26 @@
             break;
         case 0:
         case 3:
+        case 7:
         {
             NSString *fileName;
             if (index == 0) {
                 fileName = @"jobType.plist";
                 if (_categoryType ==1) {
-                    _titleLab.text = @"按职位";
+                    _titleLab.text = @"职位名称";
                 }else
                 {
                     _titleLab.text = @"简历来源";
                 }
-            }else
+            }else if(index == 3)
             {
                 _titleLab.text = @"专    业";
                 fileName = @"major.plist";
+            }else
+            {
+                _titleLab.text = @"所属行业";
+                fileName = @"industry.plist";
+           
             }
             leftArray = [NSArray arrayWithContentsOfFile:[Util getBundlePath:fileName]];
             self.locate.country = [leftArray objectAtIndex:0];
@@ -265,6 +271,13 @@
             leftArray = [NSArray arrayWithObjects:@"不限", @"工作经验2年",@"工作经验3-5年",@"工作经验5年以上",@"工作经验10年以上",nil];
             self.locate.country = [leftArray objectAtIndex:0];
             break;
+        case 8:
+            _titleLab.hidden = YES;
+            leftArray = [NSArray arrayWithObjects:@"上线", @"删除",@"下线",nil];
+            self.locate.country = [leftArray objectAtIndex:0];
+            break;
+       
+
             
         default:
             break;

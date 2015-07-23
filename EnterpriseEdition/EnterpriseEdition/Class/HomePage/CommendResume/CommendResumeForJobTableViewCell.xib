@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommendForJobID" rowHeight="141" id="KGk-i7-Jjw" customClass="CommendResumeForJobTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="141"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Tv-Vu-hcK" userLabel="chooseBg">
+                        <rect key="frame" x="-10" y="5" width="20" height="130.5"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoI-to-xxE" userLabel="chooseBt" customClass="UIButton_Custom">
+                                <rect key="frame" x="-4" y="52" width="27" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="27" id="FEY-OF-gmh"/>
+                                    <constraint firstAttribute="height" constant="27" id="LeE-5s-FLd"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="resume_choose_bt.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mJ6-tX-y3e"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="SoI-to-xxE" secondAttribute="centerX" id="05j-DJ-Jzx"/>
+                            <constraint firstAttribute="centerY" secondItem="SoI-to-xxE" secondAttribute="centerY" id="KS3-Ai-stI"/>
+                            <constraint firstAttribute="width" constant="20" id="plS-Jh-IbE"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFB-Aq-ONU" userLabel="bg">
+                        <rect key="frame" x="10" y="5" width="300" height="130.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="9Tv-Vu-hcK" secondAttribute="bottom" constant="5" id="Ekg-ia-cyP"/>
+                    <constraint firstAttribute="trailing" secondItem="VFB-Aq-ONU" secondAttribute="trailing" constant="10" id="QbS-GF-KWt"/>
+                    <constraint firstItem="9Tv-Vu-hcK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="-10" id="XPP-Jw-mrj"/>
+                    <constraint firstItem="9Tv-Vu-hcK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="aqh-hJ-QsL"/>
+                    <constraint firstAttribute="bottom" secondItem="VFB-Aq-ONU" secondAttribute="bottom" constant="5" id="obY-VA-hLt"/>
+                    <constraint firstItem="VFB-Aq-ONU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="yRx-LF-pN2"/>
+                    <constraint firstItem="VFB-Aq-ONU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="zeB-7B-UJQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="bgToLeft" destination="zeB-7B-UJQ" id="MeV-eV-kMh"/>
+                <outlet property="bgToRight" destination="QbS-GF-KWt" id="TnW-aJ-eXG"/>
+                <outlet property="chooseBg" destination="9Tv-Vu-hcK" id="aAX-BN-H2Z"/>
+                <outlet property="chooseBgToLeft" destination="XPP-Jw-mrj" id="tXQ-oT-5y0"/>
+                <outlet property="chooseBt" destination="SoI-to-xxE" id="p1c-8y-yes"/>
+                <outlet property="subView" destination="VFB-Aq-ONU" id="Q22-q5-AK6"/>
+            </connections>
+            <point key="canvasLocation" x="203" y="282.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="resume_choose_bt.png" width="27" height="27"/>
+    </resources>
+</document>

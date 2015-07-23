@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PositionInfoTableViewCell1ID" rowHeight="154" id="KGk-i7-Jjw" customClass="PositionInfoTableViewCell1">
+            <rect key="frame" x="0.0" y="-1" width="320" height="154"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fEh-Yg-JbI" userLabel="bg">
+                        <rect key="frame" x="20" y="5" width="280" height="139"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ykr-XI-gpt" userLabel="topbg">
+                                <rect key="frame" x="0.0" y="6" width="280" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="yQs-J8-TlB"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="88m-In-gJd" userLabel="midbg">
+                                <rect key="frame" x="0.0" y="36" width="280" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="lzw-BK-aQT"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ERs-ta-tsE" userLabel="bottombg">
+                                <rect key="frame" x="0.0" y="66" width="280" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="uEY-y1-6a4"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Ykr-XI-gpt" secondAttribute="trailing" id="RJP-k9-1Jv"/>
+                            <constraint firstAttribute="trailing" secondItem="ERs-ta-tsE" secondAttribute="trailing" id="U2E-tF-Rbb"/>
+                            <constraint firstAttribute="trailing" secondItem="88m-In-gJd" secondAttribute="trailing" id="WN8-e2-Ahg"/>
+                            <constraint firstItem="ERs-ta-tsE" firstAttribute="leading" secondItem="fEh-Yg-JbI" secondAttribute="leading" id="WRc-1g-4w7"/>
+                            <constraint firstItem="88m-In-gJd" firstAttribute="top" secondItem="Ykr-XI-gpt" secondAttribute="bottom" id="bL3-If-uxG"/>
+                            <constraint firstItem="Ykr-XI-gpt" firstAttribute="leading" secondItem="fEh-Yg-JbI" secondAttribute="leading" id="beh-zl-kzf"/>
+                            <constraint firstItem="Ykr-XI-gpt" firstAttribute="top" secondItem="fEh-Yg-JbI" secondAttribute="top" constant="6" id="iTg-5h-jJI"/>
+                            <constraint firstItem="88m-In-gJd" firstAttribute="leading" secondItem="fEh-Yg-JbI" secondAttribute="leading" id="jiC-dU-GdH"/>
+                            <constraint firstItem="ERs-ta-tsE" firstAttribute="top" secondItem="88m-In-gJd" secondAttribute="bottom" id="oF2-17-ce5"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RKk-vp-qcp" userLabel="line">
+                        <rect key="frame" x="20" y="152.5" width="300" height="1"/>
+                        <color key="backgroundColor" red="0.7843137255" green="0.80000000000000004" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="pU5-5M-YeO"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="RKk-vp-qcp" secondAttribute="bottom" id="5iz-Mi-tM2"/>
+                    <constraint firstItem="fEh-Yg-JbI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="7h1-p2-d8g"/>
+                    <constraint firstAttribute="bottom" secondItem="fEh-Yg-JbI" secondAttribute="bottom" constant="10" id="7kQ-tS-rS7"/>
+                    <constraint firstItem="RKk-vp-qcp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Ib0-tJ-MNR"/>
+                    <constraint firstItem="fEh-Yg-JbI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="tQI-EM-NQc"/>
+                    <constraint firstAttribute="trailing" secondItem="RKk-vp-qcp" secondAttribute="trailing" id="tXy-66-A9k"/>
+                    <constraint firstAttribute="trailing" secondItem="fEh-Yg-JbI" secondAttribute="trailing" constant="20" id="yrp-R0-tUf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="botBg" destination="ERs-ta-tsE" id="sLR-Ov-N6N"/>
+                <outlet property="midBg" destination="88m-In-gJd" id="OfT-Ar-1jM"/>
+                <outlet property="topbg" destination="Ykr-XI-gpt" id="eOb-n2-PZ5"/>
+            </connections>
+            <point key="canvasLocation" x="165" y="100"/>
+        </tableViewCell>
+    </objects>
+</document>

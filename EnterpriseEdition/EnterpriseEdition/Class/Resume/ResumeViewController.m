@@ -350,14 +350,13 @@
     {
         style = 1;
     }
-//    NSArray *titleArray = [NSArray arrayWithObjects:@"按 职  位",@"阅读状态",@"学      历",@"期望薪资",@"专      业",@"期望城市",@"工作经验", nil];
+
     
     FiltratePickerView *pickerView = [[FiltratePickerView alloc] initWithFrame:frame pickerStyle:style];
     pickerView.didSelectedPickerRow = ^(int index,NSDictionary *dictionary){
         [self showConditions:index Content:dictionary];
     };
     pickerView.categoryType = resumeCategory;
-//    pickerView.titleLab.text = [titleArray objectAtIndex:row];
     [pickerView loadData:row];
     [pickerView showInView:self.view];
     
