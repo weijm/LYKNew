@@ -11,11 +11,17 @@
 #import "PositionInfoTableViewCell1.h"
 #import "PositionInfoTableViewCell2.h"
 #import "FooterView.h"
-#import "FiltratePickerView.h"
+#import "PositionOperationView.h"
+#import "PositionSetUrgentView.h"
+#import "OpenPositionViewController.h"
 @interface PositionInfoViewController ()
 {
     UIView *headerView;
     FooterView *footerView;
+    //操作具体视图 上线 删除 下线
+    PositionOperationView *positonV;
+    //设置急招的界面
+    PositionSetUrgentView *urgentView;
 }
 @end
 
@@ -39,7 +45,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)viewWillDisappear:(BOOL)animated
+{
+    if (positonV) {
+        [positonV cancelView];
+    }
+    if (urgentView) {
+        [urgentView cancelView];
+    }
+}
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -183,22 +197,32 @@
     switch (index) {
         case 10:
         {
-           NSLog(@"操作");
-            CGRect frame = CGRectMake(0, kHeight, kWidth, 258);
-            FiltratePickerView *pickerView = [[FiltratePickerView alloc] initWithFrame:frame pickerStyle:0];
-            pickerView.didSelectedPickerRow = ^(int index,NSDictionary *dictionary){
-                [self showConditions:index Content:dictionary];
+            positonV = [[PositionOperationView alloc] initWithFrame:CGRectMake(0, kHeight, kWidth, 135)];
+            __weak PositionInfoViewController *wself = self;
+            positonV.operationPosition = ^(int index){
+                PositionInfoViewController *sself = wself;
+                [sself operationPosition:index];
             };
-            
-            [pickerView loadData:8];
-            [pickerView showInView:self.view];
+            [positonV showView:self.view];
         }
             break;
         case 20:
-            NSLog(@"设置急招");
+        {
+            urgentView = [[PositionSetUrgentView alloc] initWithFrame:CGRectMake(0, 0, kWidth-40, 256)];
+            __weak PositionInfoViewController *wself = self;
+            urgentView.makeSurePositionUrgent = ^(int count){
+                PositionInfoViewController *sself = wself;
+                [sself setUrgent:count];
+            };
+            [urgentView showView:self.view];
+        }
             break;
         case 30:
-            NSLog(@"编辑");
+        {
+            OpenPositionViewController *editVC = [[OpenPositionViewController alloc] init];
+            editVC.isEditAgain = YES;
+            [self.navigationController pushViewController:editVC animated:YES];
+        }
             break;
             
         default:
@@ -206,9 +230,28 @@
     }
     
 }
-//操作的具体选择
--(void)showConditions:(int)row Content:(NSDictionary*)dictionary
+#pragma mark - 操作的具体触发事件
+-(void)operationPosition:(int)index
 {
-    
+    switch (index) {
+        case 1://上线
+            NSLog(@"上线");
+            break;
+        case 2://删除
+            NSLog(@"删除");
+            break;
+        case 3://下线
+            NSLog(@"下线");
+            break;
+            
+        default:
+            break;
+    }
+}
+#pragma mark - 设置急招
+-(void)setUrgent:(int)count
+{
+    NSLog(@" 设置急招 == %d",count);
+
 }
 @end

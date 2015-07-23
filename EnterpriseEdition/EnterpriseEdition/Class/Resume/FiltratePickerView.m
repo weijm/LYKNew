@@ -271,14 +271,7 @@
             leftArray = [NSArray arrayWithObjects:@"不限", @"工作经验2年",@"工作经验3-5年",@"工作经验5年以上",@"工作经验10年以上",nil];
             self.locate.country = [leftArray objectAtIndex:0];
             break;
-        case 8:
-            _titleLab.hidden = YES;
-            leftArray = [NSArray arrayWithObjects:@"上线", @"删除",@"下线",nil];
-            self.locate.country = [leftArray objectAtIndex:0];
-            break;
-       
-
-            
+                 
         default:
             break;
     }

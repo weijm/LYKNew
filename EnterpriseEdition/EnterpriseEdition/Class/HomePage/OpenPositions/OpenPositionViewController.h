@@ -20,6 +20,7 @@
     
     IBOutlet NSLayoutConstraint *dataTableViewToTop;
 }
+@property (nonatomic) BOOL isEditAgain;
 /**
  将数据保存到本地
  */

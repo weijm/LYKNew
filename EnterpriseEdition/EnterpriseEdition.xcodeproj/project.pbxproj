@@ -150,6 +150,13 @@
 		20D58BB11B54FACD007B2A3F /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D58BAF1B54FACD007B2A3F /* LocationViewController.m */; };
 		20D58BB21B54FACD007B2A3F /* LocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D58BB01B54FACD007B2A3F /* LocationViewController.xib */; };
 		20D58BB61B54FC92007B2A3F /* QMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D58BB51B54FC92007B2A3F /* QMapKit.framework */; };
+		20D6F4191B608B0200AC0394 /* PositionOperationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D6F4181B608B0200AC0394 /* PositionOperationView.m */; };
+		20D6F41B1B608B1000AC0394 /* PositionOperationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D6F41A1B608B1000AC0394 /* PositionOperationView.xib */; };
+		20D6F41E1B6091A500AC0394 /* PositionSetUrgentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D6F41D1B6091A500AC0394 /* PositionSetUrgentView.m */; };
+		20D6F4221B6091C000AC0394 /* PositionSetUrgentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D6F4211B6091C000AC0394 /* PositionSetUrgentView.xib */; };
+		20D6F4241B60943A00AC0394 /* position_close_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D6F4231B60943A00AC0394 /* position_close_bt@2x.png */; };
+		20D6F4261B6099C000AC0394 /* position_choose_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D6F4251B6099C000AC0394 /* position_choose_selected@2x.png */; };
+		20D6F4281B609A9300AC0394 /* position_choose_select@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D6F4271B609A9300AC0394 /* position_choose_select@2x.png */; };
 		20E9E1451B5F471C0013A865 /* PositionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E9E1441B5F471C0013A865 /* PositionObject.m */; };
 		20E9E1471B5F47880013A865 /* data.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E1461B5F47880013A865 /* data.sqlite */; };
 		20E9E14C1B5F4B2E0013A865 /* PositionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E9E14B1B5F4B2E0013A865 /* PositionHeaderView.m */; };
@@ -424,6 +431,15 @@
 		20D58BAF1B54FACD007B2A3F /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		20D58BB01B54FACD007B2A3F /* LocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationViewController.xib; sourceTree = "<group>"; };
 		20D58BB51B54FC92007B2A3F /* QMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QMapKit.framework; sourceTree = "<group>"; };
+		20D6F4171B608B0200AC0394 /* PositionOperationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionOperationView.h; sourceTree = "<group>"; };
+		20D6F4181B608B0200AC0394 /* PositionOperationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionOperationView.m; sourceTree = "<group>"; };
+		20D6F41A1B608B1000AC0394 /* PositionOperationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PositionOperationView.xib; sourceTree = "<group>"; };
+		20D6F41C1B6091A500AC0394 /* PositionSetUrgentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionSetUrgentView.h; sourceTree = "<group>"; };
+		20D6F41D1B6091A500AC0394 /* PositionSetUrgentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionSetUrgentView.m; sourceTree = "<group>"; };
+		20D6F4211B6091C000AC0394 /* PositionSetUrgentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PositionSetUrgentView.xib; sourceTree = "<group>"; };
+		20D6F4231B60943A00AC0394 /* position_close_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_close_bt@2x.png"; sourceTree = "<group>"; };
+		20D6F4251B6099C000AC0394 /* position_choose_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_choose_selected@2x.png"; sourceTree = "<group>"; };
+		20D6F4271B609A9300AC0394 /* position_choose_select@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_choose_select@2x.png"; sourceTree = "<group>"; };
 		20E9E1431B5F471C0013A865 /* PositionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionObject.h; sourceTree = "<group>"; };
 		20E9E1441B5F471C0013A865 /* PositionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionObject.m; sourceTree = "<group>"; };
 		20E9E1461B5F47880013A865 /* data.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = data.sqlite; sourceTree = "<group>"; };
@@ -1089,6 +1105,12 @@
 				20E9E14A1B5F4B2E0013A865 /* PositionHeaderView.h */,
 				20E9E14B1B5F4B2E0013A865 /* PositionHeaderView.m */,
 				20E9E14D1B5F4B3C0013A865 /* PositionHeaderView.xib */,
+				20D6F4171B608B0200AC0394 /* PositionOperationView.h */,
+				20D6F4181B608B0200AC0394 /* PositionOperationView.m */,
+				20D6F41A1B608B1000AC0394 /* PositionOperationView.xib */,
+				20D6F41C1B6091A500AC0394 /* PositionSetUrgentView.h */,
+				20D6F41D1B6091A500AC0394 /* PositionSetUrgentView.m */,
+				20D6F4211B6091C000AC0394 /* PositionSetUrgentView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1238,6 +1260,9 @@
 		20F0F2641B5E32BF00CB1D71 /* Position */ = {
 			isa = PBXGroup;
 			children = (
+				20D6F4271B609A9300AC0394 /* position_choose_select@2x.png */,
+				20D6F4251B6099C000AC0394 /* position_choose_selected@2x.png */,
+				20D6F4231B60943A00AC0394 /* position_close_bt@2x.png */,
 				20E9E1771B5F9BAA0013A865 /* position_item_icon0@2x.png */,
 				20E9E1781B5F9BAA0013A865 /* position_item_icon2@2x.png */,
 				20E9E1791B5F9BAA0013A865 /* position_item_icon1@2x.png */,
@@ -1374,8 +1399,10 @@
 				2022235C1B56711C00D63910 /* TitleView.xib in Resources */,
 				20D1CDF11B563ED900E97935 /* resume_edit@2x.png in Resources */,
 				20D1CDF31B563ED900E97935 /* resume_urgent@2x.png in Resources */,
+				20D6F4261B6099C000AC0394 /* position_choose_selected@2x.png in Resources */,
 				201EDB2F1B579C7C0080A12A /* CertificateTableViewCell.xib in Resources */,
 				2097D3131B462F0A00611432 /* RootViewController.xib in Resources */,
+				20D6F4241B60943A00AC0394 /* position_close_bt@2x.png in Resources */,
 				20E9E17E1B5F9BAA0013A865 /* position_item_icon3@2x.png in Resources */,
 				20E9E1471B5F47880013A865 /* data.sqlite in Resources */,
 				20E9E17D1B5F9BAA0013A865 /* position_item_icon1@2x.png in Resources */,
@@ -1403,16 +1430,19 @@
 				20F0F2451B5E1C8400CB1D71 /* CommendResumeForJobTableViewCell.xib in Resources */,
 				203542F81B4CBB45007FF4A8 /* RegisterUserViewController.xib in Resources */,
 				20F0F2291B5DD67D00CB1D71 /* Localizable.strings in Resources */,
+				20D6F41B1B608B1000AC0394 /* PositionOperationView.xib in Resources */,
 				203543191B4CCB35007FF4A8 /* 11@2x.png in Resources */,
 				20F0F2511B5E23F700CB1D71 /* InfoViewController.xib in Resources */,
 				2097D32D1B46957B00611432 /* homepage_right_bt@2x.png in Resources */,
 				20D1CDEC1B56326100E97935 /* InfoHeaderView.xib in Resources */,
+				20D6F4221B6091C000AC0394 /* PositionSetUrgentView.xib in Resources */,
 				203542D01B4CBA89007FF4A8 /* community_icon@3x.png in Resources */,
 				20F0F22F1B5DF89000CB1D71 /* CommendResumeViewController.xib in Resources */,
 				20BB62281B4E6E6F006BD455 /* resume_protrait_default@2x.png in Resources */,
 				20A258B21B50C5F50082F04A /* resume_choose_selected_bt@2x.png in Resources */,
 				20F0F2631B5E310E00CB1D71 /* PositionTableViewCell.xib in Resources */,
 				201EDB201B579BE90080A12A /* ExperienceTableViewCell.xib in Resources */,
+				20D6F4281B609A9300AC0394 /* position_choose_select@2x.png in Resources */,
 				20D1CDF21B563ED900E97935 /* resume_download@2x.png in Resources */,
 				20E9E17C1B5F9BAA0013A865 /* position_item_icon2@2x.png in Resources */,
 				2097D30D1B462D5000611432 /* home_setting_btn_n@2x.png in Resources */,
@@ -1493,6 +1523,7 @@
 				203543131B4CBD8A007FF4A8 /* HomePageViewController.m in Sources */,
 				20D1CDF81B56474500E97935 /* ResumeInfoViewController.m in Sources */,
 				2076B2BA1B5C9A1E00BC7D97 /* SearchResumeViewController.m in Sources */,
+				20D6F41E1B6091A500AC0394 /* PositionSetUrgentView.m in Sources */,
 				2097D2D91B461E7000611432 /* AppDelegate.m in Sources */,
 				20F0F2441B5E1C8400CB1D71 /* CommendResumeForJobTableViewCell.m in Sources */,
 				20BB621F1B4E5C7C006BD455 /* CellMiddleView.m in Sources */,
@@ -1522,6 +1553,7 @@
 				20A32A081B58A2CB00E1B5F8 /* FMDatabaseAdditions.m in Sources */,
 				20E9E1641B5F8EAB0013A865 /* PositionInfoTableViewCell0.m in Sources */,
 				20A32A151B58B34E00E1B5F8 /* Location.m in Sources */,
+				20D6F4191B608B0200AC0394 /* PositionOperationView.m in Sources */,
 				20E9E1591B5F886F0013A865 /* PositionInfoViewController.m in Sources */,
 				20E9E1741B5F97960013A865 /* ItemView.m in Sources */,
 				208EBDB21B4A82CE00AB0730 /* MarkupParser.m in Sources */,
