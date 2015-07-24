@@ -7,6 +7,14 @@
 //
 
 #import "MyInfoViewController.h"
+#import "MyTableViewCell0.h"
+#import "MyTableViewCell1.h"
+#import "MyTableViewCell2.h"
+#import "VersionViewController.h"
+#import "ChangePasswordViewController.h"
+#import "InfoViewController.h"
+
+#define kFooterViewH kHeight -[Util myYOrHeight:60]-[Util myYOrHeight:90]-[Util myYOrHeight:40]*4-kFOOTERVIEWH-topBarheight
 
 @interface MyInfoViewController ()
 
@@ -17,6 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.view.backgroundColor = Rgb(230, 244, 253, 1.0);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +34,105 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - UITableViewDelegate
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 6;
 }
-*/
-
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        static NSString *cellid=@"MyTableViewCell0ID";
+        MyTableViewCell0 *cell = (MyTableViewCell0 *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"MyTableViewCell0" owner:self options:nil] lastObject];
+        }
+        //取消点击cell选中效果
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }else if (indexPath.row == 1)
+    {
+        static NSString *cellid=@"MyTableViewCell1ID";
+        MyTableViewCell1 *cell = (MyTableViewCell1 *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"MyTableViewCell1" owner:self options:nil] lastObject];
+        }
+        //取消点击cell选中效果
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }else
+    {
+        static NSString *cellid=@"MyTableViewCell2ID";
+        MyTableViewCell2 *cell = (MyTableViewCell2 *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"MyTableViewCell2" owner:self options:nil] lastObject];
+        }
+        cell.tag = indexPath.row;
+        [cell loadSubView];
+        //取消点击cell选中效果
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+        
+    }
+    
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        return [Util myYOrHeight:60];
+    }else if (indexPath.row ==1)
+    {
+        return [Util myYOrHeight:90];
+    }else
+    {
+        
+        return [Util myYOrHeight:40];
+    }
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return kFooterViewH;
+}
+-(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, kFooterViewH)];
+    footerView.userInteractionEnabled = YES;
+    UIButton *bt = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, [Util myXOrWidth:100], [Util myYOrHeight:30])];
+    bt.center = footerView.center;
+    [bt setTitle:@"退出账号" forState:UIControlStateNormal];
+    [bt setTitleColor:Rgb(76, 76, 76, 1.0) forState:UIControlStateNormal];
+    bt.titleLabel.font = [UIFont systemFontOfSize:14];
+    [bt addTarget:self action:@selector(exitApplication) forControlEvents:UIControlEventTouchUpInside];
+    bt.backgroundColor = Rgb(255, 255, 255, 1.0);
+    bt.layer.borderWidth = 0.5;
+    bt.layer.cornerRadius = 5;
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 0.694, 0.694, 0.714, 1 });
+    bt.layer.borderColor = colorref;
+    [footerView addSubview:bt];
+    return footerView;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 2) {
+        InfoViewController *infoVC = [[InfoViewController alloc] init];
+        infoVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:infoVC animated:YES];
+    }
+    else if (indexPath.row == 3) {
+        VersionViewController *versionVC = [[VersionViewController alloc] init];
+        versionVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:versionVC animated:YES];
+    }else if (indexPath.row == 5)
+    {
+        ChangePasswordViewController *changPVC = [[ChangePasswordViewController alloc] init];
+        changPVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:changPVC animated:YES];
+    }
+}
+-(void)exitApplication
+{
+    NSLog(@"退出账号");
+}
 @end

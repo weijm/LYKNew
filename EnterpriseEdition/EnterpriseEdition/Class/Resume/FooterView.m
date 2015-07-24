@@ -44,6 +44,10 @@
     }else if (_position ==2)
     {//职位详情页面的编辑footer
         [self initButtonView:3 index:1];
+    }else if (_position == 3)
+    {
+        //信息页面的编辑footer
+        [self initButtonView:2 index:2];
     }
     else
     {
@@ -89,6 +93,9 @@
         }else if (_position == 2)
         {//职位详情页面的编辑footer
             [bt loadPositionInfoFooterSubView];
+        }else if (_position ==3)
+        {
+            [bt loadInfoInfoFooterSubView];
         }
         else
         {

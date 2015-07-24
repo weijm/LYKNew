@@ -21,26 +21,37 @@
  点击事件
  */
 - (IBAction)clickedAction:(id)sender;
+
 /**
  初始化按钮
  */
 -(void)loadSubView;
+
 /**
  初始化急招中的按钮
  */
 -(void)loadSubViewInNowHiring;
+
 /**
  初始化底部视图上的按钮
  */
 -(void)loadFooterSubView;
+
 /**
  初始化职位底部视图上的按钮
  */
 -(void)loadPositionFooterSubView;
+
 /**
  初始化职位详情底部视图上的按钮
  */
 -(void)loadPositionInfoFooterSubView;
+
+/**
+ 初始化信息底部视图上的按钮
+ */
+-(void)loadInfoInfoFooterSubView;
+
 /**
  初始化职位中的按钮
  */

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopImgBotTitleView">
+            <connections>
+                <outlet property="countLab" destination="Ewm-Tr-BmG" id="Qsm-XU-IBw"/>
+                <outlet property="titLab" destination="GpS-6s-6nf" id="m7N-92-QMv"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="97"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ewm-Tr-BmG" userLabel="lab1">
+                    <rect key="frame" x="0.0" y="10" width="100" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="VS5-3U-Uej"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
+                    <color key="textColor" red="0.97647058823529409" green="0.57647058823529407" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当日剩余下载次数" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpS-6s-6nf" userLabel="lab2">
+                    <rect key="frame" x="25" y="45" width="50" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="SYY-Bb-7vD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.35294117647058826" green="0.36862745098039218" blue="0.3843137254901961" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYf-ic-lMe" userLabel="line">
+                    <rect key="frame" x="99" y="20" width="1" height="57"/>
+                    <color key="backgroundColor" red="0.83921568627450982" green="0.88627450980392153" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="bur-7X-sUh"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="GpS-6s-6nf" firstAttribute="top" secondItem="Ewm-Tr-BmG" secondAttribute="bottom" constant="-5" id="0pI-iP-RZC"/>
+                <constraint firstItem="XYf-ic-lMe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="37z-zt-OQ1"/>
+                <constraint firstItem="Ewm-Tr-BmG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CJc-lL-98y"/>
+                <constraint firstAttribute="trailing" secondItem="Ewm-Tr-BmG" secondAttribute="trailing" id="Sfc-5M-JXK"/>
+                <constraint firstAttribute="trailing" secondItem="XYf-ic-lMe" secondAttribute="trailing" id="WqA-le-wE1"/>
+                <constraint firstItem="Ewm-Tr-BmG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="iig-WH-r9t"/>
+                <constraint firstAttribute="bottom" secondItem="XYf-ic-lMe" secondAttribute="bottom" constant="20" id="mGy-fy-rqO"/>
+                <constraint firstAttribute="bottom" secondItem="GpS-6s-6nf" secondAttribute="bottom" constant="10" id="n0M-eM-xAR"/>
+                <constraint firstAttribute="centerX" secondItem="GpS-6s-6nf" secondAttribute="centerX" id="uD0-vH-pKh"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="187" y="305.5"/>
+        </view>
+    </objects>
+</document>

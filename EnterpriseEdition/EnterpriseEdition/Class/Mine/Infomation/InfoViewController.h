@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InfoTableViewCell.h"
 
-@interface InfoViewController : UIViewController
-
+@interface InfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,InfoTableViewCellDelegate>
+{
+    
+    IBOutlet UITableView *dataTableView;
+    
+    NSMutableArray *dataArray;
+}
 @end

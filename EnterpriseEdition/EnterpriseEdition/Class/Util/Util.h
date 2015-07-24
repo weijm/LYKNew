@@ -48,4 +48,8 @@
  根据总数和每行显示的个数计算行数
  */
 +(int)getRow:(int)total eachCount:(int)count;
+/**
+ 验证码密码
+ */
++(BOOL)checkPassWord:(NSString *)passWord;
 @end

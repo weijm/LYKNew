@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyInfoViewController : UIViewController
-
+@interface MyInfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+{
+    IBOutlet UITableView *dataTableView;
+    
+}
 @end

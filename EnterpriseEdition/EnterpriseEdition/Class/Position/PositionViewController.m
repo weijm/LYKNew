@@ -99,7 +99,7 @@
     //加载全部选中按钮的状态
     [cell changeLocation:rightBt.specialMark Selected:[isSelected intValue] ];
 
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 
 }
@@ -130,6 +130,7 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     PositionInfoViewController *piVC = [[PositionInfoViewController alloc] init];
     piVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:piVC animated:YES];

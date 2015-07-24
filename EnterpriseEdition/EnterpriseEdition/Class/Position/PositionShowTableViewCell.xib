@@ -228,6 +228,6 @@
     <resources>
         <image name="homepage_commendRe_urgent_mark.png" width="39" height="38"/>
         <image name="position_number_mark.png" width="33" height="33"/>
-        <image name="resume_choose_bt.png" width="27" height="27"/>
+        <image name="resume_choose_bt.png" width="13" height="13"/>
     </resources>
 </document>

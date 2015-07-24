@@ -190,6 +190,27 @@
     }
     _chooseBt.titleLabel.font = [UIFont systemFontOfSize:14];
 }
+//初始化职位详情底部视图上的按钮
+-(void)loadInfoInfoFooterSubView
+{
+    vline.backgroundColor = Rgb(181, 181, 187, 1.0);
+    _chooseBt.backgroundColor = Rgb(220, 221, 227, 1.0);
+    [_chooseBt setTitleColor:Rgb(57, 57, 58, 1.0) forState:UIControlStateNormal];
+    NSInteger index = self.tag;
+    switch (index) {
+        case 100:
+            [_chooseBt setTitle:@"全部已读" forState:UIControlStateNormal];
+            break;
+        case 200:
+            [_chooseBt setTitle:@"删    除" forState:UIControlStateNormal];
+            break;
+       
+        default:
+            break;
+    }
+    _chooseBt.titleLabel.font = [UIFont systemFontOfSize:14];
+}
+
 // 初始化职位中的按钮
 -(void)loadSubViewInPosition
 {

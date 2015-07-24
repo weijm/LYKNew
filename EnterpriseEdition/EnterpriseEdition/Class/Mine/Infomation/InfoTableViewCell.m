@@ -1,21 +1,17 @@
 //
-//  CommendResumeForJobTableViewCell.m
-//  EnterpriseEdition
+//  InfoTableViewCell.m
+//  消息的Cell
 //
-//  Created by lyk on 15/7/21.
+//  Created by wjm on 15/7/24.
 //  Copyright (c) 2015年 lyk. All rights reserved.
 //
 
-#import "CommendResumeForJobTableViewCell.h"
+#import "InfoTableViewCell.h"
 #import "UIButton+Custom.h"
-#define Edge 10
-@implementation CommendResumeForJobTableViewCell
+@implementation InfoTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
-    [self initHeaderView];
-    [self initMiddleView];
-    _isShowRateView = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -23,31 +19,22 @@
 
     // Configure the view for the selected state
 }
-//初始化headerView
--(void)initHeaderView
-{
-    CGRect frame = CGRectMake(0, 0, kWidth - [Util myXOrWidth:Edge]*2, kHeaderViewH);
-    headerView = [[CellHeaderView alloc] initWithFrame:frame];
-    headerView.showRateView = YES;
-    [subView addSubview:headerView];
-}
-//初始化middleView
--(void)initMiddleView
-{
-    CGRect frame = CGRectMake(0, kHeaderViewH, kWidth - [Util myXOrWidth:Edge]*2, kMiddleViewH);
-    middleView = [[CellMiddleView alloc] initWithFrame:frame];
-    [subView addSubview:middleView];
-}
 //加载数据
--(void)loadSearchResumeData:(NSDictionary*)dictionary
+-(void)loadInfoData:(NSDictionary*)dictionary
 {
-    [headerView loadData:dictionary];
-    //初始化middleView数据
-    [middleView loadData:dictionary];
-    if (!_isShowRateView) {
-        headerView.showRateView = NO;
+    if ([[dictionary objectForKey:@"type"] intValue]==1) {
+        iconImg.image = [UIImage imageNamed:@"my_info_icon"];
+    }else
+    {
+        iconImg.image = [UIImage imageNamed:@"my_notification_icon"];
     }
+    titleLab.text = [dictionary objectForKey:@"title"];
+    infoLab.text = [dictionary objectForKey:@"info"];
+    timeLab.text = [dictionary objectForKey:@"time"];
+    
+
 }
+//选中按钮的点击事件
 - (IBAction)chooseAction:(id)sender {
     NSString *string = @"0";
     UIButton_Custom *bt = (UIButton_Custom*)sender;
@@ -66,6 +53,7 @@
     }
     
 }
+//全选时 出现选择按钮
 -(void)changeLocation:(BOOL)show Selected:(int)isSelected
 {
     float bgX = subView.frame.origin.x;
@@ -80,13 +68,13 @@
             chooseBt.specialMark = 1;
         }
         //视图位置的修改
-        if (bgX==10)
+        if (bgX==0)
         {
             chooseBg.hidden = NO;
             [UIView animateWithDuration:0.25 animations:^{
-                bgToLeft.constant = 30;
-                bgToRight.constant = -10;
-                chooseBgToLeft.constant = 5;
+                bgToLeft.constant = 28;
+                bgToRight.constant = -28;
+                chooseBgToLeft.constant = 0;
                 
             } completion:^(BOOL finished){
                 
@@ -97,9 +85,9 @@
         [chooseBt setImage:[UIImage imageNamed:@"resume_choose_bt"] forState:UIControlStateNormal];
         chooseBt.specialMark = 0;
         [UIView animateWithDuration:0.25 animations:^{
-            bgToLeft.constant = 10;
-            bgToRight.constant = 10;
-            chooseBgToLeft.constant = -20;
+            bgToLeft.constant = 0;
+            bgToRight.constant = 0;
+            chooseBgToLeft.constant = -34;
             
         } completion:^(BOOL finished){
             chooseBg.hidden = YES;

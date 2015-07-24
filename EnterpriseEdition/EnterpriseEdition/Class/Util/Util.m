@@ -155,4 +155,36 @@
     }
     return row;
 }
+//验证码密码
++(BOOL)checkPassWord:(NSString *)passWord
+{
+    //正则表达式
+    NSString *passRules=@"^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$";
+    //谓词匹配
+    NSPredicate *pred=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",passRules];
+    BOOL isMatch=[pred evaluateWithObject:passWord];
+    if(passWord.length==0)
+    {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"" message:NSLocalizedString(@"密码不能为空", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        return NO;
+    }
+    else if(passWord.length<6)
+    {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"" message:NSLocalizedString(@"密码不能少于6位数", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        return NO;
+    }
+    else if(!isMatch)
+    {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"" message:NSLocalizedString(@"请输入6～16位字母和数字组合的密码", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
+}
+
 @end
