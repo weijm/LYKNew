@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "RegisterUserViewController.h"
 
 
 
@@ -51,7 +52,7 @@
 #pragma mark - 初始化登录按钮和忘记密码
 -(void)initButton
 {
-    float btY = loginView.frame.origin.y + loginView.frame.size.height+[Util myYOrHeight:36];
+    float btY = loginView.frame.origin.y + loginView.frame.size.height+[Util myYOrHeight:45];
     CGRect frame = CGRectMake(15,btY , kWidth-30, [Util myYOrHeight:35]);
     //登录按钮
     UIButton *loginBt = [[UIButton alloc] initWithFrame:frame];
@@ -117,7 +118,8 @@
 }
 -(void)rightAction
 {
-    
+    RegisterUserViewController *registerVC = [[RegisterUserViewController alloc] init];
+    [self.navigationController pushViewController:registerVC animated:YES];
 }
 
 #pragma mark -LoginHeaderViewDelegate
