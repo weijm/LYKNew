@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface LoginHeaderView : UIView
-
+@protocol LoginHeaderViewDelegate <NSObject>
+@optional
+//获取编辑的视图
+-(void)setEditTextField:(UITextField*)_textField;
+//取消键盘
+-(void)cancelKey;
+@end
+@interface LoginHeaderView : UIView<UITextFieldDelegate>
+@property(nonatomic,weak) id<LoginHeaderViewDelegate> delegate;
 @end

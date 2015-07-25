@@ -31,7 +31,7 @@
     NSArray *titleArray = [NSArray arrayWithObjects:@"首页",@"简历",@"职位",@"我的", nil];
     //tabbar的控制器类前缀 如 HomePageViewController这个控制器的名称为HomePage
     NSArray *classArray = [NSArray arrayWithObjects:@"HomePage",@"Resume",@"Position",@"MyInfo", nil];
-    NSArray *imageArray = [NSArray arrayWithObjects:@"home_icon",@"resume_icon",@"position_icon",@"my_icon", nil];
+    NSArray *imageArray = [NSArray arrayWithObjects:@"home_icon",@"resume_icon",@"position_icon",@"my_person_icon", nil];
     //生成tabbar的控制器数组
     NSMutableArray *vcArray = [Util generateViewControllerByName:[NSDictionary dictionaryWithObjectsAndKeys:titleArray,@"title",classArray,@"name",imageArray,@"image", nil]];
     

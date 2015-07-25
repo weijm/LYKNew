@@ -52,4 +52,8 @@
  验证码密码
  */
 +(BOOL)checkPassWord:(NSString *)passWord;
+/**
+ 检查手机号码
+ */
++ (BOOL)checkTelephone:(NSString *)phone;
 @end

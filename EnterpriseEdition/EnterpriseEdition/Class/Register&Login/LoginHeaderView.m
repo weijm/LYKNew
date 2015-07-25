@@ -22,6 +22,20 @@
     }
     return self;
 }
-
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if ([_delegate respondsToSelector:@selector(setEditTextField:)]) {
+        [_delegate setEditTextField:textField];
+    }
+    return YES;
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if ([_delegate respondsToSelector:@selector(cancelKey)]) {
+        [_delegate cancelKey];
+    }
+    return YES;
+}
 
 @end

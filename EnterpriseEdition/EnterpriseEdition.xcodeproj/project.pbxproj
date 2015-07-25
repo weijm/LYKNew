@@ -38,10 +38,12 @@
 		202223571B5670A600D63910 /* IdentityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 202223551B5670A600D63910 /* IdentityTableViewCell.xib */; };
 		2022235A1B56710C00D63910 /* TitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 202223591B56710C00D63910 /* TitleView.m */; };
 		2022235C1B56711C00D63910 /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2022235B1B56711C00D63910 /* TitleView.xib */; };
+		202A6F3C1B63367F003DF241 /* my_person_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 202A6F3B1B63367F003DF241 /* my_person_icon@2x.png */; };
+		202A6F401B6342C0003DF241 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 202A6F3E1B6342C0003DF241 /* ForgetPasswordViewController.m */; };
+		202A6F411B6342C0003DF241 /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 202A6F3F1B6342C0003DF241 /* ForgetPasswordViewController.xib */; };
 		202D47EB1B61C81D00654E7C /* ChangePasswordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 202D47E91B61C81D00654E7C /* ChangePasswordTableViewCell.m */; };
 		202D47EC1B61C81D00654E7C /* ChangePasswordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 202D47EA1B61C81D00654E7C /* ChangePasswordTableViewCell.xib */; };
 		202D47F11B61DF6E00654E7C /* home_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 202D47ED1B61DF6E00654E7C /* home_icon@2x.png */; };
-		202D47F21B61DF6E00654E7C /* my_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 202D47EE1B61DF6E00654E7C /* my_icon@2x.png */; };
 		202D47F31B61DF6E00654E7C /* position_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 202D47EF1B61DF6E00654E7C /* position_icon@2x.png */; };
 		202D47F41B61DF6E00654E7C /* resume_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 202D47F01B61DF6E00654E7C /* resume_icon@2x.png */; };
 		202D47F91B61E62600654E7C /* InfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 202D47F71B61E62600654E7C /* InfoTableViewCell.m */; };
@@ -309,11 +311,14 @@
 		202223581B56710C00D63910 /* TitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleView.h; sourceTree = "<group>"; };
 		202223591B56710C00D63910 /* TitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleView.m; sourceTree = "<group>"; };
 		2022235B1B56711C00D63910 /* TitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleView.xib; sourceTree = "<group>"; };
+		202A6F3B1B63367F003DF241 /* my_person_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my_person_icon@2x.png"; sourceTree = "<group>"; };
+		202A6F3D1B6342C0003DF241 /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		202A6F3E1B6342C0003DF241 /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
+		202A6F3F1B6342C0003DF241 /* ForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPasswordViewController.xib; sourceTree = "<group>"; };
 		202D47E81B61C81D00654E7C /* ChangePasswordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordTableViewCell.h; sourceTree = "<group>"; };
 		202D47E91B61C81D00654E7C /* ChangePasswordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordTableViewCell.m; sourceTree = "<group>"; };
 		202D47EA1B61C81D00654E7C /* ChangePasswordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePasswordTableViewCell.xib; sourceTree = "<group>"; };
 		202D47ED1B61DF6E00654E7C /* home_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_icon@2x.png"; sourceTree = "<group>"; };
-		202D47EE1B61DF6E00654E7C /* my_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my_icon@2x.png"; sourceTree = "<group>"; };
 		202D47EF1B61DF6E00654E7C /* position_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_icon@2x.png"; sourceTree = "<group>"; };
 		202D47F01B61DF6E00654E7C /* resume_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_icon@2x.png"; sourceTree = "<group>"; };
 		202D47F61B61E62600654E7C /* InfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTableViewCell.h; sourceTree = "<group>"; };
@@ -702,6 +707,9 @@
 				203542E31B4CBB45007FF4A8 /* LoginViewController.h */,
 				203542E41B4CBB45007FF4A8 /* LoginViewController.m */,
 				203542E51B4CBB45007FF4A8 /* LoginViewController.xib */,
+				202A6F3D1B6342C0003DF241 /* ForgetPasswordViewController.h */,
+				202A6F3E1B6342C0003DF241 /* ForgetPasswordViewController.m */,
+				202A6F3F1B6342C0003DF241 /* ForgetPasswordViewController.xib */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -933,7 +941,7 @@
 				2097D30A1B462D5000611432 /* home_edit_btn@2x.png */,
 				2097D30B1B462D5000611432 /* home_setting_btn_n@2x.png */,
 				202D47ED1B61DF6E00654E7C /* home_icon@2x.png */,
-				202D47EE1B61DF6E00654E7C /* my_icon@2x.png */,
+				202A6F3B1B63367F003DF241 /* my_person_icon@2x.png */,
 				202D47EF1B61DF6E00654E7C /* position_icon@2x.png */,
 				202D47F01B61DF6E00654E7C /* resume_icon@2x.png */,
 			);
@@ -1582,12 +1590,12 @@
 				20A32A1A1B58DB9300E1B5F8 /* major.plist in Resources */,
 				2097D2E41B461E7000611432 /* LaunchScreen.xib in Resources */,
 				20F0F2561B5E242E00CB1D71 /* MyInfoViewController.xib in Resources */,
-				202D47F21B61DF6E00654E7C /* my_icon@2x.png in Resources */,
 				20D6F4581B60D6FA00AC0394 /* my_cell_icon3@2x.png in Resources */,
 				203543341B4CFBC2007FF4A8 /* CommendView.xib in Resources */,
 				203543141B4CBD8A007FF4A8 /* HomePageViewController.xib in Resources */,
 				20E9E15A1B5F886F0013A865 /* PositionInfoViewController.xib in Resources */,
 				20E9E1551B5F751A0013A865 /* position_number_mark@2x.png in Resources */,
+				202A6F411B6342C0003DF241 /* ForgetPasswordViewController.xib in Resources */,
 				201EDB391B57AA9C0080A12A /* CertificateView.xib in Resources */,
 				202D47FE1B61E7A200654E7C /* my_notification_icon@2x.png in Resources */,
 				202223501B566E0C00D63910 /* back_bt@2x.png in Resources */,
@@ -1679,6 +1687,7 @@
 				2076B2C81B5CEB3400BC7D97 /* NowHiringTableViewCell.xib in Resources */,
 				202D48151B622FBA00654E7C /* my_info_filtrate_item@2x.png in Resources */,
 				201EDB161B57819E0080A12A /* EducationTableViewCell.xib in Resources */,
+				202A6F3C1B63367F003DF241 /* my_person_icon@2x.png in Resources */,
 				2097D32B1B46928F00611432 /* HomePageTableViewCell.xib in Resources */,
 				2035430F1B4CBD40007FF4A8 /* ResumeViewController.xib in Resources */,
 				20BB62061B4E4030006BD455 /* resume_search_bt@2x.png in Resources */,
@@ -1801,6 +1810,7 @@
 				20E9E14C1B5F4B2E0013A865 /* PositionHeaderView.m in Sources */,
 				208EBDB51B4A82D800AB0730 /* CustomLabel.m in Sources */,
 				203542F91B4CBB45007FF4A8 /* RegisterView.m in Sources */,
+				202A6F401B6342C0003DF241 /* ForgetPasswordViewController.m in Sources */,
 				201EDB151B57819E0080A12A /* EducationTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
