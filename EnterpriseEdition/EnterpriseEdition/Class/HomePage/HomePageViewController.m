@@ -15,6 +15,7 @@
 #import "NowHiringViewController.h"//急招
 #import "CommendResumeViewController.h"//简历推荐
 #import "OpenPositionViewController.h" //发布职位
+#import "LoginViewController.h"
 
 
 
@@ -172,6 +173,9 @@
 -(void)rightAction
 {
     NSLog(@"rightAvtion");
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    loginVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:loginVC animated:YES];
 }
 #pragma mark - 初始化应聘部分的视图
 -(void)initHireView:(UIView*)view

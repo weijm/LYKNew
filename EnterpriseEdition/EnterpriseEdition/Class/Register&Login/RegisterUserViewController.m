@@ -1,8 +1,8 @@
 //
 //  RegisterUserViewController.m
-//  EnterpriseEdition
+//  注册
 //
-//  Created by lyk on 15/7/6.
+//  Created by wjm on 15/7/6.
 //  Copyright (c) 2015年 lyk. All rights reserved.
 //
 

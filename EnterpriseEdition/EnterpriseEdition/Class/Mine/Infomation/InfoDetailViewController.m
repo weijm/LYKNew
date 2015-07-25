@@ -75,10 +75,6 @@
         }
         cell.tag = indexPath.row;
         [cell loadsubView:nil];
-//        [cell loadTitlData];
-//        cell.delegate = self;
-//        
-//        [cell loadContent:[contentArray objectAtIndex:indexPath.row]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else
@@ -91,10 +87,6 @@
         cell.tag = indexPath.row;
         cell.infoType = infoType;
         [cell loadsubView:nil];
-//        [cell loadTitlData];
-//        cell.delegate = self;
-        
-//        [cell loadContent:[contentArray objectAtIndex:indexPath.row]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }

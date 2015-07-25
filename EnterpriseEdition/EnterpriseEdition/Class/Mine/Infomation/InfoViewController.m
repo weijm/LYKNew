@@ -10,6 +10,7 @@
 #import "UIButton+Custom.h"
 #import "FooterView.h"
 #import "InfoDetailViewController.h"
+#import "InfoFiltrateView.h"
 
 @interface InfoViewController ()
 {
@@ -18,6 +19,10 @@
     FooterView *footerView;
     
     NSMutableArray *chooseArray;
+    
+    UIButton_Custom *filtrateBt;
+    
+    InfoFiltrateView *infoFiltrateView;
 }
 @end
 
@@ -95,6 +100,13 @@
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
     self.navigationItem.leftBarButtonItem = leftItem;
     
+    filtrateBt = [[UIButton_Custom alloc] initWithFrame:frame];
+    [filtrateBt setImage:[UIImage imageNamed:@"my_info_filtrate_bt"] forState:UIControlStateNormal];
+    imageInsets = filtrateBt.imageEdgeInsets;
+    filtrateBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left+20, imageInsets.bottom, imageInsets.right-20);
+    [filtrateBt addTarget:self action:@selector(filtrateAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem1 = [[UIBarButtonItem alloc] initWithCustomView:filtrateBt];
+    
     rightBt = [[UIButton_Custom alloc] initWithFrame:frame];
     [rightBt setImage:[UIImage imageNamed:@"home_edit_btn"] forState:UIControlStateNormal];
     imageInsets = rightBt.imageEdgeInsets;
@@ -104,7 +116,7 @@
     rightBt.titleEdgeInsets = UIEdgeInsetsMake(titleInsets.top, titleInsets.left+20, titleInsets.bottom, titleInsets.right-20);
     [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
-    self.navigationItem.rightBarButtonItem = rightItem;
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:rightItem,rightItem1, nil];
     
 }
 -(void)leftAction
@@ -115,6 +127,30 @@
     }
     [self.navigationController popViewControllerAnimated:YES];
 }
+-(void)filtrateAction
+{
+    if (filtrateBt.specialMark == 0) {//出现筛选页面
+        float viewX = kWidth - 130-[Util myXOrWidth:25];
+        
+        CGRect  frame = CGRectMake(viewX, 0, 130, 101);
+        infoFiltrateView = [[InfoFiltrateView alloc] initWithFrame:frame];
+        __weak InfoViewController *wself = self;
+        infoFiltrateView.touchAction = ^(int index){
+            InfoViewController *sself = wself;
+            [sself filtrateViewAction:index];
+        };
+        [infoFiltrateView showInView:self.view];
+        
+        filtrateBt.specialMark = 1;
+        rightBt.enabled = NO;
+    }else
+    {
+        [infoFiltrateView cancelView];
+        filtrateBt.specialMark = 0;
+        
+        rightBt.enabled = YES;
+    }
+}
 -(void)rightAction
 {
     if (rightBt.specialMark ==0) {//出现选择按钮
@@ -124,7 +160,7 @@
         //显示底部的编辑按钮
         [self initFooerView];
         
-        
+        filtrateBt.enabled = NO;
         
     }else
     {//隐藏选中按钮
@@ -133,10 +169,26 @@
         rightBt.specialMark = 0;
         //取消底部视图
         [footerView cancelFooterView];
-        
+        filtrateBt.enabled = YES;
         
     }
     [dataTableView reloadData];
+}
+-(void)filtrateViewAction:(int)index
+{
+    if (index == 0) {//点击任何地方时取消了筛选视图
+        filtrateBt.specialMark = 0;
+        
+        rightBt.enabled = YES;
+    }else if (index == 1)
+    {
+        NSLog(@"消息");
+    }else
+    {
+        NSLog(@"通知");
+    }
+    
+    
 }
 #pragma mark - 初始化footerView
 -(void)initFooerView

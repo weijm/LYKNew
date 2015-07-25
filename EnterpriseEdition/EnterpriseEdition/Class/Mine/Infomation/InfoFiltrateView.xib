@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InfoFiltrateView"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="190" height="150"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_info_filtrate_item.png" translatesAutoresizingMaskIntoConstraints="NO" id="GAB-ZR-MQa" userLabel="bgimg">
+                    <rect key="frame" x="0.0" y="0.0" width="190" height="150"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NYd-KP-oN6" userLabel="line">
+                    <rect key="frame" x="20" y="74" width="150" height="1"/>
+                    <color key="backgroundColor" red="0.81900043629999997" green="0.81900043629999997" blue="0.81900043629999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Yo4-rY-OoD"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXF-Kj-RHf">
+                    <rect key="frame" x="0.0" y="34" width="190" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Efl-YR-UZZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="消  息">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="chooseAction:" destination="-1" eventType="touchUpInside" id="JaN-Vs-Qez"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNe-w5-59Q">
+                    <rect key="frame" x="0.0" y="75" width="190" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="HyM-be-Xfs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="通  知">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="chooseAction:" destination="-1" eventType="touchUpInside" id="sGO-75-cRc"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="NYd-KP-oN6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="1jo-jv-ZuC"/>
+                <constraint firstAttribute="bottom" secondItem="GAB-ZR-MQa" secondAttribute="bottom" id="2kv-SA-PTZ"/>
+                <constraint firstItem="PXF-Kj-RHf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Cc1-Er-lwG"/>
+                <constraint firstAttribute="centerY" secondItem="NYd-KP-oN6" secondAttribute="centerY" id="JyE-jh-q1z"/>
+                <constraint firstAttribute="trailing" secondItem="NYd-KP-oN6" secondAttribute="trailing" constant="20" id="My2-9d-wca"/>
+                <constraint firstItem="GAB-ZR-MQa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Mzb-m8-Gso"/>
+                <constraint firstItem="NYd-KP-oN6" firstAttribute="top" secondItem="PXF-Kj-RHf" secondAttribute="bottom" id="UDb-oU-85M"/>
+                <constraint firstAttribute="trailing" secondItem="GAB-ZR-MQa" secondAttribute="trailing" id="V4H-gg-nL2"/>
+                <constraint firstAttribute="trailing" secondItem="GNe-w5-59Q" secondAttribute="trailing" id="kkg-EZ-w5k"/>
+                <constraint firstAttribute="trailing" secondItem="PXF-Kj-RHf" secondAttribute="trailing" id="kvN-54-UJE"/>
+                <constraint firstItem="GNe-w5-59Q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="tV6-Hq-iQA"/>
+                <constraint firstItem="GAB-ZR-MQa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vMH-Ez-707"/>
+                <constraint firstItem="GNe-w5-59Q" firstAttribute="top" secondItem="NYd-KP-oN6" secondAttribute="bottom" id="z1X-hg-RnK"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="155" y="212"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="my_info_filtrate_item.png" width="129" height="101"/>
+    </resources>
+</document>

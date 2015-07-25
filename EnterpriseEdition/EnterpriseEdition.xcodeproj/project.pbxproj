@@ -54,6 +54,14 @@
 		202D48081B621C9D00654E7C /* InfoDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 202D48061B621C9D00654E7C /* InfoDetailTableViewCell.xib */; };
 		202D480C1B621D6500654E7C /* InfoDetailTitleAndImgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 202D480A1B621D6500654E7C /* InfoDetailTitleAndImgTableViewCell.m */; };
 		202D480D1B621D6500654E7C /* InfoDetailTitleAndImgTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 202D480B1B621D6500654E7C /* InfoDetailTitleAndImgTableViewCell.xib */; };
+		202D48111B622EB900654E7C /* InfoFiltrateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 202D48101B622EB900654E7C /* InfoFiltrateView.m */; };
+		202D48131B622EC700654E7C /* InfoFiltrateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 202D48121B622EC700654E7C /* InfoFiltrateView.xib */; };
+		202D48151B622FBA00654E7C /* my_info_filtrate_item@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 202D48141B622FBA00654E7C /* my_info_filtrate_item@2x.png */; };
+		202D48171B62336C00654E7C /* my_info_filtrate_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 202D48161B62336C00654E7C /* my_info_filtrate_bt@2x.png */; };
+		202D48201B62402400654E7C /* login_number_mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 202D481E1B62402400654E7C /* login_number_mark@2x.png */; };
+		202D48211B62402400654E7C /* login_password_mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 202D481F1B62402400654E7C /* login_password_mark@2x.png */; };
+		202D48241B62452E00654E7C /* LoginHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 202D48231B62452E00654E7C /* LoginHeaderView.m */; };
+		202D48261B62453B00654E7C /* LoginHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 202D48251B62453B00654E7C /* LoginHeaderView.xib */; };
 		203542EF1B4CBB45007FF4A8 /* CreateUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 203542DE1B4CBB45007FF4A8 /* CreateUserTableViewCell.m */; };
 		203542F01B4CBB45007FF4A8 /* CreateUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203542DF1B4CBB45007FF4A8 /* CreateUserTableViewCell.xib */; };
 		203542F11B4CBB45007FF4A8 /* CreateUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203542E11B4CBB45007FF4A8 /* CreateUserViewController.m */; };
@@ -322,6 +330,16 @@
 		202D48091B621D6500654E7C /* InfoDetailTitleAndImgTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoDetailTitleAndImgTableViewCell.h; sourceTree = "<group>"; };
 		202D480A1B621D6500654E7C /* InfoDetailTitleAndImgTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoDetailTitleAndImgTableViewCell.m; sourceTree = "<group>"; };
 		202D480B1B621D6500654E7C /* InfoDetailTitleAndImgTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoDetailTitleAndImgTableViewCell.xib; sourceTree = "<group>"; };
+		202D480F1B622EB900654E7C /* InfoFiltrateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoFiltrateView.h; sourceTree = "<group>"; };
+		202D48101B622EB900654E7C /* InfoFiltrateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoFiltrateView.m; sourceTree = "<group>"; };
+		202D48121B622EC700654E7C /* InfoFiltrateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoFiltrateView.xib; sourceTree = "<group>"; };
+		202D48141B622FBA00654E7C /* my_info_filtrate_item@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my_info_filtrate_item@2x.png"; sourceTree = "<group>"; };
+		202D48161B62336C00654E7C /* my_info_filtrate_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my_info_filtrate_bt@2x.png"; sourceTree = "<group>"; };
+		202D481E1B62402400654E7C /* login_number_mark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_number_mark@2x.png"; sourceTree = "<group>"; };
+		202D481F1B62402400654E7C /* login_password_mark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_password_mark@2x.png"; sourceTree = "<group>"; };
+		202D48221B62452E00654E7C /* LoginHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginHeaderView.h; sourceTree = "<group>"; };
+		202D48231B62452E00654E7C /* LoginHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginHeaderView.m; sourceTree = "<group>"; };
+		202D48251B62453B00654E7C /* LoginHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginHeaderView.xib; sourceTree = "<group>"; };
 		203542DD1B4CBB45007FF4A8 /* CreateUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateUserTableViewCell.h; sourceTree = "<group>"; };
 		203542DE1B4CBB45007FF4A8 /* CreateUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateUserTableViewCell.m; sourceTree = "<group>"; };
 		203542DF1B4CBB45007FF4A8 /* CreateUserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateUserTableViewCell.xib; sourceTree = "<group>"; };
@@ -648,6 +666,26 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		202D480E1B622E8300654E7C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				202D47F51B61E5AE00654E7C /* Cell */,
+				202D480F1B622EB900654E7C /* InfoFiltrateView.h */,
+				202D48101B622EB900654E7C /* InfoFiltrateView.m */,
+				202D48121B622EC700654E7C /* InfoFiltrateView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		202D481D1B62400F00654E7C /* Register&Login */ = {
+			isa = PBXGroup;
+			children = (
+				202D481E1B62402400654E7C /* login_number_mark@2x.png */,
+				202D481F1B62402400654E7C /* login_password_mark@2x.png */,
+			);
+			path = "Register&Login";
+			sourceTree = "<group>";
+		};
 		203542DC1B4CBB45007FF4A8 /* Register&Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -680,6 +718,9 @@
 				203542DD1B4CBB45007FF4A8 /* CreateUserTableViewCell.h */,
 				203542DE1B4CBB45007FF4A8 /* CreateUserTableViewCell.m */,
 				203542DF1B4CBB45007FF4A8 /* CreateUserTableViewCell.xib */,
+				202D48221B62452E00654E7C /* LoginHeaderView.h */,
+				202D48231B62452E00654E7C /* LoginHeaderView.m */,
+				202D48251B62453B00654E7C /* LoginHeaderView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -865,6 +906,7 @@
 		2097D3081B462D3D00611432 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				202D481D1B62400F00654E7C /* Register&Login */,
 				20D6F4441B60CC7200AC0394 /* Mine */,
 				20F0F2641B5E32BF00CB1D71 /* Position */,
 				20BB62041B4E4025006BD455 /* Resume */,
@@ -1205,6 +1247,8 @@
 		20D6F4441B60CC7200AC0394 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				202D48161B62336C00654E7C /* my_info_filtrate_bt@2x.png */,
+				202D48141B622FBA00654E7C /* my_info_filtrate_item@2x.png */,
 				202D47FB1B61E7A200654E7C /* my_info_icon@2x.png */,
 				202D47FC1B61E7A200654E7C /* my_notification_icon@2x.png */,
 				2018CA3A1B60EB9500F6200F /* my_version_icon@2x.png */,
@@ -1361,7 +1405,7 @@
 		20F0F24C1B5E23F700CB1D71 /* Infomation */ = {
 			isa = PBXGroup;
 			children = (
-				202D47F51B61E5AE00654E7C /* Cell */,
+				202D480E1B622E8300654E7C /* View */,
 				20F0F24D1B5E23F700CB1D71 /* InfoViewController.h */,
 				20F0F24E1B5E23F700CB1D71 /* InfoViewController.m */,
 				20F0F24F1B5E23F700CB1D71 /* InfoViewController.xib */,
@@ -1506,6 +1550,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				201EDB341B57AA770080A12A /* ExperienceView.xib in Resources */,
+				202D48171B62336C00654E7C /* my_info_filtrate_bt@2x.png in Resources */,
 				20A32A181B58DB7200E1B5F8 /* city.plist in Resources */,
 				202D48081B621C9D00654E7C /* InfoDetailTableViewCell.xib in Resources */,
 				20BB620B1B4E46DD006BD455 /* ResumeChooseBtView.xib in Resources */,
@@ -1527,6 +1572,7 @@
 				20E9E14E1B5F4B3C0013A865 /* PositionHeaderView.xib in Resources */,
 				20D6F4591B60D6FA00AC0394 /* my_cell_icon4@2x.png in Resources */,
 				20D6F4571B60D6FA00AC0394 /* my_cell_icon2@2x.png in Resources */,
+				202D48211B62402400654E7C /* login_password_mark@2x.png in Resources */,
 				20BB62211B4E5C8D006BD455 /* CellMiddleView.xib in Resources */,
 				2097D32F1B46961400611432 /* homepage_suppinfo_icon2@2x.png in Resources */,
 				20F0F2391B5E161B00CB1D71 /* homepage_commendRe_urgent_mark@2x.png in Resources */,
@@ -1612,8 +1658,10 @@
 				20D6F43E1B60CB9300AC0394 /* MyTableViewCell1.xib in Resources */,
 				20E9E17C1B5F9BAA0013A865 /* position_item_icon2@2x.png in Resources */,
 				2097D30D1B462D5000611432 /* home_setting_btn_n@2x.png in Resources */,
+				202D48131B622EC700654E7C /* InfoFiltrateView.xib in Resources */,
 				203543291B4CF630007FF4A8 /* homepage_hire_icon2@2x.png in Resources */,
 				20A32A311B59097C00E1B5F8 /* HaveDownloadViewController.xib in Resources */,
+				202D48201B62402400654E7C /* login_number_mark@2x.png in Resources */,
 				20A258B41B50C5FF0082F04A /* resume_choose_bt@2x.png in Resources */,
 				2076B2C01B5CA83C00BC7D97 /* SearchResumeTableViewCell.xib in Resources */,
 				20E9E17B1B5F9BAA0013A865 /* position_item_icon0@2x.png in Resources */,
@@ -1629,6 +1677,7 @@
 				20BB62161B4E5622006BD455 /* CellHeaderView.xib in Resources */,
 				203543231B4CF46F007FF4A8 /* homepage_hire_icon1@2x.png in Resources */,
 				2076B2C81B5CEB3400BC7D97 /* NowHiringTableViewCell.xib in Resources */,
+				202D48151B622FBA00654E7C /* my_info_filtrate_item@2x.png in Resources */,
 				201EDB161B57819E0080A12A /* EducationTableViewCell.xib in Resources */,
 				2097D32B1B46928F00611432 /* HomePageTableViewCell.xib in Resources */,
 				2035430F1B4CBD40007FF4A8 /* ResumeViewController.xib in Resources */,
@@ -1637,6 +1686,7 @@
 				2035432F1B4CF9B6007FF4A8 /* homepage_hire_img@2x.png in Resources */,
 				20E9E1811B5F9BBA0013A865 /* position_item_icon5@2x.png in Resources */,
 				20BB61F11B4DFC72006BD455 /* SinglePersonalView.xib in Resources */,
+				202D48261B62453B00654E7C /* LoginHeaderView.xib in Resources */,
 				20BE75921B51042D00A92504 /* FooterView.xib in Resources */,
 				202D47F11B61DF6E00654E7C /* home_icon@2x.png in Resources */,
 				20E9E1711B5F92660013A865 /* position_valid_mark@2x.png in Resources */,
@@ -1714,6 +1764,7 @@
 				202D47EB1B61C81D00654E7C /* ChangePasswordTableViewCell.m in Sources */,
 				203542F51B4CBB45007FF4A8 /* RegisterBottomView.m in Sources */,
 				20A32A3F1B5909C200E1B5F8 /* CollectedViewController.m in Sources */,
+				202D48111B622EB900654E7C /* InfoFiltrateView.m in Sources */,
 				20A32A301B59097C00E1B5F8 /* HaveDownloadViewController.m in Sources */,
 				20D6F4381B60CB7C00AC0394 /* MyTableViewCell0.m in Sources */,
 				20F0F22E1B5DF89000CB1D71 /* CommendResumeViewController.m in Sources */,
@@ -1744,6 +1795,7 @@
 				20D6F43D1B60CB9300AC0394 /* MyTableViewCell1.m in Sources */,
 				20A32A0A1B58A2CB00E1B5F8 /* FMDatabaseQueue.m in Sources */,
 				20BB62241B4E638A006BD455 /* CellBottomView.m in Sources */,
+				202D48241B62452E00654E7C /* LoginHeaderView.m in Sources */,
 				203542F71B4CBB45007FF4A8 /* RegisterUserViewController.m in Sources */,
 				20BB62141B4E5611006BD455 /* CellHeaderView.m in Sources */,
 				20E9E14C1B5F4B2E0013A865 /* PositionHeaderView.m in Sources */,
