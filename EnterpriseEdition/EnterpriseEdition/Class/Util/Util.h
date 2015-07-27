@@ -56,4 +56,8 @@
  检查手机号码
  */
 + (BOOL)checkTelephone:(NSString *)phone;
+/**
+ 提示信息
+ */
++(void)showPrompt:(NSString*)promptString;
 @end

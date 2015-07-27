@@ -10,12 +10,14 @@
 
 #import "LoginViewController.h"
 
+#import "RegisterSuccessViewController.h"
+
 @interface RegisterUserViewController ()
 {
     UITextField *currentTextField;
     UITapGestureRecognizer *cancelKeyTap;
     NSMutableArray *contentArray;
-
+    
 }
 @end
 
@@ -32,13 +34,35 @@
     dataTableViewToTop.constant = [Util myYOrHeight:30];
     
     contentArray = [[NSMutableArray alloc] initWithObjects:@"",@"",@"",@"",@"", nil];
+    //设置协议的字体颜色
+    [self loadTopLabText];
     
-
 }
-
+-(void)viewWillDisappear:(BOOL)animated
+{
+    //将计时器停止
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"CodeTimer" object:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)loadTopLabText
+{
+    NSString *string = topLab.text;
+    NSRange range = [string rangeOfString:@"《E朝朝企业版条款》"];
+    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:string];
+    //设置字体颜色
+    [attributedStr addAttribute:NSForegroundColorAttributeName
+     
+                          value:Rgb(2, 139, 230, 1.0)
+     
+                          range:range];
+    topLab.attributedText = attributedStr;
+    
+    topLab.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lookUpAgreement)];
+    [topLab addGestureRecognizer:tap];
 }
 #pragma mark -UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -55,6 +79,7 @@
     cell.tag = indexPath.row;
     cell.delegate = self;
     [cell loadSubView:[contentArray objectAtIndex:indexPath.row]];
+
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -91,12 +116,8 @@
 {
     NSLog(@"查看协议");
 }
-#pragma mark - 下一步的触发事件
--(void)nextAction
-{
 
-}
-#pragma mark - PositionTableViewCellDelegate
+#pragma mark - RegisterTableViewCellDelegate
 -(void)setEditView:(UITextField*)_editView
 {
     //编辑视图textField之间的切换时 会将前一个的内容保存
@@ -118,6 +139,7 @@
         [self.view removeGestureRecognizer:cancelKeyTap];
         cancelKeyTap = nil;
     }
+    
     currentTextField = nil;
     
 }
@@ -129,8 +151,41 @@
     NSString *content = currentTextField.text;
     if ([content length]>0) {
         [contentArray replaceObjectAtIndex:currentTextField.tag withObject:content];
+        //将需要注册的手机号码进行存储
+        if (currentTextField.tag == 0) {
+            [[NSUserDefaults standardUserDefaults] setObject:currentTextField.text forKey:kRegisterAccount];
+        }
     }
 
 }
+//下一步
+-(void)clickedNextBtAction
+{
+    [self editTextFiledAndCancelKey:NO];
+    
+    NSString *phone = [contentArray firstObject];
+    if ([Util checkTelephone:phone]) {//手机号正确
+        NSString *password = [contentArray objectAtIndex:1];
+        if ([Util checkPassWord:password]) {//设置的密码正确
+            NSString *surePassword = [contentArray objectAtIndex:2];
+            if ([password isEqualToString:surePassword]) {//确认密码和设置的密码一致
+                NSString *codeStr = [contentArray objectAtIndex:3];
+                if ([codeStr length]>0) {
+                    //所有信息填写完整 请求服务器注册
+                    NSLog(@"注册信息填写完整 请求服务器");
+                    RegisterSuccessViewController *successVC = [[RegisterSuccessViewController alloc] init];
+                    [self.navigationController pushViewController:successVC animated:YES];
+                }else
+                {
+                    [Util showPrompt:@"验证码不能为空"];
+                }
+            }else
+            {
+                [Util showPrompt:@"确认密码不一致"];
+            }
+            
+        }
+    }
 
+}
 @end

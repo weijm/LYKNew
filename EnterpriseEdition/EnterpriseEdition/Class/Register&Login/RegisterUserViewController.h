@@ -11,6 +11,8 @@
 @interface RegisterUserViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,RegisterTableViewCellDelegate>
 {
     IBOutlet NSLayoutConstraint *dataTableViewToTop;
+    IBOutlet UITableView *dataTableView;
     
+    IBOutlet UILabel *topLab;
 }
 @end

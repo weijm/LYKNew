@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20054E7F1B65DC01009FA771 /* SetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20054E7D1B65DC01009FA771 /* SetPasswordViewController.m */; };
+		20054E801B65DC01009FA771 /* SetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20054E7E1B65DC01009FA771 /* SetPasswordViewController.xib */; };
+		20054E841B65FD5D009FA771 /* RegisterSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20054E821B65FD5D009FA771 /* RegisterSuccessViewController.m */; };
+		20054E851B65FD5D009FA771 /* RegisterSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20054E831B65FD5D009FA771 /* RegisterSuccessViewController.xib */; };
 		2018CA381B60E77000F6200F /* VersionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2018CA361B60E77000F6200F /* VersionViewController.m */; };
 		2018CA391B60E77000F6200F /* VersionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2018CA371B60E77000F6200F /* VersionViewController.xib */; };
 		2018CA3B1B60EB9500F6200F /* my_version_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2018CA3A1B60EB9500F6200F /* my_version_icon@2x.png */; };
@@ -260,6 +264,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20054E7C1B65DC01009FA771 /* SetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetPasswordViewController.h; sourceTree = "<group>"; };
+		20054E7D1B65DC01009FA771 /* SetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetPasswordViewController.m; sourceTree = "<group>"; };
+		20054E7E1B65DC01009FA771 /* SetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetPasswordViewController.xib; sourceTree = "<group>"; };
+		20054E811B65FD5D009FA771 /* RegisterSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterSuccessViewController.h; sourceTree = "<group>"; };
+		20054E821B65FD5D009FA771 /* RegisterSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterSuccessViewController.m; sourceTree = "<group>"; };
+		20054E831B65FD5D009FA771 /* RegisterSuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterSuccessViewController.xib; sourceTree = "<group>"; };
 		2018CA351B60E77000F6200F /* VersionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionViewController.h; sourceTree = "<group>"; };
 		2018CA361B60E77000F6200F /* VersionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionViewController.m; sourceTree = "<group>"; };
 		2018CA371B60E77000F6200F /* VersionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VersionViewController.xib; sourceTree = "<group>"; };
@@ -622,6 +632,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20054E7B1B65DBCC009FA771 /* ForgetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				202A6F3D1B6342C0003DF241 /* ForgetPasswordViewController.h */,
+				202A6F3E1B6342C0003DF241 /* ForgetPasswordViewController.m */,
+				202A6F3F1B6342C0003DF241 /* ForgetPasswordViewController.xib */,
+				20054E7C1B65DC01009FA771 /* SetPasswordViewController.h */,
+				20054E7D1B65DC01009FA771 /* SetPasswordViewController.m */,
+				20054E7E1B65DC01009FA771 /* SetPasswordViewController.xib */,
+			);
+			name = ForgetPassword;
+			sourceTree = "<group>";
+		};
 		201A9C7E1B53608500664792 /* FiltrateView */ = {
 			isa = PBXGroup;
 			children = (
@@ -689,6 +712,7 @@
 		203542DC1B4CBB45007FF4A8 /* Register&Login */ = {
 			isa = PBXGroup;
 			children = (
+				20054E7B1B65DBCC009FA771 /* ForgetPassword */,
 				203542FD1B4CBB6F007FF4A8 /* Register */,
 				203542FB1B4CBB4B007FF4A8 /* Login */,
 			);
@@ -702,9 +726,6 @@
 				203542E31B4CBB45007FF4A8 /* LoginViewController.h */,
 				203542E41B4CBB45007FF4A8 /* LoginViewController.m */,
 				203542E51B4CBB45007FF4A8 /* LoginViewController.xib */,
-				202A6F3D1B6342C0003DF241 /* ForgetPasswordViewController.h */,
-				202A6F3E1B6342C0003DF241 /* ForgetPasswordViewController.m */,
-				202A6F3F1B6342C0003DF241 /* ForgetPasswordViewController.xib */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -726,6 +747,9 @@
 				203542E91B4CBB45007FF4A8 /* RegisterUserViewController.h */,
 				203542EA1B4CBB45007FF4A8 /* RegisterUserViewController.m */,
 				203542EB1B4CBB45007FF4A8 /* RegisterUserViewController.xib */,
+				20054E811B65FD5D009FA771 /* RegisterSuccessViewController.h */,
+				20054E821B65FD5D009FA771 /* RegisterSuccessViewController.m */,
+				20054E831B65FD5D009FA771 /* RegisterSuccessViewController.xib */,
 			);
 			name = Register;
 			sourceTree = "<group>";
@@ -1585,6 +1609,7 @@
 				202D47FE1B61E7A200654E7C /* my_notification_icon@2x.png in Resources */,
 				202223501B566E0C00D63910 /* back_bt@2x.png in Resources */,
 				201A9C7D1B535FDA00664792 /* FiltrateView.xib in Resources */,
+				20054E801B65DC01009FA771 /* SetPasswordViewController.xib in Resources */,
 				20F8FDCA1B4FBBD5008BCEE7 /* resume_delete_bt@2x.png in Resources */,
 				2076B2CD1B5CEB9100BC7D97 /* NowHiringHeaderView.xib in Resources */,
 				20BB62261B4E639B006BD455 /* CellBottomView.xib in Resources */,
@@ -1664,6 +1689,7 @@
 				202223571B5670A600D63910 /* IdentityTableViewCell.xib in Resources */,
 				20F8FDC61B4F9F8C008BCEE7 /* resume_prompt3@2x.png in Resources */,
 				20BB62161B4E5622006BD455 /* CellHeaderView.xib in Resources */,
+				20054E851B65FD5D009FA771 /* RegisterSuccessViewController.xib in Resources */,
 				203543231B4CF46F007FF4A8 /* homepage_hire_icon1@2x.png in Resources */,
 				2076B2C81B5CEB3400BC7D97 /* NowHiringTableViewCell.xib in Resources */,
 				202D48151B622FBA00654E7C /* my_info_filtrate_item@2x.png in Resources */,
@@ -1702,6 +1728,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20A32A2B1B59096500E1B5F8 /* NowHiringViewController.m in Sources */,
+				20054E841B65FD5D009FA771 /* RegisterSuccessViewController.m in Sources */,
 				2076B2C71B5CEB3400BC7D97 /* NowHiringTableViewCell.m in Sources */,
 				20F0F2501B5E23F700CB1D71 /* InfoViewController.m in Sources */,
 				201EDB1A1B5795AB0080A12A /* HobbiesTableViewCell.m in Sources */,
@@ -1721,6 +1748,7 @@
 				20D6F44B1B60D0FA00AC0394 /* TopImgBotTitleView.m in Sources */,
 				201EDB1F1B579BE90080A12A /* ExperienceTableViewCell.m in Sources */,
 				201EDB321B57AA6A0080A12A /* ExperienceView.m in Sources */,
+				20054E7F1B65DC01009FA771 /* SetPasswordViewController.m in Sources */,
 				202D47F91B61E62600654E7C /* InfoTableViewCell.m in Sources */,
 				20F0F23F1B5E1C6A00CB1D71 /* CommendResumeForJobViewController.m in Sources */,
 				202D48071B621C9D00654E7C /* InfoDetailTableViewCell.m in Sources */,

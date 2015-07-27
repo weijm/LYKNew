@@ -40,5 +40,7 @@
 
 
 #define QMapKey @"OXWBZ-MZHR4-77TUD-DXUNN-R2FPZ-YBB2J"
+
+#define kRegisterAccount @"kRegisterAccount"
 //导入公共文件
 #import "Util.h"

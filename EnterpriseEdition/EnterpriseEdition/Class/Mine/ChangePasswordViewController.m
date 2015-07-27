@@ -141,32 +141,28 @@
                             NSLog(@"修改密码成功");
                         }else
                         {
-                            [self showPrompt:@"确认密码错误"];
+                            [Util showPrompt:@"确认密码错误"];
                         }
                     }else
                     {
                         //未填写确认密码
-                        [self showPrompt:@"请填写确认密码"];
+                        [Util showPrompt:@"请填写确认密码"];
                     }
                 }
             }else
             {//未填写新密码
-                [self showPrompt:@"请填写新密码"];
+                [Util showPrompt:@"请填写新密码"];
             }
         }else
         {
-            [self showPrompt:@"旧密码不正确"];
+            [Util showPrompt:@"旧密码不正确"];
         }
     }else
     {//未填写旧密码
-        [self showPrompt:@"请填写旧密码"];
+        [Util showPrompt:@"请填写旧密码"];
     }
 }
--(void)showPrompt:(NSString*)promptString
-{
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"" message:NSLocalizedString(promptString, nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
-}
+
 
 
 @end

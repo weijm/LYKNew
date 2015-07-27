@@ -211,5 +211,10 @@
     }
     return YES;
 }
-
+//提示信息
++(void)showPrompt:(NSString*)promptString
+{
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"" message:NSLocalizedString(promptString, nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+}
 @end

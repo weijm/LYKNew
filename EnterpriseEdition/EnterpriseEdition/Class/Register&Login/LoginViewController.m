@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "RegisterUserViewController.h"
+#import "ForgetPasswordViewController.h"
 
 
 
@@ -95,6 +96,8 @@
     }else
     {
         NSLog(@"忘记密码");
+        ForgetPasswordViewController *forgetVC = [[ForgetPasswordViewController alloc] init];
+        [self.navigationController pushViewController:forgetVC animated:YES];
     }
 }
 - (void)didReceiveMemoryWarning {

@@ -1,15 +1,14 @@
 //
-//  ForgetPasswordViewController.m
-//  忘记密码
+//  SetPasswordViewController.m
+//  忘记密码中的设置密码
 //
-//  Created by wjm on 15/7/25.
+//  Created by wjm on 15/7/27.
 //  Copyright (c) 2015年 lyk. All rights reserved.
 //
 
-#import "ForgetPasswordViewController.h"
 #import "SetPasswordViewController.h"
 
-@interface ForgetPasswordViewController ()
+@interface SetPasswordViewController ()
 {
     UITextField *currentTextField;
     UITapGestureRecognizer *cancelKeyTap;
@@ -18,56 +17,29 @@
 }
 @end
 
-@implementation ForgetPasswordViewController
+@implementation SetPasswordViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"忘记密码";
+    self.title = @"确认密码";
     self.view.backgroundColor = Rgb(230, 244, 253, 1.0);
     
     dataTableViewToTop.constant = [Util myYOrHeight:30];
     
-    contentArray = [[NSMutableArray alloc] initWithObjects:@"",@"",@"",nil];
-    
-    [self loadBottomLabText];
+    NSString *phone = [[NSUserDefaults standardUserDefaults] objectForKey:kRegisterAccount];
+    contentArray = [[NSMutableArray alloc] initWithObjects:phone,@"",@"",@"",nil];
 }
--(void)viewWillDisappear:(BOOL)animated
-{
-    //将计时器停止
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"CodeTimer" object:nil];
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma mark -设置客服电话
--(void)loadBottomLabText
-{
-    NSString *string = bottomLab.text;
-    NSRange range = [string rangeOfString:@"4008-907-977"];
-    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:string];
-    //设置字体颜色
-    [attributedStr addAttribute:NSForegroundColorAttributeName
-     
-                          value:Rgb(2, 139, 230, 1.0)
-     
-                          range:range];
-    bottomLab.attributedText = attributedStr;
-    
-    bottomLab.userInteractionEnabled = YES;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(makeCall)];
-    [bottomLab addGestureRecognizer:tap];
-}
--(void)makeCall
-{
-    NSLog(@"拨打电话");
-    
-}
+
 #pragma mark -UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 4;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -76,7 +48,7 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"RegisterTableViewCell" owner:self options:nil] lastObject];
     }
-    cell.cellType = 1;
+    cell.cellType = 2;
     cell.tag = indexPath.row;
     cell.delegate = self;
     [cell loadSubView:[contentArray objectAtIndex:indexPath.row]];
@@ -85,7 +57,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 2) {
+    if (indexPath.row == 3) {
         return [Util myYOrHeight:80];
     }
     return [Util myYOrHeight:45];
@@ -131,26 +103,28 @@
     }
     
 }
-//下一步
+//确认提交
 -(void)clickedNextBtAction
 {
     [self editTextFiledAndCancelKey:NO];
     
-    NSString *phone = [contentArray firstObject];
-    if ([Util checkTelephone:phone]) {//手机号正确
-        NSString *code = [contentArray objectAtIndex:1];
-        if ([code length]>0) {//输入了验证码
-            //手机号和验证码输入完毕 请求服务器
-            NSLog(@"忘记密码信息填写完整 请求服务器");
-            SetPasswordViewController *setPasswordVC = [[SetPasswordViewController alloc] init];
-            [self.navigationController pushViewController:setPasswordVC animated:YES];
+    NSString *password = [contentArray objectAtIndex:1];
+    if ([Util checkPassWord:password]) {//密码符合标准
+        NSString *surePassword = [contentArray objectAtIndex:2];
+        if ([surePassword length]>0) {
+            if ([surePassword isEqualToString:password]) {//两次输入的密码一致 提交服务器修改
+                NSLog(@"设置密码的内容填写正确，请求服务器修改");
+            }else
+            {
+                [Util showPrompt:@"两次输入的密码不一致"];
+            }
         }else
         {
-            [Util showPrompt:@"验证码不能为空"];
+            [Util showPrompt:@"请输入确认密码"];
         }
+        
     }
     
 }
-
 
 @end
