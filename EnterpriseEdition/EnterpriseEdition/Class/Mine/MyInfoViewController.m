@@ -13,6 +13,9 @@
 #import "VersionViewController.h"
 #import "ChangePasswordViewController.h"
 #import "InfoViewController.h"
+#import "EnterpriseInfoViewController.h"
+
+
 
 #define kFooterViewH kHeight -[Util myYOrHeight:60]-[Util myYOrHeight:90]-[Util myYOrHeight:40]*4-kFOOTERVIEWH-topBarheight
 
@@ -115,7 +118,12 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 2) {
+    if (indexPath.row == 0) {
+        EnterpriseInfoViewController *enterpriseInfoVC = [[EnterpriseInfoViewController alloc] init];
+        enterpriseInfoVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:enterpriseInfoVC animated:YES];
+    }
+    else if (indexPath.row == 2) {
         InfoViewController *infoVC = [[InfoViewController alloc] init];
         infoVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:infoVC animated:YES];

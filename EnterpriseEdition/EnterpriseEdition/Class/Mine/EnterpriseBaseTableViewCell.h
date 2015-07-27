@@ -1,20 +1,20 @@
 //
-//  PositionTableViewCell.h
-//  EnterpriseEdition
+//  EnterpriseBaseTableViewCell.h
+//  企业资料编辑内容的cell
 //
-//  Created by lyk on 15/7/21.
+//  Created by wjm on 15/7/27.
 //  Copyright (c) 2015年 lyk. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-@protocol PositionTableViewCellDelegate <NSObject>
+@protocol EnterpriseBaseTableViewCellDelegate <NSObject>
 @optional
 -(void)setEditView:(UIView*)_editView;
 //取消键盘
 -(void)cancelKey;
 
 @end
-@interface PositionTableViewCell : UITableViewCell<UITextFieldDelegate,UITextViewDelegate>
+@interface EnterpriseBaseTableViewCell : UITableViewCell<UITextFieldDelegate,UITextViewDelegate>
 {
     //标题及星星的背景
     IBOutlet UIView *titleBg;
@@ -30,9 +30,8 @@
     IBOutlet NSLayoutConstraint *contentTextFieldToRight;
     
     IBOutlet NSLayoutConstraint *titBgToBottom;
-    
 }
-@property (nonatomic,weak) id<PositionTableViewCellDelegate> delegate;
+@property (nonatomic,weak) id<EnterpriseBaseTableViewCellDelegate> delegate;
 /**
  初始化标题 提示语
  */

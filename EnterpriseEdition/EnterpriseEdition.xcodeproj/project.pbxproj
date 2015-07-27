@@ -11,6 +11,18 @@
 		20054E801B65DC01009FA771 /* SetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20054E7E1B65DC01009FA771 /* SetPasswordViewController.xib */; };
 		20054E841B65FD5D009FA771 /* RegisterSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20054E821B65FD5D009FA771 /* RegisterSuccessViewController.m */; };
 		20054E851B65FD5D009FA771 /* RegisterSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20054E831B65FD5D009FA771 /* RegisterSuccessViewController.xib */; };
+		20054E8A1B660629009FA771 /* EnterpriseInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20054E881B660629009FA771 /* EnterpriseInfoViewController.m */; };
+		20054E8B1B660629009FA771 /* EnterpriseInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20054E891B660629009FA771 /* EnterpriseInfoViewController.xib */; };
+		20054E8E1B66094A009FA771 /* my_enterprise_prompt_img@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20054E8D1B66094A009FA771 /* my_enterprise_prompt_img@2x.png */; };
+		20054E931B660F4C009FA771 /* EnterpriseBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20054E911B660F4C009FA771 /* EnterpriseBaseTableViewCell.m */; };
+		20054E941B660F4C009FA771 /* EnterpriseBaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20054E921B660F4C009FA771 /* EnterpriseBaseTableViewCell.xib */; };
+		20054E961B661703009FA771 /* enterpriseInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20054E951B661703009FA771 /* enterpriseInfo.plist */; };
+		20054E9A1B661F4A009FA771 /* EnterpriseImgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20054E981B661F4A009FA771 /* EnterpriseImgTableViewCell.m */; };
+		20054E9B1B661F4A009FA771 /* EnterpriseImgTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20054E991B661F4A009FA771 /* EnterpriseImgTableViewCell.xib */; };
+		20054E9D1B66208A009FA771 /* my_enterprise_addpic_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20054E9C1B66208A009FA771 /* my_enterprise_addpic_bt@2x.png */; };
+		20054EA11B6628DA009FA771 /* homepage_hire_icon1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20054E9E1B6628DA009FA771 /* homepage_hire_icon1@3x.png */; };
+		20054EA21B6628DA009FA771 /* homepage_hire_icon3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20054E9F1B6628DA009FA771 /* homepage_hire_icon3@3x.png */; };
+		20054EA31B6628DA009FA771 /* homepage_hire_icon2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20054EA01B6628DA009FA771 /* homepage_hire_icon2@3x.png */; };
 		2018CA381B60E77000F6200F /* VersionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2018CA361B60E77000F6200F /* VersionViewController.m */; };
 		2018CA391B60E77000F6200F /* VersionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2018CA371B60E77000F6200F /* VersionViewController.xib */; };
 		2018CA3B1B60EB9500F6200F /* my_version_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2018CA3A1B60EB9500F6200F /* my_version_icon@2x.png */; };
@@ -81,9 +93,6 @@
 		203543191B4CCB35007FF4A8 /* 11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203543181B4CCB35007FF4A8 /* 11@2x.png */; };
 		2035431F1B4CD7B0007FF4A8 /* HireView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2035431E1B4CD7B0007FF4A8 /* HireView.m */; };
 		203543211B4CD7C1007FF4A8 /* HireView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203543201B4CD7C1007FF4A8 /* HireView.xib */; };
-		203543231B4CF46F007FF4A8 /* homepage_hire_icon1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203543221B4CF46F007FF4A8 /* homepage_hire_icon1@2x.png */; };
-		203543291B4CF630007FF4A8 /* homepage_hire_icon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203543241B4CF630007FF4A8 /* homepage_hire_icon2@2x.png */; };
-		2035432A1B4CF630007FF4A8 /* homepage_hire_icon3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203543251B4CF630007FF4A8 /* homepage_hire_icon3@2x.png */; };
 		2035432B1B4CF630007FF4A8 /* homepage_hire_icon4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203543261B4CF630007FF4A8 /* homepage_hire_icon4@2x.png */; };
 		2035432C1B4CF630007FF4A8 /* homepage_hire_icon5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203543271B4CF630007FF4A8 /* homepage_hire_icon5@2x.png */; };
 		2035432D1B4CF630007FF4A8 /* homepage_hire_icon6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203543281B4CF630007FF4A8 /* homepage_hire_icon6@2x.png */; };
@@ -270,6 +279,21 @@
 		20054E811B65FD5D009FA771 /* RegisterSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterSuccessViewController.h; sourceTree = "<group>"; };
 		20054E821B65FD5D009FA771 /* RegisterSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterSuccessViewController.m; sourceTree = "<group>"; };
 		20054E831B65FD5D009FA771 /* RegisterSuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterSuccessViewController.xib; sourceTree = "<group>"; };
+		20054E871B660629009FA771 /* EnterpriseInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterpriseInfoViewController.h; sourceTree = "<group>"; };
+		20054E881B660629009FA771 /* EnterpriseInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterpriseInfoViewController.m; sourceTree = "<group>"; };
+		20054E891B660629009FA771 /* EnterpriseInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnterpriseInfoViewController.xib; sourceTree = "<group>"; };
+		20054E8D1B66094A009FA771 /* my_enterprise_prompt_img@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my_enterprise_prompt_img@2x.png"; sourceTree = "<group>"; };
+		20054E901B660F4C009FA771 /* EnterpriseBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterpriseBaseTableViewCell.h; sourceTree = "<group>"; };
+		20054E911B660F4C009FA771 /* EnterpriseBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterpriseBaseTableViewCell.m; sourceTree = "<group>"; };
+		20054E921B660F4C009FA771 /* EnterpriseBaseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnterpriseBaseTableViewCell.xib; sourceTree = "<group>"; };
+		20054E951B661703009FA771 /* enterpriseInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enterpriseInfo.plist; sourceTree = "<group>"; };
+		20054E971B661F4A009FA771 /* EnterpriseImgTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterpriseImgTableViewCell.h; sourceTree = "<group>"; };
+		20054E981B661F4A009FA771 /* EnterpriseImgTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterpriseImgTableViewCell.m; sourceTree = "<group>"; };
+		20054E991B661F4A009FA771 /* EnterpriseImgTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnterpriseImgTableViewCell.xib; sourceTree = "<group>"; };
+		20054E9C1B66208A009FA771 /* my_enterprise_addpic_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my_enterprise_addpic_bt@2x.png"; sourceTree = "<group>"; };
+		20054E9E1B6628DA009FA771 /* homepage_hire_icon1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_hire_icon1@3x.png"; sourceTree = "<group>"; };
+		20054E9F1B6628DA009FA771 /* homepage_hire_icon3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_hire_icon3@3x.png"; sourceTree = "<group>"; };
+		20054EA01B6628DA009FA771 /* homepage_hire_icon2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_hire_icon2@3x.png"; sourceTree = "<group>"; };
 		2018CA351B60E77000F6200F /* VersionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionViewController.h; sourceTree = "<group>"; };
 		2018CA361B60E77000F6200F /* VersionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionViewController.m; sourceTree = "<group>"; };
 		2018CA371B60E77000F6200F /* VersionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VersionViewController.xib; sourceTree = "<group>"; };
@@ -368,9 +392,6 @@
 		2035431D1B4CD7B0007FF4A8 /* HireView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HireView.h; sourceTree = "<group>"; };
 		2035431E1B4CD7B0007FF4A8 /* HireView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HireView.m; sourceTree = "<group>"; };
 		203543201B4CD7C1007FF4A8 /* HireView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HireView.xib; sourceTree = "<group>"; };
-		203543221B4CF46F007FF4A8 /* homepage_hire_icon1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_hire_icon1@2x.png"; sourceTree = "<group>"; };
-		203543241B4CF630007FF4A8 /* homepage_hire_icon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_hire_icon2@2x.png"; sourceTree = "<group>"; };
-		203543251B4CF630007FF4A8 /* homepage_hire_icon3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_hire_icon3@2x.png"; sourceTree = "<group>"; };
 		203543261B4CF630007FF4A8 /* homepage_hire_icon4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_hire_icon4@2x.png"; sourceTree = "<group>"; };
 		203543271B4CF630007FF4A8 /* homepage_hire_icon5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_hire_icon5@2x.png"; sourceTree = "<group>"; };
 		203543281B4CF630007FF4A8 /* homepage_hire_icon6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_hire_icon6@2x.png"; sourceTree = "<group>"; };
@@ -643,6 +664,39 @@
 				20054E7E1B65DC01009FA771 /* SetPasswordViewController.xib */,
 			);
 			name = ForgetPassword;
+			sourceTree = "<group>";
+		};
+		20054E861B660606009FA771 /* EnterpriseInfo */ = {
+			isa = PBXGroup;
+			children = (
+				20054E8F1B660F01009FA771 /* Cell */,
+				20054E871B660629009FA771 /* EnterpriseInfoViewController.h */,
+				20054E881B660629009FA771 /* EnterpriseInfoViewController.m */,
+				20054E891B660629009FA771 /* EnterpriseInfoViewController.xib */,
+			);
+			name = EnterpriseInfo;
+			sourceTree = "<group>";
+		};
+		20054E8C1B660935009FA771 /* EnterpriseInfo */ = {
+			isa = PBXGroup;
+			children = (
+				20054E9C1B66208A009FA771 /* my_enterprise_addpic_bt@2x.png */,
+				20054E8D1B66094A009FA771 /* my_enterprise_prompt_img@2x.png */,
+			);
+			name = EnterpriseInfo;
+			sourceTree = "<group>";
+		};
+		20054E8F1B660F01009FA771 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				20054E901B660F4C009FA771 /* EnterpriseBaseTableViewCell.h */,
+				20054E911B660F4C009FA771 /* EnterpriseBaseTableViewCell.m */,
+				20054E921B660F4C009FA771 /* EnterpriseBaseTableViewCell.xib */,
+				20054E971B661F4A009FA771 /* EnterpriseImgTableViewCell.h */,
+				20054E981B661F4A009FA771 /* EnterpriseImgTableViewCell.m */,
+				20054E991B661F4A009FA771 /* EnterpriseImgTableViewCell.xib */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		201A9C7E1B53608500664792 /* FiltrateView */ = {
@@ -937,9 +991,9 @@
 				20F0F2371B5E160C00CB1D71 /* CommendResume */,
 				203543351B4D0225007FF4A8 /* homepage_commend_img@2x.png */,
 				2035432E1B4CF9B6007FF4A8 /* homepage_hire_img@2x.png */,
-				203543221B4CF46F007FF4A8 /* homepage_hire_icon1@2x.png */,
-				203543241B4CF630007FF4A8 /* homepage_hire_icon2@2x.png */,
-				203543251B4CF630007FF4A8 /* homepage_hire_icon3@2x.png */,
+				20054E9E1B6628DA009FA771 /* homepage_hire_icon1@3x.png */,
+				20054EA01B6628DA009FA771 /* homepage_hire_icon2@3x.png */,
+				20054E9F1B6628DA009FA771 /* homepage_hire_icon3@3x.png */,
 				203543261B4CF630007FF4A8 /* homepage_hire_icon4@2x.png */,
 				203543271B4CF630007FF4A8 /* homepage_hire_icon5@2x.png */,
 				203543281B4CF630007FF4A8 /* homepage_hire_icon6@2x.png */,
@@ -1041,6 +1095,7 @@
 				20E9E1461B5F47880013A865 /* data.sqlite */,
 				20F0F2691B5E476200CB1D71 /* industry.plist */,
 				20F0F2671B5E3D9E00CB1D71 /* position.plist */,
+				20054E951B661703009FA771 /* enterpriseInfo.plist */,
 				20A32A1B1B58E49600E1B5F8 /* jobType.plist */,
 				20A32A191B58DB9300E1B5F8 /* major.plist */,
 				20A32A171B58DB7200E1B5F8 /* city.plist */,
@@ -1263,6 +1318,7 @@
 		20D6F4441B60CC7200AC0394 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				20054E8C1B660935009FA771 /* EnterpriseInfo */,
 				202D48161B62336C00654E7C /* my_info_filtrate_bt@2x.png */,
 				202D48141B622FBA00654E7C /* my_info_filtrate_item@2x.png */,
 				202D47FB1B61E7A200654E7C /* my_info_icon@2x.png */,
@@ -1402,6 +1458,7 @@
 		20F0F2461B5E23D500CB1D71 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				20054E861B660606009FA771 /* EnterpriseInfo */,
 				20D6F4331B60CB5700AC0394 /* View */,
 				20F0F24C1B5E23F700CB1D71 /* Infomation */,
 				20F0F2521B5E242E00CB1D71 /* MyInfoViewController.h */,
@@ -1580,7 +1637,6 @@
 				201EDB111B575F0F0080A12A /* JobIntensionTableViewCell.xib in Resources */,
 				201EDB1B1B5795AB0080A12A /* HobbiesTableViewCell.xib in Resources */,
 				20A32A401B5909C200E1B5F8 /* CollectedViewController.xib in Resources */,
-				2035432A1B4CF630007FF4A8 /* homepage_hire_icon3@2x.png in Resources */,
 				20E9E1821B5F9BBA0013A865 /* position_item_icon4@2x.png in Resources */,
 				20F0F2661B5E32D000CB1D71 /* position_title_mark@2x.png in Resources */,
 				20E9E1761B5F97A50013A865 /* ItemView.xib in Resources */,
@@ -1588,25 +1644,30 @@
 				20E9E14E1B5F4B3C0013A865 /* PositionHeaderView.xib in Resources */,
 				20D6F4591B60D6FA00AC0394 /* my_cell_icon4@2x.png in Resources */,
 				202A6F471B6348C8003DF241 /* RegisterTableViewCell.xib in Resources */,
+				20054EA21B6628DA009FA771 /* homepage_hire_icon3@3x.png in Resources */,
 				20D6F4571B60D6FA00AC0394 /* my_cell_icon2@2x.png in Resources */,
 				202D48211B62402400654E7C /* login_password_mark@2x.png in Resources */,
 				20BB62211B4E5C8D006BD455 /* CellMiddleView.xib in Resources */,
+				20054E9D1B66208A009FA771 /* my_enterprise_addpic_bt@2x.png in Resources */,
 				2097D32F1B46961400611432 /* homepage_suppinfo_icon2@2x.png in Resources */,
 				20F0F2391B5E161B00CB1D71 /* homepage_commendRe_urgent_mark@2x.png in Resources */,
 				20D1CDF91B56474500E97935 /* ResumeInfoViewController.xib in Resources */,
 				20F0F25C1B5E24D500CB1D71 /* PositionViewController.xib in Resources */,
 				20F0F2361B5E137700CB1D71 /* CommendResumeTableViewCell.xib in Resources */,
+				20054E941B660F4C009FA771 /* EnterpriseBaseTableViewCell.xib in Resources */,
 				20A32A1A1B58DB9300E1B5F8 /* major.plist in Resources */,
 				2097D2E41B461E7000611432 /* LaunchScreen.xib in Resources */,
 				20F0F2561B5E242E00CB1D71 /* MyInfoViewController.xib in Resources */,
 				20D6F4581B60D6FA00AC0394 /* my_cell_icon3@2x.png in Resources */,
 				203543341B4CFBC2007FF4A8 /* CommendView.xib in Resources */,
+				20054E8B1B660629009FA771 /* EnterpriseInfoViewController.xib in Resources */,
 				203543141B4CBD8A007FF4A8 /* HomePageViewController.xib in Resources */,
 				20E9E15A1B5F886F0013A865 /* PositionInfoViewController.xib in Resources */,
 				20E9E1551B5F751A0013A865 /* position_number_mark@2x.png in Resources */,
 				202A6F411B6342C0003DF241 /* ForgetPasswordViewController.xib in Resources */,
 				201EDB391B57AA9C0080A12A /* CertificateView.xib in Resources */,
 				202D47FE1B61E7A200654E7C /* my_notification_icon@2x.png in Resources */,
+				20054E9B1B661F4A009FA771 /* EnterpriseImgTableViewCell.xib in Resources */,
 				202223501B566E0C00D63910 /* back_bt@2x.png in Resources */,
 				201A9C7D1B535FDA00664792 /* FiltrateView.xib in Resources */,
 				20054E801B65DC01009FA771 /* SetPasswordViewController.xib in Resources */,
@@ -1644,8 +1705,10 @@
 				20F8FDC41B4F9F8C008BCEE7 /* resume_prompt2@2x.png in Resources */,
 				202D47EC1B61C81D00654E7C /* ChangePasswordTableViewCell.xib in Resources */,
 				203543361B4D0225007FF4A8 /* homepage_commend_img@2x.png in Resources */,
+				20054E8E1B66094A009FA771 /* my_enterprise_prompt_img@2x.png in Resources */,
 				2018CA391B60E77000F6200F /* VersionViewController.xib in Resources */,
 				20D6F4481B60CEEA00AC0394 /* my_review_icon@2x.png in Resources */,
+				20054EA11B6628DA009FA771 /* homepage_hire_icon1@3x.png in Resources */,
 				2035432C1B4CF630007FF4A8 /* homepage_hire_icon5@2x.png in Resources */,
 				20D1CDF41B563ED900E97935 /* resume_collected@2x.png in Resources */,
 				20F0F2401B5E1C6A00CB1D71 /* CommendResumeForJobViewController.xib in Resources */,
@@ -1673,7 +1736,6 @@
 				20E9E17C1B5F9BAA0013A865 /* position_item_icon2@2x.png in Resources */,
 				2097D30D1B462D5000611432 /* home_setting_btn_n@2x.png in Resources */,
 				202D48131B622EC700654E7C /* InfoFiltrateView.xib in Resources */,
-				203543291B4CF630007FF4A8 /* homepage_hire_icon2@2x.png in Resources */,
 				20A32A311B59097C00E1B5F8 /* HaveDownloadViewController.xib in Resources */,
 				202D48201B62402400654E7C /* login_number_mark@2x.png in Resources */,
 				20A258B41B50C5FF0082F04A /* resume_choose_bt@2x.png in Resources */,
@@ -1690,17 +1752,18 @@
 				20F8FDC61B4F9F8C008BCEE7 /* resume_prompt3@2x.png in Resources */,
 				20BB62161B4E5622006BD455 /* CellHeaderView.xib in Resources */,
 				20054E851B65FD5D009FA771 /* RegisterSuccessViewController.xib in Resources */,
-				203543231B4CF46F007FF4A8 /* homepage_hire_icon1@2x.png in Resources */,
 				2076B2C81B5CEB3400BC7D97 /* NowHiringTableViewCell.xib in Resources */,
 				202D48151B622FBA00654E7C /* my_info_filtrate_item@2x.png in Resources */,
 				201EDB161B57819E0080A12A /* EducationTableViewCell.xib in Resources */,
 				202A6F3C1B63367F003DF241 /* my_person_icon@2x.png in Resources */,
 				2097D32B1B46928F00611432 /* HomePageTableViewCell.xib in Resources */,
 				2035430F1B4CBD40007FF4A8 /* ResumeViewController.xib in Resources */,
+				20054EA31B6628DA009FA771 /* homepage_hire_icon2@3x.png in Resources */,
 				20BB62061B4E4030006BD455 /* resume_search_bt@2x.png in Resources */,
 				20F8FDC81B4FB88D008BCEE7 /* resume_collected_bt@2x.png in Resources */,
 				2035432F1B4CF9B6007FF4A8 /* homepage_hire_img@2x.png in Resources */,
 				20E9E1811B5F9BBA0013A865 /* position_item_icon5@2x.png in Resources */,
+				20054E961B661703009FA771 /* enterpriseInfo.plist in Resources */,
 				20BB61F11B4DFC72006BD455 /* SinglePersonalView.xib in Resources */,
 				202D48261B62453B00654E7C /* LoginHeaderView.xib in Resources */,
 				20BE75921B51042D00A92504 /* FooterView.xib in Resources */,
@@ -1738,12 +1801,14 @@
 				20F0F2221B5DD59400CB1D71 /* CircleProgressView.m in Sources */,
 				202D48021B62173000654E7C /* InfoDetailViewController.m in Sources */,
 				20A32A071B58A2CB00E1B5F8 /* FMDatabase.m in Sources */,
+				20054E931B660F4C009FA771 /* EnterpriseBaseTableViewCell.m in Sources */,
 				202223561B5670A600D63910 /* IdentityTableViewCell.m in Sources */,
 				20F0F2261B5DD5E200CB1D71 /* Session.m in Sources */,
 				2076B2BF1B5CA83C00BC7D97 /* SearchResumeTableViewCell.m in Sources */,
 				201A9C861B538FB500664792 /* FiltratePickerView.m in Sources */,
 				20E9E1451B5F471C0013A865 /* PositionObject.m in Sources */,
 				201EDB371B57AA8F0080A12A /* CertificateView.m in Sources */,
+				20054E8A1B660629009FA771 /* EnterpriseInfoViewController.m in Sources */,
 				20BB62091B4E46CB006BD455 /* ResumeChooseBtView.m in Sources */,
 				20D6F44B1B60D0FA00AC0394 /* TopImgBotTitleView.m in Sources */,
 				201EDB1F1B579BE90080A12A /* ExperienceTableViewCell.m in Sources */,
@@ -1767,6 +1832,7 @@
 				2097D2D91B461E7000611432 /* AppDelegate.m in Sources */,
 				20F0F2441B5E1C8400CB1D71 /* CommendResumeForJobTableViewCell.m in Sources */,
 				20BB621F1B4E5C7C006BD455 /* CellMiddleView.m in Sources */,
+				20054E9A1B661F4A009FA771 /* EnterpriseImgTableViewCell.m in Sources */,
 				201EDB101B575F0F0080A12A /* JobIntensionTableViewCell.m in Sources */,
 				203543321B4CFBAD007FF4A8 /* CommendView.m in Sources */,
 				20A32A351B59099600E1B5F8 /* UntreatedViewController.m in Sources */,

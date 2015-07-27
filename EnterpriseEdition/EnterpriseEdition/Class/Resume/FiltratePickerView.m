@@ -271,7 +271,17 @@
             leftArray = [NSArray arrayWithObjects:@"不限", @"工作经验2年",@"工作经验3-5年",@"工作经验5年以上",@"工作经验10年以上",nil];
             self.locate.country = [leftArray objectAtIndex:0];
             break;
-                 
+        case 8:
+            _titleLab.text = @"企业性质";
+            leftArray = [NSArray arrayWithObjects:@"国有企业", @"集体企业",@"联营企业",@"股份合作制企业",@"私营企业",@"个体户 ",nil];
+            self.locate.country = [leftArray objectAtIndex:0];
+            break;
+        case 9:
+            _titleLab.text = @"人数规模";
+            leftArray = [NSArray arrayWithObjects:@"20-99人",@"100人以内", @"500人以内",@"500-1000人",@"1000-2000人",@"5000人",nil];
+            self.locate.country = [leftArray objectAtIndex:0];
+            break;
+
         default:
             break;
     }

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>placeholder</key>
+		<string>请和营业执照名字相同</string>
+		<key>title</key>
+		<string>企业名称</string>
+	</dict>
+	<dict>
+		<key>placeholder</key>
+		<string>请选择</string>
+		<key>title</key>
+		<string>所属行业</string>
+	</dict>
+	<dict>
+		<key>placeholder</key>
+		<string>请选择</string>
+		<key>title</key>
+		<string>企业性质</string>
+	</dict>
+	<dict>
+		<key>placeholder</key>
+		<string>省/市/区（县）</string>
+		<key>title</key>
+		<string>工作地区</string>
+	</dict>
+	<dict>
+		<key>placeholder</key>
+		<string>请输入位置</string>
+		<key>title</key>
+		<string>具体地点</string>
+	</dict>
+	<dict>
+		<key>placeholder</key>
+		<string>提示：图片大小不超过5m</string>
+		<key>title</key>
+		<string>营业执照</string>
+	</dict>
+	<dict>
+		<key>placeholder</key>
+		<string>请输入1000字以内描述</string>
+		<key>title</key>
+		<string>公司简介</string>
+	</dict>
+	<dict>
+		<key>placeholder</key>
+		<string>请选择</string>
+		<key>title</key>
+		<string>人数规模</string>
+	</dict>
+	<dict>
+		<key>placeholder</key>
+		<string>提示：图片大小不超过5m</string>
+		<key>title</key>
+		<string>企业logo</string>
+	</dict>
+	<dict>
+		<key>placeholder</key>
+		<string>例如：www.1zhaozhao.com</string>
+		<key>title</key>
+		<string>公司网址</string>
+	</dict>
+</array>
+</plist>

@@ -99,10 +99,14 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="aqr-Rw-w0W" secondAttribute="trailing" id="2nb-vu-gUD"/>
+                    <constraint firstItem="Jb4-Gu-mJc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3Rc-wp-gmT"/>
                     <constraint firstAttribute="bottom" secondItem="qTm-PK-y95" secondAttribute="bottom" id="3gM-bo-Lux"/>
                     <constraint firstItem="qTm-PK-y95" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="6Of-hI-Gf1"/>
+                    <constraint firstItem="Jb4-Gu-mJc" firstAttribute="leading" secondItem="qTm-PK-y95" secondAttribute="trailing" id="Bag-cK-NaC"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Jb4-Gu-mJc" secondAttribute="trailing" constant="10" id="YMx-MK-22e"/>
                     <constraint firstItem="Jb4-Gu-mJc" firstAttribute="leading" secondItem="qTm-PK-y95" secondAttribute="trailing" id="ZEg-Fe-efx"/>
                     <constraint firstAttribute="bottom" secondItem="aqr-Rw-w0W" secondAttribute="bottom" id="cdN-eU-FJJ"/>
+                    <constraint firstItem="aqr-Rw-w0W" firstAttribute="top" secondItem="Jb4-Gu-mJc" secondAttribute="bottom" id="eKF-RK-egP"/>
                     <constraint firstAttribute="bottom" secondItem="Jb4-Gu-mJc" secondAttribute="bottom" id="j2O-b9-3ak"/>
                     <constraint firstItem="aqr-Rw-w0W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="nOW-pF-MJy"/>
                     <constraint firstItem="qTm-PK-y95" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vIt-XB-3bo"/>
