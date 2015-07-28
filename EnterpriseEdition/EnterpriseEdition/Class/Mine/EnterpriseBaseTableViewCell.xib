@@ -22,17 +22,17 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fp1-X2-zGt" userLabel="contentBg">
-                        <rect key="frame" x="120" y="0.0" width="190" height="64.5"/>
+                        <rect key="frame" x="140" y="0.0" width="170" height="64.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_search_bt.png" translatesAutoresizingMaskIntoConstraints="NO" id="qI6-M2-EEU" userLabel="arrowImg">
-                                <rect key="frame" x="177" y="30" width="8" height="4"/>
+                                <rect key="frame" x="157" y="30" width="8" height="4"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="8" id="51w-LC-XQf"/>
                                     <constraint firstAttribute="height" constant="4" id="ApH-ly-Qfy"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请选择" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rUK-Da-gxc" userLabel="contentTextField">
-                                <rect key="frame" x="0.0" y="0.0" width="169" height="64.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="149" height="64.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -40,7 +40,7 @@
                                 </connections>
                             </textField>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NcO-BO-W13" userLabel="contentTextView">
-                                <rect key="frame" x="0.0" y="10" width="190" height="49.5"/>
+                                <rect key="frame" x="0.0" y="10" width="170" height="49.5"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -69,7 +69,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gC7-xk-phX" userLabel="titBg">
-                        <rect key="frame" x="20" y="0.0" width="100" height="65.5"/>
+                        <rect key="frame" x="20" y="0.0" width="120" height="65.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="position_title_mark.png" translatesAutoresizingMaskIntoConstraints="NO" id="4V3-Yr-faU">
                                 <rect key="frame" x="0.0" y="26" width="13" height="14"/>
@@ -79,7 +79,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="职位标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rxj-sJ-suK" userLabel="titleLab">
-                                <rect key="frame" x="21" y="0.0" width="79" height="65.5"/>
+                                <rect key="frame" x="21" y="0.0" width="99" height="65.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -92,7 +92,7 @@
                             <constraint firstItem="4V3-Yr-faU" firstAttribute="leading" secondItem="gC7-xk-phX" secondAttribute="leading" id="RCT-KS-6X1"/>
                             <constraint firstAttribute="trailing" secondItem="Rxj-sJ-suK" secondAttribute="trailing" id="TLx-fB-QVD"/>
                             <constraint firstItem="Rxj-sJ-suK" firstAttribute="top" secondItem="gC7-xk-phX" secondAttribute="top" id="XjV-Lr-3ON"/>
-                            <constraint firstAttribute="width" constant="100" id="dhd-Er-8yn"/>
+                            <constraint firstAttribute="width" constant="120" id="dhd-Er-8yn"/>
                             <constraint firstAttribute="centerY" secondItem="4V3-Yr-faU" secondAttribute="centerY" id="nWG-GO-jKa"/>
                         </constraints>
                     </view>

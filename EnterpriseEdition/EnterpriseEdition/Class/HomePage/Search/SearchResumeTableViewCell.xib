@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="height" constant="27" id="cls-sE-Ey4"/>
                                     <constraint firstAttribute="width" constant="27" id="mmH-4h-aPc"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="resume_choose_bt.png">
+                                <state key="normal" image="resume_choose_bt.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -73,6 +73,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="resume_choose_bt.png" width="27" height="27"/>
+        <image name="resume_choose_bt.png" width="13" height="13"/>
     </resources>
 </document>

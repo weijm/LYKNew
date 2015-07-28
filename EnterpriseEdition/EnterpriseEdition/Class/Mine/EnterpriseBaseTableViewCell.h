@@ -32,6 +32,7 @@
     IBOutlet NSLayoutConstraint *titBgToBottom;
 }
 @property (nonatomic,weak) id<EnterpriseBaseTableViewCellDelegate> delegate;
+@property (nonatomic) int  cellType;
 /**
  初始化标题 提示语
  */

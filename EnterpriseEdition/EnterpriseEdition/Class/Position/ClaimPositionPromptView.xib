@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClaimPositionPromptView">
+            <connections>
+                <outlet property="proLab" destination="EJz-nZ-QgT" id="fAi-mr-Zhw"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="258"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8FC-YU-jQL" userLabel="line">
+                    <rect key="frame" x="0.0" y="128" width="320" height="1"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="04K-AP-eMx"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="position_prompt_img.png" translatesAutoresizingMaskIntoConstraints="NO" id="v51-qg-lwz">
+                    <rect key="frame" x="79" y="109" width="162" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="epO-3o-iBJ"/>
+                        <constraint firstAttribute="width" constant="162" id="qjH-lw-LpG"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PS：每个人只有一次认领机会,要慎重哟!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJz-nZ-QgT">
+                    <rect key="frame" x="0.0" y="227" width="320" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="kac-Xw-3gl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.98431372549019602" green="0.52549019607843139" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提示：您曾经在全网上发不过xxxxx个职位，可以进行职位认领，认领后会保存在我的职位中，以便于您在E朝朝平台进行发布职位" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9wD-Ho-ssd">
+                    <rect key="frame" x="20" y="20" width="280" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="fbp-RT-eIm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.35294117647058826" green="0.35294117647058826" blue="0.35294117647058826" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="8FC-YU-jQL" secondAttribute="trailing" id="3ZP-a8-7Bs"/>
+                <constraint firstItem="v51-qg-lwz" firstAttribute="top" secondItem="8FC-YU-jQL" secondAttribute="bottom" constant="-20" id="Rsg-71-RUw"/>
+                <constraint firstAttribute="centerX" secondItem="v51-qg-lwz" secondAttribute="centerX" id="WrP-Mo-blm"/>
+                <constraint firstItem="8FC-YU-jQL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Wzt-2i-iRW"/>
+                <constraint firstAttribute="centerY" secondItem="8FC-YU-jQL" secondAttribute="centerY" id="cAR-2q-Hgt"/>
+                <constraint firstItem="EJz-nZ-QgT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="e4Z-ve-nkk"/>
+                <constraint firstAttribute="trailing" secondItem="9wD-Ho-ssd" secondAttribute="trailing" constant="20" id="eWu-bt-zRy"/>
+                <constraint firstAttribute="trailing" secondItem="EJz-nZ-QgT" secondAttribute="trailing" id="etj-B6-aan"/>
+                <constraint firstAttribute="bottom" secondItem="EJz-nZ-QgT" secondAttribute="bottom" constant="10" id="gVf-jw-6ew"/>
+                <constraint firstItem="9wD-Ho-ssd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="qSk-6F-uCs"/>
+                <constraint firstItem="9wD-Ho-ssd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="zGU-0H-aYw"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="148" y="201"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="position_prompt_img.png" width="15" height="15"/>
+    </resources>
+</document>

@@ -1,15 +1,16 @@
 //
-//  EnterpriseInfoViewController.m
-//  企业资料
+//  EnterpriseContactViewController.m
+//  EnterpriseEdition
 //
-//  Created by wjm on 15/7/27.
+//  Created by lyk on 15/7/27.
 //  Copyright (c) 2015年 lyk. All rights reserved.
 //
 
-#import "EnterpriseInfoViewController.h"
 #import "EnterpriseContactViewController.h"
+#import "ReferenceView.h"
+#import "ClaimPositionViewController.h"
 
-@interface EnterpriseInfoViewController ()
+@interface EnterpriseContactViewController ()
 {
     //标题数组
     NSArray *titleArray;
@@ -22,24 +23,23 @@
 }
 @end
 
-@implementation EnterpriseInfoViewController
+@implementation EnterpriseContactViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"填写企业资料";
+    self.title = @"请填写企业联系人";
+    [self setPromptTextColor];
     
-    titleArray = [NSArray arrayWithContentsOfFile:[Util getBundlePath:@"enterpriseInfo.plist"]];
-    contentArray = [[NSMutableArray alloc] init];
-    for (int i =0; i<[titleArray count]; i++) {
-        [contentArray addObject:@"0"];
-    }
+    titleArray = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"联系人姓名",@"title",@"请和授权书中的名字保持一致",@"placeholder", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"联系电话/座机",@"title",@"如:13901012345或010-68881111转123",@"placeholder", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"负责人授权书",@"title",@"请和授权书中的名字保持一致",@"placeholder", nil], nil];
+    infoTableView.tableFooterView = [self getFooterView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 #pragma mark - 设置提示字体颜色
 -(void)setPromptTextColor
 {
@@ -62,7 +62,7 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //带有图片的cell
-    if (indexPath.row == 5||indexPath.row == 8) {
+    if (indexPath.row == 2) {
         static NSString *cellid=@"EnterpriseImgTableViewCellID";
         EnterpriseImgTableViewCell *cell = (EnterpriseImgTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
         if (cell == nil) {
@@ -70,7 +70,7 @@
         }
         cell.tag = indexPath.row;
         [cell initData:[titleArray objectAtIndex:indexPath.row]];
-
+        
         cell.delegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -82,17 +82,17 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"EnterpriseBaseTableViewCell" owner:self options:nil] lastObject];
     }
     cell.tag = indexPath.row;
+    cell.cellType = 1;
     [cell initData:[titleArray objectAtIndex:indexPath.row]];
     [cell loadContent:[contentArray objectAtIndex:indexPath.row]];
+    
     cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row ==6) {
-        return [Util myYOrHeight:100];
-    }else if (indexPath.row == 5||indexPath.row==8){
+  if (indexPath.row == 2 || indexPath.row ==1){
         return [Util myYOrHeight:50];
     }
     else
@@ -100,94 +100,23 @@
         return [Util myYOrHeight:35];
     }
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark - 请参考的示例视图
+-(UIView*)getFooterView
 {
-    if (indexPath.row==1 ||indexPath.row==2||indexPath.row==3||indexPath.row==7) {
-        [infoTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-        //取消键盘
-        [self cancelKey];
-        
-        CGRect frame = CGRectMake(0, kHeight, kWidth, 258);
-        int style = 0;
-        int row;
-        
-        switch (indexPath.row) {//与pickerView中的内容对应
-            case 1:
-                row = 7;
-                break;
-            case 2:
-                row = 8;
-                break;
-            case 3:
-                row = 5;
-                break;
-            case 7:
-                row = 9;
-                break;
-            default:
-                break;
-        }
-        
-        
-        if(row == 5)//地区
-        {
-            style = 2;
-        }else if(row==7)//专业 此处修改[self showConditions: Content:]随着修改
-        {
-            style = 1;
-        }
-        FiltratePickerView *pickerView = [[FiltratePickerView alloc] initWithFrame:frame pickerStyle:style];
-        pickerView.didSelectedPickerRow = ^(int index,NSDictionary *dictionary){
-            [self showConditions:index Content:dictionary];
-        };
-        
-        [pickerView loadData:row];
-        [pickerView showInView:self.view];
-    }
-    
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, 300)];
+    footerView.userInteractionEnabled = YES;
+    ReferenceView *referenceView = [[ReferenceView alloc] initWithFrame:CGRectMake((kWidth-320)/2, 0, 320, 300)];
+    referenceView.lookExampleAction = ^{
+        [self lookUpExample];
+    };
+    [footerView addSubview:referenceView];
+    return footerView;
+
 }
-#pragma mark -将pickerView上选中的内容显示到界面
--(void)showConditions:(int)row Content:(NSDictionary*)dictionary
+//查看样例的触发事件
+-(void)lookUpExample
 {
-    int index = 0;
-    //从picker的row转换为tableView的index
-    switch (row) {//与pickerView中的内容对应
-        case  7:
-            index =1;
-            break;
-        case 8:
-            index = 2;
-            break;
-        case 5:
-            index = 3;
-            break;
-        case 9:
-            index =7;
-            break;
-        default:
-            break;
-    }
-    
-    if (row == 5 ||row == 7) {//地区 此处可以查询对应的id
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-        NSString *province = [dictionary objectForKey:@"province"];
-        NSString *city = [dictionary objectForKey:@"city"];
-        NSString *district = [dictionary objectForKey:@"district"];
-        NSString *content;
-        if ([province isEqualToString:city]) {
-            content = [NSString stringWithFormat:@"%@ %@",province,district];
-        }else
-        {
-            content = [NSString stringWithFormat:@"%@ %@ %@",province,city,district];
-        }
-        [dic setObject:content forKey:@"content"];
-        [contentArray replaceObjectAtIndex:index withObject:dic];
-    }else
-    {//其他
-        [contentArray replaceObjectAtIndex:index withObject:dictionary];
-    }
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-    [infoTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath , nil] withRowAnimation:UITableViewRowAnimationNone];
+    NSLog(@"查看样例");
 }
 #pragma mark - EnterpriseBaseTableViewCellDelegate
 -(void)setEditView:(UIView*)_editView
@@ -202,28 +131,7 @@
         [self.view addGestureRecognizer:cancelKeyTap];
     }
     
-    //让编辑第10行和11行的时候 编辑框可见
-    if(editView.tag == 6||editView.tag == 9)
-    {
-        if (infoTableViewToBottom.constant ==44) {
-            [UIView animateWithDuration:0.5 animations:^{
-                NSLog(@"dataTableViewToBottom.constant = 100");
-                infoTableViewToBottom.constant = 200;
-                infoTableViewToTop.constant = infoTableViewToTop.constant-200;
-            }];
-        }
-    }else
-    {//对于其他的编辑框还原dataTableView位置
-        if (infoTableViewToBottom.constant !=44) {
-            [UIView animateWithDuration:0.5 animations:^{
-                infoTableViewToBottom.constant = 44;
-                infoTableViewToTop.constant = infoTableViewToTop.constant+200;
-            }];
-        }
-        
-    }
     
-    [infoTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:editView.tag inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 //点击界面上取消键盘
 -(void)cancelKey
@@ -240,13 +148,6 @@
     }
     editView = nil;
     
-    //还原dataTableView位置
-    if (infoTableViewToBottom.constant !=44) {
-        [UIView animateWithDuration:0.5 animations:^{
-            infoTableViewToBottom.constant = 44;
-            infoTableViewToTop.constant = infoTableViewToTop.constant+200;
-        }];
-    }
 }
 -(void)editTextFiledAndCancelKey:(BOOL)isCancel
 {
@@ -371,15 +272,15 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
         }
         //把选中的图片添加到界面中
-//        [self performSelector:@selector(saveImage:)
-//                   withObject:image
-//                   afterDelay:0.5];
+        //        [self performSelector:@selector(saveImage:)
+        //                   withObject:image
+        //                   afterDelay:0.5];
     }
     else
     {
         [picker dismissViewControllerAnimated:YES completion:NULL];//关掉照相机
         [picker dismissViewControllerAnimated:YES completion:NULL];//关掉相册
-//        [self showAlertView:@"不能上传视频作为证书图片，请重新选择"];
+        //        [self showAlertView:@"不能上传视频作为证书图片，请重新选择"];
     }
 }
 // 保存照片到相册
@@ -419,9 +320,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
-#pragma mark - 保存方法
-- (IBAction)saveEnterpriseInfo:(id)sender {
-    EnterpriseContactViewController *contactVC = [[EnterpriseContactViewController alloc] init];
-    [self.navigationController pushViewController:contactVC animated:YES];
+#pragma mark - 保存并提交
+- (IBAction)saveAndCommit:(id)sender {
+    NSLog(@"保存并提交 企业联系人");
+    ClaimPositionViewController *claimPVC = [[ClaimPositionViewController alloc] init];
+    [self.navigationController pushViewController:claimPVC animated:YES];
 }
 @end

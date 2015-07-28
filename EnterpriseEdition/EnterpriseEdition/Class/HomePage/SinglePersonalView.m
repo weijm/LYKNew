@@ -40,7 +40,9 @@
     if (dictionary!=nil) {
         protraitImg.backgroundColor = [Util randomColor];
         rateLab.text = [NSString stringWithFormat:@"匹配度%ld%%",(long)[Util randomRate]];
-        jobLab.text = [dictionary objectForKey:@"job"];
+        NSString *jobString = [dictionary objectForKey:@"job"];
+        jobLab.text = jobString;
+        
         nameLab.text = [dictionary objectForKey:@"name"];
         proLab.text = [dictionary objectForKey:@"pro"];
     }

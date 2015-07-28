@@ -51,7 +51,10 @@
  初始化信息底部视图上的按钮
  */
 -(void)loadInfoInfoFooterSubView;
-
+/**
+ 初始化认领职位底部视图上的按钮
+ */
+-(void)loadClaimPositionFooterView;
 /**
  初始化职位中的按钮
  */

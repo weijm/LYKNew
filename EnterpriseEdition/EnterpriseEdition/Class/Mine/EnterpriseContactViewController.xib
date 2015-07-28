@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnterpriseContactViewController">
+            <connections>
+                <outlet property="infoTableView" destination="UKP-0h-t2r" id="jsN-2M-har"/>
+                <outlet property="promptLab" destination="dwg-Eg-VFI" id="S5g-rh-Dty"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MRg-hA-tyA" userLabel="promptView">
+                    <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未确保企业上传资料真实性，请填写联系人资质" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wa1-LB-IwZ">
+                            <rect key="frame" x="170" y="5" width="260" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="OR5-wj-rEr"/>
+                                <constraint firstAttribute="width" constant="260" id="kxr-3d-wQ3"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_enterprise_prompt_img.png" translatesAutoresizingMaskIntoConstraints="NO" id="iDO-zn-6aC">
+                            <rect key="frame" x="153" y="7" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="OTf-8J-gZc"/>
+                                <constraint firstAttribute="width" constant="15" id="WSH-Ep-S99"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如需要帮助请拨打:4008-907-977" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwg-Eg-VFI">
+                            <rect key="frame" x="0.0" y="25" width="600" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="MFi-Le-9so"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.98823529409999999" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="centerX" secondItem="wa1-LB-IwZ" secondAttribute="centerX" id="5X3-77-iGD"/>
+                        <constraint firstItem="iDO-zn-6aC" firstAttribute="top" secondItem="MRg-hA-tyA" secondAttribute="top" constant="7" id="Sz6-Sk-hFk"/>
+                        <constraint firstAttribute="trailing" secondItem="dwg-Eg-VFI" secondAttribute="trailing" id="fw2-ui-LdW"/>
+                        <constraint firstItem="wa1-LB-IwZ" firstAttribute="leading" secondItem="iDO-zn-6aC" secondAttribute="trailing" constant="2" id="lSZ-Cs-R41"/>
+                        <constraint firstItem="dwg-Eg-VFI" firstAttribute="leading" secondItem="MRg-hA-tyA" secondAttribute="leading" id="obU-GV-qQY"/>
+                        <constraint firstAttribute="height" constant="44" id="orA-gd-APo"/>
+                        <constraint firstItem="dwg-Eg-VFI" firstAttribute="top" secondItem="wa1-LB-IwZ" secondAttribute="bottom" id="qBU-Rx-nTm"/>
+                        <constraint firstItem="wa1-LB-IwZ" firstAttribute="top" secondItem="MRg-hA-tyA" secondAttribute="top" constant="5" id="z5e-w0-tJ6"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UKP-0h-t2r">
+                    <rect key="frame" x="0.0" y="108" width="600" height="448"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="91x-Ys-4lv"/>
+                        <outlet property="delegate" destination="-1" id="UaY-5S-YpB"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXd-tI-9gp" userLabel="saveBt">
+                    <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                    <color key="backgroundColor" red="0.30588235289999999" green="0.64313725489999995" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="19r-qf-6N5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="保存，提交审核">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="saveAndCommit:" destination="-1" eventType="touchUpInside" id="Iy5-9q-dJD"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="MRg-hA-tyA" secondAttribute="trailing" id="1M3-44-3eA"/>
+                <constraint firstAttribute="trailing" secondItem="pXd-tI-9gp" secondAttribute="trailing" id="7jB-P2-vaT"/>
+                <constraint firstItem="UKP-0h-t2r" firstAttribute="top" secondItem="MRg-hA-tyA" secondAttribute="bottom" id="CQx-XY-d27"/>
+                <constraint firstAttribute="bottom" secondItem="UKP-0h-t2r" secondAttribute="bottom" constant="44" id="Q7E-f0-Egh"/>
+                <constraint firstItem="UKP-0h-t2r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SX4-Hu-Rqt"/>
+                <constraint firstItem="MRg-hA-tyA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XLW-b2-CFj"/>
+                <constraint firstAttribute="bottom" secondItem="pXd-tI-9gp" secondAttribute="bottom" id="p0N-f5-R4b"/>
+                <constraint firstItem="pXd-tI-9gp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="seC-qo-y9L"/>
+                <constraint firstItem="MRg-hA-tyA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="vgo-4m-bht"/>
+                <constraint firstAttribute="trailing" secondItem="UKP-0h-t2r" secondAttribute="trailing" id="wj2-YR-rUx"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="my_enterprise_prompt_img.png" width="15" height="15"/>
+    </resources>
+</document>

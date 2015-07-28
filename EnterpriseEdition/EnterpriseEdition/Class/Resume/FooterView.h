@@ -15,7 +15,7 @@
 }
 @property (nonatomic,copy)void(^chooseFooterBtAction)(NSInteger index,BOOL isAll);
 
-@property (nonatomic) int position; //0其他 1 职位页面的编辑footer 2职位详情页面的footerView 
+@property (nonatomic) int position; //0其他 1 职位页面的编辑footer 2职位详情页面的footerView 3信息页面的编辑footer 4认领职位页面的footerView
 /**
  设置全部编辑的各个按钮
  */

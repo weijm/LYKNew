@@ -11,7 +11,7 @@
 #import "EnterpriseImgTableViewCell.h"
 #import "FiltratePickerView.h"
 
-@interface EnterpriseInfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,EnterpriseBaseTableViewCellDelegate,EnterpriseImgTableViewCellDelegate,UIActionSheetDelegate>
+@interface EnterpriseInfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,EnterpriseBaseTableViewCellDelegate,EnterpriseImgTableViewCellDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     IBOutlet UILabel *promptLab;
     
@@ -21,4 +21,6 @@
     IBOutlet NSLayoutConstraint *infoTableViewToTop;
     IBOutlet NSLayoutConstraint *infoTableViewToBottom;
 }
+- (IBAction)saveEnterpriseInfo:(id)sender;
+
 @end

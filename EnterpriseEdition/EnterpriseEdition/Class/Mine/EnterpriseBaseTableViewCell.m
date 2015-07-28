@@ -25,6 +25,11 @@
     contentTextField.placeholder = [dictionary objectForKey:@"placeholder"];
     int index = (int)self.tag;
     
+    if (_cellType == 1) {//填写联系人的第二行
+        if (index == 1) {
+            index = 4;
+        }
+    }
     
     if (index == 6) {
         arrowImg.hidden = YES;

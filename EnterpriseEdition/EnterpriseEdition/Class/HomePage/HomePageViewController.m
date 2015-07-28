@@ -19,8 +19,8 @@
 
 
 
-#define kBannerViewHeight [Util myYOrHeight:200]
-#define kHireViewHeight [Util myYOrHeight:160]
+#define kBannerViewHeight [Util myYOrHeight:180]
+#define kHireViewHeight [Util myYOrHeight:180]
 @interface HomePageViewController ()
 {
     //横向滚动视图
@@ -112,6 +112,9 @@
     {
         if (kIphone4) {
             return kHeight -150-kHireViewHeight;
+        }else if (kIphone5)
+        {
+            return kHeight -kBannerViewHeight-kHireViewHeight;
         }
         return kHeight -kBannerViewHeight-kHireViewHeight-[Util myYOrHeight:45];
     }
@@ -139,13 +142,13 @@
     titleLab.backgroundColor = [UIColor clearColor];
     titleLab.text = @"E朝朝企业版";
     titleLab.textColor = [UIColor whiteColor];
-    titleLab.font = [UIFont systemFontOfSize:18];
+    titleLab.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:17.0];
     
     self.navigationItem.titleView = titleLab;
     
     
     UIButton *leftBt = [[UIButton alloc] initWithFrame:frame];
-    [leftBt setImage:[UIImage imageNamed:@"home_setting_btn_n"] forState:UIControlStateNormal];
+    [leftBt setImage:[UIImage imageNamed:@"home_search_btn"] forState:UIControlStateNormal];
     UIEdgeInsets imageInsets = leftBt.imageEdgeInsets;
     leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-20, imageInsets.bottom, imageInsets.right+20);
     [leftBt addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];

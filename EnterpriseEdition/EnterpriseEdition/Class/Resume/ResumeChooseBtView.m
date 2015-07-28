@@ -210,7 +210,28 @@
     }
     _chooseBt.titleLabel.font = [UIFont systemFontOfSize:14];
 }
-
+//初始化认领职位底部视图上的按钮
+-(void)loadClaimPositionFooterView
+{
+    vline.backgroundColor = Rgb(181, 181, 187, 1.0);
+    _chooseBt.backgroundColor = Rgb(220, 221, 227, 1.0);
+    [_chooseBt setTitleColor:Rgb(57, 57, 58, 1.0) forState:UIControlStateNormal];
+    NSInteger index = self.tag;
+    switch (index) {
+        case 10:
+            [_chooseBt setTitle:@"全  选" forState:UIControlStateNormal];
+            break;
+        case 20:
+            [_chooseBt setTitle:@"认领选中职位" forState:UIControlStateNormal];
+            break;
+        case 30:
+            [_chooseBt setTitle:@"下一步" forState:UIControlStateNormal];
+            break;
+        default:
+            break;
+    }
+ _chooseBt.titleLabel.font = [UIFont systemFontOfSize:14];
+}
 // 初始化职位中的按钮
 -(void)loadSubViewInPosition
 {

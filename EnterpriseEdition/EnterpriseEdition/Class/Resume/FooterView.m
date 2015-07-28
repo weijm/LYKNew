@@ -49,6 +49,11 @@
         //信息页面的编辑footer
         [self initButtonView:2 index:2];
     }
+    else if (_position == 4)
+    {
+        //认领职位页面的footerView
+        [self initButtonView:3 index:1];
+    }
     else
     {
         switch (index) {
@@ -96,6 +101,9 @@
         }else if (_position ==3)
         {
             [bt loadInfoInfoFooterSubView];
+        }else if (_position ==4)
+        {
+            [bt loadClaimPositionFooterView];
         }
         else
         {

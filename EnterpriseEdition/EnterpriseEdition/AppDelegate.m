@@ -22,11 +22,15 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     
-    [QMapServices sharedServices].apiKey = @"OXWBZ-MZHR4-77TUD-DXUNN-R2FPZ-YBB2J";
-    CLLocationManager* locationManager = [[CLLocationManager alloc] init];
-    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
-        [locationManager requestWhenInUseAuthorization];
-    }
+    //设置状态条为白色
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    
+    //定位功能
+//    [QMapServices sharedServices].apiKey = @"OXWBZ-MZHR4-77TUD-DXUNN-R2FPZ-YBB2J";
+//    CLLocationManager* locationManager = [[CLLocationManager alloc] init];
+//    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+//        [locationManager requestWhenInUseAuthorization];
+//    }
     
     RootViewController *rootVC = [[RootViewController alloc] init];
     
