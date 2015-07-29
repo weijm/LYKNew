@@ -57,7 +57,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消息标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmH-xS-G4A" userLabel="titleLab">
-                                <rect key="frame" x="69" y="28" width="181" height="21"/>
+                                <rect key="frame" x="69" y="25" width="181" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="9nK-4u-eX7"/>
                                 </constraints>
@@ -66,7 +66,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.39999999999999963" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15/10/30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpI-IV-iha" userLabel="timeLab">
-                                <rect key="frame" x="260" y="28" width="50" height="21"/>
+                                <rect key="frame" x="260" y="25" width="50" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="aMw-IX-3m2"/>
                                     <constraint firstAttribute="width" constant="50" id="lP6-9z-s2V"/>
@@ -76,7 +76,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消息摘要消息摘要消息摘要消息摘要消息摘要消息摘要消息摘要消息摘要消息摘要" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aeh-gy-5VC" userLabel="infoLab">
-                                <rect key="frame" x="69" y="50" width="221" height="21"/>
+                                <rect key="frame" x="69" y="52" width="221" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="7YA-In-J08"/>
                                 </constraints>
@@ -90,16 +90,16 @@
                             <constraint firstAttribute="trailing" secondItem="Aeh-gy-5VC" secondAttribute="trailing" constant="30" id="4x2-UV-fbG"/>
                             <constraint firstAttribute="trailing" secondItem="xpI-IV-iha" secondAttribute="trailing" constant="10" id="88W-x8-MLV"/>
                             <constraint firstAttribute="trailing" secondItem="Yyv-2T-H3f" secondAttribute="trailing" id="Akj-gi-IYq"/>
-                            <constraint firstItem="Yyv-2T-H3f" firstAttribute="top" secondItem="xpI-IV-iha" secondAttribute="bottom" id="Ax2-B3-Dvx"/>
+                            <constraint firstItem="Yyv-2T-H3f" firstAttribute="top" secondItem="xpI-IV-iha" secondAttribute="bottom" constant="3" id="Ax2-B3-Dvx"/>
                             <constraint firstItem="63a-95-poo" firstAttribute="leading" secondItem="XgZ-mH-IC9" secondAttribute="leading" constant="10" id="C6y-Gz-EYx"/>
                             <constraint firstItem="Yyv-2T-H3f" firstAttribute="leading" secondItem="XgZ-mH-IC9" secondAttribute="leading" id="Cfe-FY-Z4i"/>
                             <constraint firstItem="xpI-IV-iha" firstAttribute="leading" secondItem="YmH-xS-G4A" secondAttribute="trailing" constant="10" id="CsR-VQ-InV"/>
                             <constraint firstItem="Aeh-gy-5VC" firstAttribute="leading" secondItem="63a-95-poo" secondAttribute="trailing" constant="10" id="LhT-bu-gqF"/>
                             <constraint firstAttribute="centerY" secondItem="63a-95-poo" secondAttribute="centerY" id="SKh-iZ-sXk"/>
                             <constraint firstAttribute="centerY" secondItem="Yyv-2T-H3f" secondAttribute="centerY" id="ea6-Fp-HYw"/>
-                            <constraint firstItem="Yyv-2T-H3f" firstAttribute="top" secondItem="YmH-xS-G4A" secondAttribute="bottom" id="hAc-Pu-cIZ"/>
+                            <constraint firstItem="Yyv-2T-H3f" firstAttribute="top" secondItem="YmH-xS-G4A" secondAttribute="bottom" constant="3" id="hAc-Pu-cIZ"/>
                             <constraint firstItem="YmH-xS-G4A" firstAttribute="leading" secondItem="63a-95-poo" secondAttribute="trailing" constant="10" id="m3M-el-l6m"/>
-                            <constraint firstItem="Aeh-gy-5VC" firstAttribute="top" secondItem="Yyv-2T-H3f" secondAttribute="bottom" id="nBY-St-5YT"/>
+                            <constraint firstItem="Aeh-gy-5VC" firstAttribute="top" secondItem="Yyv-2T-H3f" secondAttribute="bottom" constant="2" id="nBY-St-5YT"/>
                         </constraints>
                     </view>
                     <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Trk-Rh-e7H" userLabel="bline">
@@ -129,7 +129,9 @@
                 <outlet property="chooseBg" destination="eLC-JJ-HIq" id="kv9-WG-4gE"/>
                 <outlet property="chooseBgToLeft" destination="Tnp-9g-yAP" id="JjU-he-62f"/>
                 <outlet property="chooseBt" destination="yap-DZ-CcL" id="Ujk-83-zeI"/>
+                <outlet property="iconHeight" destination="Ybf-sG-y1b" id="s3P-8Q-Msa"/>
                 <outlet property="iconImg" destination="63a-95-poo" id="ZvD-QL-kgj"/>
+                <outlet property="iconWidth" destination="W5D-f8-4eg" id="ws8-QT-3lH"/>
                 <outlet property="infoLab" destination="Aeh-gy-5VC" id="CbV-LF-kwL"/>
                 <outlet property="subView" destination="XgZ-mH-IC9" id="my2-IM-xmS"/>
                 <outlet property="timeLab" destination="xpI-IV-iha" id="SoQ-ik-82K"/>

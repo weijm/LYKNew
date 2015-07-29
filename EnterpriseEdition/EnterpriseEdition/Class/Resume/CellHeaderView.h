@@ -12,9 +12,7 @@
     IBOutlet UILabel *jobTitLab;
     //应聘岗位
     IBOutlet UILabel *jobLab;
-    //急招标志
     
-    IBOutlet UIView *btbg;
     
     //时间
     IBOutlet UILabel *timeLab;

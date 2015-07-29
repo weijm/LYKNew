@@ -13,6 +13,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
     [self loadsubView];
 }
 
@@ -42,7 +43,7 @@
         
     }
     
-    CGRect frame = CGRectMake(0, 0, kWidth-40, 40);
+    CGRect frame = CGRectMake(0, 0, kWidth-60, 40);
     ItemView *item = [[ItemView alloc] initWithFrame:frame];
     item.tag = 5;
     [item loadData];

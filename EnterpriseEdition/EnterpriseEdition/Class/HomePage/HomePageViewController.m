@@ -20,7 +20,7 @@
 
 
 #define kBannerViewHeight [Util myYOrHeight:180]
-#define kHireViewHeight [Util myYOrHeight:180]
+#define kHireViewHeight (kIphone6plus)?270:[Util myYOrHeight:180]
 @interface HomePageViewController ()
 {
     //横向滚动视图

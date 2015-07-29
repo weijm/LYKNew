@@ -11,6 +11,9 @@
 @interface PositionInfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
     
+    IBOutlet UITextView *proTextView;
+    IBOutlet UIView *promptBg;
+    
 }
 @property (nonatomic) BOOL reviewTips;
 @end

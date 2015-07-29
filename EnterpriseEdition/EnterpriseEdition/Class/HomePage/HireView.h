@@ -19,6 +19,24 @@
     IBOutlet UILabel *lab4;
     IBOutlet UILabel *lab5;
     IBOutlet UILabel *lab6;
+    
+    IBOutlet NSLayoutConstraint *bt1Width;
+    IBOutlet NSLayoutConstraint *bt1Height;
+    
+    IBOutlet NSLayoutConstraint *bt2Width;
+    IBOutlet NSLayoutConstraint *bt2Height;
+    
+    IBOutlet NSLayoutConstraint *bt3Width;
+    IBOutlet NSLayoutConstraint *bt3Height;
+    
+    IBOutlet NSLayoutConstraint *bt4Width;
+    IBOutlet NSLayoutConstraint *bt4Height;
+    
+    IBOutlet NSLayoutConstraint *bt5Width;
+    IBOutlet NSLayoutConstraint *bt5Height;
+    
+    IBOutlet NSLayoutConstraint *bt6Width;
+    IBOutlet NSLayoutConstraint *bt6Height;
 }
 @property (nonatomic,copy) void(^clickedHire)(NSInteger index);
 -(void)loadData:(NSArray*)array;

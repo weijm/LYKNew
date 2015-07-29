@@ -25,14 +25,14 @@
                         <rect key="frame" x="20" y="0.0" width="100" height="59.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="position_title_mark.png" translatesAutoresizingMaskIntoConstraints="NO" id="vct-ru-7zQ">
-                                <rect key="frame" x="0.0" y="23" width="13" height="14"/>
+                                <rect key="frame" x="0.0" y="27" width="6" height="6"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="14" id="Mlw-it-fpU"/>
-                                    <constraint firstAttribute="width" constant="13" id="qOe-iC-Va0"/>
+                                    <constraint firstAttribute="height" constant="6" id="Mlw-it-fpU"/>
+                                    <constraint firstAttribute="width" constant="6" id="qOe-iC-Va0"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="职位标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEo-EI-G3B" userLabel="titleLab">
-                                <rect key="frame" x="21" y="0.0" width="79" height="59.5"/>
+                                <rect key="frame" x="14" y="0.0" width="86" height="59.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -122,6 +122,8 @@
                 <outlet property="titBgToBottom" destination="3gM-bo-Lux" id="ZJZ-mu-gD0"/>
                 <outlet property="titleBg" destination="qTm-PK-y95" id="KRB-Zu-Wd0"/>
                 <outlet property="titleLab" destination="pEo-EI-G3B" id="7IH-Vk-U1G"/>
+                <outlet property="xingHeight" destination="Mlw-it-fpU" id="3RC-06-NcR"/>
+                <outlet property="xingWidth" destination="qOe-iC-Va0" id="2xP-Yi-bxO"/>
             </connections>
             <point key="canvasLocation" x="203" y="242"/>
         </tableViewCell>

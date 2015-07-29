@@ -12,6 +12,13 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    if (kIphone6plus) {
+        xingHeight.constant = xingHeight.constant*1.5;
+        xingWidth.constant = xingWidth.constant*1.5;
+        
+        addImgHeight.constant = addImgHeight.constant*1.5;
+        addImgWidth.constant = addImgWidth.constant*1.5;
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

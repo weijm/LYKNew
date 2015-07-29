@@ -21,6 +21,10 @@
     IBOutlet UILabel *nameLab;
     //专业
     IBOutlet UILabel *proLab;
+    IBOutlet NSLayoutConstraint *protraitimgWidth;
+    
+    IBOutlet NSLayoutConstraint *protraitimgHeight;
+    
 }
 /**
  初始化子视图数据

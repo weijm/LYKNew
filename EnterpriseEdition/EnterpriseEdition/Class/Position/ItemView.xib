@@ -8,7 +8,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemView">
             <connections>
                 <outlet property="contentLab" destination="laV-Tu-U0Y" id="BUO-hW-GX7"/>
+                <outlet property="iconHeight" destination="Sd0-ld-S5H" id="nH4-JR-irh"/>
                 <outlet property="iconImg" destination="kUi-xU-d49" id="hhE-nR-PBl"/>
+                <outlet property="iconWidth" destination="MYK-hb-3ti" id="eaT-W6-XWJ"/>
+                <outlet property="iconY" destination="ZhY-Jp-oyo" id="Fy8-Mn-oe2"/>
                 <outlet property="labHeight" destination="C25-2N-aL4" id="nmF-ya-IZP"/>
             </connections>
         </placeholder>
@@ -21,18 +24,18 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kUi-xU-d49" userLabel="iconImg">
-                            <rect key="frame" x="5" y="40" width="20" height="20"/>
+                            <rect key="frame" x="5" y="41.5" width="21" height="17"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="20" id="MYK-hb-3ti"/>
-                                <constraint firstAttribute="height" constant="20" id="Sd0-ld-S5H"/>
+                                <constraint firstAttribute="width" constant="21" id="MYK-hb-3ti"/>
+                                <constraint firstAttribute="height" constant="17" id="Sd0-ld-S5H"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大专以上" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="laV-Tu-U0Y" userLabel="contentLab">
-                            <rect key="frame" x="30" y="35" width="290" height="30"/>
+                            <rect key="frame" x="31" y="35" width="289" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="C25-2N-aL4"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.50980392156862742" green="0.50980392156862742" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>

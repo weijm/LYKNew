@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommendView">
             <connections>
+                <outlet property="arrowHeight" destination="oYM-c5-Umj" id="BvE-Iq-bMm"/>
+                <outlet property="arrowWidth" destination="I84-dh-5VR" id="82C-Oz-ybh"/>
                 <outlet property="bottombg" destination="2A8-QN-aw7" id="8D3-QS-WOZ"/>
             </connections>
         </placeholder>
@@ -50,11 +52,11 @@
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homepage_right_bt.png" translatesAutoresizingMaskIntoConstraints="NO" id="6F4-Va-87Z" userLabel="arrowimg">
-                            <rect key="frame" x="305" y="12" width="5" height="10"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homepage_more_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="6F4-Va-87Z" userLabel="arrowimg">
+                            <rect key="frame" x="305" y="12.5" width="5" height="9"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="5" id="I84-dh-5VR"/>
-                                <constraint firstAttribute="height" constant="10" id="oYM-c5-Umj"/>
+                                <constraint firstAttribute="height" constant="9" id="oYM-c5-Umj"/>
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I5F-9U-rRs" userLabel="hline">
@@ -110,18 +112,18 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2A8-QN-aw7" userLabel="bottombg">
-                    <rect key="frame" x="0.0" y="41" width="320" height="129"/>
+                    <rect key="frame" x="10" y="41" width="300" height="129"/>
                     <subviews>
                         <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBW-Lj-SlE" userLabel="info1" customClass="SinglePersonalView">
                             <rect key="frame" x="10" y="0.0" width="55" height="129"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <view tag="200" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G6c-V3-eby" userLabel="info2bg">
-                            <rect key="frame" x="65" y="0.0" width="67" height="129"/>
+                            <rect key="frame" x="65" y="0.0" width="57" height="129"/>
                             <subviews>
                                 <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZf-Lb-flS" userLabel="info2" customClass="SinglePersonalView">
-                                    <rect key="frame" x="6" y="0.0" width="55" height="129"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <rect key="frame" x="1" y="0.0" width="55" height="129"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="55" id="hdx-JS-Tpc"/>
                                     </constraints>
@@ -135,24 +137,24 @@
                             </constraints>
                         </view>
                         <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAt-Lj-Fun" userLabel="info3" customClass="SinglePersonalView">
-                            <rect key="frame" x="132" y="0.0" width="55" height="129"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="122" y="0.0" width="55" height="129"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="55" id="9Ns-Oc-kDR"/>
                             </constraints>
                         </view>
                         <view tag="400" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F67-84-icN" userLabel="info4bg">
-                            <rect key="frame" x="187" y="0.0" width="68" height="129"/>
+                            <rect key="frame" x="177" y="0.0" width="58" height="129"/>
                             <subviews>
                                 <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EYT-SE-f16" userLabel="info4" customClass="SinglePersonalView">
-                                    <rect key="frame" x="6" y="0.0" width="55" height="129"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <rect key="frame" x="1" y="0.0" width="55" height="129"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="55" id="8sb-bx-Wfg"/>
                                     </constraints>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="EYT-SE-f16" secondAttribute="bottom" id="bOG-ak-jwd"/>
                                 <constraint firstAttribute="centerX" secondItem="EYT-SE-f16" secondAttribute="centerX" id="inc-NR-TdJ"/>
@@ -160,8 +162,8 @@
                             </constraints>
                         </view>
                         <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCP-2o-AU8" userLabel="info5" customClass="SinglePersonalView">
-                            <rect key="frame" x="255" y="0.0" width="55" height="129"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="235" y="0.0" width="55" height="129"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                     </subviews>
                     <constraints>
@@ -193,12 +195,12 @@
                 <constraint firstItem="2A8-QN-aw7" firstAttribute="top" secondItem="1gG-xJ-xOW" secondAttribute="bottom" id="4Fe-WW-woT"/>
                 <constraint firstItem="PYG-zO-5f1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4xL-GH-KdH"/>
                 <constraint firstAttribute="bottom" secondItem="2A8-QN-aw7" secondAttribute="bottom" id="MvT-De-b3F"/>
-                <constraint firstItem="2A8-QN-aw7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VdB-TO-cwc"/>
+                <constraint firstItem="2A8-QN-aw7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="VdB-TO-cwc"/>
                 <constraint firstAttribute="trailing" secondItem="1gG-xJ-xOW" secondAttribute="trailing" id="XCi-gr-ROf"/>
                 <constraint firstAttribute="trailing" secondItem="PYG-zO-5f1" secondAttribute="trailing" id="cVf-Fv-Q4l"/>
                 <constraint firstItem="PYG-zO-5f1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dqa-ua-qrZ"/>
                 <constraint firstItem="1gG-xJ-xOW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="tA0-Xd-1K9"/>
-                <constraint firstAttribute="trailing" secondItem="2A8-QN-aw7" secondAttribute="trailing" id="xQP-7U-MkL"/>
+                <constraint firstAttribute="trailing" secondItem="2A8-QN-aw7" secondAttribute="trailing" constant="10" id="xQP-7U-MkL"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
@@ -208,6 +210,6 @@
     </objects>
     <resources>
         <image name="homepage_commend_img.png" width="35" height="34"/>
-        <image name="homepage_right_bt.png" width="7" height="13"/>
+        <image name="homepage_more_arrow.png" width="18" height="15"/>
     </resources>
 </document>

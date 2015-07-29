@@ -7,6 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VersionViewController">
             <connections>
+                <outlet property="versionimgHeiht" destination="mZh-Vv-CNi" id="GJn-t8-hi0"/>
+                <outlet property="versionimgY" destination="gxy-at-xSt" id="BZQ-6m-fU4"/>
+                <outlet property="versonimgWidth" destination="UZl-pR-nbk" id="JDD-NM-ch4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

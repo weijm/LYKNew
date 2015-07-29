@@ -15,24 +15,24 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="2dv-DZ-seh" userLabel="iconImg">
-                        <rect key="frame" x="10" y="33" width="50" height="50"/>
+                        <rect key="frame" x="10" y="30" width="55" height="55"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="4GB-sx-rco"/>
-                            <constraint firstAttribute="height" constant="50" id="zSw-cS-bkM"/>
+                            <constraint firstAttribute="width" constant="55" id="4GB-sx-rco"/>
+                            <constraint firstAttribute="height" constant="55" id="zSw-cS-bkM"/>
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MSI-Z8-VMa" userLabel="infobg">
-                        <rect key="frame" x="65" y="10" width="237" height="97"/>
+                        <rect key="frame" x="75" y="10" width="227" height="97"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OdV-6K-gu3" userLabel="line">
-                                <rect key="frame" x="0.0" y="48" width="237" height="1"/>
+                                <rect key="frame" x="0.0" y="48" width="227" height="1"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="X8L-eR-nJb"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公司名称公司名称公司名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g18-tC-Cb4">
-                                <rect key="frame" x="0.0" y="27" width="237" height="21"/>
+                                <rect key="frame" x="0.0" y="24" width="227" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="yyS-FP-Tke"/>
                                 </constraints>
@@ -41,29 +41,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7W0-PW-xjn" userLabel="subbg">
-                                <rect key="frame" x="0.0" y="49" width="237" height="25"/>
+                                <rect key="frame" x="0.0" y="54" width="227" height="25"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_review_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="O6T-Na-eqr" userLabel="reviewImg">
-                                        <rect key="frame" x="0.0" y="3" width="73" height="18"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_check_pass.png" translatesAutoresizingMaskIntoConstraints="NO" id="O6T-Na-eqr" userLabel="reviewImg">
+                                        <rect key="frame" x="0.0" y="4" width="78" height="16"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="73" id="OC0-kN-Pq6"/>
-                                            <constraint firstAttribute="height" constant="18" id="mrh-lf-CkS"/>
+                                            <constraint firstAttribute="width" constant="78" id="OC0-kN-Pq6"/>
+                                            <constraint firstAttribute="height" constant="16" id="mrh-lf-CkS"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="position_item_icon5.png" translatesAutoresizingMaskIntoConstraints="NO" id="3FG-pf-z5Q" userLabel="locationimg">
-                                        <rect key="frame" x="81" y="3" width="18" height="18"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3FG-pf-z5Q" userLabel="locationimg">
+                                        <rect key="frame" x="86" y="5.5" width="9" height="13"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="18" id="0D0-Cz-Arj"/>
-                                            <constraint firstAttribute="height" constant="18" id="b8w-KM-Ecl"/>
+                                            <constraint firstAttribute="width" constant="9" id="0D0-Cz-Arj"/>
+                                            <constraint firstAttribute="height" constant="13" id="b8w-KM-Ecl"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京 | 北京市 | 石景山" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXz-eK-x0f">
-                                        <rect key="frame" x="99" y="2" width="138" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.79999999999999982" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京 | 北京市 | 石景山" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXz-eK-x0f">
+                                        <rect key="frame" x="95" y="2" width="132" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="uQc-As-oMg"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" red="0.22352941176470589" green="0.23137254901960785" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -83,9 +82,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="g18-tC-Cb4" firstAttribute="leading" secondItem="MSI-Z8-VMa" secondAttribute="leading" id="3r9-Mu-Jkv"/>
-                            <constraint firstItem="OdV-6K-gu3" firstAttribute="top" secondItem="g18-tC-Cb4" secondAttribute="bottom" id="7BI-He-y3W"/>
+                            <constraint firstItem="OdV-6K-gu3" firstAttribute="top" secondItem="g18-tC-Cb4" secondAttribute="bottom" constant="3" id="7BI-He-y3W"/>
                             <constraint firstItem="7W0-PW-xjn" firstAttribute="leading" secondItem="MSI-Z8-VMa" secondAttribute="leading" id="DfJ-Lp-XPe"/>
-                            <constraint firstItem="7W0-PW-xjn" firstAttribute="top" secondItem="OdV-6K-gu3" secondAttribute="bottom" id="Hqa-m2-zMW"/>
+                            <constraint firstItem="7W0-PW-xjn" firstAttribute="top" secondItem="OdV-6K-gu3" secondAttribute="bottom" constant="5" id="Hqa-m2-zMW"/>
                             <constraint firstItem="7W0-PW-xjn" firstAttribute="leading" secondItem="MSI-Z8-VMa" secondAttribute="leading" id="WlX-22-Clp"/>
                             <constraint firstAttribute="centerY" secondItem="OdV-6K-gu3" secondAttribute="centerY" id="YF1-My-jtG"/>
                             <constraint firstAttribute="trailing" secondItem="OdV-6K-gu3" secondAttribute="trailing" id="gJj-0E-Ykd"/>
@@ -94,10 +93,10 @@
                             <constraint firstAttribute="trailing" secondItem="7W0-PW-xjn" secondAttribute="trailing" id="zcg-GG-nkl"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homepage_right_bt.png" translatesAutoresizingMaskIntoConstraints="NO" id="ehq-e6-JCq" userLabel="arrowimg">
-                        <rect key="frame" x="302" y="52" width="8" height="13"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_enterprise_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="ehq-e6-JCq" userLabel="arrowimg">
+                        <rect key="frame" x="302" y="51.5" width="8" height="14"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="13" id="Bs4-aj-td3"/>
+                            <constraint firstAttribute="height" constant="14" id="Bs4-aj-td3"/>
                             <constraint firstAttribute="width" constant="8" id="Ofl-a9-gr0"/>
                         </constraints>
                     </imageView>
@@ -110,18 +109,28 @@
                     <constraint firstAttribute="centerY" secondItem="ehq-e6-JCq" secondAttribute="centerY" id="C6z-zc-22P"/>
                     <constraint firstItem="ehq-e6-JCq" firstAttribute="leading" secondItem="MSI-Z8-VMa" secondAttribute="trailing" id="ENq-G8-nvn"/>
                     <constraint firstItem="MSI-Z8-VMa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="KZD-7D-J3H"/>
-                    <constraint firstItem="MSI-Z8-VMa" firstAttribute="leading" secondItem="2dv-DZ-seh" secondAttribute="trailing" constant="5" id="Q3o-Ka-Q89"/>
+                    <constraint firstItem="MSI-Z8-VMa" firstAttribute="leading" secondItem="2dv-DZ-seh" secondAttribute="trailing" constant="10" id="Q3o-Ka-Q89"/>
                     <constraint firstItem="ehq-e6-JCq" firstAttribute="leading" secondItem="MSI-Z8-VMa" secondAttribute="trailing" id="f9r-1K-B97"/>
                     <constraint firstAttribute="trailing" secondItem="ehq-e6-JCq" secondAttribute="trailing" constant="10" id="o8u-jN-sjj"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="arrowHeight" destination="Bs4-aj-td3" id="WGt-TP-6vh"/>
+                <outlet property="arrowwidth" destination="Ofl-a9-gr0" id="Vj1-2o-XAZ"/>
+                <outlet property="iconHeight" destination="zSw-cS-bkM" id="XEb-pA-FQq"/>
+                <outlet property="iconImg" destination="2dv-DZ-seh" id="rMT-oj-JbE"/>
+                <outlet property="iconWidth" destination="4GB-sx-rco" id="cvX-43-JyZ"/>
+                <outlet property="locationImgHeight" destination="b8w-KM-Ecl" id="3eD-0h-dja"/>
+                <outlet property="locationImgWidth" destination="0D0-Cz-Arj" id="Pdr-9r-3fH"/>
+                <outlet property="reviewHeight" destination="mrh-lf-CkS" id="KUU-ag-2KS"/>
+                <outlet property="reviewWidth" destination="OC0-kN-Pq6" id="llp-Vi-BYW"/>
+            </connections>
             <point key="canvasLocation" x="191" y="279.5"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="homepage_right_bt.png" width="7" height="13"/>
+        <image name="my_check_pass.png" width="70" height="70"/>
+        <image name="my_enterprise_arrow.png" width="15" height="15"/>
         <image name="my_icon.png" width="70" height="70"/>
-        <image name="my_review_icon.png" width="83" height="22"/>
-        <image name="position_item_icon5.png" width="18" height="23"/>
     </resources>
 </document>

@@ -12,6 +12,12 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    if (kIphone6plus) {
+        iconWidth.constant = iconWidth.constant *1.5;
+        iconHeight.constant = iconHeight.constant *1.5;
+    }
+    [self setTextViewParagraphStyle];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -20,4 +26,17 @@
     // Configure the view for the selected state
 }
 
+-(void)setTextViewParagraphStyle
+{
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 6;// 字体的行间距
+    
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont systemFontOfSize:14],
+                                 NSParagraphStyleAttributeName:paragraphStyle,
+                                 NSForegroundColorAttributeName:
+                                     Rgb(115, 115, 115, 0.8)
+                                 };
+    textView.attributedText = [[NSAttributedString alloc] initWithString:textView.text attributes:attributes];
+}
 @end

@@ -31,6 +31,8 @@
     
     IBOutlet NSLayoutConstraint *titBgToBottom;
     
+    IBOutlet NSLayoutConstraint *xingHeight;
+    IBOutlet NSLayoutConstraint *xingWidth;
 }
 @property (nonatomic,weak) id<PositionTableViewCellDelegate> delegate;
 /**

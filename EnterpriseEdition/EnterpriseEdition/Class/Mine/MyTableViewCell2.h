@@ -16,6 +16,14 @@
    
     IBOutlet UILabel *phoneLab;
     IBOutlet NSLayoutConstraint *lineToLeft;
+    
+    IBOutlet NSLayoutConstraint *itemIconWdith;
+    
+    IBOutlet NSLayoutConstraint *itemIconHeight;
+    //箭头的宽高
+    
+    IBOutlet NSLayoutConstraint *arrowWidth;
+    IBOutlet NSLayoutConstraint *arrowHeight;
 }
 -(void)loadSubView;
 @end

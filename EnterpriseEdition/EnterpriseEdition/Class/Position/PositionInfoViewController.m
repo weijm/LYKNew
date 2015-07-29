@@ -32,6 +32,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"职位详情";
+    //设置提示信息的间距
+    [self setTextViewParagraphStyle];
+    
+    //将提示视图隐藏
+    promptBg.hidden = YES;
+    
     //初始化item
     [self initItems];
     
@@ -98,10 +104,10 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        return 80;
+        return [Util myYOrHeight:70];
     }else if (indexPath.row == 1)
     {
-        return 130;
+        return [Util myYOrHeight:120];
     }else
     {
         return 300;
@@ -257,4 +263,18 @@
     NSLog(@" 设置急招 == %d",count);
 
 }
+-(void)setTextViewParagraphStyle
+{
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 4;// 字体的行间距
+    
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont systemFontOfSize:12],
+                                 NSParagraphStyleAttributeName:paragraphStyle,
+                                 NSForegroundColorAttributeName:
+                                     Rgb(0, 0, 0, 0.7)
+                                 };
+    proTextView.attributedText = [[NSAttributedString alloc] initWithString:proTextView.text attributes:attributes];
+}
+
 @end

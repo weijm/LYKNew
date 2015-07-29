@@ -30,6 +30,9 @@
     IBOutlet NSLayoutConstraint *contentTextFieldToRight;
     
     IBOutlet NSLayoutConstraint *titBgToBottom;
+    
+    IBOutlet NSLayoutConstraint *xingHeight;
+    IBOutlet NSLayoutConstraint *xingWidth;
 }
 @property (nonatomic,weak) id<EnterpriseBaseTableViewCellDelegate> delegate;
 @property (nonatomic) int  cellType;

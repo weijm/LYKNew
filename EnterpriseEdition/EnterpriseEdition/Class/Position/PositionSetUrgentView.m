@@ -22,6 +22,7 @@
         [self addSubview:containerView];
         chooseBt1.specialMark =1 ;
         positionCount = 30;
+        [self setLabParagraphStyle];
     }
     return self;
 }
@@ -34,7 +35,7 @@
     [view addSubview:areaBg];
     
     UIView *alphBg = [[UIView alloc] initWithFrame:view.frame];
-    alphBg.backgroundColor = [UIColor grayColor];
+    alphBg.backgroundColor = [UIColor blackColor];
     alphBg.alpha = 0;
     [areaBg addSubview:alphBg];
     
@@ -46,7 +47,7 @@
     self.alpha = 0;
     [UIView animateWithDuration:0.3 animations:^{
         
-        alphBg.alpha = 0.8;
+        alphBg.alpha = 0.25;
         self.alpha = 1.0;
 
         
@@ -76,18 +77,18 @@
 - (IBAction)chooseCountAction:(id)sender {
     UIButton_Custom *bt = (UIButton_Custom*)sender;
     if (bt.specialMark == 0) {
-        [bt setImage:[UIImage imageNamed:@"position_choose_selected.png"] forState:UIControlStateNormal];
+        [bt setImage:[UIImage imageNamed:@"position_urgent_selected.png"] forState:UIControlStateNormal];
         bt.specialMark = 1;
     }else
     {
-        [bt setImage:[UIImage imageNamed:@"position_choose_select.png"] forState:UIControlStateNormal];
+        [bt setImage:[UIImage imageNamed:@"position_urgent_select.png"] forState:UIControlStateNormal];
         bt.specialMark = 0;
     }
     NSArray *array = [NSArray arrayWithObjects:chooseBt1,chooseBt2,chooseBt3, nil];
     for (int i=0; i < [array count]; i++) {
         UIButton_Custom *tempBt = [array objectAtIndex:i];
         if (tempBt.tag != bt.tag) {
-            [tempBt setImage:[UIImage imageNamed:@"position_choose_select.png"] forState:UIControlStateNormal];
+            [tempBt setImage:[UIImage imageNamed:@"position_urgent_select.png"] forState:UIControlStateNormal];
             tempBt.specialMark = 0;
 
         }
@@ -99,4 +100,18 @@
     [self cancelView];
     positionCount = 30;
 }
+-(void)setLabParagraphStyle
+{
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 4;// 字体的行间距
+    
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont systemFontOfSize:14],
+                                 NSParagraphStyleAttributeName:paragraphStyle,
+                                 NSForegroundColorAttributeName:
+                                     Rgb(0, 0, 0, 0.8)
+                                 };
+    proLab.attributedText = [[NSAttributedString alloc] initWithString:proLab.text attributes:attributes];
+}
+
 @end

@@ -15,5 +15,14 @@
 -(void)cancelKey;
 @end
 @interface LoginHeaderView : UIView<UITextFieldDelegate>
+{
+    IBOutlet NSLayoutConstraint *numberimgWidth;
+    
+    IBOutlet NSLayoutConstraint *numberimgHeight;
+    
+    IBOutlet NSLayoutConstraint *passwordimgWidth;
+    
+    IBOutlet NSLayoutConstraint *passwordimgHeight;
+}
 @property(nonatomic,weak) id<LoginHeaderViewDelegate> delegate;
 @end

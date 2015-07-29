@@ -19,6 +19,12 @@
         CGRect newFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         containerView.frame = newFrame;
         [self addSubview:containerView];
+        if (kIphone6plus) {
+            numberimgHeight.constant = numberimgHeight.constant*1.5;
+            numberimgWidth.constant = numberimgWidth.constant*1.5;
+            passwordimgHeight.constant = passwordimgHeight.constant*1.5;
+            passwordimgWidth.constant = passwordimgWidth.constant*1.5;
+        }
     }
     return self;
 }

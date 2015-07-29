@@ -20,6 +20,10 @@
         CGRect newFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         containerView.frame = newFrame;
         [self addSubview:containerView];
+        if (kIphone6plus) {
+            arrowHeight.constant = arrowHeight.constant*1.5;
+            arrowWidth.constant = arrowWidth.constant*1.5;
+        }
     }
     return self;
 }

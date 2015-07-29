@@ -20,6 +20,9 @@
     UITapGestureRecognizer *cancelKeyTap;
     //当前编辑的视图
     UIView *editView;
+    
+    IBOutlet NSLayoutConstraint *proWidth;
+    IBOutlet NSLayoutConstraint *proHeight;
 }
 @end
 
@@ -28,6 +31,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    if (kIphone6plus) {
+        proHeight.constant = proHeight.constant*1.5;
+        proWidth.constant = proWidth.constant*1.5;
+    }
     self.title = @"请填写企业联系人";
     [self setPromptTextColor];
     

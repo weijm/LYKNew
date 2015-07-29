@@ -13,6 +13,11 @@
   
     //个人信息背景
     IBOutlet UIView *bottombg;
+    //箭头大小
+    
+    IBOutlet NSLayoutConstraint *arrowWidth;
+    
+    IBOutlet NSLayoutConstraint *arrowHeight;
 }
 @property(nonatomic,copy) void(^clickPersonalInfo)(NSInteger index);
 /**

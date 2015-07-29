@@ -40,46 +40,6 @@
     jobLab.text = [dictionary objectForKey:@"job"];
     timeLab.text = [dictionary objectForKey:@"time"];
     
-    for (UIView *view in [btbg subviews]) {
-        if (view) {
-            [view removeFromSuperview];
-        }
-    }
-    float btx = 0;
-    float bty = 7.5;
-    float edge = [Util myXOrWidth:20];
-    float btw = 15;
-    
-    UIButton *bt;
-    int isHidden = [[dictionary objectForKey:@"urgent"] intValue];
-    if (isHidden) {
-        btx = btx+edge;
-        bt = [[UIButton alloc] initWithFrame:CGRectMake(btx, bty, btw, btw)];
-        [bt setImage:[UIImage imageNamed:@"resume_prompt1"] forState:UIControlStateNormal];
-        bt.tag = 1;
-        [bt addTarget:self action:@selector(clicked:) forControlEvents:UIControlEventTouchUpInside];
-        [btbg addSubview:bt];
-    }
-    
-    isHidden = [[dictionary objectForKey:@"collected"] intValue];
-    if (isHidden) {
-        btx = btx+edge;
-        bt = [[UIButton alloc] initWithFrame:CGRectMake(btx, bty, btw, btw)];
-        [bt setImage:[UIImage imageNamed:@"resume_prompt2"] forState:UIControlStateNormal];
-        bt.tag = 2;
-        [bt addTarget:self action:@selector(clicked:) forControlEvents:UIControlEventTouchUpInside];
-        [btbg addSubview:bt];
-    }
-    
-    isHidden = [[dictionary objectForKey:@"download"] intValue];
-    if (isHidden) {
-        btx = btx+edge;
-        bt = [[UIButton alloc] initWithFrame:CGRectMake(btx, bty, btw, btw)];
-        [bt setImage:[UIImage imageNamed:@"resume_prompt3"] forState:UIControlStateNormal];
-        bt.tag = 3;
-        [bt addTarget:self action:@selector(clicked:) forControlEvents:UIControlEventTouchUpInside];
-        [btbg addSubview:bt];
-    }
 }
 -(void)showRateViewBg
 {

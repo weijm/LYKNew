@@ -18,8 +18,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"版本说明";
+    
+    if (kIphone6plus) {
+        versionimgHeiht.constant = versionimgHeiht.constant*1.5;
+        versonimgWidth.constant = versonimgWidth.constant*1.5;
+        versionimgY.constant = -200;
+    }
+    
     self.view.backgroundColor = Rgb(230, 244, 253, 1.0);
     [self initItems];
+    
 }
 
 - (void)didReceiveMemoryWarning {

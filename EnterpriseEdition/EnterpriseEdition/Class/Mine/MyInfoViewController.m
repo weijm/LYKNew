@@ -17,7 +17,7 @@
 
 
 
-#define kFooterViewH kHeight -[Util myYOrHeight:60]-[Util myYOrHeight:90]-[Util myYOrHeight:40]*4-kFOOTERVIEWH-topBarheight
+#define kFooterViewH kHeight -[Util myYOrHeight:80]-[Util myYOrHeight:100]-[Util myYOrHeight:40]*4-kFOOTERVIEWH-topBarheight
 
 @interface MyInfoViewController ()
 
@@ -83,10 +83,10 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        return [Util myYOrHeight:60];
+        return [Util myYOrHeight:80];
     }else if (indexPath.row ==1)
     {
-        return [Util myYOrHeight:90];
+        return [Util myYOrHeight:100];
     }else
     {
         

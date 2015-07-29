@@ -17,6 +17,9 @@
     IBOutlet UIButton_Custom *chooseBt3;
     
     int  positionCount;
+    
+    IBOutlet UILabel *proLab;
+    
 }
 @property (nonatomic,copy) void(^makeSurePositionUrgent)(int count);
 /**

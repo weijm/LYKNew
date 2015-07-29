@@ -8,6 +8,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnterpriseContactViewController">
             <connections>
                 <outlet property="infoTableView" destination="UKP-0h-t2r" id="jsN-2M-har"/>
+                <outlet property="proHeight" destination="OTf-8J-gZc" id="Cr6-ZU-7XF"/>
+                <outlet property="proWidth" destination="WSH-Ep-S99" id="ag0-OX-7t5"/>
                 <outlet property="promptLab" destination="dwg-Eg-VFI" id="S5g-rh-Dty"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -31,10 +33,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_enterprise_prompt_img.png" translatesAutoresizingMaskIntoConstraints="NO" id="iDO-zn-6aC">
-                            <rect key="frame" x="153" y="7" width="15" height="15"/>
+                            <rect key="frame" x="152" y="7" width="16" height="16"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="15" id="OTf-8J-gZc"/>
-                                <constraint firstAttribute="width" constant="15" id="WSH-Ep-S99"/>
+                                <constraint firstAttribute="height" constant="16" id="OTf-8J-gZc"/>
+                                <constraint firstAttribute="width" constant="16" id="WSH-Ep-S99"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如需要帮助请拨打:4008-907-977" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwg-Eg-VFI">

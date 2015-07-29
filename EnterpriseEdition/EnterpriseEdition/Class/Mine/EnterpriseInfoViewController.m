@@ -29,6 +29,11 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"填写企业资料";
     
+    if (kIphone6plus) {
+        proHeight.constant = proHeight.constant*1.5;
+        proWidth.constant = proWidth.constant*1.5;
+    }
+    
     titleArray = [NSArray arrayWithContentsOfFile:[Util getBundlePath:@"enterpriseInfo.plist"]];
     contentArray = [[NSMutableArray alloc] init];
     for (int i =0; i<[titleArray count]; i++) {

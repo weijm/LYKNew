@@ -19,7 +19,10 @@
         CGRect newFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         containerView.frame = newFrame;
         [self addSubview:containerView];
-        
+        if (kIphone6plus) {
+            iconWidth.constant = iconWidth.constant *1.5;
+            iconHeight.constant = iconHeight.constant *1.5;
+        }
        
     }
     return self;
@@ -43,9 +46,17 @@
             _contentLab.text = @"大专以上";
             break;
         case 5:
+        {
             labHeight.constant = 40;
             _contentLab.numberOfLines = 2;
+            
             _contentLab.text = @"工作地点工作地点工作地点工作地点工作地点工作地点工作地点";
+            //当地址为两行时 图标向上移动
+            int line = [Util getRow:(int)[_contentLab.text length] eachCount:20];
+            if (line >= 2) {
+                iconY.constant = (kIphone6plus)?4:7;
+            }
+        }
             break;
                 default:
             break;

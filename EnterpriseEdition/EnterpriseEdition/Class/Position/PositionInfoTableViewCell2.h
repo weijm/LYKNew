@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface PositionInfoTableViewCell2 : UITableViewCell
+{
+    IBOutlet NSLayoutConstraint *iconWidth;
+    
+    IBOutlet NSLayoutConstraint *iconHeight;
+    
+    IBOutlet UITextView *textView;
 
+}
 @end

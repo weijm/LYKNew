@@ -29,6 +29,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"选择需要认领的职位";
+    
+    [self initItems];
     //初始化上半部分的提示
     [self initHeaderView];
     
@@ -47,7 +49,24 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+#pragma mark - 编辑按钮
+-(void)initItems
+{
+    CGRect frame = CGRectMake(0, 0, 50, 30);
+    UIButton *rightBt = [[UIButton alloc] initWithFrame:frame];
+    [rightBt setImage:[UIImage imageNamed:@"position_claim_close_bt"] forState:UIControlStateNormal];
+    UIEdgeInsets imageInsets = rightBt.imageEdgeInsets;
+    rightBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left+20, imageInsets.bottom, imageInsets.right-20);
+    [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
+    self.navigationItem.rightBarButtonItem = rightItem;
+    
+    
+}
+-(void)rightAction
+{
+    NSLog(@"关闭认领职位");
+}
 #pragma mark - 初始化headerView
 -(void)initHeaderView
 {

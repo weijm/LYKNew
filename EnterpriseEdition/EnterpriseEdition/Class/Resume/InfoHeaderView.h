@@ -28,8 +28,5 @@
     IBOutlet UIImageView *editView;
     //下载
     IBOutlet UIImageView *download;
-    //收藏
-    IBOutlet UIImageView *collectedView;
-    
 }
 @end

@@ -25,11 +25,16 @@
         CGRect newFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         containerView.frame = newFrame;
         [self addSubview:containerView];
+//        if (kIphone6plus) {
+//            protraitimgHeight.constant = protraitimgHeight.constant*1.5;
+//            protraitimgWidth.constant = protraitimgWidth.constant*1.5;
+//        }
         //设置头像圆角
         protraitImg.layer.cornerRadius = protraitImg.frame.size.width/2;
         //设置匹配度视图圆角
         rateLab.layer.masksToBounds = YES;
         rateLab.layer.cornerRadius = rateLab.frame.size.height/2;
+        
         
     }
     return self;

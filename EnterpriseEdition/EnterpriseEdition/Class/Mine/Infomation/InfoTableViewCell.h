@@ -38,6 +38,10 @@
     
     IBOutlet UILabel *timeLab;
     
+    IBOutlet NSLayoutConstraint *iconWidth;
+    
+    IBOutlet NSLayoutConstraint *iconHeight;
+    
 }
 @property (nonatomic,weak) id<InfoTableViewCellDelegate> delegate;
 /**

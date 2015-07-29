@@ -28,6 +28,11 @@
     
     IBOutlet NSLayoutConstraint *chooseBgToLeft;
     
+    IBOutlet NSLayoutConstraint *positionImgWidth;
+    
+    IBOutlet NSLayoutConstraint *positionImgHeight;
+    
+    
 }
 @property(nonatomic,weak) id<PositionShowTableViewCellDelegate> delegate;
 /**

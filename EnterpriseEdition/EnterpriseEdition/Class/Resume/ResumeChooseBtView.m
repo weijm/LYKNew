@@ -63,20 +63,21 @@
 //初始化底部视图上的按钮
 -(void)loadFooterSubView
 {
-    vline.backgroundColor = Rgb(181, 181, 187, 1.0);
-    _chooseBt.backgroundColor = Rgb(220, 221, 227, 1.0);
-    [_chooseBt setTitleColor:Rgb(57, 57, 58, 1.0) forState:UIControlStateNormal];
+    vline.backgroundColor = Rgb(204, 204, 207, 1.0);
+    _chooseBt.backgroundColor = Rgb(227, 227, 231, 1.0);
+    [_chooseBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _chooseBt.titleLabel.font = [UIFont systemFontOfSize:17];
     NSInteger index = self.tag;
     if (index >=10 && index < 100) {
         switch (index) {
             case 10:
-                [_chooseBt setTitle:@"全  选" forState:UIControlStateNormal];
+                [_chooseBt setTitle:@"全   选" forState:UIControlStateNormal];
                 break;
             case 20:
-                [_chooseBt setTitle:@"收藏选中的简历" forState:UIControlStateNormal];
+                [_chooseBt setTitle:@"收藏选中简历" forState:UIControlStateNormal];
                 break;
             case 30:
-                [_chooseBt setTitle:@"删除选中的简历" forState:UIControlStateNormal];
+                [_chooseBt setTitle:@"删除选中简历" forState:UIControlStateNormal];
                 vline.hidden = YES;
                 break;
                 
@@ -115,9 +116,10 @@
 //初始化职位底部视图上的按钮
 -(void)loadPositionFooterSubView
 {
-    vline.backgroundColor = Rgb(181, 181, 187, 1.0);
-    _chooseBt.backgroundColor = Rgb(220, 221, 227, 1.0);
-    [_chooseBt setTitleColor:Rgb(57, 57, 58, 1.0) forState:UIControlStateNormal];
+    vline.backgroundColor = Rgb(204, 204, 207, 1.0);
+    _chooseBt.backgroundColor = Rgb(227, 227, 231, 1.0);
+    [_chooseBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _chooseBt.titleLabel.font = [UIFont systemFontOfSize:17];
     NSInteger index = self.tag;
     if (index >=10 && index < 100) {
         switch (index) {
@@ -171,9 +173,10 @@
 //初始化职位详情底部视图上的按钮
 -(void)loadPositionInfoFooterSubView
 {
-    vline.backgroundColor = Rgb(181, 181, 187, 1.0);
-    _chooseBt.backgroundColor = Rgb(220, 221, 227, 1.0);
-    [_chooseBt setTitleColor:Rgb(57, 57, 58, 1.0) forState:UIControlStateNormal];
+    vline.backgroundColor = Rgb(204, 204, 207, 1.0);
+    _chooseBt.backgroundColor = Rgb(227, 227, 231, 1.0);
+    [_chooseBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _chooseBt.titleLabel.font = [UIFont systemFontOfSize:17];
     NSInteger index = self.tag;
     switch (index) {
         case 10:
@@ -188,14 +191,14 @@
         default:
             break;
     }
-    _chooseBt.titleLabel.font = [UIFont systemFontOfSize:14];
 }
 //初始化职位详情底部视图上的按钮
 -(void)loadInfoInfoFooterSubView
 {
-    vline.backgroundColor = Rgb(181, 181, 187, 1.0);
-    _chooseBt.backgroundColor = Rgb(220, 221, 227, 1.0);
-    [_chooseBt setTitleColor:Rgb(57, 57, 58, 1.0) forState:UIControlStateNormal];
+    vline.backgroundColor = Rgb(204, 204, 207, 1.0);
+    _chooseBt.backgroundColor = Rgb(227, 227, 231, 1.0);
+    [_chooseBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _chooseBt.titleLabel.font = [UIFont systemFontOfSize:17];
     NSInteger index = self.tag;
     switch (index) {
         case 100:
@@ -208,14 +211,14 @@
         default:
             break;
     }
-    _chooseBt.titleLabel.font = [UIFont systemFontOfSize:14];
 }
 //初始化认领职位底部视图上的按钮
 -(void)loadClaimPositionFooterView
 {
-    vline.backgroundColor = Rgb(181, 181, 187, 1.0);
-    _chooseBt.backgroundColor = Rgb(220, 221, 227, 1.0);
-    [_chooseBt setTitleColor:Rgb(57, 57, 58, 1.0) forState:UIControlStateNormal];
+    vline.backgroundColor = Rgb(204, 204, 207, 1.0);
+    _chooseBt.backgroundColor = Rgb(227, 227, 231, 1.0);
+    [_chooseBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _chooseBt.titleLabel.font = [UIFont systemFontOfSize:17];
     NSInteger index = self.tag;
     switch (index) {
         case 10:
@@ -230,7 +233,6 @@
         default:
             break;
     }
- _chooseBt.titleLabel.font = [UIFont systemFontOfSize:14];
 }
 // 初始化职位中的按钮
 -(void)loadSubViewInPosition

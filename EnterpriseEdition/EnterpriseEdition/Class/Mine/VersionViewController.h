@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface VersionViewController : UIViewController
-
+{
+    IBOutlet NSLayoutConstraint *versionimgY;
+    IBOutlet NSLayoutConstraint *versonimgWidth;
+    
+    IBOutlet NSLayoutConstraint *versionimgHeiht;
+}
 @end

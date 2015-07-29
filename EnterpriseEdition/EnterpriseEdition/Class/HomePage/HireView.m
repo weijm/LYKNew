@@ -19,10 +19,33 @@
         CGRect newFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         containerView.frame = newFrame;
         [self addSubview:containerView];
+        [self adapt6p];
+     
     }
     return self;
 }
-
+-(void)adapt6p
+{
+    if (kIphone6plus) {
+        bt1Height.constant = [Util myYOrHeight:bt1Height.constant];
+        bt1Width.constant = [Util myXOrWidth:bt1Width.constant];
+        
+        bt2Height.constant = [Util myYOrHeight:bt2Height.constant];
+        bt2Width.constant = [Util myXOrWidth:bt2Width.constant];
+        
+        bt3Height.constant = [Util myYOrHeight:bt3Height.constant];
+        bt3Width.constant = [Util myXOrWidth:bt3Width.constant];
+        
+        bt4Height.constant = [Util myYOrHeight:bt4Height.constant];
+        bt4Width.constant = [Util myXOrWidth:bt4Width.constant];
+        
+        bt5Height.constant = [Util myYOrHeight:bt5Height.constant];
+        bt5Width.constant = [Util myXOrWidth:bt5Width.constant];
+        
+        bt6Height.constant = [Util myYOrHeight:bt6Height.constant];
+        bt6Width.constant = [Util myXOrWidth:bt6Width.constant];
+    }
+}
 -(void)loadData:(NSArray*)array
 {
     NSInteger count = array.count;

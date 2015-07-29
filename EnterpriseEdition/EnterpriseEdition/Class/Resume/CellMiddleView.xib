@@ -19,29 +19,29 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_protrait_default.png" translatesAutoresizingMaskIntoConstraints="NO" id="dmr-W8-cyg" userLabel="protraitImg">
-                    <rect key="frame" x="10" y="22" width="55" height="55"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_protrait_weman_default.png" translatesAutoresizingMaskIntoConstraints="NO" id="dmr-W8-cyg" userLabel="protraitImg">
+                    <rect key="frame" x="10" y="19.5" width="60" height="60"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="55" id="IUk-pk-XhA"/>
-                        <constraint firstAttribute="width" constant="55" id="mlP-T5-Oj1"/>
+                        <constraint firstAttribute="height" constant="60" id="IUk-pk-XhA"/>
+                        <constraint firstAttribute="width" constant="60" id="mlP-T5-Oj1"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有工作经验" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGS-ch-bqI" userLabel="experienceLab">
-                    <rect key="frame" x="10" y="67" width="55" height="15"/>
+                    <rect key="frame" x="10" y="69.5" width="60" height="15"/>
                     <color key="backgroundColor" red="0.3843137254901961" green="0.80784313725490198" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="o3d-eS-IhJ"/>
-                        <constraint firstAttribute="width" constant="55" id="zkH-Cg-0KC"/>
+                        <constraint firstAttribute="width" constant="60" id="zkH-Cg-0KC"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lz6-c2-eJ6" userLabel="infobg">
-                    <rect key="frame" x="70" y="0.0" width="245" height="100"/>
+                    <rect key="frame" x="75" y="0.0" width="240" height="100"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张晓晓  女  UI设计师" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9HO-zV-OXj" userLabel="nameLab">
-                            <rect key="frame" x="0.0" y="20" width="245" height="20"/>
+                            <rect key="frame" x="0.0" y="20" width="240" height="20"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="DYi-5G-EUd"/>
@@ -51,7 +51,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22岁 | 本科 | 5000-8000元" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgc-AB-Jb1" userLabel="ageLab">
-                            <rect key="frame" x="0.0" y="40" width="245" height="20"/>
+                            <rect key="frame" x="0.0" y="40" width="240" height="20"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="1TP-S0-u7d"/>
@@ -61,7 +61,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="艺术设计 | 中国传媒大学" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xc-qu-CrO" userLabel="proLab">
-                            <rect key="frame" x="0.0" y="60" width="245" height="20"/>
+                            <rect key="frame" x="0.0" y="60" width="240" height="20"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="f5h-fF-3UP"/>
@@ -104,6 +104,6 @@
         </view>
     </objects>
     <resources>
-        <image name="resume_protrait_default.png" width="68" height="67"/>
+        <image name="resume_protrait_weman_default.png" width="68" height="67"/>
     </resources>
 </document>

@@ -33,9 +33,16 @@
     alphBg.alpha = 0;
     [areaBg addSubview:alphBg];
     
-    float viewX = kWidth - 130-[Util myXOrWidth:12];
+    float fWdith = 135;
+    float fHeight = 105;
+    float viewX = kWidth - fWdith-[Util myXOrWidth:12];
+    if (kIphone6plus) {
+        fWdith = 135*1.5;
+        fHeight = 105*1.5;
+        viewX = kWidth - fWdith+15;
+    }
     
-    self.frame = CGRectMake(viewX, 64, 130, 101);
+    self.frame = CGRectMake(viewX, 64, fWdith, fHeight);
     [view addSubview:self];
     
     self.alpha = 0.0;

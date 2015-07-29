@@ -8,7 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InfoHeaderView">
             <connections>
                 <outlet property="bgImage" destination="lrN-VI-Jhg" id="rCR-9b-SRX"/>
-                <outlet property="collectedView" destination="3wi-hJ-h2I" id="PlI-EZ-qlx"/>
                 <outlet property="download" destination="LQk-3z-h6T" id="98K-hk-7Vd"/>
                 <outlet property="editView" destination="V5y-eg-Tdb" id="id8-Yi-64y"/>
                 <outlet property="expLab" destination="Ken-2D-auD" id="tvH-R6-uz3"/>
@@ -34,15 +33,15 @@
                         <constraint firstAttribute="height" constant="1" id="ypc-u0-CAj"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_protrait_default.png" translatesAutoresizingMaskIntoConstraints="NO" id="y8C-5P-IAf" userLabel="protraitImg">
-                    <rect key="frame" x="138" y="65" width="80" height="80"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_protrait_weman_default.png" translatesAutoresizingMaskIntoConstraints="NO" id="y8C-5P-IAf" userLabel="protraitImg">
+                    <rect key="frame" x="147" y="74" width="62" height="62"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="80" id="9Vn-mI-GMH"/>
-                        <constraint firstAttribute="width" constant="80" id="Gkw-Md-JFT"/>
+                        <constraint firstAttribute="height" constant="62" id="9Vn-mI-GMH"/>
+                        <constraint firstAttribute="width" constant="62" id="Gkw-Md-JFT"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="匹配度86%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ml-Wi-zFO" userLabel="rateLab">
-                    <rect key="frame" x="146" y="135" width="65" height="15"/>
+                    <rect key="frame" x="146" y="126" width="65" height="15"/>
                     <color key="backgroundColor" red="0.97254901959999995" green="0.36862745099999999" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="2Mp-Ro-IbN"/>
@@ -79,44 +78,35 @@
                             <rect key="frame" x="228.5" y="58" width="113.5" height="21"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_urgent.png" translatesAutoresizingMaskIntoConstraints="NO" id="Orh-NJ-LnO" userLabel="state1">
-                                    <rect key="frame" x="23.5" y="3" width="15" height="15"/>
+                                    <rect key="frame" x="42.5" y="2" width="17" height="17"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="15" id="q7S-bC-fvB"/>
-                                        <constraint firstAttribute="height" constant="15" id="yix-1n-7il"/>
+                                        <constraint firstAttribute="width" constant="17" id="q7S-bC-fvB"/>
+                                        <constraint firstAttribute="height" constant="17" id="yix-1n-7il"/>
                                     </constraints>
                                 </imageView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_edit.png" translatesAutoresizingMaskIntoConstraints="NO" id="V5y-eg-Tdb" userLabel="state2">
-                                    <rect key="frame" x="48.5" y="3" width="15" height="15"/>
+                                    <rect key="frame" x="69.5" y="2" width="17" height="17"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="15" id="Ro1-bN-M8h"/>
-                                        <constraint firstAttribute="height" constant="15" id="ZCq-AI-k8f"/>
+                                        <constraint firstAttribute="width" constant="17" id="Ro1-bN-M8h"/>
+                                        <constraint firstAttribute="height" constant="17" id="ZCq-AI-k8f"/>
                                     </constraints>
                                 </imageView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_download.png" translatesAutoresizingMaskIntoConstraints="NO" id="LQk-3z-h6T" userLabel="state3">
-                                    <rect key="frame" x="73.5" y="3" width="15" height="15"/>
+                                    <rect key="frame" x="96.5" y="2" width="17" height="17"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="15" id="cz1-IA-lkc"/>
-                                        <constraint firstAttribute="height" constant="15" id="wRu-fn-1Np"/>
-                                    </constraints>
-                                </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_collected.png" translatesAutoresizingMaskIntoConstraints="NO" id="3wi-hJ-h2I" userLabel="state4">
-                                    <rect key="frame" x="98.5" y="3" width="15" height="15"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="15" id="9i9-0J-QHg"/>
-                                        <constraint firstAttribute="width" constant="15" id="Ldc-PS-7VU"/>
+                                        <constraint firstAttribute="width" constant="17" id="cz1-IA-lkc"/>
+                                        <constraint firstAttribute="height" constant="17" id="wRu-fn-1Np"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="LQk-3z-h6T" secondAttribute="trailing" id="03f-Ar-KvV"/>
                                 <constraint firstItem="V5y-eg-Tdb" firstAttribute="leading" secondItem="Orh-NJ-LnO" secondAttribute="trailing" constant="10" id="043-Dd-Cal"/>
-                                <constraint firstAttribute="centerY" secondItem="3wi-hJ-h2I" secondAttribute="centerY" id="98x-Jr-uxH"/>
                                 <constraint firstAttribute="height" constant="21" id="BdI-ZE-jyM"/>
-                                <constraint firstAttribute="trailing" secondItem="3wi-hJ-h2I" secondAttribute="trailing" id="Cyt-gP-RMf"/>
                                 <constraint firstAttribute="centerY" secondItem="Orh-NJ-LnO" secondAttribute="centerY" id="DxS-RS-L1C"/>
                                 <constraint firstItem="LQk-3z-h6T" firstAttribute="leading" secondItem="V5y-eg-Tdb" secondAttribute="trailing" constant="10" id="WA7-nK-Bgr"/>
                                 <constraint firstAttribute="centerY" secondItem="V5y-eg-Tdb" secondAttribute="centerY" id="fpL-Ap-p4n"/>
-                                <constraint firstItem="3wi-hJ-h2I" firstAttribute="leading" secondItem="LQk-3z-h6T" secondAttribute="trailing" constant="10" id="m6D-tl-25k"/>
                                 <constraint firstAttribute="centerY" secondItem="LQk-3z-h6T" secondAttribute="centerY" id="v0f-Xf-iia"/>
                             </constraints>
                         </view>
@@ -160,10 +150,9 @@
         </view>
     </objects>
     <resources>
-        <image name="resume_collected.png" width="25" height="22"/>
         <image name="resume_download.png" width="21" height="22"/>
         <image name="resume_edit.png" width="23" height="24"/>
-        <image name="resume_protrait_default.png" width="68" height="67"/>
+        <image name="resume_protrait_weman_default.png" width="68" height="67"/>
         <image name="resume_urgent.png" width="24" height="24"/>
     </resources>
 </document>

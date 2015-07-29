@@ -12,6 +12,12 @@
 {
     
     IBOutlet NSLayoutConstraint *labHeight;
+    
+    IBOutlet NSLayoutConstraint *iconWidth;
+    
+    IBOutlet NSLayoutConstraint *iconHeight;
+    
+    IBOutlet NSLayoutConstraint *iconY;
 }
 @property (strong, nonatomic) IBOutlet UIImageView *iconImg;
 @property (strong, nonatomic) IBOutlet UILabel *contentLab;

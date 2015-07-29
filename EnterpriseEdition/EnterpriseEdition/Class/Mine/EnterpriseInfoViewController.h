@@ -20,6 +20,9 @@
     
     IBOutlet NSLayoutConstraint *infoTableViewToTop;
     IBOutlet NSLayoutConstraint *infoTableViewToBottom;
+    
+    IBOutlet NSLayoutConstraint *proWidth;
+    IBOutlet NSLayoutConstraint *proHeight;
 }
 - (IBAction)saveEnterpriseInfo:(id)sender;
 

@@ -17,6 +17,12 @@
     IBOutlet UILabel *titleLab;
     IBOutlet UIImageView *requiredMarkImg;
     
+    IBOutlet NSLayoutConstraint *xingHeight;
+    IBOutlet NSLayoutConstraint *xingWidth;
+    //添加按钮的宽高
+    
+    IBOutlet NSLayoutConstraint *addImgHeight;
+    IBOutlet NSLayoutConstraint *addImgWidth;
 }
 @property(nonatomic,weak) id<EnterpriseImgTableViewCellDelegate> delegate;
 -(void)initData:(NSDictionary*)dictionary;

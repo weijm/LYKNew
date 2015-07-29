@@ -12,6 +12,13 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    if (kIphone6plus) {
+        itemIconWdith.constant = itemIconWdith.constant*1.5;
+        itemIconHeight.constant = itemIconHeight.constant *1.5;
+        
+        arrowWidth.constant = arrowWidth.constant*1.5;
+        arrowHeight.constant = arrowHeight.constant*1.5;
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

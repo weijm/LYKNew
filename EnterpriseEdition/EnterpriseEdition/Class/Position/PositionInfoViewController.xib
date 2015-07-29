@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PositionInfoViewController">
             <connections>
+                <outlet property="proTextView" destination="ds0-oK-31x" id="KLf-Ag-y0g"/>
+                <outlet property="promptBg" destination="Nzi-Uf-dbj" id="8QM-ek-bZY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,13 +26,35 @@
                         <outlet property="delegate" destination="-1" id="bwC-Oy-X1b"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nzi-Uf-dbj" userLabel="promptView">
+                    <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" alpha="0.34999999999999964" contentMode="scaleToFill" text="提示：xx当前职位未审核通过，原因是xxxx，请修改职位相关内容，并重新提交审核。谢谢合作。" translatesAutoresizingMaskIntoConstraints="NO" id="ds0-oK-31x" userLabel="proTextView">
+                            <rect key="frame" x="22" y="0.0" width="556" height="44"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.98823529409999999" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="ds0-oK-31x" secondAttribute="bottom" id="4HN-66-xd2"/>
+                        <constraint firstItem="ds0-oK-31x" firstAttribute="leading" secondItem="Nzi-Uf-dbj" secondAttribute="leading" constant="22" id="E2T-uD-oep"/>
+                        <constraint firstAttribute="height" constant="44" id="O7e-uz-DnD"/>
+                        <constraint firstAttribute="trailing" secondItem="ds0-oK-31x" secondAttribute="trailing" constant="22" id="cUh-KV-zdY"/>
+                        <constraint firstItem="ds0-oK-31x" firstAttribute="top" secondItem="Nzi-Uf-dbj" secondAttribute="top" id="fT3-qo-s21"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="soE-me-PsQ" secondAttribute="trailing" id="1oL-Ye-uGY"/>
+                <constraint firstAttribute="trailing" secondItem="Nzi-Uf-dbj" secondAttribute="trailing" id="Yh6-cQ-NKq"/>
                 <constraint firstItem="soE-me-PsQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ZAa-a8-qqB"/>
                 <constraint firstAttribute="bottom" secondItem="soE-me-PsQ" secondAttribute="bottom" id="e9x-zu-90K"/>
                 <constraint firstItem="soE-me-PsQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iMr-56-M0u"/>
+                <constraint firstItem="Nzi-Uf-dbj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jkY-Ut-rEz"/>
+                <constraint firstItem="Nzi-Uf-dbj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="qjR-Qn-0l3"/>
             </constraints>
         </view>
     </objects>
