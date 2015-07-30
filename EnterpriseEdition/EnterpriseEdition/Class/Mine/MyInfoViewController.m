@@ -83,10 +83,10 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        return [Util myYOrHeight:80];
+        return [Util myYOrHeight:78];
     }else if (indexPath.row ==1)
     {
-        return [Util myYOrHeight:100];
+        return [Util myYOrHeight:87];
     }else
     {
         

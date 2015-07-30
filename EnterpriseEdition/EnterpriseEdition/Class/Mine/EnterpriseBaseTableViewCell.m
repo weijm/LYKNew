@@ -13,8 +13,8 @@
 - (void)awakeFromNib {
     // Initialization code
     if (kIphone6plus) {
-        xingHeight.constant = xingHeight.constant*1.5;
-        xingWidth.constant = xingWidth.constant*1.5;
+        xingHeight.constant = xingHeight.constant+1;
+        xingWidth.constant = xingWidth.constant+1;
     }
 }
 

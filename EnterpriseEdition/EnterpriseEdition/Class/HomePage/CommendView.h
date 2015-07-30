@@ -18,6 +18,19 @@
     IBOutlet NSLayoutConstraint *arrowWidth;
     
     IBOutlet NSLayoutConstraint *arrowHeight;
+    
+    IBOutlet NSLayoutConstraint *titBgToTop;
+    
+    IBOutlet NSLayoutConstraint *titBgHeight;
+    
+    IBOutlet UILabel *titLab;
+    
+    IBOutlet NSLayoutConstraint *cornerImgWidth;
+    
+    IBOutlet NSLayoutConstraint *cornerImgHeight;
+    
+    IBOutlet UILabel *commendLab;
+    
 }
 @property(nonatomic,copy) void(^clickPersonalInfo)(NSInteger index);
 /**

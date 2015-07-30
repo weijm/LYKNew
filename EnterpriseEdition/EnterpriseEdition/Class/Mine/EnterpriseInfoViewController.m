@@ -30,8 +30,8 @@
     self.title = @"填写企业资料";
     
     if (kIphone6plus) {
-        proHeight.constant = proHeight.constant*1.5;
-        proWidth.constant = proWidth.constant*1.5;
+        proHeight.constant = proHeight.constant+2;
+        proWidth.constant = proWidth.constant+2;
     }
     
     titleArray = [NSArray arrayWithContentsOfFile:[Util getBundlePath:@"enterpriseInfo.plist"]];

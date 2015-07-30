@@ -8,27 +8,24 @@
 
 #import "HomePageViewController.h"
 #import "BannerView.h"
-#import "HireView.h"
 #import "CommendView.h"
-//#import "LocationViewController.h"
 #import "SearchResumeViewController.h"//搜索
 #import "NowHiringViewController.h"//急招
 #import "CommendResumeViewController.h"//简历推荐
 #import "OpenPositionViewController.h" //发布职位
 #import "LoginViewController.h"
-
+#import "HireOfView.h"
 
 
 #define kBannerViewHeight [Util myYOrHeight:180]
-#define kHireViewHeight (kIphone6plus)?270:[Util myYOrHeight:180]
+#define kHireViewHeight [Util myYOrHeight:174]
 @interface HomePageViewController ()
 {
     //横向滚动视图
     BannerView *bannerView;
     
     //应聘部分的视图
-    HireView *hireView;
-    
+    HireOfView *hireOfView;
     //推荐部分的视图
     CommendView *commendView;
     
@@ -99,6 +96,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    float hireH = kHireViewHeight;
     if (indexPath.row == 0) {
         if(kIphone4)
         {
@@ -111,12 +109,13 @@
     }else
     {
         if (kIphone4) {
-            return kHeight -150-kHireViewHeight;
+            
+            return kHeight -150-hireH+40;
         }else if (kIphone5)
         {
-            return kHeight -kBannerViewHeight-kHireViewHeight;
+            return kHeight -kBannerViewHeight-hireH;
         }
-        return kHeight -kBannerViewHeight-kHireViewHeight-[Util myYOrHeight:45];
+        return kHeight -kBannerViewHeight-hireH-[Util myYOrHeight:45];
     }
 }
 
@@ -142,7 +141,7 @@
     titleLab.backgroundColor = [UIColor clearColor];
     titleLab.text = @"E朝朝企业版";
     titleLab.textColor = [UIColor whiteColor];
-    titleLab.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:17.0];
+    titleLab.font = [UIFont fontWithName:@"Arial-BoldMT" size:17.0];
     
     self.navigationItem.titleView = titleLab;
     
@@ -184,26 +183,27 @@
 -(void)initHireView:(UIView*)view
 {
     CGRect frame = CGRectMake(0, 0, kWidth,kHireViewHeight );
-    hireView = [[HireView alloc] initWithFrame:frame];
-    
+//    hireView = [[HireView alloc] initWithFrame:frame];
+    hireOfView = [[HireOfView alloc] initWithFrame:frame];
     //假数据
     NSArray *array = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"职位 10个",@"string",@"10个",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"急招 剩余12时",@"string",@"剩余12时",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"已下载 100份",@"string",@"100份",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"未处理 100份",@"string",@"100份",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"发布职位",@"string",@"",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"收藏 100份",@"string",@"100份",@"substring", nil], nil];
     
-    [hireView loadData:array];
+    [hireOfView loadItem:array];
     //点击事件的触发
     __weak HomePageViewController *wSelf = self;
-    hireView.clickedHire = ^(NSInteger index){
+    hireOfView.clickedHire = ^(int index){
         HomePageViewController *sSelf = wSelf;
         [sSelf hireAction:index];
     };
-    [view addSubview:hireView];
+    [view addSubview:hireOfView];
 }
 #pragma mark - 初始化推荐部分的视图
 - (void)initCommendView:(UIView*)view
 {
-    float commendViewH = kHeight - kBannerViewHeight-kHireViewHeight - [Util myYOrHeight:45];
+    float hireH = kHireViewHeight;
+    float commendViewH = kHeight - kBannerViewHeight-hireH - [Util myYOrHeight:45];
     if (kIphone4) {
-        commendViewH = kHeight - 150-kHireViewHeight ;
+        commendViewH = kHeight - 150-hireH ;
     }
     //假数据
     NSArray *dataArray = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"UI设计师",@"job",@"王伟",@"name",@"艺术设计",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"ios开发师",@"job",@"赵倩",@"name",@"计算机专业",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"java开发",@"job",@"王东志",@"name",@"软件工程",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"web开发",@"job",@"刘一民",@"name",@"数学专业",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"前段设计",@"job",@"李浩",@"name",@"外语专业",@"pro", nil], nil];
@@ -224,10 +224,10 @@
 -(void)hireAction:(NSInteger)index
 {
     switch (index) {
-        case 1:
+        case 0:
             NSLog(@"职位");
             break;
-        case 2:
+        case 1:
         {
             NSLog(@"急招");
             NowHiringViewController *nowhiringVC = [[NowHiringViewController alloc] init];
@@ -236,13 +236,13 @@
 
         }
             break;
-        case 3:
+        case 2:
             NSLog(@"已下载");
             break;
-        case 4:
+        case 3:
             NSLog(@"未处理");
             break;
-        case 5:
+        case 4:
             NSLog(@"发布职位");
         {
             OpenPositionViewController *openpVC = [[OpenPositionViewController alloc] init];
@@ -250,7 +250,7 @@
             [self.navigationController pushViewController:openpVC animated:YES];
         }
             break;
-        case 6:
+        case 5:
             NSLog(@"收藏");
             break;
             
@@ -268,7 +268,7 @@
         [self.navigationController pushViewController:commendVC animated:YES];
     }else
     {
-        NSLog(@"查看第%ld个人的简历",index);
+        NSLog(@"查看第%ld个人的简历",(long)index);
     }
     
 }
@@ -276,7 +276,7 @@
 -(void)reloadData
 {
     //刷新 应聘部分 hireArray 按照假数据来重新获取
-    [hireView loadData:hireArray];
+    [hireOfView loadItem:hireArray];
     //刷新推荐部分 commendArray重新获取
     [commendView loadSubView:commendArray];
 }

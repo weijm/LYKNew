@@ -24,7 +24,13 @@
     IBOutlet NSLayoutConstraint *protraitimgWidth;
     
     IBOutlet NSLayoutConstraint *protraitimgHeight;
+    IBOutlet NSLayoutConstraint *protraitToTop;
     
+
+    IBOutlet NSLayoutConstraint *rateHeight;
+    IBOutlet NSLayoutConstraint *rateWidth;
+    
+    IBOutlet NSLayoutConstraint *infoBgToTop;
 }
 /**
  初始化子视图数据

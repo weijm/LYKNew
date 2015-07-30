@@ -25,7 +25,7 @@
 {
     float viewW = (kWidth)/3;
     for (int i =0; i < 3; i++) {
-        CGRect frame = CGRectMake(viewW*i, 0, viewW, [Util myYOrHeight:100]);
+        CGRect frame = CGRectMake(viewW*i, 0, viewW, [Util myYOrHeight:87]);
         TopImgBotTitleView *subView= [[TopImgBotTitleView alloc] initWithFrame:frame];
         subView.tag = i;
         [subView loadData:i];

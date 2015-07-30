@@ -32,8 +32,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     if (kIphone6plus) {
-        proHeight.constant = proHeight.constant*1.5;
-        proWidth.constant = proWidth.constant*1.5;
+        proHeight.constant = proHeight.constant+2;
+        proWidth.constant = proWidth.constant+2;
     }
     self.title = @"请填写企业联系人";
     [self setPromptTextColor];
