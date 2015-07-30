@@ -13,15 +13,17 @@
 - (void)awakeFromNib {
     // Initialization code
     if (kIphone6plus) {
-        iconWidth.constant = iconWidth.constant*1.5;
-        iconHeight.constant = iconHeight.constant *1.5;
-        locationImgWidth.constant = locationImgWidth.constant*1.5;
-        locationImgHeight.constant = locationImgHeight.constant*1.5;
-        reviewHeight.constant = reviewHeight.constant *1.5;
-        reviewWidth.constant = reviewWidth.constant*1.5;
+        iconWidth.constant = iconWidth.constant+5;
+        iconHeight.constant = iconHeight.constant +5;
         
-        arrowwidth.constant = arrowwidth.constant*1.5;
-        arrowHeight.constant = arrowHeight.constant*1.5;
+        reviewHeight.constant = reviewHeight.constant+1;
+        reviewWidth.constant = reviewWidth.constant+3;
+        
+        arrowwidth.constant = arrowwidth.constant+1;
+        arrowHeight.constant = arrowHeight.constant+1;
+        
+        enterpriseNameLab.font = [UIFont systemFontOfSize:17];
+        locationLab.font = [UIFont systemFontOfSize:14];
     }
 }
 

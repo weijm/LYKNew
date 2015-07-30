@@ -19,6 +19,13 @@
         CGRect newFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         containerView.frame = newFrame;
         [self addSubview:containerView];
+        countLab.textColor = Rgb(252, 166, 71, 1.0);
+        if (kIphone6plus) {
+            countLab.font = [UIFont systemFontOfSize:25];
+            titLab.font = [UIFont systemFontOfSize:14];
+            titleWidth.constant = 60;
+        }
+        
     }
     return self;
 }
@@ -41,6 +48,21 @@
         default:
             break;
     }
+    
+    [self setLabParagraphStyle];
 }
+-(void)setLabParagraphStyle
+{
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 5;// 字体的行间距
+    
+    NSDictionary *attributes = @{
+                              NSParagraphStyleAttributeName:paragraphStyle,
+                                 NSForegroundColorAttributeName:
+                                     Rgb(0, 0, 0, 0.8)
+                                 };
+    titLab.attributedText = [[NSAttributedString alloc] initWithString:titLab.text attributes:attributes];
+}
+
 
 @end

@@ -10,6 +10,7 @@
 
 @interface TopImgBotTitleView : UIView
 {
+    IBOutlet NSLayoutConstraint *titleWidth;
     
     IBOutlet UILabel *countLab;
     IBOutlet UILabel *titLab;

@@ -36,7 +36,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="yyS-FP-Tke"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -50,12 +50,12 @@
                                             <constraint firstAttribute="height" constant="16" id="mrh-lf-CkS"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.79999999999999982" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京 | 北京市 | 石景山" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXz-eK-x0f">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京 | 北京市 | 石景山" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXz-eK-x0f">
                                         <rect key="frame" x="83" y="2" width="137" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="uQc-As-oMg"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -108,9 +108,11 @@
             <connections>
                 <outlet property="arrowHeight" destination="Bs4-aj-td3" id="WGt-TP-6vh"/>
                 <outlet property="arrowwidth" destination="Ofl-a9-gr0" id="Vj1-2o-XAZ"/>
+                <outlet property="enterpriseNameLab" destination="g18-tC-Cb4" id="Z92-nN-7H0"/>
                 <outlet property="iconHeight" destination="zSw-cS-bkM" id="XEb-pA-FQq"/>
                 <outlet property="iconImg" destination="2dv-DZ-seh" id="rMT-oj-JbE"/>
                 <outlet property="iconWidth" destination="4GB-sx-rco" id="cvX-43-JyZ"/>
+                <outlet property="locationLab" destination="tXz-eK-x0f" id="e9L-D3-xqc"/>
                 <outlet property="reviewHeight" destination="mrh-lf-CkS" id="KUU-ag-2KS"/>
                 <outlet property="reviewWidth" destination="OC0-kN-Pq6" id="llp-Vi-BYW"/>
             </connections>

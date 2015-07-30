@@ -17,7 +17,7 @@
 
 
 
-#define kFooterViewH kHeight -[Util myYOrHeight:80]-[Util myYOrHeight:100]-[Util myYOrHeight:40]*4-kFOOTERVIEWH-topBarheight
+#define kFooterViewH kHeight -[Util myYOrHeight:78]-[Util myYOrHeight:87]-[Util myYOrHeight:37.5]*4-kFOOTERVIEWH-topBarheight
 
 @interface MyInfoViewController ()
 
@@ -90,7 +90,7 @@
     }else
     {
         
-        return [Util myYOrHeight:40];
+        return [Util myYOrHeight:37.5];
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -104,12 +104,18 @@
     UIButton *bt = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, [Util myXOrWidth:100], [Util myYOrHeight:30])];
     bt.center = footerView.center;
     [bt setTitle:@"退出账号" forState:UIControlStateNormal];
-    [bt setTitleColor:Rgb(76, 76, 76, 1.0) forState:UIControlStateNormal];
-    bt.titleLabel.font = [UIFont systemFontOfSize:14];
+    [bt setTitleColor:Rgb(0, 0, 0, 0.8) forState:UIControlStateNormal];
+    if (kIphone6plus) {
+        bt.titleLabel.font = [UIFont systemFontOfSize:15];
+    }else
+    {
+        bt.titleLabel.font = [UIFont systemFontOfSize:13];
+    }
+    
     [bt addTarget:self action:@selector(exitApplication) forControlEvents:UIControlEventTouchUpInside];
     bt.backgroundColor = Rgb(255, 255, 255, 1.0);
-    bt.layer.borderWidth = 0.5;
-    bt.layer.cornerRadius = 5;
+    bt.layer.borderWidth = 0.25;
+    bt.layer.cornerRadius = 3;
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 0.694, 0.694, 0.714, 1 });
     bt.layer.borderColor = colorref;

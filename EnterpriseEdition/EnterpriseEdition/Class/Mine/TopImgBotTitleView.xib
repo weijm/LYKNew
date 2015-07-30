@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="countLab" destination="Ewm-Tr-BmG" id="Qsm-XU-IBw"/>
                 <outlet property="titLab" destination="GpS-6s-6nf" id="m7N-92-QMv"/>
+                <outlet property="titleWidth" destination="SYY-Bb-7vD" id="b5f-5P-KiC"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -24,7 +25,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ewm-Tr-BmG" userLabel="lab1">
-                    <rect key="frame" x="0.0" y="14" width="100" height="20"/>
+                    <rect key="frame" x="0.0" y="13" width="100" height="20"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="VS5-3U-Uej"/>
@@ -33,8 +34,8 @@
                     <color key="textColor" red="0.97647058823529409" green="0.57647058823529407" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当日剩余下载次数" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpS-6s-6nf" userLabel="lab2">
-                    <rect key="frame" x="25" y="52" width="50" height="29"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当日剩余                   下载次数" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpS-6s-6nf" userLabel="lab2">
+                    <rect key="frame" x="25" y="43" width="50" height="29"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="SYY-Bb-7vD"/>
                     </constraints>
@@ -43,7 +44,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYf-ic-lMe" userLabel="line">
-                    <rect key="frame" x="99" y="20" width="1" height="57"/>
+                    <rect key="frame" x="99" y="26" width="1" height="45"/>
                     <color key="backgroundColor" red="0.83921568627450982" green="0.88627450980392153" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="1" id="bur-7X-sUh"/>
@@ -52,15 +53,15 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="XYf-ic-lMe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="37z-zt-OQ1"/>
+                <constraint firstItem="XYf-ic-lMe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="26" id="37z-zt-OQ1"/>
                 <constraint firstItem="Ewm-Tr-BmG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CJc-lL-98y"/>
                 <constraint firstAttribute="centerY" secondItem="bj9-IJ-gcz" secondAttribute="centerY" id="DHT-1i-lF0"/>
                 <constraint firstAttribute="trailing" secondItem="Ewm-Tr-BmG" secondAttribute="trailing" id="Sfc-5M-JXK"/>
                 <constraint firstAttribute="trailing" secondItem="XYf-ic-lMe" secondAttribute="trailing" id="WqA-le-wE1"/>
                 <constraint firstItem="bj9-IJ-gcz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="efv-1H-UwI"/>
-                <constraint firstItem="bj9-IJ-gcz" firstAttribute="top" secondItem="Ewm-Tr-BmG" secondAttribute="bottom" constant="14" id="mGO-gQ-40j"/>
-                <constraint firstAttribute="bottom" secondItem="XYf-ic-lMe" secondAttribute="bottom" constant="20" id="mGy-fy-rqO"/>
-                <constraint firstItem="GpS-6s-6nf" firstAttribute="top" secondItem="bj9-IJ-gcz" secondAttribute="bottom" constant="3" id="mmu-GA-mde"/>
+                <constraint firstItem="bj9-IJ-gcz" firstAttribute="top" secondItem="Ewm-Tr-BmG" secondAttribute="bottom" constant="15" id="mGO-gQ-40j"/>
+                <constraint firstAttribute="bottom" secondItem="XYf-ic-lMe" secondAttribute="bottom" constant="26" id="mGy-fy-rqO"/>
+                <constraint firstItem="GpS-6s-6nf" firstAttribute="top" secondItem="bj9-IJ-gcz" secondAttribute="bottom" constant="-6" id="mmu-GA-mde"/>
                 <constraint firstAttribute="centerX" secondItem="GpS-6s-6nf" secondAttribute="centerX" id="uD0-vH-pKh"/>
                 <constraint firstAttribute="trailing" secondItem="bj9-IJ-gcz" secondAttribute="trailing" id="yvh-x6-hEw"/>
             </constraints>

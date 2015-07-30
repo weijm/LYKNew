@@ -13,11 +13,14 @@
 - (void)awakeFromNib {
     // Initialization code
     if (kIphone6plus) {
-        itemIconWdith.constant = itemIconWdith.constant*1.5;
-        itemIconHeight.constant = itemIconHeight.constant *1.5;
+        itemIconWdith.constant = itemIconWdith.constant+2;
+        itemIconHeight.constant = itemIconHeight.constant +3;
         
-        arrowWidth.constant = arrowWidth.constant*1.5;
-        arrowHeight.constant = arrowHeight.constant*1.5;
+        arrowWidth.constant = arrowWidth.constant+1;
+        arrowHeight.constant = arrowHeight.constant+1;
+        
+        titleLab.font = [UIFont systemFontOfSize:16];
+        phoneLab.font = [UIFont systemFontOfSize:19];
     }
 }
 
@@ -32,7 +35,7 @@
     iconImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"my_cell_icon%d",index]];
     switch (index) {
         case 2:
-            titleLab.text = @"信    息";
+            titleLab.text = @"信       息";
             break;
         case 3:
             titleLab.text = @"版本说明";

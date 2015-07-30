@@ -16,14 +16,14 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZC-bW-XK9" userLabel="line1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
-                        <color key="backgroundColor" red="0.8784313725490196" green="0.88627450980392153" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.92493121830000002" green="0.93202695420000004" blue="0.95331416179999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="afT-92-hgY"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPt-Fm-6is" userLabel="line2">
                         <rect key="frame" x="0.0" y="112" width="320" height="1"/>
-                        <color key="backgroundColor" red="0.87843137250000003" green="0.8862745098" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.92493121830000002" green="0.93202695420000004" blue="0.95331416179999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="Xe8-wY-1BU"/>
                         </constraints>

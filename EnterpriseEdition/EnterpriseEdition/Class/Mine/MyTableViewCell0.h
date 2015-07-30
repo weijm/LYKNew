@@ -31,5 +31,9 @@
     IBOutlet NSLayoutConstraint *arrowwidth;
     
     IBOutlet NSLayoutConstraint *arrowHeight;
+    IBOutlet UILabel *locationLab;
+    
+    IBOutlet UILabel *enterpriseNameLab;
+    
 }
 @end
