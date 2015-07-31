@@ -153,10 +153,10 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (rightBt.specialMark == 1) {
-        return [Util myYOrHeight:20];
+        return [Util myYOrHeight:11];
     }else
     {
-        return [Util myYOrHeight:40];
+        return [Util myYOrHeight:35];
     }
     
     
@@ -173,20 +173,26 @@
 }
 -(void)initHeaderView
 {
-    headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, [Util myYOrHeight:40])];
+    headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, [Util myYOrHeight:35])];
     headerView.userInteractionEnabled = YES;
     headerView.backgroundColor = kCVBackgroundColor;
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, [Util myYOrHeight:40]-0.8, kWidth, 0.8)];
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, [Util myYOrHeight:35]-4.5, kWidth, 0.5)];
     line.backgroundColor = Rgb(150, 204, 243, 0.7);
     [headerView addSubview:line];
     
     float btW = [Util myXOrWidth:150];
-    UIButton *filtrateBt = [[UIButton alloc] initWithFrame:CGRectMake((kWidth-btW)/2, 0, btW, [Util myYOrHeight:40]-0.8)];
+    UIButton *filtrateBt = [[UIButton alloc] initWithFrame:CGRectMake((kWidth-btW)/2, 3, btW, [Util myYOrHeight:35]-5)];
     [filtrateBt setTitle:@"综合筛选" forState:UIControlStateNormal];
     [filtrateBt setTitleColor:Rgb(76, 80, 83, 1.0) forState:UIControlStateNormal];
     [filtrateBt addTarget:self action:@selector(filtrateAction) forControlEvents:UIControlEventTouchUpInside];
-    filtrateBt.titleLabel.font = [UIFont systemFontOfSize:14];
+    filtrateBt.titleLabel.font = [UIFont systemFontOfSize:13];
     [headerView addSubview:filtrateBt];
+    
+    UIView *imgbg = [[UIView alloc] initWithFrame:CGRectMake(filtrateBt.frame.origin.x+btW-[Util myXOrWidth:48], 3, 30, filtrateBt.frame.size.height)];
+    UIImageView *arrowImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, (filtrateBt.frame.size.height-7)/2, 4, 7)];
+    arrowImg.image = [UIImage imageNamed:@"resume_filtrate_arrow"];
+    [imgbg addSubview:arrowImg];
+    [headerView addSubview:imgbg];
 }
 #pragma -mark - 综合筛选的事件
 -(void)filtrateAction

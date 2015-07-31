@@ -13,10 +13,9 @@
 - (void)awakeFromNib {
     // Initialization code
     if (kIphone6plus) {
-        positionImgWidth.constant = positionImgWidth.constant*1.5;
-        positionImgHeight.constant = positionImgHeight.constant*1.5;
+        positionImgWidth.constant = positionImgWidth.constant+3;
+        positionImgHeight.constant = positionImgHeight.constant+3;
     }
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -25,9 +24,49 @@
     // Configure the view for the selected state
 }
 //加载数据
--(void)loadSearchResumeData:(NSDictionary*)dictionary
+-(void)loadPositionData:(NSDictionary*)dictionary
 {
+    int urgent = [[dictionary objectForKey:@"urgent"] intValue];
+    //简历分数
+    int resumeNumber = [[dictionary objectForKey:@"number"] intValue];
+    if (urgent > 0) {//不是急招职位
+        urgentImg.hidden = YES;
+        bgToTop.constant = 8;
+        bgToBottom.constant = 15;
+        //简历分数标记
+        if (resumeNumber >0) {
+            resumeNumberImg.hidden = NO;
+            resumeNumberLab.text = [NSString stringWithFormat:@"%d份",resumeNumber];
+        }else
+        {
+            resumeNumberImg.hidden = YES;
+            resumeNumberLab.text = @"";
+        }
+        
+        //是否显示审核标志
+        if (_showCheckImg) {
+            urgentImg.hidden = NO;
+            NSString *state = [dictionary objectForKey:@"state"];
+            
+            urgentImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"position_check_state%@",state]];
+        }
+
+    }else//是急招职位
+    {
+        urgentImg.hidden = NO;
+        validTimeLab.hidden = YES;
+        bgToTop.constant = 18;
+        bgToBottom.constant = 5;
+        
+        resumeNumberImg.hidden = YES;
+        resumeNumberLab.text = [NSString stringWithFormat:@"%d份",resumeNumber+10];
+    }
+    positionTitle.text = [dictionary objectForKey:@"job"];
+    positoinName.text = [dictionary objectForKey:@"name"];
+    positionInfo.text = [NSString stringWithFormat:@"%@ | %@ | %@",[dictionary objectForKey:@"categray"],[dictionary objectForKey:@"money"],[dictionary objectForKey:@"pro"]];
+    validTimeLab.text = [dictionary objectForKey:@"time"];
 }
+
 - (IBAction)chooseAction:(id)sender {
     NSString *string = @"0";
     UIButton_Custom *bt = (UIButton_Custom*)sender;
@@ -60,7 +99,7 @@
             chooseBt.specialMark = 1;
         }
         //视图位置的修改
-        if (bgX==20)
+        if (bgX==33)
         {
             chooseBg.hidden = NO;
             [UIView animateWithDuration:0.25 animations:^{
@@ -77,7 +116,7 @@
         [chooseBt setImage:[UIImage imageNamed:@"resume_choose_bt"] forState:UIControlStateNormal];
         chooseBt.specialMark = 0;
         [UIView animateWithDuration:0.25 animations:^{
-            bgToLeft.constant = 20;
+            bgToLeft.constant = 33;
             bgToRight.constant = 0;
             chooseBgToLeft.constant = -10;
             

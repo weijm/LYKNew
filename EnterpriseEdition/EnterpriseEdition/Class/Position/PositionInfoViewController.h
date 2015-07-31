@@ -14,6 +14,9 @@
     IBOutlet UITextView *proTextView;
     IBOutlet UIView *promptBg;
     
+    
+    IBOutlet NSLayoutConstraint *tableViewToTop;
+    
 }
 @property (nonatomic) BOOL reviewTips;
 @end

@@ -29,7 +29,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qE9-9i-JkL" userLabel="promptView">
                     <rect key="frame" x="0.0" y="64" width="600" height="30"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="💡所有职位发布均有专人审核，请认真填写" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9i-4i-TjN" userLabel="lab1">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_enterprise_prompt_img.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wus-bw-qxj">
+                            <rect key="frame" x="178" y="6.5" width="16" height="16"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="16" id="at2-vY-LeU"/>
+                                <constraint firstAttribute="height" constant="16" id="vuA-qZ-pkv"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.79999999999999982" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 所有职位发布均有专人审核，请认真填写" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9i-4i-TjN" userLabel="lab1">
                             <rect key="frame" x="185" y="4" width="242" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="242" id="0KV-nf-t83"/>
@@ -42,9 +49,11 @@
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.9882352941176471" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstItem="A9i-4i-TjN" firstAttribute="leading" secondItem="Wus-bw-qxj" secondAttribute="trailing" constant="-9" id="0oo-RV-0fu"/>
                         <constraint firstAttribute="centerX" secondItem="A9i-4i-TjN" secondAttribute="centerX" constant="-6" id="2De-17-mZL"/>
                         <constraint firstAttribute="centerY" secondItem="A9i-4i-TjN" secondAttribute="centerY" id="4v5-q5-LUM"/>
                         <constraint firstAttribute="height" constant="30" id="OMb-OT-ZcD"/>
+                        <constraint firstAttribute="centerY" secondItem="Wus-bw-qxj" secondAttribute="centerY" id="pt3-f6-iCs"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VUe-sO-YmA" userLabel="footerView">
@@ -113,4 +122,7 @@
             <point key="canvasLocation" x="170" y="238"/>
         </view>
     </objects>
+    <resources>
+        <image name="my_enterprise_prompt_img.png" width="39" height="38"/>
+    </resources>
 </document>

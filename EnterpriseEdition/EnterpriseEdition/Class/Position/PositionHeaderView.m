@@ -9,8 +9,8 @@
 #import "PositionHeaderView.h"
 #import "ResumeChooseBtView.h"
 #import "UIButton+Custom.h"
-#define kEdgeWidth 25
-#define kBTHeight 30
+#define kEdgeWidth 23
+#define kBTHeight 28
 @implementation PositionHeaderView
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -23,7 +23,7 @@
         containerView.frame = newFrame;
         [self addSubview:containerView];
         
-        CGRect frame1 = CGRectMake([Util myXOrWidth:kEdgeWidth], [Util myYOrHeight:15], (kWidth-[Util myXOrWidth:kEdgeWidth]*2), [Util myYOrHeight:kBTHeight]);
+        CGRect frame1 = CGRectMake([Util myXOrWidth:kEdgeWidth], [Util myYOrHeight:10], (kWidth-[Util myXOrWidth:kEdgeWidth]*2), [Util myYOrHeight:kBTHeight]);
         subbg = [[UIView alloc] initWithFrame:frame1];
         subbg.layer.cornerRadius = 5;
         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();

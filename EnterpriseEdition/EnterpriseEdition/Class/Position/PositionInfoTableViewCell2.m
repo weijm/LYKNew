@@ -32,10 +32,10 @@
     paragraphStyle.lineSpacing = 6;// 字体的行间距
     
     NSDictionary *attributes = @{
-                                 NSFontAttributeName:[UIFont systemFontOfSize:14],
+                                 NSFontAttributeName:[UIFont systemFontOfSize:13],
                                  NSParagraphStyleAttributeName:paragraphStyle,
                                  NSForegroundColorAttributeName:
-                                     Rgb(115, 115, 115, 0.8)
+                                     Rgb(115, 115, 115, 1.0)
                                  };
     textView.attributedText = [[NSAttributedString alloc] initWithString:textView.text attributes:attributes];
 }

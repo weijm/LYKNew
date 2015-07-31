@@ -32,13 +32,35 @@
     
     IBOutlet NSLayoutConstraint *positionImgHeight;
     
+    //急标志
     
+    IBOutlet UIImageView *urgentImg;
+    //有效期lab
+    IBOutlet UILabel *validTimeLab;
+    //职位相关信息
+    
+    IBOutlet UILabel *positionInfo;
+    //职位名称
+    
+    IBOutlet UILabel *positoinName;
+    //职位标题
+    IBOutlet UILabel *positionTitle;
+    
+    //信息距离上面的距离和距离下面的距离
+    IBOutlet NSLayoutConstraint *bgToTop;
+    IBOutlet NSLayoutConstraint *bgToBottom;
+    //简历数量图标
+    
+    IBOutlet UIImageView *resumeNumberImg;
+    
+    IBOutlet UILabel *resumeNumberLab;
 }
 @property(nonatomic,weak) id<PositionShowTableViewCellDelegate> delegate;
+@property (nonatomic) BOOL showCheckImg;
 /**
  加载数据
  */
--(void)loadSearchResumeData:(NSDictionary*)dictionary;
+-(void)loadPositionData:(NSDictionary*)dictionary;
 /**
  选中按钮的点击事件
  */

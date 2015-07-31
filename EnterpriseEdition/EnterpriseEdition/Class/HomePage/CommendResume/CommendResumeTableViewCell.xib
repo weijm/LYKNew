@@ -32,7 +32,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="职位标题职位标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypx-oQ-ZWD" userLabel="titleLab">
-                                <rect key="frame" x="0.0" y="27" width="120" height="20"/>
+                                <rect key="frame" x="0.0" y="27" width="227" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="GPJ-ok-cAh"/>
@@ -41,8 +41,8 @@
                                 <color key="textColor" red="0.0" green="0.0039215686274509803" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="职位名称 | 所属行业" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4V-FN-3iG" userLabel="jobLab">
-                                <rect key="frame" x="0.0" y="48" width="115" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="职位名称 | 所属行业" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4V-FN-3iG" userLabel="jobLab">
+                                <rect key="frame" x="0.0" y="51" width="227" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="ahE-s1-DX6"/>
@@ -67,9 +67,11 @@
                             <constraint firstAttribute="trailing" secondItem="Bht-5B-7ou" secondAttribute="trailing" id="Hia-e5-AGu"/>
                             <constraint firstAttribute="centerY" secondItem="Bht-5B-7ou" secondAttribute="centerY" id="Udz-CC-Dl4"/>
                             <constraint firstItem="Ypx-oQ-ZWD" firstAttribute="leading" secondItem="pzj-Me-cJX" secondAttribute="leading" id="UvI-BW-xrf"/>
+                            <constraint firstItem="Bht-5B-7ou" firstAttribute="leading" secondItem="Ypx-oQ-ZWD" secondAttribute="trailing" constant="20" id="by1-os-UPP"/>
+                            <constraint firstItem="Bht-5B-7ou" firstAttribute="leading" secondItem="H4V-FN-3iG" secondAttribute="trailing" constant="20" id="fON-28-GYE"/>
                             <constraint firstAttribute="trailing" secondItem="1PA-Kc-8Qp" secondAttribute="trailing" id="g8j-VS-srs"/>
                             <constraint firstItem="1PA-Kc-8Qp" firstAttribute="leading" secondItem="pzj-Me-cJX" secondAttribute="leading" id="hu8-ts-8nw"/>
-                            <constraint firstItem="H4V-FN-3iG" firstAttribute="top" secondItem="1PA-Kc-8Qp" secondAttribute="bottom" id="pGy-7i-cAc"/>
+                            <constraint firstItem="H4V-FN-3iG" firstAttribute="top" secondItem="1PA-Kc-8Qp" secondAttribute="bottom" constant="3" id="pGy-7i-cAc"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OuO-oX-K9q" userLabel="line1">
@@ -94,6 +96,11 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="positionInfo" destination="H4V-FN-3iG" id="Uuj-TA-9ab"/>
+                <outlet property="positionTitle" destination="Ypx-oQ-ZWD" id="O84-md-gfR"/>
+                <outlet property="urgentImg" destination="xaZ-de-XBm" id="DNV-8Q-OEB"/>
+            </connections>
             <point key="canvasLocation" x="207" y="259.5"/>
         </tableViewCell>
     </objects>

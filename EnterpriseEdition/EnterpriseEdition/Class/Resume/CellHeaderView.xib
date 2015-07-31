@@ -21,15 +21,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xN-Ff-c4R" userLabel="rateView">
-                    <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                    <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_rate_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="b94-Fj-E9r" userLabel="rateBg">
-                            <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                            <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="85%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EP5-Nb-rCU" userLabel="rateLab">
-                            <rect key="frame" x="-5" y="2" width="30" height="11"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                            <rect key="frame" x="-7" y="4" width="42" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -38,13 +38,13 @@
                     <constraints>
                         <constraint firstItem="b94-Fj-E9r" firstAttribute="leading" secondItem="6xN-Ff-c4R" secondAttribute="leading" id="9wl-up-BxT"/>
                         <constraint firstAttribute="bottom" secondItem="b94-Fj-E9r" secondAttribute="bottom" id="Atb-6i-ehe"/>
-                        <constraint firstAttribute="width" constant="25" id="Sn5-zA-jqs"/>
-                        <constraint firstItem="EP5-Nb-rCU" firstAttribute="top" secondItem="6xN-Ff-c4R" secondAttribute="top" constant="2" id="b94-jC-BUs"/>
+                        <constraint firstAttribute="width" constant="35" id="Sn5-zA-jqs"/>
+                        <constraint firstItem="EP5-Nb-rCU" firstAttribute="top" secondItem="6xN-Ff-c4R" secondAttribute="top" constant="4" id="b94-jC-BUs"/>
                         <constraint firstAttribute="trailing" secondItem="b94-Fj-E9r" secondAttribute="trailing" id="fWi-w8-jyj"/>
-                        <constraint firstItem="EP5-Nb-rCU" firstAttribute="leading" secondItem="6xN-Ff-c4R" secondAttribute="leading" constant="-5" id="jTm-cz-JtP"/>
+                        <constraint firstItem="EP5-Nb-rCU" firstAttribute="leading" secondItem="6xN-Ff-c4R" secondAttribute="leading" constant="-7" id="jTm-cz-JtP"/>
                         <constraint firstItem="b94-Fj-E9r" firstAttribute="top" secondItem="6xN-Ff-c4R" secondAttribute="top" id="vJc-6q-B9J"/>
                         <constraint firstAttribute="trailing" secondItem="EP5-Nb-rCU" secondAttribute="trailing" id="xmU-ZT-S2n"/>
-                        <constraint firstAttribute="height" constant="25" id="y7E-Qf-UF5"/>
+                        <constraint firstAttribute="height" constant="35" id="y7E-Qf-UF5"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YWZ-nE-Auk" userLabel="infoBg">

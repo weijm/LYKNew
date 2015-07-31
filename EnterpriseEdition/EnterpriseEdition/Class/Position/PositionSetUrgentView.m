@@ -47,7 +47,7 @@
     self.alpha = 0;
     [UIView animateWithDuration:0.3 animations:^{
         
-        alphBg.alpha = 0.25;
+        alphBg.alpha = 0.2;
         self.alpha = 1.0;
 
         
@@ -106,7 +106,7 @@
     paragraphStyle.lineSpacing = 4;// 字体的行间距
     
     NSDictionary *attributes = @{
-                                 NSFontAttributeName:[UIFont systemFontOfSize:14],
+                                 NSFontAttributeName:[UIFont systemFontOfSize:12],
                                  NSParagraphStyleAttributeName:paragraphStyle,
                                  NSForegroundColorAttributeName:
                                      Rgb(0, 0, 0, 0.8)

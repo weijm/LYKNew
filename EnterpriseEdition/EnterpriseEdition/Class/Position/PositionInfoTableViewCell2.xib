@@ -15,17 +15,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmP-cm-Yns" userLabel="topbg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                        <rect key="frame" x="0.0" y="8" width="320" height="40"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="position_item_icon6.png" translatesAutoresizingMaskIntoConstraints="NO" id="60R-sA-nbt" userLabel="iconimg">
-                                <rect key="frame" x="20" y="12.5" width="19" height="14"/>
+                                <rect key="frame" x="20" y="13" width="19" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="19" id="vpx-OP-G7m"/>
                                     <constraint firstAttribute="height" constant="14" id="xma-Xw-yUI"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="职位描述" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l87-bZ-OS6">
-                                <rect key="frame" x="49" y="9.5" width="271" height="21"/>
+                                <rect key="frame" x="49" y="9" width="271" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="fIk-9M-Kdb"/>
                                 </constraints>
@@ -45,16 +45,16 @@
                         </constraints>
                     </view>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述职位描述" translatesAutoresizingMaskIntoConstraints="NO" id="O2r-Kf-7OA" userLabel="contentTextView">
-                        <rect key="frame" x="16" y="32" width="291" height="165.5"/>
+                        <rect key="frame" x="16" y="40" width="291" height="157.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="textColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="O2r-Kf-7OA" secondAttribute="bottom" id="0SG-7A-Vmc"/>
-                    <constraint firstItem="rmP-cm-Yns" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="HmR-as-boi"/>
+                    <constraint firstItem="rmP-cm-Yns" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="HmR-as-boi"/>
                     <constraint firstItem="O2r-Kf-7OA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Vir-vT-txO"/>
                     <constraint firstItem="O2r-Kf-7OA" firstAttribute="top" secondItem="rmP-cm-Yns" secondAttribute="bottom" constant="-8" id="be7-ro-R4c"/>
                     <constraint firstItem="rmP-cm-Yns" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ggZ-6S-HQd"/>

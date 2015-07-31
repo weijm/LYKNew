@@ -31,7 +31,7 @@
     [view addSubview:areaBg];
     
     UIView *alphBg = [[UIView alloc] initWithFrame:view.frame];
-    alphBg.backgroundColor = [UIColor grayColor];
+    alphBg.backgroundColor = [UIColor blackColor];
     alphBg.alpha = 0;
     [areaBg addSubview:alphBg];
     
@@ -41,7 +41,7 @@
 
     [UIView animateWithDuration:0.3 animations:^{
         
-        alphBg.alpha = 0.8;
+        alphBg.alpha = 0.2;
         CGRect frame = self.frame;
         frame.origin.y = view.frame.size.height-self.frame.size.height;
         self.frame = frame;

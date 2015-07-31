@@ -15,10 +15,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homepage_commendRe_urgent_mark.png" translatesAutoresizingMaskIntoConstraints="NO" id="iED-dg-Z8c" userLabel="urgentImg">
-                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="n2w-jI-Qsg"/>
-                            <constraint firstAttribute="height" constant="30" id="oN0-Op-Cxl"/>
+                            <constraint firstAttribute="width" constant="35" id="n2w-jI-Qsg"/>
+                            <constraint firstAttribute="height" constant="35" id="oN0-Op-Cxl"/>
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6YR-do-KDx" userLabel="bg">
@@ -55,29 +55,30 @@
                                 <rect key="frame" x="220" y="0.0" width="80" height="117.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="position_valid_mark.png" translatesAutoresizingMaskIntoConstraints="NO" id="Tf6-8F-dJS" userLabel="positionImg">
-                                        <rect key="frame" x="30" y="49" width="20" height="20"/>
+                                        <rect key="frame" x="40" y="39" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="OV0-Iz-MK5"/>
                                             <constraint firstAttribute="height" constant="20" id="thA-w1-36k"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有效" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDT-8k-oVf" userLabel="proLab">
-                                        <rect key="frame" x="0.0" y="69" width="80" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有效" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDT-8k-oVf" userLabel="proLab">
+                                        <rect key="frame" x="18" y="57" width="62" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="2k5-YM-7Ne"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.2470588235" green="0.61176470589999998" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="201-e8-fgb"/>
-                                    <constraint firstAttribute="centerX" secondItem="Tf6-8F-dJS" secondAttribute="centerX" id="CiP-aQ-wNN"/>
-                                    <constraint firstItem="FDT-8k-oVf" firstAttribute="top" secondItem="Tf6-8F-dJS" secondAttribute="bottom" id="IlT-kE-aeC"/>
-                                    <constraint firstItem="FDT-8k-oVf" firstAttribute="leading" secondItem="edA-hT-kA7" secondAttribute="leading" id="O3K-1c-eje"/>
+                                    <constraint firstAttribute="centerX" secondItem="Tf6-8F-dJS" secondAttribute="centerX" constant="-10" id="CiP-aQ-wNN"/>
+                                    <constraint firstItem="FDT-8k-oVf" firstAttribute="top" secondItem="Tf6-8F-dJS" secondAttribute="bottom" constant="-2" id="IlT-kE-aeC"/>
+                                    <constraint firstItem="FDT-8k-oVf" firstAttribute="leading" secondItem="edA-hT-kA7" secondAttribute="leading" constant="18" id="O3K-1c-eje"/>
                                     <constraint firstAttribute="trailing" secondItem="FDT-8k-oVf" secondAttribute="trailing" id="c9D-uU-4Bh"/>
-                                    <constraint firstAttribute="centerY" secondItem="Tf6-8F-dJS" secondAttribute="centerY" id="jM3-mh-E1C"/>
+                                    <constraint firstAttribute="centerY" secondItem="Tf6-8F-dJS" secondAttribute="centerY" constant="10" id="jM3-mh-E1C"/>
                                 </constraints>
                             </view>
                         </subviews>

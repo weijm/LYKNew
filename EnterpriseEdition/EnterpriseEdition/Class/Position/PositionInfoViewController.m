@@ -37,6 +37,10 @@
     
     //将提示视图隐藏
     promptBg.hidden = YES;
+//    if (YES) {
+//        tableViewToTop.constant = promptBg.frame.size.height;
+//    }
+
     
     //初始化item
     [self initItems];

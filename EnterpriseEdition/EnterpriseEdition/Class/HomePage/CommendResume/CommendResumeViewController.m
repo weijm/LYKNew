@@ -10,7 +10,7 @@
 #import "CommendResumeTableViewCell.h"
 #import "CommendResumeForJobViewController.h"
 
-#define kCellHeight [Util myYOrHeight:60]
+#define kCellHeight [Util myYOrHeight:64]
 @interface CommendResumeViewController ()
 {
     NSMutableArray *dataArray;
@@ -32,8 +32,8 @@
     [self initItems];
     
 
-    
-    dataArray = [[NSMutableArray alloc] initWithObjects:@"",@"",@"", nil];
+    //获取数据
+    [self getData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,6 +52,9 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"CommendResumeTableViewCell" owner:self options:nil] lastObject];
     }
+    NSDictionary *dic = [dataArray objectAtIndex:indexPath.row];
+    [cell loadSubViewData:dic];
+    
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -83,6 +86,23 @@
 -(void)leftAction
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+#pragma mark - 获取数据
+-(void)getData
+{
+    dataArray = [[NSMutableArray alloc] init];
+    
+    for (int i =0; i < 6; i++) {
+        NSString *job = [NSString stringWithFormat:@"职位标题%d职位标题职位标题职位标题",i];
+        
+        NSString *name = [NSString stringWithFormat:@"职位名称%d",i];
+        NSString *pro = [NSString stringWithFormat:@"电子商务%d",i];
+        NSString *urgent = [NSString stringWithFormat:@"%d",i];
+        [dataArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:job,@"job",name,@"name",pro,@"pro",urgent,@"urgent",nil]];
+    }
+    
+    
+   
 }
 
 @end

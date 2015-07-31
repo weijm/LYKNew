@@ -10,7 +10,7 @@
 
 @interface RootViewController ()
 {
-    
+    NSMutableArray *vcArray;
  
 }
 @end
@@ -26,7 +26,7 @@
     NSArray *classArray = [NSArray arrayWithObjects:@"HomePage",@"Resume",@"Position",@"MyInfo", nil];
     NSArray *imageArray = [NSArray arrayWithObjects:@"home_icon",@"resume_icon",@"position_icon",@"my_person_icon", nil];
     //生成tabbar的控制器数组
-    NSMutableArray *vcArray = [Util generateViewControllerByName:[NSDictionary dictionaryWithObjectsAndKeys:titleArray,@"title",classArray,@"name",imageArray,@"image", nil]];
+    vcArray = [Util generateViewControllerByName:[NSDictionary dictionaryWithObjectsAndKeys:titleArray,@"title",classArray,@"name",imageArray,@"image", nil]];
     
     self.viewControllers = vcArray;
     self.selectedViewController = [vcArray firstObject];
@@ -38,10 +38,18 @@
     
     //设置tabbar的选中image的颜色
     self.tabBar.tintColor = kNavigationBgColor;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chooseVC:) name:@"SelectedVC" object:nil];
 
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+#pragma mark - 消息通知 切换控制器
+-(void)chooseVC:(NSNotification*)notification
+{
+    self.selectedViewController = [vcArray objectAtIndex:1];
+
 }
 @end

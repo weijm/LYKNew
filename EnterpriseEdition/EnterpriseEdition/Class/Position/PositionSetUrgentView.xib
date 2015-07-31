@@ -55,10 +55,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NLL-nu-Njk" userLabel="midView">
-                            <rect key="frame" x="0.0" y="40" width="300" height="176"/>
+                            <rect key="frame" x="0.0" y="40" width="300" height="173"/>
                             <subviews>
                                 <view alpha="0.69999999999999973" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jB3-uZ-9z6" userLabel="line">
-                                    <rect key="frame" x="0.0" y="175" width="300" height="1"/>
+                                    <rect key="frame" x="0.0" y="172" width="300" height="1"/>
                                     <color key="backgroundColor" red="0.81900043629999997" green="0.81900043629999997" blue="0.81900043629999997" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="nwV-oi-GVe"/>
@@ -73,7 +73,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提示：成功设置急招职位72小时后,或此职位收到的简历达到目标数量,此职位急招效果失效。" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLy-gP-kDc">
-                                    <rect key="frame" x="20" y="128" width="260" height="40"/>
+                                    <rect key="frame" x="20" y="125" width="260" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="sy7-Vp-pTt"/>
                                     </constraints>
@@ -81,10 +81,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ueK-A0-gzV" userLabel="chooseBg">
-                                    <rect key="frame" x="20" y="31" width="260" height="97"/>
+                                    <rect key="frame" x="20" y="31" width="260" height="94"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3u-or-Zzr" userLabel="subbg">
-                                            <rect key="frame" x="0.0" y="28" width="260" height="40"/>
+                                            <rect key="frame" x="20" y="26.5" width="220" height="40"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ws-W2-oVO" userLabel="bg1">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
@@ -108,7 +108,7 @@
                                                                 <constraint firstAttribute="height" constant="21" id="ecj-lw-aky"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -123,7 +123,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pNi-3T-SWu" userLabel="bg2">
-                                                    <rect key="frame" x="90" y="0.0" width="80" height="40"/>
+                                                    <rect key="frame" x="70" y="0.0" width="80" height="40"/>
                                                     <subviews>
                                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QmC-nf-nJd" customClass="UIButton_Custom">
                                                             <rect key="frame" x="0.0" y="5" width="30" height="30"/>
@@ -144,7 +144,7 @@
                                                                 <constraint firstAttribute="height" constant="21" id="xOY-k9-69Z"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -159,7 +159,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dqo-qX-MAF" userLabel="bg3">
-                                                    <rect key="frame" x="180" y="0.0" width="80" height="40"/>
+                                                    <rect key="frame" x="140" y="0.0" width="80" height="40"/>
                                                     <subviews>
                                                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTc-Ma-lex" customClass="UIButton_Custom">
                                                             <rect key="frame" x="0.0" y="5" width="30" height="30"/>
@@ -180,7 +180,7 @@
                                                                 <constraint firstAttribute="height" constant="21" id="cdp-Xi-QbK"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -213,8 +213,8 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="centerY" secondItem="e3u-or-Zzr" secondAttribute="centerY" id="MqY-sB-sSQ"/>
-                                        <constraint firstAttribute="trailing" secondItem="e3u-or-Zzr" secondAttribute="trailing" id="p2u-5V-pDm"/>
-                                        <constraint firstItem="e3u-or-Zzr" firstAttribute="leading" secondItem="ueK-A0-gzV" secondAttribute="leading" id="yug-3t-lxn"/>
+                                        <constraint firstAttribute="trailing" secondItem="e3u-or-Zzr" secondAttribute="trailing" constant="20" id="p2u-5V-pDm"/>
+                                        <constraint firstItem="e3u-or-Zzr" firstAttribute="leading" secondItem="ueK-A0-gzV" secondAttribute="leading" constant="20" id="yug-3t-lxn"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -236,10 +236,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DjS-GJ-wdA" userLabel="botView">
-                            <rect key="frame" x="0.0" y="216" width="300" height="40"/>
+                            <rect key="frame" x="0.0" y="213" width="300" height="43"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swf-rJ-ByM">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <state key="normal" title="确   定">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -253,7 +253,7 @@
                             <constraints>
                                 <constraint firstItem="swf-rJ-ByM" firstAttribute="top" secondItem="DjS-GJ-wdA" secondAttribute="top" id="Dab-nt-1GW"/>
                                 <constraint firstItem="swf-rJ-ByM" firstAttribute="leading" secondItem="DjS-GJ-wdA" secondAttribute="leading" id="Lbq-ad-6xe"/>
-                                <constraint firstAttribute="height" constant="40" id="Mww-xg-4B3"/>
+                                <constraint firstAttribute="height" constant="43" id="Mww-xg-4B3"/>
                                 <constraint firstAttribute="trailing" secondItem="swf-rJ-ByM" secondAttribute="trailing" id="X5c-VA-agg"/>
                                 <constraint firstAttribute="bottom" secondItem="swf-rJ-ByM" secondAttribute="bottom" id="bgI-65-jX3"/>
                             </constraints>

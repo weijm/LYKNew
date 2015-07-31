@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="proTextView" destination="ds0-oK-31x" id="KLf-Ag-y0g"/>
                 <outlet property="promptBg" destination="Nzi-Uf-dbj" id="8QM-ek-bZY"/>
+                <outlet property="tableViewToTop" destination="ZAa-a8-qqB" id="OlU-nT-cF2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

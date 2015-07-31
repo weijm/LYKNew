@@ -12,7 +12,7 @@
 #import "PositionInfoViewController.h"
 #import "FooterView.h"
 
-#define kPHeaderViewHeight [Util myYOrHeight:70]
+#define kPHeaderViewHeight [Util myYOrHeight:55]
 
 @interface PositionViewController ()
 {
@@ -79,13 +79,19 @@
     NSDictionary *dictionary = nil;
     if (categaryType == 1) {
         dictionary = [validArray objectAtIndex:indexPath.row];
+        cell.showCheckImg = NO;
     }else if (categaryType == 2)
     {
         dictionary = [offlineArray objectAtIndex:indexPath.row];
+        cell.showCheckImg = NO;
     }else
     {
         dictionary = [toAuditArray objectAtIndex:indexPath.row];
+        cell.showCheckImg = YES;
     }
+    //加载数据
+    [cell loadPositionData:dictionary];
+    
     cell.delegate = self;
     //全部选中按钮使用
     cell.tag = indexPath.row;
@@ -105,32 +111,41 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (rightBt.specialMark == 0) {
-        return kPHeaderViewHeight;
-    }else
-    {
-        return [Util myYOrHeight:20];
-    }
-    
+    return kPHeaderViewHeight;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (rightBt.specialMark == 0) {
-        headerView.hidden = NO;
-    }else
-    {
-        headerView.hidden = YES;
-    }
-    
     return headerView;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [Util myYOrHeight:100];
+    NSDictionary * dictionary ;
+    if (categaryType == 1) {
+        dictionary = [validArray objectAtIndex:indexPath.row];
+    }else if (categaryType == 2)
+    {
+        dictionary = [offlineArray objectAtIndex:indexPath.row];
+    }else
+    {
+        dictionary = [toAuditArray objectAtIndex:indexPath.row];
+    }
+     int urgent = [[dictionary objectForKey:@"urgent"] intValue];
+    if (urgent > 0) {
+        return [Util myYOrHeight:103];
+    }else
+    {
+        return [Util myYOrHeight:100];
+    }
+    
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //恢复 非编辑状态
+    if (rightBt.specialMark ==1) {
+        [self rightAction];
+    }
     
+    //查看简历详情
     PositionInfoViewController *piVC = [[PositionInfoViewController alloc] init];
     piVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:piVC animated:YES];
@@ -193,6 +208,7 @@
         rightBt.specialMark = 1;
         //显示底部的编辑按钮
         [self initFooerView];
+        headerView.userInteractionEnabled = NO;
         
         
         
@@ -203,6 +219,7 @@
         rightBt.specialMark = 0;
         //取消底部视图
         [footerView cancelFooterView];
+        headerView.userInteractionEnabled = YES;
 
         
     }
@@ -317,20 +334,19 @@
 -(void)getData
 {
     NSMutableArray * dataArray = [[NSMutableArray alloc] init];
-    NSString *jobStr = @"软件工程师";
     
     for (int i =0; i < 6; i++) {
-        NSString *job = [NSString stringWithFormat:@"%@%d",jobStr,i];
-        NSString *time = [NSString stringWithFormat:@"08-%d",i+10];
-        NSString *name = [NSString stringWithFormat:@"张晓%d",i];
-        NSString *age = [NSString stringWithFormat:@"%d",i];
-        NSString *money = [NSString stringWithFormat:@"%d-%d",500*(i+1),800*(i+1)];
-        NSString *exp = (i%3==0)?@"有工作经验":@"";
-        NSString *urgent = @"0";
-        NSString *colledted = @"0";
-        NSString *download = @"0";
-        
-        [dataArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:job,@"job",urgent,@"urgent",colledted,@"collected",download,@"download",time,@"time",name,@"name",@"女",@"sex",@"UI设计师",@"selfjob",age,@"age",@"本科",@"record",money,@"money",@"艺术设计",@"professional",@"中国传媒大学",@"school",exp,@"experience",nil]];
+        NSString *job = [NSString stringWithFormat:@"职位标题%d职位标题职位标题职位标题",i];
+      
+        NSString *name = [NSString stringWithFormat:@"职位名称%d职位名称职位名称职位名称",i];
+        NSString *categray = [NSString stringWithFormat:@"全职"];
+        NSString *money = [NSString stringWithFormat:@"%dK-%dK",5*(i+1),8*(i+1)];
+        NSString *pro = [NSString stringWithFormat:@"电子商务%d",i];
+        NSString *urgent = [NSString stringWithFormat:@"%d",i+categaryType-1];
+        NSString *time = [NSString stringWithFormat:@"有效期8/%d",i];
+        NSString *resumeNumber = [NSString stringWithFormat:@"%d",i];
+        NSString *state = [NSString stringWithFormat:@"%d",i%3];
+        [dataArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:job,@"job",urgent,@"urgent",name,@"name",categray,@"categray",money,@"money",pro,@"pro",time,@"time",resumeNumber,@"number",state,@"state",nil]];
     }
     
     

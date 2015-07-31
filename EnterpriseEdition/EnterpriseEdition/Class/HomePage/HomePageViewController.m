@@ -238,6 +238,9 @@
             break;
         case 2:
             NSLog(@"已下载");
+        {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"SelectedVC" object:@"0"];
+        }
             break;
         case 3:
             NSLog(@"未处理");
