@@ -20,6 +20,9 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    bgToTop.constant = [Util myYOrHeight:9];
+    bgToBottom.constant = [Util myYOrHeight:2];
+    
     self.backgroundColor = [UIColor clearColor];
     bg.layer.cornerRadius = 5;
     collectdBg.layer.cornerRadius = 5;
@@ -66,7 +69,7 @@
 //初始化middleView
 -(void)initMiddleView
 {
-    CGRect frame = CGRectMake(0, kHeaderViewH, kWidth - [Util myXOrWidth:Edge]*2, kMiddleViewH);
+    CGRect frame = CGRectMake(0, kHeaderViewH-[Util myYOrHeight:5], kWidth - [Util myXOrWidth:Edge]*2, kMiddleViewH);
     middleView = [[CellMiddleView alloc] initWithFrame:frame];
     [bg addSubview:middleView];
 }

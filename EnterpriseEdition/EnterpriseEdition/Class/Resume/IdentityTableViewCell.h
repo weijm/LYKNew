@@ -29,6 +29,8 @@
     IBOutlet UITextField *emptyView;
     
 }
+@property(nonatomic,copy) void(^lookIdentityInfo)(void);
 - (IBAction)lookUpInfo:(id)sender;
 
+-(void)showInfo:(BOOL)isShow;
 @end

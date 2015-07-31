@@ -32,7 +32,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"信息";
-    self.view.backgroundColor = Rgb(230, 244, 253, 1.0);
+    self.view.backgroundColor = kCVBackgroundColor;
     //初始化编辑按钮
     [self initItems];
     

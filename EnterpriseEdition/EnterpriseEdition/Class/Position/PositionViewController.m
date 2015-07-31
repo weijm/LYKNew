@@ -40,7 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = Rgb(230, 244, 253, 1.0);
+    self.view.backgroundColor = kCVBackgroundColor;
     //初始化items
     [self initItems];
     
@@ -218,7 +218,7 @@
         PositionViewController *sself = wself;
         [sself chooseAction:index isChooseAll:NO];
     };
-    headerView.backgroundColor = Rgb(230, 244, 253, 1.0);
+    headerView.backgroundColor = kCVBackgroundColor;
     [self.view addSubview:headerView];
 }
 #pragma mark - 初始化footerView

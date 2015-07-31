@@ -20,7 +20,7 @@
                             <constraint firstAttribute="width" constant="60" id="dXg-nC-e8c"/>
                             <constraint firstAttribute="height" constant="20" id="m3V-lR-12x"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -39,7 +39,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="rVF-Aa-A1X"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="KGk-i7-Jjw" id="IRL-7Z-sB0"/>
@@ -58,7 +58,7 @@
                     </view>
                     <view alpha="0.29999999999999966" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ziT-yC-ISO" userLabel="line">
                         <rect key="frame" x="30" y="71" width="290" height="1"/>
-                        <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.88840333481877609" green="0.88840333481877609" blue="0.88840333481877609" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="dl4-QF-Hsy"/>
                         </constraints>

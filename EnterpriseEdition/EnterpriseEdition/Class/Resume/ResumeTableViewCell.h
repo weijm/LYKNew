@@ -36,6 +36,10 @@
     IBOutlet NSLayoutConstraint *bgToLeft;
     
     IBOutlet NSLayoutConstraint *bgToRight;
+    
+    IBOutlet NSLayoutConstraint *bgToTop;
+    
+    IBOutlet NSLayoutConstraint *bgToBottom;
     //chooseBg相对左边的距离
     IBOutlet NSLayoutConstraint *chooseToLeft;
     

@@ -20,6 +20,7 @@
         CGRect newFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         containerView.frame = newFrame;
         [self addSubview:containerView];
+        [_chooseBt setTitleColor:Rgb(2, 139, 230, 1.0) forState:UIControlStateNormal];
     }
     return self;
 }
@@ -29,7 +30,7 @@
     switch (self.tag) {
         case 0:
             [_chooseBt setTitle:@"收到的简历" forState:UIControlStateNormal];
-            _chooseBt.backgroundColor = Rgb(16, 117, 224, 1.0);
+            _chooseBt.backgroundColor = Rgb(2, 139, 230, 1.0);
             [_chooseBt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             break;
         case 1:
@@ -47,7 +48,7 @@
     switch (self.tag) {
         case 0:
             [_chooseBt setTitle:@"收到的简历" forState:UIControlStateNormal];
-            _chooseBt.backgroundColor = Rgb(16, 117, 224, 1.0);
+            _chooseBt.backgroundColor = Rgb(2, 139, 230, 1.0);
             [_chooseBt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             break;
         case 1:
@@ -103,10 +104,10 @@
                 [_chooseBt setTitle:@"全  选" forState:UIControlStateNormal];
                 break;
             case 2000:
-                [_chooseBt setTitle:@"收藏选中的简历" forState:UIControlStateNormal];
+                [_chooseBt setTitle:@"收藏选中简历" forState:UIControlStateNormal];
                 break;
             case 3000:
-                [_chooseBt setTitle:@"删除选中的简历" forState:UIControlStateNormal];
+                [_chooseBt setTitle:@"删除选中简历" forState:UIControlStateNormal];
                 break;
             default:
                 break;
@@ -257,7 +258,7 @@
 // 点击事件
 - (IBAction)clickedAction:(id)sender {
     if (self.tag <10) {//头部视图按钮
-        _chooseBt.backgroundColor = Rgb(16, 117, 224, 1.0);
+        _chooseBt.backgroundColor = Rgb(2, 139, 230, 1.0);
         [_chooseBt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
    

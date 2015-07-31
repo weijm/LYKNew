@@ -24,7 +24,7 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = Rgb(230, 244, 253, 1.0);
+    self.view.backgroundColor = kCVBackgroundColor;
     self.title = @"简历推荐";
     //导航条的颜色
     [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];

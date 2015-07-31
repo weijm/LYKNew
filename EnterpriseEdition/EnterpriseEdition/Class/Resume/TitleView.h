@@ -12,6 +12,13 @@
 {
     
     IBOutlet UIView *cornerView;
+    
+    IBOutlet NSLayoutConstraint *tLineWidth;
+    
+    IBOutlet NSLayoutConstraint *bLineWidth;
+    IBOutlet UIView *tLine;
+    
+    IBOutlet UIView *bLine;
 }
 @property (strong, nonatomic) IBOutlet UILabel *titleLab;
 

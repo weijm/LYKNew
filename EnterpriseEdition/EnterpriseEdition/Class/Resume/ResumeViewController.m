@@ -13,7 +13,7 @@
 #import "ResumeInfoViewController.h"
 
 
-#define kHeaderViewHeight [Util myYOrHeight:80]
+#define kHeaderViewHeight [Util myYOrHeight:68]
 
 @interface ResumeViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -36,6 +36,8 @@
     NSMutableArray *chooseArray;
     //筛选视图
     FiltrateView *filtrateView;
+    
+    UIButton *rightBt;
 }
 @end
 @implementation ResumeViewController
@@ -44,7 +46,7 @@
     // Do any additional setup after loading the view from its nib.
     //导航条右侧按钮
     [self initItems];
-    self.view.backgroundColor = Rgb(220, 241, 252, 1.0);
+    self.view.backgroundColor = kCVBackgroundColor;
     //初始化headerView
     [self initHeaderView];
     dataArray = [[NSMutableArray alloc] initWithArray:[self getContentData:0]];
@@ -67,10 +69,13 @@
 -(void)initItems
 {
     CGRect frame = CGRectMake(0, 0, 50, 30);
-    UIButton *rightBt = [[UIButton alloc] initWithFrame:frame];
+    rightBt = [[UIButton alloc] initWithFrame:frame];
     [rightBt setImage:[UIImage imageNamed:@"home_edit_btn"] forState:UIControlStateNormal];
     UIEdgeInsets imageInsets = rightBt.imageEdgeInsets;
     rightBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left+20, imageInsets.bottom, imageInsets.right-20);
+    rightBt.titleLabel.font = [UIFont systemFontOfSize:14];
+    UIEdgeInsets titleInsets = rightBt.titleEdgeInsets;
+    rightBt.titleEdgeInsets = UIEdgeInsetsMake(titleInsets.top, titleInsets.left+20, titleInsets.bottom, titleInsets.right-20);
     [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
     self.navigationItem.rightBarButtonItem = rightItem;
@@ -80,6 +85,8 @@
 {
     if (isEdit) {
         isEdit = NO;
+        [rightBt setTitle:@"" forState:UIControlStateNormal];
+        [rightBt setImage:[UIImage imageNamed:@"home_edit_btn"] forState:UIControlStateNormal];
         if (chooseArray) {
             [chooseArray removeAllObjects];
         }
@@ -95,6 +102,8 @@
         
     }else
     {
+        [rightBt setTitle:@"取消" forState:UIControlStateNormal];
+        [rightBt setImage:nil forState:UIControlStateNormal];
         isEdit = YES;
         //tableView可编辑的时候 按钮之间不能相互切换
         headerView.userInteractionEnabled = NO;
@@ -204,7 +213,7 @@
 {
     self.navigationItem.rightBarButtonItem.enabled = NO;
     self.tabBarController.tabBar.hidden = YES;
-    float filtrateH = headerView.frame.origin.y+kHeaderViewHeight-[Util myYOrHeight:17];
+    float filtrateH = headerView.frame.origin.y+kHeaderViewHeight-[Util myYOrHeight:19];
     CGRect frame = CGRectMake(0, filtrateH, kWidth, kHeight-filtrateH);
     filtrateView = [[FiltrateView alloc] initWithFrame:frame];
     filtrateView.delegate = self;
@@ -349,6 +358,9 @@
     }else if(row == 3||row==0)//专业 此处修改[self showConditions: Content:]随着修改
     {
         style = 1;
+    }
+    if (resumeCategory>1&&row==0) {
+        return;
     }
 
     

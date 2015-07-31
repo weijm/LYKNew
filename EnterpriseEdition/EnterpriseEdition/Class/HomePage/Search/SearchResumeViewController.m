@@ -23,6 +23,8 @@
     
     FiltrateView *filtrateView;
     
+    UIView *headerView;
+    
 }
 @end
 
@@ -31,7 +33,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = Rgb(230, 244, 253, 1.0);
+    self.view.backgroundColor = kCVBackgroundColor;
+    [self initHeaderView];
     //初始化编辑按钮
     [self initItems];
     //初始化搜索条
@@ -71,7 +74,7 @@
     }
     
     //设置textFiled的背景
-//    [customSearchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"homepage_searchbg"] forState:UIControlStateNormal];
+//    [customSearchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"resume_search_bg"] forState:UIControlStateNormal];
     //添加到页面上
     self.navigationItem.titleView = customSearchBar;
 }
@@ -135,6 +138,24 @@
     }
     [dataTableView reloadData];
 }
+#pragma mark - headerView
+-(void)initHeaderView
+{
+    headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, [Util myYOrHeight:40])];
+    headerView.userInteractionEnabled = YES;
+    headerView.backgroundColor = kCVBackgroundColor;
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, [Util myYOrHeight:40]-0.8, kWidth, 0.8)];
+    line.backgroundColor = Rgb(150, 204, 243, 0.7);
+    [headerView addSubview:line];
+    
+    float btW = [Util myXOrWidth:150];
+    UIButton *filtrateBt = [[UIButton alloc] initWithFrame:CGRectMake((kWidth-btW)/2, 0, btW, [Util myYOrHeight:40]-0.8)];
+    [filtrateBt setTitle:@"综合筛选" forState:UIControlStateNormal];
+    [filtrateBt setTitleColor:Rgb(76, 80, 83, 1.0) forState:UIControlStateNormal];
+    [filtrateBt addTarget:self action:@selector(filtrateAction) forControlEvents:UIControlEventTouchUpInside];
+    filtrateBt.titleLabel.font = [UIFont systemFontOfSize:14];
+    [headerView addSubview:filtrateBt];
+}
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -174,7 +195,13 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if ([dataArray count]!=0) {
-        return [Util myYOrHeight:40];
+        if (rightBt.specialMark==1) {
+            return [Util myYOrHeight:10];
+        }else
+        {
+            return [Util myYOrHeight:40];
+        }
+        
     }else
     {
         return 0;
@@ -184,21 +211,6 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     if ([dataArray count]!=0) {
-        
-        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, [Util myYOrHeight:40])];
-        headerView.userInteractionEnabled = YES;
-        headerView.backgroundColor = Rgb(230, 244, 253, 1.0);
-        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, [Util myYOrHeight:40]-0.8, kWidth, 0.8)];
-        line.backgroundColor = Rgb(150, 204, 243, 0.7);
-        [headerView addSubview:line];
-        
-        float btW = [Util myXOrWidth:150];
-        UIButton *filtrateBt = [[UIButton alloc] initWithFrame:CGRectMake((kWidth-btW)/2, 0, btW, [Util myYOrHeight:40]-0.8)];
-        [filtrateBt setTitle:@"综合筛选" forState:UIControlStateNormal];
-        [filtrateBt setTitleColor:Rgb(76, 80, 83, 1.0) forState:UIControlStateNormal];
-        [filtrateBt addTarget:self action:@selector(filtrateAction) forControlEvents:UIControlEventTouchUpInside];
-        filtrateBt.titleLabel.font = [UIFont systemFontOfSize:14];
-        [headerView addSubview:filtrateBt];
         if (rightBt.specialMark==1) {
             headerView.hidden = YES;
         }else
@@ -212,6 +224,7 @@
     }
     
 }
+
 #pragma -mark - 综合筛选的事件
 -(void)filtrateAction
 {

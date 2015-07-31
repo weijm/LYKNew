@@ -21,6 +21,9 @@
         CGRect newFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         containerView.frame = newFrame;
         [self addSubview:containerView];
+        self.backgroundColor = kCVBackgroundColor;
+        
+        tableViewToTop.constant = [Util myYOrHeight:17];
         
         filtrateTableView.separatorColor = [UIColor clearColor];
         filtrateTableView.backgroundColor = [UIColor clearColor];
@@ -76,6 +79,10 @@
         [_delegate didSelectedRow:(int)indexPath.row];
     }
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [Util myYOrHeight:32.5];
+}
 #pragma mark - TableFooterView
 -(UIView*)footerView
 {
@@ -89,12 +96,16 @@
     float footerH = self.frame.size.height - cellH*7;
     UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, footerH)];
     footer.userInteractionEnabled = YES;
-    UIButton *filtrateBt = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+    UIButton *filtrateBt = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, [Util myXOrWidth:95], [Util myYOrHeight:28])];
     filtrateBt.center = footer.center;
     [filtrateBt setTitle:@"重置筛选条件" forState:UIControlStateNormal];
-    [filtrateBt setTitleColor:Rgb(84, 84, 84, 1.0) forState:UIControlStateNormal];
-    filtrateBt.backgroundColor = Rgb(246, 246, 246, 1.0);
-    filtrateBt.layer.cornerRadius = 3.0;
+    [filtrateBt setTitleColor:Rgb(0, 0, 0, 0.7) forState:UIControlStateNormal];
+    filtrateBt.backgroundColor = [UIColor whiteColor];
+    filtrateBt.layer.borderWidth = 0.25;
+    filtrateBt.layer.cornerRadius = 3;
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 0.694, 0.694, 0.714, 1 });
+    filtrateBt.layer.borderColor = colorref;
     filtrateBt.titleLabel.font = [UIFont systemFontOfSize:13];
     [filtrateBt addTarget:self action:@selector(resetFiltrate) forControlEvents:UIControlEventTouchUpInside];
     [footer addSubview:filtrateBt];

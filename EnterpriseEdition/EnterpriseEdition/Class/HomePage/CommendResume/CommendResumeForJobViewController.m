@@ -30,7 +30,7 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"职位名称-简历推荐";
     
-    self.view.backgroundColor = Rgb(230, 244, 253, 1.0);
+    self.view.backgroundColor = kCVBackgroundColor;
     //初始化编辑按钮
     [self initItems];
     //初始化headerView
@@ -175,7 +175,7 @@
 {
     headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, [Util myYOrHeight:40])];
     headerView.userInteractionEnabled = YES;
-    headerView.backgroundColor = Rgb(230, 244, 253, 1.0);
+    headerView.backgroundColor = kCVBackgroundColor;
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, [Util myYOrHeight:40]-0.8, kWidth, 0.8)];
     line.backgroundColor = Rgb(150, 204, 243, 0.7);
     [headerView addSubview:line];

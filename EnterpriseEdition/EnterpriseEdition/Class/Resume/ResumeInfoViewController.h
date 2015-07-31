@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class UIButton_Custom;
 @interface ResumeInfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
     IBOutlet UITableView *infoTableView;
+    IBOutlet NSLayoutConstraint *lineWidth;
 
+    IBOutlet UIButton_Custom *colletedBt;
 }
+
+- (IBAction)makeCall:(id)sender;
+
+- (IBAction)collectedAction:(id)sender;
+
 @end

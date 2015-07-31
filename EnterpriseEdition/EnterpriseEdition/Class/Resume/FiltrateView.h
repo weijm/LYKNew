@@ -28,6 +28,7 @@
     //确认按钮
     
     IBOutlet UIButton *sureBt;
+    IBOutlet NSLayoutConstraint *tableViewToTop;
     
 }
 @property (nonatomic,weak)id<FiltrateViewDelegate> delegate;

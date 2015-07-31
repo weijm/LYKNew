@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="filtrateTableView" destination="kCO-A3-kGA" id="bkX-Fa-t0P"/>
                 <outlet property="sureBt" destination="bkL-Hq-Ph4" id="rUx-sm-WP1"/>
+                <outlet property="tableViewToTop" destination="rlB-Tg-MEp" id="fad-L5-0JM"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -63,7 +64,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.90196078431372551" green="0.95294117647058818" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="kCO-A3-kGA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="046-Jp-lKJ"/>
                 <constraint firstAttribute="centerX" secondItem="T93-Io-61n" secondAttribute="centerX" id="2Eu-Fz-iJc"/>

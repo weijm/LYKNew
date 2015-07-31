@@ -14,6 +14,8 @@
     
     IBOutlet UILabel *countLab;
     IBOutlet UILabel *titLab;
+    
+    
 }
 -(void)loadData:(int)count;
 @end

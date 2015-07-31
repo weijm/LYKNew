@@ -79,7 +79,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="krm-PP-gga" userLabel="bg">
-                        <rect key="frame" x="10" y="2" width="300" height="126"/>
+                        <rect key="frame" x="10" y="10" width="300" height="125.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </subviews>
@@ -87,8 +87,8 @@
                 <constraints>
                     <constraint firstItem="krm-PP-gga" firstAttribute="leading" secondItem="Ie0-Nc-kuD" secondAttribute="trailing" constant="-10" id="0cE-6v-GLh"/>
                     <constraint firstItem="bnd-Er-V3t" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="-10" id="2no-WX-adY"/>
-                    <constraint firstItem="krm-PP-gga" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="Cji-8d-nRT"/>
-                    <constraint firstAttribute="bottom" secondItem="krm-PP-gga" secondAttribute="bottom" constant="8" id="Iqe-o0-CQv"/>
+                    <constraint firstItem="krm-PP-gga" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Cji-8d-nRT"/>
+                    <constraint firstAttribute="bottom" secondItem="krm-PP-gga" secondAttribute="bottom" id="Iqe-o0-CQv"/>
                     <constraint firstItem="Ie0-Nc-kuD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="JNQ-nM-3YH"/>
                     <constraint firstItem="OjN-Jv-pns" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="KBJ-rW-4GB"/>
                     <constraint firstAttribute="bottom" secondItem="OjN-Jv-pns" secondAttribute="bottom" constant="8" id="Mdw-jd-hlO"/>
@@ -104,8 +104,10 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="bg" destination="krm-PP-gga" id="gsp-ac-qOU"/>
+                <outlet property="bgToBottom" destination="Iqe-o0-CQv" id="qE7-k9-8Gb"/>
                 <outlet property="bgToLeft" destination="SjG-NG-Pcl" id="WfU-er-24r"/>
                 <outlet property="bgToRight" destination="npH-lS-0h8" id="4cr-r4-slD"/>
+                <outlet property="bgToTop" destination="Cji-8d-nRT" id="2ZH-cx-Pgl"/>
                 <outlet property="chooseBg" destination="bnd-Er-V3t" id="37g-3g-hff"/>
                 <outlet property="chooseBt" destination="IYU-tS-OJT" id="JGq-0W-YJj"/>
                 <outlet property="chooseToLeft" destination="2no-WX-adY" id="4AO-1f-HT6"/>

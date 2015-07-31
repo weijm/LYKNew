@@ -14,9 +14,12 @@
 #import "HobbiesTableViewCell.h"
 #import "ExperienceTableViewCell.h"
 #import "CertificateTableViewCell.h"
+#import "UIButton+Custom.h"
 
 @interface ResumeInfoViewController ()
-
+{
+    BOOL showIndentityInfo;
+}
 @end
 
 @implementation ResumeInfoViewController
@@ -25,8 +28,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"张晓晓";
-    
-    
+    lineWidth.constant = 0.5;
+    showIndentityInfo = NO;
     infoTableView.separatorColor = [UIColor clearColor];
     
     UIButton *leftBt = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
@@ -36,7 +39,7 @@
     [leftBt addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
     self.navigationItem.leftBarButtonItem = leftItem;
-
+    
     
 }
 
@@ -112,10 +115,18 @@
     CGFloat cellH = 44;
     switch (indexPath.row) {
         case 0://身份信息
-            cellH = 100;
+        {
+            if (showIndentityInfo) {
+                cellH = [Util myYOrHeight:100];
+            }else
+            {
+                cellH = [Util myYOrHeight:65];
+            }
+            
+        }
             break;
         case 1://求职意向
-            cellH = 160;
+            cellH = [Util myYOrHeight:120];
             break;
         case 2://教育背景
             cellH = 90;
@@ -157,10 +168,15 @@
 -(UITableViewCell*)getIdentityCell:(UITableView*)tableView
 {
     static NSString *cell0=@"IdentityId";
-    IdentityTableViewCell *cell = (IdentityTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cell0];//（寻找标识符为cellid并且没被用到的cell用于重用）
+    IdentityTableViewCell *cell = (IdentityTableViewCell *)[infoTableView dequeueReusableCellWithIdentifier:cell0];//（寻找标识符为cellid并且没被用到的cell用于重用）
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"IdentityTableViewCell" owner:self options:nil] lastObject];
+        [cell showInfo:showIndentityInfo];
+        cell.lookIdentityInfo = ^{
+            [self lookIdentityInfo];
+        };
     }
+    
     return cell;
 }
 //求职意向cell
@@ -213,5 +229,29 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"CertificateTableViewCell" owner:self options:nil] lastObject];
     }
     return cell;
+}
+#pragma mark - 查看身份信息详情
+-(void)lookIdentityInfo
+{
+    showIndentityInfo = YES;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [infoTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
+    
+}
+#pragma mark - 点击事件
+- (IBAction)makeCall:(id)sender {
+}
+
+- (IBAction)collectedAction:(id)sender {
+    UIButton_Custom *button = (UIButton_Custom*)sender;
+    if (button.specialMark ==0) {
+        button.specialMark = 1;
+        [button setTitle:@"取消收藏" forState:UIControlStateNormal];
+    }else
+    {
+        button.specialMark = 0;
+        [button setTitle:@"收    藏" forState:UIControlStateNormal];
+    }
+    
 }
 @end

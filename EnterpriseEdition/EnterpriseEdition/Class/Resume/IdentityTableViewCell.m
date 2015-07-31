@@ -23,7 +23,20 @@
 }
 
 - (IBAction)lookUpInfo:(id)sender {
+    self.lookIdentityInfo();
+    
     littleInfoBg.hidden = YES;
     infoBg.hidden = NO;
+}
+-(void)showInfo:(BOOL)isShow
+{
+    if (isShow) {
+        littleInfoBg.hidden = YES;
+        infoBg.hidden = NO;
+    }else
+    {
+        littleInfoBg.hidden = NO;
+        infoBg.hidden = YES;
+    }
 }
 @end

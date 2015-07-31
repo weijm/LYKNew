@@ -21,6 +21,14 @@
         
         cornerView.layer.cornerRadius = cornerView.frame.size.height/2;
         cornerView.layer.masksToBounds = YES;
+        
+        tLineWidth.constant = 0.5;
+        bLineWidth.constant = 0.5;
+        
+        _titleLab.textColor = Rgb(2, 139, 230, 1.0);
+        tLine.backgroundColor = Rgb(2, 139, 230, 1.0);
+        bLine.backgroundColor = Rgb(2, 139, 230, 1.0);
+        cornerView.backgroundColor = Rgb(2, 139, 230, 1.0);
     }
     return self;
 }

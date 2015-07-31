@@ -7,7 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TitleView">
             <connections>
+                <outlet property="bLine" destination="aON-Iq-zg3" id="ZlF-VU-zq5"/>
+                <outlet property="bLineWidth" destination="nfG-KA-tJ4" id="Psb-of-sbb"/>
                 <outlet property="cornerView" destination="Od7-AL-8uw" id="bIk-R2-qCa"/>
+                <outlet property="tLine" destination="NgR-Ab-jBl" id="TB8-xv-v1f"/>
+                <outlet property="tLineWidth" destination="Uq3-Mv-uU8" id="Ix4-uU-2SK"/>
                 <outlet property="titleLab" destination="VGZ-si-KM8" id="6f2-5o-Zdt"/>
             </connections>
         </placeholder>
@@ -22,7 +26,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="eLa-N4-eAl"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.48627450980392156" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>

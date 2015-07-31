@@ -19,80 +19,83 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="357" height="210"/>
+            <rect key="frame" x="0.0" y="0.0" width="357" height="241"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lrN-VI-Jhg" userLabel="bgImg">
-                    <rect key="frame" x="0.0" y="0.0" width="357" height="124"/>
-                    <color key="backgroundColor" red="0.14901960784313725" green="0.50980392156862742" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_info_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="lrN-VI-Jhg" userLabel="bgImg">
+                    <rect key="frame" x="0.0" y="0.0" width="357" height="130"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="130" id="tZx-1Y-agf"/>
+                    </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K70-Mz-8Ku" userLabel="line">
-                    <rect key="frame" x="0.0" y="104" width="357" height="1"/>
+                    <rect key="frame" x="0.0" y="120" width="357" height="1"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="ypc-u0-CAj"/>
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_protrait_weman_default.png" translatesAutoresizingMaskIntoConstraints="NO" id="y8C-5P-IAf" userLabel="protraitImg">
-                    <rect key="frame" x="147" y="74" width="62" height="62"/>
+                    <rect key="frame" x="130" y="80.5" width="96" height="96"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="62" id="9Vn-mI-GMH"/>
-                        <constraint firstAttribute="width" constant="62" id="Gkw-Md-JFT"/>
+                        <constraint firstAttribute="height" constant="96" id="9Vn-mI-GMH"/>
+                        <constraint firstAttribute="width" constant="96" id="Gkw-Md-JFT"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="匹配度86%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ml-Wi-zFO" userLabel="rateLab">
-                    <rect key="frame" x="146" y="126" width="65" height="15"/>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="匹配度86%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ml-Wi-zFO" userLabel="rateLab">
+                    <rect key="frame" x="140" y="168" width="77" height="15"/>
                     <color key="backgroundColor" red="0.97254901959999995" green="0.36862745099999999" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="2Mp-Ro-IbN"/>
-                        <constraint firstAttribute="width" constant="65" id="43a-CS-Rad"/>
+                        <constraint firstAttribute="width" constant="77" id="43a-CS-Rad"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v9A-Ul-3cK" userLabel="bView">
-                    <rect key="frame" x="0.0" y="115" width="357" height="95"/>
+                    <rect key="frame" x="0.0" y="151" width="357" height="90"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女  汉族  1980-8-5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZx-h4-b8Q" userLabel="infoLab">
-                            <rect key="frame" x="0.0" y="37" width="357" height="21"/>
+                            <rect key="frame" x="0.0" y="34" width="357" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="irC-Dg-fCY"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="应届毕业生" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ken-2D-auD" userLabel="expLab">
-                            <rect key="frame" x="138.5" y="58" width="80" height="18"/>
-                            <color key="backgroundColor" red="0.90588235294117647" green="0.9137254901960784" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="应届毕业生" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ken-2D-auD" userLabel="expLab">
+                            <rect key="frame" x="138" y="55" width="80" height="18"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="80" id="8KF-t8-rJp"/>
                                 <constraint firstAttribute="height" constant="18" id="ptC-IU-zet"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EIL-ko-LTg" userLabel="stateBg">
-                            <rect key="frame" x="228.5" y="58" width="113.5" height="21"/>
+                            <rect key="frame" x="228" y="55" width="113.5" height="21"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_urgent.png" translatesAutoresizingMaskIntoConstraints="NO" id="Orh-NJ-LnO" userLabel="state1">
-                                    <rect key="frame" x="42.5" y="2" width="17" height="17"/>
+                                    <rect key="frame" x="42" y="2" width="17" height="17"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="17" id="q7S-bC-fvB"/>
                                         <constraint firstAttribute="height" constant="17" id="yix-1n-7il"/>
                                     </constraints>
                                 </imageView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_edit.png" translatesAutoresizingMaskIntoConstraints="NO" id="V5y-eg-Tdb" userLabel="state2">
-                                    <rect key="frame" x="69.5" y="2" width="17" height="17"/>
+                                    <rect key="frame" x="69" y="2" width="17" height="17"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="17" id="Ro1-bN-M8h"/>
                                         <constraint firstAttribute="height" constant="17" id="ZCq-AI-k8f"/>
                                     </constraints>
                                 </imageView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_download.png" translatesAutoresizingMaskIntoConstraints="NO" id="LQk-3z-h6T" userLabel="state3">
-                                    <rect key="frame" x="96.5" y="2" width="17" height="17"/>
+                                    <rect key="frame" x="96" y="2" width="17" height="17"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="17" id="cz1-IA-lkc"/>
                                         <constraint firstAttribute="height" constant="17" id="wRu-fn-1Np"/>
@@ -124,14 +127,15 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.90196078431372551" green="0.95294117647058818" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="K70-Mz-8Ku" secondAttribute="centerY" id="0ei-38-TIT"/>
-                <constraint firstItem="9ml-Wi-zFO" firstAttribute="top" secondItem="y8C-5P-IAf" secondAttribute="bottom" constant="-10" id="1Ac-dw-4Jn"/>
-                <constraint firstAttribute="centerY" secondItem="y8C-5P-IAf" secondAttribute="centerY" id="5ze-Dp-8w4"/>
-                <constraint firstItem="K70-Mz-8Ku" firstAttribute="top" secondItem="lrN-VI-Jhg" secondAttribute="bottom" constant="-20" id="7h2-xm-2pD"/>
+                <constraint firstItem="9ml-Wi-zFO" firstAttribute="top" secondItem="y8C-5P-IAf" secondAttribute="bottom" constant="-8" id="1Ac-dw-4Jn"/>
+                <constraint firstAttribute="centerY" secondItem="y8C-5P-IAf" secondAttribute="centerY" constant="-8" id="5ze-Dp-8w4"/>
                 <constraint firstAttribute="trailing" secondItem="K70-Mz-8Ku" secondAttribute="trailing" id="9EF-6i-bFs"/>
+                <constraint firstItem="lrN-VI-Jhg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FjQ-0n-qQZ"/>
                 <constraint firstAttribute="centerX" secondItem="9ml-Wi-zFO" secondAttribute="centerX" id="GPA-Fx-yZI"/>
+                <constraint firstAttribute="trailing" secondItem="lrN-VI-Jhg" secondAttribute="trailing" id="KYO-BA-j2Q"/>
                 <constraint firstAttribute="trailing" secondItem="lrN-VI-Jhg" secondAttribute="trailing" id="PV5-xG-T7H"/>
                 <constraint firstItem="lrN-VI-Jhg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="SkL-pb-pdB"/>
                 <constraint firstItem="lrN-VI-Jhg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="X2F-mJ-xX7"/>
@@ -140,18 +144,19 @@
                 <constraint firstItem="K70-Mz-8Ku" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dnb-8X-jRQ"/>
                 <constraint firstItem="v9A-Ul-3cK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ftC-4V-S2N"/>
                 <constraint firstAttribute="centerX" secondItem="y8C-5P-IAf" secondAttribute="centerX" id="gpV-es-p8J"/>
-                <constraint firstItem="v9A-Ul-3cK" firstAttribute="top" secondItem="K70-Mz-8Ku" secondAttribute="bottom" constant="10" id="yM8-fb-IKZ"/>
+                <constraint firstItem="v9A-Ul-3cK" firstAttribute="top" secondItem="K70-Mz-8Ku" secondAttribute="bottom" constant="30" id="yM8-fb-IKZ"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="287.5" y="42"/>
+            <point key="canvasLocation" x="287.5" y="57.5"/>
         </view>
     </objects>
     <resources>
         <image name="resume_download.png" width="21" height="22"/>
         <image name="resume_edit.png" width="23" height="24"/>
+        <image name="resume_info_bg.png" width="13" height="7"/>
         <image name="resume_protrait_weman_default.png" width="68" height="67"/>
         <image name="resume_urgent.png" width="24" height="24"/>
     </resources>

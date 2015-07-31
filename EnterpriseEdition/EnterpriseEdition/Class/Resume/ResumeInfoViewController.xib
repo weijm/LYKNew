@@ -7,7 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResumeInfoViewController">
             <connections>
+                <outlet property="colletedBt" destination="brM-Ve-NcV" id="7RR-9A-db2"/>
                 <outlet property="infoTableView" destination="irv-gx-Z2m" id="7pO-2w-but"/>
+                <outlet property="lineWidth" destination="aOY-hl-IRD" id="wHX-Yx-ujG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,20 +19,76 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="irv-gx-Z2m" userLabel="infoTableView">
-                    <rect key="frame" x="0.0" y="-64" width="600" height="664"/>
-                    <color key="backgroundColor" red="0.90196078431372551" green="0.95294117647058818" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="0.0" y="-64" width="600" height="616"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="582-WC-T4p"/>
                         <outlet property="delegate" destination="-1" id="qlh-yt-62s"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibO-Li-hrh" userLabel="bottomView">
+                    <rect key="frame" x="0.0" y="552" width="600" height="48"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ix5-rp-1jL" userLabel="callBt">
+                            <rect key="frame" x="0.0" y="0.0" width="299" height="48"/>
+                            <color key="backgroundColor" red="0.30980392156862746" green="0.65098039215686276" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="tintColor" red="0.29061003400000002" green="0.62109719060000002" blue="0.87660729540000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="电话联系">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="makeCall:" destination="-1" eventType="touchUpInside" id="Fg2-VN-1ZX"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brM-Ve-NcV" userLabel="collectedBt" customClass="UIButton_Custom">
+                            <rect key="frame" x="300" y="0.0" width="300" height="48"/>
+                            <color key="backgroundColor" red="0.30980392159999998" green="0.65098039220000004" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="tintColor" red="0.30980392159999998" green="0.65098039220000004" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="收    藏">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="collectedAction:" destination="-1" eventType="touchUpInside" id="aQq-Qj-PWM"/>
+                            </connections>
+                        </button>
+                        <view alpha="0.5499999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="siU-F4-vwE" userLabel="line">
+                            <rect key="frame" x="299" y="0.0" width="1" height="48"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="aOY-hl-IRD"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="brM-Ve-NcV" firstAttribute="leading" secondItem="siU-F4-vwE" secondAttribute="trailing" id="0cs-Wb-tot"/>
+                        <constraint firstAttribute="bottom" secondItem="brM-Ve-NcV" secondAttribute="bottom" id="1dH-ur-xJv"/>
+                        <constraint firstAttribute="bottom" secondItem="siU-F4-vwE" secondAttribute="bottom" id="5Mv-of-WVw"/>
+                        <constraint firstItem="brM-Ve-NcV" firstAttribute="top" secondItem="ibO-Li-hrh" secondAttribute="top" id="9vi-Oa-5RS"/>
+                        <constraint firstItem="siU-F4-vwE" firstAttribute="top" secondItem="ibO-Li-hrh" secondAttribute="top" id="Hss-gt-Xwn"/>
+                        <constraint firstAttribute="centerX" secondItem="siU-F4-vwE" secondAttribute="centerX" id="Mo5-wl-SpG"/>
+                        <constraint firstItem="Ix5-rp-1jL" firstAttribute="top" secondItem="ibO-Li-hrh" secondAttribute="top" id="SVw-Pa-If7"/>
+                        <constraint firstAttribute="height" constant="48" id="hYD-Ux-ij8"/>
+                        <constraint firstItem="siU-F4-vwE" firstAttribute="leading" secondItem="Ix5-rp-1jL" secondAttribute="trailing" id="kpn-Fu-0UB"/>
+                        <constraint firstAttribute="trailing" secondItem="brM-Ve-NcV" secondAttribute="trailing" id="mr5-Wr-PnN"/>
+                        <constraint firstItem="Ix5-rp-1jL" firstAttribute="leading" secondItem="ibO-Li-hrh" secondAttribute="leading" id="mvM-bz-dqv"/>
+                        <constraint firstAttribute="bottom" secondItem="Ix5-rp-1jL" secondAttribute="bottom" id="x9k-Eg-BBs"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="irv-gx-Z2m" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-64" id="1rq-lq-TsP"/>
                 <constraint firstAttribute="trailing" secondItem="irv-gx-Z2m" secondAttribute="trailing" id="Ico-D8-iL4"/>
+                <constraint firstItem="ibO-Li-hrh" firstAttribute="top" secondItem="irv-gx-Z2m" secondAttribute="bottom" id="JG2-EA-jwW"/>
                 <constraint firstItem="irv-gx-Z2m" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OiH-Ku-wLo"/>
-                <constraint firstAttribute="bottom" secondItem="irv-gx-Z2m" secondAttribute="bottom" id="vVi-Q8-DsI"/>
+                <constraint firstAttribute="bottom" secondItem="ibO-Li-hrh" secondAttribute="bottom" id="T5p-RI-Qvq"/>
+                <constraint firstAttribute="trailing" secondItem="ibO-Li-hrh" secondAttribute="trailing" id="TaG-IQ-SuG"/>
+                <constraint firstItem="ibO-Li-hrh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="h6P-FU-gK4"/>
             </constraints>
         </view>
     </objects>

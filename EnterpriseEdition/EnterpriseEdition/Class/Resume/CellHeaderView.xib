@@ -51,33 +51,30 @@
                     <rect key="frame" x="10" y="50" width="321" height="21"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="应聘：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMG-ui-v7Q">
-                            <rect key="frame" x="0.0" y="0.0" width="45" height="21"/>
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="21"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="45" id="0WY-RF-Yx2"/>
+                                <constraint firstAttribute="width" constant="50" id="0WY-RF-Yx2"/>
                                 <constraint firstAttribute="height" constant="21" id="6Dw-X9-7FX"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" red="0.29019607843137257" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="交互设计师" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7M-NL-cAT" userLabel="jobLab">
-                            <rect key="frame" x="47" y="0.0" width="80" height="21"/>
+                            <rect key="frame" x="52" y="0.0" width="100" height="21"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="80" id="Kvv-Pg-PWF"/>
+                                <constraint firstAttribute="width" constant="100" id="Kvv-Pg-PWF"/>
                                 <constraint firstAttribute="height" constant="21" id="TmM-m3-tuB"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.35686274509803922" green="0.36078431372549019" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07-20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQR-PV-YeF" userLabel="timeLab">
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.39999999999999963" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07-20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQR-PV-YeF" userLabel="timeLab">
                             <rect key="frame" x="266" y="0.0" width="55" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="9Tu-Pf-6aD"/>
                                 <constraint firstAttribute="width" constant="55" id="WM8-QK-9mN"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.76078431372549016" green="0.76078431372549016" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -94,7 +91,7 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23g-II-HyK" userLabel="line">
                     <rect key="frame" x="5" y="120" width="331" height="1"/>
-                    <color key="backgroundColor" red="0.89803921568627454" green="0.90196078431372551" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.92480817267098225" green="0.93464655748663106" blue="0.93464655748663106" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="PxW-3m-ACD"/>
                     </constraints>
