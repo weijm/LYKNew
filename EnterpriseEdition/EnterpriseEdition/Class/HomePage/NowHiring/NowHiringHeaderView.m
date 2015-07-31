@@ -10,8 +10,8 @@
 #import "ResumeChooseBtView.h"
 #import "UIButton+Custom.h"
 #define kEdgeWidth 25
-#define kBTHeight 30
-#define kPVHeight [Util myYOrHeight:45]
+#define kBTHeight 27
+#define kPVHeight [Util myYOrHeight:40]
 #define kLimitTime 72*60*60
 @implementation NowHiringHeaderView
 
@@ -25,19 +25,21 @@
         containerView.frame = newFrame;
         [self addSubview:containerView];
         
-        CGRect frame1 = CGRectMake([Util myXOrWidth:kEdgeWidth], [Util myYOrHeight:15], (kWidth-[Util myXOrWidth:kEdgeWidth]*2), [Util myYOrHeight:kBTHeight]);
+        CGRect frame1 = CGRectMake([Util myXOrWidth:kEdgeWidth], [Util myYOrHeight:11], (kWidth-[Util myXOrWidth:kEdgeWidth]*2), [Util myYOrHeight:kBTHeight]);
         subbg = [[UIView alloc] initWithFrame:frame1];
         subbg.layer.cornerRadius = 5;
         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-        CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 0.1176, 0.3961, 0.7490, 1 });
+        CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 0.0078, 0.5451, 0.902, 1 });
         subbg.layer.borderColor = colorref;
-        subbg.layer.borderWidth = 2.0;
+        subbg.layer.borderWidth = 1.0;
         subbg.layer.masksToBounds= YES;
         [btBg addSubview:subbg];
         //初始化按钮
         [self initButtonView];
         
         [self initProgressView];
+        
+        [self loadCountTextColor];
     }
     return self;
 }
@@ -78,6 +80,18 @@
         [bt loadSubViewInNowHiring];
         [subbg addSubview:bt];
     }
+}
+-(void)loadCountTextColor
+{
+    NSRange range = NSMakeRange(0, 2);
+    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:contentLab.text];
+    //设置字体颜色
+    [attributedStr addAttribute:NSForegroundColorAttributeName
+     
+                          value:[UIColor redColor]
+     
+                          range:range];
+    contentLab.attributedText = attributedStr;
 }
 -(void)chooseBtAction:(NSInteger)index
 {

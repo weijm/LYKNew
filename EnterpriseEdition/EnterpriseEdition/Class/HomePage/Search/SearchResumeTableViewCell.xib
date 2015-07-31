@@ -39,7 +39,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jq2-Zl-Ira" userLabel="bg">
-                        <rect key="frame" x="10" y="5" width="300" height="117.5"/>
+                        <rect key="frame" x="10" y="7" width="300" height="118.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -55,8 +55,8 @@
                     <constraint firstAttribute="trailing" secondItem="jq2-Zl-Ira" secondAttribute="trailing" constant="10" id="9fN-WG-FXR"/>
                     <constraint firstItem="jq2-Zl-Ira" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Hrp-DF-uk3"/>
                     <constraint firstAttribute="bottom" secondItem="znY-uL-tuK" secondAttribute="bottom" constant="5" id="TN1-9u-rAz"/>
-                    <constraint firstItem="jq2-Zl-Ira" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="aY6-m0-bzb"/>
-                    <constraint firstAttribute="bottom" secondItem="jq2-Zl-Ira" secondAttribute="bottom" constant="5" id="c3q-eg-xCe"/>
+                    <constraint firstItem="jq2-Zl-Ira" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="aY6-m0-bzb"/>
+                    <constraint firstAttribute="bottom" secondItem="jq2-Zl-Ira" secondAttribute="bottom" constant="2" id="c3q-eg-xCe"/>
                     <constraint firstItem="znY-uL-tuK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="-10" id="fJx-l7-c2O"/>
                 </constraints>
             </tableViewCellContentView>

@@ -23,6 +23,11 @@
     IBOutlet NSLayoutConstraint *passwordimgWidth;
     
     IBOutlet NSLayoutConstraint *passwordimgHeight;
+    
+    IBOutlet NSLayoutConstraint *line1Height;
+    
+    IBOutlet NSLayoutConstraint *line2Height;
+    
 }
 @property(nonatomic,weak) id<LoginHeaderViewDelegate> delegate;
 @end

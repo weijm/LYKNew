@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClaimPositionPromptView">
             <connections>
+                <outlet property="firstLab" destination="9wD-Ho-ssd" id="HMm-vH-4Ew"/>
                 <outlet property="proLab" destination="EJz-nZ-QgT" id="fAi-mr-Zhw"/>
             </connections>
         </placeholder>
@@ -30,7 +31,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PS：每个人只有一次认领机会,要慎重哟!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJz-nZ-QgT">
-                    <rect key="frame" x="0.0" y="227" width="320" height="21"/>
+                    <rect key="frame" x="0.0" y="237" width="320" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="kac-Xw-3gl"/>
                     </constraints>
@@ -39,7 +40,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提示：您曾经在全网上发不过xxxxx个职位，可以进行职位认领，认领后会保存在我的职位中，以便于您在E朝朝平台进行发布职位" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9wD-Ho-ssd">
-                    <rect key="frame" x="20" y="20" width="280" height="60"/>
+                    <rect key="frame" x="20" y="15" width="280" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="fbp-RT-eIm"/>
                     </constraints>
@@ -58,8 +59,8 @@
                 <constraint firstItem="EJz-nZ-QgT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="e4Z-ve-nkk"/>
                 <constraint firstAttribute="trailing" secondItem="9wD-Ho-ssd" secondAttribute="trailing" constant="20" id="eWu-bt-zRy"/>
                 <constraint firstAttribute="trailing" secondItem="EJz-nZ-QgT" secondAttribute="trailing" id="etj-B6-aan"/>
-                <constraint firstAttribute="bottom" secondItem="EJz-nZ-QgT" secondAttribute="bottom" constant="10" id="gVf-jw-6ew"/>
-                <constraint firstItem="9wD-Ho-ssd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="qSk-6F-uCs"/>
+                <constraint firstAttribute="bottom" secondItem="EJz-nZ-QgT" secondAttribute="bottom" id="gVf-jw-6ew"/>
+                <constraint firstItem="9wD-Ho-ssd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="qSk-6F-uCs"/>
                 <constraint firstItem="9wD-Ho-ssd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="zGU-0H-aYw"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

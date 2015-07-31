@@ -20,8 +20,8 @@
         containerView.frame = newFrame;
         [self addSubview:containerView];
         if (kIphone6plus) {
-            iconWidth.constant = iconWidth.constant *1.5;
-            iconHeight.constant = iconHeight.constant *1.5;
+            iconWidth.constant = iconWidth.constant +2;
+            iconHeight.constant = iconHeight.constant +2;
         }
        
     }

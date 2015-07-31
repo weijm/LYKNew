@@ -20,11 +20,13 @@
         containerView.frame = newFrame;
         [self addSubview:containerView];
         if (kIphone6plus) {
-            numberimgHeight.constant = numberimgHeight.constant*1.5;
-            numberimgWidth.constant = numberimgWidth.constant*1.5;
-            passwordimgHeight.constant = passwordimgHeight.constant*1.5;
-            passwordimgWidth.constant = passwordimgWidth.constant*1.5;
+            numberimgHeight.constant = numberimgHeight.constant+3;
+            numberimgWidth.constant = numberimgWidth.constant+3;
+            passwordimgHeight.constant = passwordimgHeight.constant+3;
+            passwordimgWidth.constant = passwordimgWidth.constant+3;
         }
+        line1Height.constant = 0.5;
+        line2Height.constant = 0.5;
     }
     return self;
 }

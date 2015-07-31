@@ -13,9 +13,10 @@
 - (void)awakeFromNib {
     // Initialization code
     if (kIphone6plus) {
-        iconWidth.constant = iconWidth.constant *1.5;
-        iconHeight.constant = iconHeight.constant *1.5;
+        iconWidth.constant = iconWidth.constant +3;
+        iconHeight.constant = iconHeight.constant +3;
     }
+    blineWidth.constant = 0.5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -76,9 +77,9 @@
         {
             chooseBg.hidden = NO;
             [UIView animateWithDuration:0.25 animations:^{
-                bgToLeft.constant = 28;
-                bgToRight.constant = -28;
-                chooseBgToLeft.constant = 0;
+                bgToLeft.constant = 29;
+                bgToRight.constant = -29;
+                chooseBgToLeft.constant = 1;
                 
             } completion:^(BOOL finished){
                 

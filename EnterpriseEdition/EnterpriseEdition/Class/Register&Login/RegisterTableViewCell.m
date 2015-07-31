@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     // Initialization code
     seconds = 60;
+    lineHeight.constant = 0.5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -108,10 +109,10 @@
     hline.hidden = YES;
     titleLab.hidden = YES;
     contentTextField.hidden = YES;
-    CGRect frame = CGRectMake(-15,[Util myYOrHeight:80]-[Util myYOrHeight:35] , kWidth-30, [Util myYOrHeight:35]);
+    CGRect frame = CGRectMake(-15,[Util myYOrHeight:80]-[Util myYOrHeight:35] , kWidth-30, [Util myYOrHeight:30]);
     //登录按钮
     UIButton *nextBt = [[UIButton alloc] initWithFrame:frame];
-    nextBt.backgroundColor = Rgb(16, 117, 224, 1.0);
+    nextBt.backgroundColor = Rgb(2, 139, 230, 1.0);
     if (_cellType == 2) {
         [nextBt setTitle:@"确认提交" forState:UIControlStateNormal];
     }else

@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    lineHeight.constant = 0.5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

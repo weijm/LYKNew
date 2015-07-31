@@ -19,7 +19,7 @@
                         <rect key="frame" x="-34" y="0.0" width="34" height="99.5"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yap-DZ-CcL" userLabel="chooseBt" customClass="UIButton_Custom">
-                                <rect key="frame" x="3.5" y="36.5" width="27" height="27"/>
+                                <rect key="frame" x="3" y="36" width="27" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="27" id="0WT-HX-PWY"/>
                                     <constraint firstAttribute="height" constant="27" id="jhd-2G-wJQ"/>
@@ -56,8 +56,8 @@
                                     <constraint firstAttribute="height" constant="1" id="PNV-p0-o5g"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消息标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmH-xS-G4A" userLabel="titleLab">
-                                <rect key="frame" x="69" y="25" width="181" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.79999999999999982" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消息标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmH-xS-G4A" userLabel="titleLab">
+                                <rect key="frame" x="69" y="28" width="181" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="9nK-4u-eX7"/>
                                 </constraints>
@@ -76,11 +76,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消息摘要消息摘要消息摘要消息摘要消息摘要消息摘要消息摘要消息摘要消息摘要" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aeh-gy-5VC" userLabel="infoLab">
-                                <rect key="frame" x="69" y="52" width="221" height="21"/>
+                                <rect key="frame" x="69" y="51" width="221" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="7YA-In-J08"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -97,9 +97,9 @@
                             <constraint firstItem="Aeh-gy-5VC" firstAttribute="leading" secondItem="63a-95-poo" secondAttribute="trailing" constant="10" id="LhT-bu-gqF"/>
                             <constraint firstAttribute="centerY" secondItem="63a-95-poo" secondAttribute="centerY" id="SKh-iZ-sXk"/>
                             <constraint firstAttribute="centerY" secondItem="Yyv-2T-H3f" secondAttribute="centerY" id="ea6-Fp-HYw"/>
-                            <constraint firstItem="Yyv-2T-H3f" firstAttribute="top" secondItem="YmH-xS-G4A" secondAttribute="bottom" constant="3" id="hAc-Pu-cIZ"/>
+                            <constraint firstItem="Yyv-2T-H3f" firstAttribute="top" secondItem="YmH-xS-G4A" secondAttribute="bottom" id="hAc-Pu-cIZ"/>
                             <constraint firstItem="YmH-xS-G4A" firstAttribute="leading" secondItem="63a-95-poo" secondAttribute="trailing" constant="10" id="m3M-el-l6m"/>
-                            <constraint firstItem="Aeh-gy-5VC" firstAttribute="top" secondItem="Yyv-2T-H3f" secondAttribute="bottom" constant="2" id="nBY-St-5YT"/>
+                            <constraint firstItem="Aeh-gy-5VC" firstAttribute="top" secondItem="Yyv-2T-H3f" secondAttribute="bottom" constant="1" id="nBY-St-5YT"/>
                         </constraints>
                     </view>
                     <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Trk-Rh-e7H" userLabel="bline">
@@ -126,6 +126,7 @@
             <connections>
                 <outlet property="bgToLeft" destination="Pwd-hs-PvP" id="MHN-6b-btO"/>
                 <outlet property="bgToRight" destination="PTw-P8-cNJ" id="7fT-Si-mwz"/>
+                <outlet property="blineWidth" destination="QUy-V5-RYA" id="SjP-4j-Iq3"/>
                 <outlet property="chooseBg" destination="eLC-JJ-HIq" id="kv9-WG-4gE"/>
                 <outlet property="chooseBgToLeft" destination="Tnp-9g-yAP" id="JjU-he-62f"/>
                 <outlet property="chooseBt" destination="yap-DZ-CcL" id="Ujk-83-zeI"/>

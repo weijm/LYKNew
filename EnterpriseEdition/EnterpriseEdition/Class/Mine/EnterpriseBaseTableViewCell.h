@@ -33,6 +33,8 @@
     
     IBOutlet NSLayoutConstraint *xingHeight;
     IBOutlet NSLayoutConstraint *xingWidth;
+    
+    IBOutlet NSLayoutConstraint *lineHeight;
 }
 @property (nonatomic,weak) id<EnterpriseBaseTableViewCellDelegate> delegate;
 @property (nonatomic) int  cellType;

@@ -19,6 +19,7 @@
         addImgHeight.constant = addImgHeight.constant+6;
         addImgWidth.constant = addImgWidth.constant+6;
     }
+    lineHeight.constant = 0.5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

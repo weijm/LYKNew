@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6D-bb-Zxd" userLabel="bg">
-                        <rect key="frame" x="10" y="0.5" width="300" height="112"/>
+                        <rect key="frame" x="10" y="4" width="300" height="108.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -57,7 +57,7 @@
                     <constraint firstItem="zgO-28-zBp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="-10" id="fFw-QS-t1p"/>
                     <constraint firstItem="F6D-bb-Zxd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="hb6-N2-bRU"/>
                     <constraint firstItem="zgO-28-zBp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="qaF-tm-Zgs"/>
-                    <constraint firstItem="F6D-bb-Zxd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="0.5" id="xQM-aE-Ga6"/>
+                    <constraint firstItem="F6D-bb-Zxd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="xQM-aE-Ga6"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

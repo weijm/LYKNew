@@ -18,8 +18,9 @@
                         <rect key="frame" x="10" y="0.0" width="300" height="132.5"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容" translatesAutoresizingMaskIntoConstraints="NO" id="YH6-Ys-VEs" userLabel="textView">
-                                <rect key="frame" x="10" y="10" width="280" height="112.5"/>
+                                <rect key="frame" x="10" y="5" width="280" height="117.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -28,7 +29,7 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="YH6-Ys-VEs" secondAttribute="bottom" constant="10" id="26V-bt-YpA"/>
                             <constraint firstItem="YH6-Ys-VEs" firstAttribute="leading" secondItem="cHS-E0-KFn" secondAttribute="leading" constant="10" id="K2h-pT-fVf"/>
-                            <constraint firstItem="YH6-Ys-VEs" firstAttribute="top" secondItem="cHS-E0-KFn" secondAttribute="top" constant="10" id="byU-Yc-sBH"/>
+                            <constraint firstItem="YH6-Ys-VEs" firstAttribute="top" secondItem="cHS-E0-KFn" secondAttribute="top" constant="5" id="byU-Yc-sBH"/>
                             <constraint firstAttribute="trailing" secondItem="YH6-Ys-VEs" secondAttribute="trailing" constant="10" id="g2F-vC-6Xl"/>
                         </constraints>
                     </view>
@@ -44,6 +45,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="bg" destination="cHS-E0-KFn" id="Du4-xL-l1g"/>
+                <outlet property="contentTextView" destination="YH6-Ys-VEs" id="DrS-sN-AIF"/>
             </connections>
             <point key="canvasLocation" x="187" y="411.5"/>
         </tableViewCell>

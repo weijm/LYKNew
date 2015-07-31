@@ -36,7 +36,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gBV-Cf-K22" userLabel="infoimg">
-                                <rect key="frame" x="10" y="109" width="280" height="148.5"/>
+                                <rect key="frame" x="10" y="109" width="280" height="165.5"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.57647058819999997" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                         </subviews>
@@ -46,7 +46,7 @@
                             <constraint firstItem="gBV-Cf-K22" firstAttribute="leading" secondItem="eXZ-rX-mfu" secondAttribute="leading" constant="10" id="4Jp-rx-i88"/>
                             <constraint firstItem="wgd-cO-hys" firstAttribute="top" secondItem="ZRI-m5-K8V" secondAttribute="bottom" constant="14" id="9es-Rl-7Ku"/>
                             <constraint firstItem="wgd-cO-hys" firstAttribute="leading" secondItem="eXZ-rX-mfu" secondAttribute="leading" constant="12" id="BUn-TS-Cyf"/>
-                            <constraint firstAttribute="bottom" secondItem="gBV-Cf-K22" secondAttribute="bottom" constant="17" id="CLr-bS-pnB"/>
+                            <constraint firstAttribute="bottom" secondItem="gBV-Cf-K22" secondAttribute="bottom" id="CLr-bS-pnB"/>
                             <constraint firstAttribute="trailing" secondItem="wgd-cO-hys" secondAttribute="trailing" constant="12" id="ltE-GY-BEB"/>
                             <constraint firstItem="ZRI-m5-K8V" firstAttribute="leading" secondItem="eXZ-rX-mfu" secondAttribute="leading" constant="12" id="m3P-gO-n45"/>
                             <constraint firstItem="gBV-Cf-K22" firstAttribute="top" secondItem="wgd-cO-hys" secondAttribute="bottom" constant="17" id="vpz-sw-vGk"/>

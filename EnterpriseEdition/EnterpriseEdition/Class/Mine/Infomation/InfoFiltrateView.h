@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface InfoFiltrateView : UIView
-
+{
+    IBOutlet NSLayoutConstraint *lineHeight;
+    
+}
 @property (nonatomic,copy) void(^touchAction)(int index);
 /**
  显示infoFiltrateView

@@ -122,11 +122,11 @@
     
     
     if (_status.length > 0) {
-        
+
         attributedString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n%@", progressString, _status]];
-        
+       
         [attributedString addAttributes:@{
-                                        NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-thin" size:11]}
+                                        NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-thin" size:9]}
                                 range:NSMakeRange(0, progressString.length)];
         [attributedString addAttributes:@{
                                         NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-thin" size:8]}
@@ -134,6 +134,7 @@
         [attributedString addAttributes:@{
                                           NSForegroundColorAttributeName: [UIColor grayColor]}
                                   range:NSMakeRange(progressString.length+1, _status.length)];
+      
         
     }
     else

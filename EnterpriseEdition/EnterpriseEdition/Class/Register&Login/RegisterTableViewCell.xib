@@ -25,7 +25,7 @@
                                     <constraint firstAttribute="height" constant="21" id="Ju9-X9-fGh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号11位数字，不能含有字母" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XHT-7k-LIL" userLabel="contentTextField">
@@ -68,7 +68,7 @@
                                     <constraint firstAttribute="width" constant="70" id="m0n-p7-JCw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R2c-Gl-WxO" userLabel="subbg">
@@ -98,7 +98,7 @@
                                             <constraint firstAttribute="height" constant="21" id="pY5-Tx-Dso"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYj-Eu-Vc8" userLabel="codeBt">
@@ -181,6 +181,7 @@
                 <outlet property="codeTextField" destination="6F8-Pj-QMu" id="BfS-pk-Uo6"/>
                 <outlet property="contentTextField" destination="XHT-7k-LIL" id="swn-Bs-emV"/>
                 <outlet property="hline" destination="HSs-eH-7Ak" id="Q36-nA-lCw"/>
+                <outlet property="lineHeight" destination="n59-pf-Rjc" id="ySv-CE-HpC"/>
                 <outlet property="timesLab" destination="Mmd-tY-XPR" id="P8t-Wl-4rN"/>
                 <outlet property="titleLab" destination="jm1-Gp-a7o" id="2p3-6Q-ga9"/>
             </connections>

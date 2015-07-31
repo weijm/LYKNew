@@ -33,6 +33,9 @@
     
     IBOutlet NSLayoutConstraint *xingHeight;
     IBOutlet NSLayoutConstraint *xingWidth;
+    
+    IBOutlet NSLayoutConstraint *lineHeight;
+    
 }
 @property (nonatomic,weak) id<PositionTableViewCellDelegate> delegate;
 /**

@@ -202,12 +202,12 @@
     switch (index) {
         case 1:
             _titleLab.text = @"学    历 ";
-            leftArray = [NSArray arrayWithObjects:@"不限",@"中专", @"大专",@"本科",@"硕士",@"博士",@"博士后",nil];
+            leftArray = [NSArray arrayWithObjects:@"大专",@"本科",@"研究生",@"博士",nil];
             self.locate.country = [leftArray objectAtIndex:0];
             break;
         case 2:
             _titleLab.text = @"期望薪资";
-            leftArray = [NSArray arrayWithObjects:@"面议",@"2000-3000", @"3000-4000",@"5000-10000",@"10000-15000",@"15000以上",nil];
+            leftArray = [NSArray arrayWithObjects:@"1000-2000",@"2000-4000", @"4000-7000",@"7000-10000",@"10000-15000",@"15000-20000",@"20000以上",@"面议",nil];
             self.locate.country = [leftArray objectAtIndex:0];
             break;
         case 0:
@@ -245,7 +245,7 @@
             break;
         case 4:
             _titleLab.text = @"职位类型";
-            leftArray = [NSArray arrayWithObjects:@"不限", @"全职",@"兼职",@"实习",nil];
+            leftArray = [NSArray arrayWithObjects:@"全职",@"兼职",@"实习",nil];
             self.locate.country = [leftArray objectAtIndex:0];
             break;
         
@@ -268,17 +268,17 @@
             break;
         case 6:
             _titleLab.text = @"工作经验";
-            leftArray = [NSArray arrayWithObjects:@"不限", @"工作经验2年",@"工作经验3-5年",@"工作经验5年以上",@"工作经验10年以上",nil];
+            leftArray = [NSArray arrayWithObjects:@"不限", @"有工作经验",@"无工作经验",nil];
             self.locate.country = [leftArray objectAtIndex:0];
             break;
         case 8:
             _titleLab.text = @"企业性质";
-            leftArray = [NSArray arrayWithObjects:@"国有企业", @"集体企业",@"联营企业",@"股份合作制企业",@"私营企业",@"个体户 ",nil];
+            leftArray = [NSArray arrayWithObjects:@"国有企业", @"有限责任公司",@"股份有限公司",@"中外合资企业",@"私营企业",@"外商投资企业",@"集体企业",nil];
             self.locate.country = [leftArray objectAtIndex:0];
             break;
         case 9:
             _titleLab.text = @"人数规模";
-            leftArray = [NSArray arrayWithObjects:@"20-99人",@"100人以内", @"500人以内",@"500-1000人",@"1000-2000人",@"5000人",nil];
+            leftArray = [NSArray arrayWithObjects:@"小于15人",@"15-49人", @"50-149人",@"150-499人",@"500-2000人",@"2000人以上",nil];
             self.locate.country = [leftArray objectAtIndex:0];
             break;
 
@@ -296,7 +296,7 @@
     [view addSubview:areaBg];
     
     UIView *alphBg = [[UIView alloc] initWithFrame:view.frame];
-    alphBg.backgroundColor = [UIColor grayColor];
+    alphBg.backgroundColor = [UIColor blackColor];
     alphBg.alpha = 0;
     [areaBg addSubview:alphBg];
     
@@ -306,7 +306,7 @@
     
     [UIView animateWithDuration:0.3 animations:^{
         
-        alphBg.alpha = 0.8;
+        alphBg.alpha = 0.2;
         CGRect frame = self.frame;
         frame.origin.y = view.frame.size.height-self.frame.size.height;
         self.frame = frame;

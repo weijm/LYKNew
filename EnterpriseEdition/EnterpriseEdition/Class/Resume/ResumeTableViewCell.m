@@ -198,9 +198,9 @@
         {
             chooseBg.hidden = NO;
             [UIView animateWithDuration:0.25 animations:^{
-                bgToLeft.constant = 30;
-                bgToRight.constant = -10;
-                chooseToLeft.constant = 5;
+                bgToLeft.constant = 40;
+                bgToRight.constant = -20;
+                chooseToLeft.constant = 10;
                 
             } completion:^(BOOL finished){
                 

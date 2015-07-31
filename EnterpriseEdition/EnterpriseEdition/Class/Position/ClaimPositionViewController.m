@@ -156,7 +156,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [Util myYOrHeight:50];
+    return [Util myYOrHeight:47];
 }
 #pragma mark -ClaimPositionTableViewCellDelegate
 -(void)clickedChooseBtAction:(int)index Selected:(NSString*)isSelected

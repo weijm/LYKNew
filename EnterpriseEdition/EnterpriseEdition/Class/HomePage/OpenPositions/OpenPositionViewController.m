@@ -43,6 +43,8 @@
     for (int i =0; i<[titleArray count]; i++) {
         [contentArray addObject:@"0"];
     }
+    
+    lineWidth.constant = 0.5;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,10 +90,10 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row ==11) {
-        return [Util myYOrHeight:120];
+        return [Util myYOrHeight:100];
     }else
     {
-        return [Util myYOrHeight:50];
+        return [Util myYOrHeight:33];
     }
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

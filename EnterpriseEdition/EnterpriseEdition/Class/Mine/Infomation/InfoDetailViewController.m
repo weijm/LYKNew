@@ -95,14 +95,14 @@
 {
     if (infoType == 1) {
         if (indexPath.row == 0) {
-            return [Util myYOrHeight:275];
+            return [Util myYOrHeight:255];
         }else
         {
             return [Util myYOrHeight:133];
         }
     }else
     {
-        return [Util myYOrHeight:100];
+        return [Util myYOrHeight:110];
     }
 }
 @end

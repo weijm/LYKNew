@@ -18,6 +18,7 @@
         CGRect newFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         containerView.frame = newFrame;
         [self addSubview:containerView];
+        lineHeight.constant = 0.5;
     }
     return self;
 }
@@ -35,11 +36,11 @@
     
     float fWdith = 135;
     float fHeight = 105;
-    float viewX = kWidth - fWdith-[Util myXOrWidth:12];
+    float viewX = kWidth - fWdith-[Util myXOrWidth:10];
     if (kIphone6plus) {
-        fWdith = 135*1.5;
-        fHeight = 105*1.5;
-        viewX = kWidth - fWdith+15;
+        fWdith = 135+5;
+        fHeight = 105+5;
+        viewX = kWidth - fWdith+5;
     }
     
     self.frame = CGRectMake(viewX, 64, fWdith, fHeight);

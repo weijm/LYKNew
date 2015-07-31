@@ -13,9 +13,11 @@
 - (void)awakeFromNib {
     // Initialization code
     if (kIphone6plus) {
-        xingHeight.constant = xingHeight.constant*1.5;
-        xingWidth.constant = xingWidth.constant*1.5;
+        xingHeight.constant = xingHeight.constant+1;
+        xingWidth.constant = xingWidth.constant+1;
     }
+    lineHeight.constant = 0.5;
+    contentTextView.backgroundColor = Rgb(245, 245, 245, 1.0);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -34,7 +36,7 @@
         arrowImg.hidden = YES;
         contentTextField.hidden = YES;
         contentTextView.hidden = NO;
-        titBgToBottom.constant = [Util myYOrHeight:80];
+        titBgToBottom.constant = [Util myYOrHeight:70];
     }else
     {
         if (index == 0||index==3||index==6||index==10) {

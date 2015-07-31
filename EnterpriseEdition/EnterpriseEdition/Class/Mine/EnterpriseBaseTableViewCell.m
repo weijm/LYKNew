@@ -16,6 +16,8 @@
         xingHeight.constant = xingHeight.constant+1;
         xingWidth.constant = xingWidth.constant+1;
     }
+    lineHeight.constant = 0.5;
+    contentTextView.backgroundColor = Rgb(245, 245, 245, 1.0);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -39,7 +41,7 @@
         arrowImg.hidden = YES;
         contentTextField.hidden = YES;
         contentTextView.hidden = NO;
-        titBgToBottom.constant = [Util myYOrHeight:80];
+        titBgToBottom.constant = [Util myYOrHeight:40];
     }else
     {
         if (index == 0||index==4||index==9) {

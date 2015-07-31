@@ -31,7 +31,7 @@
     //登录入口
     [self initItems];
     
-    dataTableViewToTop.constant = [Util myYOrHeight:30];
+    dataTableViewToTop.constant = [Util myYOrHeight:35];
     
     contentArray = [[NSMutableArray alloc] initWithObjects:@"",@"",@"",@"",@"", nil];
     //设置协议的字体颜色
@@ -88,7 +88,7 @@
     if (indexPath.row == 4) {
         return [Util myYOrHeight:80];
     }
-    return [Util myYOrHeight:45];
+    return [Util myYOrHeight:44];
 }
 
 #pragma mark - 编辑按钮

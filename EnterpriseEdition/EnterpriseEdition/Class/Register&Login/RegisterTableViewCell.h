@@ -40,6 +40,8 @@
     int seconds;
     //获取验证码的位置
     
+    IBOutlet NSLayoutConstraint *lineHeight;
+    
 }
 @property (nonatomic,weak)id <RegisterTableViewCellDelegate> delegate;
 @property (nonatomic) int  cellType;//0:注册页面的cell 1:忘记密码页面的cell 2:忘记密码中设置密码页面的cell

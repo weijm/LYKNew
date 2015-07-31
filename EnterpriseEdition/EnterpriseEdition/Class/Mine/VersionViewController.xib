@@ -36,30 +36,30 @@
                             </constraints>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_version_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="QOu-NY-PpQ">
-                            <rect key="frame" x="203" y="123" width="193" height="156"/>
+                            <rect key="frame" x="203" y="108" width="193" height="156"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="193" id="UZl-pR-nbk"/>
                                 <constraint firstAttribute="height" constant="156" id="mZh-Vv-CNi"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.1zhaozhao.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0s-zI-x6E">
-                            <rect key="frame" x="0.0" y="229" width="600" height="21"/>
+                            <rect key="frame" x="0.0" y="214" width="600" height="21"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="hTU-o1-r39"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IOS版本号2.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAI-KQ-PP7">
-                            <rect key="frame" x="0.0" y="250" width="600" height="21"/>
+                            <rect key="frame" x="0.0" y="235" width="600" height="21"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="9f8-Hk-IPR"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -74,41 +74,38 @@
                         <constraint firstItem="V0s-zI-x6E" firstAttribute="leading" secondItem="1hz-o3-cn7" secondAttribute="leading" id="LkW-zV-wgF"/>
                         <constraint firstAttribute="trailing" secondItem="V0s-zI-x6E" secondAttribute="trailing" id="Ndz-lT-5tL"/>
                         <constraint firstItem="DAI-KQ-PP7" firstAttribute="top" secondItem="V0s-zI-x6E" secondAttribute="bottom" id="d4G-gx-xra"/>
-                        <constraint firstItem="iJv-1X-Da3" firstAttribute="top" secondItem="QOu-NY-PpQ" secondAttribute="bottom" constant="-130" id="gxy-at-xSt"/>
+                        <constraint firstItem="iJv-1X-Da3" firstAttribute="top" secondItem="QOu-NY-PpQ" secondAttribute="bottom" constant="-115" id="gxy-at-xSt"/>
                         <constraint firstAttribute="trailing" secondItem="iJv-1X-Da3" secondAttribute="trailing" id="op4-LD-k1K"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATQ-F0-ckD">
                     <rect key="frame" x="0.0" y="416" width="600" height="150"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Right Reserved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpW-qS-X0z" userLabel="Label1">
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999964" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Right Reserved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpW-qS-X0z" userLabel="Label1">
                             <rect key="frame" x="0.0" y="129" width="600" height="21"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="YAd-0w-ly5"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.64705882349999999" green="0.67450980390000004" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="copyright©2014Leyikao Education" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACg-dU-Ebp" userLabel="Label2">
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999964" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="copyright©2014Leyikao Education" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACg-dU-Ebp" userLabel="Label2">
                             <rect key="frame" x="0.0" y="108" width="600" height="21"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="abJ-bO-A2u"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.64705882349999999" green="0.67450980390000004" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="乐易考教育科技集团" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zf-9W-9XI" userLabel="Label3">
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999964" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="乐易考教育科技集团" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zf-9W-9XI" userLabel="Label3">
                             <rect key="frame" x="0.0" y="87" width="600" height="21"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="5op-Fl-O79"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.64705882349999999" green="0.67450980390000004" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>

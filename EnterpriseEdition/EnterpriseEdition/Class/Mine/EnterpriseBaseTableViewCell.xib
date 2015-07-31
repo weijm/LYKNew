@@ -40,7 +40,7 @@
                                 </connections>
                             </textField>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NcO-BO-W13" userLabel="contentTextView">
-                                <rect key="frame" x="0.0" y="10" width="170" height="49.5"/>
+                                <rect key="frame" x="0.0" y="5" width="170" height="54.5"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -56,7 +56,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NcO-BO-W13" firstAttribute="top" secondItem="Fp1-X2-zGt" secondAttribute="top" constant="10" id="5cB-75-emd"/>
+                            <constraint firstItem="NcO-BO-W13" firstAttribute="top" secondItem="Fp1-X2-zGt" secondAttribute="top" constant="5" id="5cB-75-emd"/>
                             <constraint firstItem="qI6-M2-EEU" firstAttribute="leading" secondItem="rUK-Da-gxc" secondAttribute="trailing" constant="8" id="ND3-V4-PuN"/>
                             <constraint firstItem="rUK-Da-gxc" firstAttribute="leading" secondItem="Fp1-X2-zGt" secondAttribute="leading" id="Oc5-ea-zsc"/>
                             <constraint firstItem="NcO-BO-W13" firstAttribute="leading" secondItem="Fp1-X2-zGt" secondAttribute="leading" id="PPc-HP-BYT"/>
@@ -79,7 +79,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="职位标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rxj-sJ-suK" userLabel="titleLab">
-                                <rect key="frame" x="14" y="0.0" width="106" height="65.5"/>
+                                <rect key="frame" x="18" y="0.0" width="102" height="65.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -87,7 +87,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Rxj-sJ-suK" firstAttribute="leading" secondItem="4V3-Yr-faU" secondAttribute="trailing" constant="8" id="3g5-RG-R0X"/>
+                            <constraint firstItem="Rxj-sJ-suK" firstAttribute="leading" secondItem="4V3-Yr-faU" secondAttribute="trailing" constant="12" id="3g5-RG-R0X"/>
                             <constraint firstAttribute="bottom" secondItem="Rxj-sJ-suK" secondAttribute="bottom" id="BZ0-3M-1ak"/>
                             <constraint firstItem="4V3-Yr-faU" firstAttribute="leading" secondItem="gC7-xk-phX" secondAttribute="leading" id="RCT-KS-6X1"/>
                             <constraint firstAttribute="trailing" secondItem="Rxj-sJ-suK" secondAttribute="trailing" id="TLx-fB-QVD"/>
@@ -116,6 +116,7 @@
                 <outlet property="contentTextField" destination="rUK-Da-gxc" id="pYa-Lm-GC5"/>
                 <outlet property="contentTextFieldToRight" destination="ND3-V4-PuN" id="xp9-oU-Wrr"/>
                 <outlet property="contentTextView" destination="NcO-BO-W13" id="ovP-rL-AZg"/>
+                <outlet property="lineHeight" destination="yxm-JX-NCy" id="U5I-IU-Yd2"/>
                 <outlet property="titBgToBottom" destination="sjG-VI-KzD" id="Gb2-m6-RHz"/>
                 <outlet property="titleBg" destination="gC7-xk-phX" id="eUO-Rq-nGg"/>
                 <outlet property="titleLab" destination="Rxj-sJ-suK" id="qrQ-V6-9Yk"/>

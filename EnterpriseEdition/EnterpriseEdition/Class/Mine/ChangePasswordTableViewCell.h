@@ -20,6 +20,8 @@
     
     IBOutlet UILabel *titleLab;
     IBOutlet UITextField *contentTextField;
+    
+    IBOutlet NSLayoutConstraint *lineHeight;
 }
 @property (nonatomic,weak) id<ChangePasswordTableViewCellDelegate> delegate;
 /**

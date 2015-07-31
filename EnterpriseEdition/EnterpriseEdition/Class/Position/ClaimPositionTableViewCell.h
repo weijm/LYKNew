@@ -17,6 +17,8 @@
 @interface ClaimPositionTableViewCell : UITableViewCell
 {
     IBOutlet UIButton_Custom *chooseBt;
+    
+    IBOutlet NSLayoutConstraint *lineHeight;
 }
 @property(nonatomic,weak) id<ClaimPositionTableViewCellDelegate> delegate;
 

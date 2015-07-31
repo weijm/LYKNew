@@ -78,10 +78,8 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (kIphone6plus) {
-        return 80;
-    }
-    return [Util myYOrHeight:60];
+   
+    return [Util myYOrHeight:55];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -269,7 +267,7 @@
     for (int i =0; i < 6; i++) {
         NSString *title = (i%2==0)?infoStr:notiStr;
         NSString *titleStr = [NSString stringWithFormat:@"%@%d",title,i];
-        NSString *time = [NSString stringWithFormat:@"15/08/%d",i+10];
+        NSString *time = [NSString stringWithFormat:@"08/%d",i+10];
         NSString *info = [NSString stringWithFormat:@"消息摘要%d消息摘要%d消息摘要%d消息消息消息消息消息消息",i,i,i];
         NSString *type = (i%2==0)?@"1":@"2";
         

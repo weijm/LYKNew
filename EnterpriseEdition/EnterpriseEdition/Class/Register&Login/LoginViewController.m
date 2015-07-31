@@ -35,7 +35,7 @@
     
     [self initItems];
     
-    CGRect frame = CGRectMake(0, topBarheight+[Util myYOrHeight:30], kWidth, [Util myYOrHeight:100]);
+    CGRect frame = CGRectMake(0, topBarheight+[Util myYOrHeight:30], kWidth, [Util myYOrHeight:93]);
     //初始化编辑视图
     loginView = [[LoginHeaderView alloc] initWithFrame:frame];
     loginView.delegate = self;
@@ -53,11 +53,11 @@
 #pragma mark - 初始化登录按钮和忘记密码
 -(void)initButton
 {
-    float btY = loginView.frame.origin.y + loginView.frame.size.height+[Util myYOrHeight:45];
-    CGRect frame = CGRectMake(15,btY , kWidth-30, [Util myYOrHeight:35]);
+    float btY = loginView.frame.origin.y + loginView.frame.size.height+[Util myYOrHeight:30];
+    CGRect frame = CGRectMake(15,btY , kWidth-30, [Util myYOrHeight:30]);
     //登录按钮
     UIButton *loginBt = [[UIButton alloc] initWithFrame:frame];
-    loginBt.backgroundColor = Rgb(16, 117, 224, 1.0);
+    loginBt.backgroundColor = Rgb(2, 139, 230, 1.0);
     [loginBt setTitle:@"登  录" forState:UIControlStateNormal];
     loginBt.tag =1;
     [loginBt addTarget:self action:@selector(clickedBtAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -67,7 +67,7 @@
     
     //忘记密码按钮
     float btW = [Util myXOrWidth:100];
-    btY = frame.origin.y+frame.size.height+[Util myYOrHeight:15];
+    btY = frame.origin.y+frame.size.height+[Util myYOrHeight:10];
     frame = CGRectMake((kWidth-btW)/2, btY, btW, [Util myYOrHeight:30]);
     UIButton *forgetBt = [[UIButton alloc] initWithFrame:frame];
     [forgetBt setTitle:@"忘记密码" forState:UIControlStateNormal];

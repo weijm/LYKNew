@@ -41,7 +41,7 @@
 //初始化middleView
 -(void)initMiddleView
 {
-    CGRect frame = CGRectMake(0, kHeaderViewH, kWidth - [Util myXOrWidth:Edge]*2, kMiddleViewH);
+    CGRect frame = CGRectMake(0, kHeaderViewH-[Util myYOrHeight:5], kWidth - [Util myXOrWidth:Edge]*2, kMiddleViewH);
     middleView = [[CellMiddleView alloc] initWithFrame:frame];
     [subView addSubview:middleView];
 }
@@ -82,9 +82,9 @@
         {
             chooseBg.hidden = NO;
             [UIView animateWithDuration:0.25 animations:^{
-                bgToLeft.constant = 30;
-                bgToRight.constant = -10;
-                chooseBgToLeft.constant = 5;
+                bgToLeft.constant = 40;
+                bgToRight.constant = -20;
+                chooseBgToLeft.constant = 10;
                 
             } completion:^(BOOL finished){
                 

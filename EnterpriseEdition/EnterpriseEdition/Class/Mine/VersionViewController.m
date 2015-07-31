@@ -20,9 +20,9 @@
     self.title = @"版本说明";
     
     if (kIphone6plus) {
-        versionimgHeiht.constant = versionimgHeiht.constant*1.5;
-        versonimgWidth.constant = versonimgWidth.constant*1.5;
-        versionimgY.constant = -200;
+        versionimgHeiht.constant = versionimgHeiht.constant+5;
+        versonimgWidth.constant = versonimgWidth.constant*+5;
+        versionimgY.constant = -150;
     }
     
     self.view.backgroundColor = kCVBackgroundColor;

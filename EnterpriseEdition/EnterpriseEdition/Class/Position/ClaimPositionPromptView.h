@@ -11,6 +11,7 @@
 @interface ClaimPositionPromptView : UIView
 {
     
+    IBOutlet UILabel *firstLab;
     IBOutlet UILabel *proLab;
 }
 @end

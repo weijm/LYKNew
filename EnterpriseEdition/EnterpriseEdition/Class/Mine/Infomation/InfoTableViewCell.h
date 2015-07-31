@@ -42,6 +42,7 @@
     
     IBOutlet NSLayoutConstraint *iconHeight;
     
+    IBOutlet NSLayoutConstraint *blineWidth;
 }
 @property (nonatomic,weak) id<InfoTableViewCellDelegate> delegate;
 /**

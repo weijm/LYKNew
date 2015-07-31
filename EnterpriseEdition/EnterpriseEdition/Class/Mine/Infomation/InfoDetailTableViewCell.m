@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    [self setTextViewParagraphStyle];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -34,5 +35,17 @@
         bg.layer.masksToBounds = YES;
     }
 }
-
+-(void)setTextViewParagraphStyle
+{
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 6;// 字体的行间距
+    
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont systemFontOfSize:14],
+                                 NSParagraphStyleAttributeName:paragraphStyle,
+                                 NSForegroundColorAttributeName:
+                                     Rgb(115, 115, 115, 1.0)
+                                 };
+    contentTextView.attributedText = [[NSAttributedString alloc] initWithString:contentTextView.text attributes:attributes];
+}
 @end

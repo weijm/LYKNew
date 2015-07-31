@@ -22,14 +22,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MRg-hA-tyA" userLabel="promptView">
                     <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未确保企业上传资料真实性，请填写联系人资质" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wa1-LB-IwZ">
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.35000000000000003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未确保企业上传资料真实性，请填写联系人资质" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wa1-LB-IwZ">
                             <rect key="frame" x="170" y="5" width="260" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="OR5-wj-rEr"/>
                                 <constraint firstAttribute="width" constant="260" id="kxr-3d-wQ3"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_enterprise_prompt_img.png" translatesAutoresizingMaskIntoConstraints="NO" id="iDO-zn-6aC">
@@ -39,13 +39,13 @@
                                 <constraint firstAttribute="width" constant="16" id="WSH-Ep-S99"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如需要帮助请拨打:4008-907-977" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwg-Eg-VFI">
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.35000000000000003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如需要帮助请拨打:4008-907-977" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwg-Eg-VFI">
                             <rect key="frame" x="0.0" y="25" width="600" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="MFi-Le-9so"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -70,10 +70,10 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXd-tI-9gp" userLabel="saveBt">
-                    <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                    <rect key="frame" x="0.0" y="552" width="600" height="48"/>
                     <color key="backgroundColor" red="0.30588235289999999" green="0.64313725489999995" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="19r-qf-6N5"/>
+                        <constraint firstAttribute="height" constant="48" id="19r-qf-6N5"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="保存，提交审核">

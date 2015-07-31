@@ -98,7 +98,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return kHeaderViewH+ kMiddleViewH + [Util myYOrHeight:6];
+    return kHeaderViewH+ kMiddleViewH + [Util myYOrHeight:3];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -106,7 +106,7 @@
         return kNHeaderViewHeight;
     }else
     {
-        return [Util myYOrHeight:20];
+        return [Util myYOrHeight:8];
     }
     
 }

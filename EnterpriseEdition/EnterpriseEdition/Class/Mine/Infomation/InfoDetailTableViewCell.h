@@ -12,6 +12,7 @@
 {
     IBOutlet UIView *bg;
     
+    IBOutlet UITextView *contentTextView;
 }
 @property(nonatomic) int infoType;
 /**

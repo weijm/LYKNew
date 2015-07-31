@@ -26,7 +26,7 @@
     self.title = @"忘记密码";
     self.view.backgroundColor = kCVBackgroundColor;
     
-    dataTableViewToTop.constant = [Util myYOrHeight:30];
+    dataTableViewToTop.constant = [Util myYOrHeight:35];
     
     contentArray = [[NSMutableArray alloc] initWithObjects:@"",@"",@"",nil];
     
@@ -88,7 +88,7 @@
     if (indexPath.row == 2) {
         return [Util myYOrHeight:80];
     }
-    return [Util myYOrHeight:45];
+    return [Util myYOrHeight:44];
 }
 #pragma mark - RegisterTableViewCellDelegate
 -(void)setEditView:(UITextField*)_editView

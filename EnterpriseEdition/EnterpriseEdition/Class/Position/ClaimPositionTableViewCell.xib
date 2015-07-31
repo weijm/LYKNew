@@ -44,7 +44,7 @@
                             <constraint firstAttribute="height" constant="21" id="oRE-0m-5yD"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gSj-sh-q1e" userLabel="line">
@@ -69,6 +69,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="chooseBt" destination="azX-3c-FzI" id="hvm-s9-h4U"/>
+                <outlet property="lineHeight" destination="a1h-JF-bFT" id="mxy-ve-7AL"/>
             </connections>
             <point key="canvasLocation" x="146" y="246.5"/>
         </tableViewCell>

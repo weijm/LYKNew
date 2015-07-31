@@ -19,6 +19,8 @@
     IBOutlet NSLayoutConstraint *dataTableViewToBottom;
     
     IBOutlet NSLayoutConstraint *dataTableViewToTop;
+    
+    IBOutlet NSLayoutConstraint *lineWidth;
 }
 @property (nonatomic) BOOL isEditAgain;
 /**

@@ -23,6 +23,8 @@
     
     IBOutlet NSLayoutConstraint *addImgHeight;
     IBOutlet NSLayoutConstraint *addImgWidth;
+    
+    IBOutlet NSLayoutConstraint *lineHeight;
 }
 @property(nonatomic,weak) id<EnterpriseImgTableViewCellDelegate> delegate;
 -(void)initData:(NSDictionary*)dictionary;
