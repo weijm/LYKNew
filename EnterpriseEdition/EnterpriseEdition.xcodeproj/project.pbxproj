@@ -224,6 +224,8 @@
 		20D468571B6EF7B4008A7B78 /* homepage_banner_select@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D468551B6EF7B4008A7B78 /* homepage_banner_select@3x.png */; };
 		20D468581B6EF7B4008A7B78 /* homepage_banner_selected_highted@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D468561B6EF7B4008A7B78 /* homepage_banner_selected_highted@3x.png */; };
 		20D468631B6EFF1D008A7B78 /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D468621B6EFF1D008A7B78 /* SMPageControl.m */; };
+		20D468651B6F06D7008A7B78 /* homepage_search_bt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D468641B6F06D7008A7B78 /* homepage_search_bt@3x.png */; };
+		20D468681B6F0DDE008A7B78 /* CustomSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D468671B6F0DDE008A7B78 /* CustomSearchBar.m */; };
 		20D58BA71B54F814007B2A3F /* QMapKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20D58BA61B54F814007B2A3F /* QMapKit.bundle */; };
 		20D58BA91B54F82C007B2A3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D58BA81B54F82C007B2A3F /* QuartzCore.framework */; };
 		20D58BAB1B54F834007B2A3F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D58BAA1B54F834007B2A3F /* CoreLocation.framework */; };
@@ -593,6 +595,9 @@
 		20D468561B6EF7B4008A7B78 /* homepage_banner_selected_highted@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_banner_selected_highted@3x.png"; sourceTree = "<group>"; };
 		20D468611B6EFF1D008A7B78 /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
 		20D468621B6EFF1D008A7B78 /* SMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageControl.m; sourceTree = "<group>"; };
+		20D468641B6F06D7008A7B78 /* homepage_search_bt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_search_bt@3x.png"; sourceTree = "<group>"; };
+		20D468661B6F0DDE008A7B78 /* CustomSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSearchBar.h; sourceTree = "<group>"; };
+		20D468671B6F0DDE008A7B78 /* CustomSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSearchBar.m; sourceTree = "<group>"; };
 		20D58BA61B54F814007B2A3F /* QMapKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = QMapKit.bundle; sourceTree = "<group>"; };
 		20D58BA81B54F82C007B2A3F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		20D58BAA1B54F834007B2A3F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -880,6 +885,8 @@
 				2076B2B71B5C9A1E00BC7D97 /* SearchResumeViewController.h */,
 				2076B2B81B5C9A1E00BC7D97 /* SearchResumeViewController.m */,
 				2076B2B91B5C9A1E00BC7D97 /* SearchResumeViewController.xib */,
+				20D468661B6F0DDE008A7B78 /* CustomSearchBar.h */,
+				20D468671B6F0DDE008A7B78 /* CustomSearchBar.m */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1040,6 +1047,7 @@
 			children = (
 				20F0F2371B5E160C00CB1D71 /* CommendResume */,
 				20BA85B91B6763BF00757788 /* homepage_commend_img@3x.png */,
+				20D468641B6F06D7008A7B78 /* homepage_search_bt@3x.png */,
 				20D468551B6EF7B4008A7B78 /* homepage_banner_select@3x.png */,
 				20D468561B6EF7B4008A7B78 /* homepage_banner_selected_highted@3x.png */,
 				20054E9E1B6628DA009FA771 /* homepage_hire_icon1@3x.png */,
@@ -1874,6 +1882,7 @@
 				201EDB161B57819E0080A12A /* EducationTableViewCell.xib in Resources */,
 				20C93F7E1B68C9800050514B /* homepage_more_arrow@3x.png in Resources */,
 				2035430F1B4CBD40007FF4A8 /* ResumeViewController.xib in Resources */,
+				20D468651B6F06D7008A7B78 /* homepage_search_bt@3x.png in Resources */,
 				20054EA31B6628DA009FA771 /* homepage_hire_icon2@3x.png in Resources */,
 				20F8FDC81B4FB88D008BCEE7 /* resume_collected_bt@2x.png in Resources */,
 				20054E961B661703009FA771 /* enterpriseInfo.plist in Resources */,
@@ -1906,6 +1915,7 @@
 			files = (
 				20A32A2B1B59096500E1B5F8 /* NowHiringViewController.m in Sources */,
 				20054E841B65FD5D009FA771 /* RegisterSuccessViewController.m in Sources */,
+				20D468681B6F0DDE008A7B78 /* CustomSearchBar.m in Sources */,
 				2076B2C71B5CEB3400BC7D97 /* NowHiringTableViewCell.m in Sources */,
 				20F0F2501B5E23F700CB1D71 /* InfoViewController.m in Sources */,
 				201EDB1A1B5795AB0080A12A /* HobbiesTableViewCell.m in Sources */,

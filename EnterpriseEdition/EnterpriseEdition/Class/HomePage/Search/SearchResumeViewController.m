@@ -10,9 +10,9 @@
 #import "UIButton+Custom.h"
 #import "FooterView.h"
 #import "FiltratePickerView.h"
+#import "CustomSearchBar.h"
 
-
-#define kSearchBarRect CGRectMake(30,22,(kWidth - 30*2),40)
+#define kSearchBarRect CGRectMake(0,22,kWidth,40)
 @interface SearchResumeViewController ()
 {
     UISearchBar *customSearchBar;
@@ -64,7 +64,7 @@
     customSearchBar.backgroundImage = [Util imageWithColor:[UIColor clearColor]];
     //searchBar的提示文字
     if (kIphone6) {
-        customSearchBar.placeholder = @"搜索                                    ";
+        customSearchBar.placeholder = @"搜索                                                      ";
     }else if (kIphone6plus)
     {
         customSearchBar.placeholder = @"搜索                                                 ";
@@ -74,7 +74,14 @@
     }
     
     //设置textFiled的背景
-//    [customSearchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"resume_search_bg"] forState:UIControlStateNormal];
+    [customSearchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"resume_search_bg"] forState:UIControlStateNormal];
+    [customSearchBar setImage:[UIImage imageNamed:@"homepage_search_bt"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+    UITextField *searchField = [customSearchBar valueForKey:@"_searchField"];
+    if (searchField) {
+        searchField.textColor = [UIColor whiteColor];
+    }
+    
+    customSearchBar.barStyle = UIBarStyleBlackTranslucent;
     //添加到页面上
     self.navigationItem.titleView = customSearchBar;
 }
@@ -82,23 +89,24 @@
 #pragma mark - 编辑按钮
 -(void)initItems
 {
-    CGRect frame = CGRectMake(0, 0, 50, 30);
+    CGRect frame = CGRectMake(0, 0, 15, 30);
     
     UIButton *leftBt = [[UIButton alloc] initWithFrame:frame];
     [leftBt setImage:[UIImage imageNamed:@"back_bt"] forState:UIControlStateNormal];
     UIEdgeInsets imageInsets = leftBt.imageEdgeInsets;
-    leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-30, imageInsets.bottom, imageInsets.right+20);
+    leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-10, imageInsets.bottom, imageInsets.right+10);
     [leftBt addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
     self.navigationItem.leftBarButtonItem = leftItem;
     
+    frame = CGRectMake(0, 0, 30, 30);
     rightBt = [[UIButton_Custom alloc] initWithFrame:frame];
     [rightBt setImage:[UIImage imageNamed:@"home_edit_btn"] forState:UIControlStateNormal];
     imageInsets = rightBt.imageEdgeInsets;
-    rightBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left+20, imageInsets.bottom, imageInsets.right-20);
+    rightBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left+10, imageInsets.bottom, imageInsets.right-10);
     rightBt.titleLabel.font = [UIFont systemFontOfSize:14];
     UIEdgeInsets titleInsets = rightBt.titleEdgeInsets;
-    rightBt.titleEdgeInsets = UIEdgeInsetsMake(titleInsets.top, titleInsets.left+20, titleInsets.bottom, titleInsets.right-20);
+    rightBt.titleEdgeInsets = UIEdgeInsetsMake(titleInsets.top, titleInsets.left+10, titleInsets.bottom, titleInsets.right-10);
     [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
     self.navigationItem.rightBarButtonItem = rightItem;

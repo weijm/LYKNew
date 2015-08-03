@@ -75,11 +75,9 @@
     CGPoint point = [sender locationInView:bannerScrollView];
     float pointX = point.x;
     int pageIndex = pointX/kWidth;
-    NSLog(@"touchImageInScrollView pageIndex == %d",pageIndex);
 }
 - (void)spacePageControl:(SMPageControl *)sender
 {
-    NSLog(@"Current Page (SMPageControl): %li", (long)sender.currentPage);
     CGPoint offset = CGPointMake(bannerScrollView.frame.size.width * sender.currentPage, 0);
     [bannerScrollView setContentOffset:offset animated:YES];
 }
