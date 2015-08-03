@@ -27,7 +27,9 @@
             itemLab.font = [UIFont systemFontOfSize:14];
         }else if (kIphone5||kIphone4)
         {
-            itemBtY.constant = 22.5;
+            itemBtY.constant = 23;
+            itemLab.font = [UIFont systemFontOfSize:12];
+            itemLabToItemBt.constant = -3;
         }
     }
     return self;

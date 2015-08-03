@@ -246,6 +246,12 @@
 		20D468A31B6F12AB008A7B78 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D468911B6F12AB008A7B78 /* UIWebView+AFNetworking.m */; };
 		20D468A51B6F12CA008A7B78 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D468A41B6F12CA008A7B78 /* Security.framework */; };
 		20D468A71B6F12DF008A7B78 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D468A61B6F12DF008A7B78 /* MobileCoreServices.framework */; };
+		20D468AB1B6F1A23008A7B78 /* CombiningData.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D468AA1B6F1A23008A7B78 /* CombiningData.m */; };
+		20D468BA1B6F474D008A7B78 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D468B71B6F474D008A7B78 /* 37x-Checkmark.png */; };
+		20D468BB1B6F474D008A7B78 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D468B91B6F474D008A7B78 /* MBProgressHUD.m */; };
+		20D468C01B6F4814008A7B78 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D468BE1B6F4814008A7B78 /* BaseViewController.m */; };
+		20D468C11B6F4814008A7B78 /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D468BF1B6F4814008A7B78 /* BaseViewController.xib */; };
+		20D468C41B6F49EC008A7B78 /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D468C31B6F49EC008A7B78 /* UIView+ViewController.m */; };
 		20D58BA71B54F814007B2A3F /* QMapKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20D58BA61B54F814007B2A3F /* QMapKit.bundle */; };
 		20D58BA91B54F82C007B2A3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D58BA81B54F82C007B2A3F /* QuartzCore.framework */; };
 		20D58BAB1B54F834007B2A3F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D58BAA1B54F834007B2A3F /* CoreLocation.framework */; };
@@ -658,6 +664,17 @@
 		20D468911B6F12AB008A7B78 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		20D468A41B6F12CA008A7B78 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		20D468A61B6F12DF008A7B78 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		20D468A81B6F14FE008A7B78 /* WebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebInterface.h; sourceTree = "<group>"; };
+		20D468A91B6F1A23008A7B78 /* CombiningData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CombiningData.h; sourceTree = "<group>"; };
+		20D468AA1B6F1A23008A7B78 /* CombiningData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CombiningData.m; sourceTree = "<group>"; };
+		20D468B71B6F474D008A7B78 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
+		20D468B81B6F474D008A7B78 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		20D468B91B6F474D008A7B78 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		20D468BD1B6F4814008A7B78 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		20D468BE1B6F4814008A7B78 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		20D468BF1B6F4814008A7B78 /* BaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseViewController.xib; sourceTree = "<group>"; };
+		20D468C21B6F49EC008A7B78 /* UIView+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewController.h"; sourceTree = "<group>"; };
+		20D468C31B6F49EC008A7B78 /* UIView+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
 		20D58BA61B54F814007B2A3F /* QMapKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = QMapKit.bundle; sourceTree = "<group>"; };
 		20D58BA81B54F82C007B2A3F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		20D58BAA1B54F834007B2A3F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -987,6 +1004,7 @@
 		208EBDAE1B4A82C000AB0730 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				20D468B11B6F431B008A7B78 /* HUD */,
 				20D468691B6F127A008A7B78 /* AFNetworking */,
 				20F0F21D1B5DD59400CB1D71 /* CircularProgressView */,
 				20A329FB1B58A2CB00E1B5F8 /* FMDB */,
@@ -1074,6 +1092,7 @@
 		2097D3011B46235500611432 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				20D468BC1B6F4804008A7B78 /* Base */,
 				208EBDAE1B4A82C000AB0730 /* Third */,
 				2097D31A1B462FD500611432 /* Util */,
 				203542DC1B4CBB45007FF4A8 /* Register&Login */,
@@ -1165,6 +1184,7 @@
 			isa = PBXGroup;
 			children = (
 				2097D31B1B46300C00611432 /* Config.h */,
+				20D468A81B6F14FE008A7B78 /* WebInterface.h */,
 				2097D31C1B46390C00611432 /* Util.h */,
 				2097D31D1B46390C00611432 /* Util.m */,
 				205CA9C11B4BD9F4007BAC89 /* UIButton+Custom.h */,
@@ -1172,6 +1192,8 @@
 				20D58BAE1B54FACD007B2A3F /* LocationViewController.h */,
 				20D58BAF1B54FACD007B2A3F /* LocationViewController.m */,
 				20D58BB01B54FACD007B2A3F /* LocationViewController.xib */,
+				20D468A91B6F1A23008A7B78 /* CombiningData.h */,
+				20D468AA1B6F1A23008A7B78 /* CombiningData.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1494,6 +1516,28 @@
 				20D468911B6F12AB008A7B78 /* UIWebView+AFNetworking.m */,
 			);
 			path = "UIKit+AFNetworking";
+			sourceTree = "<group>";
+		};
+		20D468B11B6F431B008A7B78 /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				20D468C21B6F49EC008A7B78 /* UIView+ViewController.h */,
+				20D468C31B6F49EC008A7B78 /* UIView+ViewController.m */,
+				20D468B71B6F474D008A7B78 /* 37x-Checkmark.png */,
+				20D468B81B6F474D008A7B78 /* MBProgressHUD.h */,
+				20D468B91B6F474D008A7B78 /* MBProgressHUD.m */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
+		20D468BC1B6F4804008A7B78 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				20D468BD1B6F4814008A7B78 /* BaseViewController.h */,
+				20D468BE1B6F4814008A7B78 /* BaseViewController.m */,
+				20D468BF1B6F4814008A7B78 /* BaseViewController.xib */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		20D58BA11B54F763007B2A3F /* QMap */ = {
@@ -1940,6 +1984,7 @@
 				2018CA401B60EE5B00F6200F /* ChangePasswordViewController.xib in Resources */,
 				20C93F8A1B68D0510050514B /* my_enterprise_right_line@3x.png in Resources */,
 				20A32A2C1B59096500E1B5F8 /* NowHiringViewController.xib in Resources */,
+				20D468C11B6F4814008A7B78 /* BaseViewController.xib in Resources */,
 				20C93F861B68CD980050514B /* my_enterprise_prompt_img@3x.png in Resources */,
 				202D47FA1B61E62600654E7C /* InfoTableViewCell.xib in Resources */,
 				2076B2BB1B5C9A1E00BC7D97 /* SearchResumeViewController.xib in Resources */,
@@ -1957,6 +2002,7 @@
 				2018CA391B60E77000F6200F /* VersionViewController.xib in Resources */,
 				20054EA11B6628DA009FA771 /* homepage_hire_icon1@3x.png in Resources */,
 				20BA85DE1B67843600757788 /* resume_choose_selected_bt@3x.png in Resources */,
+				20D468BA1B6F474D008A7B78 /* 37x-Checkmark.png in Resources */,
 				20F0F2401B5E1C6A00CB1D71 /* CommendResumeForJobViewController.xib in Resources */,
 				20C93F681B68A1EA0050514B /* my_cell_icon5@3x.png in Resources */,
 				20E9E1651B5F8EAB0013A865 /* PositionInfoTableViewCell0.xib in Resources */,
@@ -2073,6 +2119,7 @@
 				201EDB321B57AA6A0080A12A /* ExperienceView.m in Sources */,
 				20054E7F1B65DC01009FA771 /* SetPasswordViewController.m in Sources */,
 				202D47F91B61E62600654E7C /* InfoTableViewCell.m in Sources */,
+				20D468AB1B6F1A23008A7B78 /* CombiningData.m in Sources */,
 				20F0F23F1B5E1C6A00CB1D71 /* CommendResumeForJobViewController.m in Sources */,
 				202D48071B621C9D00654E7C /* InfoDetailTableViewCell.m in Sources */,
 				20D468A01B6F12AB008A7B78 /* UIImageView+AFNetworking.m in Sources */,
@@ -2108,10 +2155,12 @@
 				20F0F2621B5E310E00CB1D71 /* PositionTableViewCell.m in Sources */,
 				201A9C7B1B535FCA00664792 /* FiltrateView.m in Sources */,
 				205CA9C31B4BD9F4007BAC89 /* UIButton+Custom.m in Sources */,
+				20D468BB1B6F474D008A7B78 /* MBProgressHUD.m in Sources */,
 				20E9E16E1B5F8ECD0013A865 /* PositionInfoTableViewCell2.m in Sources */,
 				202D47EB1B61C81D00654E7C /* ChangePasswordTableViewCell.m in Sources */,
 				20D4689C1B6F12AB008A7B78 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				20D468961B6F12AB008A7B78 /* AFNetworkReachabilityManager.m in Sources */,
+				20D468C01B6F4814008A7B78 /* BaseViewController.m in Sources */,
 				20A32A3F1B5909C200E1B5F8 /* CollectedViewController.m in Sources */,
 				202D48111B622EB900654E7C /* InfoFiltrateView.m in Sources */,
 				20A32A301B59097C00E1B5F8 /* HaveDownloadViewController.m in Sources */,
@@ -2153,6 +2202,7 @@
 				20BB62241B4E638A006BD455 /* CellBottomView.m in Sources */,
 				202D48241B62452E00654E7C /* LoginHeaderView.m in Sources */,
 				203542F71B4CBB45007FF4A8 /* RegisterUserViewController.m in Sources */,
+				20D468C41B6F49EC008A7B78 /* UIView+ViewController.m in Sources */,
 				20BB62141B4E5611006BD455 /* CellHeaderView.m in Sources */,
 				20E9E14C1B5F4B2E0013A865 /* PositionHeaderView.m in Sources */,
 				208EBDB51B4A82D800AB0730 /* CustomLabel.m in Sources */,

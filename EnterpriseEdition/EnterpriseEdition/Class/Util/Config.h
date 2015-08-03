@@ -9,6 +9,13 @@
 #ifndef EnterpriseEdition_Config_h
 #define EnterpriseEdition_Config_h
 #endif
+
+#ifdef DEBUG
+#define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define DLog(...)
+#endif
+
 //设备屏宽
 #define kWidth [UIScreen mainScreen].bounds.size.width
 //设备高度
@@ -47,3 +54,7 @@
 #define kRegisterAccount @"kRegisterAccount"
 //导入公共文件
 #import "Util.h"
+#import "WebInterface.h"
+#import "AFHttpClient.h"
+#import "CombiningData.h"
+#import "BaseViewController.h"

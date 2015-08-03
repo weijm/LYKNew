@@ -25,6 +25,8 @@ typedef enum : NSUInteger {
 @property(nonatomic,copy)void(^UploadFileStatus)(BOOL isSuccess ,NSDictionary *dictionary);
 //下载文件获取字节流
 @property(nonatomic,copy)void(^DownloadFile)(NSData *data);
+//异步请求 返回的结果
+@property (nonatomic,copy) void(^FinishedDidBlock)(id result,NSError *error);
 + (instancetype)sharedClientWithUrlString:(NSString*)urlString;
 + (instancetype)sharedClient;
 
@@ -57,12 +59,12 @@ typedef enum : NSUInteger {
  *  同步请求
  *
  *  @param urlString  请求地址
- *  @param params     参数
+ *  @param params     json参数
  *  @param httpMethod 请求类型
  *  @param _securityPolicy ssl请求文件
  *  @return id
  */
-+ (void)asyncHTTPWithURl:(NSString*)urlString params:(NSDictionary*)params httpMethod:(HttpMethod)httpMethod WithSSl:(AFSecurityPolicy*)_securityPolicy;
++ (void)asyncHTTPWithURl:(NSString*)urlString params:(NSString*)params httpMethod:(HttpMethod)httpMethod WithSSl:(AFSecurityPolicy*)_securityPolicy;
 //+ (id)uploadWithURL:(NSString *)urlString attachment:(NSData *)fileData;
 + (void)uploadWithURL:(NSString *)urlString WithBaseUrl:(NSString*)baseUrl attachment:(NSData *)fileData WithSSl:(AFSecurityPolicy*)_securityPolicy;
 //下载文件

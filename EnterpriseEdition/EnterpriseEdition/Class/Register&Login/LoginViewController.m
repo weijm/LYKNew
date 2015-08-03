@@ -90,7 +90,7 @@
         if ([Util checkTelephone:phone]) {
             NSString *password = [contentArray lastObject];
             if ([Util checkPassWord:password]) {
-                NSLog(@"账号密码 格式正确 请求服务器");
+                [self requestLogin:phone password:password];
             }
         }
     }else
@@ -104,7 +104,31 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+#pragma mark - 服务器请求
+-(void)requestLogin:(NSString*)userName password:(NSString*)password
+{
+    [self showHUD:@"正在登录"];
+    NSString *loginJson = [CombiningData loginUser:userName Password:password];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:loginJson httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUDWithComplete:@"登录成功"];
+            }else
+            {
+                [self hideHUDFaild:[result objectForKey:@"message"]];
+            }
+        }else
+        {
+            [self hideHUD];
+            [self showAlertView:@"服务器请求失败"];
+        }
+        
+    };
+    
+    
+}
 #pragma mark - 编辑按钮
 -(void)initItems
 {

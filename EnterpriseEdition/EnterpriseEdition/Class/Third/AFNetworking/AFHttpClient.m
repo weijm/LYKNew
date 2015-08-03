@@ -118,7 +118,16 @@ static AFHttpClient *_sharedClient = nil;
     
     return [operation responseObject];
 }
-+ (void)asyncHTTPWithURl:(NSString*)urlString params:(NSDictionary*)params httpMethod:(HttpMethod)httpMethod WithSSl:(AFSecurityPolicy*)_securityPolicy;
+/**
+ *  异步请求
+ *
+ *  @param urlString  请求地址
+ *  @param params     json参数
+ *  @param httpMethod 请求类型
+ *  @param _securityPolicy   ssl验证
+ *  @return id
+ */
++ (void)asyncHTTPWithURl:(NSString*)urlString params:(NSString*)params httpMethod:(HttpMethod)httpMethod WithSSl:(AFSecurityPolicy*)_securityPolicy;
 {
     NSString *method = nil;
     //确定请求方式
@@ -131,18 +140,24 @@ static AFHttpClient *_sharedClient = nil;
         [manager setSecurityPolicy:_securityPolicy];
     }
     //设置请求类型 以json的形式请求
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:CONTENTTYPEJSON forHTTPHeaderField:@"Content-Type"];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     //设置请求返回是json的形式
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    //设置超时
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 5.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    //如果报接受类型不一致请替换一致text/html或别的
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/plain",@"text/html",nil];
+    
     if ([method isEqualToString:@"POST"]) {
         [manager POST:urlString
            parameters:params
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                  
+                  [AFHttpClient sharedClient].FinishedDidBlock(responseObject,nil);
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                  
+                   [AFHttpClient sharedClient].FinishedDidBlock(nil,error);
               }];
     }else if ([method isEqualToString:@"GET"])
     {

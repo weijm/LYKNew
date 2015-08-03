@@ -19,6 +19,7 @@
     IBOutlet UILabel *itemLab;
     
     IBOutlet UIButton *itemBt;
+    IBOutlet NSLayoutConstraint *itemLabToItemBt;
 }
 @property(nonatomic,copy) void(^clickedItem)(int index);
 /**

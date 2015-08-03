@@ -12,6 +12,7 @@
                 <outlet property="itemBtWidth" destination="mB6-9g-GCs" id="suL-Ih-xdQ"/>
                 <outlet property="itemBtY" destination="xYQ-IR-Qnr" id="eNw-2m-70X"/>
                 <outlet property="itemLab" destination="4As-un-oxu" id="LPD-RR-5eW"/>
+                <outlet property="itemLabToItemBt" destination="nMj-wN-yFb" id="ZQ9-n9-apK"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

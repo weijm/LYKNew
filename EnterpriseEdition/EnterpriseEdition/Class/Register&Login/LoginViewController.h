@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "LoginHeaderView.h"
-@interface LoginViewController : UIViewController<LoginHeaderViewDelegate>
+@interface LoginViewController : BaseViewController<LoginHeaderViewDelegate>
 
 @end
