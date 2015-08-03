@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SMPageControl.h"
 
 @interface BannerView : UIView<UIScrollViewDelegate>
 {
     
     IBOutlet UIScrollView *bannerScrollView;
     
-    IBOutlet UIPageControl *pageControl;
+    IBOutlet SMPageControl *spacePageControl;
 }
 /**
  初始化scrollView上的视图

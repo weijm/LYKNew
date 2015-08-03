@@ -50,7 +50,12 @@
         [bannerScrollView addSubview:imageView];
     }
     bannerScrollView.contentSize = CGSizeMake(scrollAnchor+kWidth, self.frame.size.height);
-    pageControl.numberOfPages = dataArray.count;
+    
+    spacePageControl.numberOfPages = dataArray.count;
+    [spacePageControl setPageIndicatorImage:[UIImage imageNamed:@"homepage_banner_select"]];
+    [spacePageControl setCurrentPageIndicatorImage:[UIImage imageNamed:@"homepage_banner_selected_highted"]];
+    spacePageControl.currentPage = 0;
+    [spacePageControl addTarget:self action:@selector(spacePageControl:) forControlEvents:UIControlEventValueChanged];
     
     //点击bannerImage的触发事件
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchImageInScrollView:)];
@@ -61,7 +66,7 @@
 {
     float wid ;
     wid = _scrollView.contentOffset.x;
-    pageControl.currentPage = round(wid/kWidth);
+    spacePageControl.currentPage = round(wid/kWidth);
     
 }
 #pragma mark - 点击bannerView的触发事件
@@ -71,5 +76,11 @@
     float pointX = point.x;
     int pageIndex = pointX/kWidth;
     NSLog(@"touchImageInScrollView pageIndex == %d",pageIndex);
+}
+- (void)spacePageControl:(SMPageControl *)sender
+{
+    NSLog(@"Current Page (SMPageControl): %li", (long)sender.currentPage);
+    CGPoint offset = CGPointMake(bannerScrollView.frame.size.width * sender.currentPage, 0);
+    [bannerScrollView setContentOffset:offset animated:YES];
 }
 @end

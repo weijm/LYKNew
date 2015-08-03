@@ -221,6 +221,9 @@
 		20D1CDEC1B56326100E97935 /* InfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D1CDEB1B56326100E97935 /* InfoHeaderView.xib */; };
 		20D1CDF81B56474500E97935 /* ResumeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D1CDF61B56474500E97935 /* ResumeInfoViewController.m */; };
 		20D1CDF91B56474500E97935 /* ResumeInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D1CDF71B56474500E97935 /* ResumeInfoViewController.xib */; };
+		20D468571B6EF7B4008A7B78 /* homepage_banner_select@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D468551B6EF7B4008A7B78 /* homepage_banner_select@3x.png */; };
+		20D468581B6EF7B4008A7B78 /* homepage_banner_selected_highted@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D468561B6EF7B4008A7B78 /* homepage_banner_selected_highted@3x.png */; };
+		20D468631B6EFF1D008A7B78 /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D468621B6EFF1D008A7B78 /* SMPageControl.m */; };
 		20D58BA71B54F814007B2A3F /* QMapKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20D58BA61B54F814007B2A3F /* QMapKit.bundle */; };
 		20D58BA91B54F82C007B2A3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D58BA81B54F82C007B2A3F /* QuartzCore.framework */; };
 		20D58BAB1B54F834007B2A3F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D58BAA1B54F834007B2A3F /* CoreLocation.framework */; };
@@ -586,6 +589,10 @@
 		20D1CDF51B56474500E97935 /* ResumeInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResumeInfoViewController.h; sourceTree = "<group>"; };
 		20D1CDF61B56474500E97935 /* ResumeInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResumeInfoViewController.m; sourceTree = "<group>"; };
 		20D1CDF71B56474500E97935 /* ResumeInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResumeInfoViewController.xib; sourceTree = "<group>"; };
+		20D468551B6EF7B4008A7B78 /* homepage_banner_select@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_banner_select@3x.png"; sourceTree = "<group>"; };
+		20D468561B6EF7B4008A7B78 /* homepage_banner_selected_highted@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_banner_selected_highted@3x.png"; sourceTree = "<group>"; };
+		20D468611B6EFF1D008A7B78 /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
+		20D468621B6EFF1D008A7B78 /* SMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageControl.m; sourceTree = "<group>"; };
 		20D58BA61B54F814007B2A3F /* QMapKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = QMapKit.bundle; sourceTree = "<group>"; };
 		20D58BA81B54F82C007B2A3F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		20D58BAA1B54F834007B2A3F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -1033,6 +1040,8 @@
 			children = (
 				20F0F2371B5E160C00CB1D71 /* CommendResume */,
 				20BA85B91B6763BF00757788 /* homepage_commend_img@3x.png */,
+				20D468551B6EF7B4008A7B78 /* homepage_banner_select@3x.png */,
+				20D468561B6EF7B4008A7B78 /* homepage_banner_selected_highted@3x.png */,
 				20054E9E1B6628DA009FA771 /* homepage_hire_icon1@3x.png */,
 				20054EA01B6628DA009FA771 /* homepage_hire_icon2@3x.png */,
 				20054E9F1B6628DA009FA771 /* homepage_hire_icon3@3x.png */,
@@ -1074,11 +1083,9 @@
 		2097D3141B462F5900611432 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				20D468511B6EF635008A7B78 /* banner */,
 				20BB61F31B4E0B2E006BD455 /* hire */,
 				20BB61F21B4E0B18006BD455 /* commend */,
-				2097D3151B462F8500611432 /* BannerView.h */,
-				2097D3161B462F8500611432 /* BannerView.m */,
-				2097D3181B462F9900611432 /* BannerView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1341,6 +1348,18 @@
 				2022235B1B56711C00D63910 /* TitleView.xib */,
 			);
 			name = ResumeInfo;
+			sourceTree = "<group>";
+		};
+		20D468511B6EF635008A7B78 /* banner */ = {
+			isa = PBXGroup;
+			children = (
+				20D468611B6EFF1D008A7B78 /* SMPageControl.h */,
+				20D468621B6EFF1D008A7B78 /* SMPageControl.m */,
+				2097D3151B462F8500611432 /* BannerView.h */,
+				2097D3161B462F8500611432 /* BannerView.m */,
+				2097D3181B462F9900611432 /* BannerView.xib */,
+			);
+			name = banner;
 			sourceTree = "<group>";
 		};
 		20D58BA11B54F763007B2A3F /* QMap */ = {
@@ -1712,6 +1731,7 @@
 				202D48031B62173000654E7C /* InfoDetailViewController.xib in Resources */,
 				2097D3191B462F9900611432 /* BannerView.xib in Resources */,
 				20D6F4521B60D5A000AC0394 /* MyTableViewCell2.xib in Resources */,
+				20D468581B6EF7B4008A7B78 /* homepage_banner_selected_highted@3x.png in Resources */,
 				203EF5231B6A2DA8000F292D /* resume_info_bg@3x.png in Resources */,
 				20C93F7C1B68C92D0050514B /* resume_rate_bg@3x.png in Resources */,
 				20D6F4391B60CB7C00AC0394 /* MyTableViewCell0.xib in Resources */,
@@ -1860,6 +1880,7 @@
 				20BB61F11B4DFC72006BD455 /* SinglePersonalView.xib in Resources */,
 				202D48261B62453B00654E7C /* LoginHeaderView.xib in Resources */,
 				20BE75921B51042D00A92504 /* FooterView.xib in Resources */,
+				20D468571B6EF7B4008A7B78 /* homepage_banner_select@3x.png in Resources */,
 				20C93F541B6862A70050514B /* position_number_mark@3x.png in Resources */,
 				20F0F2681B5E3D9E00CB1D71 /* position.plist in Resources */,
 				20C93F6F1B68A8470050514B /* my_info_icon@3x.png in Resources */,
@@ -1967,6 +1988,7 @@
 				208EBDB21B4A82CE00AB0730 /* MarkupParser.m in Sources */,
 				2076B2CB1B5CEB7F00BC7D97 /* NowHiringHeaderView.m in Sources */,
 				20D1CDEA1B56325100E97935 /* InfoHeaderView.m in Sources */,
+				20D468631B6EFF1D008A7B78 /* SMPageControl.m in Sources */,
 				20D58BB11B54FACD007B2A3F /* LocationViewController.m in Sources */,
 				2035430E1B4CBD40007FF4A8 /* ResumeViewController.m in Sources */,
 				20E9E1521B5F68DA0013A865 /* PositionShowTableViewCell.m in Sources */,
