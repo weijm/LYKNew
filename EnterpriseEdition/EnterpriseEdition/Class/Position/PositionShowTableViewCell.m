@@ -16,6 +16,12 @@
         positionImgWidth.constant = positionImgWidth.constant+3;
         positionImgHeight.constant = positionImgHeight.constant+3;
     }
+    if (kIphone4||kIphone5) {
+        positionTitle.font = [UIFont systemFontOfSize:15];
+        positionInfo.font = [UIFont systemFontOfSize:11];
+        positoinName.font = [UIFont systemFontOfSize:13];
+        validTimeLab.font = [UIFont systemFontOfSize:11];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

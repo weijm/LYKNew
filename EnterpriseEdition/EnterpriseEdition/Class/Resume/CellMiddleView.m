@@ -20,6 +20,12 @@
         containerView.frame = newFrame;
         [self addSubview:containerView];
         
+        
+        if (kIphone5||kIphone4) {
+            firstLab.font = [UIFont systemFontOfSize:13];
+            secondLab.font = [UIFont systemFontOfSize:11];
+            thirdLab.font = [UIFont systemFontOfSize:11];
+        }
         protraitImg.layer.cornerRadius = protraitImg.frame.size.width;
         experienceLab.layer.cornerRadius = experienceLab.frame.size.height/2;
         experienceLab.layer.masksToBounds = YES;

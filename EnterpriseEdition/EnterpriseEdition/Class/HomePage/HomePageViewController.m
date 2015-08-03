@@ -153,14 +153,6 @@
     [leftBt addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
     self.navigationItem.leftBarButtonItem = leftItem;
-    
-    UIButton *rightBt = [[UIButton alloc] initWithFrame:frame];
-    [rightBt setImage:[UIImage imageNamed:@"home_edit_btn"] forState:UIControlStateNormal];
-    imageInsets = rightBt.imageEdgeInsets;
-    rightBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left+20, imageInsets.bottom, imageInsets.right-20);
-    [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
-    self.navigationItem.rightBarButtonItem = rightItem;
 }
 #pragma mark -- item Action
 -(void)leftAction
@@ -171,13 +163,6 @@
     [self.navigationController pushViewController:searchVC animated:YES];
     
     
-}
--(void)rightAction
-{
-    NSLog(@"rightAvtion");
-    LoginViewController *loginVC = [[LoginViewController alloc] init];
-    loginVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:loginVC animated:YES];
 }
 #pragma mark - 初始化应聘部分的视图
 -(void)initHireView:(UIView*)view

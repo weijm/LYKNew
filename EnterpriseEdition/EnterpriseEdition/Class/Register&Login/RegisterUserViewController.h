@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RegisterTableViewCell.h"
-@interface RegisterUserViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,RegisterTableViewCellDelegate>
+@interface RegisterUserViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,RegisterTableViewCellDelegate>
 {
     IBOutlet NSLayoutConstraint *dataTableViewToTop;
     IBOutlet UITableView *dataTableView;

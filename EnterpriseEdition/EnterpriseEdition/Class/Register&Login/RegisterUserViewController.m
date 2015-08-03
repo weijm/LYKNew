@@ -29,7 +29,7 @@
     self.title = @"注 册";
     self.view.backgroundColor = kCVBackgroundColor;
     //登录入口
-    [self initItems];
+    [self initRightItems];
     
     dataTableViewToTop.constant = [Util myYOrHeight:35];
     
@@ -92,12 +92,18 @@
 }
 
 #pragma mark - 编辑按钮
--(void)initItems
+-(void)initRightItems
 {
     CGRect frame = CGRectMake(0, 0, 50, 30);
     UIButton *rightBt = [[UIButton alloc] initWithFrame:frame];
     [rightBt setTitle:@"登录" forState:UIControlStateNormal];
-    rightBt.titleLabel.font = [UIFont systemFontOfSize:15];
+    if (kIphone4||kIphone5) {
+        rightBt.titleLabel.font = [UIFont systemFontOfSize:13];
+    }else
+    {
+        rightBt.titleLabel.font = [UIFont systemFontOfSize:15];
+    }
+    
     UIEdgeInsets titleInsets = rightBt.titleEdgeInsets;
     rightBt.titleEdgeInsets = UIEdgeInsetsMake(titleInsets.top, titleInsets.left+15, titleInsets.bottom, titleInsets.right-15);
     [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
@@ -107,8 +113,7 @@
 }
 -(void)rightAction
 {
-    LoginViewController *loginVC = [[LoginViewController alloc] init];
-    [self.navigationController pushViewController:loginVC animated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - 查看协议

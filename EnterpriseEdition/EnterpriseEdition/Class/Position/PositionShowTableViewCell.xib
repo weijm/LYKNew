@@ -55,11 +55,11 @@
                                     <constraint firstAttribute="height" constant="1" id="qV9-Xf-d5Y"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Jn-7g-sGp" userLabel="topBg">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Jn-7g-sGp" userLabel="topBg">
                                 <rect key="frame" x="0.0" y="0.0" width="207" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题职位标题职位标题职位标题职位" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAV-AE-T6t" userLabel="lab1">
-                                        <rect key="frame" x="0.0" y="10.5" width="207" height="21"/>
+                                        <rect key="frame" x="0.0" y="13.5" width="207" height="21"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="BF2-8j-HNP"/>
@@ -69,10 +69,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="职位名称职位名称职位名称职位名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtn-nD-rdL" userLabel="lab2">
-                                        <rect key="frame" x="0.0" y="37.5" width="207" height="18"/>
+                                        <rect key="frame" x="0.0" y="40.5" width="207" height="15"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="18" id="nV3-1E-Z7W"/>
+                                            <constraint firstAttribute="height" constant="15" id="nV3-1E-Z7W"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="highlightedColor"/>
@@ -88,24 +88,24 @@
                                     <constraint firstAttribute="bottom" secondItem="Rtn-nD-rdL" secondAttribute="bottom" id="cnI-1J-avX"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EdW-Ra-Bhl" userLabel="bottmBg">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EdW-Ra-Bhl" userLabel="bottmBg">
                                 <rect key="frame" x="0.0" y="60" width="207" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全职 | 4k-7k | 电子商务" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfp-GK-aXX" userLabel="lab1">
-                                        <rect key="frame" x="0.0" y="0.0" width="207" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="15"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="bFH-Zb-mBU"/>
+                                            <constraint firstAttribute="height" constant="15" id="bFH-Zb-mBU"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.47368421052631582" green="0.48382899226059473" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有效期至8/25" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sbj-3N-J3G" userLabel="lab2">
-                                        <rect key="frame" x="0.0" y="23" width="207" height="20"/>
+                                        <rect key="frame" x="0.0" y="18" width="207" height="15"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="Tmz-oo-9tO"/>
+                                            <constraint firstAttribute="height" constant="15" id="Tmz-oo-9tO"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.47368421049999998" green="0.48382899229999998" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>

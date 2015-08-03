@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "LoginHeaderView.h"
+@protocol LoginViewControllerDelegate<NSObject>
+-(void)loginSuccess;
+@end
 @interface LoginViewController : BaseViewController<LoginHeaderViewDelegate>
-
+@property(nonatomic,weak) id<LoginViewControllerDelegate>delegate;
 @end

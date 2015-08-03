@@ -9,6 +9,7 @@
 #import "ResumeChooseBtView.h"
 #import "UIButton+Custom.h"
 
+#define FontSize (kIphone6||kIphone6plus)?17:15
 @implementation ResumeChooseBtView
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -21,6 +22,10 @@
         containerView.frame = newFrame;
         [self addSubview:containerView];
         [_chooseBt setTitleColor:Rgb(2, 139, 230, 1.0) forState:UIControlStateNormal];
+        if (kIphone5||kIphone4) {
+            _chooseBt.titleLabel.font = [UIFont systemFontOfSize:13];
+        }
+        
     }
     return self;
 }
@@ -67,7 +72,7 @@
     vline.backgroundColor = Rgb(204, 204, 207, 1.0);
     _chooseBt.backgroundColor = Rgb(227, 227, 231, 1.0);
     [_chooseBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    _chooseBt.titleLabel.font = [UIFont systemFontOfSize:17];
+    _chooseBt.titleLabel.font = [UIFont systemFontOfSize:FontSize];
     NSInteger index = self.tag;
     if (index >=10 && index < 100) {
         switch (index) {
@@ -120,7 +125,7 @@
     vline.backgroundColor = Rgb(204, 204, 207, 1.0);
     _chooseBt.backgroundColor = Rgb(227, 227, 231, 1.0);
     [_chooseBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    _chooseBt.titleLabel.font = [UIFont systemFontOfSize:17];
+    _chooseBt.titleLabel.font = [UIFont systemFontOfSize:FontSize];
     NSInteger index = self.tag;
     if (index >=10 && index < 100) {
         switch (index) {
@@ -177,7 +182,7 @@
     vline.backgroundColor = Rgb(204, 204, 207, 1.0);
     _chooseBt.backgroundColor = Rgb(227, 227, 231, 1.0);
     [_chooseBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    _chooseBt.titleLabel.font = [UIFont systemFontOfSize:17];
+    _chooseBt.titleLabel.font = [UIFont systemFontOfSize:FontSize];
     NSInteger index = self.tag;
     switch (index) {
         case 10:
@@ -199,7 +204,7 @@
     vline.backgroundColor = Rgb(204, 204, 207, 1.0);
     _chooseBt.backgroundColor = Rgb(227, 227, 231, 1.0);
     [_chooseBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    _chooseBt.titleLabel.font = [UIFont systemFontOfSize:17];
+    _chooseBt.titleLabel.font = [UIFont systemFontOfSize:FontSize];
     NSInteger index = self.tag;
     switch (index) {
         case 100:
@@ -219,7 +224,7 @@
     vline.backgroundColor = Rgb(204, 204, 207, 1.0);
     _chooseBt.backgroundColor = Rgb(227, 227, 231, 1.0);
     [_chooseBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    _chooseBt.titleLabel.font = [UIFont systemFontOfSize:17];
+    _chooseBt.titleLabel.font = [UIFont systemFontOfSize:FontSize];
     NSInteger index = self.tag;
     switch (index) {
         case 10:

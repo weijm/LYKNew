@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "RegisterUserViewController.h"
 #import "ForgetPasswordViewController.h"
+#import "RootViewController.h"
 
 
 
@@ -29,11 +30,10 @@
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = kCVBackgroundColor;
     //导航条的颜色
-    [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
-    
+
     self.title = @"登 录";
     
-    [self initItems];
+    [self initRightItems];
     
     CGRect frame = CGRectMake(0, topBarheight+[Util myYOrHeight:30], kWidth, [Util myYOrHeight:93]);
     //初始化编辑视图
@@ -84,9 +84,19 @@
     NSInteger index = bt.tag;
     if (index == 1) {
         if (currentTextField) {
-            [self editTextFiledAndCancelKey:NO];
+            [self editTextFiledAndCancelKey:YES];
         }
-        NSString *phone = [contentArray firstObject];
+
+        if (kTestType) {//测试 不要登录页面
+            //将登录页面取消
+            [self dismissViewControllerAnimated:YES completion:nil];
+            //加载首页数据
+            if ([_delegate respondsToSelector:@selector(loginSuccess)]) {
+                [_delegate loginSuccess];
+            }
+            return;
+        }
+                NSString *phone = [contentArray firstObject];
         if ([Util checkTelephone:phone]) {
             NSString *password = [contentArray lastObject];
             if ([Util checkPassWord:password]) {
@@ -115,6 +125,12 @@
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUDWithComplete:@"登录成功"];
+                //将登录页面取消
+                [self dismissViewControllerAnimated:YES completion:nil];
+                //加载首页数据
+                if ([_delegate respondsToSelector:@selector(loginSuccess)]) {
+                    [_delegate loginSuccess];
+                }
             }else
             {
                 [self hideHUDFaild:[result objectForKey:@"message"]];
@@ -130,12 +146,18 @@
     
 }
 #pragma mark - 编辑按钮
--(void)initItems
+-(void)initRightItems
 {
+    self.navigationItem.leftBarButtonItem = nil;
     CGRect frame = CGRectMake(0, 0, 50, 30);
     UIButton *rightBt = [[UIButton alloc] initWithFrame:frame];
     [rightBt setTitle:@"注册" forState:UIControlStateNormal];
-    rightBt.titleLabel.font = [UIFont systemFontOfSize:15];
+    if (kIphone4||kIphone5) {
+        rightBt.titleLabel.font = [UIFont systemFontOfSize:13];
+    }else
+    {
+        rightBt.titleLabel.font = [UIFont systemFontOfSize:15];
+    }
     UIEdgeInsets titleInsets = rightBt.titleEdgeInsets;
     rightBt.titleEdgeInsets = UIEdgeInsetsMake(titleInsets.top, titleInsets.left+15, titleInsets.bottom, titleInsets.right-15);
     [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];

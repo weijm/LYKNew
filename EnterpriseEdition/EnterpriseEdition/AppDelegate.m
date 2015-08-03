@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "RootViewController.h"
 #import <QMapKit/QMapKit.h>
+#import "LoginViewController.h";
 
 @interface AppDelegate ()
 
@@ -31,10 +32,21 @@
 //    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
 //        [locationManager requestWhenInUseAuthorization];
 //    }
-    
+
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
     RootViewController *rootVC = [[RootViewController alloc] init];
-    
+    rootVC.loginVC = loginVC;
+    loginVC.delegate = rootVC;
     self.window.rootViewController = rootVC;
+    //登录页面
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    //导航条的背景颜色
+    [navigation.navigationBar setBarTintColor:kNavigationBgColor];
+    // 设置navigation的title颜色
+    NSMutableDictionary *textAttrs=[NSMutableDictionary dictionary];
+    textAttrs[NSForegroundColorAttributeName]=[UIColor whiteColor];
+    [navigation.navigationBar setTitleTextAttributes:textAttrs];
+    [rootVC presentViewController:navigation animated:YES completion:nil];
     return YES;
 }
 

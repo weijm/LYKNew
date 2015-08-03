@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface RootViewController : UITabBarController
-
+#import "LoginViewController.h";
+@interface RootViewController : UITabBarController<LoginViewControllerDelegate>
+@property (nonatomic,strong) LoginViewController *loginVC;
 @end

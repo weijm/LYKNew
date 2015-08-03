@@ -19,6 +19,10 @@
         CGRect newFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         containerView.frame = newFrame;
         [self addSubview:containerView];
+        if (kIphone4||kIphone5) {
+            jobTitLab.font = [UIFont systemFontOfSize:14];
+            jobLab.font = [UIFont systemFontOfSize:14];
+        }
     }
     return self;
 }

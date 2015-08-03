@@ -17,13 +17,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self initItems];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+#pragma mark - 编辑按钮
+-(void)initItems
+{
+    CGRect frame = CGRectMake(0, 0, 15, 30);
+    
+    UIButton *leftBt = [[UIButton alloc] initWithFrame:frame];
+    [leftBt setImage:[UIImage imageNamed:@"back_bt"] forState:UIControlStateNormal];
+    UIEdgeInsets imageInsets = leftBt.imageEdgeInsets;
+    leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-10, imageInsets.bottom, imageInsets.right+10);
+    [leftBt addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
+    self.navigationItem.leftBarButtonItem = leftItem;
+}
+-(void)leftAction
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 #pragma mark -
 #pragma mark - HUD Methods
 //显示提示
