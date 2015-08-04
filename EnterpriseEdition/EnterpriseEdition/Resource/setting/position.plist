@@ -22,7 +22,7 @@
 	</dict>
 	<dict>
 		<key>placeholder</key>
-		<string>招聘人数为整数且不超过500人</string>
+		<string>请输入实际需要招聘人数</string>
 		<key>title</key>
 		<string>招聘人数</string>
 	</dict>

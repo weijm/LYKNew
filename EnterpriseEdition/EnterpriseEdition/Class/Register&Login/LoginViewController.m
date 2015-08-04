@@ -192,6 +192,9 @@
         NSString *content = currentTextField.text;
         if ([content length]>0) {
             [contentArray replaceObjectAtIndex:currentTextField.tag withObject:content];
+        }else
+        {
+            [contentArray replaceObjectAtIndex:currentTextField.tag withObject:@"0"];
         }
     }
     

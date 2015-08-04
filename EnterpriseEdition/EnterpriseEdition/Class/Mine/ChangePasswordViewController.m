@@ -113,6 +113,9 @@
         if ([content length]>0) {
             NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:content,@"content", nil];
             [contentArray replaceObjectAtIndex:tempView.tag withObject:dictionary];
+        }else
+        {
+            [contentArray replaceObjectAtIndex:tempView.tag withObject:@"0"];
         }
     }
 }

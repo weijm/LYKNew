@@ -100,6 +100,9 @@
         if (currentTextField.tag == 0) {
             [[NSUserDefaults standardUserDefaults] setObject:currentTextField.text forKey:kRegisterAccount];
         }
+    }else
+    {
+        [contentArray replaceObjectAtIndex:currentTextField.tag withObject:@"0"];
     }
     
 }

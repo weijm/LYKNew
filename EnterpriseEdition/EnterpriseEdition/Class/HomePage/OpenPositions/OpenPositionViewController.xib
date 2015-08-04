@@ -9,7 +9,7 @@
             <connections>
                 <outlet property="dataTableView" destination="frT-41-B7k" id="nHc-zU-BIo"/>
                 <outlet property="dataTableViewToBottom" destination="F9T-De-lDp" id="Pa9-8u-SNX"/>
-                <outlet property="dataTableViewToTop" destination="Nub-B4-Flo" id="fBm-JJ-v0I"/>
+                <outlet property="dataTableViewToTop" destination="Yet-q8-J6B" id="qvU-bC-G9n"/>
                 <outlet property="lineWidth" destination="q4i-b8-pSK" id="G3Q-yP-cb8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="frT-41-B7k" userLabel="dataTableView">
-                    <rect key="frame" x="0.0" y="40" width="600" height="511"/>
+                    <rect key="frame" x="0.0" y="30" width="600" height="521"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="j4r-mW-QdI"/>
@@ -28,7 +28,7 @@
                     </connections>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qE9-9i-JkL" userLabel="promptView">
-                    <rect key="frame" x="0.0" y="64" width="600" height="30"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_enterprise_prompt_img.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wus-bw-qxj">
                             <rect key="frame" x="178" y="7" width="16" height="16"/>
@@ -111,12 +111,12 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="qE9-9i-JkL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Bdi-5z-N75"/>
+                <constraint firstItem="qE9-9i-JkL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Bdi-5z-N75"/>
                 <constraint firstAttribute="trailing" secondItem="frT-41-B7k" secondAttribute="trailing" id="EHf-6E-ZFF"/>
                 <constraint firstItem="VUe-sO-YmA" firstAttribute="top" secondItem="frT-41-B7k" secondAttribute="bottom" id="F9T-De-lDp"/>
-                <constraint firstItem="frT-41-B7k" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="Nub-B4-Flo"/>
                 <constraint firstItem="frT-41-B7k" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Sgb-mM-G2z"/>
                 <constraint firstAttribute="trailing" secondItem="qE9-9i-JkL" secondAttribute="trailing" id="Xzf-9B-5Yp"/>
+                <constraint firstItem="frT-41-B7k" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="Yet-q8-J6B"/>
                 <constraint firstItem="VUe-sO-YmA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aKt-ej-tYY"/>
                 <constraint firstItem="qE9-9i-JkL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iBj-Bp-kCh"/>
                 <constraint firstAttribute="trailing" secondItem="VUe-sO-YmA" secondAttribute="trailing" id="p1W-jW-nW4"/>

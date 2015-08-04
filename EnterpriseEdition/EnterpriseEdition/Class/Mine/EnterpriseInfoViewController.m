@@ -264,7 +264,11 @@
         if ([content length]>0) {
             NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:content,@"content", nil];
             [contentArray replaceObjectAtIndex:tempView.tag withObject:dictionary];
+        }else
+        {
+            [contentArray replaceObjectAtIndex:tempView.tag withObject:@"0"];
         }
+        
     }
 }
 -(void)editTextViewAndCancelKey:(BOOL)isCancel
@@ -279,6 +283,9 @@
         if ([content length]>0) {
             NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:content,@"content", nil];
             [contentArray replaceObjectAtIndex:tempView.tag withObject:dictionary];
+        }else
+        {
+            [contentArray replaceObjectAtIndex:tempView.tag withObject:@"0"];
         }
     }
 }
@@ -426,6 +433,24 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 #pragma mark - 保存方法
 - (IBAction)saveEnterpriseInfo:(id)sender {
+    NSInteger count = [contentArray count];
+    BOOL isSave = YES;
+    for (int i =0; i< count; i++) {
+        NSObject *obj = [contentArray objectAtIndex:i];
+        if ([obj isKindOfClass:[NSString class]]) {
+            if (i==7||i==8||i==9) {//非必填项
+                continue;
+            }
+            NSDictionary *dic = [titleArray objectAtIndex:i];
+            NSString *title = [dic objectForKey:@"title"];
+            [Util showPrompt:[NSString stringWithFormat:@"%@ 不能为空",title]];
+            isSave = NO;
+            break;
+        }
+    }
+    if (!isSave) {//必填信息没有填写完整
+        return;
+    }
     EnterpriseContactViewController *contactVC = [[EnterpriseContactViewController alloc] init];
     [self.navigationController pushViewController:contactVC animated:YES];
 }

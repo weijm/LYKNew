@@ -42,6 +42,7 @@
         arrowImg.hidden = YES;
         contentTextField.hidden = YES;
         contentTextView.hidden = NO;
+        contentTextView.placeholder = @"请输入1000字以内描述";
         titBgToBottom.constant = [Util myYOrHeight:70];
     }else
     {

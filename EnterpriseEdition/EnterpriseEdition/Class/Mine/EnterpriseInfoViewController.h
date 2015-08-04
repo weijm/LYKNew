@@ -11,7 +11,7 @@
 #import "EnterpriseImgTableViewCell.h"
 #import "FiltratePickerView.h"
 
-@interface EnterpriseInfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,EnterpriseBaseTableViewCellDelegate,EnterpriseImgTableViewCellDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface EnterpriseInfoViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,EnterpriseBaseTableViewCellDelegate,EnterpriseImgTableViewCellDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     IBOutlet UILabel *promptLab;
     

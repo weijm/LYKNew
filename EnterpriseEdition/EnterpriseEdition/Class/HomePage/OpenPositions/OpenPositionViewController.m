@@ -35,6 +35,7 @@
         if (!_fromPositionManager) {
             //导航条的颜色
             [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
+            self.navigationController.navigationBar.translucent = NO;
         }
         
     }
@@ -338,12 +339,25 @@
     
     for (int i =0; i< count; i++) {
         NSObject *obj = [contentArray objectAtIndex:i];
+        NSDictionary *dic = [titleArray objectAtIndex:i];
+        NSString *title = [dic objectForKey:@"title"];
         if ([obj isKindOfClass:[NSString class]]&&i!=6) {
-            NSDictionary *dic = [titleArray objectAtIndex:i];
-            NSString *title = [dic objectForKey:@"title"];
             [Util showPrompt:[NSString stringWithFormat:@"%@ 不能为空",title]];
             break;
         }
+        
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            if (i==0||i==6) {
+                NSDictionary *contentDic = (NSDictionary*)obj;
+                NSString *content = [contentDic objectForKey:@"content"];
+                if ([content length]>30) {
+                    [Util showPrompt:[NSString stringWithFormat:@"%@ 不能超过30字",title]];
+                    break;
+                }
+            }
+        }
+        
+        
     }
 }
 #pragma mark - 提交审核发布的职位

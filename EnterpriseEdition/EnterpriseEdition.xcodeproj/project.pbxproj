@@ -86,6 +86,7 @@
 		203543141B4CBD8A007FF4A8 /* HomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203543121B4CBD8A007FF4A8 /* HomePageViewController.xib */; };
 		203543321B4CFBAD007FF4A8 /* CommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 203543311B4CFBAD007FF4A8 /* CommendView.m */; };
 		203543341B4CFBC2007FF4A8 /* CommendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203543331B4CFBC2007FF4A8 /* CommendView.xib */; };
+		203C930E1B70B88900AA017E /* CPTextViewPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 203C930D1B70B88900AA017E /* CPTextViewPlaceholder.m */; };
 		203EF5161B69B004000F292D /* HireOfView.m in Sources */ = {isa = PBXBuildFile; fileRef = 203EF5151B69B004000F292D /* HireOfView.m */; };
 		203EF5181B69B025000F292D /* HireOfView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203EF5171B69B025000F292D /* HireOfView.xib */; };
 		203EF51B1B69B306000F292D /* SingleHireButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 203EF51A1B69B306000F292D /* SingleHireButton.m */; };
@@ -128,14 +129,8 @@
 		20A32A1C1B58E49600E1B5F8 /* jobType.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20A32A1B1B58E49600E1B5F8 /* jobType.plist */; };
 		20A32A2B1B59096500E1B5F8 /* NowHiringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A32A291B59096500E1B5F8 /* NowHiringViewController.m */; };
 		20A32A2C1B59096500E1B5F8 /* NowHiringViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A32A2A1B59096500E1B5F8 /* NowHiringViewController.xib */; };
-		20A32A301B59097C00E1B5F8 /* HaveDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A32A2E1B59097C00E1B5F8 /* HaveDownloadViewController.m */; };
-		20A32A311B59097C00E1B5F8 /* HaveDownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A32A2F1B59097C00E1B5F8 /* HaveDownloadViewController.xib */; };
-		20A32A351B59099600E1B5F8 /* UntreatedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A32A331B59099600E1B5F8 /* UntreatedViewController.m */; };
-		20A32A361B59099600E1B5F8 /* UntreatedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A32A341B59099600E1B5F8 /* UntreatedViewController.xib */; };
 		20A32A3A1B5909AD00E1B5F8 /* OpenPositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A32A381B5909AD00E1B5F8 /* OpenPositionViewController.m */; };
 		20A32A3B1B5909AD00E1B5F8 /* OpenPositionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A32A391B5909AD00E1B5F8 /* OpenPositionViewController.xib */; };
-		20A32A3F1B5909C200E1B5F8 /* CollectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A32A3D1B5909C200E1B5F8 /* CollectedViewController.m */; };
-		20A32A401B5909C200E1B5F8 /* CollectedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A32A3E1B5909C200E1B5F8 /* CollectedViewController.xib */; };
 		20BA85AA1B67334000757788 /* ClaimPositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BA85A81B67334000757788 /* ClaimPositionViewController.m */; };
 		20BA85AB1B67334000757788 /* ClaimPositionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BA85A91B67334000757788 /* ClaimPositionViewController.xib */; };
 		20BA85AE1B67338B00757788 /* ClaimPositionPromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BA85AD1B67338B00757788 /* ClaimPositionPromptView.m */; };
@@ -442,6 +437,8 @@
 		203543301B4CFBAD007FF4A8 /* CommendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommendView.h; sourceTree = "<group>"; };
 		203543311B4CFBAD007FF4A8 /* CommendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommendView.m; sourceTree = "<group>"; };
 		203543331B4CFBC2007FF4A8 /* CommendView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommendView.xib; sourceTree = "<group>"; };
+		203C930C1B70B88900AA017E /* CPTextViewPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTextViewPlaceholder.h; sourceTree = "<group>"; };
+		203C930D1B70B88900AA017E /* CPTextViewPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPTextViewPlaceholder.m; sourceTree = "<group>"; };
 		203EF5141B69B004000F292D /* HireOfView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HireOfView.h; sourceTree = "<group>"; };
 		203EF5151B69B004000F292D /* HireOfView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HireOfView.m; sourceTree = "<group>"; };
 		203EF5171B69B025000F292D /* HireOfView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HireOfView.xib; sourceTree = "<group>"; };
@@ -511,18 +508,9 @@
 		20A32A281B59096500E1B5F8 /* NowHiringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NowHiringViewController.h; sourceTree = "<group>"; };
 		20A32A291B59096500E1B5F8 /* NowHiringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NowHiringViewController.m; sourceTree = "<group>"; };
 		20A32A2A1B59096500E1B5F8 /* NowHiringViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NowHiringViewController.xib; sourceTree = "<group>"; };
-		20A32A2D1B59097C00E1B5F8 /* HaveDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HaveDownloadViewController.h; sourceTree = "<group>"; };
-		20A32A2E1B59097C00E1B5F8 /* HaveDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HaveDownloadViewController.m; sourceTree = "<group>"; };
-		20A32A2F1B59097C00E1B5F8 /* HaveDownloadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HaveDownloadViewController.xib; sourceTree = "<group>"; };
-		20A32A321B59099600E1B5F8 /* UntreatedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UntreatedViewController.h; sourceTree = "<group>"; };
-		20A32A331B59099600E1B5F8 /* UntreatedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UntreatedViewController.m; sourceTree = "<group>"; };
-		20A32A341B59099600E1B5F8 /* UntreatedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UntreatedViewController.xib; sourceTree = "<group>"; };
 		20A32A371B5909AD00E1B5F8 /* OpenPositionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenPositionViewController.h; sourceTree = "<group>"; };
 		20A32A381B5909AD00E1B5F8 /* OpenPositionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenPositionViewController.m; sourceTree = "<group>"; };
 		20A32A391B5909AD00E1B5F8 /* OpenPositionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpenPositionViewController.xib; sourceTree = "<group>"; };
-		20A32A3C1B5909C200E1B5F8 /* CollectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectedViewController.h; sourceTree = "<group>"; };
-		20A32A3D1B5909C200E1B5F8 /* CollectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectedViewController.m; sourceTree = "<group>"; };
-		20A32A3E1B5909C200E1B5F8 /* CollectedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectedViewController.xib; sourceTree = "<group>"; };
 		20BA85A71B67334000757788 /* ClaimPositionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClaimPositionViewController.h; sourceTree = "<group>"; };
 		20BA85A81B67334000757788 /* ClaimPositionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClaimPositionViewController.m; sourceTree = "<group>"; };
 		20BA85A91B67334000757788 /* ClaimPositionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClaimPositionViewController.xib; sourceTree = "<group>"; };
@@ -966,6 +954,15 @@
 			path = Resume;
 			sourceTree = "<group>";
 		};
+		203C930B1B70B82000AA017E /* TextViewPlaceholder */ = {
+			isa = PBXGroup;
+			children = (
+				203C930C1B70B88900AA017E /* CPTextViewPlaceholder.h */,
+				203C930D1B70B88900AA017E /* CPTextViewPlaceholder.m */,
+			);
+			path = TextViewPlaceholder;
+			sourceTree = "<group>";
+		};
 		2076B2B61B5C99E300BC7D97 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -1013,6 +1010,7 @@
 		208EBDAE1B4A82C000AB0730 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				203C930B1B70B82000AA017E /* TextViewPlaceholder */,
 				20D468B11B6F431B008A7B78 /* HUD */,
 				20D468691B6F127A008A7B78 /* AFNetworking */,
 				20F0F21D1B5DD59400CB1D71 /* CircularProgressView */,
@@ -1168,10 +1166,7 @@
 				20F0F22A1B5DF84400CB1D71 /* CommendResume */,
 				2076B2B61B5C99E300BC7D97 /* Search */,
 				20A32A1F1B5908BD00E1B5F8 /* NowHiring */,
-				20A32A1E1B5908BD00E1B5F8 /* HaveDownloaded */,
-				20A32A221B5908BD00E1B5F8 /* Untreated */,
 				20A32A201B5908BD00E1B5F8 /* OpenPositions */,
-				20A32A1D1B5908BD00E1B5F8 /* Colledted */,
 				2097D3141B462F5900611432 /* View */,
 				203543101B4CBD8A007FF4A8 /* HomePageViewController.h */,
 				203543111B4CBD8A007FF4A8 /* HomePageViewController.m */,
@@ -1255,26 +1250,6 @@
 			path = setting;
 			sourceTree = "<group>";
 		};
-		20A32A1D1B5908BD00E1B5F8 /* Colledted */ = {
-			isa = PBXGroup;
-			children = (
-				20A32A3C1B5909C200E1B5F8 /* CollectedViewController.h */,
-				20A32A3D1B5909C200E1B5F8 /* CollectedViewController.m */,
-				20A32A3E1B5909C200E1B5F8 /* CollectedViewController.xib */,
-			);
-			path = Colledted;
-			sourceTree = "<group>";
-		};
-		20A32A1E1B5908BD00E1B5F8 /* HaveDownloaded */ = {
-			isa = PBXGroup;
-			children = (
-				20A32A2D1B59097C00E1B5F8 /* HaveDownloadViewController.h */,
-				20A32A2E1B59097C00E1B5F8 /* HaveDownloadViewController.m */,
-				20A32A2F1B59097C00E1B5F8 /* HaveDownloadViewController.xib */,
-			);
-			path = HaveDownloaded;
-			sourceTree = "<group>";
-		};
 		20A32A1F1B5908BD00E1B5F8 /* NowHiring */ = {
 			isa = PBXGroup;
 			children = (
@@ -1296,16 +1271,6 @@
 				20A32A391B5909AD00E1B5F8 /* OpenPositionViewController.xib */,
 			);
 			path = OpenPositions;
-			sourceTree = "<group>";
-		};
-		20A32A221B5908BD00E1B5F8 /* Untreated */ = {
-			isa = PBXGroup;
-			children = (
-				20A32A321B59099600E1B5F8 /* UntreatedViewController.h */,
-				20A32A331B59099600E1B5F8 /* UntreatedViewController.m */,
-				20A32A341B59099600E1B5F8 /* UntreatedViewController.xib */,
-			);
-			path = Untreated;
 			sourceTree = "<group>";
 		};
 		20BA85A61B67332000757788 /* ClaimPosition */ = {
@@ -1930,7 +1895,6 @@
 				20C93F4E1B6861600050514B /* position_item_icon3@3x.png in Resources */,
 				201EDB111B575F0F0080A12A /* JobIntensionTableViewCell.xib in Resources */,
 				201EDB1B1B5795AB0080A12A /* HobbiesTableViewCell.xib in Resources */,
-				20A32A401B5909C200E1B5F8 /* CollectedViewController.xib in Resources */,
 				20054EA81B663536009FA771 /* EnterpriseContactViewController.xib in Resources */,
 				20BA85BE1B67693900757788 /* homepage_hire_icon4@3x.png in Resources */,
 				20E9E1761B5F97A50013A865 /* ItemView.xib in Resources */,
@@ -1976,7 +1940,6 @@
 				203EF51F1B6A1926000F292D /* resume_filtrate_arrow@3x.png in Resources */,
 				20C93F601B689F860050514B /* position_claim_close_bt@3x.png in Resources */,
 				20BB62261B4E639B006BD455 /* CellBottomView.xib in Resources */,
-				20A32A361B59099600E1B5F8 /* UntreatedViewController.xib in Resources */,
 				20BA85D81B67837500757788 /* resume_download@3x.png in Resources */,
 				2007808E1B6B432B004D9EB4 /* position_check_state2@3x.png in Resources */,
 				20D468CD1B6F7130008A7B78 /* position_add_bt@3x.png in Resources */,
@@ -2042,7 +2005,6 @@
 				20BA85BF1B67693900757788 /* homepage_hire_icon5@3x.png in Resources */,
 				20D6F43E1B60CB9300AC0394 /* MyTableViewCell1.xib in Resources */,
 				202D48131B622EC700654E7C /* InfoFiltrateView.xib in Resources */,
-				20A32A311B59097C00E1B5F8 /* HaveDownloadViewController.xib in Resources */,
 				2076B2C01B5CA83C00BC7D97 /* SearchResumeTableViewCell.xib in Resources */,
 				20F0F26A1B5E476200CB1D71 /* industry.plist in Resources */,
 				20D468C61B6F670D008A7B78 /* homepage_nopass@3x.png in Resources */,
@@ -2162,9 +2124,9 @@
 				20054E9A1B661F4A009FA771 /* EnterpriseImgTableViewCell.m in Sources */,
 				201EDB101B575F0F0080A12A /* JobIntensionTableViewCell.m in Sources */,
 				203543321B4CFBAD007FF4A8 /* CommendView.m in Sources */,
-				20A32A351B59099600E1B5F8 /* UntreatedViewController.m in Sources */,
 				20BB620F1B4E54B9006BD455 /* ResumeTableViewCell.m in Sources */,
 				2097D2D61B461E7000611432 /* main.m in Sources */,
+				203C930E1B70B88900AA017E /* CPTextViewPlaceholder.m in Sources */,
 				20D468921B6F12AB008A7B78 /* AFHttpClient.m in Sources */,
 				20D4689E1B6F12AB008A7B78 /* UIAlertView+AFNetworking.m in Sources */,
 				20F0F25B1B5E24D500CB1D71 /* PositionViewController.m in Sources */,
@@ -2179,9 +2141,7 @@
 				20D4689C1B6F12AB008A7B78 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				20D468961B6F12AB008A7B78 /* AFNetworkReachabilityManager.m in Sources */,
 				20D468C01B6F4814008A7B78 /* BaseViewController.m in Sources */,
-				20A32A3F1B5909C200E1B5F8 /* CollectedViewController.m in Sources */,
 				202D48111B622EB900654E7C /* InfoFiltrateView.m in Sources */,
-				20A32A301B59097C00E1B5F8 /* HaveDownloadViewController.m in Sources */,
 				20D6F4381B60CB7C00AC0394 /* MyTableViewCell0.m in Sources */,
 				203EF5161B69B004000F292D /* HireOfView.m in Sources */,
 				20D4689F1B6F12AB008A7B78 /* UIButton+AFNetworking.m in Sources */,

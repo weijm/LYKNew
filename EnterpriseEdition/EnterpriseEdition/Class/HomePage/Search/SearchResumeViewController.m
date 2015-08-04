@@ -41,6 +41,7 @@
     [self initSearchBar];
     //导航条的颜色
     [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.translucent = NO;
     //设置tableView
     dataTableView.backgroundColor = [UIColor clearColor];
     dataTableView.separatorColor = [UIColor clearColor];
@@ -244,8 +245,7 @@
 {
     self.navigationItem.rightBarButtonItem.enabled = NO;
     customSearchBar.userInteractionEnabled = NO;
-    float filtrateH = topBarheight;
-    CGRect frame = CGRectMake(0, filtrateH, kWidth, kHeight-filtrateH);
+    CGRect frame = CGRectMake(0, 0, kWidth, kHeight-topBarheight);
     filtrateView = [[FiltrateView alloc] initWithFrame:frame];
     filtrateView.delegate = self;
     //根据所选简历分类 加载的筛选内容不同
@@ -331,7 +331,8 @@
 #pragma mark-添加和取消键盘的事件
 -(void)addEditBg
 {
-    UIView *bg = [[UIView alloc] initWithFrame:self.view.frame];
+    CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    UIView *bg = [[UIView alloc] initWithFrame:frame];
     bg.backgroundColor = [UIColor lightGrayColor];
     bg.alpha = 0.3;
     bg.tag = 1000;

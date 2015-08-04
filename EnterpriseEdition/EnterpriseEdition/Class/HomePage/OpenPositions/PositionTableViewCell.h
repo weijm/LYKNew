@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CPTextViewPlaceholder.h"
 @protocol PositionTableViewCellDelegate <NSObject>
 @optional
 -(void)setEditView:(UIView*)_editView;
@@ -26,7 +27,7 @@
     IBOutlet UIImageView *markImg;
     IBOutlet UITextField *contentTextField;
     
-    IBOutlet UITextView *contentTextView;
+    IBOutlet CPTextViewPlaceholder *contentTextView;
     
     IBOutlet NSLayoutConstraint *contentTextFieldToRight;
     

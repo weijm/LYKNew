@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EnterpriseBaseTableViewCell.h"
 #import "EnterpriseImgTableViewCell.h"
-@interface EnterpriseContactViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,EnterpriseBaseTableViewCellDelegate,EnterpriseImgTableViewCellDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface EnterpriseContactViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,EnterpriseBaseTableViewCellDelegate,EnterpriseImgTableViewCellDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     IBOutlet UILabel *promptLab;
     

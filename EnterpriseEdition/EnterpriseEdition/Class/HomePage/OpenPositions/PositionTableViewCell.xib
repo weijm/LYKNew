@@ -60,7 +60,7 @@
                                     <outlet property="delegate" destination="KGk-i7-Jjw" id="I4d-dc-uUv"/>
                                 </connections>
                             </textField>
-                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSh-qu-Ut8" userLabel="contentTextView">
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSh-qu-Ut8" userLabel="contentTextView" customClass="CPTextViewPlaceholder">
                                 <rect key="frame" x="-10" y="6" width="202" height="46.5"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -116,7 +116,7 @@
                 <outlet property="arrowImg" destination="J1d-wf-xMx" id="RQZ-dE-b2v"/>
                 <outlet property="contentTextField" destination="LQc-6W-fUV" id="P8r-LF-NJ4"/>
                 <outlet property="contentTextFieldToRight" destination="ehb-8m-xVz" id="aym-MG-ydf"/>
-                <outlet property="contentTextView" destination="ZSh-qu-Ut8" id="dI0-Un-qd8"/>
+                <outlet property="contentTextView" destination="ZSh-qu-Ut8" id="LxD-Vn-AQs"/>
                 <outlet property="lineHeight" destination="9b9-Ar-cEh" id="w2d-dv-8Ty"/>
                 <outlet property="markImg" destination="vct-ru-7zQ" id="ieI-YM-lGI"/>
                 <outlet property="titBgToBottom" destination="3gM-bo-Lux" id="ZJZ-mu-gD0"/>

@@ -59,7 +59,9 @@
 #pragma mark - 消息通知 切换控制器
 -(void)chooseVC:(NSNotification*)notification
 {
-    self.selectedViewController = [vcArray objectAtIndex:1];
+    NSString *object = [notification object];
+    int index = [object intValue]/10;
+    self.selectedViewController = [vcArray objectAtIndex:index];
 
 }
 #pragma mark - LoginViewControllerDelegate;

@@ -172,7 +172,7 @@
 //    hireView = [[HireView alloc] initWithFrame:frame];
     hireOfView = [[HireOfView alloc] initWithFrame:frame];
     //假数据
-    NSArray *array = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"职位 10个",@"string",@"10个",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"急招 剩余12时",@"string",@"剩余12时",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"已下载 100份",@"string",@"100份",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"未处理 100份",@"string",@"100份",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"发布职位",@"string",@"",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"收藏 100份",@"string",@"100份",@"substring", nil], nil];
+    NSArray *array = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"职位 10个",@"string",@"10个",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"急招 剩余12时",@"string",@"剩余12时",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"已下载 100份",@"string",@"100份",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"已收到 100份",@"string",@"100份",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"发布职位",@"string",@"",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"收藏 100份",@"string",@"100份",@"substring", nil], nil];
     
     [hireOfView loadItem:array];
     //点击事件的触发
@@ -219,6 +219,9 @@
     switch (index) {
         case 0:
             NSLog(@"职位");
+        {
+             [[NSNotificationCenter defaultCenter] postNotificationName:@"SelectedVC" object:@"20"];
+        }
             break;
         case 1:
         {
@@ -232,11 +235,14 @@
         case 2:
             NSLog(@"已下载");
         {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"SelectedVC" object:@"0"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"SelectedVC" object:@"13"];
         }
             break;
         case 3:
-            NSLog(@"未处理");
+            NSLog(@"已收到");
+        {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"SelectedVC" object:@"11"];
+        }
             break;
         case 4:
             NSLog(@"发布职位");
@@ -248,6 +254,9 @@
             break;
         case 5:
             NSLog(@"收藏");
+        {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"SelectedVC" object:@"12"];
+        }
             break;
             
         default:

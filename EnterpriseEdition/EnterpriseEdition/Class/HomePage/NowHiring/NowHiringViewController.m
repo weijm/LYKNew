@@ -32,6 +32,7 @@
     self.title = @"急招";
     //导航条的颜色
     [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.translucent = NO;
     //初始化headerView
     [self initHeaderView];
     

@@ -291,12 +291,12 @@
 #pragma mark - animation
 -(void)showInView:(UIView *)view
 {
-    UIView *areaBg = [[UIView alloc] initWithFrame:view.frame];
+    CGRect frame1 = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
+    UIView *areaBg = [[UIView alloc] initWithFrame:frame1];
     areaBg.backgroundColor = [UIColor clearColor];
     areaBg.tag = 250;
     [view addSubview:areaBg];
-    
-    UIView *alphBg = [[UIView alloc] initWithFrame:view.frame];
+    UIView *alphBg = [[UIView alloc] initWithFrame:frame1];
     alphBg.backgroundColor = [UIColor blackColor];
     alphBg.alpha = 0;
     [areaBg addSubview:alphBg];

@@ -49,6 +49,7 @@
 #define kFOOTERVIEWH [Util myYOrHeight:41.5]
 
 #define kTestType 1
+
 #define QMapKey @"OXWBZ-MZHR4-77TUD-DXUNN-R2FPZ-YBB2J"
 
 #define kRegisterAccount @"kRegisterAccount"

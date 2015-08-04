@@ -41,6 +41,7 @@
         arrowImg.hidden = YES;
         contentTextField.hidden = YES;
         contentTextView.hidden = NO;
+        contentTextView.placeholder = @"请输入1000字以内描述";
         titBgToBottom.constant = [Util myYOrHeight:40];
     }else
     {
@@ -57,8 +58,14 @@
         contentTextField.hidden = NO;
         contentTextView.hidden = YES;
         titBgToBottom.constant = 0;
-        
-        
+    }
+    
+    //必填的显示星星 非必填的不显示星星
+    if (index == 7||index ==9) {
+        markImg.hidden = YES;
+    }else
+    {
+        markImg.hidden = NO;
     }
 }
 -(void)loadContent:(NSObject*)obj

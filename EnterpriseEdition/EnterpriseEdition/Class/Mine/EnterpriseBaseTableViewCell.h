@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CPTextViewPlaceholder.h"
 @protocol EnterpriseBaseTableViewCellDelegate <NSObject>
 @optional
 -(void)setEditView:(UIView*)_editView;
@@ -25,7 +26,7 @@
     
     IBOutlet UITextField *contentTextField;
     
-    IBOutlet UITextView *contentTextView;
+    IBOutlet CPTextViewPlaceholder *contentTextView;
     
     IBOutlet NSLayoutConstraint *contentTextFieldToRight;
     
@@ -35,6 +36,9 @@
     IBOutlet NSLayoutConstraint *xingWidth;
     
     IBOutlet NSLayoutConstraint *lineHeight;
+    
+    
+    IBOutlet UIImageView *markImg;
 }
 @property (nonatomic,weak) id<EnterpriseBaseTableViewCellDelegate> delegate;
 @property (nonatomic) int  cellType;
