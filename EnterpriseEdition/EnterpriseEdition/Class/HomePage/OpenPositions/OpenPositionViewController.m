@@ -7,6 +7,7 @@
 //
 
 #import "OpenPositionViewController.h"
+#import "PositionObject.h"
 
 
 @interface OpenPositionViewController ()
@@ -188,8 +189,10 @@
             break;
     }
 
-    if (row == 5 || row == 3 || row ==0 ||row == 7) {//地区 此处可以查询对应的id
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    if (row == 5 || row ==0 ||row == 7) {//地区 此处可以查询对应的id
+         NSDictionary *idsDic = [self getIdByContent:dictionary Index:row];
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:idsDic];
+        
         NSString *province = [dictionary objectForKey:@"province"];
         NSString *city = [dictionary objectForKey:@"city"];
         NSString *district = [dictionary objectForKey:@"district"];
@@ -208,6 +211,32 @@
     }
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     [dataTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath , nil] withRowAnimation:UITableViewRowAnimationNone];
+}
+#pragma mark - 将pickerView选取的内容转换为id
+-(NSMutableDictionary*)getIdByContent:(NSDictionary*)dictionary Index:(int)row
+{
+    NSMutableDictionary *idsDic = nil;
+    switch (row) {
+        case 0://职位名称
+        {
+            idsDic = [CombiningData getJobTypeIDsByContent:dictionary];
+        }
+            break;
+        case 5://省市区
+        {
+            idsDic = [CombiningData getCityIDsByContent:dictionary];
+        }
+            break;
+        case 7://所属行业
+        {
+            idsDic = [CombiningData getIndustryIDsByContent:dictionary];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    return idsDic;
 }
 #pragma mark - PositionTableViewCellDelegate
 -(void)setEditView:(UIView*)_editView
@@ -279,6 +308,9 @@
         if ([content length]>0) {
             NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:content,@"content", nil];
             [contentArray replaceObjectAtIndex:tempView.tag withObject:dictionary];
+        }else
+        {
+            [contentArray replaceObjectAtIndex:tempView.tag withObject:@"0"];
         }
     }
 }
@@ -294,12 +326,25 @@
         if ([content length]>0) {
             NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:content,@"content", nil];
             [contentArray replaceObjectAtIndex:tempView.tag withObject:dictionary];
+        }else
+        {
+            [contentArray replaceObjectAtIndex:tempView.tag withObject:@"0"];
         }
     }
 }
 #pragma mark - 将保存数据到本地
 - (IBAction)saveDataAction:(id)sender {
+    NSInteger count = [contentArray count];
     
+    for (int i =0; i< count; i++) {
+        NSObject *obj = [contentArray objectAtIndex:i];
+        if ([obj isKindOfClass:[NSString class]]&&i!=6) {
+            NSDictionary *dic = [titleArray objectAtIndex:i];
+            NSString *title = [dic objectForKey:@"title"];
+            [Util showPrompt:[NSString stringWithFormat:@"%@ 不能为空",title]];
+            break;
+        }
+    }
 }
 #pragma mark - 提交审核发布的职位
 - (IBAction)commitAction:(id)sender {

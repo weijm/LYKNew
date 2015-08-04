@@ -19,4 +19,66 @@
     });
     return instance;
 }
+//获取省市区的id
+-(int)getProvinceOrCityOrAreas:(int)fid Name:(NSString*)name
+{
+    __block int cityId = 0;
+    NSString *dbPath = [Util getSQLitePath];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+    if (![db open]) {
+        NSLog(@"could not open db");
+    }
+    [db setShouldCacheStatements:YES];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
+    [queue inDatabase:^(FMDatabase *db){
+        FMResultSet *rs = [db executeQuery:@"select * from t_city where fid = ? and name = ?",[NSNumber numberWithInt:fid],name];
+        while ([rs next]) {
+            cityId = [rs intForColumn:@"id"];
+        }
+        [rs close];
+    }];
+    return cityId;
+}
+// 获取行业的id
+-(int)getIndustryIds:(int)fid Name:(NSString*)name
+{
+    __block int industryId = 0;
+    NSString *dbPath = [Util getSQLitePath];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+    if (![db open]) {
+        NSLog(@"could not open db");
+    }
+    [db setShouldCacheStatements:YES];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
+    [queue inDatabase:^(FMDatabase *db){
+        FMResultSet *rs = [db executeQuery:@"select * from t_industry where fid = ? and name = ?",[NSNumber numberWithInt:fid],name];
+        while ([rs next]) {
+            industryId = [rs intForColumn:@"id"];
+        }
+        [rs close];
+    }];
+    return industryId;
+    
+}
+// 获取职位名称的Ids
+-(int)getJobTypeIds:(int)fid Name:(NSString*)name
+{
+    __block int jobtyepId = 0;
+    NSString *dbPath = [Util getSQLitePath];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+    if (![db open]) {
+        NSLog(@"could not open db");
+    }
+    [db setShouldCacheStatements:YES];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
+    [queue inDatabase:^(FMDatabase *db){
+        FMResultSet *rs = [db executeQuery:@"select * from t_job_type where fid = ? and name = ?",[NSNumber numberWithInt:fid],name];
+        while ([rs next]) {
+            jobtyepId = [rs intForColumn:@"id"];
+        }
+        [rs close];
+    }];
+    return jobtyepId;
+
+}
 @end

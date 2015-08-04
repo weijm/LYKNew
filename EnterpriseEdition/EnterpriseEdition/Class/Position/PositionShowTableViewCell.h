@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CircleProgressView.h"
+#import "Session.h"
 @class UIButton_Custom;
 
 @protocol PositionShowTableViewCellDelegate <NSObject>
@@ -54,7 +56,16 @@
     IBOutlet UIImageView *resumeNumberImg;
     
     IBOutlet UILabel *resumeNumberLab;
+    //倒计时视图的父视图
+    IBOutlet UIView *rightBg;
+    
+    CircleProgressView *circleProgressView;
+    
+    NSTimeInterval remainingTime;
 }
+@property (strong, nonatomic) NSTimer *timer;
+@property (nonatomic) Session *session;
+
 @property(nonatomic,weak) id<PositionShowTableViewCellDelegate> delegate;
 @property (nonatomic) BOOL showCheckImg;
 /**

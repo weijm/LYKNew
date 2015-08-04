@@ -186,6 +186,7 @@
         switch (component) {
             case 0:
             {
+                selectedRow = row;
                 self.locate.country = [leftArray objectAtIndex:row];
             }
             break;
@@ -200,12 +201,12 @@
 {
     currentIndex = index;
     switch (index) {
-        case 1:
+        case 1://对应
             _titleLab.text = @"学    历 ";
-            leftArray = [NSArray arrayWithObjects:@"大专",@"本科",@"研究生",@"博士",nil];
+            leftArray = [NSArray arrayWithObjects:@"大  专",@"本  科",@"研究生",@"博  士",nil];
             self.locate.country = [leftArray objectAtIndex:0];
             break;
-        case 2:
+        case 2://对应
             _titleLab.text = @"期望薪资";
             leftArray = [NSArray arrayWithObjects:@"1000-2000",@"2000-4000", @"4000-7000",@"7000-10000",@"10000-15000",@"15000-20000",@"20000以上",@"面议",nil];
             self.locate.country = [leftArray objectAtIndex:0];
@@ -215,7 +216,7 @@
         case 7:
         {
             NSString *fileName;
-            if (index == 0) {
+            if (index == 0) {//对应
                 fileName = @"jobType.plist";
                 if (_categoryType ==1) {
                     _titleLab.text = @"职位名称";
@@ -224,11 +225,11 @@
                     _titleLab.text = @"简历来源";
                 }
             }else if(index == 3)
-            {
+            {//对应
                 _titleLab.text = @"专    业";
                 fileName = @"major.plist";
             }else
-            {
+            {//对应
                 _titleLab.text = @"所属行业";
                 fileName = @"industry.plist";
            
@@ -243,14 +244,14 @@
             }
         }
             break;
-        case 4:
+        case 4://对应
             _titleLab.text = @"职位类型";
             leftArray = [NSArray arrayWithObjects:@"全职",@"兼职",@"实习",nil];
             self.locate.country = [leftArray objectAtIndex:0];
             break;
         
         case 5:
-        {
+        {//对应
             _titleLab.text = @"期望城市";
             leftArray = [NSArray arrayWithContentsOfFile:[Util getBundlePath:@"city.plist"]];
             NSDictionary *dic = [leftArray objectAtIndex:0];
@@ -337,6 +338,7 @@
     if (pStyle == PickerStyleNormal) {//普通的
         if (self.locate.country !=nil) {
             [_resultDic setObject:self.locate.country forKey:@"content"];
+            [_resultDic setObject:[NSNumber numberWithInt:selectedRow] forKey:@"selectedId"];
             self.didSelectedPickerRow(currentIndex,_resultDic);
         }
         

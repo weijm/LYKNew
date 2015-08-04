@@ -60,4 +60,19 @@
  提示信息
  */
 +(void)showPrompt:(NSString*)promptString;
+#pragma mark - 文件路径
+
+/**
+ 获取document的路径
+ */
++(NSString*)documentPath;
+/**
+ 复制原文件到指定目录
+ */
++(BOOL)copyFile:(NSString*)originalPath To:(NSString*)targetPath;
+
+/**
+ 用户的数据库文件路径
+ */
++(NSString*)getSQLitePath;
 @end

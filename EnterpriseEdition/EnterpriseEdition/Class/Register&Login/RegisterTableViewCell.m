@@ -186,6 +186,7 @@
     
     codeMarkLab.hidden = NO;
     timesLab.hidden = YES;
+    
 }
 -(void)nextAction
 {

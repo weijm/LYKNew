@@ -27,6 +27,7 @@
 	CGFloat				_measuredIndicatorHeight;
 	NSMutableDictionary	*_pageImages;
 	NSMutableDictionary	*_currentPageImages;
+    
 }
 
 - (void)_initialize
@@ -43,6 +44,13 @@
 	
 	_pageImages = [NSMutableDictionary dictionary];
 	_currentPageImages = [NSMutableDictionary dictionary];
+    
+    UISwipeGestureRecognizer *_lswipGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipLeft:)];
+    _lswipGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self addGestureRecognizer:_lswipGestureRecognizer];
+    UISwipeGestureRecognizer *_rswipGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipRight:)];
+    _rswipGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    [self addGestureRecognizer:_rswipGestureRecognizer];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -53,6 +61,7 @@
     }
 	
 	[self _initialize];
+    
     return self;
 }
 
@@ -265,18 +274,28 @@
 // touching down, sliding around, and releasing, still results in the page incrementing or decrementing.
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	UITouch *touch = [touches anyObject];
-	CGPoint point = [touch locationInView:self];
-	CGSize size = [self sizeForNumberOfPages:self.numberOfPages];
-	CGFloat left = [self _leftOffset];
-	CGFloat middle = left + (size.width / 2.0f);
-	if (point.x < middle) {
-		[self setCurrentPage:self.currentPage + 1 sendEvent:YES canDefer:YES];
-	} else {
-        [self setCurrentPage:self.currentPage - 1 sendEvent:YES canDefer:YES];
-	}
+//	UITouch *touch = [touches anyObject];
+//	CGPoint point = [touch locationInView:self];
+//	CGSize size = [self sizeForNumberOfPages:self.numberOfPages];
+//	CGFloat left = [self _leftOffset];
+//	CGFloat middle = left + (size.width / 2.0f);
+//	if (point.x < middle) {
+//		[self setCurrentPage:self.currentPage + 1 sendEvent:YES canDefer:YES];
+//	} else {
+//        [self setCurrentPage:self.currentPage - 1 sendEvent:YES canDefer:YES];
+//	}
 }
+#pragma mark - 左右滑动手势
+-(void)swipLeft:(UISwipeGestureRecognizer*)gesture
+{
+    [self setCurrentPage:self.currentPage + 1 sendEvent:YES canDefer:YES];
+    
+}
+-(void)swipRight:(UISwipeGestureRecognizer*)gesture
+{
+    [self setCurrentPage:self.currentPage - 1 sendEvent:YES canDefer:YES];
 
+}
 #pragma mark - Accessors
 
 - (void)setFrame:(CGRect)frame

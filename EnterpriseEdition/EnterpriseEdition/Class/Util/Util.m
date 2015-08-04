@@ -217,4 +217,38 @@
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"" message:NSLocalizedString(promptString, nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
 }
+#pragma mark - 文件的相关操作
+//document的路径
++(NSString*)documentPath
+{
+    NSString *docPath = nil;
+    NSArray *searchPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docPath = [searchPaths firstObject];
+    return docPath;
+}
+// 复制原文件到指定目录
++(BOOL)copyFile:(NSString*)originalPath To:(NSString*)targetPath
+{
+    NSFileManager *filemanager = [NSFileManager defaultManager];
+    NSError *error;
+    if (![filemanager copyItemAtPath:originalPath toPath:targetPath error:&error]) {
+        NSLog(@"copy file error %@",[error localizedDescription]);
+        return NO;
+    }
+    return YES;
+}
+// 用户的数据库文件路径
++(NSString*)getSQLitePath
+{
+    NSString *dbPath = [NSString stringWithFormat:@"%@/data.sqlite",[self documentPath]];
+    NSFileManager *filemanager = [NSFileManager defaultManager];
+    if (![filemanager fileExistsAtPath:dbPath]) {
+        NSString *bundelPath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"sqlite"];
+        if (![self copyFile:bundelPath To:dbPath]) {
+            NSLog(@"getSQLitePath copy file error");
+        }
+    }
+    return dbPath;
+}
+
 @end

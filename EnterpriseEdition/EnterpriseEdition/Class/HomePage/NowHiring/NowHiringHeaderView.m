@@ -108,7 +108,6 @@
     self.chooseHeaderBtAction(index);
 }
 #pragma mark - Timer
-
 - (void)startTimer {
     if ((!self.timer) || (![self.timer isValid])) {
         

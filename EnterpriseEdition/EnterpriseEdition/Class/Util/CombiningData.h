@@ -14,4 +14,16 @@
  */
 +(NSString*)loginUser:(NSString*)username Password:(NSString*)password;
 +(NSMutableDictionary*)loginUserDic:(NSString*)username Password:(NSString*)password;
+/**
+ 获取地区对应的ids字典
+ */
++(NSMutableDictionary*)getCityIDsByContent:(NSDictionary*)dictionary;
+/**
+ 获取行业对应的ids字典
+ */
++(NSMutableDictionary*)getIndustryIDsByContent:(NSDictionary*)dictionary;
+/**
+ 获取职位名称对应的ids字典
+ */
++(NSMutableDictionary*)getJobTypeIDsByContent:(NSDictionary*)dictionary;
 @end

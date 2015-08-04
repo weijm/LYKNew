@@ -228,6 +228,7 @@
                 <outlet property="positoinName" destination="Rtn-nD-rdL" id="uue-Ge-72m"/>
                 <outlet property="resumeNumberImg" destination="c0x-Qa-NgW" id="ihi-eq-Zh3"/>
                 <outlet property="resumeNumberLab" destination="eUG-yN-bBY" id="FN1-YC-lE7"/>
+                <outlet property="rightBg" destination="QT5-bK-I3P" id="iyQ-Az-zAY"/>
                 <outlet property="subView" destination="GNI-rX-c89" id="Hvc-Wx-M3H"/>
                 <outlet property="urgentImg" destination="nJQ-Wd-bCz" id="2SM-9D-fCD"/>
                 <outlet property="validTimeLab" destination="Sbj-3N-J3G" id="pub-7O-i2V"/>

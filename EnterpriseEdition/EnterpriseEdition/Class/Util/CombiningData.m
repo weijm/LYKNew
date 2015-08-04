@@ -8,6 +8,7 @@
 
 #import "CombiningData.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "PositionObject.h"
 @implementation CombiningData
 //组合登录时的body
 +(NSString*)loginUser:(NSString*)username Password:(NSString*)password
@@ -43,5 +44,58 @@
     
     return mdfiveString;
 }
+#pragma mark - 根据内容获取id
+// 获取地区对应的ids字典
++(NSMutableDictionary*)getCityIDsByContent:(NSDictionary*)dictionary
+{
+    NSMutableDictionary * idsDic = [[NSMutableDictionary alloc] init];
+    NSArray *values = [dictionary allValues];
+    int cityID = 1;
+    for (int i =0; i < [values count]; i++) {
+        NSString *name = [values objectAtIndex:i];
+        int oldId = cityID;
+        cityID = [[PositionObject shareInstance] getProvinceOrCityOrAreas:cityID Name:name];
+        
+        if (cityID >oldId) {
+            NSString *key = [NSString stringWithFormat:@"cityID%d",i];
+            [idsDic setObject:[NSNumber numberWithInt:cityID] forKey:key];
+        }
+    }
+    return idsDic;
+}
+// 获取行业对应的ids字典
++(NSMutableDictionary*)getIndustryIDsByContent:(NSDictionary*)dictionary
+{
+    NSMutableDictionary * idsDic = [[NSMutableDictionary alloc] init];
+    NSArray *values = [dictionary allValues];
+    int industryID = 0;
+    for (int i =0; i < [values count]; i++) {
+        NSString *name = [values objectAtIndex:i];
+        int oldId = industryID;
+        industryID = [[PositionObject shareInstance]getIndustryIds:industryID Name:name];
+        if (industryID >oldId) {
+            NSString *key = [NSString stringWithFormat:@"IndustryID%d",i];
+            [idsDic setObject:[NSNumber numberWithInt:industryID] forKey:key];
+        }
+    }
+    return idsDic;
+}
+// 获取职位名称对应的ids字典
++(NSMutableDictionary*)getJobTypeIDsByContent:(NSDictionary*)dictionary
+{
+    NSMutableDictionary * idsDic = [[NSMutableDictionary alloc] init];
+    NSArray *values = [dictionary allValues];
+    int jobTypeID = 0;
+    for (int i =0; i < [values count]; i++) {
+        NSString *name = [values objectAtIndex:i];
+        int oldId = jobTypeID;
+        jobTypeID = [[PositionObject shareInstance] getJobTypeIds:jobTypeID Name:name];
+        if (jobTypeID >oldId) {
+            NSString *key = [NSString stringWithFormat:@"JobTypeID%d",i];
+            [idsDic setObject:[NSNumber numberWithInt:jobTypeID] forKey:key];
+        }
+    }
+    return idsDic;
 
+}
 @end

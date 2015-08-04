@@ -25,6 +25,8 @@ typedef enum {
     NSArray *subRightArray;
     //目前加载数据标记
     int currentIndex;
+    //目前第一列选中的是第几行
+    int selectedRow;
     
     
 }
