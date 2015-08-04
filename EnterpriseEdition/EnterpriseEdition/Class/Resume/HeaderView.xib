@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderView">
             <connections>
                 <outlet property="chooseBg" destination="UIo-Wv-QPQ" id="hFk-sV-DgR"/>
+                <outlet property="filtrateBt" destination="MAk-3J-uju" id="fva-OV-r86"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -40,7 +41,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UIo-Wv-QPQ" userLabel="choosebg">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eDC-Ga-kYL" userLabel="arrowBg">
@@ -74,7 +75,7 @@
                 <constraint firstItem="eDC-Ga-kYL" firstAttribute="leading" secondItem="MAk-3J-uju" secondAttribute="trailing" constant="-15" id="Xh8-TK-8tM"/>
                 <constraint firstAttribute="centerX" secondItem="MAk-3J-uju" secondAttribute="centerX" id="iGF-uJ-Tb4"/>
                 <constraint firstItem="AiN-fW-obS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jJH-y2-47a"/>
-                <constraint firstItem="MAk-3J-uju" firstAttribute="top" secondItem="UIo-Wv-QPQ" secondAttribute="bottom" constant="13" id="y8x-dg-CnZ"/>
+                <constraint firstItem="MAk-3J-uju" firstAttribute="top" secondItem="UIo-Wv-QPQ" secondAttribute="bottom" id="y8x-dg-CnZ"/>
                 <constraint firstItem="UIo-Wv-QPQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="z40-kN-jxR"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

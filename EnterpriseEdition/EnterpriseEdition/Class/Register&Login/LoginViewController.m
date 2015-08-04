@@ -119,6 +119,7 @@
 {
     [self showHUD:@"正在登录"];
     NSString *loginJson = [CombiningData loginUser:userName Password:password];
+    NSMutableDictionary *loginDic = [CombiningData loginUserDic:userName Password:password];
     //请求服务器
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:loginJson httpMethod:HttpMethodPost WithSSl:nil];
     [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){

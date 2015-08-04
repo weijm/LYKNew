@@ -36,6 +36,9 @@
         [chooseBg addSubview:subbg];
         //初始化按钮
         [self initButtonView];
+        if (kIphone5||kIphone4) {
+            filtrateBt.titleLabel.font = [UIFont systemFontOfSize:11];
+        }
     }
     return self;
 }

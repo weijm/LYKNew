@@ -46,7 +46,10 @@
     NSMutableDictionary *textAttrs=[NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName]=[UIColor whiteColor];
     [navigation.navigationBar setTitleTextAttributes:textAttrs];
-    [rootVC presentViewController:navigation animated:YES completion:nil];
+    if (!kTestType) {
+        [rootVC presentViewController:navigation animated:YES completion:nil];
+
+    }
     return YES;
 }
 

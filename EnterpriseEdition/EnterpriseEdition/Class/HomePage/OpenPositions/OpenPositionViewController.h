@@ -23,6 +23,7 @@
     IBOutlet NSLayoutConstraint *lineWidth;
 }
 @property (nonatomic) BOOL isEditAgain;
+@property (nonatomic) BOOL fromPositionManager;
 /**
  将数据保存到本地
  */

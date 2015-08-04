@@ -8,6 +8,7 @@
 
 #import "CommendView.h"
 #import "SinglePersonalView.h"
+#import "CommendEmpt.h"
 #define kPersonCount (kIphone4||kIphone5)?4:5
 @implementation CommendView
 
@@ -38,6 +39,12 @@
 //加载子视图的数据
 -(void)loadSubView:(NSArray*)array
 {
+    if ([array count]==0) {
+        NSLog(@"frame == %@",NSStringFromCGRect(bottombg.frame));
+        CommendEmpt *emptyView = [[CommendEmpt alloc] initWithFrame:CGRectMake(0, 0, kWidth, bottombg.frame.size.height)];
+        [bottombg addSubview:emptyView];
+        return;
+    }
     int count = kPersonCount;
     float edgeToLeft = 0;
     float singleW = (kWidth-edgeToLeft*2)/count;

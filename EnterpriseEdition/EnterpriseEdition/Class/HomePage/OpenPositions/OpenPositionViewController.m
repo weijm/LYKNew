@@ -31,8 +31,11 @@
     }else
     {
         self.title = @"发布职位";
-        //导航条的颜色
-        [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
+        if (!_fromPositionManager) {
+            //导航条的颜色
+            [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
+        }
+        
     }
     
     //初始化item

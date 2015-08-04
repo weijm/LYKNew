@@ -22,16 +22,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    if (kTestType) {
+        [self initVC];
+    }
     
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)appearLoginView
-{
-}
+
 #pragma mark - 登录成功之后初始化的视图
 -(void)initVC
 {

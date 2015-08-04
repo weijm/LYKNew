@@ -252,6 +252,10 @@
 		20D468C01B6F4814008A7B78 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D468BE1B6F4814008A7B78 /* BaseViewController.m */; };
 		20D468C11B6F4814008A7B78 /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D468BF1B6F4814008A7B78 /* BaseViewController.xib */; };
 		20D468C41B6F49EC008A7B78 /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D468C31B6F49EC008A7B78 /* UIView+ViewController.m */; };
+		20D468C61B6F670D008A7B78 /* homepage_nopass@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D468C51B6F670D008A7B78 /* homepage_nopass@3x.png */; };
+		20D468C91B6F676B008A7B78 /* CommendEmpt.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D468C81B6F676B008A7B78 /* CommendEmpt.m */; };
+		20D468CB1B6F6779008A7B78 /* CommendEmpt.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D468CA1B6F6779008A7B78 /* CommendEmpt.xib */; };
+		20D468CD1B6F7130008A7B78 /* position_add_bt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D468CC1B6F7130008A7B78 /* position_add_bt@3x.png */; };
 		20D58BA71B54F814007B2A3F /* QMapKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20D58BA61B54F814007B2A3F /* QMapKit.bundle */; };
 		20D58BA91B54F82C007B2A3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D58BA81B54F82C007B2A3F /* QuartzCore.framework */; };
 		20D58BAB1B54F834007B2A3F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D58BAA1B54F834007B2A3F /* CoreLocation.framework */; };
@@ -675,6 +679,11 @@
 		20D468BF1B6F4814008A7B78 /* BaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseViewController.xib; sourceTree = "<group>"; };
 		20D468C21B6F49EC008A7B78 /* UIView+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewController.h"; sourceTree = "<group>"; };
 		20D468C31B6F49EC008A7B78 /* UIView+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
+		20D468C51B6F670D008A7B78 /* homepage_nopass@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_nopass@3x.png"; sourceTree = "<group>"; };
+		20D468C71B6F676B008A7B78 /* CommendEmpt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommendEmpt.h; sourceTree = "<group>"; };
+		20D468C81B6F676B008A7B78 /* CommendEmpt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommendEmpt.m; sourceTree = "<group>"; };
+		20D468CA1B6F6779008A7B78 /* CommendEmpt.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommendEmpt.xib; sourceTree = "<group>"; };
+		20D468CC1B6F7130008A7B78 /* position_add_bt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_add_bt@3x.png"; sourceTree = "<group>"; };
 		20D58BA61B54F814007B2A3F /* QMapKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = QMapKit.bundle; sourceTree = "<group>"; };
 		20D58BA81B54F82C007B2A3F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		20D58BAA1B54F834007B2A3F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -1129,6 +1138,7 @@
 			children = (
 				20F0F2371B5E160C00CB1D71 /* CommendResume */,
 				20BA85B91B6763BF00757788 /* homepage_commend_img@3x.png */,
+				20D468C51B6F670D008A7B78 /* homepage_nopass@3x.png */,
 				20D468641B6F06D7008A7B78 /* homepage_search_bt@3x.png */,
 				20D468551B6EF7B4008A7B78 /* homepage_banner_select@3x.png */,
 				20D468561B6EF7B4008A7B78 /* homepage_banner_selected_highted@3x.png */,
@@ -1331,6 +1341,9 @@
 				20BB61ED1B4DFC25006BD455 /* SinglePersonalView.h */,
 				20BB61EE1B4DFC25006BD455 /* SinglePersonalView.m */,
 				20BB61F01B4DFC72006BD455 /* SinglePersonalView.xib */,
+				20D468C71B6F676B008A7B78 /* CommendEmpt.h */,
+				20D468C81B6F676B008A7B78 /* CommendEmpt.m */,
+				20D468CA1B6F6779008A7B78 /* CommendEmpt.xib */,
 			);
 			name = commend;
 			sourceTree = "<group>";
@@ -1793,6 +1806,7 @@
 		20F0F2641B5E32BF00CB1D71 /* Position */ = {
 			isa = PBXGroup;
 			children = (
+				20D468CC1B6F7130008A7B78 /* position_add_bt@3x.png */,
 				200780891B6B432B004D9EB4 /* position_check_state0@3x.png */,
 				2007808A1B6B432B004D9EB4 /* position_check_state1@3x.png */,
 				2007808B1B6B432B004D9EB4 /* position_check_state2@3x.png */,
@@ -1965,6 +1979,7 @@
 				20A32A361B59099600E1B5F8 /* UntreatedViewController.xib in Resources */,
 				20BA85D81B67837500757788 /* resume_download@3x.png in Resources */,
 				2007808E1B6B432B004D9EB4 /* position_check_state2@3x.png in Resources */,
+				20D468CD1B6F7130008A7B78 /* position_add_bt@3x.png in Resources */,
 				2097D2E11B461E7000611432 /* Images.xcassets in Resources */,
 				2022235C1B56711C00D63910 /* TitleView.xib in Resources */,
 				20BA85AB1B67334000757788 /* ClaimPositionViewController.xib in Resources */,
@@ -2030,6 +2045,7 @@
 				20A32A311B59097C00E1B5F8 /* HaveDownloadViewController.xib in Resources */,
 				2076B2C01B5CA83C00BC7D97 /* SearchResumeTableViewCell.xib in Resources */,
 				20F0F26A1B5E476200CB1D71 /* industry.plist in Resources */,
+				20D468C61B6F670D008A7B78 /* homepage_nopass@3x.png in Resources */,
 				20054EAD1B663DAD009FA771 /* ReferenceView.xib in Resources */,
 				20BA85CC1B676E4500757788 /* my_person_icon@3x.png in Resources */,
 				20C93F8E1B68D1B20050514B /* login_password_mark@3x.png in Resources */,
@@ -2039,6 +2055,7 @@
 				20D58BA71B54F814007B2A3F /* QMapKit.bundle in Resources */,
 				202D480D1B621D6500654E7C /* InfoDetailTitleAndImgTableViewCell.xib in Resources */,
 				20C93F5A1B686D000050514B /* position_valid_mark@3x.png in Resources */,
+				20D468CB1B6F6779008A7B78 /* CommendEmpt.xib in Resources */,
 				20BA85B21B674E3300757788 /* position_prompt_img@3x.png in Resources */,
 				202223571B5670A600D63910 /* IdentityTableViewCell.xib in Resources */,
 				20C93F591B686D000050514B /* position_invalid_mark@3x.png in Resources */,
@@ -2122,6 +2139,7 @@
 				20D468AB1B6F1A23008A7B78 /* CombiningData.m in Sources */,
 				20F0F23F1B5E1C6A00CB1D71 /* CommendResumeForJobViewController.m in Sources */,
 				202D48071B621C9D00654E7C /* InfoDetailTableViewCell.m in Sources */,
+				20D468C91B6F676B008A7B78 /* CommendEmpt.m in Sources */,
 				20D468A01B6F12AB008A7B78 /* UIImageView+AFNetworking.m in Sources */,
 				202A6F461B6348C8003DF241 /* RegisterTableViewCell.m in Sources */,
 				20A32A3A1B5909AD00E1B5F8 /* OpenPositionViewController.m in Sources */,

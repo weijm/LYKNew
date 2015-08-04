@@ -11,6 +11,7 @@
 #import "PositionHeaderView.h"
 #import "PositionInfoViewController.h"
 #import "FooterView.h"
+#import "OpenPositionViewController.h"
 
 #define kPHeaderViewHeight [Util myYOrHeight:55]
 
@@ -177,9 +178,9 @@
     CGRect frame = CGRectMake(0, 0, 50, 30);
     
     UIButton *leftBt = [[UIButton alloc] initWithFrame:frame];
-    [leftBt setImage:[UIImage imageNamed:@"home_setting_btn_n"] forState:UIControlStateNormal];
+    [leftBt setImage:[UIImage imageNamed:@"position_add_bt"] forState:UIControlStateNormal];
     UIEdgeInsets imageInsets = leftBt.imageEdgeInsets;
-    leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-30, imageInsets.bottom, imageInsets.right+20);
+    leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-15, imageInsets.bottom, imageInsets.right+20);
     [leftBt addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
     self.navigationItem.leftBarButtonItem = leftItem;
@@ -199,6 +200,10 @@
 }
 -(void)leftAction
 {
+    OpenPositionViewController *openpVC = [[OpenPositionViewController alloc] init];
+    openpVC.fromPositionManager = YES;
+    openpVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:openpVC animated:YES];
 
 }
 -(void)rightAction

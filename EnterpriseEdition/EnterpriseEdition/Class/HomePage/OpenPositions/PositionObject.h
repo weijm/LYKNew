@@ -10,5 +10,8 @@
 #import "FMDB.h"
 
 @interface PositionObject : NSObject
-
+/**
+ 单实例
+ */
++(id)shareInstance;
 @end

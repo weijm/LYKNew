@@ -15,6 +15,7 @@
     
     IBOutlet UIView *chooseBg;
     
+    IBOutlet UIButton *filtrateBt;
 }
 
 @property (nonatomic,copy)void(^chooseHeaderBtAction)(NSInteger index);

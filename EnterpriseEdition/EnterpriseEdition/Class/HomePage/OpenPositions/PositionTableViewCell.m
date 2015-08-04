@@ -31,6 +31,12 @@
     contentTextField.placeholder = [dictionary objectForKey:@"placeholder"];
     int index = (int)self.tag;
     
+    if (index==6) {
+        markImg.hidden = YES;
+    }else
+    {
+        markImg.hidden = NO;
+    }
     
     if (index == 11) {
         arrowImg.hidden = YES;

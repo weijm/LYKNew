@@ -13,4 +13,5 @@
  组合登录时的json
  */
 +(NSString*)loginUser:(NSString*)username Password:(NSString*)password;
++(NSMutableDictionary*)loginUserDic:(NSString*)username Password:(NSString*)password;
 @end

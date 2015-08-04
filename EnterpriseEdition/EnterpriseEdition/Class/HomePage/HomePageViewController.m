@@ -17,6 +17,7 @@
 #import "HireOfView.h"
 
 
+
 #define kBannerViewHeight [Util myYOrHeight:180]
 #define kHireViewHeight [Util myYOrHeight:174]
 @interface HomePageViewController ()
@@ -190,11 +191,18 @@
     if (kIphone4) {
         commendViewH = kHeight - 150-hireH ;
     }
+    CGRect frame = CGRectMake(0, 0, kWidth, commendViewH);
     //假数据
     NSArray *dataArray = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"UI设计师",@"job",@"王伟",@"name",@"艺术设计",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"ios开发师",@"job",@"赵倩",@"name",@"计算机专业",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"java开发",@"job",@"王东志",@"name",@"软件工程",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"web开发",@"job",@"刘一民",@"name",@"数学专业",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"前段设计",@"job",@"李浩",@"name",@"外语专业",@"pro", nil], nil];
     
-    commendView = [[CommendView alloc] initWithFrame:CGRectMake(0, 0, kWidth, commendViewH)];
-    [commendView loadSubView:dataArray];
+    commendView = [[CommendView alloc] initWithFrame:frame];
+    if ([self getEnterpriseCheckState]) {
+        [commendView loadSubView:dataArray];
+    }else
+    {
+        [commendView loadSubView:nil];
+    }
+    
     //点击某个人的触发事件
     
     __weak HomePageViewController *wSelf = self;
@@ -251,6 +259,9 @@
 {
     if (index == 100) {
         NSLog(@"查看更多推荐简历");
+        if (![self getEnterpriseCheckState]) {
+            return;
+        }
         CommendResumeViewController *commendVC = [[CommendResumeViewController alloc] init];
         commendVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:commendVC animated:YES];
@@ -268,5 +279,10 @@
     //刷新推荐部分 commendArray重新获取
     [commendView loadSubView:commendArray];
 }
-
+#pragma mark - 企业状态
+-(BOOL)getEnterpriseCheckState
+{
+    return YES;
+//    return NO;
+}
 @end

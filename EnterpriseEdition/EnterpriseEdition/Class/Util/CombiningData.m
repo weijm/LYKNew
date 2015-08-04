@@ -18,6 +18,16 @@
                            @"{\"token\":\"%@\",\"type\":\"%@\",\"username\":\"%@\",\"password\":\"%@\"}",kToken,kLogin,username,md5Password];
     return resultStr;
 }
++(NSMutableDictionary*)loginUserDic:(NSString*)username Password:(NSString*)password
+{
+    NSString *md5Password = [self md5HexDigest:[self md5HexDigest:password]];
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setObject:kToken forKey:@"token"];
+    [dic setObject:kLogin forKey:@"type"];
+    [dic setObject:username forKey:@"username"];
+    [dic setObject:md5Password forKey:@"password"];
+    return dic;
+}
 //md5加密
 + (NSString *)md5HexDigest:(NSString *)password
 {

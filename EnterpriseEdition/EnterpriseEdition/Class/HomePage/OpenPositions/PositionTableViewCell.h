@@ -23,6 +23,7 @@
     //箭头
     IBOutlet UIImageView *arrowImg;
     
+    IBOutlet UIImageView *markImg;
     IBOutlet UITextField *contentTextField;
     
     IBOutlet UITextView *contentTextView;
