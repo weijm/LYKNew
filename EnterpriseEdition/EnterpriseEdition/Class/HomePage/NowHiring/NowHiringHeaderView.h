@@ -13,9 +13,9 @@
 @interface NowHiringHeaderView : UIView
 {
     UIView *subbg;
-    IBOutlet UIView *btBg;
+    __weak IBOutlet UIView *btBg;
     
-    IBOutlet UILabel *contentLab;
+    __weak IBOutlet UILabel *contentLab;
     
     CircleProgressView *circleProgressView;
     

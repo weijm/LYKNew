@@ -11,15 +11,15 @@
 @interface PositionInfoTableViewCell0 : UITableViewCell
 {
     
-    IBOutlet NSLayoutConstraint *positionImgWidth;
+    __weak IBOutlet NSLayoutConstraint *positionImgWidth;
     
-    IBOutlet NSLayoutConstraint *positionImgHeight;
+    __weak IBOutlet NSLayoutConstraint *positionImgHeight;
+    
+    __weak IBOutlet UILabel *promptLab;
     
     
-    IBOutlet UILabel *promptLab;
+    __weak IBOutlet UILabel *titleLab;
     
-    IBOutlet UILabel *titleLab;
-    
-    IBOutlet UILabel *contentLab;
+    __weak IBOutlet UILabel *contentLab;
 }
 @end

@@ -11,7 +11,8 @@
 @class UIButton_Custom;
 @interface ResumeChooseBtView : UIView
 {
-    IBOutlet UIView *vline;
+    __weak IBOutlet UIView *vline;
+   
     
 }
 @property (strong, nonatomic) IBOutlet UIButton_Custom *chooseBt;

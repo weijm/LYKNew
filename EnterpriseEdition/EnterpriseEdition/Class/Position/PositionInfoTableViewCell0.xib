@@ -125,11 +125,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="contentLab" destination="mEO-Zz-aV3" id="rjQ-5K-m8I"/>
-                <outlet property="positionImgHeight" destination="thA-w1-36k" id="U9p-8l-NfS"/>
-                <outlet property="positionImgWidth" destination="OV0-Iz-MK5" id="NRC-vc-RAD"/>
-                <outlet property="promptLab" destination="FDT-8k-oVf" id="o6l-3g-psN"/>
-                <outlet property="titleLab" destination="KKe-Da-yXP" id="WIA-ht-81m"/>
+                <outlet property="contentLab" destination="mEO-Zz-aV3" id="OeY-9B-8rz"/>
+                <outlet property="positionImgHeight" destination="thA-w1-36k" id="cU5-XK-ofO"/>
+                <outlet property="positionImgWidth" destination="OV0-Iz-MK5" id="nwJ-0c-aAa"/>
+                <outlet property="promptLab" destination="FDT-8k-oVf" id="GIH-cu-dc5"/>
+                <outlet property="titleLab" destination="KKe-Da-yXP" id="Oxe-gU-EFY"/>
             </connections>
             <point key="canvasLocation" x="225" y="233"/>
         </tableViewCell>

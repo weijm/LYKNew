@@ -62,12 +62,12 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="bgToLeft" destination="zeB-7B-UJQ" id="MeV-eV-kMh"/>
-                <outlet property="bgToRight" destination="QbS-GF-KWt" id="TnW-aJ-eXG"/>
-                <outlet property="chooseBg" destination="9Tv-Vu-hcK" id="aAX-BN-H2Z"/>
-                <outlet property="chooseBgToLeft" destination="XPP-Jw-mrj" id="tXQ-oT-5y0"/>
-                <outlet property="chooseBt" destination="SoI-to-xxE" id="p1c-8y-yes"/>
-                <outlet property="subView" destination="VFB-Aq-ONU" id="Q22-q5-AK6"/>
+                <outlet property="bgToLeft" destination="zeB-7B-UJQ" id="MfG-D8-JYg"/>
+                <outlet property="bgToRight" destination="QbS-GF-KWt" id="Bm6-Rx-F03"/>
+                <outlet property="chooseBg" destination="9Tv-Vu-hcK" id="9N2-Om-Cue"/>
+                <outlet property="chooseBgToLeft" destination="XPP-Jw-mrj" id="7uM-l1-tSX"/>
+                <outlet property="chooseBt" destination="SoI-to-xxE" id="lxz-7I-Jf1"/>
+                <outlet property="subView" destination="VFB-Aq-ONU" id="xS0-il-IWC"/>
             </connections>
             <point key="canvasLocation" x="203" y="282.5"/>
         </tableViewCell>

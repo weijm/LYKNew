@@ -12,17 +12,16 @@
 
 @interface OpenPositionViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,PositionTableViewCellDelegate>
 {
-    IBOutlet UITableView *dataTableView;
+    __weak IBOutlet UITableView *dataTableView;
     //当前编辑的视图
     UIView *editView;
     //tableView距离下面的距离
-    IBOutlet NSLayoutConstraint *dataTableViewToBottom;
+    __weak IBOutlet NSLayoutConstraint *dataTableViewToBottom;
     
-    IBOutlet NSLayoutConstraint *dataTableViewToTop;
+    __weak IBOutlet NSLayoutConstraint *dataTableViewToTop;
+    __weak IBOutlet NSLayoutConstraint *lineWidth;
     
-    IBOutlet NSLayoutConstraint *lineWidth;
-    
-    IBOutlet NSLayoutConstraint *promptTotop;
+    __weak IBOutlet NSLayoutConstraint *promptTotop;
 }
 @property (nonatomic) BOOL isEditAgain;
 @property (nonatomic) BOOL fromPositionManager;

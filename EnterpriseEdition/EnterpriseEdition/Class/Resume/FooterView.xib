@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FooterView">
             <connections>
-                <outlet property="subView" destination="2ec-Rm-ceI" id="pGl-7E-M3q"/>
+                <outlet property="subView" destination="2ec-Rm-ceI" id="j3D-mL-7ez"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

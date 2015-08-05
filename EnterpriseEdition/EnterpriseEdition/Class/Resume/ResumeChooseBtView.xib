@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResumeChooseBtView">
             <connections>
                 <outlet property="chooseBt" destination="jbZ-O2-vy3" id="Peg-la-Qrg"/>
-                <outlet property="vline" destination="vgl-Vm-xni" id="GBD-dy-dIb"/>
+                <outlet property="vline" destination="vgl-Vm-xni" id="lYS-Tl-W70"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

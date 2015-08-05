@@ -20,19 +20,19 @@
 
 @interface CommendResumeForJobTableViewCell : UITableViewCell
 {
-    IBOutlet UIView *subView;
+    __weak IBOutlet UIView *subView;
     
     CellHeaderView *headerView;
     CellMiddleView *middleView;
     
-    IBOutlet NSLayoutConstraint *bgToRight;
-    IBOutlet NSLayoutConstraint *bgToLeft;
+    __weak IBOutlet NSLayoutConstraint *bgToRight;
+    __weak IBOutlet NSLayoutConstraint *bgToLeft;
     
-    IBOutlet NSLayoutConstraint *chooseBgToLeft;
+    __weak IBOutlet NSLayoutConstraint *chooseBgToLeft;
     
-    IBOutlet UIView *chooseBg;
+    __weak IBOutlet UIView *chooseBg;
     
-    IBOutlet UIButton_Custom *chooseBt;
+    __weak IBOutlet UIButton_Custom *chooseBt;
 }
 @property (nonatomic,weak) id<CommendResumeForJobTableViewCellDelegate> delegate;
 @property (nonatomic) BOOL isShowRateView;

@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommendResumeForJobViewController">
             <connections>
-                <outlet property="dataTableView" destination="6TQ-3W-7vH" id="lto-00-OmM"/>
+                <outlet property="dataTableView" destination="6TQ-3W-7vH" id="h8x-6q-d1d"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

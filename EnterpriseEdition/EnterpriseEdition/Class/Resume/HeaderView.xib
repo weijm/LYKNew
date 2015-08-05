@@ -7,8 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderView">
             <connections>
-                <outlet property="chooseBg" destination="UIo-Wv-QPQ" id="hFk-sV-DgR"/>
-                <outlet property="filtrateBt" destination="MAk-3J-uju" id="fva-OV-r86"/>
+                <outlet property="chooseBg" destination="UIo-Wv-QPQ" id="QcG-Wt-FyZ"/>
+                <outlet property="filtrateBt" destination="MAk-3J-uju" id="4sO-6n-F6i"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

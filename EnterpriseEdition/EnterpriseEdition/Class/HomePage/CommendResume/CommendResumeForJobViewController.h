@@ -12,7 +12,8 @@
 @interface CommendResumeForJobViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,CommendResumeForJobTableViewCellDelegate,FiltrateViewDelegate>
 {
     
-    IBOutlet UITableView *dataTableView;
+    __weak IBOutlet UITableView *dataTableView;
+   
     
     NSMutableArray *dataArray;
     //选中状态的标志

@@ -8,11 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemView">
             <connections>
                 <outlet property="contentLab" destination="laV-Tu-U0Y" id="BUO-hW-GX7"/>
-                <outlet property="iconHeight" destination="Sd0-ld-S5H" id="nH4-JR-irh"/>
+                <outlet property="iconHeight" destination="Sd0-ld-S5H" id="oK7-qk-Add"/>
                 <outlet property="iconImg" destination="kUi-xU-d49" id="hhE-nR-PBl"/>
-                <outlet property="iconWidth" destination="MYK-hb-3ti" id="eaT-W6-XWJ"/>
-                <outlet property="iconY" destination="ZhY-Jp-oyo" id="Fy8-Mn-oe2"/>
-                <outlet property="labHeight" destination="C25-2N-aL4" id="nmF-ya-IZP"/>
+                <outlet property="iconWidth" destination="MYK-hb-3ti" id="dhg-Xt-zTu"/>
+                <outlet property="iconY" destination="ZhY-Jp-oyo" id="pre-HV-HeE"/>
+                <outlet property="labHeight" destination="C25-2N-aL4" id="RQh-bb-yxk"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

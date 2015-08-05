@@ -11,13 +11,13 @@
 @interface ItemView : UIView
 {
     
-    IBOutlet NSLayoutConstraint *labHeight;
+    __weak IBOutlet NSLayoutConstraint *labHeight;
     
-    IBOutlet NSLayoutConstraint *iconWidth;
+    __weak IBOutlet NSLayoutConstraint *iconWidth;
     
-    IBOutlet NSLayoutConstraint *iconHeight;
+    __weak IBOutlet NSLayoutConstraint *iconHeight;
     
-    IBOutlet NSLayoutConstraint *iconY;
+    __weak IBOutlet NSLayoutConstraint *iconY;
 }
 @property (strong, nonatomic) IBOutlet UIImageView *iconImg;
 @property (strong, nonatomic) IBOutlet UILabel *contentLab;

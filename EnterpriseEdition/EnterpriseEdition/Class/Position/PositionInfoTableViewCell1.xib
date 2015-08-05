@@ -81,9 +81,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="botBg" destination="ERs-ta-tsE" id="sLR-Ov-N6N"/>
-                <outlet property="midBg" destination="88m-In-gJd" id="OfT-Ar-1jM"/>
-                <outlet property="topbg" destination="Ykr-XI-gpt" id="eOb-n2-PZ5"/>
+                <outlet property="botBg" destination="ERs-ta-tsE" id="YGL-HY-3RR"/>
+                <outlet property="midBg" destination="88m-In-gJd" id="M21-FR-Bko"/>
+                <outlet property="topbg" destination="Ykr-XI-gpt" id="DKX-BH-Zaa"/>
             </connections>
             <point key="canvasLocation" x="165" y="100"/>
         </tableViewCell>

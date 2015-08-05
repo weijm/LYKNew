@@ -7,12 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CellHeaderView">
             <connections>
-                <outlet property="infobgToLeft" destination="f6r-IA-140" id="jo5-5n-q0X"/>
-                <outlet property="jobLab" destination="g7M-NL-cAT" id="9k6-S1-8kK"/>
-                <outlet property="jobTitLab" destination="sMG-ui-v7Q" id="35z-xe-PxZ"/>
-                <outlet property="rateLab" destination="EP5-Nb-rCU" id="1kb-fz-8PW"/>
-                <outlet property="rateView" destination="6xN-Ff-c4R" id="sCd-o4-XHw"/>
-                <outlet property="timeLab" destination="xQR-PV-YeF" id="VCe-3f-yw6"/>
+                <outlet property="infobgToLeft" destination="f6r-IA-140" id="cFd-QA-ohK"/>
+                <outlet property="jobLab" destination="g7M-NL-cAT" id="ezQ-Ir-M8S"/>
+                <outlet property="jobTitLab" destination="sMG-ui-v7Q" id="Z2U-gV-h3n"/>
+                <outlet property="rateLab" destination="EP5-Nb-rCU" id="PMG-d0-8HX"/>
+                <outlet property="rateView" destination="6xN-Ff-c4R" id="fii-AA-2Ew"/>
+                <outlet property="timeLab" destination="xQR-PV-YeF" id="52c-9z-E7H"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

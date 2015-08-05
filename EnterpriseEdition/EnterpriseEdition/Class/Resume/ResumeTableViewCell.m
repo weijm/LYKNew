@@ -9,7 +9,6 @@
 #import "ResumeTableViewCell.h"
 #import "CellHeaderView.h"
 #import "CellMiddleView.h"
-#import "CellBottomView.h"
 #import "UIButton+Custom.h"
 
 

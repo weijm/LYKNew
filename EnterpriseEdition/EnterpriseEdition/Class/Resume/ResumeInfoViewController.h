@@ -10,12 +10,12 @@
 @class UIButton_Custom;
 @interface ResumeInfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
-    IBOutlet UITableView *infoTableView;
-    IBOutlet NSLayoutConstraint *lineWidth;
+    __weak IBOutlet UITableView *infoTableView;
+    __weak IBOutlet NSLayoutConstraint *lineWidth;
 
-    IBOutlet UIButton_Custom *colletedBt;
+    __weak IBOutlet UIButton_Custom *colletedBt;
     
-    IBOutlet UIButton *callBt;
+    __weak IBOutlet UIButton *callBt;
 }
 
 - (IBAction)makeCall:(id)sender;

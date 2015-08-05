@@ -7,11 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CellMiddleView">
             <connections>
-                <outlet property="experienceLab" destination="fGS-ch-bqI" id="Xwb-YA-yQM"/>
-                <outlet property="firstLab" destination="9HO-zV-OXj" id="fAg-Uh-hUF"/>
-                <outlet property="protraitImg" destination="dmr-W8-cyg" id="Hve-Np-qvB"/>
-                <outlet property="secondLab" destination="wgc-AB-Jb1" id="MFr-hv-5nQ"/>
-                <outlet property="thirdLab" destination="3xc-qu-CrO" id="oiB-df-QG0"/>
+                <outlet property="experienceLab" destination="fGS-ch-bqI" id="NKk-SM-lDt"/>
+                <outlet property="firstLab" destination="9HO-zV-OXj" id="UiX-hg-ixn"/>
+                <outlet property="protraitImg" destination="dmr-W8-cyg" id="tVm-2x-Xnv"/>
+                <outlet property="secondLab" destination="wgc-AB-Jb1" id="nNE-iw-7V9"/>
+                <outlet property="thirdLab" destination="3xc-qu-CrO" id="v70-fE-M7d"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

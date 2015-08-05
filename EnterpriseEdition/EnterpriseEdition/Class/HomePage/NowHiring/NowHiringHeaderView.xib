@@ -7,8 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NowHiringHeaderView">
             <connections>
-                <outlet property="btBg" destination="oFd-6x-gfq" id="9ZW-y7-FyB"/>
-                <outlet property="contentLab" destination="gMu-eg-7GV" id="p6Q-hM-bhj"/>
+                <outlet property="btBg" destination="oFd-6x-gfq" id="odV-KW-kk0"/>
+                <outlet property="contentLab" destination="gMu-eg-7GV" id="neV-nl-XDc"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

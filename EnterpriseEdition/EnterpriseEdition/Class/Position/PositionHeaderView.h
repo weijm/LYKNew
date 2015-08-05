@@ -11,9 +11,8 @@
 @interface PositionHeaderView : UIView
 {
     
-    IBOutlet UIView *btBg;
-    
-    UIView *subbg;
+    __weak IBOutlet UIView *btBg;
+     UIView *subbg;
 }
 @property (nonatomic,copy)void(^chooseHeaderBtAction)(NSInteger index);
 @end

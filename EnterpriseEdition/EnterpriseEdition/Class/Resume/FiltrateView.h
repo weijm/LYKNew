@@ -15,7 +15,7 @@
 @end
 @interface FiltrateView : UIView<UITableViewDelegate,UITableViewDataSource>
 {
-    IBOutlet UITableView *filtrateTableView;
+    __weak IBOutlet UITableView *filtrateTableView;
     //标题数组
     NSMutableArray *titleArray;
     //内容数组
@@ -27,8 +27,8 @@
     
     //确认按钮
     
-    IBOutlet UIButton *sureBt;
-    IBOutlet NSLayoutConstraint *tableViewToTop;
+    __weak IBOutlet UIButton *sureBt;
+    __weak IBOutlet NSLayoutConstraint *tableViewToTop;
     
 }
 @property (nonatomic,weak)id<FiltrateViewDelegate> delegate;

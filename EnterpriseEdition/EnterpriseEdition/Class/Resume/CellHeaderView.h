@@ -9,21 +9,21 @@
 #import <UIKit/UIKit.h>
 @interface CellHeaderView : UIView
 {
-    IBOutlet UILabel *jobTitLab;
+    __weak IBOutlet UILabel *jobTitLab;
     //应聘岗位
-    IBOutlet UILabel *jobLab;
+    __weak IBOutlet UILabel *jobLab;
     
     
     //时间
-    IBOutlet UILabel *timeLab;
+    __weak IBOutlet UILabel *timeLab;
     //匹配度视图
+    __weak IBOutlet UIView *rateView;
     
-    IBOutlet UIView *rateView;
     //匹配度
-    IBOutlet UILabel *rateLab;
+    __weak IBOutlet UILabel *rateLab;
     
     
-    IBOutlet NSLayoutConstraint *infobgToLeft;
+    __weak IBOutlet NSLayoutConstraint *infobgToLeft;
 }
 @property (nonatomic) int  type;// 0 显示应聘岗位的 1 不显示应聘岗位
 @property (nonatomic) BOOL showRateView;//yes显示 no不显示

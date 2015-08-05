@@ -7,9 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FiltrateView">
             <connections>
-                <outlet property="filtrateTableView" destination="kCO-A3-kGA" id="bkX-Fa-t0P"/>
-                <outlet property="sureBt" destination="bkL-Hq-Ph4" id="rUx-sm-WP1"/>
-                <outlet property="tableViewToTop" destination="rlB-Tg-MEp" id="fad-L5-0JM"/>
+                <outlet property="filtrateTableView" destination="kCO-A3-kGA" id="eTC-Yi-Lak"/>
+                <outlet property="sureBt" destination="bkL-Hq-Ph4" id="CNI-g1-r3F"/>
+                <outlet property="tableViewToTop" destination="rlB-Tg-MEp" id="akv-bx-ere"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

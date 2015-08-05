@@ -13,9 +13,9 @@
     
     UIView *subbg;
     
-    IBOutlet UIView *chooseBg;
+    __weak IBOutlet UIView *chooseBg;
     
-    IBOutlet UIButton *filtrateBt;
+    __weak IBOutlet UIButton *filtrateBt;
 }
 
 @property (nonatomic,copy)void(^chooseHeaderBtAction)(NSInteger index);

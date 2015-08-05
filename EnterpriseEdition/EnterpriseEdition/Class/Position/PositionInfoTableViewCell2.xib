@@ -63,9 +63,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="iconHeight" destination="xma-Xw-yUI" id="aPG-OY-hwu"/>
-                <outlet property="iconWidth" destination="vpx-OP-G7m" id="cHp-O3-lXM"/>
-                <outlet property="textView" destination="O2r-Kf-7OA" id="Uc5-bW-MzO"/>
+                <outlet property="iconHeight" destination="xma-Xw-yUI" id="uuE-3n-Doj"/>
+                <outlet property="iconWidth" destination="vpx-OP-G7m" id="TWM-5p-jAj"/>
+                <outlet property="textView" destination="O2r-Kf-7OA" id="F3h-0I-EPu"/>
             </connections>
             <point key="canvasLocation" x="179" y="262"/>
         </tableViewCell>

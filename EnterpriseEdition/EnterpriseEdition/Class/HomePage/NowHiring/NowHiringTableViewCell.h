@@ -18,19 +18,20 @@
 @end
 @interface NowHiringTableViewCell : UITableViewCell
 {
-    IBOutlet UIView *subView;
+    __weak IBOutlet UIView *subView;
     
     CellHeaderView *headerView;
     CellMiddleView *middleView;
     
-    IBOutlet NSLayoutConstraint *bgToRight;
-    IBOutlet NSLayoutConstraint *bgToLeft;
+    __weak IBOutlet NSLayoutConstraint *bgToRight;
     
-    IBOutlet NSLayoutConstraint *chooseBgToLeft;
+    __weak IBOutlet NSLayoutConstraint *bgToLeft;
     
-    IBOutlet UIView *chooseBg;
+    __weak IBOutlet NSLayoutConstraint *chooseBgToLeft;
     
-    IBOutlet UIButton_Custom *chooseBt;
+    __weak IBOutlet UIView *chooseBg;
+    
+    __weak IBOutlet UIButton_Custom *chooseBt;
 
 }
 @property (nonatomic,weak) id<NowHiringTableViewCellDelegate> delegate;

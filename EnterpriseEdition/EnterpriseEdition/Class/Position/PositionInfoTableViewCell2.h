@@ -10,11 +10,11 @@
 
 @interface PositionInfoTableViewCell2 : UITableViewCell
 {
-    IBOutlet NSLayoutConstraint *iconWidth;
+    __weak IBOutlet NSLayoutConstraint *iconWidth;
     
-    IBOutlet NSLayoutConstraint *iconHeight;
+    __weak IBOutlet NSLayoutConstraint *iconHeight;
     
-    IBOutlet UITextView *textView;
+    __weak IBOutlet UITextView *textView;
 
 }
 @end

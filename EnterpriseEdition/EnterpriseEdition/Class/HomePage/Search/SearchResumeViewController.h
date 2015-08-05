@@ -11,7 +11,8 @@
 #import "FiltrateView.h"
 @interface SearchResumeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,SearchResumeTableViewCellDelegate,FiltrateViewDelegate>
 {
-    IBOutlet UITableView *dataTableView;
+   
+    __weak IBOutlet UITableView *dataTableView;
     NSMutableArray *dataArray;
     //选中状态的标志
     NSMutableArray *chooseArray;

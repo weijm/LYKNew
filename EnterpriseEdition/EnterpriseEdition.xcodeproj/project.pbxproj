@@ -187,8 +187,6 @@
 		20BB62161B4E5622006BD455 /* CellHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BB62151B4E5622006BD455 /* CellHeaderView.xib */; };
 		20BB621F1B4E5C7C006BD455 /* CellMiddleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BB621E1B4E5C7C006BD455 /* CellMiddleView.m */; };
 		20BB62211B4E5C8D006BD455 /* CellMiddleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BB62201B4E5C8D006BD455 /* CellMiddleView.xib */; };
-		20BB62241B4E638A006BD455 /* CellBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BB62231B4E638A006BD455 /* CellBottomView.m */; };
-		20BB62261B4E639B006BD455 /* CellBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BB62251B4E639A006BD455 /* CellBottomView.xib */; };
 		20BE75901B51041E00A92504 /* FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BE758F1B51041E00A92504 /* FooterView.m */; };
 		20BE75921B51042D00A92504 /* FooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BE75911B51042D00A92504 /* FooterView.xib */; };
 		20C93F4B1B6861600050514B /* position_item_icon0@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20C93F451B6861600050514B /* position_item_icon0@3x.png */; };
@@ -607,9 +605,6 @@
 		20BB621D1B4E5C7C006BD455 /* CellMiddleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellMiddleView.h; sourceTree = "<group>"; };
 		20BB621E1B4E5C7C006BD455 /* CellMiddleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellMiddleView.m; sourceTree = "<group>"; };
 		20BB62201B4E5C8D006BD455 /* CellMiddleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellMiddleView.xib; sourceTree = "<group>"; };
-		20BB62221B4E638A006BD455 /* CellBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellBottomView.h; sourceTree = "<group>"; };
-		20BB62231B4E638A006BD455 /* CellBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellBottomView.m; sourceTree = "<group>"; };
-		20BB62251B4E639A006BD455 /* CellBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellBottomView.xib; sourceTree = "<group>"; };
 		20BE758E1B51041E00A92504 /* FooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FooterView.h; sourceTree = "<group>"; };
 		20BE758F1B51041E00A92504 /* FooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FooterView.m; sourceTree = "<group>"; };
 		20BE75911B51042D00A92504 /* FooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FooterView.xib; sourceTree = "<group>"; };
@@ -1473,9 +1468,6 @@
 				20BB621D1B4E5C7C006BD455 /* CellMiddleView.h */,
 				20BB621E1B4E5C7C006BD455 /* CellMiddleView.m */,
 				20BB62201B4E5C8D006BD455 /* CellMiddleView.xib */,
-				20BB62221B4E638A006BD455 /* CellBottomView.h */,
-				20BB62231B4E638A006BD455 /* CellBottomView.m */,
-				20BB62251B4E639A006BD455 /* CellBottomView.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -2033,7 +2025,6 @@
 				20BA85CB1B676E4500757788 /* home_icon@3x.png in Resources */,
 				203EF51F1B6A1926000F292D /* resume_filtrate_arrow@3x.png in Resources */,
 				20C93F601B689F860050514B /* position_claim_close_bt@3x.png in Resources */,
-				20BB62261B4E639B006BD455 /* CellBottomView.xib in Resources */,
 				20BA85D81B67837500757788 /* resume_download@3x.png in Resources */,
 				2007808E1B6B432B004D9EB4 /* position_check_state2@3x.png in Resources */,
 				20D468CD1B6F7130008A7B78 /* position_add_bt@3x.png in Resources */,
@@ -2287,7 +2278,6 @@
 				20D6F43D1B60CB9300AC0394 /* MyTableViewCell1.m in Sources */,
 				20D468A21B6F12AB008A7B78 /* UIRefreshControl+AFNetworking.m in Sources */,
 				20A32A0A1B58A2CB00E1B5F8 /* FMDatabaseQueue.m in Sources */,
-				20BB62241B4E638A006BD455 /* CellBottomView.m in Sources */,
 				202D48241B62452E00654E7C /* LoginHeaderView.m in Sources */,
 				203542F71B4CBB45007FF4A8 /* RegisterUserViewController.m in Sources */,
 				20D468C41B6F49EC008A7B78 /* UIView+ViewController.m in Sources */,

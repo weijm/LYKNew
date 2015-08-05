@@ -7,10 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PositionSetUrgentView">
             <connections>
-                <outlet property="chooseBt1" destination="aje-Ue-I1g" id="k71-y7-q7t"/>
-                <outlet property="chooseBt2" destination="QmC-nf-nJd" id="wLI-zt-uTe"/>
-                <outlet property="chooseBt3" destination="JTc-Ma-lex" id="vE8-jm-90p"/>
-                <outlet property="proLab" destination="xLy-gP-kDc" id="mg7-TB-Qus"/>
+                <outlet property="chooseBt1" destination="aje-Ue-I1g" id="DoF-k1-StR"/>
+                <outlet property="chooseBt2" destination="QmC-nf-nJd" id="2YR-95-4b5"/>
+                <outlet property="chooseBt3" destination="JTc-Ma-lex" id="XOu-xl-yEN"/>
+                <outlet property="proLab" destination="xLy-gP-kDc" id="HrY-vH-xAJ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

@@ -11,11 +11,12 @@
 @interface CommendResumeTableViewCell : UITableViewCell
 {
     
-    IBOutlet UIImageView *urgentImg;
+    __weak IBOutlet UIImageView *urgentImg;
     
-    IBOutlet UILabel *positionTitle;
+    __weak IBOutlet UILabel *positionTitle;
     
-    IBOutlet UILabel *positionInfo;
+    
+    __weak IBOutlet UILabel *positionInfo;
 }
 /**
  加载数据

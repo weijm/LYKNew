@@ -11,11 +11,11 @@
 @interface PositionInfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
     
-    IBOutlet UITextView *proTextView;
-    IBOutlet UIView *promptBg;
+    __weak IBOutlet UITextView *proTextView;
+    __weak IBOutlet UIView *promptBg;
     
+    __weak IBOutlet NSLayoutConstraint *tableViewToTop;
     
-    IBOutlet NSLayoutConstraint *tableViewToTop;
     
 }
 @property (nonatomic) BOOL reviewTips;

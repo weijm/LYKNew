@@ -11,7 +11,8 @@
 @interface NowHiringViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,NowHiringTableViewCellDelegate>
 {
     
-    IBOutlet UITableView *dataTableView;
+  
+    __weak IBOutlet UITableView *dataTableView;
     int categaryType;
     NSMutableArray *receivedArray;
     NSMutableArray *commendArray;

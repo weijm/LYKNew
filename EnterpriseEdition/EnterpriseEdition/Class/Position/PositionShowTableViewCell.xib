@@ -214,24 +214,24 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="bgToBottom" destination="5K0-yx-c3N" id="bWP-vw-VG8"/>
-                <outlet property="bgToLeft" destination="utr-pS-bSb" id="Ert-vG-XRk"/>
-                <outlet property="bgToRight" destination="64A-N3-I5H" id="7cd-c9-GC0"/>
-                <outlet property="bgToTop" destination="XMR-Kc-VEd" id="ze8-5O-3di"/>
-                <outlet property="chooseBg" destination="yrz-SL-To5" id="snd-cc-Dem"/>
-                <outlet property="chooseBgToLeft" destination="d5N-KV-LGq" id="TGg-o5-QoH"/>
-                <outlet property="chooseBt" destination="N97-TF-MNF" id="daN-vo-X29"/>
-                <outlet property="positionImgHeight" destination="eSv-5b-hEz" id="ohw-Af-58H"/>
-                <outlet property="positionImgWidth" destination="ZOj-RK-MLu" id="Dcd-1R-edD"/>
-                <outlet property="positionInfo" destination="Bfp-GK-aXX" id="73G-Yc-PfH"/>
-                <outlet property="positionTitle" destination="pAV-AE-T6t" id="Ra1-GT-62m"/>
-                <outlet property="positoinName" destination="Rtn-nD-rdL" id="uue-Ge-72m"/>
-                <outlet property="resumeNumberImg" destination="c0x-Qa-NgW" id="ihi-eq-Zh3"/>
-                <outlet property="resumeNumberLab" destination="eUG-yN-bBY" id="FN1-YC-lE7"/>
-                <outlet property="rightBg" destination="QT5-bK-I3P" id="iyQ-Az-zAY"/>
-                <outlet property="subView" destination="GNI-rX-c89" id="Hvc-Wx-M3H"/>
-                <outlet property="urgentImg" destination="nJQ-Wd-bCz" id="2SM-9D-fCD"/>
-                <outlet property="validTimeLab" destination="Sbj-3N-J3G" id="pub-7O-i2V"/>
+                <outlet property="bgToBottom" destination="5K0-yx-c3N" id="RIc-45-R98"/>
+                <outlet property="bgToLeft" destination="utr-pS-bSb" id="w7r-af-O07"/>
+                <outlet property="bgToRight" destination="64A-N3-I5H" id="FvN-vU-lYg"/>
+                <outlet property="bgToTop" destination="XMR-Kc-VEd" id="4F1-vD-BBx"/>
+                <outlet property="chooseBg" destination="yrz-SL-To5" id="J9Y-jo-k11"/>
+                <outlet property="chooseBgToLeft" destination="d5N-KV-LGq" id="yaP-sR-6rb"/>
+                <outlet property="chooseBt" destination="N97-TF-MNF" id="HVO-gj-s8n"/>
+                <outlet property="positionImgHeight" destination="eSv-5b-hEz" id="6rf-lR-faT"/>
+                <outlet property="positionImgWidth" destination="ZOj-RK-MLu" id="IWf-uh-N2U"/>
+                <outlet property="positionInfo" destination="Bfp-GK-aXX" id="VC7-xk-v7i"/>
+                <outlet property="positionTitle" destination="pAV-AE-T6t" id="ndV-xz-SRa"/>
+                <outlet property="positoinName" destination="Rtn-nD-rdL" id="T90-Qp-vwm"/>
+                <outlet property="resumeNumberImg" destination="c0x-Qa-NgW" id="cuc-Mb-MUl"/>
+                <outlet property="resumeNumberLab" destination="eUG-yN-bBY" id="LG0-an-KJd"/>
+                <outlet property="rightBg" destination="QT5-bK-I3P" id="p6M-gi-dU6"/>
+                <outlet property="subView" destination="GNI-rX-c89" id="QNs-QH-MjA"/>
+                <outlet property="urgentImg" destination="nJQ-Wd-bCz" id="eq9-Nj-4NN"/>
+                <outlet property="validTimeLab" destination="Sbj-3N-J3G" id="Z99-0W-j0L"/>
             </connections>
             <point key="canvasLocation" x="176" y="318"/>
         </tableViewCell>

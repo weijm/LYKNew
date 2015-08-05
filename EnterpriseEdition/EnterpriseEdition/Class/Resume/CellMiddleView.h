@@ -11,18 +11,18 @@
 @interface CellMiddleView : UIView
 {
     //头像
-    IBOutlet UIImageView *protraitImg;
+    __weak IBOutlet UIImageView *protraitImg;
     //工作经验
     
-    IBOutlet UILabel *experienceLab;
+    __weak IBOutlet UILabel *experienceLab;
     //名字那行
-    IBOutlet UILabel *firstLab;
+    __weak IBOutlet UILabel *firstLab;
     
     //年龄那行
-    IBOutlet UILabel *secondLab;
+    __weak IBOutlet UILabel *secondLab;
     
     //专业那行
-    IBOutlet UILabel *thirdLab;
+    __weak IBOutlet UILabel *thirdLab;
 }
 /**
  加载数据

@@ -11,7 +11,7 @@
 @interface FooterView : UIView
 {
     
-    IBOutlet UIView *subView;
+    __weak IBOutlet UIView *subView;
 }
 @property (nonatomic,copy)void(^chooseFooterBtAction)(NSInteger index,BOOL isAll);
 

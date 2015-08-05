@@ -76,7 +76,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="contentBg" destination="qqJ-c5-Mwn" id="btD-oa-1vV"/>
+                <outlet property="contentBg" destination="qqJ-c5-Mwn" id="ItD-Np-Z2f"/>
                 <outlet property="contentTextFiled" destination="GzW-ho-C6f" id="N6S-i5-wAj"/>
                 <outlet property="titleLab" destination="2wn-pI-yY5" id="hSc-VQ-wdP"/>
             </connections>

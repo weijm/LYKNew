@@ -11,9 +11,9 @@
 @interface PositionInfoTableViewCell1 : UITableViewCell
 {
     
-    IBOutlet UIView *midBg;
-    IBOutlet UIView *topbg;
+    __weak IBOutlet UIView *midBg;
+    __weak IBOutlet UIView *topbg;
     
-    IBOutlet UIView *botBg;
+    __weak IBOutlet UIView *botBg;
 }
 @end

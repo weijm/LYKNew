@@ -7,10 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResumeInfoViewController">
             <connections>
-                <outlet property="callBt" destination="Ix5-rp-1jL" id="FLh-zw-0AR"/>
-                <outlet property="colletedBt" destination="brM-Ve-NcV" id="7RR-9A-db2"/>
-                <outlet property="infoTableView" destination="irv-gx-Z2m" id="7pO-2w-but"/>
-                <outlet property="lineWidth" destination="aOY-hl-IRD" id="wHX-Yx-ujG"/>
+                <outlet property="callBt" destination="Ix5-rp-1jL" id="nYH-hv-KNi"/>
+                <outlet property="colletedBt" destination="brM-Ve-NcV" id="lua-0g-yvB"/>
+                <outlet property="infoTableView" destination="irv-gx-Z2m" id="kMe-3M-1Tz"/>
+                <outlet property="lineWidth" destination="aOY-hl-IRD" id="wWX-d5-RE8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

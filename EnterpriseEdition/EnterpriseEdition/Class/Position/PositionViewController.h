@@ -13,6 +13,7 @@
     int categaryType;//headerView上的选择类型 1有效职位 2下线职位 3待审核职位
     
     
-    IBOutlet UITableView *dataTableView;
+    __weak IBOutlet UITableView *dataTableView;
+
 }
 @end

@@ -11,14 +11,14 @@
 @interface PositionSetUrgentView : UIView
 {
     
-    IBOutlet UIButton_Custom *chooseBt1;
+    __weak IBOutlet UIButton_Custom *chooseBt1;
     
-    IBOutlet UIButton_Custom *chooseBt2;
-    IBOutlet UIButton_Custom *chooseBt3;
+    __weak IBOutlet UIButton_Custom *chooseBt2;
     
+    __weak IBOutlet UIButton_Custom *chooseBt3;
     int  positionCount;
     
-    IBOutlet UILabel *proLab;
+    __weak IBOutlet UILabel *proLab;
     
 }
 @property (nonatomic,copy) void(^makeSurePositionUrgent)(int count);

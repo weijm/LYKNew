@@ -19,45 +19,44 @@
 @end
 @interface PositionShowTableViewCell : UITableViewCell
 {
-    IBOutlet UIButton_Custom *chooseBt;
+    __weak IBOutlet UIButton_Custom *chooseBt;
     
-    IBOutlet UIView *chooseBg;
+    __weak IBOutlet UIView *chooseBg;
     
-    IBOutlet UIView *subView;
+    __weak IBOutlet UIView *subView;
     
-    IBOutlet NSLayoutConstraint *bgToRight;
-    IBOutlet NSLayoutConstraint *bgToLeft;
+    __weak IBOutlet NSLayoutConstraint *bgToRight;
+    __weak IBOutlet NSLayoutConstraint *bgToLeft;
     
-    IBOutlet NSLayoutConstraint *chooseBgToLeft;
     
-    IBOutlet NSLayoutConstraint *positionImgWidth;
+    __weak IBOutlet NSLayoutConstraint *chooseBgToLeft;
     
-    IBOutlet NSLayoutConstraint *positionImgHeight;
+    __weak IBOutlet NSLayoutConstraint *positionImgWidth;
     
+    __weak IBOutlet NSLayoutConstraint *positionImgHeight;
     //急标志
     
-    IBOutlet UIImageView *urgentImg;
+    __weak IBOutlet UIImageView *urgentImg;
     //有效期lab
-    IBOutlet UILabel *validTimeLab;
+    __weak IBOutlet UILabel *validTimeLab;
     //职位相关信息
     
-    IBOutlet UILabel *positionInfo;
+    __weak IBOutlet UILabel *positionInfo;
     //职位名称
     
-    IBOutlet UILabel *positoinName;
+    __weak IBOutlet UILabel *positoinName;
     //职位标题
-    IBOutlet UILabel *positionTitle;
-    
+    __weak IBOutlet UILabel *positionTitle;
     //信息距离上面的距离和距离下面的距离
-    IBOutlet NSLayoutConstraint *bgToTop;
-    IBOutlet NSLayoutConstraint *bgToBottom;
+    __weak IBOutlet NSLayoutConstraint *bgToTop;
+    __weak IBOutlet NSLayoutConstraint *bgToBottom;
     //简历数量图标
     
-    IBOutlet UIImageView *resumeNumberImg;
+    __weak IBOutlet UIImageView *resumeNumberImg;
     
-    IBOutlet UILabel *resumeNumberLab;
+    __weak IBOutlet UILabel *resumeNumberLab;
     //倒计时视图的父视图
-    IBOutlet UIView *rightBg;
+    __weak IBOutlet UIView *rightBg;
     
     CircleProgressView *circleProgressView;
     
