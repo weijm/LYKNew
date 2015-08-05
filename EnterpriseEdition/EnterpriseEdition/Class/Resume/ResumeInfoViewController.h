@@ -14,6 +14,8 @@
     IBOutlet NSLayoutConstraint *lineWidth;
 
     IBOutlet UIButton_Custom *colletedBt;
+    
+    IBOutlet UIButton *callBt;
 }
 
 - (IBAction)makeCall:(id)sender;

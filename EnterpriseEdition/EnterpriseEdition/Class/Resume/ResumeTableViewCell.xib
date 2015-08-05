@@ -103,16 +103,16 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="bg" destination="krm-PP-gga" id="gsp-ac-qOU"/>
-                <outlet property="bgToBottom" destination="Iqe-o0-CQv" id="qE7-k9-8Gb"/>
-                <outlet property="bgToLeft" destination="SjG-NG-Pcl" id="WfU-er-24r"/>
-                <outlet property="bgToRight" destination="npH-lS-0h8" id="4cr-r4-slD"/>
-                <outlet property="bgToTop" destination="Cji-8d-nRT" id="2ZH-cx-Pgl"/>
-                <outlet property="chooseBg" destination="bnd-Er-V3t" id="37g-3g-hff"/>
-                <outlet property="chooseBt" destination="IYU-tS-OJT" id="JGq-0W-YJj"/>
-                <outlet property="chooseToLeft" destination="2no-WX-adY" id="4AO-1f-HT6"/>
-                <outlet property="collectdBg" destination="Ie0-Nc-kuD" id="LMw-3q-F4b"/>
-                <outlet property="deleteBg" destination="OjN-Jv-pns" id="ZCm-jb-BN2"/>
+                <outlet property="bg" destination="krm-PP-gga" id="9A8-08-KIh"/>
+                <outlet property="bgToBottom" destination="Iqe-o0-CQv" id="yUX-bu-hSS"/>
+                <outlet property="bgToLeft" destination="SjG-NG-Pcl" id="SRC-r5-Q2t"/>
+                <outlet property="bgToRight" destination="npH-lS-0h8" id="cMN-ZJ-r5Q"/>
+                <outlet property="bgToTop" destination="Cji-8d-nRT" id="0iz-x3-RAa"/>
+                <outlet property="chooseBg" destination="bnd-Er-V3t" id="6tC-xe-OF6"/>
+                <outlet property="chooseBt" destination="IYU-tS-OJT" id="fuN-mm-48i"/>
+                <outlet property="chooseToLeft" destination="2no-WX-adY" id="zOr-yK-cju"/>
+                <outlet property="collectdBg" destination="Ie0-Nc-kuD" id="scG-my-gKy"/>
+                <outlet property="deleteBg" destination="OjN-Jv-pns" id="NGE-Yh-xNv"/>
             </connections>
             <point key="canvasLocation" x="225" y="406"/>
         </tableViewCell>

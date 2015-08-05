@@ -11,26 +11,26 @@
 @interface SinglePersonalView : UIView
 {
     //头像
-    IBOutlet UIImageView *protraitImg;
+    __weak IBOutlet UIImageView *protraitImg;
     //匹配度label
-    IBOutlet UILabel *rateLab;
+    __weak IBOutlet UILabel *rateLab;
     //岗位
-    IBOutlet UILabel *jobLab;
+    __weak IBOutlet UILabel *jobLab;
     
     //姓名
-    IBOutlet UILabel *nameLab;
+    __weak IBOutlet UILabel *nameLab;
     //专业
-    IBOutlet UILabel *proLab;
-    IBOutlet NSLayoutConstraint *protraitimgWidth;
+    __weak IBOutlet UILabel *proLab;
+    __weak IBOutlet NSLayoutConstraint *protraitimgWidth;
     
-    IBOutlet NSLayoutConstraint *protraitimgHeight;
-    IBOutlet NSLayoutConstraint *protraitToTop;
+    __weak IBOutlet NSLayoutConstraint *protraitimgHeight;
     
+    __weak IBOutlet NSLayoutConstraint *protraitToTop;
+    
+    __weak IBOutlet NSLayoutConstraint *rateHeight;
 
-    IBOutlet NSLayoutConstraint *rateHeight;
-    IBOutlet NSLayoutConstraint *rateWidth;
-    
-    IBOutlet NSLayoutConstraint *infoBgToTop;
+    __weak IBOutlet NSLayoutConstraint *rateWidth;
+    __weak IBOutlet NSLayoutConstraint *infoBgToTop;
 }
 /**
  初始化子视图数据

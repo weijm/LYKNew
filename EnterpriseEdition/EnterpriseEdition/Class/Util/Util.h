@@ -67,6 +67,10 @@
  提示信息
  */
 +(void)showPrompt:(NSString*)promptString;
+/**
+ 检测设备
+ */
++(BOOL)checkDevice:(NSString*)name;
 #pragma mark - 文件路径
 /**
  获取document的路径

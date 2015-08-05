@@ -7,12 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SingleHireButton">
             <connections>
-                <outlet property="itemBt" destination="JaD-I1-fgx" id="IYR-Xe-QVE"/>
-                <outlet property="itemBtHeight" destination="m44-hR-Ssw" id="5oZ-P6-iyf"/>
-                <outlet property="itemBtWidth" destination="mB6-9g-GCs" id="suL-Ih-xdQ"/>
-                <outlet property="itemBtY" destination="xYQ-IR-Qnr" id="eNw-2m-70X"/>
-                <outlet property="itemLab" destination="4As-un-oxu" id="LPD-RR-5eW"/>
-                <outlet property="itemLabToItemBt" destination="nMj-wN-yFb" id="ZQ9-n9-apK"/>
+                <outlet property="itemBt" destination="JaD-I1-fgx" id="2VY-c7-TGg"/>
+                <outlet property="itemBtHeight" destination="m44-hR-Ssw" id="ZWU-U3-Q6M"/>
+                <outlet property="itemBtWidth" destination="mB6-9g-GCs" id="Q7k-Cp-La8"/>
+                <outlet property="itemBtY" destination="xYQ-IR-Qnr" id="gz2-CK-K5O"/>
+                <outlet property="itemLab" destination="4As-un-oxu" id="hcY-vG-eIw"/>
+                <outlet property="itemLabToItemBt" destination="nMj-wN-yFb" id="cwQ-h9-SUc"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

@@ -12,14 +12,19 @@
 {
     //第一行的背景视图
     
-    IBOutlet UIView *topBg;
-    //第二行背景视图
-    IBOutlet UIView *bottomBg;
-    IBOutlet NSLayoutConstraint *cornerImgWidth;
+    __weak IBOutlet UIView *topBg;
     
-    IBOutlet NSLayoutConstraint *cornerImgHeight;
+    //第二行背景视图
+    
+    __weak IBOutlet UIView *bottomBg;
+    
+    
+    __weak IBOutlet NSLayoutConstraint *cornerImgWidth;
+    
+    __weak IBOutlet NSLayoutConstraint *cornerImgHeight;
    
-    IBOutlet UILabel *hire;
+    __weak IBOutlet UILabel *hire;
+    
     
 }
 @property (nonatomic,copy) void(^clickedHire)(int index);

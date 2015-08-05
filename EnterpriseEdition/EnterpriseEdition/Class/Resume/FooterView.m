@@ -58,13 +58,13 @@
     {
         switch (index) {
             case 1:
-                [self initButtonView:3 index:index];
+                [self initButtonView:2 index:index];
                 break;
             case 2:
                 [self initButtonView:2 index:index];
                 break;
             case 3:
-                [self initButtonView:3 index:index];
+                [self initButtonView:2 index:index];
                 break;
             default:
                 break;

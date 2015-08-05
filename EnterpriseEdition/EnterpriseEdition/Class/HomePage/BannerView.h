@@ -12,9 +12,11 @@
 @interface BannerView : UIView<UIScrollViewDelegate>
 {
     
-    IBOutlet UIScrollView *bannerScrollView;
+    __weak IBOutlet UIScrollView *bannerScrollView;
+   
     
-    IBOutlet SMPageControl *spacePageControl;
+    __weak IBOutlet SMPageControl *spacePageControl;
+   
 }
 /**
  初始化scrollView上的视图

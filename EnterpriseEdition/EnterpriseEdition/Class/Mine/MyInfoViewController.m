@@ -143,6 +143,15 @@
         ChangePasswordViewController *changPVC = [[ChangePasswordViewController alloc] init];
         changPVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:changPVC animated:YES];
+    }else if (indexPath.row == 4)
+    {
+        //客服电话
+        if ([Util checkDevice:@"iPod"]||[Util checkDevice:@"iPad"]){
+            [Util showPrompt:@"该设备不支持打电话的功能"];
+            return;
+        }
+        NSURL *phoneNumberURL = [NSURL URLWithString:@"tel:4008907977"];//客服电话
+        [[UIApplication sharedApplication] openURL:phoneNumberURL];
     }
 }
 -(void)exitApplication

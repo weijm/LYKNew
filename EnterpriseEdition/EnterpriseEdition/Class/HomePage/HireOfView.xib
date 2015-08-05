@@ -7,11 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HireOfView">
             <connections>
-                <outlet property="bottomBg" destination="Ckc-fF-x00" id="S3F-Si-5TK"/>
-                <outlet property="cornerImgHeight" destination="jfq-kt-6kH" id="GWA-Fz-Vja"/>
-                <outlet property="cornerImgWidth" destination="LHT-f0-wRN" id="55I-eZ-htQ"/>
-                <outlet property="hire" destination="gAo-Mf-2Xw" id="bpL-gb-Mms"/>
-                <outlet property="topBg" destination="GuO-Er-COl" id="wsa-bg-8S1"/>
+                <outlet property="bottomBg" destination="Ckc-fF-x00" id="WOt-ZR-r9e"/>
+                <outlet property="cornerImgHeight" destination="jfq-kt-6kH" id="Eh6-YB-kEL"/>
+                <outlet property="cornerImgWidth" destination="LHT-f0-wRN" id="HZz-d0-7iV"/>
+                <outlet property="hire" destination="gAo-Mf-2Xw" id="lHA-sd-2wC"/>
+                <outlet property="topBg" destination="GuO-Er-COl" id="XM4-4k-xPL"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

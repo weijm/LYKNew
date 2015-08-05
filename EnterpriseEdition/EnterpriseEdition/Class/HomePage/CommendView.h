@@ -12,24 +12,29 @@
 {
   
     //个人信息背景
-    IBOutlet UIView *bottombg;
+   
+    __weak IBOutlet UIView *bottombg;
     //箭头大小
     
-    IBOutlet NSLayoutConstraint *arrowWidth;
+    __weak IBOutlet NSLayoutConstraint *arrowWidth;
     
-    IBOutlet NSLayoutConstraint *arrowHeight;
+    __weak IBOutlet NSLayoutConstraint *arrowHeight;
     
-    IBOutlet NSLayoutConstraint *titBgToTop;
+   
+    __weak IBOutlet NSLayoutConstraint *titBgToTop;
     
-    IBOutlet NSLayoutConstraint *titBgHeight;
+    __weak IBOutlet NSLayoutConstraint *titBgHeight;
     
-    IBOutlet UILabel *titLab;
     
-    IBOutlet NSLayoutConstraint *cornerImgWidth;
     
-    IBOutlet NSLayoutConstraint *cornerImgHeight;
+    __weak IBOutlet UILabel *titLab;
     
-    IBOutlet UILabel *commendLab;
+    
+    __weak IBOutlet NSLayoutConstraint *cornerImgWidth;
+    
+    __weak IBOutlet NSLayoutConstraint *cornerImgHeight;
+    __weak IBOutlet UILabel *commendLab;
+   
     
 }
 @property(nonatomic,copy) void(^clickPersonalInfo)(NSInteger index);

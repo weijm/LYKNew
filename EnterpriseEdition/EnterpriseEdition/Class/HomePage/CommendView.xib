@@ -7,15 +7,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommendView">
             <connections>
-                <outlet property="arrowHeight" destination="oYM-c5-Umj" id="BvE-Iq-bMm"/>
-                <outlet property="arrowWidth" destination="I84-dh-5VR" id="82C-Oz-ybh"/>
-                <outlet property="bottombg" destination="2A8-QN-aw7" id="8D3-QS-WOZ"/>
-                <outlet property="commendLab" destination="Uwv-kI-JMw" id="R7m-6A-qfe"/>
-                <outlet property="cornerImgHeight" destination="hfP-td-7tC" id="SQ3-ce-Zw2"/>
-                <outlet property="cornerImgWidth" destination="Nti-aG-gAL" id="cdu-7E-rt2"/>
-                <outlet property="titBgHeight" destination="KBs-Ih-dBg" id="quS-py-Yb4"/>
-                <outlet property="titBgToTop" destination="0BT-y3-hBX" id="fOi-Mg-wM2"/>
-                <outlet property="titLab" destination="0Lp-kc-w7E" id="Qmo-lb-iEa"/>
+                <outlet property="arrowHeight" destination="oYM-c5-Umj" id="Xo6-0F-Cdo"/>
+                <outlet property="arrowWidth" destination="I84-dh-5VR" id="0oJ-5F-tpA"/>
+                <outlet property="bottombg" destination="2A8-QN-aw7" id="CvU-Lb-c9R"/>
+                <outlet property="commendLab" destination="Uwv-kI-JMw" id="4Og-7E-p8y"/>
+                <outlet property="cornerImgHeight" destination="hfP-td-7tC" id="rYm-3O-BWU"/>
+                <outlet property="cornerImgWidth" destination="Nti-aG-gAL" id="oAr-Gs-2o9"/>
+                <outlet property="titBgHeight" destination="KBs-Ih-dBg" id="6Rv-Mw-WQO"/>
+                <outlet property="titBgToTop" destination="0BT-y3-hBX" id="ALL-yx-kUQ"/>
+                <outlet property="titLab" destination="0Lp-kc-w7E" id="pBB-AH-tO7"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

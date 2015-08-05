@@ -229,6 +229,12 @@
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"" message:NSLocalizedString(promptString, nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
 }
++(BOOL)checkDevice:(NSString*)name
+{
+    NSString* deviceType = [UIDevice currentDevice].model;
+    NSRange range = [deviceType rangeOfString:name];
+    return range.location != NSNotFound;
+}
 #pragma mark - 文件的相关操作
 //document的路径
 +(NSString*)documentPath
@@ -272,7 +278,7 @@
     }
     return fileDir;
 }
-// 判断图片是否存在
+// 判断文件是否存在
 +(BOOL)isExistsFile:(NSString*)filePath
 {
     NSFileManager *filemanage = [NSFileManager defaultManager];

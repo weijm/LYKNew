@@ -7,17 +7,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SinglePersonalView">
             <connections>
-                <outlet property="infoBgToTop" destination="k4q-J0-JGD" id="M34-Iw-phm"/>
-                <outlet property="jobLab" destination="NkE-XL-z2Y" id="aV9-ra-sME"/>
-                <outlet property="nameLab" destination="qrq-u1-Vhz" id="FbQ-tT-9eg"/>
-                <outlet property="proLab" destination="aFI-u6-BuB" id="pGV-tv-Crs"/>
-                <outlet property="protraitImg" destination="N2b-Qu-Dop" id="niP-2r-33Y"/>
-                <outlet property="protraitToTop" destination="SD5-tZ-7c7" id="Lec-wB-d6f"/>
-                <outlet property="protraitimgHeight" destination="44w-Of-csA" id="6PV-Rq-Iod"/>
-                <outlet property="protraitimgWidth" destination="ef1-gn-jcg" id="jdJ-1S-yOC"/>
-                <outlet property="rateHeight" destination="7Wl-EC-9bs" id="ifV-6p-6OG"/>
-                <outlet property="rateLab" destination="WRz-sJ-kcj" id="CGQ-mI-QNQ"/>
-                <outlet property="rateWidth" destination="UhC-cI-N5f" id="ihD-dM-Vql"/>
+                <outlet property="infoBgToTop" destination="k4q-J0-JGD" id="43l-el-uZQ"/>
+                <outlet property="jobLab" destination="NkE-XL-z2Y" id="LH6-sy-QEW"/>
+                <outlet property="nameLab" destination="qrq-u1-Vhz" id="AEq-UM-WIU"/>
+                <outlet property="proLab" destination="aFI-u6-BuB" id="4yF-qC-3jN"/>
+                <outlet property="protraitImg" destination="N2b-Qu-Dop" id="Eqc-tP-bVc"/>
+                <outlet property="protraitToTop" destination="SD5-tZ-7c7" id="xPP-wp-k1F"/>
+                <outlet property="protraitimgHeight" destination="44w-Of-csA" id="avJ-Kd-OG4"/>
+                <outlet property="protraitimgWidth" destination="ef1-gn-jcg" id="Wfv-NB-i8Y"/>
+                <outlet property="rateHeight" destination="7Wl-EC-9bs" id="Lg2-wh-0v7"/>
+                <outlet property="rateLab" destination="WRz-sJ-kcj" id="Vu4-3r-kZZ"/>
+                <outlet property="rateWidth" destination="UhC-cI-N5f" id="rEV-Vd-cFF"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

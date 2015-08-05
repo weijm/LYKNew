@@ -22,29 +22,38 @@
 @interface ResumeTableViewCell : UITableViewCell
 {
    //全选按钮背景
-    IBOutlet UIView *chooseBg;
+    
+    __weak IBOutlet UIView *chooseBg;
     //删除按钮背景
-    IBOutlet UIView *deleteBg;
+    __weak IBOutlet UIView *deleteBg;
     //收藏按钮背景
-    IBOutlet UIView *collectdBg;
+    __weak IBOutlet UIView *collectdBg;
+    
     //cell上的内容背景
-    IBOutlet UIView *bg;
+   
+    __weak IBOutlet UIView *bg;
     
     CellHeaderView *headerView;
     CellMiddleView *middleView;
     //bg的相对左右距离
-    IBOutlet NSLayoutConstraint *bgToLeft;
     
-    IBOutlet NSLayoutConstraint *bgToRight;
+    __weak IBOutlet NSLayoutConstraint *bgToLeft;
     
-    IBOutlet NSLayoutConstraint *bgToTop;
     
-    IBOutlet NSLayoutConstraint *bgToBottom;
+    __weak IBOutlet NSLayoutConstraint *bgToRight;
+    
+    __weak IBOutlet NSLayoutConstraint *bgToTop;
+    
+    
+    __weak IBOutlet NSLayoutConstraint *bgToBottom;
+  
     //chooseBg相对左边的距离
-    IBOutlet NSLayoutConstraint *chooseToLeft;
+    
+    __weak IBOutlet NSLayoutConstraint *chooseToLeft;
     
     
-    IBOutlet UIButton_Custom *chooseBt;
+   
+    __weak IBOutlet UIButton_Custom *chooseBt;
     
 }
 @property (nonatomic,assign) id<ResumeTableViewCellDelegate> delegate;

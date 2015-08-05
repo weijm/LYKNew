@@ -201,7 +201,7 @@
     //初始化按钮
     [footerView loadEditButton:2];
     //设置除了全选按钮可点击 其余按钮不可点击
-    [footerView setButton:[NSArray arrayWithObjects:@"200", nil]Enable:NO];
+    [footerView setButton:[NSArray arrayWithObjects:@"100",@"200", nil]Enable:NO];
     //点击按钮的触发事件
     __weak InfoViewController *wself = self;
     footerView.chooseFooterBtAction = ^(NSInteger index,BOOL isAll){
@@ -221,12 +221,7 @@
     switch (index) {
         case 100:
         {
-            NSString *allString = isAll?@"1":@"0";
-            for (int i =0; i < [chooseArray count]; i++) {
-                [chooseArray replaceObjectAtIndex:i withObject:allString];
-            }
-            [dataTableView reloadData];
-            [footerView setButton:[NSArray arrayWithObjects:@"200", nil] Enable:isAll];
+            
         }
             break;
         case 200:
@@ -237,6 +232,8 @@
             break;
     }
     
+    //还原界面
+    [self rightAction];
 }
 #pragma mark - SearchResumeTableViewCellDelegate
 -(void)clickedChooseBtAction:(int)index Selected:(NSString*)isSelected
@@ -246,12 +243,12 @@
     for (int i= 0; i< [chooseArray count]; i++) {
         NSString *isSelected = [chooseArray objectAtIndex:i];
         if ([isSelected intValue] == 1) {
-            [footerView setButton:[NSArray arrayWithObjects:@"200", nil] Enable:YES];
+            [footerView setButton:[NSArray arrayWithObjects:@"100",@"200", nil] Enable:YES];
             break;
         }else if (i == [chooseArray count]-1)
         {
             //后两个按钮不可点击
-            [footerView setButton:[NSArray arrayWithObjects:@"200", nil] Enable:NO];
+            [footerView setButton:[NSArray arrayWithObjects:@"100",@"200", nil] Enable:NO];
             //全选按钮取消选中状态
             [footerView revertChooseBtByIndex:10];
         }

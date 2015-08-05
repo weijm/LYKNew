@@ -19,6 +19,7 @@
 @interface ResumeInfoViewController ()
 {
     BOOL showIndentityInfo;
+    NSMutableArray *infoArray;
 }
 @end
 
@@ -40,7 +41,8 @@
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
     self.navigationItem.leftBarButtonItem = leftItem;
     
-    
+    callBt.backgroundColor = Rgb(95, 182, 239, 1.0);
+    colletedBt.backgroundColor =  Rgb(95, 182, 239, 1.0);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -240,16 +242,27 @@
 }
 #pragma mark - 点击事件
 - (IBAction)makeCall:(id)sender {
+    //客服电话
+    if ([Util checkDevice:@"iPod"]||[Util checkDevice:@"iPad"]){
+        [Util showPrompt:@"该设备不支持打电话的功能"];
+        return;
+    }
+    NSURL *phoneNumberURL = [NSURL URLWithString:@"tel:4008907977"];//客服电话
+    [[UIApplication sharedApplication] openURL:phoneNumberURL];
 }
 
 - (IBAction)collectedAction:(id)sender {
     UIButton_Custom *button = (UIButton_Custom*)sender;
     if (button.specialMark ==0) {
         button.specialMark = 1;
+        button.backgroundColor = Rgb(227, 227, 231, 1.0);
         [button setTitle:@"取消收藏" forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }else
     {
         button.specialMark = 0;
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        button.backgroundColor = Rgb(95, 182, 239, 1.0);
         [button setTitle:@"收    藏" forState:UIControlStateNormal];
     }
     

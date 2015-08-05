@@ -11,15 +11,21 @@
 @interface SingleHireButton : UIView
 {
     
-    IBOutlet NSLayoutConstraint *itemBtWidth;
     
-    IBOutlet NSLayoutConstraint *itemBtHeight;
-    IBOutlet NSLayoutConstraint *itemBtY;
+    __weak IBOutlet NSLayoutConstraint *itemBtWidth;
     
-    IBOutlet UILabel *itemLab;
+    __weak IBOutlet NSLayoutConstraint *itemBtHeight;
     
-    IBOutlet UIButton *itemBt;
-    IBOutlet NSLayoutConstraint *itemLabToItemBt;
+    __weak IBOutlet NSLayoutConstraint *itemBtY;
+   
+    
+    __weak IBOutlet UILabel *itemLab;
+    
+    __weak IBOutlet UIButton *itemBt;
+    
+ 
+    __weak IBOutlet NSLayoutConstraint *itemLabToItemBt;
+   
 }
 @property(nonatomic,copy) void(^clickedItem)(int index);
 /**
