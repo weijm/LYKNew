@@ -20,12 +20,12 @@
         positionImgWidth.constant = positionImgWidth.constant+3;
         positionImgHeight.constant = positionImgHeight.constant+3;
     }
-    if (kIphone4||kIphone5) {
-        positionTitle.font = [UIFont systemFontOfSize:15];
-        positionInfo.font = [UIFont systemFontOfSize:11];
-        positoinName.font = [UIFont systemFontOfSize:13];
-        validTimeLab.font = [UIFont systemFontOfSize:11];
-    }
+    positionTitle.font = [UIFont systemFontOfSize:[Util myFontSize:17]];
+    positionInfo.font = [UIFont systemFontOfSize:[Util myFontSize:13]];
+    positoinName.font = [UIFont systemFontOfSize:[Util myFontSize:15]];
+    validTimeLab.font = [UIFont systemFontOfSize:[Util myFontSize:13]];
+    resumeNumberLab.font = [UIFont systemFontOfSize:[Util myFontSize:13]];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -142,7 +142,11 @@
 {
     float pvY = 0;
     circleProgressView = [[CircleProgressView alloc] initWithFrame:CGRectMake((kWidth-kPVHeight)/2,pvY , kPVHeight, kPVHeight)];
-    circleProgressView.center = CGPointMake(resumeNumberImg.center.x, resumeNumberImg.center.y-[Util myYOrHeight:10]);
+    float viewOffY = [Util myYOrHeight:10];
+    if (kIphone4||kIphone5) {
+        viewOffY = 20;
+    }
+    circleProgressView.center = CGPointMake(resumeNumberImg.center.x, resumeNumberImg.center.y-viewOffY);
     [rightBg addSubview:circleProgressView];
     
     self.session = [[Session alloc] init];

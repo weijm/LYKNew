@@ -212,6 +212,8 @@
         [rightBt setTitle:@"取消" forState:UIControlStateNormal];
         [rightBt setImage:nil forState:UIControlStateNormal];
         rightBt.specialMark = 1;
+        //隐藏tabbar
+        self.tabBarController.tabBar.hidden = YES;
         //显示底部的编辑按钮
         [self initFooerView];
         headerView.userInteractionEnabled = NO;
@@ -223,6 +225,8 @@
         [rightBt setTitle:@"" forState:UIControlStateNormal];
         [rightBt setImage:[UIImage imageNamed:@"home_edit_btn"] forState:UIControlStateNormal];
         rightBt.specialMark = 0;
+        //显示tabbar
+        self.tabBarController.tabBar.hidden = NO;
         //取消底部视图
         [footerView cancelFooterView];
         headerView.userInteractionEnabled = YES;

@@ -40,6 +40,8 @@
     
     titleArray = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"联系人姓名",@"title",@"请和授权书中的名字保持一致",@"placeholder", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"联系电话/座机",@"title",@"如:13901012345或010-68881111转123",@"placeholder", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"负责人授权书",@"title",@"请和授权书中的名字保持一致",@"placeholder", nil], nil];
     infoTableView.tableFooterView = [self getFooterView];
+    
+    contentArray = [[NSMutableArray alloc] initWithObjects:@"0",@"0",@"0", nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -333,7 +335,31 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 #pragma mark - 保存并提交
 - (IBAction)saveAndCommit:(id)sender {
     NSLog(@"保存并提交 企业联系人");
-    ClaimPositionViewController *claimPVC = [[ClaimPositionViewController alloc] init];
-    [self.navigationController pushViewController:claimPVC animated:YES];
+    BOOL isFull = [self checkInfo];
+    if (isFull) {//信息填写完整了
+        ClaimPositionViewController *claimPVC = [[ClaimPositionViewController alloc] init];
+        [self.navigationController pushViewController:claimPVC animated:YES];
+    }
+    
 }
+
+-(BOOL)checkInfo
+{
+    NSInteger count = [contentArray count];
+    BOOL isFull = YES;
+    for (int i =0; i< count; i++) {
+        NSObject *obj = [contentArray objectAtIndex:i];
+        if ([obj isKindOfClass:[NSString class]]) {
+            
+            NSDictionary *dic = [titleArray objectAtIndex:i];
+            NSString *title = [dic objectForKey:@"title"];
+            [Util showPrompt:[NSString stringWithFormat:@"%@ 不能为空",title]];
+            isFull = NO;
+            break;
+        }
+    }
+    return isFull;
+    
+}
+
 @end

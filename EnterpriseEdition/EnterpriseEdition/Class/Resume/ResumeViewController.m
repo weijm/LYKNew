@@ -97,6 +97,8 @@
         //tableView取消编辑的时候 按钮之间可相互切换
         headerView.userInteractionEnabled = YES;
         
+        self.tabBarController.tabBar.hidden = NO;
+        
         FooterView *fooerView = (FooterView*)[self.view.window viewWithTag:1000];
         [fooerView cancelFooterView];
         
@@ -105,6 +107,7 @@
         [rightBt setTitle:@"取消" forState:UIControlStateNormal];
         [rightBt setImage:nil forState:UIControlStateNormal];
         isEdit = YES;
+         self.tabBarController.tabBar.hidden = YES;
         //tableView可编辑的时候 按钮之间不能相互切换
         headerView.userInteractionEnabled = NO;
         [self initFooerView];
@@ -213,7 +216,7 @@
 {
     self.navigationItem.rightBarButtonItem.enabled = NO;
     self.tabBarController.tabBar.hidden = YES;
-    float filtrateH = headerView.frame.origin.y+kHeaderViewHeight-[Util myYOrHeight:19];
+    float filtrateH = headerView.frame.origin.y+kHeaderViewHeight-[Util myYOrHeight:22];
     CGRect frame = CGRectMake(0, filtrateH, kWidth, kHeight-filtrateH);
     filtrateView = [[FiltrateView alloc] initWithFrame:frame];
     filtrateView.delegate = self;
@@ -291,6 +294,9 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (isEdit) {
+        [self rightAction];
+    }
     ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
  
     infoVC.hidesBottomBarWhenPushed = YES;

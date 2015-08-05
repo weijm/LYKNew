@@ -11,6 +11,10 @@
 
 @interface Util : NSObject
 /**
+ 获取不同设备字体的大小
+ */
++(float)myFontSize:(float)fontSize;
+/**
  获取不同设备视图的宽度
  */
 +(float)myXOrWidth:(float)xOrWidth;
@@ -48,6 +52,7 @@
  根据总数和每行显示的个数计算行数
  */
 +(int)getRow:(int)total eachCount:(int)count;
+
 #pragma mark - 判断字符串是否符合要求
 
 /**
@@ -63,10 +68,6 @@
  */
 +(void)showPrompt:(NSString*)promptString;
 #pragma mark - 文件路径
-/**
- 判断字符串是否是整数
- */
-+(BOOL)isPureInt:(NSString *)string;
 /**
  获取document的路径
  */

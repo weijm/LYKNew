@@ -335,32 +335,52 @@
 }
 #pragma mark - 将保存数据到本地
 - (IBAction)saveDataAction:(id)sender {
-    NSInteger count = [contentArray count];
     
+    BOOL isFull = [self checkInfo];
+    if (isFull) {//当填写的信息完整并有效时 保存到服务器
+        
+    }
+}
+#pragma mark - 提交审核发布的职位
+- (IBAction)commitAction:(id)sender {
+    BOOL isFull = [self checkInfo];
+    if (isFull) {//当填写的信息完整并有效时 提交到服务器
+        
+    }
+}
+#pragma mark - 验证所填写的信息
+-(BOOL)checkInfo
+{
+    NSInteger count = [contentArray count];
+    BOOL isFull = YES;
     for (int i =0; i< count; i++) {
         NSObject *obj = [contentArray objectAtIndex:i];
         NSDictionary *dic = [titleArray objectAtIndex:i];
         NSString *title = [dic objectForKey:@"title"];
         if ([obj isKindOfClass:[NSString class]]&&i!=6) {
             [Util showPrompt:[NSString stringWithFormat:@"%@ 不能为空",title]];
+            isFull = NO;
             break;
         }
         
         if ([obj isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *contentDic = (NSDictionary*)obj;
+            NSString *content = [contentDic objectForKey:@"content"];
             if (i==0||i==6) {
-                NSDictionary *contentDic = (NSDictionary*)obj;
-                NSString *content = [contentDic objectForKey:@"content"];
                 if ([content length]>30) {
                     [Util showPrompt:[NSString stringWithFormat:@"%@ 不能超过30字",title]];
+                    isFull = NO;
                     break;
                 }
+            }else if (i==11)
+            {
+                [Util showPrompt:[NSString stringWithFormat:@"%@ 不能超过1000字",title]];
+                isFull = NO;
+                break;
             }
         }
-        
-        
     }
-}
-#pragma mark - 提交审核发布的职位
-- (IBAction)commitAction:(id)sender {
+    return isFull;
+
 }
 @end

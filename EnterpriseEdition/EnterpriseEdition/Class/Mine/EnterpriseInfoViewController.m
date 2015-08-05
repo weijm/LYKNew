@@ -433,8 +433,17 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 #pragma mark - 保存方法
 - (IBAction)saveEnterpriseInfo:(id)sender {
+//    BOOL isFull = [self checkInfo];
+//    if (isFull) {//信息填写完整时执行
+        EnterpriseContactViewController *contactVC = [[EnterpriseContactViewController alloc] init];
+        [self.navigationController pushViewController:contactVC animated:YES];
+//    }
+   
+}
+-(BOOL)checkInfo
+{
     NSInteger count = [contentArray count];
-    BOOL isSave = YES;
+    BOOL isFull = YES;
     for (int i =0; i< count; i++) {
         NSObject *obj = [contentArray objectAtIndex:i];
         if ([obj isKindOfClass:[NSString class]]) {
@@ -444,14 +453,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             NSDictionary *dic = [titleArray objectAtIndex:i];
             NSString *title = [dic objectForKey:@"title"];
             [Util showPrompt:[NSString stringWithFormat:@"%@ 不能为空",title]];
-            isSave = NO;
+            isFull = NO;
             break;
         }
     }
-    if (!isSave) {//必填信息没有填写完整
-        return;
-    }
-    EnterpriseContactViewController *contactVC = [[EnterpriseContactViewController alloc] init];
-    [self.navigationController pushViewController:contactVC animated:YES];
+    return isFull;
+
 }
 @end

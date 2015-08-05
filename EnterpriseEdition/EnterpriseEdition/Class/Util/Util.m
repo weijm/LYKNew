@@ -9,6 +9,18 @@
 #import "Util.h"
 
 @implementation Util
+#pragma mark - 获取不同设备字体的大小
++(float)myFontSize:(float)fontSize
+{
+    float _fontSize = fontSize;
+    if (kIphone5||kIphone4) {
+        _fontSize = fontSize-2;
+    }else if(kIphone6plus)
+    {
+        _fontSize = fontSize+1;
+    }
+    return _fontSize;
+}
 #pragma mark -  获取不同设备视图的宽度
 +(float)myXOrWidth:(float)xOrWidth
 {
