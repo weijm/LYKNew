@@ -11,6 +11,7 @@
                 <outlet property="dataTableViewToBottom" destination="F9T-De-lDp" id="Pa9-8u-SNX"/>
                 <outlet property="dataTableViewToTop" destination="Yet-q8-J6B" id="qvU-bC-G9n"/>
                 <outlet property="lineWidth" destination="q4i-b8-pSK" id="G3Q-yP-cb8"/>
+                <outlet property="promptTotop" destination="Bdi-5z-N75" id="8rV-e0-g38"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

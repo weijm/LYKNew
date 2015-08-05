@@ -21,6 +21,8 @@
     IBOutlet NSLayoutConstraint *dataTableViewToTop;
     
     IBOutlet NSLayoutConstraint *lineWidth;
+    
+    IBOutlet NSLayoutConstraint *promptTotop;
 }
 @property (nonatomic) BOOL isEditAgain;
 @property (nonatomic) BOOL fromPositionManager;

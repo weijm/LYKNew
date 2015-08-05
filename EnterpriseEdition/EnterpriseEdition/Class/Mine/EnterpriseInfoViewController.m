@@ -19,6 +19,8 @@
     UITapGestureRecognizer *cancelKeyTap;
     //当前编辑的视图
     UIView *editView;
+    //区分营业执照 企业logo图片的变量
+    int imgType;
 }
 @end
 
@@ -75,6 +77,7 @@
         }
         cell.tag = indexPath.row;
         [cell initData:[titleArray objectAtIndex:indexPath.row]];
+        [cell loadImg:[contentArray objectAtIndex:indexPath.row]];
 
         cell.delegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -98,6 +101,17 @@
     if (indexPath.row ==6) {
         return [Util myYOrHeight:70];
     }else if (indexPath.row == 5||indexPath.row==8){
+        NSObject *obj = [contentArray objectAtIndex:indexPath.row];
+        if([obj isKindOfClass:[NSDictionary class]])
+        {
+            NSDictionary *dic = (NSDictionary*)obj;
+            NSString *filePath = [dic objectForKey:@"content"];
+            if ([Util isExistsFile:filePath]) {
+                return [Util myYOrHeight:80];
+            }
+        }
+
+        
         return [Util myYOrHeight:50];
     }
     else
@@ -255,7 +269,7 @@
 }
 -(void)editTextFiledAndCancelKey:(BOOL)isCancel
 {
-    if ([editView isKindOfClass:[UITextField class]]) {
+    if (editView&&[editView isKindOfClass:[UITextField class]]) {
         UITextField *tempView = (UITextField*)editView;
         if (isCancel) {
             [tempView resignFirstResponder];
@@ -273,7 +287,7 @@
 }
 -(void)editTextViewAndCancelKey:(BOOL)isCancel
 {
-    if ([editView isKindOfClass:[UITextView class]]) {
+    if (editView&&[editView isKindOfClass:[UITextView class]]) {
         UITextView *tempView = (UITextView*)editView;
         if (isCancel) {
             [tempView resignFirstResponder];
@@ -293,7 +307,7 @@
 -(void)addPicture:(int)index
 {
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"从相册选取",@"拍张新照片", nil];
-    sheet.tag = index;
+    imgType = index;
     [sheet showInView:self.view];
 }
 #pragma mark - UIActionSheetDelegate
@@ -380,8 +394,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             image = [self imageWithImage:image scaledToSize:imagesize];
             
             // 保存照片到相册的方法
-            UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+//            UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
         }
+        [self saveImgInLoaction:image];
         //把选中的图片添加到界面中
 //        [self performSelector:@selector(saveImage:)
 //                   withObject:image
@@ -391,7 +406,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     {
         [picker dismissViewControllerAnimated:YES completion:NULL];//关掉照相机
         [picker dismissViewControllerAnimated:YES completion:NULL];//关掉相册
-//        [self showAlertView:@"不能上传视频作为证书图片，请重新选择"];
+        [Util showPrompt:@"不能上传视频作为证书图片，请重新选择"];
     }
 }
 // 保存照片到相册
@@ -406,6 +421,23 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         
         NSLog(@"保存失败 : %@",[error localizedDescription]);
     }
+}
+//将图片保存到本地
+-(void)saveImgInLoaction:(UIImage*)image
+{
+    //将图片保存到本地
+    NSLog(@"imgtype == %d",imgType);
+    NSString *fileName = (imgType==5)?kLicense:kLogin;
+    NSString *imgPath = [NSString stringWithFormat:@"%@/%@",[Util getFileDir],fileName];
+    NSData *imgData = UIImagePNGRepresentation(image);
+    [imgData writeToFile:imgPath atomically:YES];
+    
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:imgPath,@"content", nil];
+    [contentArray replaceObjectAtIndex:imgType withObject:dictionary];
+    
+    [infoTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:imgType inSection:0], nil] withRowAnimation:UITableViewRowAnimationFade];
+    
+    
 }
 //对图片尺寸进行压缩--
 -(UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize

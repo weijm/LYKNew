@@ -210,6 +210,9 @@
 #pragma mark - 综合筛选FiltrateViewDelegate
 -(void)didSelectedRow:(int)row
 {
+    if (row ==0) {
+        return;
+    }
     CGRect frame = CGRectMake(0, kHeight, kWidth, 258);
     int style = 0;
     if(row == 5)//地区

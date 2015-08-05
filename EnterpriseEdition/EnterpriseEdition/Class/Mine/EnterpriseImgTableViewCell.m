@@ -38,7 +38,18 @@
 
     }
 }
-
+-(void)loadImg:(NSObject*)obj
+{
+    if([obj isKindOfClass:[NSDictionary class]])
+    {
+        NSDictionary *dic = (NSDictionary*)obj;
+        NSString *filePath = [dic objectForKey:@"content"];
+        if ([Util isExistsFile:filePath]) {
+            imgView.image = [UIImage imageWithContentsOfFile:filePath];
+            promptView.hidden = YES;
+        }
+    }
+}
 - (IBAction)addPictureAction:(id)sender {
     if ([_delegate respondsToSelector:@selector(addPicture:)]) {
         [_delegate addPicture:(int)self.tag];

@@ -10,6 +10,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "PositionObject.h"
 @implementation CombiningData
+#pragma mark - 登录
 //组合登录时的body
 +(NSString*)loginUser:(NSString*)username Password:(NSString*)password
 {
@@ -19,15 +20,12 @@
                            @"{\"token\":\"%@\",\"type\":\"%@\",\"username\":\"%@\",\"password\":\"%@\"}",kToken,kLogin,username,md5Password];
     return resultStr;
 }
-+(NSMutableDictionary*)loginUserDic:(NSString*)username Password:(NSString*)password
+#pragma mark - 注册
++(NSString*)securityCode:(NSString*)phone
 {
-    NSString *md5Password = [self md5HexDigest:[self md5HexDigest:password]];
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setObject:kToken forKey:@"token"];
-    [dic setObject:kLogin forKey:@"type"];
-    [dic setObject:username forKey:@"username"];
-    [dic setObject:md5Password forKey:@"password"];
-    return dic;
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"mob_no\":\"%@\"}",kToken,kGetCode,phone];
+    return jsonString;
 }
 //md5加密
 + (NSString *)md5HexDigest:(NSString *)password

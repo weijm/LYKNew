@@ -92,6 +92,7 @@
      
                           range:range];
     contentLab.attributedText = attributedStr;
+    contentLab.font = [UIFont systemFontOfSize:[Util myFontSize:12]];
 }
 -(void)chooseBtAction:(NSInteger)index
 {

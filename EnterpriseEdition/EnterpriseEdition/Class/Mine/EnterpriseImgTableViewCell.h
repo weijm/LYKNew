@@ -25,9 +25,23 @@
     IBOutlet NSLayoutConstraint *addImgWidth;
     
     IBOutlet NSLayoutConstraint *lineHeight;
+    
+    IBOutlet UIImageView *imgView;
+    
+    IBOutlet UIView *promptView;
 }
 @property(nonatomic,weak) id<EnterpriseImgTableViewCellDelegate> delegate;
+/**
+ 初始化cell的标题
+ */
 -(void)initData:(NSDictionary*)dictionary;
+/**
+ 加载图片
+ */
+-(void)loadImg:(NSObject*)obj;
+/**
+ 添加图片事件
+ */
 - (IBAction)addPictureAction:(id)sender;
 
 @end

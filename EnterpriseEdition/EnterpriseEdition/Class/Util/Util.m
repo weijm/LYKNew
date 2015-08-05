@@ -262,5 +262,21 @@
     }
     return dbPath;
 }
-
+// 图片保存路径
++(NSString *)getFileDir
+{
+    NSString *fileDir;
+    fileDir = [[Util documentPath] stringByAppendingPathComponent:@"File"];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:fileDir]) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:fileDir withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    return fileDir;
+}
+// 判断图片是否存在
++(BOOL)isExistsFile:(NSString*)filePath
+{
+    NSFileManager *filemanage = [NSFileManager defaultManager];
+    
+    return [filemanage fileExistsAtPath:filePath];
+}
 @end

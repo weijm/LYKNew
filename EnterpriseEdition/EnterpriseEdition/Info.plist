@@ -43,5 +43,7 @@
 	<string>E朝朝企业版</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>CFBundleAllowMixedLocalizations</key>
+	<true/>
 </dict>
 </plist>

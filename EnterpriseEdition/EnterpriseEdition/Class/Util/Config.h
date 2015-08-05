@@ -48,11 +48,13 @@
 //简历页底部编辑视图高度
 #define kFOOTERVIEWH [Util myYOrHeight:41.5]
 
-#define kTestType 1
+#define kTestType 0
 
 #define QMapKey @"OXWBZ-MZHR4-77TUD-DXUNN-R2FPZ-YBB2J"
 
 #define kRegisterAccount @"kRegisterAccount"
+#define kLicense @"license.png"
+#define kLogo @"logo.png"
 //导入公共文件
 #import "Util.h"
 #import "WebInterface.h"

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegisterSuccessViewController : UIViewController
+@interface RegisterSuccessViewController : BaseViewController
 {
     
     IBOutlet UIButton *infoBt;

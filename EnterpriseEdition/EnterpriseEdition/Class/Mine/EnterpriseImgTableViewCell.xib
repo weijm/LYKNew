@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rkH-fO-2vE" userLabel="line">
-                        <rect key="frame" x="40" y="91.5" width="280" height="1"/>
+                        <rect key="frame" x="40" y="91" width="280" height="1"/>
                         <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="zeo-Ir-m79"/>
@@ -62,6 +62,13 @@
                             <action selector="addPictureAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="aDg-L5-myH"/>
                         </connections>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T0Z-Ec-2er" userLabel="imgView">
+                        <rect key="frame" x="177" y="6.5" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="t4r-jH-rn0"/>
+                            <constraint firstAttribute="width" constant="80" id="ypV-cZ-Xwn"/>
+                        </constraints>
+                    </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XCB-zR-E2D" userLabel="promptView">
                         <rect key="frame" x="135" y="0.0" width="142" height="92.5"/>
                         <subviews>
@@ -108,12 +115,14 @@
                 <constraints>
                     <constraint firstItem="rkH-fO-2vE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="2iX-kD-yVH"/>
                     <constraint firstAttribute="bottom" secondItem="rkH-fO-2vE" secondAttribute="bottom" id="2pz-ib-3un"/>
+                    <constraint firstAttribute="centerY" secondItem="T0Z-Ec-2er" secondAttribute="centerY" id="6Rj-jL-SHo"/>
                     <constraint firstAttribute="trailing" secondItem="h6n-qD-LCo" secondAttribute="trailing" constant="10" id="C6H-g9-SwI"/>
                     <constraint firstItem="XCB-zR-E2D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="DRi-4r-FEI"/>
                     <constraint firstAttribute="trailing" secondItem="rkH-fO-2vE" secondAttribute="trailing" id="HPq-5D-aS4"/>
                     <constraint firstItem="S0B-lV-xJT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="JnQ-C9-yAH"/>
                     <constraint firstItem="S0B-lV-xJT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bGf-0c-njT"/>
                     <constraint firstAttribute="centerY" secondItem="h6n-qD-LCo" secondAttribute="centerY" id="cRK-Ni-4zd"/>
+                    <constraint firstItem="h6n-qD-LCo" firstAttribute="leading" secondItem="T0Z-Ec-2er" secondAttribute="trailing" constant="30" id="g9D-ak-OGB"/>
                     <constraint firstAttribute="bottom" secondItem="S0B-lV-xJT" secondAttribute="bottom" id="hf6-Od-v3Y"/>
                     <constraint firstItem="XCB-zR-E2D" firstAttribute="leading" secondItem="S0B-lV-xJT" secondAttribute="trailing" constant="5" id="rMf-iS-PEU"/>
                     <constraint firstAttribute="bottom" secondItem="XCB-zR-E2D" secondAttribute="bottom" id="uXg-zu-ACo"/>
@@ -123,7 +132,9 @@
             <connections>
                 <outlet property="addImgHeight" destination="725-gq-B3D" id="OEX-0t-yOF"/>
                 <outlet property="addImgWidth" destination="beY-Vh-jKS" id="nIs-7r-mjR"/>
+                <outlet property="imgView" destination="T0Z-Ec-2er" id="Ngs-Ti-aMC"/>
                 <outlet property="lineHeight" destination="zeo-Ir-m79" id="JSM-2w-ceL"/>
+                <outlet property="promptView" destination="XCB-zR-E2D" id="2SV-9g-bbU"/>
                 <outlet property="requiredMarkImg" destination="RFO-wi-q7f" id="gYJ-8Z-nfy"/>
                 <outlet property="titleLab" destination="xH8-6q-seX" id="4Ay-6i-fnS"/>
                 <outlet property="xingHeight" destination="mCy-fa-11f" id="Zgs-g5-WEI"/>
@@ -134,6 +145,6 @@
     </objects>
     <resources>
         <image name="my_enterprise_addpic_bt.png" width="23" height="23"/>
-        <image name="position_title_mark.png" width="13" height="14"/>
+        <image name="position_title_mark.png" width="39" height="38"/>
     </resources>
 </document>

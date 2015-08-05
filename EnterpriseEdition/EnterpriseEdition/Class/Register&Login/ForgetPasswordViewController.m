@@ -121,18 +121,19 @@
     if (isCancel) {
         [currentTextField resignFirstResponder];
     }
-    NSString *content = currentTextField.text;
-    if ([content length]>0) {
-        [contentArray replaceObjectAtIndex:currentTextField.tag withObject:content];
-        //将需要注册的手机号码进行存储
-        if (currentTextField.tag == 0) {
-            [[NSUserDefaults standardUserDefaults] setObject:currentTextField.text forKey:kRegisterAccount];
+    if (currentTextField) {
+        NSString *content = currentTextField.text;
+        if ([content length]>0) {
+            [contentArray replaceObjectAtIndex:currentTextField.tag withObject:content];
+            //将需要注册的手机号码进行存储
+            if (currentTextField.tag == 0) {
+                [[NSUserDefaults standardUserDefaults] setObject:currentTextField.text forKey:kRegisterAccount];
+            }
+        }else
+        {
+            [contentArray replaceObjectAtIndex:currentTextField.tag withObject:@""];
         }
-    }else
-    {
-        [contentArray replaceObjectAtIndex:currentTextField.tag withObject:@"0"];
     }
-    
 }
 //下一步
 -(void)clickedNextBtAction
@@ -152,6 +153,32 @@
             [Util showPrompt:@"验证码不能为空"];
         }
     }
+    
+}
+-(void)getCode
+{
+    NSString *phone = [contentArray firstObject];
+    [self showHUD:@"正在获取验证码"];
+    NSString *getCodeJson = [CombiningData securityCode:phone];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:getCodeJson httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUDWithComplete:@"验证码发送成功"];
+            }else
+            {
+                NSLog(@"result == %@",result);
+                [self hideHUDFaild:[result objectForKey:@"message"]];
+            }
+        }else
+        {
+            [self hideHUD];
+            [self showAlertView:@"服务器请求失败"];
+        }
+        
+    };
+    
     
 }
 

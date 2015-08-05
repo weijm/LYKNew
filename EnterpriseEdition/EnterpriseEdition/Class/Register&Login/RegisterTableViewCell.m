@@ -144,11 +144,15 @@
         timesLab.hidden = NO;
         
         // 从服务器获取验证码
+        if ([_delegate respondsToSelector:@selector(getCode)]) {
+            [_delegate getCode];
+        }
         
     }
     
     
 }
+//倒计时
 -(void)countDown
 {
     seconds--;
@@ -164,7 +168,7 @@
         codeBt.enabled = YES;
         //显示时间的lab
         timesLab.text = @"60秒后可重新获取";
-        
+        seconds = 60;
         codeMarkLab.hidden = NO;
         timesLab.hidden = YES;
         
@@ -188,14 +192,16 @@
     timesLab.hidden = YES;
     
 }
+//下一步
 -(void)nextAction
 {
     NSLog(@"注册 nextAction");
     if ([_delegate respondsToSelector:@selector(clickedNextBtAction)]) {
         [_delegate clickedNextBtAction];
     }
-    
 }
+#pragma mark - 向服务器请求获取验证码
+
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {

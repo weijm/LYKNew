@@ -15,6 +15,9 @@
 
 //下一步
 -(void)clickedNextBtAction;
+
+//获取验证码
+-(void)getCode;
 @end
 
 @interface RegisterTableViewCell : UITableViewCell<UITextFieldDelegate>

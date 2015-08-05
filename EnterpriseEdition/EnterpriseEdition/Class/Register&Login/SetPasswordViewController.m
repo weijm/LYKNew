@@ -93,18 +93,19 @@
     if (isCancel) {
         [currentTextField resignFirstResponder];
     }
-    NSString *content = currentTextField.text;
-    if ([content length]>0) {
-        [contentArray replaceObjectAtIndex:currentTextField.tag withObject:content];
-        //将需要注册的手机号码进行存储
-        if (currentTextField.tag == 0) {
-            [[NSUserDefaults standardUserDefaults] setObject:currentTextField.text forKey:kRegisterAccount];
+    if (currentTextField) {
+        NSString *content = currentTextField.text;
+        if ([content length]>0) {
+            [contentArray replaceObjectAtIndex:currentTextField.tag withObject:content];
+            //将需要注册的手机号码进行存储
+            if (currentTextField.tag == 0) {
+                [[NSUserDefaults standardUserDefaults] setObject:currentTextField.text forKey:kRegisterAccount];
+            }
+        }else
+        {
+            [contentArray replaceObjectAtIndex:currentTextField.tag withObject:@"0"];
         }
-    }else
-    {
-        [contentArray replaceObjectAtIndex:currentTextField.tag withObject:@"0"];
     }
-    
 }
 //确认提交
 -(void)clickedNextBtAction

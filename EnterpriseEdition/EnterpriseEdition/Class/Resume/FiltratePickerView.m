@@ -186,7 +186,7 @@
         switch (component) {
             case 0:
             {
-                selectedRow = row;
+                selectedRow = (int)row;
                 self.locate.country = [leftArray objectAtIndex:row];
             }
             break;
@@ -208,7 +208,7 @@
             break;
         case 2://对应
             _titleLab.text = @"期望薪资";
-            leftArray = [NSArray arrayWithObjects:@"1000-2000",@"2000-4000", @"4000-7000",@"7000-10000",@"10000-15000",@"15000-20000",@"20000以上",@"面议",nil];
+            leftArray = [NSArray arrayWithObjects:@"1000-2000",@"2000-4000", @"4000-7000",@"7000-10000",@"10000-15000",@"15000-20000",@"20000以上",@"1000-20000",nil];
             self.locate.country = [leftArray objectAtIndex:0];
             break;
         case 0:

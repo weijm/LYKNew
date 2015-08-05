@@ -9,11 +9,18 @@
 #import <Foundation/Foundation.h>
 
 @interface CombiningData : NSObject
+#pragma mark - 请求时的json
+#pragma mark - 登录
 /**
  组合登录时的json
  */
 +(NSString*)loginUser:(NSString*)username Password:(NSString*)password;
-+(NSMutableDictionary*)loginUserDic:(NSString*)username Password:(NSString*)password;
+#pragma mark - 注册
+/**
+ 获取验证码
+ */
++(NSString*)securityCode:(NSString*)phone;
+#pragma mark - 从本地数据库中转换id
 /**
  获取地区对应的ids字典
  */

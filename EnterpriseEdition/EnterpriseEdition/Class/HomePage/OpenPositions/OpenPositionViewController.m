@@ -29,6 +29,7 @@
     self.view.backgroundColor = kCVBackgroundColor;
     if (_isEditAgain) {
         self.title = @"编辑职位";
+        promptTotop.constant = topBarheight;
     }else
     {
         self.title = @"发布职位";
@@ -36,6 +37,9 @@
             //导航条的颜色
             [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
             self.navigationController.navigationBar.translucent = NO;
+        }else
+        {
+            promptTotop.constant = topBarheight;
         }
         
     }
@@ -300,7 +304,7 @@
 }
 -(void)editTextFiledAndCancelKey:(BOOL)isCancel
 {
-    if ([editView isKindOfClass:[UITextField class]]) {
+    if (editView&&[editView isKindOfClass:[UITextField class]]) {
         UITextField *tempView = (UITextField*)editView;
         if (isCancel) {
             [tempView resignFirstResponder];

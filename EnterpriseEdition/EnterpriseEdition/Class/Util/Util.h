@@ -76,10 +76,16 @@
  复制原文件到指定目录
  */
 +(BOOL)copyFile:(NSString*)originalPath To:(NSString*)targetPath;
-
 /**
  用户的数据库文件路径
  */
 +(NSString*)getSQLitePath;
-
+/**
+ 图片保存路径
+ */
++(NSString *)getFileDir;
+/**
+ 判断图片是否存在
+ */
++(BOOL)isExistsFile:(NSString*)filePath;
 @end

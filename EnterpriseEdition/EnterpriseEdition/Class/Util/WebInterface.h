@@ -16,3 +16,6 @@
 
 //登录接口
 #define kLogin @"ent_login"
+
+//获取验证码
+#define kGetCode @"ent_reg_verify"

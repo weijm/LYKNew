@@ -160,7 +160,7 @@
 }
 -(void)editTextFiledAndCancelKey:(BOOL)isCancel
 {
-    if ([editView isKindOfClass:[UITextField class]]) {
+    if (editView&&[editView isKindOfClass:[UITextField class]]) {
         UITextField *tempView = (UITextField*)editView;
         if (isCancel) {
             [tempView resignFirstResponder];
