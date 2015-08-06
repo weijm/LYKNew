@@ -167,6 +167,16 @@
     }
     return row;
 }
+//判断字符串是否为空
++(NSString*)getCorrectString:(NSString*)string
+{
+    if (string!=nil && ![string isEqualToString:@"(null)"]) {
+        return string;
+    }else
+    {
+        return @"";
+    }
+}
 //验证码密码
 +(BOOL)checkPassWord:(NSString *)passWord
 {
@@ -234,6 +244,13 @@
     NSString* deviceType = [UIDevice currentDevice].model;
     NSRange range = [deviceType rangeOfString:name];
     return range.location != NSNotFound;
+}
++(BOOL)isPureInt:(NSString*)string
+{
+    NSScanner *scan = [NSScanner scannerWithString:string];
+    int val;
+    
+    return [scan scanInt:&val]&&[scan isAtEnd]&&[string integerValue]>0;
 }
 #pragma mark - 文件的相关操作
 //document的路径

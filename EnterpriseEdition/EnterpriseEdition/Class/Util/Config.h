@@ -48,10 +48,17 @@
 //简历页底部编辑视图高度
 #define kFOOTERVIEWH [Util myYOrHeight:41.5]
 
-#define kTestType 1
+//是否出现登录页面
+#define kTestType 0
 
 #define QMapKey @"OXWBZ-MZHR4-77TUD-DXUNN-R2FPZ-YBB2J"
 
+#define kAccount @"account"
+#define KPassWord @"password"
+#define kUID @"uid"//用户ID
+#define KIID @"iid"//企业信息ID
+#define kLatitude @"latitude"
+#define kLongitude @"longitude"
 #define kRegisterAccount @"kRegisterAccount"
 #define kLicense @"license.png"
 #define kLogo @"logo.png"

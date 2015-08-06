@@ -16,7 +16,7 @@
 #import "LoginViewController.h"
 #import "HireOfView.h"
 
-
+#import "LocationViewController.h"
 
 #define kBannerViewHeight [Util myYOrHeight:180]
 #define kHireViewHeight [Util myYOrHeight:174]
@@ -159,11 +159,12 @@
 -(void)leftAction
 {
     NSLog(@"leftAction");
-    SearchResumeViewController *searchVC = [[SearchResumeViewController alloc] init];
-    searchVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:searchVC animated:YES];
+//    SearchResumeViewController *searchVC = [[SearchResumeViewController alloc] init];
+//    searchVC.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:searchVC animated:YES];
     
-    
+    LocationViewController *location = [[LocationViewController alloc] init];
+    [self.navigationController pushViewController:location animated:YES];
 }
 #pragma mark - 初始化应聘部分的视图
 -(void)initHireView:(UIView*)view

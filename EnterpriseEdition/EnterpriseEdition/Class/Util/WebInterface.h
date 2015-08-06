@@ -19,3 +19,6 @@
 
 //获取验证码
 #define kGetCode @"ent_reg_verify"
+
+//提交审核职位
+#define kCommitPosition @"ent_job_add"

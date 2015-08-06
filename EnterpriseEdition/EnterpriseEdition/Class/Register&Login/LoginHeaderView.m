@@ -27,6 +27,11 @@
         }
         line1Height.constant = 0.5;
         line2Height.constant = 0.5;
+        
+        NSString *account = [[NSUserDefaults standardUserDefaults] objectForKey:kAccount];
+        NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:KPassWord];
+        numberTextField.text = account;
+        passwordTextField.text = password;
     }
     return self;
 }

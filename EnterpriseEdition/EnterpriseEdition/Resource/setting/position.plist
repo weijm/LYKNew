@@ -30,24 +30,6 @@
 		<key>placeholder</key>
 		<string>请选择</string>
 		<key>title</key>
-		<string>学历要求</string>
-	</dict>
-	<dict>
-		<key>placeholder</key>
-		<string>请选择</string>
-		<key>title</key>
-		<string>工作经验</string>
-	</dict>
-	<dict>
-		<key>placeholder</key>
-		<string>请输入30字以内</string>
-		<key>title</key>
-		<string>所属部门</string>
-	</dict>
-	<dict>
-		<key>placeholder</key>
-		<string>请选择</string>
-		<key>title</key>
 		<string>职位类型</string>
 	</dict>
 	<dict>
@@ -73,6 +55,30 @@
 		<string>请输入1000字以内</string>
 		<key>title</key>
 		<string>职位描述</string>
+	</dict>
+	<dict>
+		<key>placeholder</key>
+		<string>请选择</string>
+		<key>title</key>
+		<string>学历要求</string>
+	</dict>
+	<dict>
+		<key>placeholder</key>
+		<string>请选择</string>
+		<key>title</key>
+		<string>工作经验</string>
+	</dict>
+	<dict>
+		<key>placeholder</key>
+		<string>请输入30字以内</string>
+		<key>title</key>
+		<string>所属部门</string>
+	</dict>
+	<dict>
+		<key>placeholder</key>
+		<string>50字描述该职位吸引力</string>
+		<key>title</key>
+		<string>职位福利</string>
 	</dict>
 </array>
 </plist>

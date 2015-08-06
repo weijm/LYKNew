@@ -28,6 +28,7 @@
     self.title = @"简历推荐";
     //导航条的颜色
     [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.translucent = NO;
     //返回
     [self initItems];
     

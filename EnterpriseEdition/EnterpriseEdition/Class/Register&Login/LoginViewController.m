@@ -48,6 +48,15 @@
     [self.view addGestureRecognizer:tap];
     
     contentArray = [[NSMutableArray alloc] initWithObjects:@"",@"", nil];
+    NSString *account = [[NSUserDefaults standardUserDefaults] objectForKey:kAccount];
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:KPassWord];
+    if ([account length]>0) {
+        [contentArray replaceObjectAtIndex:0 withObject:account];
+    }
+    if ([password length]>0) {
+        [contentArray replaceObjectAtIndex:1 withObject:password];
+    }
+    
 }
 
 #pragma mark - 初始化登录按钮和忘记密码
@@ -100,6 +109,11 @@
         if ([Util checkTelephone:phone]) {
             NSString *password = [contentArray lastObject];
             if ([Util checkPassWord:password]) {
+                //将账号和密码存在本地
+                NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+                [userDefault setObject:phone forKey:kAccount];
+                [userDefault setObject:password forKey:KPassWord];
+                [userDefault synchronize];
                 [self requestLogin:phone password:password];
             }
         }
@@ -131,6 +145,18 @@
                 if ([_delegate respondsToSelector:@selector(loginSuccess)]) {
                     [_delegate loginSuccess];
                 }
+                //将用户ID 企业ID进行存储
+                NSArray *dataArr = [result objectForKey:@"data"];
+                if ([dataArr count]>0) {
+                    NSDictionary * resultDic = [dataArr firstObject];
+                    NSUserDefaults *userDefaulf = [NSUserDefaults standardUserDefaults];
+                    NSString *uid = [resultDic objectForKey:@"uid"];
+                    [userDefaulf setObject:[Util getCorrectString:uid] forKey:kUID];
+                    NSString *iid = [resultDic objectForKey:@"info_id"];
+                    [userDefaulf setObject:[Util getCorrectString:iid] forKey:KIID];
+                    [userDefaulf synchronize];
+                }
+                
             }else
             {
                 [self hideHUDFaild:[result objectForKey:@"message"]];
@@ -139,6 +165,7 @@
         {
             [self hideHUD];
             [self showAlertView:@"服务器请求失败"];
+            NSLog(@"%@",error);
         }
         
     };

@@ -9,5 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <QMapKit/QMapKit.h>
 @interface LocationViewController : UIViewController<QMapViewDelegate>
-@property(nonatomic,strong) QMapView *mapView;
+{
+    QMapView *_mapView;
+    BOOL isStart;
+}
++(id)shareInstance;
+//初始化定位
+-(void)loadLocation;
+//开始定位
+-(void)startLocation;
+//停止定位
+-(void)stopLocation;
 @end

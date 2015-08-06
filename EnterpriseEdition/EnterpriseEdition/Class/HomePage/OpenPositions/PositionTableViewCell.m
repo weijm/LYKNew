@@ -31,14 +31,14 @@
     contentTextField.placeholder = [dictionary objectForKey:@"placeholder"];
     int index = (int)self.tag;
     
-    if (index==6) {
+    if (index==1||index>=9) {
         markImg.hidden = YES;
     }else
     {
         markImg.hidden = NO;
     }
     
-    if (index == 11) {
+    if (index == 8) {
         arrowImg.hidden = YES;
         contentTextField.hidden = YES;
         contentTextView.hidden = NO;
@@ -46,7 +46,7 @@
         titBgToBottom.constant = [Util myYOrHeight:70];
     }else
     {
-        if (index == 0||index==3||index==6||index==10) {
+        if (index == 0||index==3||index==7||index==8||index==11||index==12) {
             arrowImg.hidden = YES;
             contentTextFieldToRight.constant = -8;
             contentTextField.userInteractionEnabled = YES;
@@ -75,6 +75,21 @@
     }
 }
 #pragma mark - UITextFieldDelegate
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (self.tag ==0||self.tag ==11||self.tag ==12) {
+        NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        int stringLength = (self.tag==12)?50:30;
+        if ([newString length]>stringLength)
+        {
+            [textField resignFirstResponder];
+            return  NO;
+        }
+
+    }
+    
+    return YES;
+}
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     if ([_delegate respondsToSelector:@selector(setEditView:)]) {
@@ -99,5 +114,19 @@
     }
     return YES;
 }
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"]) {
+        [contentTextView resignFirstResponder];
+        return NO;
+    }
+    NSString *newString = [textView.text stringByReplacingCharactersInRange:range withString:text];
+    if ([newString length]>1000)
+    {
+        [contentTextView resignFirstResponder];
+        return  NO;
+    }
 
+    return YES;
+}
 @end

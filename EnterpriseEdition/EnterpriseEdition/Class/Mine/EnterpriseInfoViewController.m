@@ -226,7 +226,6 @@
     {
         if (infoTableViewToBottom.constant ==44) {
             [UIView animateWithDuration:0.5 animations:^{
-                NSLog(@"dataTableViewToBottom.constant = 100");
                 infoTableViewToBottom.constant = 200;
                 infoTableViewToTop.constant = infoTableViewToTop.constant-200;
             }];

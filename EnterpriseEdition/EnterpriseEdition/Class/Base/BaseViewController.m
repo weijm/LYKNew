@@ -29,7 +29,8 @@
 {
     CGRect frame = CGRectMake(0, 0, 15, 30);
     
-    UIButton *leftBt = [[UIButton alloc] initWithFrame:frame];
+    UIButton *leftBt = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftBt.frame = frame;
     [leftBt setImage:[UIImage imageNamed:@"back_bt"] forState:UIControlStateNormal];
     UIEdgeInsets imageInsets = leftBt.imageEdgeInsets;
     leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-10, imageInsets.bottom, imageInsets.right+10);
@@ -45,7 +46,7 @@
 #pragma mark - HUD Methods
 //显示提示
 - (void)showHUD:(NSString *)title {
-    _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
     
     _hud.labelText = title;
     _hud.dimBackground = YES;

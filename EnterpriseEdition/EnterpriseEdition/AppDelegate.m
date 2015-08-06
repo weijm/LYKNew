@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "RootViewController.h"
 #import <QMapKit/QMapKit.h>
-#import "LoginViewController.h";
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -27,9 +27,9 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     
     //定位功能
-//    [QMapServices sharedServices].apiKey = @"OXWBZ-MZHR4-77TUD-DXUNN-R2FPZ-YBB2J";
+    [QMapServices sharedServices].apiKey = @"OXWBZ-MZHR4-77TUD-DXUNN-R2FPZ-YBB2J";
 //    CLLocationManager* locationManager = [[CLLocationManager alloc] init];
-//    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+//    if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0) {
 //        [locationManager requestWhenInUseAuthorization];
 //    }
 

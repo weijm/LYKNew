@@ -54,7 +54,10 @@
 +(int)getRow:(int)total eachCount:(int)count;
 
 #pragma mark - 判断字符串是否符合要求
-
+/**
+ 判断字符串是否为空
+ */
++(NSString*)getCorrectString:(NSString*)string;
 /**
  验证码密码
  */
@@ -71,6 +74,10 @@
  检测设备
  */
 +(BOOL)checkDevice:(NSString*)name;
+/**
+ 判断字符串是整数
+ */
++(BOOL)isPureInt:(NSString*)string;
 #pragma mark - 文件路径
 /**
  获取document的路径

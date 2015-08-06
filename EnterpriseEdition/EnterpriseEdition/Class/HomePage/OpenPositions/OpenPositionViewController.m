@@ -8,6 +8,7 @@
 
 #import "OpenPositionViewController.h"
 #import "PositionObject.h"
+#import "LocationViewController.h"
 
 
 @interface OpenPositionViewController ()
@@ -44,38 +45,35 @@
         
     }
     
-    //初始化item
-    [self initItems];
-    
     titleArray = [NSArray arrayWithContentsOfFile:[Util getBundlePath:@"position.plist"]];
     contentArray = [[NSMutableArray alloc] init];
     for (int i =0; i<[titleArray count]; i++) {
-        [contentArray addObject:@"0"];
+        [contentArray addObject:@""];
     }
     
     lineWidth.constant = 0.5;
+    
+    [[LocationViewController shareInstance] startLocation];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    if (titleArray) {
+        titleArray = nil;
+    }
+    if (contentArray) {
+        contentArray = nil;
+    }
+    if (cancelKeyTap) {
+        cancelKeyTap = nil;
+    }
     // Dispose of any resources that can be recreated.
 }
-#pragma mark - Items按钮
--(void)initItems
-{
-    CGRect frame = CGRectMake(0, 0, 50, 30);
-    
-    UIButton *leftBt = [[UIButton alloc] initWithFrame:frame];
-    [leftBt setImage:[UIImage imageNamed:@"back_bt"] forState:UIControlStateNormal];
-    UIEdgeInsets imageInsets = leftBt.imageEdgeInsets;
-    leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-30, imageInsets.bottom, imageInsets.right+20);
-    [leftBt addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
-    self.navigationItem.leftBarButtonItem = leftItem;
-}
+#pragma mark - Items按钮触发事件
 -(void)leftAction
 {
     [self.navigationController popViewControllerAnimated:YES];
+    [[LocationViewController shareInstance] stopLocation];
 }
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -98,7 +96,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row ==11) {
+    if (indexPath.row ==8) {
         return [Util myYOrHeight:100];
     }else
     {
@@ -107,7 +105,7 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row!=0 ||indexPath.row!=3||indexPath.row!=6||indexPath.row!=10||indexPath.row!=11) {
+    if (indexPath.row!=0 &&indexPath.row!=3&&indexPath.row!=7&&indexPath.row!=8&&indexPath.row!=11&&indexPath.row != 12) {
         [dataTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
         //取消键盘
         [self cancelKey];
@@ -118,25 +116,25 @@
         
         switch (indexPath.row) {//与pickerView中的内容对应
             case 1:
-                row = 7;
+                row = 7;//行业
                 break;
             case 2:
-                row = 0;
+                row = 0;//职位名称
                 break;
             case 4:
-                row = 1;
+                row = 4;//职位类型
                 break;
             case 5:
-                row =6;
+                row =2;//薪资范围
                 break;
-            case 7:
-                row =4;
-                break;
-            case 8:
-                row = 2;
+            case 6:
+                row =5;//工作地点
                 break;
             case 9:
-                row = 5;
+                row = 1;//学历要求
+                break;
+            case 10:
+                row = 6;//工作经验
                 break;
             default:
                 break;
@@ -146,7 +144,7 @@
         if(row == 5)//地区
         {
             style = 2;
-        }else if(row == 3||row==0||row==7)//专业 此处修改[self showConditions: Content:]随着修改
+        }else if(row==0||row==7)//专业 此处修改[self showConditions: Content:]随着修改
         {
             style = 1;
         }
@@ -175,20 +173,20 @@
         case 0:
             index = 2;
             break;
-        case 1:
+        case 4:
             index = 4;
             break;
-        case 6:
+        case 2:
             index =5;
             break;
-        case 4:
-            index = 7;
-            break;
-        case 2:
-            index = 8;
-            break;
         case 5:
+            index = 6;
+            break;
+        case 1:
             index = 9;
+            break;
+        case 6:
+            index = 10;
             break;
         default:
             break;
@@ -196,7 +194,7 @@
 
     if (row == 5 || row ==0 ||row == 7) {//地区 此处可以查询对应的id
          NSDictionary *idsDic = [self getIdByContent:dictionary Index:row];
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:idsDic];
+        NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:idsDic];
         
         NSString *province = [dictionary objectForKey:@"province"];
         NSString *city = [dictionary objectForKey:@"city"];
@@ -212,7 +210,14 @@
         [contentArray replaceObjectAtIndex:index withObject:dic];
     }else
     {//其他
-        [contentArray replaceObjectAtIndex:index withObject:dictionary];
+        if (row == 2) {//薪资
+            NSDictionary *dic = [self getMaxAnMinSalary:dictionary];
+           [contentArray replaceObjectAtIndex:index withObject:dic];
+        }else
+        {
+            [contentArray replaceObjectAtIndex:index withObject:dictionary];
+        }
+        
     }
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     [dataTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath , nil] withRowAnimation:UITableViewRowAnimationNone];
@@ -256,28 +261,47 @@
         [self.view addGestureRecognizer:cancelKeyTap];
     }
 
-    //让编辑第10行和11行的时候 编辑框可见
-    if(editView.tag == 10||editView.tag == 11)
+    //让编辑第8行第11行和12行的时候 编辑框可见
+    if(editView.tag == 11||editView.tag == 12||editView.tag == 8)
     {
-        if (dataTableViewToBottom.constant ==0) {
-            [UIView animateWithDuration:0.5 animations:^{
-                NSLog(@"dataTableViewToBottom.constant = 100");
-                dataTableViewToBottom.constant = 200;
-                dataTableViewToTop.constant = dataTableViewToTop.constant-200;
-            }];
+        float offY = 0;
+        if (editView.tag==12) {
+            offY = [Util myYOrHeight:200];
+        }else if (editView.tag == 11)
+        {
+            offY = [Util myYOrHeight:160];
         }
-    }else
-    {//对于其他的编辑框还原dataTableView位置
-        if (dataTableViewToBottom.constant !=0) {
-            [UIView animateWithDuration:0.5 animations:^{
-                dataTableViewToBottom.constant = 0;
-                dataTableViewToTop.constant = dataTableViewToTop.constant+200;
-            }];
+        else
+        {
+            offY = [Util myYOrHeight:80];
         }
+        [self tableViewAnimation:offY];
         
+    }else
+    {
+        [self tableViewAnimation:0];
     }
     
     [dataTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:editView.tag inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+}
+-(void)tableViewAnimation:(float)offY
+{
+    //对于其他的编辑框还原dataTableView位置
+    if (dataTableViewToBottom.constant !=0) {
+        float viewY = dataTableViewToBottom.constant;
+        [UIView animateWithDuration:0.5 animations:^{
+            dataTableViewToBottom.constant = 0;
+            dataTableViewToTop.constant = dataTableViewToTop.constant+viewY;
+        }];
+    }else
+    {
+        [UIView animateWithDuration:0.5 animations:^{
+            dataTableViewToBottom.constant = offY;
+            dataTableViewToTop.constant = dataTableViewToTop.constant-offY;
+        }];
+   
+    }
+
 }
 //点击界面上取消键盘
 -(void)cancelKey
@@ -295,12 +319,8 @@
     editView = nil;
     
     //还原dataTableView位置
-    if (dataTableViewToBottom.constant !=0) {
-        [UIView animateWithDuration:0.5 animations:^{
-            dataTableViewToBottom.constant = 0;
-            dataTableViewToTop.constant = dataTableViewToTop.constant+200;
-        }];
-    }
+    [self tableViewAnimation:0];
+
 }
 -(void)editTextFiledAndCancelKey:(BOOL)isCancel
 {
@@ -349,7 +369,31 @@
 - (IBAction)commitAction:(id)sender {
     BOOL isFull = [self checkInfo];
     if (isFull) {//当填写的信息完整并有效时 提交到服务器
-        
+        NSString *jsonString = [CombiningData addPosition:contentArray];
+        [self showHUD:@"正在提交"];
+        //请求服务器
+        [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
+        [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+            if (result!=nil) {
+                if ([[result objectForKey:@"result"] intValue]>0) {
+                    [self hideHUDWithComplete:@"提交成功"];
+                    //返回上一页
+                    [self leftAction];
+                    
+                    
+                }else
+                {
+                    [self hideHUDFaild:[result objectForKey:@"message"]];
+                    NSLog(@"error message == %@",[result objectForKey:@"message"]);
+                }
+            }else
+            {
+                [self hideHUD];
+                [self showAlertView:@"服务器请求失败"];
+            }
+            
+        };
+
     }
 }
 #pragma mark - 验证所填写的信息
@@ -361,7 +405,7 @@
         NSObject *obj = [contentArray objectAtIndex:i];
         NSDictionary *dic = [titleArray objectAtIndex:i];
         NSString *title = [dic objectForKey:@"title"];
-        if ([obj isKindOfClass:[NSString class]]&&i!=6) {
+        if ([obj isKindOfClass:[NSString class]]&&i!=1&&i!=9&&i!=10&&i!=11&&i!=12) {
             [Util showPrompt:[NSString stringWithFormat:@"%@ 不能为空",title]];
             isFull = NO;
             break;
@@ -370,21 +414,53 @@
         if ([obj isKindOfClass:[NSDictionary class]]) {
             NSDictionary *contentDic = (NSDictionary*)obj;
             NSString *content = [contentDic objectForKey:@"content"];
-            if (i==0||i==6) {
+            if (i==0||i==11) {
                 if ([content length]>30) {
                     [Util showPrompt:[NSString stringWithFormat:@"%@ 不能超过30字",title]];
                     isFull = NO;
                     break;
                 }
-            }else if (i==11)
+            }else if (i==8)
             {
-                [Util showPrompt:[NSString stringWithFormat:@"%@ 不能超过1000字",title]];
-                isFull = NO;
-                break;
+                if ([content length]>1000) {
+                    [Util showPrompt:[NSString stringWithFormat:@"%@ 不能超过1000字",title]];
+                    isFull = NO;
+                    break;
+                }
+            }else if (i==12)
+            {
+                if ([content length]>50) {
+                    [Util showPrompt:[NSString stringWithFormat:@"%@ 不能超过50字",title]];
+                    isFull = NO;
+                    break;
+                }
+            }else if (i==3)
+            {
+                if (![Util isPureInt:content]) {
+                    [Util showPrompt:[NSString stringWithFormat:@"请输入实际需要招聘人数"]];
+                    isFull = NO;
+                    break;
+                }
             }
         }
     }
     return isFull;
+
+}
+#pragma mark - 将薪资进行转化
+-(NSMutableDictionary*)getMaxAnMinSalary:(NSDictionary*)dictionary
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:dictionary];
+    NSArray *salaryArr = [[dictionary objectForKey:@"content"] componentsSeparatedByString:@"-"];
+    if ([salaryArr count]>0) {
+        [dic setObject:[salaryArr firstObject] forKey:@"salary_min"];
+        [dic setObject:[salaryArr lastObject] forKey:@"salary_max"];
+    }else
+    {
+        [dic setObject:@"20000" forKey:@"salary_min"];
+        [dic setObject:@"60000" forKey:@"salary_max"];
+    }
+    return dic;
 
 }
 @end

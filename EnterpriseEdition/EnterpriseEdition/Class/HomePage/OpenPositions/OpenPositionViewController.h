@@ -10,7 +10,7 @@
 #import "FiltratePickerView.h"
 #import "PositionTableViewCell.h"
 
-@interface OpenPositionViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,PositionTableViewCellDelegate>
+@interface OpenPositionViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,PositionTableViewCellDelegate>
 {
     __weak IBOutlet UITableView *dataTableView;
     //当前编辑的视图

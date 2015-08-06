@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "LoginViewController.h"
+#import "LocationViewController.h"
 
 @interface RootViewController ()
 {
@@ -24,6 +25,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     if (kTestType) {
         [self initVC];
+        //定位
+        [[LocationViewController shareInstance] loadLocation];
+
     }
     
 }
@@ -68,6 +72,8 @@
 -(void)loginSuccess
 {
     [self initVC];
-    
+    //定位
+    [[LocationViewController shareInstance] loadLocation];
+
 }
 @end

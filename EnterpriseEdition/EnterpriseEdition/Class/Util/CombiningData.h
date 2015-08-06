@@ -20,6 +20,11 @@
  获取验证码
  */
 +(NSString*)securityCode:(NSString*)phone;
+#pragma mark - 职位
+/**
+ 保存职位
+ */
++(NSString*)addPosition:(NSArray*)contentArray;
 #pragma mark - 从本地数据库中转换id
 /**
  获取地区对应的ids字典

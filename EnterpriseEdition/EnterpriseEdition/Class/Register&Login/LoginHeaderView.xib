@@ -9,8 +9,10 @@
             <connections>
                 <outlet property="line1Height" destination="Tcf-On-p64" id="LNS-cU-RJq"/>
                 <outlet property="line2Height" destination="m6Y-Kw-nvc" id="1ob-2L-aeU"/>
+                <outlet property="numberTextField" destination="jje-sP-hVg" id="Mq3-0t-6r6"/>
                 <outlet property="numberimgHeight" destination="7Fv-nA-Fin" id="KqJ-LY-cbz"/>
                 <outlet property="numberimgWidth" destination="PX6-M6-CyS" id="5qK-we-7sR"/>
+                <outlet property="passwordTextField" destination="aTl-G8-PmN" id="g5K-cf-dzv"/>
                 <outlet property="passwordimgHeight" destination="c60-fP-TO4" id="Y2C-7a-N3A"/>
                 <outlet property="passwordimgWidth" destination="HN0-aw-Blg" id="hrT-6Q-cLN"/>
             </connections>

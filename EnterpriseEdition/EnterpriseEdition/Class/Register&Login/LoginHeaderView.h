@@ -28,6 +28,9 @@
     
     __weak IBOutlet NSLayoutConstraint *line2Height;
     
+    __weak IBOutlet UITextField *numberTextField;
+ 
+    __weak IBOutlet UITextField *passwordTextField;
 }
 @property(nonatomic,weak) id<LoginHeaderViewDelegate> delegate;
 @end
