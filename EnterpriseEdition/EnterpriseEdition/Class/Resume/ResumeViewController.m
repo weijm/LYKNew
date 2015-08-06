@@ -21,7 +21,7 @@
     HeaderView *headerView;
     //编辑全部的底部视图
     FooterView *footerView;
-    UITableView *dataTableView;
+    BaseTableView *dataTableView;
     //收到的简历数据数组
     NSMutableArray *dataArray;
     //当前操作的cell
@@ -58,7 +58,7 @@
     for (int i =0; i<[dataArray count]; i++) {
         [chooseArray addObject:@"0"];
     }
-    
+    [dataTableView setupRefresh];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -245,7 +245,7 @@
 {
     float tableViewY = topBarheight+kHeaderViewHeight;
     CGRect frame = CGRectMake(0, tableViewY, kWidth, kHeight-tableViewY-[Util myYOrHeight:45]);
-    dataTableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+    dataTableView = [[BaseTableView alloc] initWithFrame:frame style:UITableViewStylePlain];
     dataTableView.delegate = self;
     dataTableView.dataSource = self;
     dataTableView.separatorColor = [UIColor clearColor];

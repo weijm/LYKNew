@@ -12,7 +12,8 @@
 @interface InfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,InfoTableViewCellDelegate>
 {
     
-    __weak IBOutlet UITableView *dataTableView;
+    __weak IBOutlet BaseTableView *dataTableView;
+    
     NSMutableArray *dataArray;
 }
 @end

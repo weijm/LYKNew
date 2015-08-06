@@ -68,3 +68,4 @@
 #import "AFHttpClient.h"
 #import "CombiningData.h"
 #import "BaseViewController.h"
+#import "BaseTableView.h"

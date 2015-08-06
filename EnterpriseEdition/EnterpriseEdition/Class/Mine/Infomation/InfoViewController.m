@@ -37,6 +37,8 @@
     [self initItems];
     
     [self getData];
+    
+    [dataTableView setupRefresh];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -50,6 +50,8 @@
     //默认的有效职位类型
     categaryType = 1;
     [self getData];
+    
+    [dataTableView setupRefresh];
 }
 
 - (void)didReceiveMemoryWarning {
