@@ -37,7 +37,7 @@
                                     <constraint firstAttribute="height" constant="21" id="yyS-FP-Tke"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7W0-PW-xjn" userLabel="subbg">
@@ -106,15 +106,15 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="arrowHeight" destination="Bs4-aj-td3" id="WGt-TP-6vh"/>
-                <outlet property="arrowwidth" destination="Ofl-a9-gr0" id="Vj1-2o-XAZ"/>
-                <outlet property="enterpriseNameLab" destination="g18-tC-Cb4" id="Z92-nN-7H0"/>
-                <outlet property="iconHeight" destination="zSw-cS-bkM" id="XEb-pA-FQq"/>
-                <outlet property="iconImg" destination="2dv-DZ-seh" id="rMT-oj-JbE"/>
-                <outlet property="iconWidth" destination="4GB-sx-rco" id="cvX-43-JyZ"/>
-                <outlet property="locationLab" destination="tXz-eK-x0f" id="e9L-D3-xqc"/>
-                <outlet property="reviewHeight" destination="mrh-lf-CkS" id="KUU-ag-2KS"/>
-                <outlet property="reviewWidth" destination="OC0-kN-Pq6" id="llp-Vi-BYW"/>
+                <outlet property="arrowHeight" destination="Bs4-aj-td3" id="D9K-6F-FYQ"/>
+                <outlet property="arrowwidth" destination="Ofl-a9-gr0" id="IbM-BS-uxx"/>
+                <outlet property="enterpriseNameLab" destination="g18-tC-Cb4" id="hXR-JK-Csz"/>
+                <outlet property="iconHeight" destination="zSw-cS-bkM" id="9N6-nP-Kaa"/>
+                <outlet property="iconImg" destination="2dv-DZ-seh" id="rtT-9l-JtY"/>
+                <outlet property="iconWidth" destination="4GB-sx-rco" id="D61-kO-okJ"/>
+                <outlet property="locationLab" destination="tXz-eK-x0f" id="qeM-kG-pTb"/>
+                <outlet property="reviewHeight" destination="mrh-lf-CkS" id="VV3-hq-Zce"/>
+                <outlet property="reviewWidth" destination="OC0-kN-Pq6" id="KCg-7X-ARG"/>
             </connections>
             <point key="canvasLocation" x="191" y="279.5"/>
         </tableViewCell>

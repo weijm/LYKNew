@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InfoFiltrateView">
             <connections>
-                <outlet property="lineHeight" destination="Yo4-rY-OoD" id="YYa-0a-KzF"/>
+                <outlet property="lineHeight" destination="Yo4-rY-OoD" id="RSA-7F-iHu"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

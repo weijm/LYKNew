@@ -30,7 +30,7 @@
                             <constraint firstAttribute="width" constant="80" id="fxs-JS-3m9"/>
                         </constraints>
                     </view>
-                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ev-Sh-NDa" userLabel="infobg">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ev-Sh-NDa" userLabel="infobg">
                         <rect key="frame" x="85" y="20" width="230" height="88.5"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gY9-jB-LcY" userLabel="topbg">
@@ -146,7 +146,7 @@
                             <constraint firstItem="RDv-le-0yB" firstAttribute="top" secondItem="ohu-QM-lyJ" secondAttribute="bottom" id="xPc-3u-qvK"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sy6-a1-awI" userLabel="lookbg">
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sy6-a1-awI" userLabel="lookbg">
                         <rect key="frame" x="85" y="18" width="230" height="90.5"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36Y-6I-VIQ" userLabel="点击查看">
@@ -212,13 +212,13 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="addressLab" destination="egw-uv-Boq" id="l6S-ky-Oij"/>
-                <outlet property="addressToTop" destination="n3B-OJ-d3B" id="boJ-BU-02w"/>
-                <outlet property="emptyView" destination="EvE-Ld-vvA" id="jag-LL-zBU"/>
-                <outlet property="infoBg" destination="6Ev-Sh-NDa" id="TBh-mB-ILI"/>
-                <outlet property="littleInfoBg" destination="sy6-a1-awI" id="Etx-9R-ykQ"/>
-                <outlet property="mailLab" destination="2pc-Gh-OjE" id="Q3Y-oL-UkH"/>
-                <outlet property="phoneLab" destination="a6a-aC-bnQ" id="af2-JH-xvY"/>
+                <outlet property="addressLab" destination="egw-uv-Boq" id="e9m-wd-IQJ"/>
+                <outlet property="addressToTop" destination="n3B-OJ-d3B" id="Gby-HD-ejb"/>
+                <outlet property="emptyView" destination="EvE-Ld-vvA" id="gBV-Gk-pmO"/>
+                <outlet property="infoBg" destination="6Ev-Sh-NDa" id="Rri-tz-cHQ"/>
+                <outlet property="littleInfoBg" destination="sy6-a1-awI" id="cG4-oa-gB3"/>
+                <outlet property="mailLab" destination="2pc-Gh-OjE" id="YlT-42-F80"/>
+                <outlet property="phoneLab" destination="a6a-aC-bnQ" id="mmV-jh-C3T"/>
             </connections>
             <point key="canvasLocation" x="165" y="352.5"/>
         </tableViewCell>

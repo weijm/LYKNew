@@ -7,8 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClaimPositionPromptView">
             <connections>
-                <outlet property="firstLab" destination="9wD-Ho-ssd" id="HMm-vH-4Ew"/>
-                <outlet property="proLab" destination="EJz-nZ-QgT" id="fAi-mr-Zhw"/>
+                <outlet property="firstLab" destination="9wD-Ho-ssd" id="0EY-L2-690"/>
+                <outlet property="proLab" destination="EJz-nZ-QgT" id="PTD-5C-zTY"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

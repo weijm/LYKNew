@@ -11,14 +11,14 @@
 @interface TitleView : UIView
 {
     
-    IBOutlet UIView *cornerView;
+    __weak IBOutlet UIView *cornerView;
     
-    IBOutlet NSLayoutConstraint *tLineWidth;
+    __weak IBOutlet NSLayoutConstraint *tLineWidth;
     
-    IBOutlet NSLayoutConstraint *bLineWidth;
-    IBOutlet UIView *tLine;
+    __weak IBOutlet NSLayoutConstraint *bLineWidth;
+    __weak IBOutlet UIView *tLine;
     
-    IBOutlet UIView *bLine;
+    __weak IBOutlet UIView *bLine;
 }
 @property (strong, nonatomic) IBOutlet UILabel *titleLab;
 

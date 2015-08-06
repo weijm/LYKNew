@@ -11,6 +11,7 @@
 @interface MyTableViewCell1 : UITableViewCell
 {
     
-    IBOutlet UIView *bg;
+    __weak IBOutlet UIView *bg;
+
 }
 @end

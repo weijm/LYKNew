@@ -112,17 +112,17 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="arrowImg" destination="qI6-M2-EEU" id="8Ja-3w-0Nr"/>
-                <outlet property="contentTextField" destination="rUK-Da-gxc" id="pYa-Lm-GC5"/>
-                <outlet property="contentTextFieldToRight" destination="ND3-V4-PuN" id="xp9-oU-Wrr"/>
-                <outlet property="contentTextView" destination="NcO-BO-W13" id="ck5-Uv-viP"/>
-                <outlet property="lineHeight" destination="yxm-JX-NCy" id="U5I-IU-Yd2"/>
-                <outlet property="markImg" destination="4V3-Yr-faU" id="SJV-gF-IaN"/>
-                <outlet property="titBgToBottom" destination="sjG-VI-KzD" id="Gb2-m6-RHz"/>
-                <outlet property="titleBg" destination="gC7-xk-phX" id="eUO-Rq-nGg"/>
-                <outlet property="titleLab" destination="Rxj-sJ-suK" id="qrQ-V6-9Yk"/>
-                <outlet property="xingHeight" destination="nQy-73-Tfd" id="qBb-Kg-jw9"/>
-                <outlet property="xingWidth" destination="Cwj-Gg-X83" id="qTA-ON-Btk"/>
+                <outlet property="arrowImg" destination="qI6-M2-EEU" id="eol-sY-dVQ"/>
+                <outlet property="contentTextField" destination="rUK-Da-gxc" id="pcG-i5-JHn"/>
+                <outlet property="contentTextFieldToRight" destination="ND3-V4-PuN" id="D4H-Dx-RhW"/>
+                <outlet property="contentTextView" destination="NcO-BO-W13" id="aJ9-aK-R4C"/>
+                <outlet property="lineHeight" destination="yxm-JX-NCy" id="stI-lj-JuR"/>
+                <outlet property="markImg" destination="4V3-Yr-faU" id="hq0-TR-vez"/>
+                <outlet property="titBgToBottom" destination="sjG-VI-KzD" id="xHs-X4-NRX"/>
+                <outlet property="titleBg" destination="gC7-xk-phX" id="RDX-lX-S62"/>
+                <outlet property="titleLab" destination="Rxj-sJ-suK" id="qdF-Bg-pEN"/>
+                <outlet property="xingHeight" destination="Cwj-Gg-X83" id="0DJ-0V-OVM"/>
+                <outlet property="xingWidth" destination="nQy-73-Tfd" id="mvn-1s-xfc"/>
             </connections>
             <point key="canvasLocation" x="139" y="352"/>
         </tableViewCell>

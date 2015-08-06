@@ -10,12 +10,13 @@
 @class TitleView;
 @interface CertificateTableViewCell : UITableViewCell
 {
+
+    __weak IBOutlet TitleView *titleView;
     
-    IBOutlet TitleView *titleView;
-    
-    IBOutlet UITextField *emptyView;
-    
-    IBOutlet UIView *infobg;
+    __weak IBOutlet UITextField *emptyView;
+
+    __weak IBOutlet UIView *infobg;
+
 }
 -(void)loadCertificate:(NSArray*)array;
 @end

@@ -7,8 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterSuccessViewController">
             <connections>
-                <outlet property="infoBt" destination="hG0-NS-0ti" id="awE-NO-LLO"/>
-                <outlet property="randomBt" destination="EzA-4h-dI3" id="HTe-UW-6VW"/>
+                <outlet property="infoBt" destination="hG0-NS-0ti" id="Sbf-F7-c3c"/>
+                <outlet property="randomBt" destination="EzA-4h-dI3" id="oqF-3K-vDJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

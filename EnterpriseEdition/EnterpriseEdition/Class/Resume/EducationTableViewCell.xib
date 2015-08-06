@@ -87,8 +87,8 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="emptyView" destination="4ap-SN-iu8" id="7eH-3r-uNO"/>
-                <outlet property="titleView" destination="1Xu-aJ-PAK" id="3aw-Cn-vQG"/>
+                <outlet property="emptyView" destination="4ap-SN-iu8" id="15E-Vl-EwR"/>
+                <outlet property="titleView" destination="1Xu-aJ-PAK" id="o80-E3-KDs"/>
             </connections>
             <point key="canvasLocation" x="185" y="406.5"/>
         </tableViewCell>

@@ -11,8 +11,10 @@
 @interface EducationTableViewCell : UITableViewCell
 {
     
-    IBOutlet TitleView *titleView;
+    __weak IBOutlet TitleView *titleView;
+
     //数据为空的情况显示
-    IBOutlet UITextField *emptyView;
+    __weak IBOutlet UITextField *emptyView;
+
 }
 @end

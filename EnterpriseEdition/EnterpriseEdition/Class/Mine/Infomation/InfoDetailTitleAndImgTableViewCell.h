@@ -10,7 +10,8 @@
 
 @interface InfoDetailTitleAndImgTableViewCell : UITableViewCell
 {
-    IBOutlet UIView *bg;
+    __weak IBOutlet UIView *bg;
+
     
 }
 /**

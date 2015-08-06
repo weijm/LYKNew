@@ -28,7 +28,7 @@
                             <constraint firstAttribute="height" constant="21" id="lYM-E8-7p8"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4008-907-977" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ru8-FX-68l" userLabel="numberLab">
@@ -72,14 +72,14 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="arrowHeight" destination="Z2h-9m-uvI" id="55z-iB-Npb"/>
-                <outlet property="arrowWidth" destination="fbS-rH-9rP" id="6r3-97-7sb"/>
-                <outlet property="iconImg" destination="crT-fn-Xyf" id="Dsx-si-awS"/>
-                <outlet property="itemIconHeight" destination="rXr-um-8Cy" id="UVD-1a-drU"/>
-                <outlet property="itemIconWdith" destination="VCU-nf-CRm" id="DZu-ch-wFf"/>
-                <outlet property="lineToLeft" destination="Epk-3P-vRh" id="yJd-JU-ZWB"/>
-                <outlet property="phoneLab" destination="ru8-FX-68l" id="K3u-s1-yWz"/>
-                <outlet property="titleLab" destination="tjb-Mw-wKP" id="kJF-X2-RBd"/>
+                <outlet property="arrowHeight" destination="Z2h-9m-uvI" id="Usm-iU-vQB"/>
+                <outlet property="arrowWidth" destination="fbS-rH-9rP" id="9gk-tP-ZhH"/>
+                <outlet property="iconImg" destination="crT-fn-Xyf" id="Dbe-fv-lYs"/>
+                <outlet property="itemIconHeight" destination="rXr-um-8Cy" id="UGg-Bn-pwA"/>
+                <outlet property="itemIconWdith" destination="VCU-nf-CRm" id="nnB-rC-5AW"/>
+                <outlet property="lineToLeft" destination="Epk-3P-vRh" id="zfy-FM-gEH"/>
+                <outlet property="phoneLab" destination="ru8-FX-68l" id="4qc-hP-dxm"/>
+                <outlet property="titleLab" destination="tjb-Mw-wKP" id="sMY-b9-m9R"/>
             </connections>
             <point key="canvasLocation" x="187" y="300.5"/>
         </tableViewCell>

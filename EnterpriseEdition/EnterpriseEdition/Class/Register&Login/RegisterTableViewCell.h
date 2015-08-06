@@ -23,27 +23,27 @@
 @interface RegisterTableViewCell : UITableViewCell<UITextFieldDelegate>
 {
     //普通视图背景
-    IBOutlet UIView *bg;
+    __weak IBOutlet UIView *bg;
     //验证码背景
-    IBOutlet UIView *codeBg;
+    __weak IBOutlet UIView *codeBg;
     //内容视图
     IBOutlet UITextField *contentTextField;
-    IBOutlet UILabel *titleLab;
+    __weak IBOutlet UILabel *titleLab;
     
-    IBOutlet UILabel *codeMarkLab;
-    IBOutlet UILabel *timesLab;
-    IBOutlet UITextField *codeTextField;
+    __weak IBOutlet UILabel *codeMarkLab;
+    __weak IBOutlet UILabel *timesLab;
+    __weak IBOutlet UITextField *codeTextField;
     //获取验证码的button
-    IBOutlet UIButton *codeBt;
+    __weak IBOutlet UIButton *codeBt;
     
-    IBOutlet UIView *hline;
+    __weak IBOutlet UIView *hline;
     
     NSTimer *codeTimer;
     
     int seconds;
     //获取验证码的位置
     
-    IBOutlet NSLayoutConstraint *lineHeight;
+    __weak IBOutlet NSLayoutConstraint *lineHeight;
     
 }
 @property (nonatomic,weak)id <RegisterTableViewCellDelegate> delegate;

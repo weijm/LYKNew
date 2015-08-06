@@ -11,15 +11,15 @@
 @interface ExperienceView : UIView
 {
     //工作时间
-    IBOutlet UILabel *timeLab;
+    __weak IBOutlet UILabel *timeLab;
     //公司名称
-    IBOutlet UILabel *orgLab;
+    __weak IBOutlet UILabel *orgLab;
     //职位 行业
     
-    IBOutlet UILabel *positionLab;
+    __weak IBOutlet UILabel *positionLab;
     //工作内容
     
-    IBOutlet UILabel *contentLab;
+    __weak IBOutlet UILabel *contentLab;
 }
 
 @end

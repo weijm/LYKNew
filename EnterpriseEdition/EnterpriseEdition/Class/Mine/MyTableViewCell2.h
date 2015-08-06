@@ -11,19 +11,19 @@
 @interface MyTableViewCell2 : UITableViewCell
 {
     
-    IBOutlet UILabel *titleLab;
-    IBOutlet UIImageView *iconImg;
+    __weak IBOutlet UILabel *titleLab;
+    __weak IBOutlet UIImageView *iconImg;
    
-    IBOutlet UILabel *phoneLab;
-    IBOutlet NSLayoutConstraint *lineToLeft;
+    __weak IBOutlet UILabel *phoneLab;
+    __weak IBOutlet NSLayoutConstraint *lineToLeft;
     
-    IBOutlet NSLayoutConstraint *itemIconWdith;
+    __weak IBOutlet NSLayoutConstraint *itemIconWdith;
     
-    IBOutlet NSLayoutConstraint *itemIconHeight;
+    __weak IBOutlet NSLayoutConstraint *itemIconHeight;
     //箭头的宽高
     
-    IBOutlet NSLayoutConstraint *arrowWidth;
-    IBOutlet NSLayoutConstraint *arrowHeight;
+    __weak IBOutlet NSLayoutConstraint *arrowWidth;
+    __weak IBOutlet NSLayoutConstraint *arrowHeight;
 }
 -(void)loadSubView;
 @end

@@ -16,33 +16,30 @@
 @end
 @interface InfoTableViewCell : UITableViewCell
 {
-    IBOutlet UIView *subView;
-    IBOutlet NSLayoutConstraint *bgToRight;
-    IBOutlet NSLayoutConstraint *bgToLeft;
+    __weak IBOutlet UIView *subView;
+    __weak IBOutlet NSLayoutConstraint *bgToRight;
+    __weak IBOutlet NSLayoutConstraint *bgToLeft;
     
-    IBOutlet NSLayoutConstraint *chooseBgToLeft;
+    __weak IBOutlet NSLayoutConstraint *chooseBgToLeft;
     
-    IBOutlet UIView *chooseBg;
+    __weak IBOutlet UIView *chooseBg;
     
-    IBOutlet UIButton_Custom *chooseBt;
-    
+    __weak IBOutlet UIButton_Custom *chooseBt;
     //图标
-    IBOutlet UIImageView *iconImg;
+    __weak IBOutlet UIImageView *iconImg;
     //标题
-    IBOutlet UILabel *titleLab;
-    
+    __weak IBOutlet UILabel *titleLab;
     //信息
-    
-    IBOutlet UILabel *infoLab;
+    __weak IBOutlet UILabel *infoLab;
     //时间
     
-    IBOutlet UILabel *timeLab;
+    __weak IBOutlet UILabel *timeLab;
     
-    IBOutlet NSLayoutConstraint *iconWidth;
+    __weak IBOutlet NSLayoutConstraint *iconWidth;
     
-    IBOutlet NSLayoutConstraint *iconHeight;
+    __weak IBOutlet NSLayoutConstraint *iconHeight;
     
-    IBOutlet NSLayoutConstraint *blineWidth;
+    __weak IBOutlet NSLayoutConstraint *blineHeight;
 }
 @property (nonatomic,weak) id<InfoTableViewCellDelegate> delegate;
 /**

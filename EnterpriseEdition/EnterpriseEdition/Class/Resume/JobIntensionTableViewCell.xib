@@ -279,8 +279,8 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="emptyView" destination="fmH-cN-VeB" id="FN8-MU-q8d"/>
-                <outlet property="titleView" destination="Zbp-f2-Wgv" id="auL-AX-Dz9"/>
+                <outlet property="emptyView" destination="fmH-cN-VeB" id="Tsf-AF-KYz"/>
+                <outlet property="titleView" destination="Zbp-f2-Wgv" id="2qh-Im-biP"/>
             </connections>
             <point key="canvasLocation" x="185" y="395.5"/>
         </tableViewCell>

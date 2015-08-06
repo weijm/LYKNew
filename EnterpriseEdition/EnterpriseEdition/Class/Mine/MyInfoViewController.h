@@ -10,7 +10,8 @@
 
 @interface MyInfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
-    IBOutlet UITableView *dataTableView;
+    __weak IBOutlet UITableView *dataTableView;
+
     
 }
 @end

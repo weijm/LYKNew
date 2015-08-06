@@ -10,8 +10,10 @@
 #import "RegisterTableViewCell.h"
 @interface ForgetPasswordViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,RegisterTableViewCellDelegate>
 {
-      IBOutlet NSLayoutConstraint *dataTableViewToTop;
-    IBOutlet UILabel *bottomLab;
+    __weak IBOutlet NSLayoutConstraint *dataTableViewToTop;
+    
+    __weak IBOutlet UILabel *bottomLab;
+
 
 }
 @end

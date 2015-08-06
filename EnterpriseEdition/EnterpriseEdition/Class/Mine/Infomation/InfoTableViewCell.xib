@@ -124,19 +124,19 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="bgToLeft" destination="Pwd-hs-PvP" id="MHN-6b-btO"/>
-                <outlet property="bgToRight" destination="PTw-P8-cNJ" id="7fT-Si-mwz"/>
-                <outlet property="blineWidth" destination="QUy-V5-RYA" id="SjP-4j-Iq3"/>
-                <outlet property="chooseBg" destination="eLC-JJ-HIq" id="kv9-WG-4gE"/>
-                <outlet property="chooseBgToLeft" destination="Tnp-9g-yAP" id="JjU-he-62f"/>
-                <outlet property="chooseBt" destination="yap-DZ-CcL" id="Ujk-83-zeI"/>
-                <outlet property="iconHeight" destination="Ybf-sG-y1b" id="s3P-8Q-Msa"/>
-                <outlet property="iconImg" destination="63a-95-poo" id="ZvD-QL-kgj"/>
-                <outlet property="iconWidth" destination="W5D-f8-4eg" id="ws8-QT-3lH"/>
-                <outlet property="infoLab" destination="Aeh-gy-5VC" id="CbV-LF-kwL"/>
-                <outlet property="subView" destination="XgZ-mH-IC9" id="my2-IM-xmS"/>
-                <outlet property="timeLab" destination="xpI-IV-iha" id="SoQ-ik-82K"/>
-                <outlet property="titleLab" destination="YmH-xS-G4A" id="2Rg-st-PRk"/>
+                <outlet property="bgToLeft" destination="Pwd-hs-PvP" id="MPj-c1-lrE"/>
+                <outlet property="bgToRight" destination="PTw-P8-cNJ" id="e3j-ce-6JW"/>
+                <outlet property="blineHeight" destination="QUy-V5-RYA" id="4Xw-0e-iVN"/>
+                <outlet property="chooseBg" destination="eLC-JJ-HIq" id="qD0-ty-AMn"/>
+                <outlet property="chooseBgToLeft" destination="Tnp-9g-yAP" id="Rzy-5U-tNX"/>
+                <outlet property="chooseBt" destination="yap-DZ-CcL" id="EYw-eK-1cp"/>
+                <outlet property="iconHeight" destination="Ybf-sG-y1b" id="qQa-et-ZzA"/>
+                <outlet property="iconImg" destination="63a-95-poo" id="wYV-uM-Hom"/>
+                <outlet property="iconWidth" destination="W5D-f8-4eg" id="s0L-lz-P5z"/>
+                <outlet property="infoLab" destination="Aeh-gy-5VC" id="mSC-Nr-igT"/>
+                <outlet property="subView" destination="XgZ-mH-IC9" id="tms-sz-dUZ"/>
+                <outlet property="timeLab" destination="xpI-IV-iha" id="qDs-gG-Pkh"/>
+                <outlet property="titleLab" destination="YmH-xS-G4A" id="EW4-Z2-5Ql"/>
             </connections>
             <point key="canvasLocation" x="187" y="380"/>
         </tableViewCell>

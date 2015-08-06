@@ -14,21 +14,21 @@
 @end
 @interface EnterpriseImgTableViewCell : UITableViewCell
 {
-    IBOutlet UILabel *titleLab;
-    IBOutlet UIImageView *requiredMarkImg;
+    __weak IBOutlet UILabel *titleLab;
+    __weak IBOutlet UIImageView *requiredMarkImg;
     
-    IBOutlet NSLayoutConstraint *xingHeight;
-    IBOutlet NSLayoutConstraint *xingWidth;
+    __weak IBOutlet NSLayoutConstraint *xingHeight;
+    __weak IBOutlet NSLayoutConstraint *xingWidth;
     //添加按钮的宽高
     
-    IBOutlet NSLayoutConstraint *addImgHeight;
-    IBOutlet NSLayoutConstraint *addImgWidth;
+    __weak IBOutlet NSLayoutConstraint *addImgHeight;
+    __weak IBOutlet NSLayoutConstraint *addImgWidth;
     
-    IBOutlet NSLayoutConstraint *lineHeight;
+    __weak IBOutlet NSLayoutConstraint *lineHeight;
     
-    IBOutlet UIImageView *imgView;
+    __weak IBOutlet UIImageView *imgView;
     
-    IBOutlet UIView *promptView;
+    __weak IBOutlet UIView *promptView;
 }
 @property(nonatomic,weak) id<EnterpriseImgTableViewCellDelegate> delegate;
 /**

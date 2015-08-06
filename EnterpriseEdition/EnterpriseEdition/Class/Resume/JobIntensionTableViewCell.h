@@ -12,9 +12,11 @@
 @interface JobIntensionTableViewCell : UITableViewCell
 {
     
-    IBOutlet TitleView *titleView;
+    __weak IBOutlet TitleView *titleView;
+
     //内容为空时展示
-    IBOutlet UITextField *emptyView;
+    __weak IBOutlet UITextField *emptyView;
+
     
 }
 @end

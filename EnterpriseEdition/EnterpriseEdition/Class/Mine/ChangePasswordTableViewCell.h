@@ -18,10 +18,10 @@
 @interface ChangePasswordTableViewCell : UITableViewCell<UITextFieldDelegate>
 {
     
-    IBOutlet UILabel *titleLab;
-    IBOutlet UITextField *contentTextField;
+    __weak IBOutlet UILabel *titleLab;
     
-    IBOutlet NSLayoutConstraint *lineHeight;
+    __weak IBOutlet UITextField *contentTextField;
+    __weak IBOutlet NSLayoutConstraint *lineHeight;
 }
 @property (nonatomic,weak) id<ChangePasswordTableViewCellDelegate> delegate;
 /**

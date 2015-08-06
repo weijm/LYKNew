@@ -68,8 +68,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="chooseBt" destination="azX-3c-FzI" id="hvm-s9-h4U"/>
-                <outlet property="lineHeight" destination="a1h-JF-bFT" id="mxy-ve-7AL"/>
+                <outlet property="chooseBt" destination="azX-3c-FzI" id="2BU-ld-j5W"/>
+                <outlet property="lineHeight" destination="a1h-JF-bFT" id="rv8-n3-8T8"/>
             </connections>
             <point key="canvasLocation" x="146" y="246.5"/>
         </tableViewCell>

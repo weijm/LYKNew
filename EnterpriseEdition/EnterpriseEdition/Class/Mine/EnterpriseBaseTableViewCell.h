@@ -18,27 +18,27 @@
 @interface EnterpriseBaseTableViewCell : UITableViewCell<UITextFieldDelegate,UITextViewDelegate>
 {
     //标题及星星的背景
-    IBOutlet UIView *titleBg;
+    __weak IBOutlet UIView *titleBg;
     //标题
-    IBOutlet UILabel *titleLab;
+    __weak IBOutlet UILabel *titleLab;
     //箭头
-    IBOutlet UIImageView *arrowImg;
+    __weak IBOutlet UIImageView *arrowImg;
     
-    IBOutlet UITextField *contentTextField;
+    __weak IBOutlet UITextField *contentTextField;
     
-    IBOutlet CPTextViewPlaceholder *contentTextView;
+    __weak IBOutlet CPTextViewPlaceholder *contentTextView;
     
-    IBOutlet NSLayoutConstraint *contentTextFieldToRight;
+    __weak IBOutlet NSLayoutConstraint *contentTextFieldToRight;
     
-    IBOutlet NSLayoutConstraint *titBgToBottom;
+    __weak IBOutlet NSLayoutConstraint *titBgToBottom;
     
-    IBOutlet NSLayoutConstraint *xingHeight;
-    IBOutlet NSLayoutConstraint *xingWidth;
+    __weak IBOutlet NSLayoutConstraint *xingHeight;
+    __weak IBOutlet NSLayoutConstraint *xingWidth;
     
-    IBOutlet NSLayoutConstraint *lineHeight;
+    __weak IBOutlet NSLayoutConstraint *lineHeight;
     
     
-    IBOutlet UIImageView *markImg;
+    __weak IBOutlet UIImageView *markImg;
 }
 @property (nonatomic,weak) id<EnterpriseBaseTableViewCellDelegate> delegate;
 @property (nonatomic) int  cellType;

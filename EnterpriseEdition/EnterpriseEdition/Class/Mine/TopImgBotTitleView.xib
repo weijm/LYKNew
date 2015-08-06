@@ -7,9 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopImgBotTitleView">
             <connections>
-                <outlet property="countLab" destination="Ewm-Tr-BmG" id="Qsm-XU-IBw"/>
-                <outlet property="titLab" destination="GpS-6s-6nf" id="m7N-92-QMv"/>
-                <outlet property="titleWidth" destination="SYY-Bb-7vD" id="b5f-5P-KiC"/>
+                <outlet property="countLab" destination="Ewm-Tr-BmG" id="IAt-gj-FOf"/>
+                <outlet property="titLab" destination="GpS-6s-6nf" id="X9M-1r-SCp"/>
+                <outlet property="titleWidth" destination="SYY-Bb-7vD" id="1LJ-mX-Wwg"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

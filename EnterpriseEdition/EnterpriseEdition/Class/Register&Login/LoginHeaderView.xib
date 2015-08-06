@@ -7,12 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginHeaderView">
             <connections>
-                <outlet property="line1Height" destination="Tcf-On-p64" id="CfB-Uq-B4G"/>
-                <outlet property="line2Height" destination="m6Y-Kw-nvc" id="ako-Kb-g1X"/>
-                <outlet property="numberimgHeight" destination="7Fv-nA-Fin" id="2d1-QU-OzH"/>
-                <outlet property="numberimgWidth" destination="PX6-M6-CyS" id="XN0-mr-pWv"/>
-                <outlet property="passwordimgHeight" destination="c60-fP-TO4" id="Cye-ge-2se"/>
-                <outlet property="passwordimgWidth" destination="HN0-aw-Blg" id="CkH-Jb-Hvc"/>
+                <outlet property="line1Height" destination="Tcf-On-p64" id="LNS-cU-RJq"/>
+                <outlet property="line2Height" destination="m6Y-Kw-nvc" id="1ob-2L-aeU"/>
+                <outlet property="numberimgHeight" destination="7Fv-nA-Fin" id="KqJ-LY-cbz"/>
+                <outlet property="numberimgWidth" destination="PX6-M6-CyS" id="5qK-we-7sR"/>
+                <outlet property="passwordimgHeight" destination="c60-fP-TO4" id="Y2C-7a-N3A"/>
+                <outlet property="passwordimgWidth" destination="HN0-aw-Blg" id="hrT-6Q-cLN"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

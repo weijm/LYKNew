@@ -49,7 +49,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="bg" destination="ovb-gq-jMH" id="Ftm-9h-Y0q"/>
+                <outlet property="bg" destination="ovb-gq-jMH" id="vk3-Rr-kY7"/>
             </connections>
             <point key="canvasLocation" x="187" y="317"/>
         </tableViewCell>

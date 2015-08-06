@@ -10,8 +10,8 @@
 
 @interface InfoFiltrateView : UIView
 {
-    IBOutlet NSLayoutConstraint *lineHeight;
-    
+    __weak IBOutlet NSLayoutConstraint *lineHeight;
+
 }
 @property (nonatomic,copy) void(^touchAction)(int index);
 /**

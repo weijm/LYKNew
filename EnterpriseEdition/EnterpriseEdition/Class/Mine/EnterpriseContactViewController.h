@@ -11,10 +11,12 @@
 #import "EnterpriseImgTableViewCell.h"
 @interface EnterpriseContactViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,EnterpriseBaseTableViewCellDelegate,EnterpriseImgTableViewCellDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
-    IBOutlet UILabel *promptLab;
+    __weak IBOutlet UILabel *promptLab;
+
     
     
-    IBOutlet UITableView *infoTableView;
+    __weak IBOutlet UITableView *infoTableView;
+
 }
 - (IBAction)saveAndCommit:(id)sender;
 

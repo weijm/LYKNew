@@ -52,9 +52,9 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="contentLab" destination="myN-37-Vhy" id="wQj-Od-6tu"/>
-                <outlet property="emptyView" destination="Id8-Oz-TJy" id="fsr-Zn-nXR"/>
-                <outlet property="titleView" destination="VsB-GD-Vub" id="pSh-ZE-9Q8"/>
+                <outlet property="contentLab" destination="myN-37-Vhy" id="rIT-RO-qoz"/>
+                <outlet property="emptyView" destination="Id8-Oz-TJy" id="NFy-va-umd"/>
+                <outlet property="titleView" destination="VsB-GD-Vub" id="QFs-TB-J7T"/>
             </connections>
             <point key="canvasLocation" x="185" y="413"/>
         </tableViewCell>

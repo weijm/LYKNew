@@ -10,9 +10,9 @@
 #import "RegisterTableViewCell.h"
 @interface RegisterUserViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,RegisterTableViewCellDelegate>
 {
-    IBOutlet NSLayoutConstraint *dataTableViewToTop;
-    IBOutlet UITableView *dataTableView;
+    __weak IBOutlet NSLayoutConstraint *dataTableViewToTop;
+    __weak IBOutlet UITableView *dataTableView;
+    __weak IBOutlet UILabel *topLab;
     
-    IBOutlet UILabel *topLab;
 }
 @end

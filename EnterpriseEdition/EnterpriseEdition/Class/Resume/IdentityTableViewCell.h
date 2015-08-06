@@ -11,23 +11,22 @@
 @interface IdentityTableViewCell : UITableViewCell
 {
     //收起来的背景
-    IBOutlet UIView *littleInfoBg;
+    __weak IBOutlet UIView *littleInfoBg;
     //展开的信息背景
-    IBOutlet UIView *infoBg;
+    __weak IBOutlet UIView *infoBg;
     //联系电话label
     
-    IBOutlet UILabel *phoneLab;
+    __weak IBOutlet UILabel *phoneLab;
     //邮箱
     
-    IBOutlet UILabel *mailLab;
+    __weak IBOutlet UILabel *mailLab;
     //联系地址
     
-    IBOutlet UILabel *addressLab;
+    __weak IBOutlet UILabel *addressLab;
     
-    IBOutlet NSLayoutConstraint *addressToTop;
+    __weak IBOutlet NSLayoutConstraint *addressToTop;
     //什么信息都为空的时候显示
-    IBOutlet UITextField *emptyView;
-    
+    __weak IBOutlet UITextField *emptyView;
 }
 @property(nonatomic,copy) void(^lookIdentityInfo)(void);
 - (IBAction)lookUpInfo:(id)sender;

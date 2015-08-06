@@ -16,17 +16,17 @@
 @end
 @interface LoginHeaderView : UIView<UITextFieldDelegate>
 {
-    IBOutlet NSLayoutConstraint *numberimgWidth;
     
-    IBOutlet NSLayoutConstraint *numberimgHeight;
+    __weak IBOutlet NSLayoutConstraint *numberimgWidth;
+    __weak IBOutlet NSLayoutConstraint *numberimgHeight;
     
-    IBOutlet NSLayoutConstraint *passwordimgWidth;
+    __weak IBOutlet NSLayoutConstraint *passwordimgWidth;
     
-    IBOutlet NSLayoutConstraint *passwordimgHeight;
+    __weak IBOutlet NSLayoutConstraint *passwordimgHeight;
     
-    IBOutlet NSLayoutConstraint *line1Height;
+    __weak IBOutlet NSLayoutConstraint *line1Height;
     
-    IBOutlet NSLayoutConstraint *line2Height;
+    __weak IBOutlet NSLayoutConstraint *line2Height;
     
 }
 @property(nonatomic,weak) id<LoginHeaderViewDelegate> delegate;

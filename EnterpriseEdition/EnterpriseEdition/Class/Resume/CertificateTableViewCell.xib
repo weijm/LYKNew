@@ -49,9 +49,9 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="emptyView" destination="gf6-xF-V2d" id="X4w-Kk-Ptp"/>
-                <outlet property="infobg" destination="khS-KE-JE9" id="GkL-k2-Osf"/>
-                <outlet property="titleView" destination="wPU-ju-rbt" id="raT-Zr-r8h"/>
+                <outlet property="emptyView" destination="gf6-xF-V2d" id="eNL-gN-2V2"/>
+                <outlet property="infobg" destination="khS-KE-JE9" id="Bb5-IH-iGl"/>
+                <outlet property="titleView" destination="wPU-ju-rbt" id="oo5-mu-sII"/>
             </connections>
             <point key="canvasLocation" x="187" y="390.5"/>
         </tableViewCell>

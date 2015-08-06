@@ -10,12 +10,15 @@
 @class TitleView;
 @interface ExperienceTableViewCell : UITableViewCell
 {
-    IBOutlet TitleView *titleView;
+
+    __weak IBOutlet TitleView *titleView;
     
     
-    IBOutlet UITextField *emptyView;
+    __weak IBOutlet UITextField *emptyView;
+
     
-    IBOutlet UIView *infobg;
+    __weak IBOutlet UIView *infobg;
+
 }
 -(void)loadExperience:(NSArray*)array;
 @end

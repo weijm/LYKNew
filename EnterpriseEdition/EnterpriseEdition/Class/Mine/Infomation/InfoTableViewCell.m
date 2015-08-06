@@ -16,7 +16,7 @@
         iconWidth.constant = iconWidth.constant +3;
         iconHeight.constant = iconHeight.constant +3;
     }
-    blineWidth.constant = 0.5;
+    blineHeight.constant = 0.5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

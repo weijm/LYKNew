@@ -174,16 +174,16 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="bg" destination="saq-Rj-Den" id="ZqP-yR-TtL"/>
-                <outlet property="codeBg" destination="JqU-HT-aTC" id="xy0-Il-Log"/>
-                <outlet property="codeBt" destination="GYj-Eu-Vc8" id="xNh-gB-5Ds"/>
-                <outlet property="codeMarkLab" destination="91T-sE-6Hp" id="UNB-Bn-dhM"/>
-                <outlet property="codeTextField" destination="6F8-Pj-QMu" id="BfS-pk-Uo6"/>
-                <outlet property="contentTextField" destination="XHT-7k-LIL" id="swn-Bs-emV"/>
-                <outlet property="hline" destination="HSs-eH-7Ak" id="Q36-nA-lCw"/>
-                <outlet property="lineHeight" destination="n59-pf-Rjc" id="ySv-CE-HpC"/>
-                <outlet property="timesLab" destination="Mmd-tY-XPR" id="P8t-Wl-4rN"/>
-                <outlet property="titleLab" destination="jm1-Gp-a7o" id="2p3-6Q-ga9"/>
+                <outlet property="bg" destination="saq-Rj-Den" id="07i-Gm-gOS"/>
+                <outlet property="codeBg" destination="JqU-HT-aTC" id="Kcu-vA-RxL"/>
+                <outlet property="codeBt" destination="GYj-Eu-Vc8" id="MAU-TW-0oo"/>
+                <outlet property="codeMarkLab" destination="91T-sE-6Hp" id="tzR-KD-D0A"/>
+                <outlet property="codeTextField" destination="6F8-Pj-QMu" id="jPN-Oo-3bw"/>
+                <outlet property="contentTextField" destination="XHT-7k-LIL" id="q2P-oh-Dem"/>
+                <outlet property="hline" destination="HSs-eH-7Ak" id="xIR-6H-21O"/>
+                <outlet property="lineHeight" destination="n59-pf-Rjc" id="11M-rm-775"/>
+                <outlet property="timesLab" destination="Mmd-tY-XPR" id="DZG-PL-n9T"/>
+                <outlet property="titleLab" destination="jm1-Gp-a7o" id="WU0-Pt-WJq"/>
             </connections>
             <point key="canvasLocation" x="178" y="269.5"/>
         </tableViewCell>

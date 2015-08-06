@@ -11,9 +11,11 @@
 @interface RegisterSuccessViewController : BaseViewController
 {
     
-    IBOutlet UIButton *infoBt;
+    __weak IBOutlet UIButton *infoBt;
+
     
-    IBOutlet UIButton *randomBt;
+    __weak IBOutlet UIButton *randomBt;
+
 }
 - (IBAction)pressBtAction:(id)sender;
 

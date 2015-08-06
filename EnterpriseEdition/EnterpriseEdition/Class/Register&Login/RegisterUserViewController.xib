@@ -7,9 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterUserViewController">
             <connections>
-                <outlet property="dataTableView" destination="elQ-YM-UXU" id="HKC-Ji-FNa"/>
-                <outlet property="dataTableViewToTop" destination="2NI-01-xFQ" id="nrf-Qq-HTv"/>
-                <outlet property="topLab" destination="okt-fc-Mkd" id="rQS-2M-qk5"/>
+                <outlet property="dataTableView" destination="elQ-YM-UXU" id="gKn-ic-e6t"/>
+                <outlet property="dataTableViewToTop" destination="2NI-01-xFQ" id="1hD-yy-eae"/>
+                <outlet property="topLab" destination="okt-fc-Mkd" id="C4s-dR-4wI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

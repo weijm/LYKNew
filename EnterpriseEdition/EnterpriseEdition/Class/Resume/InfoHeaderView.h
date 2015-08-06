@@ -11,22 +11,22 @@
 @interface InfoHeaderView : UIView
 {
     //背景图
-    IBOutlet UIImageView *bgImage;
+    __weak IBOutlet UIImageView *bgImage;
     //头像
-    IBOutlet UIImageView *protraitImag;
+    __weak IBOutlet UIImageView *protraitImag;
     //匹配度label
+    __weak IBOutlet UILabel *rateLab;
     
-    IBOutlet UILabel *rateLab;
     //信息lab
-    IBOutlet UILabel *infoLab;
+    __weak IBOutlet UILabel *infoLab;
     //经验信息label
+    __weak IBOutlet UILabel *expLab;
     
-    IBOutlet UILabel *expLab;
     //急
-    IBOutlet UIImageView *urgentView;
+    __weak IBOutlet UIImageView *urgentView;
     //编辑
-    IBOutlet UIImageView *editView;
+    __weak IBOutlet UIImageView *editView;
     //下载
-    IBOutlet UIImageView *download;
+    __weak IBOutlet UIImageView *download;
 }
 @end

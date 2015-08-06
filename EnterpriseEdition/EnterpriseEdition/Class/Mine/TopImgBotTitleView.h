@@ -10,11 +10,10 @@
 
 @interface TopImgBotTitleView : UIView
 {
-    IBOutlet NSLayoutConstraint *titleWidth;
+    __weak IBOutlet NSLayoutConstraint *titleWidth;
     
-    IBOutlet UILabel *countLab;
-    IBOutlet UILabel *titLab;
-    
+    __weak IBOutlet UILabel *countLab;
+    __weak IBOutlet UILabel *titLab;
     
 }
 -(void)loadData:(int)count;

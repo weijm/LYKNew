@@ -12,11 +12,14 @@
 @interface HobbiesTableViewCell : UITableViewCell
 {
     
-    IBOutlet TitleView *titleView;
+    __weak IBOutlet TitleView *titleView;
+
     
-    IBOutlet UITextField *emptyView;
+    __weak IBOutlet UITextField *emptyView;
+
     
-    IBOutlet UILabel *contentLab;
+    __weak IBOutlet UILabel *contentLab;
+
     
 }
 /**

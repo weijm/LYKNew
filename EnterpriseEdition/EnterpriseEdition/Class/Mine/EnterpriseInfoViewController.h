@@ -13,16 +13,15 @@
 
 @interface EnterpriseInfoViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,EnterpriseBaseTableViewCellDelegate,EnterpriseImgTableViewCellDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
-    IBOutlet UILabel *promptLab;
+    __weak IBOutlet UILabel *promptLab;
     
+    __weak IBOutlet UITableView *infoTableView;
     
-    IBOutlet UITableView *infoTableView;
+    __weak IBOutlet NSLayoutConstraint *infoTableViewToTop;
+    __weak IBOutlet NSLayoutConstraint *infoTableViewToBottom;
     
-    IBOutlet NSLayoutConstraint *infoTableViewToTop;
-    IBOutlet NSLayoutConstraint *infoTableViewToBottom;
-    
-    IBOutlet NSLayoutConstraint *proWidth;
-    IBOutlet NSLayoutConstraint *proHeight;
+    __weak IBOutlet NSLayoutConstraint *proWidth;
+    __weak IBOutlet NSLayoutConstraint *proHeight;
 }
 - (IBAction)saveEnterpriseInfo:(id)sender;
 

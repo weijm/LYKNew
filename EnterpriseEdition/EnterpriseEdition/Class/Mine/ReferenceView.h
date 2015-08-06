@@ -11,7 +11,8 @@
 @interface ReferenceView : UIView
 {
     
-    IBOutlet UIButton *expBt;
+    __weak IBOutlet UIButton *expBt;
+
 }
 @property (nonatomic,copy) void(^lookExampleAction)(void);
 /**

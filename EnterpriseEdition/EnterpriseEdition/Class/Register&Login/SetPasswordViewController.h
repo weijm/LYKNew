@@ -10,6 +10,7 @@
 #import "RegisterTableViewCell.h"
 @interface SetPasswordViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,RegisterTableViewCellDelegate>
 {
-    IBOutlet NSLayoutConstraint *dataTableViewToTop;
+    __weak IBOutlet NSLayoutConstraint *dataTableViewToTop;
+   
 }
 @end

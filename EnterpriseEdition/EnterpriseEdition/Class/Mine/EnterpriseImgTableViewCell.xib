@@ -130,15 +130,15 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="addImgHeight" destination="725-gq-B3D" id="OEX-0t-yOF"/>
-                <outlet property="addImgWidth" destination="beY-Vh-jKS" id="nIs-7r-mjR"/>
-                <outlet property="imgView" destination="T0Z-Ec-2er" id="Ngs-Ti-aMC"/>
-                <outlet property="lineHeight" destination="zeo-Ir-m79" id="JSM-2w-ceL"/>
-                <outlet property="promptView" destination="XCB-zR-E2D" id="2SV-9g-bbU"/>
-                <outlet property="requiredMarkImg" destination="RFO-wi-q7f" id="gYJ-8Z-nfy"/>
-                <outlet property="titleLab" destination="xH8-6q-seX" id="4Ay-6i-fnS"/>
-                <outlet property="xingHeight" destination="mCy-fa-11f" id="Zgs-g5-WEI"/>
-                <outlet property="xingWidth" destination="sjd-sE-uih" id="nUu-Kr-LV1"/>
+                <outlet property="addImgHeight" destination="725-gq-B3D" id="T6s-4I-eC8"/>
+                <outlet property="addImgWidth" destination="beY-Vh-jKS" id="OKq-3v-tiX"/>
+                <outlet property="imgView" destination="T0Z-Ec-2er" id="LyX-to-krM"/>
+                <outlet property="lineHeight" destination="zeo-Ir-m79" id="Ktd-4h-0uJ"/>
+                <outlet property="promptView" destination="XCB-zR-E2D" id="GYb-iT-HJk"/>
+                <outlet property="requiredMarkImg" destination="RFO-wi-q7f" id="QNh-5d-RkB"/>
+                <outlet property="titleLab" destination="xH8-6q-seX" id="3N7-uJ-qeO"/>
+                <outlet property="xingHeight" destination="mCy-fa-11f" id="hNU-MA-EUc"/>
+                <outlet property="xingWidth" destination="sjd-sE-uih" id="GPT-uA-ecV"/>
             </connections>
             <point key="canvasLocation" x="139" y="282.5"/>
         </tableViewCell>

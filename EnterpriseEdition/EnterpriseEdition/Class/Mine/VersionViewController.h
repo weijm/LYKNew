@@ -10,9 +10,12 @@
 
 @interface VersionViewController : UIViewController
 {
-    IBOutlet NSLayoutConstraint *versionimgY;
-    IBOutlet NSLayoutConstraint *versonimgWidth;
+
+    __weak IBOutlet NSLayoutConstraint *versionimgY;
+
+    __weak IBOutlet NSLayoutConstraint *versonimgWidth;
     
-    IBOutlet NSLayoutConstraint *versionimgHeiht;
+    __weak IBOutlet NSLayoutConstraint *versionimgHeiht;
+
 }
 @end
