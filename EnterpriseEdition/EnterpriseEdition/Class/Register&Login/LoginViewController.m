@@ -110,10 +110,6 @@
             NSString *password = [contentArray lastObject];
             if ([Util checkPassWord:password]) {
                 //将账号和密码存在本地
-                NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-                [userDefault setObject:phone forKey:kAccount];
-                [userDefault setObject:password forKey:KPassWord];
-                [userDefault synchronize];
                 [self requestLogin:phone password:password];
             }
         }
@@ -146,16 +142,21 @@
                     [_delegate loginSuccess];
                 }
                 //将用户ID 企业ID进行存储
+                 NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
                 NSArray *dataArr = [result objectForKey:@"data"];
                 if ([dataArr count]>0) {
                     NSDictionary * resultDic = [dataArr firstObject];
-                    NSUserDefaults *userDefaulf = [NSUserDefaults standardUserDefaults];
-                    NSString *uid = [resultDic objectForKey:@"uid"];
-                    [userDefaulf setObject:[Util getCorrectString:uid] forKey:kUID];
+                     NSString *uid = [resultDic objectForKey:@"uid"];
                     NSString *iid = [resultDic objectForKey:@"info_id"];
-                    [userDefaulf setObject:[Util getCorrectString:iid] forKey:KIID];
-                    [userDefaulf synchronize];
+                    [userDefault setObject:uid forKey:kUID];
+                    [userDefault setObject:iid forKey:KIID];
                 }
+                //标记是否登录成功
+                [userDefault setObject:@"1" forKey:kLoginOrExit];
+               
+                [userDefault setObject:userName forKey:kAccount];
+                [userDefault setObject:password forKey:KPassWord];
+                [userDefault synchronize];
                 
             }else
             {

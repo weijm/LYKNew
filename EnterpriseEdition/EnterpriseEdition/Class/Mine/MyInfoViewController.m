@@ -157,5 +157,13 @@
 -(void)exitApplication
 {
     NSLog(@"退出账号");
+    //退出登录
+    [[NSNotificationCenter defaultCenter] postNotificationName:kLoginOrExit object:@"1"];
+    //清空本地缓存的数据
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setObject:@"" forKey:kLoginOrExit];
+    [userDefault setObject:@"" forKey:kUID];
+    [userDefault setObject:@"" forKey:KIID];
+
 }
 @end

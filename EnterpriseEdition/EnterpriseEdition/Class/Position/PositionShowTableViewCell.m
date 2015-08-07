@@ -73,12 +73,35 @@
         resumeNumberLab.text = [NSString stringWithFormat:@"%d份",resumeNumber+10];
         resumeNumberLab.textColor = [UIColor redColor];
     }
-    positionTitle.text = [dictionary objectForKey:@"job"];
-    positoinName.text = [dictionary objectForKey:@"name"];
-    positionInfo.text = [NSString stringWithFormat:@"%@ | %@ | %@",[dictionary objectForKey:@"categray"],[dictionary objectForKey:@"money"],[dictionary objectForKey:@"pro"]];
-    validTimeLab.text = [dictionary objectForKey:@"time"];
+    positionTitle.text = [dictionary objectForKey:@"job_type"];
+    positoinName.text = [dictionary objectForKey:@"job_type"];
+    positionInfo.text = [NSString stringWithFormat:@"%@ | %@-%@",[dictionary objectForKey:@"work_type"],[dictionary objectForKey:@"salary_min"],[dictionary objectForKey:@"salary_max"]];
+   //初始化时间
+    [self loadTime:[dictionary objectForKey:@"status"] OverTime:[dictionary objectForKey:@"over_time"] RefreshTime:[dictionary objectForKey:@"refresh_time"]];
+  
 }
-
+-(void)loadTime:(NSString*)status OverTime:(NSString*)overtime RefreshTime:(NSString*)refreshTime
+{
+    NSString *time = nil;
+    NSString *statusStr = nil;
+    if ([status isEqualToString:@"正常"]) {
+        statusStr = @"有效期至";
+        time = overtime;
+    }else if ([status isEqualToString:@"下线"])
+    {
+        statusStr = @"下线时间";
+        time = overtime;
+    }else if ([status isEqualToString:@"保存"])
+    {
+        statusStr = @"保存时间";
+        time = refreshTime;
+    }else
+    {
+        statusStr = @"提交时间";
+        time = refreshTime;
+    }
+    validTimeLab.text = [NSString stringWithFormat:@"%@%@",statusStr,time];
+}
 - (IBAction)chooseAction:(id)sender {
     NSString *string = @"0";
     UIButton_Custom *bt = (UIButton_Custom*)sender;

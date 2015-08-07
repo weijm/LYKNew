@@ -173,7 +173,9 @@
 -(void)clickedNextBtAction
 {
     [self editTextFiledAndCancelKey:NO];
-    
+    RegisterSuccessViewController *successVC = [[RegisterSuccessViewController alloc] init];
+    [self.navigationController pushViewController:successVC animated:YES];
+    return;
     NSString *phone = [contentArray firstObject];
     if ([Util checkTelephone:phone]) {//手机号正确
         NSString *password = [contentArray objectAtIndex:1];
@@ -184,8 +186,7 @@
                 if ([codeStr length]>0) {
                     //所有信息填写完整 请求服务器注册
                     NSLog(@"注册信息填写完整 请求服务器");
-                    RegisterSuccessViewController *successVC = [[RegisterSuccessViewController alloc] init];
-                    [self.navigationController pushViewController:successVC animated:YES];
+                    [self requestRegister:phone Password:password Code:codeStr];
                 }else
                 {
                     [Util showPrompt:@"验证码不能为空"];
@@ -222,5 +223,45 @@
         }
         
     };
+}
+//注册请求服务器
+-(void)requestRegister:(NSString*)phone Password:(NSString*)password Code:(NSString*)code;
+{
+    [self showHUD:@"正在注册"];
+    NSString *registerJson = [CombiningData registerUser:phone Password:password Verify:code];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:registerJson httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUDWithComplete:@"注册成功"];
+                //将用户ID 进行存储
+                NSArray *dataArr = [result objectForKey:@"data"];
+                if ([dataArr count]>0) {
+                    NSDictionary * resultDic = [dataArr firstObject];
+                    NSString *uid = [resultDic objectForKey:@"uid"];
+                    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+                    [userDefault setObject:uid forKey:kUID];
+                    //将用户名改变
+                    [userDefault setObject:phone forKey:kAccount];
+                    [userDefault setObject:@"" forKey:KPassWord];
+                    [userDefault synchronize];
+                }
+                RegisterSuccessViewController *successVC = [[RegisterSuccessViewController alloc] init];
+                [self.navigationController pushViewController:successVC animated:YES];
+            }else
+            {
+                NSLog(@"result == %@",[result objectForKey:@"message"]);
+                [self hideHUDFaild:[result objectForKey:@"message"]];
+            }
+        }else
+        {
+            [self hideHUD];
+            NSLog(@"error == %@",error);
+            [self showAlertView:@"服务器请求失败"];
+        }
+        
+    };
+
 }
 @end

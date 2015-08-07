@@ -159,12 +159,10 @@
 -(void)leftAction
 {
     NSLog(@"leftAction");
-//    SearchResumeViewController *searchVC = [[SearchResumeViewController alloc] init];
-//    searchVC.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:searchVC animated:YES];
+    SearchResumeViewController *searchVC = [[SearchResumeViewController alloc] init];
+    searchVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:searchVC animated:YES];
     
-    LocationViewController *location = [[LocationViewController alloc] init];
-    [self.navigationController pushViewController:location animated:YES];
 }
 #pragma mark - 初始化应聘部分的视图
 -(void)initHireView:(UIView*)view
@@ -197,7 +195,8 @@
     NSArray *dataArray = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"UI设计师",@"job",@"王伟",@"name",@"艺术设计",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"ios开发师",@"job",@"赵倩",@"name",@"计算机专业",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"java开发",@"job",@"王东志",@"name",@"软件工程",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"web开发",@"job",@"刘一民",@"name",@"数学专业",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"前段设计",@"job",@"李浩",@"name",@"外语专业",@"pro", nil], nil];
     
     commendView = [[CommendView alloc] initWithFrame:frame];
-    if ([self getEnterpriseCheckState]) {
+    NSString * iid = KGETOBJ(KIID);
+    if ([iid intValue]>0) {
         [commendView loadSubView:dataArray];
     }else
     {
@@ -226,7 +225,11 @@
             break;
         case 1:
         {
-            NSLog(@"急招");
+            NSString * iid = KGETOBJ(KIID);
+            if ([iid intValue]<1) {
+                [Util showPrompt:@"当前您没有急招职位"];
+                return;
+            }
             NowHiringViewController *nowhiringVC = [[NowHiringViewController alloc] init];
             nowhiringVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:nowhiringVC animated:YES];
@@ -246,8 +249,12 @@
         }
             break;
         case 4:
-            NSLog(@"发布职位");
         {
+            NSString * iid = KGETOBJ(KIID);
+            if ([iid intValue]<1) {
+                [Util showPrompt:@"您还未提交资料审核，暂不能发布职位"];
+                return;
+            }
             OpenPositionViewController *openpVC = [[OpenPositionViewController alloc] init];
             openpVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:openpVC animated:YES];

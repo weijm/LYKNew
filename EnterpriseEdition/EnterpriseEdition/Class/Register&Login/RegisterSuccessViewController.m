@@ -43,7 +43,7 @@
         [self.navigationController pushViewController:enterpriseVC animated:YES];
     }else
     {//随便看看
-        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kLoginOrExit object:@"0"];
     }
 }
 @end

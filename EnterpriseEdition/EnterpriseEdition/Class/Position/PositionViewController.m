@@ -33,6 +33,11 @@
     
     //选中状态的标记数组
     NSMutableArray *chooseArray;
+    
+    //获取的当前页数
+    int currentPage1;
+    int currentPage2;
+    int currentPage3;
 }
 @end
 
@@ -49,11 +54,17 @@
     [self initHeaderView];
     //默认的有效职位类型
     categaryType = 1;
-    [self getData];
+    
     
     [dataTableView setupRefresh];
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    currentPage1 = 1;
+    currentPage2 = 1;
+    currentPage3 = 1;
+    [self getData];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -202,6 +213,11 @@
 }
 -(void)leftAction
 {
+    NSString * iid = KGETOBJ(KIID);
+    if ([iid intValue]<1) {
+        [Util showPrompt:@"您还未提交资料审核，暂不能发布职位"];
+        return;
+    }
     OpenPositionViewController *openpVC = [[OpenPositionViewController alloc] init];
     openpVC.fromPositionManager = YES;
     openpVC.hidesBottomBarWhenPushed = YES;
@@ -297,9 +313,12 @@
 {
     if(index<10)
     {
+        currentPage1 = 1;
+        currentPage2 = 1;
+        currentPage3 = 1;
         categaryType = (int)index+1;
+        //获取数据
         [self getData];
-//        [dataTableView reloadData];
     }else
     {
         switch (index) {
@@ -337,49 +356,91 @@
             default:
                 break;
         }
-
-        
     }
-    
 }
 #pragma mark - 获取数据
 -(void)getData
 {
-    NSMutableArray * dataArray = [[NSMutableArray alloc] init];
-    
-    for (int i =0; i < 6; i++) {
-        NSString *job = [NSString stringWithFormat:@"职位标题%d职位标题职位标题职位标题",i];
-      
-        NSString *name = [NSString stringWithFormat:@"职位名称%d职位名称职位名称职位名称",i];
-        NSString *categray = [NSString stringWithFormat:@"全职"];
-        NSString *money = [NSString stringWithFormat:@"%dK-%dK",5*(i+1),8*(i+1)];
-        NSString *pro = [NSString stringWithFormat:@"电子商务%d",i];
-        NSString *urgent = [NSString stringWithFormat:@"%d",i+categaryType-1];
-        NSString *time = [NSString stringWithFormat:@"有效期8/%d",i];
-        NSString *resumeNumber = [NSString stringWithFormat:@"%d",i];
-        NSString *state = [NSString stringWithFormat:@"%d",i%3];
-        [dataArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:job,@"job",urgent,@"urgent",name,@"name",categray,@"categray",money,@"money",pro,@"pro",time,@"time",resumeNumber,@"number",state,@"state",nil]];
+    int page = 1;
+    int status = 0;
+    switch (categaryType) {
+        case 1:
+            page = currentPage1;
+            status = 0;
+            break;
+        case 2:
+            page = currentPage2;
+            status = 1;
+            break;
+        case 3:
+            page = currentPage3;
+            status = -1;
+            break;
+        default:
+            break;
     }
-    
-    
-    chooseArray = [[NSMutableArray alloc] initWithCapacity:[dataArray count]];
-    for (int i=0; i< [dataArray count]; i++) {
-        [chooseArray addObject:@""];
+    [self showHUD:@"正在加载数据"];
+    NSString *listJson = [CombiningData getPositionList:(page+1) Status:status];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUD];
+                //加载首页数据
+                NSArray *dataArr = [result objectForKey:@"data"];
+                //全选数组标记
+                if(page==1)
+                {   //如果第一页 加载的时候 初始化 chooseArray 否则直接增加到数组中
+                    chooseArray = [[NSMutableArray alloc] init];
+                }
+                for (int i=0; i< [dataArr count]; i++) {
+                    [chooseArray addObject:@""];
+                }
+                [self dealWithResponeData:dataArr];
+                
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                if ([message length]==0) {
+                    message = @"数据为空";
+                }
+                [self hideHUDFaild:message];
+                NSLog(@"message == %@",[result objectForKey:@"message"]);
+            }
+        }else
+        {
+            [self hideHUDFaild:@"服务器请求失败"];
+            NSLog(@"%@",error);
+        }
+    };
+}
+-(void)dealWithResponeData:(NSArray*)array
+{
+    NSArray *dataArray = nil;
+    switch (categaryType) {
+        case 1:
+            validArray = [NSMutableArray arrayWithArray:array];
+            currentPage1++;
+            dataArray = validArray;
+            break;
+        case 2:
+            offlineArray = [NSMutableArray arrayWithArray:array];
+            currentPage2++;
+            dataArray = offlineArray;
+            break;
+        case 3:
+            toAuditArray = [NSMutableArray arrayWithArray:array];
+            currentPage3++;
+            dataArray = toAuditArray;
+            break;
+        default:
+            break;
     }
-    if (categaryType==1) {
-        validArray = dataArray;
-    }else if (categaryType==2)
-    {
-        offlineArray = dataArray;
-    }else
-    {
-        toAuditArray = dataArray;
-    }
+    [dataTableView reloadData];
     if ([dataArray count]>0) {
         self.navigationItem.rightBarButtonItem.enabled = YES;
     }
-    [dataTableView reloadData];
 }
-
 
 @end

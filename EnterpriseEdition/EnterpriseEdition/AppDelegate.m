@@ -46,9 +46,9 @@
     NSMutableDictionary *textAttrs=[NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName]=[UIColor whiteColor];
     [navigation.navigationBar setTitleTextAttributes:textAttrs];
-    if (!kTestType) {
+    NSString *loginOrExit = [[NSUserDefaults standardUserDefaults] objectForKey:kLoginOrExit];
+    if ([loginOrExit integerValue]!= 1) {
         [rootVC presentViewController:navigation animated:YES completion:nil];
-
     }
     return YES;
 }

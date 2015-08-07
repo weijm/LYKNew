@@ -23,13 +23,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = [UIColor whiteColor];
+    [self initVC];
     if (kTestType) {
-        [self initVC];
+        
         //定位
         [[LocationViewController shareInstance] loadLocation];
-
     }
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginOrExit:) name:kLoginOrExit object:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -71,9 +72,30 @@
 #pragma mark - LoginViewControllerDelegate;
 -(void)loginSuccess
 {
-    [self initVC];
+//    [self initVC];
+    self.selectedViewController = [vcArray firstObject];
     //定位
     [[LocationViewController shareInstance] loadLocation];
 
+}
+-(void)loginOrExit:(NSNotification *)notification
+{
+    NSString *loginOrExit = [notification object];
+    if([loginOrExit intValue]==1)
+    {
+        //登录页面
+        UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:_loginVC];
+        //导航条的背景颜色
+        [navigation.navigationBar setBarTintColor:kNavigationBgColor];
+        // 设置navigation的title颜色
+        NSMutableDictionary *textAttrs=[NSMutableDictionary dictionary];
+        textAttrs[NSForegroundColorAttributeName]=[UIColor whiteColor];
+        [navigation.navigationBar setTitleTextAttributes:textAttrs];
+        [self presentViewController:navigation animated:YES completion:nil];
+    }else
+    {
+        [_loginVC dismissViewControllerAnimated:YES completion:nil];
+        self.selectedViewController = [vcArray firstObject];
+    }
 }
 @end

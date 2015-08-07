@@ -27,7 +27,16 @@
                             @"{\"token\":\"%@\",\"type\":\"%@\",\"mob_no\":\"%@\"}",kToken,kGetCode,phone];
     return jsonString;
 }
+//注册
++(NSString*)registerUser:(NSString*)phone Password:(NSString*)password Verify:(NSString*)code
+{
+    NSString *md5Password = [self md5HexDigest:[self md5HexDigest:password]];
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"mob_no\":\"%@\",\"password\":\"%@\",\"verify\":\"%@\"}",kToken,kRegister,phone,md5Password,code];
+    return jsonString;
+}
 #pragma mark - 职位
+//提交职位
 +(NSString*)addPosition:(NSArray*)contentArray
 {
     NSMutableString *subJson = [NSMutableString string] ;
@@ -69,6 +78,15 @@
     NSString *jsonString = [NSString stringWithFormat:
                             @"{\"token\":\"%@\",\"type\":\"%@\",%@\"latitude\":\"%@\",\"longitude\":\"%@\",\"uid\":\"%@\",\"iid\":\"%@\"}",kToken,kCommitPosition,subJson,[Util getCorrectString:latitude],[Util getCorrectString:longitude],uid,iid];
     NSLog(@"jsonString == %@",jsonString);
+    return jsonString;
+}
+//获取职位列表
++(NSString*)getPositionList:(int)page Status:(int)status
+{
+    NSString *pageString = [NSString stringWithFormat:@"%d",page];
+    NSString *statusString = [NSString stringWithFormat:@"%d",status];
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"uid\":\"%@\",\"page\":\"%@\",\"status\":\"%@\"}",kToken,kGetPositionList,KGETOBJ(kUID),pageString,statusString];
     return jsonString;
 }
 //md5加密

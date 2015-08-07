@@ -53,6 +53,12 @@
 
 #define QMapKey @"OXWBZ-MZHR4-77TUD-DXUNN-R2FPZ-YBB2J"
 
+#define KUSERACCOUNT
+#define KGETOBJ(key) [[NSUserDefaults standardUserDefaults] objectForKey:key]
+
+#define kLoginOrExit @"loginOrExit" 
+
+
 #define kAccount @"account"
 #define KPassWord @"password"
 #define kUID @"uid"//用户ID
