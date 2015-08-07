@@ -156,13 +156,7 @@
 		20A32A2C1B59096500E1B5F8 /* NowHiringViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A32A2A1B59096500E1B5F8 /* NowHiringViewController.xib */; };
 		20A32A3A1B5909AD00E1B5F8 /* OpenPositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A32A381B5909AD00E1B5F8 /* OpenPositionViewController.m */; };
 		20A32A3B1B5909AD00E1B5F8 /* OpenPositionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A32A391B5909AD00E1B5F8 /* OpenPositionViewController.xib */; };
-		20BA85AA1B67334000757788 /* ClaimPositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BA85A81B67334000757788 /* ClaimPositionViewController.m */; };
-		20BA85AB1B67334000757788 /* ClaimPositionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BA85A91B67334000757788 /* ClaimPositionViewController.xib */; };
-		20BA85AE1B67338B00757788 /* ClaimPositionPromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BA85AD1B67338B00757788 /* ClaimPositionPromptView.m */; };
-		20BA85B01B67339700757788 /* ClaimPositionPromptView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BA85AF1B67339700757788 /* ClaimPositionPromptView.xib */; };
 		20BA85B21B674E3300757788 /* position_prompt_img@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BA85B11B674E3300757788 /* position_prompt_img@3x.png */; };
-		20BA85B71B67542B00757788 /* ClaimPositionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BA85B51B67542B00757788 /* ClaimPositionTableViewCell.m */; };
-		20BA85B81B67542B00757788 /* ClaimPositionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BA85B61B67542B00757788 /* ClaimPositionTableViewCell.xib */; };
 		20BA85BA1B6763BF00757788 /* homepage_commend_img@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BA85B91B6763BF00757788 /* homepage_commend_img@3x.png */; };
 		20BA85BE1B67693900757788 /* homepage_hire_icon4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BA85BB1B67693900757788 /* homepage_hire_icon4@3x.png */; };
 		20BA85BF1B67693900757788 /* homepage_hire_icon5@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BA85BC1B67693900757788 /* homepage_hire_icon5@3x.png */; };
@@ -583,16 +577,7 @@
 		20A32A371B5909AD00E1B5F8 /* OpenPositionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenPositionViewController.h; sourceTree = "<group>"; };
 		20A32A381B5909AD00E1B5F8 /* OpenPositionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenPositionViewController.m; sourceTree = "<group>"; };
 		20A32A391B5909AD00E1B5F8 /* OpenPositionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpenPositionViewController.xib; sourceTree = "<group>"; };
-		20BA85A71B67334000757788 /* ClaimPositionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClaimPositionViewController.h; sourceTree = "<group>"; };
-		20BA85A81B67334000757788 /* ClaimPositionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClaimPositionViewController.m; sourceTree = "<group>"; };
-		20BA85A91B67334000757788 /* ClaimPositionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClaimPositionViewController.xib; sourceTree = "<group>"; };
-		20BA85AC1B67338B00757788 /* ClaimPositionPromptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClaimPositionPromptView.h; sourceTree = "<group>"; };
-		20BA85AD1B67338B00757788 /* ClaimPositionPromptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClaimPositionPromptView.m; sourceTree = "<group>"; };
-		20BA85AF1B67339700757788 /* ClaimPositionPromptView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClaimPositionPromptView.xib; sourceTree = "<group>"; };
 		20BA85B11B674E3300757788 /* position_prompt_img@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_prompt_img@3x.png"; sourceTree = "<group>"; };
-		20BA85B41B67542B00757788 /* ClaimPositionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClaimPositionTableViewCell.h; sourceTree = "<group>"; };
-		20BA85B51B67542B00757788 /* ClaimPositionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClaimPositionTableViewCell.m; sourceTree = "<group>"; };
-		20BA85B61B67542B00757788 /* ClaimPositionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClaimPositionTableViewCell.xib; sourceTree = "<group>"; };
 		20BA85B91B6763BF00757788 /* homepage_commend_img@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_commend_img@3x.png"; sourceTree = "<group>"; };
 		20BA85BB1B67693900757788 /* homepage_hire_icon4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_hire_icon4@3x.png"; sourceTree = "<group>"; };
 		20BA85BC1B67693900757788 /* homepage_hire_icon5@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_hire_icon5@3x.png"; sourceTree = "<group>"; };
@@ -1413,30 +1398,6 @@
 			path = OpenPositions;
 			sourceTree = "<group>";
 		};
-		20BA85A61B67332000757788 /* ClaimPosition */ = {
-			isa = PBXGroup;
-			children = (
-				20BA85B31B67540B00757788 /* cell */,
-				20BA85A71B67334000757788 /* ClaimPositionViewController.h */,
-				20BA85A81B67334000757788 /* ClaimPositionViewController.m */,
-				20BA85A91B67334000757788 /* ClaimPositionViewController.xib */,
-				20BA85AC1B67338B00757788 /* ClaimPositionPromptView.h */,
-				20BA85AD1B67338B00757788 /* ClaimPositionPromptView.m */,
-				20BA85AF1B67339700757788 /* ClaimPositionPromptView.xib */,
-			);
-			name = ClaimPosition;
-			sourceTree = "<group>";
-		};
-		20BA85B31B67540B00757788 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				20BA85B41B67542B00757788 /* ClaimPositionTableViewCell.h */,
-				20BA85B51B67542B00757788 /* ClaimPositionTableViewCell.m */,
-				20BA85B61B67542B00757788 /* ClaimPositionTableViewCell.xib */,
-			);
-			name = cell;
-			sourceTree = "<group>";
-		};
 		20BB61F21B4E0B18006BD455 /* commend */ = {
 			isa = PBXGroup;
 			children = (
@@ -1877,7 +1838,6 @@
 		20F0F2571B5E247E00CB1D71 /* Position */ = {
 			isa = PBXGroup;
 			children = (
-				20BA85A61B67332000757788 /* ClaimPosition */,
 				20E9E1481B5F4B0F0013A865 /* View */,
 				20F0F2581B5E24D500CB1D71 /* PositionViewController.h */,
 				20F0F2591B5E24D500CB1D71 /* PositionViewController.m */,
@@ -2050,13 +2010,11 @@
 				20D1CDF91B56474500E97935 /* ResumeInfoViewController.xib in Resources */,
 				20F0F25C1B5E24D500CB1D71 /* PositionViewController.xib in Resources */,
 				20C93F8D1B68D1B20050514B /* login_number_mark@3x.png in Resources */,
-				20BA85B01B67339700757788 /* ClaimPositionPromptView.xib in Resources */,
 				20F0F2361B5E137700CB1D71 /* CommendResumeTableViewCell.xib in Resources */,
 				20054E941B660F4C009FA771 /* EnterpriseBaseTableViewCell.xib in Resources */,
 				20A32A1A1B58DB9300E1B5F8 /* major.plist in Resources */,
 				2097D2E41B461E7000611432 /* LaunchScreen.xib in Resources */,
 				20F0F2561B5E242E00CB1D71 /* MyInfoViewController.xib in Resources */,
-				20BA85B81B67542B00757788 /* ClaimPositionTableViewCell.xib in Resources */,
 				20C93F811B68CACE0050514B /* my_enterprise_arrow@3x.png in Resources */,
 				203543341B4CFBC2007FF4A8 /* CommendView.xib in Resources */,
 				20C93F671B68A1EA0050514B /* my_cell_icon4@3x.png in Resources */,
@@ -2084,7 +2042,6 @@
 				20D468CD1B6F7130008A7B78 /* position_add_bt@3x.png in Resources */,
 				2097D2E11B461E7000611432 /* Images.xcassets in Resources */,
 				2022235C1B56711C00D63910 /* TitleView.xib in Resources */,
-				20BA85AB1B67334000757788 /* ClaimPositionViewController.xib in Resources */,
 				20C93F651B68A1EA0050514B /* my_cell_icon2@3x.png in Resources */,
 				20C93F561B6869420050514B /* position_title_mark@3x.png in Resources */,
 				20BA85CD1B676E4500757788 /* position_icon@3x.png in Resources */,
@@ -2220,7 +2177,6 @@
 				20D468A31B6F12AB008A7B78 /* UIWebView+AFNetworking.m in Sources */,
 				20F0F2221B5DD59400CB1D71 /* CircleProgressView.m in Sources */,
 				20054EA71B663536009FA771 /* EnterpriseContactViewController.m in Sources */,
-				20BA85AA1B67334000757788 /* ClaimPositionViewController.m in Sources */,
 				202D48021B62173000654E7C /* InfoDetailViewController.m in Sources */,
 				20D468951B6F12AB008A7B78 /* AFHTTPSessionManager.m in Sources */,
 				20A32A071B58A2CB00E1B5F8 /* FMDatabase.m in Sources */,
@@ -2233,7 +2189,6 @@
 				20E9E1451B5F471C0013A865 /* PositionObject.m in Sources */,
 				201EDB371B57AA8F0080A12A /* CertificateView.m in Sources */,
 				2000779E1B71ED690015E261 /* UIButton+WebCache.m in Sources */,
-				20BA85AE1B67338B00757788 /* ClaimPositionPromptView.m in Sources */,
 				20D468991B6F12AB008A7B78 /* AFURLRequestSerialization.m in Sources */,
 				20054E8A1B660629009FA771 /* EnterpriseInfoViewController.m in Sources */,
 				20BB62091B4E46CB006BD455 /* ResumeChooseBtView.m in Sources */,
@@ -2254,7 +2209,6 @@
 				20A32A3A1B5909AD00E1B5F8 /* OpenPositionViewController.m in Sources */,
 				20BB61EF1B4DFC25006BD455 /* SinglePersonalView.m in Sources */,
 				2018CA381B60E77000F6200F /* VersionViewController.m in Sources */,
-				20BA85B71B67542B00757788 /* ClaimPositionTableViewCell.m in Sources */,
 				2097D31E1B46390C00611432 /* Util.m in Sources */,
 				2097D3171B462F8500611432 /* BannerView.m in Sources */,
 				2022235A1B56710C00D63910 /* TitleView.m in Sources */,

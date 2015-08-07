@@ -38,6 +38,9 @@
     int currentPage1;
     int currentPage2;
     int currentPage3;
+    
+    //是否正在加载数据
+    BOOL isLoading;
 }
 @end
 
@@ -57,6 +60,11 @@
     
     
     [dataTableView setupRefresh];
+    dataTableView.refreshData = ^{
+        [self refreshData];
+    };
+    
+    isLoading = NO;
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -88,6 +96,7 @@
     PositionShowTableViewCell *cell = (PositionShowTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"PositionShowTableViewCell" owner:self options:nil] lastObject];
+        NSLog(@"cell row == %ld",(long)indexPath.row);
     }
     //获取数据
     NSDictionary *dictionary = nil;
@@ -155,6 +164,9 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (isLoading) {//正在加载数据的时候 不可以点击进入详情
+        return;
+    }
     //恢复 非编辑状态
     if (rightBt.specialMark ==1) {
         [self rightAction];
@@ -319,6 +331,7 @@
         categaryType = (int)index+1;
         //获取数据
         [self getData];
+        [dataTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }else
     {
         switch (index) {
@@ -361,6 +374,59 @@
 #pragma mark - 获取数据
 -(void)getData
 {
+    [self requestPositionList:NO];
+}
+-(void)dealWithResponeData:(NSArray*)array
+{
+    NSArray *dataArray = nil;
+    switch (categaryType) {
+        case 1:
+        {
+            if (currentPage1>1) {
+                [validArray addObjectsFromArray:array];
+            }else
+            {
+                validArray = [NSMutableArray arrayWithArray:array];
+            }
+            currentPage1++;
+            dataArray = validArray;
+        }
+            break;
+        case 2:
+        {
+            if (currentPage2>1) {
+                [offlineArray addObjectsFromArray:array];
+            }else
+            {
+                offlineArray = [NSMutableArray arrayWithArray:array];
+            }
+            currentPage2++;
+            dataArray = offlineArray;
+        }
+            break;
+        case 3:
+        {
+            if (currentPage3>1) {
+                [toAuditArray addObjectsFromArray:array];
+            }else
+            {
+                toAuditArray = [NSMutableArray arrayWithArray:array];
+            }
+            currentPage3++;
+            dataArray = toAuditArray;
+        }
+            break;
+        default:
+            break;
+    }
+    [dataTableView reloadData];
+    if ([dataArray count]>0) {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    }
+}
+#pragma mark - 请求服务器
+-(void)requestPositionList:(BOOL)isMore
+{
     int page = 1;
     int status = 0;
     switch (categaryType) {
@@ -379,25 +445,35 @@
         default:
             break;
     }
-    [self showHUD:@"正在加载数据"];
+    if (!isMore) {
+        [self showHUD:@"正在加载数据"];
+    }
     NSString *listJson = [CombiningData getPositionList:(page+1) Status:status];
     //请求服务器
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost WithSSl:nil];
     [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
-                [self hideHUD];
                 //加载首页数据
                 NSArray *dataArr = [result objectForKey:@"data"];
                 //全选数组标记
                 if(page==1)
                 {   //如果第一页 加载的时候 初始化 chooseArray 否则直接增加到数组中
-                    chooseArray = [[NSMutableArray alloc] init];
+                    chooseArray = [NSMutableArray array];
                 }
                 for (int i=0; i< [dataArr count]; i++) {
                     [chooseArray addObject:@""];
                 }
                 [self dealWithResponeData:dataArr];
+                //将提示视图取消
+                if (!isMore) {
+                    [self hideHUD];
+                }else
+                {
+                    [dataTableView stopRefresh];
+                    isLoading = NO;
+                    [self subViewEnabled:YES];
+                }
                 
             }else
             {
@@ -405,42 +481,50 @@
                 if ([message length]==0) {
                     message = @"数据为空";
                 }
-                [self hideHUDFaild:message];
+                if (!isMore) {
+                    [self hideHUDFaild:message];
+                }else
+                {
+                    [dataTableView stopRefresh];
+                    isLoading = NO;
+                    [self subViewEnabled:YES];
+                }
+                
                 NSLog(@"message == %@",[result objectForKey:@"message"]);
             }
         }else
         {
-            [self hideHUDFaild:@"服务器请求失败"];
+            if (!isMore) {
+                [self hideHUDFaild:@"服务器请求失败"];
+            }else
+            {
+                [dataTableView stopRefresh];
+                isLoading = NO;
+                [self subViewEnabled:YES];
+            }
+            
             NSLog(@"%@",error);
         }
     };
+
 }
--(void)dealWithResponeData:(NSArray*)array
+#pragma mark - 下拉加载更多
+- (void)refreshData
 {
-    NSArray *dataArray = nil;
-    switch (categaryType) {
-        case 1:
-            validArray = [NSMutableArray arrayWithArray:array];
-            currentPage1++;
-            dataArray = validArray;
-            break;
-        case 2:
-            offlineArray = [NSMutableArray arrayWithArray:array];
-            currentPage2++;
-            dataArray = offlineArray;
-            break;
-        case 3:
-            toAuditArray = [NSMutableArray arrayWithArray:array];
-            currentPage3++;
-            dataArray = toAuditArray;
-            break;
-        default:
-            break;
-    }
-    [dataTableView reloadData];
-    if ([dataArray count]>0) {
-        self.navigationItem.rightBarButtonItem.enabled = YES;
-    }
+    isLoading = YES;
+    //请求数据
+    [self requestPositionList:YES];
+    //本页其他事件不可触发
+    [self subViewEnabled:NO];
+    
 }
+#pragma mark - 加载数据中 不可以点击本页的事件
+-(void)subViewEnabled:(BOOL)enable
+{
+    self.navigationItem.rightBarButtonItem.enabled = enable;
+    self.navigationItem.leftBarButtonItem.enabled = enable;
+    headerView.userInteractionEnabled = enable;
+}
+
 
 @end

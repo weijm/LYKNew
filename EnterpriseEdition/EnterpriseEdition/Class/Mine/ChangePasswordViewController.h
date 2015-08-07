@@ -12,6 +12,8 @@
 {
     UITextField *currentTextField;
     NSMutableArray *contentArray;
+    
+    __weak IBOutlet UILabel *phoneLab;
 }
 /**
  下一步的触发事件

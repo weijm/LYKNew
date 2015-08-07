@@ -26,8 +26,11 @@
     
     contentArray = [[NSMutableArray alloc] init];
     for (int i =0; i<3; i++) {
-        [contentArray addObject:@"0"];
+        [contentArray addObject:@""];
     }
+    
+    NSString *acount = [[NSUserDefaults standardUserDefaults] objectForKey:kAccount];
+    phoneLab.text = acount;
 }
 
 - (void)didReceiveMemoryWarning {

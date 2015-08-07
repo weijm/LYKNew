@@ -28,20 +28,26 @@
 }
 - (void)footerRereshing
 {
+    //实际请求数据
+    self.refreshData();
     // 1.添加假数据
     //    for (int i = 0; i<5; i++) {
     //        [self.fakeData addObject:MJRandomData];
     //    }
-    NSLog(@"footerRereshing");
+    
     // 2.2秒后刷新表格UI
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // 刷新表格
-        [self reloadData];
-        NSLog(@"footerRereshing footerEndRefreshing");
-        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
-        [self footerEndRefreshing];
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        // 刷新表格
+//        [self reloadData];
+//        NSLog(@"footerRereshing footerEndRefreshing");
+//        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
+//        [self footerEndRefreshing];
+//    });
 }
 
+- (void)stopRefresh
+{
+    [self footerEndRefreshing];
+}
 
 @end

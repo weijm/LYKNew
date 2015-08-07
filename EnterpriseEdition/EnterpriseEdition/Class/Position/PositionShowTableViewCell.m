@@ -38,8 +38,8 @@
 {
     int urgent = [[dictionary objectForKey:@"urgent"] intValue];
     //简历分数
-    int resumeNumber = [[dictionary objectForKey:@"number"] intValue];
-    if (urgent > 0) {//不是急招职位
+    int resumeNumber = [[dictionary objectForKey:@"resume_num"] intValue];
+    if (urgent == 0) {//不是急招职位
         urgentImg.hidden = YES;
         bgToTop.constant = 8;
         bgToBottom.constant = 15;
@@ -56,9 +56,9 @@
         //是否显示审核标志
         if (_showCheckImg) {
             urgentImg.hidden = NO;
-            NSString *state = [dictionary objectForKey:@"state"];
+            int status = [self getStatusByString:[dictionary objectForKey:@"status"]];
             
-            urgentImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"position_check_state%@",state]];
+            urgentImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"position_check_state%d",status]];
         }
 
     }else//是急招职位
@@ -73,7 +73,7 @@
         resumeNumberLab.text = [NSString stringWithFormat:@"%d份",resumeNumber+10];
         resumeNumberLab.textColor = [UIColor redColor];
     }
-    positionTitle.text = [dictionary objectForKey:@"job_type"];
+    positionTitle.text = [dictionary objectForKey:@"title"];
     positoinName.text = [dictionary objectForKey:@"job_type"];
     positionInfo.text = [NSString stringWithFormat:@"%@ | %@-%@",[dictionary objectForKey:@"work_type"],[dictionary objectForKey:@"salary_min"],[dictionary objectForKey:@"salary_max"]];
    //初始化时间
@@ -91,7 +91,7 @@
     {
         statusStr = @"下线时间";
         time = overtime;
-    }else if ([status isEqualToString:@"保存"])
+    }else if ([status isEqualToString:@"已保存"])
     {
         statusStr = @"保存时间";
         time = refreshTime;
@@ -101,6 +101,20 @@
         time = refreshTime;
     }
     validTimeLab.text = [NSString stringWithFormat:@"%@%@",statusStr,time];
+}
+-(int)getStatusByString:(NSString*)string
+{
+    int status = 0;
+    if ([string isEqualToString:@"已保存"]) {
+        status = 2;
+    }else if([string isEqualToString:@"审核中"])
+    {
+        status = 0;
+    }else//未通过
+    {
+        status = 1;
+    }
+    return status;
 }
 - (IBAction)chooseAction:(id)sender {
     NSString *string = @"0";

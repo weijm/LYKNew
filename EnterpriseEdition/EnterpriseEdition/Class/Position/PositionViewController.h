@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PositionShowTableViewCell.h"
+
 @interface PositionViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,PositionShowTableViewCellDelegate>
 {
     int categaryType;//headerView上的选择类型 1有效职位 2下线职位 3待审核职位

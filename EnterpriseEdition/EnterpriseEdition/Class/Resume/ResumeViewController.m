@@ -251,6 +251,11 @@
     dataTableView.separatorColor = [UIColor clearColor];
     dataTableView.backgroundColor = [UIColor clearColor];
     dataTableView.showsVerticalScrollIndicator = NO;
+    __weak ResumeViewController *wself = self;
+    dataTableView.refreshData = ^{
+        ResumeViewController *sself = wself;
+        [sself refreshData];
+    };
     [self.view addSubview:dataTableView];
 }
 #pragma mark -UITableViewDelegate
@@ -264,6 +269,7 @@
     ResumeTableViewCell *cell = (ResumeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ResumeTableViewCell" owner:self options:nil] lastObject];
+        NSLog(@"resume == %ld",(long)indexPath.row);
     }
     cell.delegate = self;
     //加载视图数据
@@ -445,5 +451,9 @@
         [array addObject:[NSDictionary dictionaryWithObjectsAndKeys:job,@"job",urgent,@"urgent",colledted,@"collected",download,@"download",time,@"time",name,@"name",@"女",@"sex",@"UI设计师",@"selfjob",age,@"age",@"本科",@"record",money,@"money",@"艺术设计",@"professional",@"中国传媒大学",@"school",exp,@"experience",nil]];
     }
     return array;
+}
+-(void)refreshData
+{
+    [dataTableView stopRefresh];
 }
 @end

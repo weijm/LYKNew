@@ -8,7 +8,6 @@
 
 #import "EnterpriseContactViewController.h"
 #import "ReferenceView.h"
-#import "ClaimPositionViewController.h"
 
 @interface EnterpriseContactViewController ()
 {
@@ -337,8 +336,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     NSLog(@"保存并提交 企业联系人");
     BOOL isFull = [self checkInfo];
     if (isFull) {//信息填写完整了
-        ClaimPositionViewController *claimPVC = [[ClaimPositionViewController alloc] init];
-        [self.navigationController pushViewController:claimPVC animated:YES];
+       
     }
     
 }
