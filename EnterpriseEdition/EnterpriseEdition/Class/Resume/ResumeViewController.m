@@ -269,7 +269,6 @@
     ResumeTableViewCell *cell = (ResumeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ResumeTableViewCell" owner:self options:nil] lastObject];
-        NSLog(@"resume == %ld",(long)indexPath.row);
     }
     cell.delegate = self;
     //加载视图数据
@@ -304,6 +303,8 @@
         [self rightAction];
     }
     ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
+    infoVC.resumeID = 117377;
+    infoVC.userID = 117377;
  
     infoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:infoVC animated:YES];

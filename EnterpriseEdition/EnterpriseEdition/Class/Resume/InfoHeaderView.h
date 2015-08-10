@@ -29,4 +29,5 @@
     //下载
     __weak IBOutlet UIImageView *download;
 }
+-(void)loadData:(NSDictionary*)dictionary;
 @end

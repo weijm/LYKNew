@@ -118,6 +118,7 @@
         if ([surePassword length]>0) {
             if ([surePassword isEqualToString:password]) {//两次输入的密码一致 提交服务器修改
                 NSLog(@"设置密码的内容填写正确，请求服务器修改");
+                [self requestForgetNewPassword:password];
             }else
             {
                 [Util showPrompt:@"两次输入的密码不一致"];
@@ -130,5 +131,31 @@
     }
     
 }
+#pragma mark - 请求服务器
+-(void)requestForgetNewPassword:(NSString*)newPassword
+{
+//    NSString *phone = [contentArray firstObject];
+    [self showHUD:@"正在修改密码"];
+    NSString *getCodeJson = [CombiningData forgetSetNewPassword:newPassword Code:_verifyCode];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:getCodeJson httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUDWithComplete:@"修改密码成功"];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }else
+            {
+                NSLog(@"result == %@",result);
+                [self hideHUDFaild:[result objectForKey:@"message"]];
+            }
+        }else
+        {
+            [self hideHUD];
+            [self showAlertView:@"服务器请求失败"];
+        }
+        
+    };
 
+}
 @end

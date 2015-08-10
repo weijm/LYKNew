@@ -14,7 +14,6 @@
 - (void)awakeFromNib {
     // Initialization code
     
-    [self loadsubView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -22,15 +21,18 @@
 
     // Configure the view for the selected state
 }
--(void)loadsubView
+-(void)loadsubView:(NSDictionary*)dic
 {
+    if (dic == nil) {
+        return;
+    }
     float itemW = (kWidth-40)/3;
     for (int i = 0; i < 3; i++) {
         CGRect frame = CGRectMake(itemW*i, 0, itemW, 30);
         ItemView *item = [[ItemView alloc] initWithFrame:frame];
         item.iconImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"position_item_icon%d",i]];
         item.tag = i;
-        [item loadData];
+        [item loadData:dic];
         [topbg addSubview:item];
     }
     for (int i = 3; i < 5; i++) {
@@ -38,7 +40,7 @@
         ItemView *item = [[ItemView alloc] initWithFrame:frame];
         item.iconImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"position_item_icon%d",i]];
         item.tag = i;
-        [item loadData];
+        [item loadData:dic];
         [midBg addSubview:item];
         
     }
@@ -46,7 +48,7 @@
     CGRect frame = CGRectMake(0, 0, kWidth-60, 40);
     ItemView *item = [[ItemView alloc] initWithFrame:frame];
     item.tag = 5;
-    [item loadData];
+    [item loadData:dic];
     item.iconImg.image = [UIImage imageNamed:@"position_item_icon5"];
     [botBg addSubview:item];
 }

@@ -30,14 +30,14 @@
     [self initHeaderView];
     [self initMiddleView];
     
-    //添加向右滑动手势
-    UISwipeGestureRecognizer *rightSwipGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipAction:)];
-    rightSwipGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
-    [self addGestureRecognizer:rightSwipGestureRecognizer];
-    //添加向左滑动手势
-    UISwipeGestureRecognizer *leftSwipGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipAction:)];
-    leftSwipGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
-    [self addGestureRecognizer:leftSwipGestureRecognizer];
+//    //添加向右滑动手势
+//    UISwipeGestureRecognizer *rightSwipGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipAction:)];
+//    rightSwipGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+//    [self addGestureRecognizer:rightSwipGestureRecognizer];
+//    //添加向左滑动手势
+//    UISwipeGestureRecognizer *leftSwipGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipAction:)];
+//    leftSwipGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+//    [self addGestureRecognizer:leftSwipGestureRecognizer];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

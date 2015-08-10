@@ -16,7 +16,24 @@
 
     //内容为空时展示
     __weak IBOutlet UITextField *emptyView;
+    //期望行业
+    __weak IBOutlet UILabel *industryLab;
+    //期望职位
+    
+    __weak IBOutlet UILabel *jobLab;
+    //职位类型
+    
+    __weak IBOutlet UILabel *jobTypeLab;
+    //期望城市
 
+    __weak IBOutlet UILabel *cityLab;
+    //期望薪资
+    
+    __weak IBOutlet UILabel *salaryLab;
+    
+    
+    __weak IBOutlet UIView *infoBg;
     
 }
+-(void)loadData:(NSObject*)object;
 @end

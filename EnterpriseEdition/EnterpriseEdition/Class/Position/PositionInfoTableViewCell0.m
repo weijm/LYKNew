@@ -24,5 +24,31 @@
 
     // Configure the view for the selected state
 }
-
+-(void)loadData:(NSDictionary*)dictionary
+{
+    if (dictionary) {
+        titleLab.text = [dictionary objectForKey:@"title"];
+        contentLab.text = [NSString stringWithFormat:@"%@ | %@",[dictionary objectForKey:@"job_type_name"],[dictionary objectForKey:@"industry_name"]];
+        NSString *status = [dictionary objectForKey:@"status"];
+        if ([status isEqualToString:@"正常"]) {
+            status = @"有效";
+            statusImg.image = [UIImage imageNamed:@"position_valid_mark"];
+            promptLab.textColor = Rgb(2, 139, 230, 1.0);
+        }else
+        {
+            statusImg.image = [UIImage imageNamed:@"position_invalid_mark"];
+            promptLab.textColor = Rgb(163, 163, 163, 1.0);
+        }
+        promptLab.text = status;
+    }
+    
+    //判断是否是急招职位
+    if (_isUrgentPosition) {
+        urgentImg.hidden = NO;
+    }else
+    {
+        urgentImg.hidden = YES;
+    }
+    
+}
 @end

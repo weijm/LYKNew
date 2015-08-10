@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EducationView">
+            <connections>
+                <outlet property="proLab" destination="Jgg-s9-XMM" id="UhS-Bw-w8s"/>
+                <outlet property="schoolLab" destination="bia-Re-wU0" id="23M-wR-AHE"/>
+                <outlet property="timeLab" destination="Baj-tb-dQh" id="EJe-cU-YZ4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="83"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Baj-tb-dQh" userLabel="timeLab">
+                    <rect key="frame" x="0.0" y="16" width="200" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="Ut1-jQ-b2h"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.3803921569" green="0.40000000000000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bia-Re-wU0" userLabel="schoolLab">
+                    <rect key="frame" x="0.0" y="31.5" width="200" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="9up-ph-o5q"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.2284619" green="0.24067449439999999" blue="0.2483729761" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgg-s9-XMM" userLabel="proLab">
+                    <rect key="frame" x="0.0" y="51" width="200" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="MXG-YR-WOF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.3803921569" green="0.40000000000000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Jgg-s9-XMM" secondAttribute="trailing" id="9rW-QL-wt8"/>
+                <constraint firstItem="bia-Re-wU0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DCI-np-c7f"/>
+                <constraint firstAttribute="trailing" secondItem="bia-Re-wU0" secondAttribute="trailing" id="KZp-xA-V3b"/>
+                <constraint firstItem="bia-Re-wU0" firstAttribute="top" secondItem="Baj-tb-dQh" secondAttribute="bottom" id="PQg-cd-PSI"/>
+                <constraint firstAttribute="centerY" secondItem="bia-Re-wU0" secondAttribute="centerY" id="W6j-UI-g4q"/>
+                <constraint firstAttribute="trailing" secondItem="Baj-tb-dQh" secondAttribute="trailing" id="XjW-Ez-bgI"/>
+                <constraint firstItem="Jgg-s9-XMM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="adT-JG-nFM"/>
+                <constraint firstItem="Jgg-s9-XMM" firstAttribute="top" secondItem="bia-Re-wU0" secondAttribute="bottom" id="qjS-88-3Dq"/>
+                <constraint firstItem="Baj-tb-dQh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qyN-Lt-5Y0"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="154" y="256.5"/>
+        </view>
+    </objects>
+</document>

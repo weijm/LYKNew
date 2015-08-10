@@ -27,30 +27,39 @@
     }
     return self;
 }
--(void)loadData
+-(void)loadData:(NSDictionary*)dic
 {
     switch (self.tag) {
         case 0:
-            _contentLab.text = @"3K-5K";
+        {
+            NSString *salary_min = [dic objectForKey:@"salary_min"];
+            NSString *salary_max = [dic objectForKey:@"salary_max"];
+              _contentLab.text = [NSString stringWithFormat:@"%dK-%dK",[salary_min intValue]/1000,[salary_max intValue]/1000];
+        }
             break;
         case 1:
-            _contentLab.text = @"30人";
+        {
+            _contentLab.text = [NSString stringWithFormat:@"%@人",[dic objectForKey:@"need_count"]];
+        }
             break;
         case 2:
-            _contentLab.text = @"全职";
+        {
+             _contentLab.text = [dic objectForKey:@"work_type"];
+        }
+           
             break;
         case 3:
-            _contentLab.text = @"经验不限";
+            _contentLab.text = [dic objectForKey:@"work_exp_type"];
             break;
         case 4:
-            _contentLab.text = @"大专以上";
+            _contentLab.text = [dic objectForKey:@"certificate_type"];
             break;
         case 5:
         {
             labHeight.constant = 40;
             _contentLab.numberOfLines = 2;
             
-            _contentLab.text = @"工作地点工作地点工作地点工作地点工作地点工作地点工作地点";
+            _contentLab.text = [NSString stringWithFormat:@"%@%@%@%@",[Util getCorrectString:[dic objectForKey:@"city_name_1"]],[Util getCorrectString:[dic objectForKey:@"city_name_2"]],[Util getCorrectString:[dic objectForKey:@"city_name_3"]],[Util getCorrectString:[dic objectForKey:@"address"]]];
             //当地址为两行时 图标向上移动
             int line = [Util getRow:(int)[_contentLab.text length] eachCount:20];
             if (line >= 2) {

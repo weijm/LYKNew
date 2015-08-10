@@ -20,5 +20,5 @@
     __weak IBOutlet UIView *infobg;
 
 }
--(void)loadExperience:(NSArray*)array;
+-(void)loadExperience:(NSObject*)obj;
 @end

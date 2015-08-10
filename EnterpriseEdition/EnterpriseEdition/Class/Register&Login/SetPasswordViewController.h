@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "RegisterTableViewCell.h"
-@interface SetPasswordViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,RegisterTableViewCellDelegate>
+@interface SetPasswordViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,RegisterTableViewCellDelegate>
 {
     __weak IBOutlet NSLayoutConstraint *dataTableViewToTop;
    
 }
+@property (nonatomic,strong) NSString *verifyCode;
 @end

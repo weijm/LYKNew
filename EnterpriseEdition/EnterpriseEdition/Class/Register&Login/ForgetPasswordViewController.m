@@ -144,9 +144,13 @@
     if ([Util checkTelephone:phone]) {//手机号正确
         NSString *code = [contentArray objectAtIndex:1];
         if ([code length]>0) {//输入了验证码
+            //存储账号
+            [[NSUserDefaults standardUserDefaults] setObject:phone forKey:kAccount];
+            [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:KPassWord];
             //手机号和验证码输入完毕 请求服务器
             NSLog(@"忘记密码信息填写完整 请求服务器");
             SetPasswordViewController *setPasswordVC = [[SetPasswordViewController alloc] init];
+            setPasswordVC.verifyCode = code;
             [self.navigationController pushViewController:setPasswordVC animated:YES];
         }else
         {
@@ -159,7 +163,7 @@
 {
     NSString *phone = [contentArray firstObject];
     [self showHUD:@"正在获取验证码"];
-    NSString *getCodeJson = [CombiningData securityCode:phone];
+    NSString *getCodeJson = [CombiningData forgetPasswordSecurityCode:phone];
     //请求服务器
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:getCodeJson httpMethod:HttpMethodPost WithSSl:nil];
     [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){

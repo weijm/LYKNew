@@ -8,6 +8,7 @@
 
 #import "EducationTableViewCell.h"
 #import "TitleView.h"
+#import "EducationView.h"
 
 @implementation EducationTableViewCell
 
@@ -21,5 +22,35 @@
 
     // Configure the view for the selected state
 }
-
+-(void)loadData:(NSObject*)object
+{
+    if ([object isKindOfClass:[NSArray class]]) {
+        NSArray *dataArray = (NSArray*)object;
+        NSInteger count = [dataArray count];
+        if (count == 0) {
+            infoBg.hidden = YES;
+            emptyView.hidden = NO;
+        }else
+        {
+            infoBg.hidden = NO;
+            emptyView.hidden = YES;
+        }
+        float viewW = kWidth- 95;
+        float viewH = 70;
+        
+        for (int i =0; i< count; i++)
+        {
+            NSDictionary *dic = [dataArray objectAtIndex:i];
+            EducationView *eduView = [[EducationView alloc] initWithFrame:CGRectMake(0, viewH*i, viewW, viewH)];
+            [eduView loadData:dic];
+            [infoBg addSubview:eduView];
+            
+        }
+        
+    }else
+    {
+        infoBg.hidden = YES;
+        emptyView.hidden = NO;
+    }
+}
 @end

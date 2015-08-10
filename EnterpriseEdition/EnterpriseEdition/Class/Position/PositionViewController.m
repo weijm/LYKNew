@@ -171,10 +171,24 @@
     if (rightBt.specialMark ==1) {
         [self rightAction];
     }
-    
+    NSDictionary *dictionary = nil;
+    if (categaryType ==1) {
+        dictionary = [validArray objectAtIndex:indexPath.row];
+    }else if(categaryType ==2)
+    {
+        dictionary = [offlineArray objectAtIndex:indexPath.row];
+    }else
+    {
+        dictionary = [toAuditArray objectAtIndex:indexPath.row];
+    }
+//    NSLog(@"dictionary == %@",dictionary);
+    NSLog(@"stauts == %@",[dictionary objectForKey:@"status"]);
+    NSLog(@"id == %@",[dictionary objectForKey:@"id"]);
     //查看简历详情
     PositionInfoViewController *piVC = [[PositionInfoViewController alloc] init];
     piVC.hidesBottomBarWhenPushed = YES;
+    piVC.jobId = [[dictionary objectForKey:@"id"] intValue];
+    piVC.isUrgent = NO;//设置是否为急招职位
     [self.navigationController pushViewController:piVC animated:YES];
 }
 #pragma mark - PositionShowTableViewCellDelegate
@@ -331,7 +345,20 @@
         categaryType = (int)index+1;
         //获取数据
         [self getData];
-        [dataTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        NSArray *dataArray = nil;
+        if (categaryType == 1) {
+            dataArray = validArray;
+        }else if (categaryType == 2)
+        {
+            dataArray = offlineArray;
+        }else
+        {
+            dataArray = toAuditArray;
+        }
+        if ([dataArray count]>0) {
+            [dataTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        }
+                
     }else
     {
         switch (index) {

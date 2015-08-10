@@ -26,4 +26,8 @@
  获取职位名称的Ids
  */
 -(int)getJobTypeIds:(int)fid Name:(NSString*)name;
+/**
+ 获取民族
+ */
+-(NSString*)getNationStringById:(int)nationID;
 @end

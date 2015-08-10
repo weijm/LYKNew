@@ -7,6 +7,7 @@
 //
 
 #import "InfoHeaderView.h"
+#import "UIImageView+WebCache.h"
 
 @implementation InfoHeaderView
 - (instancetype)initWithFrame:(CGRect)frame
@@ -34,6 +35,30 @@
     }
     return self;
 }
-
-
+-(void)loadData:(NSDictionary*)dictionary
+{
+    if (dictionary != nil && [dictionary isKindOfClass:[NSDictionary class]]) {
+        NSString *nation = [CombiningData getNationStringByID:[[dictionary objectForKey:@"nation_id"] intValue]];
+        int sexIndex = [[dictionary objectForKey:@"sex"] intValue];
+        NSString *sexString = (sexIndex==0)?@"男":@"女";
+        NSString *pImg = (sexIndex==0)?@"resume_protrait_man_default":@"resume_protrait_weman_default";
+        [protraitImag sd_setImageWithURL:[NSURL URLWithString:[dictionary objectForKey:@"head_img"]]placeholderImage:[UIImage imageNamed:pImg]];
+        infoLab.text = [NSString stringWithFormat:@"%@ %@ %@",sexString,nation,[dictionary objectForKey:@"birthday"]];
+        
+        expLab.text = [self getExpByIndex:[[dictionary objectForKey:@"fresh"] intValue]];
+    }
+}
+-(NSString*)getExpByIndex:(int)index
+{
+    if(index ==0)
+    {
+        return @"应届毕业";
+    }else if(index == 1)
+    {
+        return @"有工作经验";
+    }else
+    {
+        return @"未填";
+    }
+}
 @end

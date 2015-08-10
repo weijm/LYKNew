@@ -21,5 +21,10 @@
     __weak IBOutlet UILabel *titleLab;
     
     __weak IBOutlet UILabel *contentLab;
+    __weak IBOutlet UIImageView *statusImg;
+    
+    __weak IBOutlet UIImageView *urgentImg;
 }
+@property(nonatomic) BOOL isUrgentPosition;
+-(void)loadData:(NSDictionary*)dictionary;
 @end

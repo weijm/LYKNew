@@ -32,4 +32,6 @@
 - (IBAction)lookUpInfo:(id)sender;
 
 -(void)showInfo:(BOOL)isShow;
+
+-(void)loadData:(NSDictionary*)dic;
 @end

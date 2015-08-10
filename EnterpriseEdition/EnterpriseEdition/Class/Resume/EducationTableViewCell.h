@@ -16,5 +16,7 @@
     //数据为空的情况显示
     __weak IBOutlet UITextField *emptyView;
 
+    __weak IBOutlet UIView *infoBg;
 }
+-(void)loadData:(NSObject*)object;
 @end

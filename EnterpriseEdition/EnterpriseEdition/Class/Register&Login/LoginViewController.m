@@ -48,6 +48,18 @@
     [self.view addGestureRecognizer:tap];
     
     contentArray = [[NSMutableArray alloc] initWithObjects:@"",@"", nil];
+//    NSString *account = [[NSUserDefaults standardUserDefaults] objectForKey:kAccount];
+//    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:KPassWord];
+//    if ([account length]>0) {
+//        [contentArray replaceObjectAtIndex:0 withObject:account];
+//    }
+//    if ([password length]>0) {
+//        [contentArray replaceObjectAtIndex:1 withObject:password];
+//    }
+    
+}
+-(void)setPhoneAndPsw
+{
     NSString *account = [[NSUserDefaults standardUserDefaults] objectForKey:kAccount];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:KPassWord];
     if ([account length]>0) {
@@ -56,9 +68,12 @@
     if ([password length]>0) {
         [contentArray replaceObjectAtIndex:1 withObject:password];
     }
-    
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self setPhoneAndPsw];
+    [loginView reloadTextField];
+}
 #pragma mark - 初始化登录按钮和忘记密码
 -(void)initButton
 {
@@ -135,6 +150,7 @@
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUDWithComplete:@"登录成功"];
+                
                 //将登录页面取消
                 [self dismissViewControllerAnimated:YES completion:nil];
                 //加载首页数据

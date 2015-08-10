@@ -23,6 +23,8 @@
     PositionOperationView *positonV;
     //设置急招的界面
     PositionSetUrgentView *urgentView;
+    //数据字典
+    NSDictionary *infoDictionary;
 }
 @end
 
@@ -50,6 +52,10 @@
     
     //初始化footerView
     [self initFooerView];
+    
+    //加载数据
+//    [self requestPositonInfo];
+    [self performSelector:@selector(requestPositonInfo) withObject:nil afterDelay:0.0];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,6 +84,8 @@
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"PositionInfoTableViewCell0" owner:self options:nil] lastObject];
         }
+        cell.isUrgentPosition = _isUrgent;
+        [cell loadData:infoDictionary];
         //取消点击cell选中效果
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -88,6 +96,7 @@
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"PositionInfoTableViewCell1" owner:self options:nil] lastObject];
         }
+        [cell loadsubView:infoDictionary];
         //取消点击cell选中效果
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -98,6 +107,7 @@
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"PositionInfoTableViewCell2" owner:self options:nil] lastObject];
         }
+        [cell loadData:[infoDictionary objectForKey:@"job_description"]];
         //取消点击cell选中效果
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -221,6 +231,10 @@
             break;
         case 20:
         {
+            if (_isUrgent) {
+                [Util showPrompt:@"该职位已经是急招职位"];
+                return;
+            }
             urgentView = [[PositionSetUrgentView alloc] initWithFrame:CGRectMake(0, 0, kWidth-40, 256)];
             __weak PositionInfoViewController *wself = self;
             urgentView.makeSurePositionUrgent = ^(int count){
@@ -280,5 +294,49 @@
                                  };
     proTextView.attributedText = [[NSAttributedString alloc] initWithString:proTextView.text attributes:attributes];
 }
+#pragma mark - 加载数据
+-(void)requestPositonInfo
+{
+    
+    NSString *infoJson = [CombiningData getPositionInfo:_jobId];
+    NSLog(@"infoJson == %@",infoJson);
+    [self showHUD:@"正在加载数据"];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUD];
+                //加载首页数据
+                NSArray *dataArr = [result objectForKey:@"data"];
+                if ([dataArr count]>0) {
+                    NSLog(@"dataArr== %@",dataArr);
+                    infoDictionary = [dataArr firstObject];
+                }
+                [dataTableView reloadData];
+                
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                if ([message length]==0) {
+                    message = @"数据为空";
+                }
+                [self hideHUD];
+                UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alterView show];
+                  NSLog(@"message == %@",[result objectForKey:@"message"]);
+            }
+        }else
+        {
+           [self hideHUDFaild:@"服务器请求失败"];
+            
+            NSLog(@"%@",error);
+        }
+    };
 
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self leftAction];
+}
 @end

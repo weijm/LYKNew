@@ -154,6 +154,12 @@ static AFHttpClient *_sharedClient = nil;
         [manager POST:urlString
            parameters:params
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                      NSMutableDictionary *resultDic = [NSMutableDictionary dictionaryWithDictionary:responseObject];
+                      [resultDic setObject:params forKey:@"requestJson"];
+                      [AFHttpClient sharedClient].FinishedDidBlock(resultDic,nil);
+                      return ;
+                  }
                   [AFHttpClient sharedClient].FinishedDidBlock(responseObject,nil);
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {

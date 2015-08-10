@@ -21,5 +21,5 @@
     
     __weak IBOutlet UILabel *contentLab;
 }
-
+-(void)loadData:(NSDictionary*)dictioanry;
 @end

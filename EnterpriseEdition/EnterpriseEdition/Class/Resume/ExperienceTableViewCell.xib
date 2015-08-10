@@ -22,7 +22,7 @@
                         </constraints>
                     </view>
                     <textField hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="未填写" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="79i-cW-E0D" userLabel="未填写">
-                        <rect key="frame" x="85" y="0.0" width="230" height="184.5"/>
+                        <rect key="frame" x="85" y="10" width="230" height="174.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <textInputTraits key="textInputTraits"/>
@@ -44,7 +44,7 @@
                     <constraint firstAttribute="bottom" secondItem="79i-cW-E0D" secondAttribute="bottom" id="hTH-QI-cpD"/>
                     <constraint firstItem="x0A-Ly-lhy" firstAttribute="leading" secondItem="5On-Xf-eyh" secondAttribute="trailing" constant="5" id="qyu-Tf-Ab7"/>
                     <constraint firstItem="x0A-Ly-lhy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="rIh-MX-cvX"/>
-                    <constraint firstItem="79i-cW-E0D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rRn-fF-E6H"/>
+                    <constraint firstItem="79i-cW-E0D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="rRn-fF-E6H"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

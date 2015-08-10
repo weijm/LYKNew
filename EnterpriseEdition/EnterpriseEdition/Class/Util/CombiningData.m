@@ -20,6 +20,22 @@
                            @"{\"token\":\"%@\",\"type\":\"%@\",\"username\":\"%@\",\"password\":\"%@\"}",kToken,kLogin,username,md5Password];
     return resultStr;
 }
+// 忘记密码时 获取验证码
++(NSString*)forgetPasswordSecurityCode:(NSString*)phone
+{
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"mob_no\":\"%@\"}",kToken,kForgetPasswordGetCode,phone];
+    return jsonString;
+}
+//忘记密码时，设置新密码
++(NSString*)forgetSetNewPassword:(NSString*)password Code:(NSString*)code
+{
+    NSString *phone = [[NSUserDefaults standardUserDefaults] objectForKey:kAccount];
+    NSString *md5Password = [self md5HexDigest:[self md5HexDigest:password]];
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"mob_no\":\"%@\",\"new_password\":\"%@\",\"verify\":\"%@\"}",kToken,kForgetSetNewPsw,phone,md5Password,code];
+    return jsonString;
+}
 #pragma mark - 注册
 +(NSString*)securityCode:(NSString*)phone
 {
@@ -87,6 +103,22 @@
     NSString *statusString = [NSString stringWithFormat:@"%d",status];
     NSString *jsonString = [NSString stringWithFormat:
                             @"{\"token\":\"%@\",\"type\":\"%@\",\"uid\":\"%@\",\"page\":\"%@\",\"status\":\"%@\"}",kToken,kGetPositionList,KGETOBJ(kUID),pageString,statusString];
+    return jsonString;
+}
+// 职位详情
++(NSString*)getPositionInfo:(int)infoID
+{
+    NSString *jobIdString = [NSString stringWithFormat:@"%d",infoID];
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"uid\":\"%@\",\"jid\":\"%@\"}",kToken,kPositionInfo,KGETOBJ(kUID),jobIdString];
+    return jsonString;
+
+}
+//获取简历详情
++(NSString*)getResumeInfo:(NSString*)type keyString:(NSString*)key Value:(NSString*)value
+{
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"type\":\"%@\",\"token\":\"%@\",\"%@\":\"%@\"}",type,kToken,key,value];
     return jsonString;
 }
 //md5加密
@@ -157,5 +189,37 @@
     }
     return idsDic;
 
+}
++(NSString*)getJobType:(int)index
+{
+    if (index==0) {
+        return @"全职";
+    }else if (index ==1)
+    {
+        return @"兼职";
+    }else
+    {
+        return @"实习";
+    }
+}
++(NSString*)getCertificateType:(int)index
+{
+    if (index == 0) {
+        return @"大专";
+    }else if(index == 1)
+    {
+        return @"本科";
+    }else if(index == 2)
+    {
+        return @"研究生";
+    }else
+    {
+        return @"博士";
+    }
+}
++(NSString*)getNationStringByID:(int)nationId
+{
+    NSString *nation = [[PositionObject shareInstance] getNationStringById:nationId];
+    return nation;
 }
 @end

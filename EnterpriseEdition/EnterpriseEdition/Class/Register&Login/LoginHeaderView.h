@@ -32,5 +32,6 @@
  
     __weak IBOutlet UITextField *passwordTextField;
 }
+-(void)reloadTextField;
 @property(nonatomic,weak) id<LoginHeaderViewDelegate> delegate;
 @end

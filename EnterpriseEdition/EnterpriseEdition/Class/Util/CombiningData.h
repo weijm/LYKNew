@@ -15,6 +15,14 @@
  组合登录时的json
  */
 +(NSString*)loginUser:(NSString*)username Password:(NSString*)password;
+/**
+ 忘记密码时 获取验证码
+ */
++(NSString*)forgetPasswordSecurityCode:(NSString*)phone;
+/**
+ 忘记密码时，设置新密码
+ */
++(NSString*)forgetSetNewPassword:(NSString*)password Code:(NSString*)code;
 #pragma mark - 注册
 /**
  获取验证码
@@ -33,6 +41,15 @@
  获取职位列表
  */
 +(NSString*)getPositionList:(int)page Status:(int)status;
+/**
+ 职位详情
+ */
++(NSString*)getPositionInfo:(int)infoID;
+#pragma mark - 简历
+/**
+ 获取简历详情
+ */
++(NSString*)getResumeInfo:(NSString*)type keyString:(NSString*)key Value:(NSString*)value;
 #pragma mark - 从本地数据库中转换id
 /**
  获取地区对应的ids字典
@@ -46,4 +63,17 @@
  获取职位名称对应的ids字典
  */
 +(NSMutableDictionary*)getJobTypeIDsByContent:(NSDictionary*)dictionary;
+/**
+ 根据数字获取职位类型
+ */
++(NSString*)getJobType:(int)index;
+/**
+ 根据数字获取学历
+ */
++(NSString*)getCertificateType:(int)index;
+/**
+ 根据民族id获取民族
+ */
++(NSString*)getNationStringByID:(int)nationId;
+
 @end

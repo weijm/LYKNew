@@ -21,14 +21,43 @@
 
     // Configure the view for the selected state
 }
--(void)loadExperience:(NSArray*)array
+-(void)loadExperience:(NSObject*)obj
 {
-    for (int i = 0; i < [array count]; i++)
+    if ([obj isKindOfClass:[NSArray class]]) {
+        NSArray *array = (NSArray*)obj;
+        if ([array count]>0) {
+            infobg.hidden = NO;
+            emptyView.hidden = YES;
+            for (int i = 0; i < [array count]; i++)
+            {
+                NSDictionary *dic = [array objectAtIndex:i];
+                NSString *content = [dic objectForKey:@"job_description"];
+                int row = [Util getRow:(int)[content length] eachCount:[self getEachLength]];
+                float height = 80+row*18;
+                CGRect frame = CGRectMake(0, height*i, kWidth-85, height);
+                ExperienceView *view = [[ExperienceView alloc] initWithFrame:frame];
+                [view loadData:dic];
+                [infobg addSubview:view];
+            }
+            
+        }else
+        {
+            infobg.hidden = YES;
+            emptyView.hidden = NO;
+        }
+    }else
     {
-        float height = 150;
-        CGRect frame = CGRectMake(0, height*i, kWidth-85, height);
-        ExperienceView *view = [[ExperienceView alloc] initWithFrame:frame];
-        [infobg addSubview:view];
+        infobg.hidden = YES;
+        emptyView.hidden = NO;
+    }
+}
+-(int)getEachLength
+{
+    if (kIphone4||kIphone5) {
+        return 18;
+    }else
+    {
+        return 22;
     }
 }
 @end

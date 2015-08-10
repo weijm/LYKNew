@@ -22,15 +22,37 @@
 
     // Configure the view for the selected state
 }
--(void)loadCertificate:(NSArray*)array
+-(void)loadCertificate:(NSObject*)obj
 {
-    for (int i = 0; i < [array count]; i++)
+    if ([obj isKindOfClass:[NSArray class]]) {
+        NSArray *array = (NSArray*)obj;
+        NSInteger count = [array count];
+        if (count>0) {
+            for (int i = 0; i < count; i++)
+            {
+                NSDictionary *dic = [array objectAtIndex:i];
+                float height = 40;
+                if ([[dic objectForKey:@"certify_url"] length]>0) {
+                    height = 90;
+                }
+                
+                CGRect frame = CGRectMake(0, height*i, infobg.frame.size.width, height);
+                CertificateView *view = [[CertificateView alloc] initWithFrame:frame];
+                [view loadData:dic];
+                [infobg addSubview:view];
+            }
+        }else
+        {
+            emptyView.hidden = NO;
+            infobg.hidden = YES;
+        }
+        
+    }else
     {
-        float height = 90;
-        CGRect frame = CGRectMake(0, height*i, infobg.frame.size.width, height);
-        CertificateView *view = [[CertificateView alloc] initWithFrame:frame];
-        [infobg addSubview:view];
+        emptyView.hidden = NO;
+        infobg.hidden = YES;
     }
+    
 
 }
 @end

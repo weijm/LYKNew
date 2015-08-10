@@ -170,12 +170,18 @@
 //判断字符串是否为空
 +(NSString*)getCorrectString:(NSString*)string
 {
-    if (string!=nil && ![string isEqualToString:@"(null)"]) {
-        return string;
-    }else
-    {
+    if ([[[string class] description] isEqualToString:@"NSNull"]) {
         return @"";
     }
+    if ([string isKindOfClass:[NSString class]]) {
+        if (string!=nil && ![string isEqualToString:@"<null>"]) {
+            return string;
+        }else
+        {
+            return @"";
+        }
+    }
+    return string;
 }
 //验证码密码
 +(BOOL)checkPassWord:(NSString *)passWord
@@ -251,6 +257,17 @@
     int val;
     
     return [scan scanInt:&val]&&[scan isAtEnd]&&[string integerValue]>0;
+}
++(NSString*)getTypeFromJson:(NSString*)jsonString
+{
+    NSString *string1 = @"type\":\"";
+    NSString *string2 = @"\",\"token";
+    NSRange range1 = [jsonString rangeOfString:string1];
+    NSRange range2 = [jsonString rangeOfString:string2];
+    
+    NSRange newRange = NSMakeRange(range1.location+range1.length, range2.location-(range1.location+range1.length));
+    NSString *type = [jsonString substringWithRange:newRange];
+    return type;
 }
 #pragma mark - 文件的相关操作
 //document的路径

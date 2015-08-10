@@ -7,6 +7,7 @@
 //
 
 #import "CertificateView.h"
+#import "UIImageView+WebCache.h"
 
 @implementation CertificateView
 
@@ -22,5 +23,16 @@
     }
     return self;
 }
-
+-(void)loadData:(NSDictionary*)dictionary
+{
+    titleLab.text = [dictionary objectForKey:@"certify_title"];
+    NSString *imgUrl = [dictionary objectForKey:@"certify_url"];
+    if ([imgUrl length]>0) {
+        bottomBg.hidden = NO;
+        [cerImg sd_setImageWithURL:[NSURL URLWithString:imgUrl]];
+    }else
+    {
+        bottomBg.hidden = YES;
+    }
+}
 @end

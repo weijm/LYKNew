@@ -129,7 +129,9 @@
                 <outlet property="positionImgHeight" destination="thA-w1-36k" id="cU5-XK-ofO"/>
                 <outlet property="positionImgWidth" destination="OV0-Iz-MK5" id="nwJ-0c-aAa"/>
                 <outlet property="promptLab" destination="FDT-8k-oVf" id="GIH-cu-dc5"/>
+                <outlet property="statusImg" destination="Tf6-8F-dJS" id="TrG-16-QWe"/>
                 <outlet property="titleLab" destination="KKe-Da-yXP" id="Oxe-gU-EFY"/>
+                <outlet property="urgentImg" destination="iED-dg-Z8c" id="VdE-eI-9iE"/>
             </connections>
             <point key="canvasLocation" x="225" y="233"/>
         </tableViewCell>

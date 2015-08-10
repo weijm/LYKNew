@@ -156,6 +156,8 @@
 		20A32A2C1B59096500E1B5F8 /* NowHiringViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A32A2A1B59096500E1B5F8 /* NowHiringViewController.xib */; };
 		20A32A3A1B5909AD00E1B5F8 /* OpenPositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A32A381B5909AD00E1B5F8 /* OpenPositionViewController.m */; };
 		20A32A3B1B5909AD00E1B5F8 /* OpenPositionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A32A391B5909AD00E1B5F8 /* OpenPositionViewController.xib */; };
+		20BA59441B78831F002C8538 /* EducationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BA59431B78831F002C8538 /* EducationView.m */; };
+		20BA59461B78832B002C8538 /* EducationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BA59451B78832B002C8538 /* EducationView.xib */; };
 		20BA85B21B674E3300757788 /* position_prompt_img@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BA85B11B674E3300757788 /* position_prompt_img@3x.png */; };
 		20BA85BA1B6763BF00757788 /* homepage_commend_img@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BA85B91B6763BF00757788 /* homepage_commend_img@3x.png */; };
 		20BA85BE1B67693900757788 /* homepage_hire_icon4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BA85BB1B67693900757788 /* homepage_hire_icon4@3x.png */; };
@@ -577,6 +579,9 @@
 		20A32A371B5909AD00E1B5F8 /* OpenPositionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenPositionViewController.h; sourceTree = "<group>"; };
 		20A32A381B5909AD00E1B5F8 /* OpenPositionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenPositionViewController.m; sourceTree = "<group>"; };
 		20A32A391B5909AD00E1B5F8 /* OpenPositionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpenPositionViewController.xib; sourceTree = "<group>"; };
+		20BA59421B78831F002C8538 /* EducationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationView.h; sourceTree = "<group>"; };
+		20BA59431B78831F002C8538 /* EducationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationView.m; sourceTree = "<group>"; };
+		20BA59451B78832B002C8538 /* EducationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EducationView.xib; sourceTree = "<group>"; };
 		20BA85B11B674E3300757788 /* position_prompt_img@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_prompt_img@3x.png"; sourceTree = "<group>"; };
 		20BA85B91B6763BF00757788 /* homepage_commend_img@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_commend_img@3x.png"; sourceTree = "<group>"; };
 		20BA85BB1B67693900757788 /* homepage_hire_icon4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_hire_icon4@3x.png"; sourceTree = "<group>"; };
@@ -1514,6 +1519,9 @@
 				201EDB351B57AA8F0080A12A /* CertificateView.h */,
 				201EDB361B57AA8F0080A12A /* CertificateView.m */,
 				201EDB381B57AA9C0080A12A /* CertificateView.xib */,
+				20BA59421B78831F002C8538 /* EducationView.h */,
+				20BA59431B78831F002C8538 /* EducationView.m */,
+				20BA59451B78832B002C8538 /* EducationView.xib */,
 				202223581B56710C00D63910 /* TitleView.h */,
 				202223591B56710C00D63910 /* TitleView.m */,
 				2022235B1B56711C00D63910 /* TitleView.xib */,
@@ -2052,6 +2060,7 @@
 				2007808D1B6B432B004D9EB4 /* position_check_state1@3x.png in Resources */,
 				20BA85E21B67878B00757788 /* resume_protrait_weman_default@3x.png in Resources */,
 				20C93F851B68CD980050514B /* my_enterprise_addpic_bt@3x.png in Resources */,
+				20BA59461B78832B002C8538 /* EducationView.xib in Resources */,
 				20E9E1471B5F47880013A865 /* data.sqlite in Resources */,
 				20BA85C41B676D1200757788 /* home_edit_btn@3x.png in Resources */,
 				20C93F4C1B6861600050514B /* position_item_icon1@3x.png in Resources */,
@@ -2190,6 +2199,7 @@
 				201EDB371B57AA8F0080A12A /* CertificateView.m in Sources */,
 				2000779E1B71ED690015E261 /* UIButton+WebCache.m in Sources */,
 				20D468991B6F12AB008A7B78 /* AFURLRequestSerialization.m in Sources */,
+				20BA59441B78831F002C8538 /* EducationView.m in Sources */,
 				20054E8A1B660629009FA771 /* EnterpriseInfoViewController.m in Sources */,
 				20BB62091B4E46CB006BD455 /* ResumeChooseBtView.m in Sources */,
 				203D99541B735E6E00A39F46 /* UIScrollView+MJRefresh.m in Sources */,

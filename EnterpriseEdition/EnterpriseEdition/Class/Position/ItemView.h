@@ -21,5 +21,5 @@
 }
 @property (strong, nonatomic) IBOutlet UIImageView *iconImg;
 @property (strong, nonatomic) IBOutlet UILabel *contentLab;
--(void)loadData;
+-(void)loadData:(NSDictionary*)dic;
 @end

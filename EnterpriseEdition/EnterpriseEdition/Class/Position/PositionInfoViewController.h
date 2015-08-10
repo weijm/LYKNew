@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PositionInfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface PositionInfoViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 {
     
+    __weak IBOutlet UITableView *dataTableView;
     __weak IBOutlet UITextView *proTextView;
     __weak IBOutlet UIView *promptBg;
     
@@ -19,4 +20,6 @@
     
 }
 @property (nonatomic) BOOL reviewTips;
+@property (nonatomic) int  jobId;
+@property (nonatomic) BOOL isUrgent;
 @end

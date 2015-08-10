@@ -17,4 +17,5 @@
     __weak IBOutlet UITextView *textView;
 
 }
+-(void)loadData:(NSString*)content;
 @end

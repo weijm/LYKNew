@@ -39,4 +39,13 @@
         infoBg.hidden = YES;
     }
 }
+-(void)loadData:(NSDictionary*)dic
+{
+    if (dic != nil) {
+        phoneLab.text = [Util getCorrectString:[dic objectForKey:@"contact_no"]];
+        mailLab.text = [Util getCorrectString:[dic objectForKey:@"email"]];
+        addressLab.text = [NSString stringWithFormat:@"%@%@%@",[Util getCorrectString:[dic objectForKey:@"city_name_1"]],[Util getCorrectString:[dic objectForKey:@"city_name_2"]],[Util getCorrectString:[dic objectForKey:@"city_name_3"]]];
+    }
+
+}
 @end

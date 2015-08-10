@@ -39,6 +39,11 @@
     [self getData];
     
     [dataTableView setupRefresh];
+    __weak InfoViewController *wself = self;
+    dataTableView.refreshData = ^{
+        InfoViewController *sself = wself;
+        [sself refreshData];
+    };
 }
 
 - (void)didReceiveMemoryWarning {
@@ -279,5 +284,8 @@
         [chooseArray addObject:@""];
     }
 }
-
+-(void)refreshData
+{
+    [dataTableView stopRefresh];
+}
 @end

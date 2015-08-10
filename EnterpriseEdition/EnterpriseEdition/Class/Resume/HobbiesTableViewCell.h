@@ -25,5 +25,5 @@
 /**
  加载不同的内容 type: 0特长/兴趣 1自我评价 2个人荣誉
  */
--(void)loadContent:(NSString*)content type:(int)type;
+-(void)loadContent:(NSObject*)contentObj type:(int)type;
 @end

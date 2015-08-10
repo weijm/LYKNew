@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class UIButton_Custom;
-@interface ResumeInfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface ResumeInfoViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 {
     __weak IBOutlet UITableView *infoTableView;
     __weak IBOutlet NSLayoutConstraint *lineWidth;
@@ -17,7 +17,8 @@
     
     __weak IBOutlet UIButton *callBt;
 }
-
+@property (nonatomic) int userID;//简历对应的用户id
+@property (nonatomic) int resumeID;//简历的ID
 - (IBAction)makeCall:(id)sender;
 
 - (IBAction)collectedAction:(id)sender;

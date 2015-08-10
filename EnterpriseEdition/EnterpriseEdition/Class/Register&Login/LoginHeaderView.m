@@ -50,5 +50,11 @@
     }
     return YES;
 }
-
+-(void)reloadTextField
+{
+    NSString *account = [[NSUserDefaults standardUserDefaults] objectForKey:kAccount];
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:KPassWord];
+    numberTextField.text = account;
+    passwordTextField.text = password;
+}
 @end

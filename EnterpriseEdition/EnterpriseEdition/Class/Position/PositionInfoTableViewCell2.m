@@ -16,7 +16,6 @@
         iconWidth.constant = iconWidth.constant +3;
         iconHeight.constant = iconHeight.constant +3;
     }
-    [self setTextViewParagraphStyle];
     
 }
 
@@ -38,5 +37,10 @@
                                      Rgb(115, 115, 115, 1.0)
                                  };
     textView.attributedText = [[NSAttributedString alloc] initWithString:textView.text attributes:attributes];
+}
+-(void)loadData:(NSString*)content
+{
+    textView.text = content;
+    [self setTextViewParagraphStyle];
 }
 @end

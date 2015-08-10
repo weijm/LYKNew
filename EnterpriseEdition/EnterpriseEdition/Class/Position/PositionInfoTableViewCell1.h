@@ -16,4 +16,5 @@
     
     __weak IBOutlet UIView *botBg;
 }
+-(void)loadsubView:(NSDictionary*)dic;
 @end

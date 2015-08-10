@@ -81,4 +81,25 @@
     return jobtyepId;
 
 }
+// 获取民族
+-(NSString*)getNationStringById:(int)nationID
+{
+    __block NSString *nationString = @"汉族";
+    NSString *dbPath = [Util getSQLitePath];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+    if (![db open]) {
+        NSLog(@"could not open db");
+    }
+    [db setShouldCacheStatements:YES];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
+    [queue inDatabase:^(FMDatabase *db){
+        FMResultSet *rs = [db executeQuery:@"select * from t_nation where id = ?",[NSNumber numberWithInt:nationID]];
+        while ([rs next]) {
+            nationString = [rs stringForColumn:@"name"];
+        }
+        [rs close];
+    }];
+    return nationString;
+
+}
 @end

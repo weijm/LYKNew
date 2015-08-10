@@ -18,5 +18,5 @@
     __weak IBOutlet UIView *infobg;
 
 }
--(void)loadCertificate:(NSArray*)array;
+-(void)loadCertificate:(NSObject*)obj;
 @end

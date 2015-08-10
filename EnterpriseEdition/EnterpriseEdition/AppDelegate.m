@@ -28,10 +28,7 @@
     
     //定位功能
     [QMapServices sharedServices].apiKey = @"OXWBZ-MZHR4-77TUD-DXUNN-R2FPZ-YBB2J";
-//    CLLocationManager* locationManager = [[CLLocationManager alloc] init];
-//    if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0) {
-//        [locationManager requestWhenInUseAuthorization];
-//    }
+
 
     LoginViewController *loginVC = [[LoginViewController alloc] init];
     RootViewController *rootVC = [[RootViewController alloc] init];
