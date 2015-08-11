@@ -368,6 +368,17 @@
     ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
     infoVC.resumeID = 117377;
     infoVC.userID = 117377;
+    NSDictionary *dic = nil;
+    if (resumeCategory ==1) {
+        dic = [dataArray objectAtIndex:indexPath.row];
+    }else if (resumeCategory == 2)
+    {
+        dic = [colledtedArray objectAtIndex:indexPath.row];
+        infoVC.fromCollected = YES;
+    }else
+    {
+        dic = [downloadArray objectAtIndex:indexPath.row];
+    }
  
     infoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:infoVC animated:YES];

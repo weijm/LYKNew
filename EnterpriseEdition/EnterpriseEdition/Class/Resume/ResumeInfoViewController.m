@@ -44,6 +44,14 @@
     [self performSelector:@selector(requestResumeInfo) withObject:nil afterDelay:0.0];
     
     [self initHeaderView];
+    
+    if (_fromCollected) {
+        colletedBt.specialMark = 0;
+    }else
+    {
+        colletedBt.specialMark = 1;
+    }
+    [self loadCollectedBtState:colletedBt];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -294,6 +302,10 @@
 
 - (IBAction)collectedAction:(id)sender {
     UIButton_Custom *button = (UIButton_Custom*)sender;
+    [self loadCollectedBtState:button];
+}
+-(void)loadCollectedBtState:(UIButton_Custom*)button
+{
     if (button.specialMark ==0) {
         button.specialMark = 1;
         button.backgroundColor = Rgb(227, 227, 231, 1.0);

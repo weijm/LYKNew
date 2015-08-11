@@ -19,6 +19,7 @@
 }
 @property (nonatomic) int userID;//简历对应的用户id
 @property (nonatomic) int resumeID;//简历的ID
+@property (nonatomic) BOOL fromCollected;//是否是收藏的简历
 - (IBAction)makeCall:(id)sender;
 
 - (IBAction)collectedAction:(id)sender;
