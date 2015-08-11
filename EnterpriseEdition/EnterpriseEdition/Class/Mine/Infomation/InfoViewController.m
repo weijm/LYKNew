@@ -90,6 +90,9 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (rightBt.specialMark ==1) {
+        [self rightAction];
+    }
     InfoDetailViewController *infoDetailVC = [[InfoDetailViewController alloc] init];
     infoDetailVC.infoDictionary = [dataArray objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:infoDetailVC animated:YES];
@@ -139,7 +142,6 @@
 {
     if (filtrateBt.specialMark == 0) {//出现筛选页面
         float viewX = kWidth - 130-[Util myXOrWidth:25];
-        
         CGRect  frame = CGRectMake(viewX, 0, 130, 101);
         infoFiltrateView = [[InfoFiltrateView alloc] initWithFrame:frame];
         __weak InfoViewController *wself = self;

@@ -25,6 +25,8 @@
     __weak IBOutlet UILabel *addressLab;
     
     __weak IBOutlet NSLayoutConstraint *addressToTop;
+    
+    __weak IBOutlet UILabel *politicalLab;
     //什么信息都为空的时候显示
     __weak IBOutlet UITextField *emptyView;
 }

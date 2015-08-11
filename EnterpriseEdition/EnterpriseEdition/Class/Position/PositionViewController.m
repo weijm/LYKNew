@@ -181,9 +181,6 @@
     {
         dictionary = [toAuditArray objectAtIndex:indexPath.row];
     }
-//    NSLog(@"dictionary == %@",dictionary);
-    NSLog(@"stauts == %@",[dictionary objectForKey:@"status"]);
-    NSLog(@"id == %@",[dictionary objectForKey:@"id"]);
     //查看简历详情
     PositionInfoViewController *piVC = [[PositionInfoViewController alloc] init];
     piVC.hidesBottomBarWhenPushed = YES;
@@ -244,6 +241,9 @@
         [Util showPrompt:@"您还未提交资料审核，暂不能发布职位"];
         return;
     }
+    if (rightBt.specialMark == 1) {
+        [self rightAction];
+    }
     OpenPositionViewController *openpVC = [[OpenPositionViewController alloc] init];
     openpVC.fromPositionManager = YES;
     openpVC.hidesBottomBarWhenPushed = YES;
@@ -279,7 +279,6 @@
     }
     [dataTableView reloadData];
 }
-
 #pragma mark - 初始化HeaderView
 -(void)initHeaderView
 {
@@ -375,7 +374,12 @@
             }
                 break;
             case 20:
+            {
                 NSLog(@"有效职位 刷新");
+                NSMutableArray *refreshArr = [self dealWithBatchData];
+                NSLog(@"refresh== %@",refreshArr);
+           
+            }
                 break;
             case 30:
                 NSLog(@"有效职位 删除");
@@ -397,6 +401,29 @@
                 break;
         }
     }
+}
+#pragma mark - 需要批量操作的数据
+-(NSMutableArray*)dealWithBatchData
+{
+    NSArray *tempArray = nil;
+    if (categaryType ==1) {
+        tempArray = validArray;
+    }else if (categaryType == 2)
+    {
+        tempArray = offlineArray;
+    }else
+    {
+        tempArray = toAuditArray;
+    }
+    NSMutableArray *dealArray = [NSMutableArray array];
+    for (int i = 0; i < [chooseArray count]; i++) {
+        NSString *choose = [chooseArray objectAtIndex:i];
+        if ([choose intValue]==1) {//被选中的
+            NSDictionary * aDic = [tempArray objectAtIndex:i];
+            [dealArray addObject:[aDic objectForKey:@"id"]];
+        }
+    }
+    return dealArray;
 }
 #pragma mark - 获取数据
 -(void)getData
@@ -535,14 +562,20 @@
     };
 
 }
-#pragma mark - 下拉加载更多
+#pragma mark - 在非编辑状态下 下拉加载更多
 - (void)refreshData
 {
-    isLoading = YES;
-    //请求数据
-    [self requestPositionList:YES];
-    //本页其他事件不可触发
-    [self subViewEnabled:NO];
+    if (rightBt.specialMark == 0) {//不处于编辑状态 可以加载更多
+        isLoading = YES;
+        //请求数据
+        [self requestPositionList:YES];
+        //本页其他事件不可触发
+        [self subViewEnabled:NO];
+    }else
+    {
+        [dataTableView stopRefresh];
+    }
+    
     
 }
 #pragma mark - 加载数据中 不可以点击本页的事件

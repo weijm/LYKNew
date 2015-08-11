@@ -36,8 +36,8 @@
                         <constraint firstAttribute="height" constant="1" id="ypc-u0-CAj"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_protrait_weman_default.png" translatesAutoresizingMaskIntoConstraints="NO" id="y8C-5P-IAf" userLabel="protraitImg">
-                    <rect key="frame" x="130" y="80.5" width="96" height="96"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y8C-5P-IAf" userLabel="protraitImg">
+                    <rect key="frame" x="130" y="80" width="96" height="96"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="96" id="9Vn-mI-GMH"/>
                         <constraint firstAttribute="width" constant="96" id="Gkw-Md-JFT"/>
@@ -62,7 +62,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="irC-Dg-fCY"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -157,7 +157,6 @@
         <image name="resume_download.png" width="21" height="22"/>
         <image name="resume_edit.png" width="23" height="24"/>
         <image name="resume_info_bg.png" width="13" height="7"/>
-        <image name="resume_protrait_weman_default.png" width="68" height="67"/>
         <image name="resume_urgent.png" width="24" height="24"/>
     </resources>
 </document>

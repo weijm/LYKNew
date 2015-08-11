@@ -28,6 +28,12 @@
         if ([array count]>0) {
             infobg.hidden = NO;
             emptyView.hidden = YES;
+            for (UIView *vie in [infobg subviews]) {
+                if (vie) {
+                    [vie removeFromSuperview];
+                }
+            }
+
             for (int i = 0; i < [array count]; i++)
             {
                 NSDictionary *dic = [array objectAtIndex:i];

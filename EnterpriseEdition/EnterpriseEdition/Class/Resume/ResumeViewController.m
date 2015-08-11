@@ -24,6 +24,10 @@
     BaseTableView *dataTableView;
     //收到的简历数据数组
     NSMutableArray *dataArray;
+    //收藏的简历数据数组
+    NSMutableArray *colledtedArray;
+    //已下载的简历数据数组
+    NSMutableArray *downloadArray;
     //当前操作的cell
     ResumeTableViewCell *currentCell;
     //点击事件
@@ -38,6 +42,13 @@
     FiltrateView *filtrateView;
     
     UIButton *rightBt;
+    //获取的当前页数
+    int currentPage1;
+    int currentPage2;
+    int currentPage3;
+    
+    //是否正在加载数据
+    BOOL isLoading;
 }
 @end
 @implementation ResumeViewController
@@ -54,13 +65,22 @@
     isEdit = NO;
     //默认是收到的简历
     resumeCategory = 1;
-    chooseArray = [[NSMutableArray alloc] init];
+    chooseArray = [NSMutableArray array];
     for (int i =0; i<[dataArray count]; i++) {
         [chooseArray addObject:@"0"];
     }
     [dataTableView setupRefresh];
-}
+    
+    isLoading = NO;
 
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    currentPage1 = 1;
+    currentPage2 = 1;
+    currentPage3 = 1;
+//    [self getData];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -87,13 +107,6 @@
         isEdit = NO;
         [rightBt setTitle:@"" forState:UIControlStateNormal];
         [rightBt setImage:[UIImage imageNamed:@"home_edit_btn"] forState:UIControlStateNormal];
-        if (chooseArray) {
-            [chooseArray removeAllObjects];
-        }
-        chooseArray = [[NSMutableArray alloc] initWithCapacity:[dataArray count]];
-        for (int i=0; i < [dataArray count]; i++) {
-            [chooseArray addObject:@"0"];
-        }
         //tableView取消编辑的时候 按钮之间可相互切换
         headerView.userInteractionEnabled = YES;
         
@@ -104,6 +117,24 @@
         
     }else
     {
+        NSArray *tempArray = nil;
+        if (resumeCategory == 1) {
+            tempArray = dataArray;
+        }else if (resumeCategory == 2)
+        {
+            tempArray = colledtedArray;
+        }else
+        {
+            tempArray = downloadArray;
+        }
+        if (chooseArray) {
+            [chooseArray removeAllObjects];
+        }
+        chooseArray = [NSMutableArray array];
+        for (int i=0; i < [tempArray count]; i++) {
+            [chooseArray addObject:@"0"];
+        }
+
         [rightBt setTitle:@"取消" forState:UIControlStateNormal];
         [rightBt setImage:nil forState:UIControlStateNormal];
         isEdit = YES;
@@ -158,24 +189,37 @@
 -(void)chooseAction:(NSInteger)index isChooseAll:(BOOL)isAll
 {
     if (index < 10) {//HeaderView上的按钮的触发事件
+        currentPage1 = 1;
+        currentPage2 = 1;
+        currentPage3 = 1;
+        //获取服务器的数据
+//        [self getData];
+        NSArray *tempArray = nil;
+
         switch (index) {
             case 0:
                 dataArray = [[NSMutableArray alloc] initWithArray:[self getContentData:0]];
+                tempArray = dataArray;
                 resumeCategory = 1;
                 
                 break;
             case 1:
-                dataArray = [[NSMutableArray alloc] initWithArray:[self getContentData:1]];
+                colledtedArray = [[NSMutableArray alloc] initWithArray:[self getContentData:1]];
+                tempArray = colledtedArray;
                 break;
             case 2:
-                dataArray = [[NSMutableArray alloc] initWithArray:[self getContentData:2]];
+                downloadArray = [[NSMutableArray alloc] initWithArray:[self getContentData:2]];
+                tempArray = downloadArray;
                 break;
             default:
                 break;
         }
         resumeCategory = (int)index +1;
-        [dataTableView reloadData];
+//        if ([tempArray count]>0) {
+//            [dataTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+//        }
         [filtrateView changeTitleArray:resumeCategory];
+        [dataTableView reloadData];
     }else
     {
         switch (index) {
@@ -261,7 +305,15 @@
 #pragma mark -UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [dataArray count];
+    if (resumeCategory == 1) {
+        return [dataArray count];
+    }else if (resumeCategory == 2)
+    {
+        return [colledtedArray count];
+    }else
+    {
+        return [downloadArray count];
+    }
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -272,7 +324,18 @@
     }
     cell.delegate = self;
     //加载视图数据
-    [cell loadSubView:[dataArray objectAtIndex:indexPath.row]];
+    NSDictionary *dictionary = nil;
+    if (resumeCategory == 1) {
+        dictionary = [dataArray objectAtIndex:indexPath.row];
+    }else if (resumeCategory ==2)
+    {
+        dictionary = [colledtedArray objectAtIndex:indexPath.row];
+    }else
+    {
+        dictionary = [downloadArray objectAtIndex:indexPath.row];
+   
+    }
+    [cell loadSubView:dictionary];
     //全部选中按钮使用
     cell.tag = indexPath.row;
     NSString *isSelected;
@@ -453,8 +516,165 @@
     }
     return array;
 }
--(void)refreshData
+#pragma mark - 获取数据
+-(void)getData
+{
+    [self requestPositionList:NO];
+}
+-(void)dealWithResponeData:(NSArray*)array
+{
+    NSArray *tempArray = nil;
+    switch (resumeCategory) {
+        case 1:
+        {
+            if (currentPage1>1) {
+                [dataArray addObjectsFromArray:array];
+            }else
+            {
+                dataArray = [NSMutableArray arrayWithArray:array];
+            }
+            currentPage1++;
+            tempArray  = dataArray;
+        }
+            break;
+        case 2:
+        {
+            if (currentPage2>1) {
+                [colledtedArray addObjectsFromArray:array];
+            }else
+            {
+                colledtedArray = [NSMutableArray arrayWithArray:array];
+            }
+            currentPage2++;
+            tempArray = colledtedArray;
+        }
+            break;
+        case 3:
+        {
+            if (currentPage3>1) {
+                [downloadArray addObjectsFromArray:array];
+            }else
+            {
+                downloadArray = [NSMutableArray arrayWithArray:array];
+            }
+            currentPage3++;
+            tempArray = downloadArray;
+        }
+            break;
+        default:
+            break;
+    }
+    [dataTableView reloadData];
+    if ([tempArray count]>0) {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    }
+}
+
+#pragma mark - 请求服务器
+-(void)requestPositionList:(BOOL)isMore
+{
+    int page = 1;
+    int status = 0;
+    switch (resumeCategory) {
+        case 1:
+            page = currentPage1;
+            status = 0;
+            break;
+        case 2:
+            page = currentPage2;
+            status = 1;
+            break;
+        case 3:
+            page = currentPage3;
+            status = -1;
+            break;
+        default:
+            break;
+    }
+    if (!isMore) {
+        [self showHUD:@"正在加载数据"];
+    }
+    NSString *listJson = [CombiningData getPositionList:(page+1) Status:status];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                //加载首页数据
+                NSArray *dataArr = [result objectForKey:@"data"];
+                //全选数组标记
+                if(page==1)
+                {   //如果第一页 加载的时候 初始化 chooseArray 否则直接增加到数组中
+                    chooseArray = [NSMutableArray array];
+                }
+                for (int i=0; i< [dataArr count]; i++) {
+                    [chooseArray addObject:@""];
+                }
+                [self dealWithResponeData:dataArr];
+                //将提示视图取消
+                if (!isMore) {
+                    [self hideHUD];
+                }else
+                {
+                    [dataTableView stopRefresh];
+                    isLoading = NO;
+                    [self subViewEnabled:YES];
+                }
+                
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                if ([message length]==0) {
+                    message = @"数据为空";
+                }
+                if (!isMore) {
+                    [self hideHUDFaild:message];
+                }else
+                {
+                    [dataTableView stopRefresh];
+                    isLoading = NO;
+                    [self subViewEnabled:YES];
+                }
+                
+                NSLog(@"message == %@",[result objectForKey:@"message"]);
+            }
+        }else
+        {
+            if (!isMore) {
+                [self hideHUDFaild:@"服务器请求失败"];
+            }else
+            {
+                [dataTableView stopRefresh];
+                isLoading = NO;
+                [self subViewEnabled:YES];
+            }
+            
+            NSLog(@"%@",error);
+        }
+    };
+    
+}
+#pragma mark - 只有在非批量编辑的状态下才可以下拉加载更多
+- (void)refreshData
 {
     [dataTableView stopRefresh];
+//    if (isEdit) {//编辑状态 不可以加载更多
+//        [dataTableView stopRefresh];
+//    }else
+//    {
+//        isLoading = YES;
+//        //请求数据
+//        [self requestPositionList:YES];
+//        //本页其他事件不可触发
+//        [self subViewEnabled:NO];
+//    }
 }
+#pragma mark - 加载数据中 不可以点击本页的事件
+-(void)subViewEnabled:(BOOL)enable
+{
+    self.navigationItem.rightBarButtonItem.enabled = enable;
+    self.navigationItem.leftBarButtonItem.enabled = enable;
+    headerView.userInteractionEnabled = enable;
+}
+
 @end

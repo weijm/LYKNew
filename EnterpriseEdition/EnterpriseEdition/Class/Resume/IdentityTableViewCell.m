@@ -41,11 +41,28 @@
 }
 -(void)loadData:(NSDictionary*)dic
 {
+    [self showInfo:YES];
     if (dic != nil) {
         phoneLab.text = [Util getCorrectString:[dic objectForKey:@"contact_no"]];
         mailLab.text = [Util getCorrectString:[dic objectForKey:@"email"]];
         addressLab.text = [NSString stringWithFormat:@"%@%@%@",[Util getCorrectString:[dic objectForKey:@"city_name_1"]],[Util getCorrectString:[dic objectForKey:@"city_name_2"]],[Util getCorrectString:[dic objectForKey:@"city_name_3"]]];
+        politicalLab.text = [self getPoliticalString:[[dic objectForKey:@"political_type"] intValue]];
     }
 
+}
+-(NSString*)getPoliticalString:(int)index
+{
+    if (index==0) {
+        return @"群众";
+    }else if (index == 1)
+    {
+        return @"团员";
+    }else if (index == 2)
+    {
+        return @"党员";
+    }else
+    {
+        return @"其他";
+    }
 }
 @end

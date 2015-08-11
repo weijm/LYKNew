@@ -40,7 +40,7 @@
     if (kIphone6plus) {
         fWdith = 135+5;
         fHeight = 105+5;
-        viewX = kWidth - fWdith+5;
+        viewX = kWidth - fWdith-13;
     }
     
     self.frame = CGRectMake(viewX, 64, fWdith, fHeight);

@@ -37,7 +37,11 @@
         }
         float viewW = kWidth- 95;
         float viewH = 70;
-        
+        for (UIView *vie in [infoBg subviews]) {
+            if (vie) {
+                [vie removeFromSuperview];
+            }
+        }
         for (int i =0; i< count; i++)
         {
             NSDictionary *dic = [dataArray objectAtIndex:i];

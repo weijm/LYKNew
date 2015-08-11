@@ -28,6 +28,11 @@
         NSArray *array = (NSArray*)obj;
         NSInteger count = [array count];
         if (count>0) {
+            for (UIView *vie in [infobg subviews]) {
+                if (vie) {
+                    [vie removeFromSuperview];
+                }
+            }
             for (int i = 0; i < count; i++)
             {
                 NSDictionary *dic = [array objectAtIndex:i];

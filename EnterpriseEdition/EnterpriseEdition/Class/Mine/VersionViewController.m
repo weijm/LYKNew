@@ -19,11 +19,7 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"版本说明";
     
-    if (kIphone6plus) {
-        versionimgHeiht.constant = versionimgHeiht.constant+5;
-        versonimgWidth.constant = versonimgWidth.constant*+5;
-        versionimgY.constant = -150;
-    }
+   
     
     self.view.backgroundColor = kCVBackgroundColor;
     [self initItems];

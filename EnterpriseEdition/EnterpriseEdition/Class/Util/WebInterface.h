@@ -36,6 +36,11 @@
 #define kPositionInfo @"ent_job_detail"
 
 #pragma mark - 简历
+#pragma mark - 简历列表
+//简历管理里面的简历列表
+#define kResumeList @""
+
+#pragma mark - 简历详情
 //简历的个人信息
 #define kResumeBaseInfo @"stu_resume_user_info_view"
 //简历求职意向

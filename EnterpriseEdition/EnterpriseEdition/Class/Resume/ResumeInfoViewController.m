@@ -20,6 +20,10 @@
 {
     BOOL showIndentityInfo;
     NSMutableArray *infoArray;
+    
+    InfoHeaderView * headerView;
+    
+    NSString *contactPhone;
 }
 @end
 
@@ -33,19 +37,13 @@
     showIndentityInfo = NO;
     infoTableView.separatorColor = [UIColor clearColor];
     
-    UIButton *leftBt = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
-    [leftBt setImage:[UIImage imageNamed:@"back_bt"] forState:UIControlStateNormal];
-    UIEdgeInsets imageInsets = leftBt.imageEdgeInsets;
-    leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-20, imageInsets.bottom, imageInsets.right+20);
-    [leftBt addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
-    self.navigationItem.leftBarButtonItem = leftItem;
-    
     callBt.backgroundColor = Rgb(95, 182, 239, 1.0);
     colletedBt.backgroundColor =  Rgb(95, 182, 239, 1.0);
     
     infoArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",@"",@"",@"", nil];
     [self performSelector:@selector(requestResumeInfo) withObject:nil afterDelay:0.0];
+    
+    [self initHeaderView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,10 +67,6 @@
        
     }];
 }
--(void)back
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -80,7 +74,6 @@
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
     UITableViewCell *cell;
     switch (indexPath.row) {
         case 0://身份信息
@@ -194,8 +187,13 @@
 }
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    InfoHeaderView *headerView = [[InfoHeaderView alloc] initWithFrame:CGRectMake(0, 0, kWidth, [Util myYOrHeight:180])];
+    
     return headerView;
+}
+#pragma mark - 初始化headerView
+-(void)initHeaderView
+{
+    headerView = [[InfoHeaderView alloc] initWithFrame:CGRectMake(0, 0, kWidth, [Util myYOrHeight:180])];
 }
 #pragma mark - 不同cell的初始化
 //身份信息cell
@@ -210,7 +208,9 @@
             [self lookIdentityInfo];
         };
     }
-    [cell loadData:[self getFirstObject]];
+    if (showIndentityInfo) {
+        [cell loadData:[self getFirstObject]];
+    }
     return cell;
 }
 //求职意向cell
@@ -284,8 +284,12 @@
         [Util showPrompt:@"该设备不支持打电话的功能"];
         return;
     }
-    NSURL *phoneNumberURL = [NSURL URLWithString:@"tel:4008907977"];//客服电话
-    [[UIApplication sharedApplication] openURL:phoneNumberURL];
+    if ([contactPhone length]>0) {
+        NSString *telPhone = [NSString stringWithFormat:@"tel:%@",contactPhone];
+        NSURL *phoneNumberURL = [NSURL URLWithString:telPhone];//联系电话电话
+        [[UIApplication sharedApplication] openURL:phoneNumberURL];
+    }
+    
 }
 
 - (IBAction)collectedAction:(id)sender {
@@ -315,10 +319,7 @@
         NSString *typeString = [typeArray objectAtIndex:i];
         NSString *key = @"rid";
         NSString *value = [NSString stringWithFormat:@"%d",_resumeID];
-        if (i==0) {
-            key = @"uid";
-            value = [NSString stringWithFormat:@"%d",_userID];
-        }
+
         NSString *jsonString = [CombiningData getResumeInfo:typeString keyString:key Value:value];
         //请求服务器
         [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
@@ -329,24 +330,17 @@
             if (responeCount == [typeArray count]) {
                 [self hideHUD];
             }
-            NSLog(@"result OBje == %@",result);
-            NSLog(@"error == %@",error);
-            
             if (result!=nil) {
                 if ([[result objectForKey:@"result"] intValue]>0) {
                     [self dealWithInfo:result Type:typeArray];
                     
                 }else
                 {
-                    NSLog(@"result == %@",result);
-                    
+                    //请求的数据有问题
+//                    NSLog(@"result == %@",result);
                 }
-            }else
-            {
             }
-            
         };
-
     }
 }
 -(void)dealWithInfo:(id)responObj Type:(NSArray*)typeArray
@@ -359,7 +353,11 @@
     
     [infoArray replaceObjectAtIndex:index withObject:dataArray];
     [infoTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:index inSection:0], nil] withRowAnimation:UITableViewRowAnimationFade];
-
+    
+    //刷新headerView 和标题
+    if (index ==0) {
+        [self getFirstObject];
+    }
 }
 #pragma mark- 每行文本显示的字数
 -(int)getEachLength:(int)index
@@ -368,20 +366,14 @@
         if (kIphone4||kIphone5) {
             return 18;
         }else
-        {
             return 22;
-        }
     }else
     {
         if (kIphone4||kIphone5) {
             return 13;
         }else
-        {
             return 18;
-        }
     }
-    
-    
 }
 #pragma mark - 动态计算经验cell的高度
 -(float)getExperienceHeight:(NSInteger)index
@@ -448,10 +440,10 @@
         if ([array count]>0) {
             dictionary = [array firstObject];
             self.title = [dictionary objectForKey:@"name"];
+            [headerView loadData:dictionary];
+            contactPhone = [dictionary objectForKey:@"contact_no"];
         }
     }
-    
     return dictionary;
 }
-
 @end

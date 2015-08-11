@@ -10,7 +10,7 @@
 #import "ResumeTableViewCell.h"
 #import "FiltrateView.h"
 
-@interface ResumeViewController : UIViewController<ResumeTableViewCellDelegate,FiltrateViewDelegate>
+@interface ResumeViewController : BaseViewController<ResumeTableViewCellDelegate,FiltrateViewDelegate>
 {
     
 }
