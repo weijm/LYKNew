@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyInfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface MyInfoViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 {
     __weak IBOutlet UITableView *dataTableView;
 

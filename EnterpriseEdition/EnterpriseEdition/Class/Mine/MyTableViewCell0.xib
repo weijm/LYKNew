@@ -50,7 +50,7 @@
                                             <constraint firstAttribute="height" constant="16" id="mrh-lf-CkS"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京 | 北京市 | 石景山" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXz-eK-x0f">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXz-eK-x0f">
                                         <rect key="frame" x="83" y="2" width="137" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="uQc-As-oMg"/>
@@ -115,6 +115,7 @@
                 <outlet property="locationLab" destination="tXz-eK-x0f" id="qeM-kG-pTb"/>
                 <outlet property="reviewHeight" destination="mrh-lf-CkS" id="VV3-hq-Zce"/>
                 <outlet property="reviewWidth" destination="OC0-kN-Pq6" id="KCg-7X-ARG"/>
+                <outlet property="statusImg" destination="O6T-Na-eqr" id="2mi-bp-FOK"/>
             </connections>
             <point key="canvasLocation" x="191" y="279.5"/>
         </tableViewCell>

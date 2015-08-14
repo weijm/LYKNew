@@ -20,7 +20,9 @@
 #define kFooterViewH kHeight -[Util myYOrHeight:78]-[Util myYOrHeight:87]-[Util myYOrHeight:37.5]*4-kFOOTERVIEWH-topBarheight
 
 @interface MyInfoViewController ()
-
+{
+    NSDictionary * resumeInfoDic;
+}
 @end
 
 @implementation MyInfoViewController
@@ -30,13 +32,19 @@
     // Do any additional setup after loading the view from its nib.
     
     self.view.backgroundColor = kCVBackgroundColor;
+    self.navigationItem.leftBarButtonItem = nil;
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self performSelector:@selector(requestMineInfo) withObject:nil afterDelay:0.0];
+}
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -50,6 +58,7 @@
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"MyTableViewCell0" owner:self options:nil] lastObject];
         }
+        [cell loadSubView:resumeInfoDic];
         //取消点击cell选中效果
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -60,6 +69,7 @@
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"MyTableViewCell1" owner:self options:nil] lastObject];
         }
+        [cell loadsubView:resumeInfoDic];
         //取消点击cell选中效果
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -127,6 +137,7 @@
     if (indexPath.row == 0) {
         EnterpriseInfoViewController *enterpriseInfoVC = [[EnterpriseInfoViewController alloc] init];
         enterpriseInfoVC.hidesBottomBarWhenPushed = YES;
+        enterpriseInfoVC.entStatus = [[resumeInfoDic objectForKey:@"ent_status"] intValue];
         [self.navigationController pushViewController:enterpriseInfoVC animated:YES];
     }
     else if (indexPath.row == 2) {
@@ -165,5 +176,35 @@
     [userDefault setObject:@"" forKey:kUID];
     [userDefault setObject:@"" forKey:KIID];
 
+}
+-(void)requestMineInfo
+{
+   [self showHUD:@"正在加载数据"];
+    NSString *infoJson = [CombiningData getMineInfo:kMineInfo];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+       
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUD];
+                NSArray *dataArray = [result objectForKey:@"data"];
+                if ([dataArray count]>0) {
+                    resumeInfoDic = [dataArray firstObject];
+                    [dataTableView reloadData];
+                }
+            }else
+            {
+                [self hideHUDFaild:[result objectForKey:@"message"]];
+                NSLog(@"error message == %@",[result objectForKey:@"message"]);
+            }
+        }else
+        {
+               [self hideHUDFaild:@"服务器请求失败"];
+        }
+    };
+    
+
+   
 }
 @end

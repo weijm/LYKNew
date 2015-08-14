@@ -20,6 +20,9 @@
 #define kForgetPasswordGetCode @"ent_forget_verify"
 //忘记密码时 设置新密码
 #define kForgetSetNewPsw @"ent_forget_newpassword"
+
+//修改密码
+#define kChangePsw @"ent_my_password_edit"
 #pragma mark- 注册
 //获取验证码
 #define kGetCode @"ent_reg_verify"
@@ -34,6 +37,10 @@
 #define kGetPositionList @"ent_job_list"
 //职位详情
 #define kPositionInfo @"ent_job_detail"
+//职位管理-修改状态
+#define kPositionManagerStatus @"ent_job_status"
+//设置急招
+#define kPositionUrgent @"ent_job_emergent_status"
 
 #pragma mark - 简历
 #pragma mark - 简历列表
@@ -59,3 +66,26 @@
 #define kResumeReward @"stu_resume_reward_view"
 //简历 求职证书
 #define kResumeCertify @"stu_resume_certify_list"
+
+#pragma mark 企业资料
+//上传企业资料
+#define kEntInfoUpload @"ent_my_info_save"
+//读取企业信息
+#define kGetEntInfo @"ent_my_info_view"
+//上传企业联系人
+#define kEntContactUpload @"ent_my_contactperson_save"
+//获取企业联系人
+#define kGetEntContactInfo @"ent_my_contactperson_view"
+//获取我的首页的信息
+#define kMineInfo @"ent_my_statistics"
+
+#pragma mark - 首页
+//获取首页banner的图片
+#define kPictureList @"ent_index_picture_list"
+//数据的获取
+#define kNumberList @"ent_index_statistics"
+
+
+//上传图片
+#define kUploadImg [NSString stringWithFormat:@"%@upload_file_0a20ece95e098dd38621410f5a3f8dda.php",kWEB_BASE_URL]
+

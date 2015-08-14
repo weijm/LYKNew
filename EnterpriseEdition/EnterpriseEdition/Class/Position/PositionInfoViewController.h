@@ -20,6 +20,6 @@
     
 }
 @property (nonatomic) BOOL reviewTips;
-@property (nonatomic) int  jobId;
+@property (nonatomic,strong) NSString  *jobId;
 @property (nonatomic) BOOL isUrgent;
 @end

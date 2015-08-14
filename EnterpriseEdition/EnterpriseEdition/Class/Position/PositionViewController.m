@@ -184,7 +184,7 @@
     //查看简历详情
     PositionInfoViewController *piVC = [[PositionInfoViewController alloc] init];
     piVC.hidesBottomBarWhenPushed = YES;
-    piVC.jobId = [[dictionary objectForKey:@"id"] intValue];
+    piVC.jobId = [dictionary objectForKey:@"id"];
     piVC.isUrgent = NO;//设置是否为急招职位
     [self.navigationController pushViewController:piVC animated:YES];
 }
@@ -269,15 +269,37 @@
         [rightBt setTitle:@"" forState:UIControlStateNormal];
         [rightBt setImage:[UIImage imageNamed:@"home_edit_btn"] forState:UIControlStateNormal];
         rightBt.specialMark = 0;
+        //初始化chooseArray
+        
         //显示tabbar
         self.tabBarController.tabBar.hidden = NO;
         //取消底部视图
         [footerView cancelFooterView];
         headerView.userInteractionEnabled = YES;
+        
+        [self revertChooseArray];
+        
 
         
     }
     [dataTableView reloadData];
+}
+-(void)revertChooseArray
+{
+    NSArray *tempArray = nil;
+    if (categaryType ==1) {
+        tempArray = validArray;
+    }else if (categaryType == 2)
+    {
+        tempArray = offlineArray;
+    }else
+    {
+        tempArray = toAuditArray;
+    }
+    chooseArray = [NSMutableArray array];
+    for (int i =0; i < [tempArray count]; i++) {
+        [chooseArray addObject:@"0"];
+    }
 }
 #pragma mark - 初始化HeaderView
 -(void)initHeaderView
@@ -377,24 +399,44 @@
             {
                 NSLog(@"有效职位 刷新");
                 NSMutableArray *refreshArr = [self dealWithBatchData];
-                NSLog(@"refresh== %@",refreshArr);
+                [self batchDealWithPosition:refreshArr Status:-8];//刷新
            
             }
                 break;
             case 30:
                 NSLog(@"有效职位 删除");
+            {
+                NSMutableArray *refreshArr = [self dealWithBatchData];
+                [self batchDealWithPosition:refreshArr Status:-9];//删除
+            }
                 break;
             case 40:
+            {
                 NSLog(@"有效职位 下线");
+                NSMutableArray *refreshArr = [self dealWithBatchData];
+                [self batchDealWithPosition:refreshArr Status:1];//下线
+            }
                 break;
             case 200:
+            {
                 NSLog(@"下线职位 删除选中职位");
+                NSMutableArray *refreshArr = [self dealWithBatchData];
+                [self batchDealWithPosition:refreshArr Status:-9];//删除
+            }
                 break;
             case 300:
+            {
                 NSLog(@"下线职位 上线选中职位");
+                NSMutableArray *refreshArr = [self dealWithBatchData];
+                [self batchDealWithPosition:refreshArr Status:0];//上线
+            }
                 break;
             case 2000:
+            {
                 NSLog(@"待审核职位 删除选中职位");
+                NSMutableArray *refreshArr = [self dealWithBatchData];
+                [self batchDealWithPosition:refreshArr Status:-9];//删除
+            }
                 break;
             
             default:
@@ -499,10 +541,15 @@
         default:
             break;
     }
+    NSString *listJson = nil;
     if (!isMore) {
         [self showHUD:@"正在加载数据"];
+        listJson = [CombiningData getPositionList:page Status:status];
+    }else
+    {
+        listJson = [CombiningData getPositionList:(page+1) Status:status];
     }
-    NSString *listJson = [CombiningData getPositionList:(page+1) Status:status];
+    
     //请求服务器
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost WithSSl:nil];
     [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
@@ -539,9 +586,15 @@
                     [self hideHUDFaild:message];
                 }else
                 {
-                    [dataTableView stopRefresh];
-                    isLoading = NO;
-                    [self subViewEnabled:YES];
+                    NSString *msg = [result objectForKey:@"message"];
+                    if ([msg length]==0) {
+                        [dataTableView changeProText:YES];
+                        [self performSelector:@selector(stopRefreshLoading) withObject:nil afterDelay:0.5];
+                    }else
+                    {
+                        [self stopRefreshLoading];
+                    }
+                    
                 }
                 
                 NSLog(@"message == %@",[result objectForKey:@"message"]);
@@ -575,8 +628,14 @@
     {
         [dataTableView stopRefresh];
     }
-    
-    
+}
+//停止刷新
+-(void)stopRefreshLoading
+{
+    [dataTableView stopRefresh];
+    isLoading = NO;
+    [self subViewEnabled:YES];
+    [dataTableView changeProText:NO];
 }
 #pragma mark - 加载数据中 不可以点击本页的事件
 -(void)subViewEnabled:(BOOL)enable
@@ -586,5 +645,40 @@
     headerView.userInteractionEnabled = enable;
 }
 
+-(void)batchDealWithPosition:(NSArray*)idsArray Status:(int)status
+{
+    [self showHUD:@"正在处理数据"];
+    NSString *idsString = [CombiningData getIdsByArray:idsArray];
+    NSString *infoJson = [CombiningData positionManager:idsString Status:status];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUDWithComplete:@"数据处理成功"];
+                [self rightAction];
+                //仍然加载首页
+                currentPage1 = 1;
+                currentPage2 = 1;
+                currentPage3 = 1;
+                [self requestPositionList:NO];
+                
+                
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                if ([message length]==0) {
+                    message = @"处理失败";
+                }
+                [self hideHUDFaild:message];
+                NSLog(@"error message == %@",[result objectForKey:@"message"]);
+            }
+        }else
+        {
+            [self hideHUDFaild:@"服务器请求失败"];
+        }
+        
+    };
 
+}
 @end

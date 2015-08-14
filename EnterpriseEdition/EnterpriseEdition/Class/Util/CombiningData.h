@@ -23,6 +23,10 @@
  忘记密码时，设置新密码
  */
 +(NSString*)forgetSetNewPassword:(NSString*)password Code:(NSString*)code;
+/**
+ 修改密码
+ */
++(NSString*)changePassword:(NSString*)password NewPsd:(NSString*)newPassword;
 #pragma mark - 注册
 /**
  获取验证码
@@ -45,11 +49,42 @@
  职位详情
  */
 +(NSString*)getPositionInfo:(int)infoID;
+/**
+ 职位状态管理
+ */
++(NSString*)positionManager:(NSString*)jobIds Status:(int)status;
+/**
+ 设置急招
+ */
++(NSString*)setPositionUrgent:(NSString*)jobId MaxCount:(int)count;
+
 #pragma mark - 简历
 /**
  获取简历详情
  */
 +(NSString*)getResumeInfo:(NSString*)type keyString:(NSString*)key Value:(NSString*)value;
+#pragma mark - 企业资料
+/**
+ 上传企业资料
+ */
++(NSString*)uploadEntInfo:(NSArray*)contentArray;
+/**
+ 上传企业联系人
+ */
++(NSString*)uploadEntContact:(NSArray*)contentArray;
+
+/**
+ 企业id的json
+ */
++(NSString*)getMineInfo:(NSString*)type;
+/**
+ 获取首页图片
+ */
++(NSString*)getPicList;
+/**
+ 获取首页数据
+ */
++(NSString*)getUIDInfo:(NSString*)type;
 #pragma mark - 从本地数据库中转换id
 /**
  获取地区对应的ids字典
@@ -75,5 +110,17 @@
  根据民族id获取民族
  */
 +(NSString*)getNationStringByID:(int)nationId;
+/**
+ 获取企业性质id
+ */
++(NSString*)getEntType:(NSString*)string;
+/**
+ 获取人数规模id
+ */
++(NSString*)getCompanySize:(NSString*)string;
 
+/**
+ 拼写ids
+ */
++(NSString*)getIdsByArray:(NSArray*)array;
 @end

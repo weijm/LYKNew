@@ -32,6 +32,16 @@
 }
 -(void)loadItem:(NSArray*)array
 {
+    for (UIView *view in [topBg subviews]) {
+        if ([view isKindOfClass:[SingleHireButton class]]) {
+            [view removeFromSuperview];
+        }
+    }
+    for (UIView *view in [bottomBg subviews]) {
+        if ([view isKindOfClass:[SingleHireButton class]]) {
+            [view removeFromSuperview];
+        }
+    }
     float edgeToLeft = 0;
     float itemW = (kWidth - edgeToLeft*2)/kItemCount;
     float itemH = topBg.frame.size.height;

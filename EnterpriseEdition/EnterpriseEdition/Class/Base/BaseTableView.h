@@ -13,4 +13,5 @@
 - (void)setupRefresh;
 - (void)footerRereshing;
 - (void)stopRefresh;
+-(void)changeProText:(BOOL)isChange;
 @end

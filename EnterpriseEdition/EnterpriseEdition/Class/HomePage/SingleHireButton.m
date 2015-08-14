@@ -40,7 +40,14 @@
     NSString *imgStr = [NSString stringWithFormat:@"homepage_hire_icon%ld",self.tag+1];
     [itemBt setBackgroundImage:[UIImage imageNamed:imgStr] forState:UIControlStateNormal];
     //初始化文字
-    [self loadLabText:[dictionary objectForKey:@"string"] stytleStr:[dictionary objectForKey:@"substring"]];
+    if ([dictionary allKeys].count>1) {
+        [self loadLabText:[dictionary objectForKey:@"string"] stytleStr:[dictionary objectForKey:@"substring"]];
+    }else
+    {
+        [self loadLabText:[dictionary objectForKey:@"string"] stytleStr:@""];
+        
+    }
+    
 }
 //点击事件
 - (IBAction)clickedItemAction:(id)sender {
@@ -49,7 +56,14 @@
 
 -(void)loadLabText:(NSString*)string stytleStr:(NSString*)subStr
 {
-    NSRange range = [string rangeOfString:subStr];
+    NSRange range ;
+    if ([subStr length]>0) {
+        range = [string rangeOfString:subStr];
+    }else
+    {
+        range = NSMakeRange(0, 0);
+    }
+    
     NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:string];
     //设置字体颜色
     [attributedStr addAttribute:NSForegroundColorAttributeName

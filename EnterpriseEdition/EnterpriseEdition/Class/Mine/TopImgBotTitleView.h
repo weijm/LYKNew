@@ -16,5 +16,5 @@
     __weak IBOutlet UILabel *titLab;
     
 }
--(void)loadData:(int)count;
+-(void)loadData:(int)count Content:(NSDictionary*)dictoinary;
 @end

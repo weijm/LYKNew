@@ -35,5 +35,7 @@
     
     __weak IBOutlet UILabel *enterpriseNameLab;
     
+    __weak IBOutlet UIImageView *statusImg;
 }
+-(void)loadSubView:(NSDictionary*)dictionary;
 @end

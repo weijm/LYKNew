@@ -7,6 +7,7 @@
 //
 
 #import "BannerView.h"
+#import "UIImageView+WebCache.h"
 
 @implementation BannerView
 
@@ -40,12 +41,11 @@
     NSInteger imageCount = dataArray.count;
     int scrollAnchor = -kWidth;
     for (int i =0; i < imageCount; i++) {
+        NSDictionary *dic = [dataArray objectAtIndex:i];
         scrollAnchor += kWidth;
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(scrollAnchor, 0, kWidth, self.frame.size.height)];
-        
-        imageView.image = [UIImage imageNamed:dataArray[i]];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:[dic objectForKey:@"img_url"]]];
         imageView.clipsToBounds = NO;
-        imageView.backgroundColor = [UIColor redColor];
         imageView.tag = i;
         [bannerScrollView addSubview:imageView];
     }
@@ -75,6 +75,7 @@
     CGPoint point = [sender locationInView:bannerScrollView];
     float pointX = point.x;
     int pageIndex = pointX/kWidth;
+    self.clickedBannerAction(pageIndex);
 }
 - (void)spacePageControl:(SMPageControl *)sender
 {

@@ -187,51 +187,85 @@ static AFHttpClient *_sharedClient = nil;
  *  @param _securityPolicy   ssl验证
  *  @return
  */
-
-+ (void)uploadWithURL:(NSString *)urlString WithBaseUrl:(NSString*)baseUrl attachment:(NSData *)fileData WithSSl:(AFSecurityPolicy*)_securityPolicy
++ (void)uploadWithURLAttachment:(NSData *)fileData
 {
-    __block BOOL isSuccess = NO;
-    BOOL isOpen = (_securityPolicy!=nil)?YES:NO;
-    NSString *httpString ;
-    if (isOpen) {
-        httpString = @"https://";
-    }else
-    {
-        httpString = @"http://";
-    }
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",httpString,baseUrl,urlString];
-    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"PUT" URLString:urlStr parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/plain",@"text/html",nil];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager POST:kUploadImg parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:fileData name:@"file" fileName:@"cer.jpg" mimeType:@"image/jpeg"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-    } error:nil];
-    [request setHTTPBody:fileData];
-    [request setTimeoutInterval:20];
-    [request setValue:@"application/octet-stream" forHTTPHeaderField:@"Content-Type"];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    //ssl验证
-    if (_securityPolicy != nil) {
-        manager.securityPolicy = _securityPolicy;
-        
-    }
-    NSLog(@"is open == %@",(_securityPolicy!=nil)?@"YES":@"NO");
-    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithStreamedRequest:request progress:nil completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        NSDictionary *dic = nil;
-        if (!error) {
-            NSLog(@"成功返回:%@-----%@", response, responseObject);
-            if ([responseObject isKindOfClass:[NSDictionary class]]) {
-                dic = responseObject;
-                if ([[dic objectForKey:@"status"] intValue]==200) {
-                    isSuccess = YES;
-                }
-            }
+        NSData *reData = responseObject;
+        NSString *obj =  [[NSString alloc]initWithData:reData encoding:NSUTF8StringEncoding];
+        if ([[[Util dictionaryWithJsonString:obj] objectForKey:@"result"] intValue] >=1)
+        {
+            NSString * urlString = [[[Util dictionaryWithJsonString:obj] objectForKey:@"data"] valueForKey:@"url"];
+            NSString *encodedString = (NSString *)
+            CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                      (CFStringRef)urlString,
+                                                                      (CFStringRef)@"!$&'()*+,-./:;=?@_~%#[]",
+                                                                      NULL,
+                                                                      kCFStringEncodingUTF8));
+//            self.imageUrl = encodedString;
+//            [imageV sd_setImageWithURL:[NSURL URLWithString:self.imageUrl]];
+            [AFHttpClient sharedClient].UploadFileStatus(YES,[NSDictionary dictionaryWithObjectsAndKeys:encodedString,@"data", nil]);
         }
-        NSLog(@"error == %@",error);
-        [AFHttpClient sharedClient].UploadFileStatus(isSuccess,dic);
-        
+        else
+        {
+            NSString *errorString = [[Util dictionaryWithJsonString:obj] objectForKey:@"message"];
+            [AFHttpClient sharedClient].UploadFileStatus(NO,[NSDictionary dictionaryWithObjectsAndKeys:errorString,@"data", nil]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [AFHttpClient sharedClient].UploadFileStatus(NO,[NSDictionary dictionaryWithObjectsAndKeys:@"请求服务器失败",@"data", nil]);
     }];
-    
-    
-    [uploadTask resume];
+
 }
+//+ (void)uploadWithURL:(NSString *)urlString WithBaseUrl:(NSString*)baseUrl attachment:(NSData *)fileData WithSSl:(AFSecurityPolicy*)_securityPolicy
+//{
+//    __block BOOL isSuccess = NO;
+//    BOOL isOpen = (_securityPolicy!=nil)?YES:NO;
+//    NSString *httpString ;
+//    if (isOpen) {
+//        httpString = @"https://";
+//    }else
+//    {
+//        httpString = @"http://";
+//    }
+//    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",httpString,baseUrl,urlString];
+//    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"PUT" URLString:urlStr parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+//        
+//    } error:nil];
+//    [request setHTTPBody:fileData];
+//    [request setTimeoutInterval:20];
+//    [request setValue:@"application/octet-stream" forHTTPHeaderField:@"Content-Type"];
+//    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+//    //ssl验证
+//    if (_securityPolicy != nil) {
+//        manager.securityPolicy = _securityPolicy;
+//        
+//    }
+//    NSLog(@"is open == %@",(_securityPolicy!=nil)?@"YES":@"NO");
+//    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithStreamedRequest:request progress:nil completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+//        NSDictionary *dic = nil;
+//        if (!error) {
+//            NSLog(@"成功返回:%@-----%@", response, responseObject);
+//            if ([responseObject isKindOfClass:[NSDictionary class]]) {
+//                dic = responseObject;
+//                if ([[dic objectForKey:@"status"] intValue]==200) {
+//                    isSuccess = YES;
+//                }
+//            }
+//        }
+//        NSLog(@"error == %@",error);
+//        [AFHttpClient sharedClient].UploadFileStatus(isSuccess,dic);
+//        
+//    }];
+//    
+//    
+//    [uploadTask resume];
+//}
 /**
  *  同步请求
  *

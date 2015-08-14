@@ -14,4 +14,5 @@
     __weak IBOutlet UIView *bg;
 
 }
+-(void)loadsubView:(NSDictionary*)dictionary;
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ChangePasswordTableViewCell.h"
-@interface ChangePasswordViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,ChangePasswordTableViewCellDelegate>
+@interface ChangePasswordViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,ChangePasswordTableViewCellDelegate>
 {
     UITextField *currentTextField;
     NSMutableArray *contentArray;

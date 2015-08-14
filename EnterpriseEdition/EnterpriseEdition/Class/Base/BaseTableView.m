@@ -49,5 +49,19 @@
 {
     [self footerEndRefreshing];
 }
-
+-(void)changeProText:(BOOL)isChange
+{
+    if (isChange) {
+        self.footerRefreshingText = @"已经是最后一页了";
+    }else
+    {
+        [self performSelector:@selector(reverText) withObject:nil afterDelay:0.5];
+        
+    }
+    
+}
+-(void)reverText
+{
+    self.footerRefreshingText = @"加载更多数据";
+}
 @end

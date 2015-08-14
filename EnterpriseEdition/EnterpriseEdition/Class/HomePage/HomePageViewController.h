@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomePageViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface HomePageViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 {
     
     
     __weak IBOutlet UITableView *contentTableView;
+    
 }
 /**
  应聘部分的点击事件

@@ -7,6 +7,7 @@
 //
 
 #import "EnterpriseImgTableViewCell.h"
+#import "UIImageView+WebCache.h"
 
 @implementation EnterpriseImgTableViewCell
 
@@ -44,10 +45,14 @@
     {
         NSDictionary *dic = (NSDictionary*)obj;
         NSString *filePath = [dic objectForKey:@"content"];
-        if ([Util isExistsFile:filePath]) {
-            imgView.image = [UIImage imageWithContentsOfFile:filePath];
+        if ([filePath length]>0) {
+            [imgView sd_setImageWithURL:[NSURL URLWithString:filePath]];
             promptView.hidden = YES;
         }
+//        if ([Util isExistsFile:filePath]) {
+//            imgView.image = [UIImage imageWithContentsOfFile:filePath];
+//            promptView.hidden = YES;
+//        }
     }
 }
 - (IBAction)addPictureAction:(id)sender {

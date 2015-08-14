@@ -29,20 +29,32 @@
     }
     return self;
 }
--(void)loadData:(int)count
+-(void)loadData:(int)count Content:(NSDictionary*)dictoinary
 {
     switch (self.tag) {
         case 0:
-            countLab.text = @"20";
+        {
+            NSString *content = [dictoinary objectForKey:@"download_total"];
+            countLab.text = ([content length]==0)?@"100":content;
             titLab.text = @"当日剩余下载次数";
+
+        }
             break;
         case 1:
-            countLab.text = @"200";
+        {
+            NSString *content = [dictoinary objectForKey:@"resume_get_total"];
+            countLab.text = ([content length]==0)?@"100":content;
             titLab.text = @"当日收到简历份数";
+        }
+            
             break;
         case 2:
-            countLab.text = @"400";
+        {
+            NSString *content = [dictoinary objectForKey:@"resume_favor_total"];
+            countLab.text = ([content length]==0)?@"100":content;
             titLab.text = @"当日收藏简历份数";
+
+        }
             break;
             
         default:

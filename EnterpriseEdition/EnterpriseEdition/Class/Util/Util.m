@@ -239,6 +239,22 @@
     }
     return YES;
 }
+/**
+ 校验网址正确
+ */
++(BOOL)checkWebSite:(NSString*)string
+{
+    NSString *regex = @"\\bwww?.[a-zA-Z0-9\\-.]+(?::(\\d+))?(?:(?:/[a-zA-Z0-9\\-._?,'+\\&%$=~*!():@\\\\]*)+)?";
+    //谓词匹配
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    BOOL isMatch = [pred evaluateWithObject:string];
+    if (!isMatch) {
+        
+        return NO;
+    }
+    return YES;
+
+}
 //提示信息
 +(void)showPrompt:(NSString*)promptString
 {
@@ -319,4 +335,22 @@
     
     return [filemanage fileExistsAtPath:filePath];
 }
+//将json转换为字典
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString {
+    if (jsonString == nil) {
+        return nil;
+    }
+    
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                        options:NSJSONReadingMutableContainers
+                                                          error:&err];
+    if(err) {
+        //        NSLog(@"json解析失败：%@",err);
+        return nil;
+    }
+    return dic;
+}
+
 @end

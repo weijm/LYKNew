@@ -54,6 +54,7 @@
     lineWidth.constant = 0.5;
     
     [[LocationViewController shareInstance] startLocation];
+    NSLog(@"infoDic == %@",_infoDic);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,6 +70,12 @@
     }
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - 转化编辑数据
+-(void)changeInfoInLocation
+{
+    
+}
+
 #pragma mark - Items按钮触发事件
 -(void)leftAction
 {
@@ -369,6 +376,7 @@
 - (IBAction)commitAction:(id)sender {
     BOOL isFull = [self checkInfo];
     if (isFull) {//当填写的信息完整并有效时 提交到服务器
+        NSLog(@"contentArray == %@",contentArray);
         NSString *jsonString = [CombiningData addPosition:contentArray];
         [self showHUD:@"正在提交"];
         //请求服务器

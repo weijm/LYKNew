@@ -24,7 +24,7 @@
     //设置急招的界面
     PositionSetUrgentView *urgentView;
     //数据字典
-    NSDictionary *infoDictionary;
+    NSMutableDictionary *infoDictionary;
 }
 @end
 
@@ -248,6 +248,7 @@
         {
             OpenPositionViewController *editVC = [[OpenPositionViewController alloc] init];
             editVC.isEditAgain = YES;
+            editVC.infoDic = infoDictionary;
             [self.navigationController pushViewController:editVC animated:YES];
         }
             break;
@@ -263,12 +264,24 @@
     switch (index) {
         case 1://上线
             NSLog(@"上线");
+        {
+            [self batchDealWithPosition:_jobId Status:0];
+       
+        }
             break;
         case 2://删除
             NSLog(@"删除");
+        {
+            [self batchDealWithPosition:_jobId Status:-9];
+        }
             break;
         case 3://下线
             NSLog(@"下线");
+        {
+            [self batchDealWithPosition:_jobId Status:1];
+
+        
+        }
             break;
             
         default:
@@ -279,6 +292,7 @@
 -(void)setUrgent:(int)count
 {
     NSLog(@" 设置急招 == %d",count);
+    [self requestUrgentInfo:count];
 
 }
 -(void)setTextViewParagraphStyle
@@ -298,7 +312,7 @@
 -(void)requestPositonInfo
 {
     
-    NSString *infoJson = [CombiningData getPositionInfo:_jobId];
+    NSString *infoJson = [CombiningData getPositionInfo:[_jobId intValue]];
     NSLog(@"infoJson == %@",infoJson);
     [self showHUD:@"正在加载数据"];
     //请求服务器
@@ -311,7 +325,7 @@
                 NSArray *dataArr = [result objectForKey:@"data"];
                 if ([dataArr count]>0) {
                     NSLog(@"dataArr== %@",dataArr);
-                    infoDictionary = [dataArr firstObject];
+                    infoDictionary = [NSMutableDictionary dictionaryWithDictionary:[dataArr firstObject]];
                 }
                 [dataTableView reloadData];
                 
@@ -339,4 +353,78 @@
 {
     [self leftAction];
 }
+-(void)batchDealWithPosition:(NSString*)idsString Status:(int)status
+{
+    [self showHUD:@"正在处理数据"];
+    NSString *infoJson = [CombiningData positionManager:idsString Status:status];
+    __block int tempstatus = status;
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUDWithComplete:@"数据处理成功"];
+                //仍然加载首页
+                if (tempstatus == -9) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                }else
+                {
+                    if (tempstatus == 0) {
+                        [infoDictionary setObject:@"正常" forKey:@"status"];
+                    }else
+                    {
+                        [infoDictionary setObject:@"下线" forKey:@"status"];
+                    }
+                    [dataTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:0 inSection:0], nil] withRowAnimation:UITableViewRowAnimationNone];
+                }
+                
+                
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                if ([message length]==0) {
+                    message = @"处理失败";
+                }
+                [self hideHUDFaild:message];
+                NSLog(@"error message == %@",[result objectForKey:@"message"]);
+            }
+        }else
+        {
+            [self hideHUDFaild:@"服务器请求失败"];
+        }
+    };
+    
+}
+-(void)requestUrgentInfo:(int)maxCount
+{
+    [self showHUD:@"正在处理数据"];
+    NSString *infoJson = [CombiningData setPositionUrgent:_jobId MaxCount:maxCount];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUDWithComplete:@"数据处理成功"];
+                //仍然加载首页
+                _isUrgent = YES;
+               [dataTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:0 inSection:0], nil] withRowAnimation:UITableViewRowAnimationNone];
+                
+                
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                if ([message length]==0) {
+                    message = @"处理失败";
+                }
+                [self hideHUDFaild:message];
+                NSLog(@"error message == %@",[result objectForKey:@"message"]);
+            }
+        }else
+        {
+            [self hideHUDFaild:@"服务器请求失败"];
+        }
+    };
+    
+}
+
 @end

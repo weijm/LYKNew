@@ -67,6 +67,10 @@
  */
 + (BOOL)checkTelephone:(NSString *)phone;
 /**
+ 校验网址正确
+ */
++(BOOL)checkWebSite:(NSString*)string;
+/**
  提示信息
  */
 +(void)showPrompt:(NSString*)promptString;
@@ -104,4 +108,10 @@
  判断图片是否存在
  */
 +(BOOL)isExistsFile:(NSString*)filePath;
+
+/**
+ 将json转换为字典
+ */
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
 @end
+

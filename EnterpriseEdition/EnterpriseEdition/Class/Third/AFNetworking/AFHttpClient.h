@@ -67,7 +67,7 @@ typedef enum : NSUInteger {
 + (void)asyncHTTPWithURl:(NSString*)urlString params:(NSString*)params httpMethod:(HttpMethod)httpMethod WithSSl:(AFSecurityPolicy*)_securityPolicy;
 
 //+ (id)uploadWithURL:(NSString *)urlString attachment:(NSData *)fileData;
-+ (void)uploadWithURL:(NSString *)urlString WithBaseUrl:(NSString*)baseUrl attachment:(NSData *)fileData WithSSl:(AFSecurityPolicy*)_securityPolicy;
++ (void)uploadWithURLAttachment:(NSData *)fileData;
 //下载文件
 + (void)downloadWithUrl:(NSString *)urlString WithBaseUrl:(NSString*)baseUrl WithSSl:(AFSecurityPolicy*)_securityPolicy;
 @end

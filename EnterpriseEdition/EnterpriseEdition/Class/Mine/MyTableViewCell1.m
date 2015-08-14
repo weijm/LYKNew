@@ -13,7 +13,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    [self loadsubView];
+//    [self loadsubView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -21,14 +21,20 @@
 
     // Configure the view for the selected state
 }
--(void)loadsubView
+-(void)loadsubView:(NSDictionary*)dictionary
 {
     float viewW = (kWidth)/3;
+    for (UIView *vie in [bg subviews]) {
+        if ([vie isKindOfClass:[TopImgBotTitleView class]]) {
+            [vie removeFromSuperview];
+        }
+    }
     for (int i =0; i < 3; i++) {
+       
         CGRect frame = CGRectMake(viewW*i, 0, viewW, [Util myYOrHeight:87]);
         TopImgBotTitleView *subView= [[TopImgBotTitleView alloc] initWithFrame:frame];
         subView.tag = i;
-        [subView loadData:i];
+        [subView loadData:i Content:dictionary];
         [bg addSubview:subView];
     }
 }

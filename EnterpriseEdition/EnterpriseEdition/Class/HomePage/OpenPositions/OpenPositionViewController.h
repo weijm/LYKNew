@@ -25,6 +25,7 @@
 }
 @property (nonatomic) BOOL isEditAgain;
 @property (nonatomic) BOOL fromPositionManager;
+@property (nonatomic,strong) NSDictionary *infoDic;
 /**
  将数据保存到本地
  */

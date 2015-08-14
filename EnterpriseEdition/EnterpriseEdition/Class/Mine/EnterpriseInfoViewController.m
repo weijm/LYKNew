@@ -8,6 +8,7 @@
 
 #import "EnterpriseInfoViewController.h"
 #import "EnterpriseContactViewController.h"
+#import "SDWebImageManager.h"
 
 @interface EnterpriseInfoViewController ()
 {
@@ -41,6 +42,8 @@
     for (int i =0; i<[titleArray count]; i++) {
         [contentArray addObject:@"0"];
     }
+    
+    [self performSelector:@selector(getEntInfoFromWeb) withObject:nil afterDelay:0.0];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -90,8 +93,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"EnterpriseBaseTableViewCell" owner:self options:nil] lastObject];
     }
     cell.tag = indexPath.row;
-    [cell initData:[titleArray objectAtIndex:indexPath.row]];
-    [cell loadContent:[contentArray objectAtIndex:indexPath.row]];
+    [cell initData:[titleArray objectAtIndex:indexPath.row] Content:[contentArray objectAtIndex:indexPath.row]];
     cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -106,8 +108,8 @@
         {
             NSDictionary *dic = (NSDictionary*)obj;
             NSString *filePath = [dic objectForKey:@"content"];
-            if ([Util isExistsFile:filePath]) {
-                return [Util myYOrHeight:80];
+            if ([filePath length]>0) {
+                return [Util myYOrHeight:100];
             }
         }
 
@@ -188,7 +190,8 @@
     }
     
     if (row == 5 ||row == 7) {//地区 此处可以查询对应的id
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        NSDictionary *idsDic = [self getIdByContent:dictionary Index:row];
+        NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:idsDic];
         NSString *province = [dictionary objectForKey:@"province"];
         NSString *city = [dictionary objectForKey:@"city"];
         NSString *district = [dictionary objectForKey:@"district"];
@@ -208,6 +211,29 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     [infoTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath , nil] withRowAnimation:UITableViewRowAnimationNone];
 }
+#pragma mark - 将pickerView选取的内容转换为id
+-(NSMutableDictionary*)getIdByContent:(NSDictionary*)dictionary Index:(int)row
+{
+    NSMutableDictionary *idsDic = nil;
+    switch (row) {
+                    break;
+        case 5://省市区
+        {
+            idsDic = [CombiningData getCityIDsByContent:dictionary];
+        }
+            break;
+        case 7://所属行业
+        {
+            idsDic = [CombiningData getIndustryIDsByContent:dictionary];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    return idsDic;
+}
+
 #pragma mark - EnterpriseBaseTableViewCellDelegate
 -(void)setEditView:(UIView*)_editView
 {
@@ -334,6 +360,7 @@
 #pragma mark - 添加照片的方式
 - (void) addOfCamera
 {
+    ;
     //先设定sourceType为相机，然后判断相机是否可用（ipod）没相机，不可用将sourceType设定为相片库
     UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
     if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
@@ -395,11 +422,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             // 保存照片到相册的方法
 //            UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
         }
-        [self saveImgInLoaction:image];
+//        [self saveImgInLoaction:image];
         //把选中的图片添加到界面中
-//        [self performSelector:@selector(saveImage:)
-//                   withObject:image
-//                   afterDelay:0.5];
+        [self performSelector:@selector(uploadImg:)
+                   withObject:image
+                   afterDelay:0.0];
     }
     else
     {
@@ -464,11 +491,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 #pragma mark - 保存方法
 - (IBAction)saveEnterpriseInfo:(id)sender {
-//    BOOL isFull = [self checkInfo];
-//    if (isFull) {//信息填写完整时执行
-        EnterpriseContactViewController *contactVC = [[EnterpriseContactViewController alloc] init];
-        [self.navigationController pushViewController:contactVC animated:YES];
-//    }
+    NSLog(@"content == %@",contentArray);
+    BOOL isFull = [self checkInfo];
+    if (isFull) {//信息填写完整时执行
+        [self performSelector:@selector(requestSaveEntInfo) withObject:nil afterDelay:0.0];
+    }
    
 }
 -(BOOL)checkInfo
@@ -476,19 +503,235 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     NSInteger count = [contentArray count];
     BOOL isFull = YES;
     for (int i =0; i< count; i++) {
+
         NSObject *obj = [contentArray objectAtIndex:i];
         if ([obj isKindOfClass:[NSString class]]) {
+            NSDictionary *dic = [titleArray objectAtIndex:i];
             if (i==7||i==8||i==9) {//非必填项
                 continue;
             }
-            NSDictionary *dic = [titleArray objectAtIndex:i];
+            
             NSString *title = [dic objectForKey:@"title"];
             [Util showPrompt:[NSString stringWithFormat:@"%@ 不能为空",title]];
             isFull = NO;
             break;
+        }else
+        {
+            if (i==9) {
+                NSDictionary *dic = (NSDictionary*)obj;
+                BOOL isRight = [Util checkWebSite:[dic objectForKey:@"content"]];
+                if (!isRight) {
+                    [Util showPrompt:@"网址格式不正确"];
+                    break;
+                }
+            }
         }
     }
     return isFull;
 
+}
+#pragma mark - 请求服务器
+//保存到服务器
+-(void)requestSaveEntInfo
+{
+    [self showHUD:@"正在保存"];
+    NSMutableArray *resultArray = [self getRow2AndRow7Id];
+    NSString *infoJson = [CombiningData uploadEntInfo:resultArray];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUD];
+                if (_entStatus==0) {
+                    
+                    EnterpriseContactViewController *contactVC = [[EnterpriseContactViewController alloc] init];
+                    [self.navigationController pushViewController:contactVC animated:YES];
+                }else{//正常 审核通过
+                    [self hideHUD];
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                }
+                
+            }else
+            {
+                [self hideHUDFaild:[result objectForKey:@"message"]];
+                NSLog(@"error message == %@",[result objectForKey:@"message"]);
+            }
+        }else
+        {
+            [self hideHUD];
+            [self showAlertView:@"服务器请求失败"];
+        }
+        
+    };
+}
+//将企业性质和人数规模转化id
+-(NSMutableArray*)getRow2AndRow7Id
+{
+    NSMutableArray *resultArray = [NSMutableArray arrayWithArray:contentArray];
+    for (int i = 0; i< [contentArray count]; i++) {
+        if (i ==2||i==7) {
+            NSObject *obj = [resultArray objectAtIndex:i];
+            NSDictionary *dic = (NSDictionary*)obj;
+            NSMutableDictionary *newDic = [NSMutableDictionary dictionary];
+            if (i==2) {
+                [newDic setObject:[dic objectForKey:@"selectedId"] forKey:@"content"];
+                [resultArray replaceObjectAtIndex:i withObject:newDic];
+            }else
+            {
+                if ([obj isKindOfClass:[NSDictionary class]]) {//填写了内容
+                    int companyNumber = [[dic objectForKey:@"selectedId"] intValue]+1;
+                    [newDic setObject:[NSString stringWithFormat:@"%d",companyNumber] forKey:@"content"];
+                    [resultArray replaceObjectAtIndex:i withObject:newDic];
+                
+                }else
+                {//没有填写内容
+                    [newDic setObject:@"0" forKey:@"content"];
+                    [resultArray replaceObjectAtIndex:i withObject:newDic];
+                }
+                
+            }
+        }
+    }
+    return resultArray;
+
+}
+//获取企业资料
+-(void)getEntInfoFromWeb
+{
+    [self showHUD:@"正在加载数据"];
+    NSString *infoJson = [CombiningData getMineInfo:kGetEntInfo];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUD];
+                NSArray *dataArray = [result objectForKey:@"data"];
+                NSLog(@"dataArray== %@",dataArray);
+                [self dealWithData:dataArray];
+            }else
+            {
+                [self hideHUDFaild:[result objectForKey:@"message"]];
+                NSLog(@"error message == %@",[result objectForKey:@"message"]);
+            }
+        }else
+        {
+            [self hideHUD];
+            [self showAlertView:@"服务器请求失败"];
+        }
+        
+    };
+}
+//将获取的数据进行处理
+-(void)dealWithData:(NSArray*)array
+{
+    NSDictionary *dic = nil;
+    if ([array count]>0) {
+        dic = [array firstObject];
+    }else
+    {
+        return;
+    }
+    NSArray *keyArray = [NSArray arrayWithObjects:@"company_name",@"industry_id",@"ent_type",[NSArray arrayWithObjects:@"city_id_1",@"city_id_2",@"city_id_3", nil],@"address",@"licence_url",@"intro",@"company_size",@"logo_url",@"web_site", nil];
+    for (int i =0; i < [keyArray count]; i++)
+    {
+        NSObject *obj = [keyArray objectAtIndex:i];
+        
+        if ([obj isKindOfClass:[NSString class]]) {
+            NSString *keyString = (NSString*)obj;
+            NSString *content = [Util getCorrectString:[dic objectForKey:keyString]];
+            
+            if ([content length]>0) {
+                NSMutableDictionary *dictionary = nil;
+                if (i==1||i==2||i==7) {
+                    dictionary = [NSMutableDictionary dictionaryWithDictionary:[self getIdsFromContentByWeb:content Index:i]];
+                    [dictionary setObject:content forKey:@"content"];
+                }else{
+                    dictionary = [NSMutableDictionary dictionary];
+                    [dictionary setObject:content forKey:@"content"];
+                }
+                
+                [contentArray replaceObjectAtIndex:i withObject:dictionary];
+            }
+
+        }else if ([obj isKindOfClass:[NSArray class]])
+        {
+            NSString *content = nil;
+            NSString *str1 = [Util getCorrectString:[dic objectForKey:@"city_id_1"]];
+            NSString *str2 = [Util getCorrectString:[dic objectForKey:@"city_id_2"]];
+            if ([str2 isEqualToString:str1]) {
+                content = [NSString stringWithFormat:@"%@%@",str1,[dic objectForKey:@"city_id_3"]];
+            }else
+            {
+                content = [NSString stringWithFormat:@"%@%@%@",str1,str2,[dic objectForKey:@"city_id_3"]];
+            }
+            //获取对应的id
+            NSDictionary *contentDictionry = [NSDictionary dictionaryWithObjectsAndKeys:str1,@"city1",str2,@"city2",[dic objectForKey:@"city_id_3"],@"city3", nil];
+            
+            NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[self getIdByContent:contentDictionry Index:5]];
+            [dictionary setObject:content forKey:@"content"];
+            [contentArray replaceObjectAtIndex:i withObject:dictionary];
+            
+        }
+        
+    }
+    NSLog(@"getContentArray == %@",contentArray);
+    [infoTableView reloadData];
+}
+//上传图片
+-(void)uploadImg:(UIImage*)image
+{
+    [self showHUD:@"正在上传图片"];
+
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+    [AFHttpClient uploadWithURLAttachment:imageData];
+    [AFHttpClient sharedClient].UploadFileStatus = ^(BOOL isSuccess ,NSDictionary *dictionary){
+        if (isSuccess) {
+            [self hideHUDWithComplete:@"上传成功"];
+            NSString *imgUrl = [dictionary objectForKey:@"data"];
+            NSLog(@"imgUrl == %@",imgUrl);
+            NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:imgUrl,@"content", nil];
+            //获取原来的图片路径
+            NSDictionary *oldDic = [contentArray objectAtIndex:imgType];
+            if ([oldDic isKindOfClass:[NSDictionary class]]&&[[oldDic objectForKey:@"content"] length]>0) {
+                [SDWebImageManager.sharedManager.imageCache removeImageForKey:[oldDic objectForKey:@"content"]];
+            }
+            
+            [contentArray replaceObjectAtIndex:imgType withObject:dictionary];
+            
+            [infoTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:imgType inSection:0], nil] withRowAnimation:UITableViewRowAnimationFade];
+            
+        }else
+        {
+            [self hideHUDFaild:[dictionary objectForKey:@"data"]];
+        }
+    };
+}
+//将字符串转换id
+-(NSMutableDictionary*)getIdsFromContentByWeb:(NSString*)content Index:(int)index
+{
+    NSMutableDictionary * newDic = [NSMutableDictionary dictionary];
+    if (index == 1) {
+        NSArray *array = [content componentsSeparatedByString:@" "];
+        NSMutableDictionary *dic =[NSMutableDictionary dictionary];
+        if ([array count]>0) {
+            [dic setObject:[array firstObject] forKey:@"industry_id0"];
+            [dic setObject:[array lastObject] forKey:@"industry_id1"];
+            newDic = [self getIdByContent:dic Index:7];
+            return newDic;
+        }
+    }else if (index==2)//企业性质
+    {
+        NSString *compangType = [CombiningData getEntType:content];
+        [newDic setObject:compangType forKey:@"selectedId"];
+        return newDic;
+    }else if (index == 7)//人数规模
+    {
+        NSString *compangSize = [CombiningData getCompanySize:[Util getCorrectString:content]];
+        [newDic setObject:compangSize forKey:@"selectedId"];
+        return newDic;
+    }
+    return nil;
 }
 @end

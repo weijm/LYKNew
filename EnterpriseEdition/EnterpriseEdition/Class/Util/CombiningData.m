@@ -36,6 +36,17 @@
                             @"{\"token\":\"%@\",\"type\":\"%@\",\"mob_no\":\"%@\",\"new_password\":\"%@\",\"verify\":\"%@\"}",kToken,kForgetSetNewPsw,phone,md5Password,code];
     return jsonString;
 }
++(NSString*)changePassword:(NSString*)password NewPsd:(NSString*)newPassword
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userDefault objectForKey:kUID];
+    NSString *md5Passwordold = [self md5HexDigest:[self md5HexDigest:password]];
+     NSString *md5PasswordNew = [self md5HexDigest:[self md5HexDigest:newPassword]];
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"ent_user_id\":\"%@\",\"password_old\":\"%@\",\"password_new\":\"%@\",\"password_new2\":\"%@\"}",kToken,kChangePsw,uid,md5Passwordold,md5PasswordNew,md5PasswordNew];
+    return jsonString;
+
+}
 #pragma mark - 注册
 +(NSString*)securityCode:(NSString*)phone
 {
@@ -93,7 +104,6 @@
     NSString *iid = [userDefault objectForKey:KIID];
     NSString *jsonString = [NSString stringWithFormat:
                             @"{\"token\":\"%@\",\"type\":\"%@\",%@\"latitude\":\"%@\",\"longitude\":\"%@\",\"uid\":\"%@\",\"iid\":\"%@\"}",kToken,kCommitPosition,subJson,[Util getCorrectString:latitude],[Util getCorrectString:longitude],uid,iid];
-    NSLog(@"jsonString == %@",jsonString);
     return jsonString;
 }
 //获取职位列表
@@ -114,11 +124,129 @@
     return jsonString;
 
 }
+//职位状态管理
++(NSString*)positionManager:(NSString*)jobIds Status:(int)status
+{
+    NSString *statusString = [NSString stringWithFormat:@"%d",status];
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"job_ids\":\"%@\",\"new_status\":\"%@\"}",kToken,kPositionManagerStatus,jobIds,statusString];
+    return jsonString;
+
+    
+}
++(NSString*)setPositionUrgent:(NSString*)jobId MaxCount:(int)count
+{
+    NSString *countString = [NSString stringWithFormat:@"%d",count];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userDefault objectForKey:kUID];
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"ent_job_id\":\"%@\",\"max_count\":\"%@\",\"ent_user_id\":\"%@\"}",kToken,kPositionUrgent,jobId,countString,uid];
+    return jsonString;
+}
+#pragma mark -简历
 //获取简历详情
 +(NSString*)getResumeInfo:(NSString*)type keyString:(NSString*)key Value:(NSString*)value
 {
     NSString *jsonString = [NSString stringWithFormat:
                             @"{\"type\":\"%@\",\"token\":\"%@\",\"%@\":\"%@\"}",type,kToken,key,value];
+    return jsonString;
+}
+//上传企业资料
++(NSString*)uploadEntInfo:(NSArray*)contentArray
+{
+    NSMutableString *subJson = [NSMutableString string] ;
+    NSArray *keyArray = [NSArray arrayWithObjects:@"company_name",@"industry_id",@"ent_type",[NSArray arrayWithObjects:@"city_id_1",@"city_id_2",@"city_id_3", nil ],@"address",@"licence_url",@"intro",@"company_size",@"logo_url",@"web_site", nil];
+    for (int i = 0; i < [contentArray count]; i++) {
+        NSObject *contentObj = [contentArray objectAtIndex:i];
+        NSObject *keyObj = [keyArray objectAtIndex:i];
+        if ([keyObj isKindOfClass:[NSString class]]) {//键是字符串
+            NSString *keyString = (NSString*)keyObj;
+            NSString *contentString = @"";
+            if ([contentObj isKindOfClass:[NSDictionary class]]) {//值的字符串
+                NSDictionary *contentDic = (NSDictionary*)contentObj;
+                contentString = [contentDic objectForKey:@"content"];
+                if ([keyString hasSuffix:@"id"]) {
+                    contentString = [contentDic objectForKey:[NSString stringWithFormat:@"%@1",keyString]];
+                }
+                
+            }
+            //拼接字符串
+            [subJson appendFormat:@"\"%@\":\"%@\",",keyString,contentString];
+        }else if([keyObj isKindOfClass:[NSArray class]])
+        {
+            NSArray *subKeyArr = (NSArray*)keyObj;
+            NSDictionary *contentDic = (NSDictionary*)contentObj;
+            for (int j =0; j < [subKeyArr count]; j++) {
+                NSString* keyString = [subKeyArr objectAtIndex:j];
+                NSString *contentString = [contentDic objectForKey:keyString];
+                //拼接字符串
+                [subJson appendFormat:@"\"%@\":\"%@\",",keyString,contentString];
+            }
+            
+        }
+    }
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+   
+    NSString *uid = [userDefault objectForKey:kUID];
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",%@\"ent_user_id\":\"%@\"}",kToken,kEntInfoUpload,subJson,uid];
+    NSLog(@"jsonString == %@",jsonString);
+    return jsonString;
+
+}
+//上传企业联系人
++(NSString*)uploadEntContact:(NSArray*)contentArray
+{
+    NSMutableString *subJson = [NSMutableString string] ;
+    NSArray *keyArray = [NSArray arrayWithObjects:@"contact_name",@"contact_no",@"accredit_url", nil];
+    for (int i = 0; i < [contentArray count]; i++) {
+        NSObject *contentObj = [contentArray objectAtIndex:i];
+        NSString *keyString = [keyArray objectAtIndex:i];
+        NSString *contentString = @"";
+        if ([contentObj isKindOfClass:[NSDictionary class]]) {//值的字符串
+            NSDictionary *contentDic = (NSDictionary*)contentObj;
+            contentString = [contentDic objectForKey:@"content"];
+            
+            //拼接字符串
+            [subJson appendFormat:@"\"%@\":\"%@\",",keyString,contentString];
+
+       
+    }
+    }
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    
+    NSString *uid = [userDefault objectForKey:kUID];
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",%@\"ent_user_id\":\"%@\"}",kToken,kEntContactUpload,subJson,uid];
+    NSLog(@"uploadEntContact jsonString == %@",jsonString);
+    return jsonString;
+
+    
+}
+
++(NSString*)getMineInfo:(NSString*)type
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userDefault objectForKey:kUID];
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"ent_user_id\":\"%@\"}",kToken,type,uid];
+    NSLog(@"jsonString == %@",jsonString);
+    return jsonString;
+}
++(NSString*)getPicList
+{
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\"}",kToken,kPictureList];
+    NSLog(@"getPicList jsonString == %@",jsonString);
+    return jsonString;
+}
++(NSString*)getUIDInfo:(NSString*)type
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userDefault objectForKey:kUID];
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"uid\":\"%@\"}",kToken,type,uid];
+    NSLog(@"jsonString == %@",jsonString);
     return jsonString;
 }
 //md5加密
@@ -221,5 +349,40 @@
 {
     NSString *nation = [[PositionObject shareInstance] getNationStringById:nationId];
     return nation;
+}
++(NSString*)getEntType:(NSString*)string
+{
+    NSArray *array = [NSArray arrayWithObjects:@"国有企业", @"有限责任公司",@"股份有限公司",@"中外合资企业",@"私营企业",@"外商投资企业",@"集体企业", nil];
+    for (int i = 0; i < [array count]; i++) {
+        if ([[array objectAtIndex:i] isEqualToString:string]) {
+            return [NSString stringWithFormat:@"%d",i];
+        }
+    }
+    return @"";
+}
++(NSString*)getCompanySize:(NSString*)string
+{
+    NSArray *array = [NSArray arrayWithObjects:@"",@"小于15人",@"15-49人", @"50-149人",@"150-499人",@"500-2000人",@"2000人以上",nil];
+    for (int i = 0; i < [array count]; i++) {
+        if ([[array objectAtIndex:i] isEqualToString:string]) {
+            return [NSString stringWithFormat:@"%d",i];
+        }
+    }
+    return @"";
+    
+}
++(NSString*)getIdsByArray:(NSArray*)array
+{
+    NSMutableString *idsString = [NSMutableString string];
+    for (int i = 0; i < [array count]; i++) {
+        NSString *idString = [array objectAtIndex:i];
+        if (i==[array count]-1) {
+            [idsString appendString:idString];
+        }else
+        {
+            [idsString appendFormat:@"%@,",idString];
+        }
+    }
+    return idsString;
 }
 @end

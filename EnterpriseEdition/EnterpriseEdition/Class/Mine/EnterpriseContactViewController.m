@@ -8,6 +8,7 @@
 
 #import "EnterpriseContactViewController.h"
 #import "ReferenceView.h"
+#import "SDWebImageManager.h"
 
 @interface EnterpriseContactViewController ()
 {
@@ -41,6 +42,7 @@
     infoTableView.tableFooterView = [self getFooterView];
     
     contentArray = [[NSMutableArray alloc] initWithObjects:@"0",@"0",@"0", nil];
+    [self performSelector:@selector(getEntContactInfo) withObject:nil afterDelay:0.2];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,7 +80,7 @@
         }
         cell.tag = indexPath.row;
         [cell initData:[titleArray objectAtIndex:indexPath.row]];
-        
+        [cell loadImg:[contentArray objectAtIndex:indexPath.row]];
         cell.delegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -91,8 +93,7 @@
     }
     cell.tag = indexPath.row;
     cell.cellType = 1;
-    [cell initData:[titleArray objectAtIndex:indexPath.row]];
-    [cell loadContent:[contentArray objectAtIndex:indexPath.row]];
+    [cell initData:[titleArray objectAtIndex:indexPath.row] Content:[contentArray objectAtIndex:indexPath.row]];
     
     cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -101,6 +102,17 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   if (indexPath.row == 2 || indexPath.row ==1){
+      if (indexPath.row == 2) {
+          NSObject *obj = [contentArray objectAtIndex:indexPath.row];
+          if([obj isKindOfClass:[NSDictionary class]])
+          {
+              NSDictionary *dic = (NSDictionary*)obj;
+              NSString *filePath = [dic objectForKey:@"content"];
+              if ([filePath length]>0) {
+                  return [Util myYOrHeight:100];
+              }
+          }
+      }
         return [Util myYOrHeight:50];
     }
     else
@@ -192,6 +204,7 @@
 #pragma mark -EnterpriseImgTableViewCellDelegate
 -(void)addPicture:(int)index
 {
+    [self editTextFiledAndCancelKey:YES];
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"从相册选取",@"拍张新照片", nil];
     sheet.tag = index;
     [sheet showInView:self.view];
@@ -283,9 +296,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
         }
         //把选中的图片添加到界面中
-        //        [self performSelector:@selector(saveImage:)
-        //                   withObject:image
-        //                   afterDelay:0.5];
+        [self performSelector:@selector(uploadImg:)
+                   withObject:image
+                   afterDelay:0.0];
+
     }
     else
     {
@@ -336,7 +350,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     NSLog(@"保存并提交 企业联系人");
     BOOL isFull = [self checkInfo];
     if (isFull) {//信息填写完整了
-       
+        [self requestSaveContact];
     }
     
 }
@@ -358,6 +372,118 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     }
     return isFull;
     
+}
+#pragma mark - 请求服务器
+//保存数据
+-(void)requestSaveContact
+{
+    [self showHUD:@"正在保存"];
+    NSString *infoJson = [CombiningData uploadEntContact:contentArray];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUDWithComplete:@"保存成功"];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+               
+            }else
+            {
+                [self hideHUDFaild:[result objectForKey:@"message"]];
+                NSLog(@"error message == %@",[result objectForKey:@"message"]);
+            }
+        }else
+        {
+            [self hideHUD];
+            [self showAlertView:@"服务器请求失败"];
+        }
+        
+    };
+
+}
+//上传图片
+-(void)uploadImg:(UIImage*)image
+{
+    [self showHUD:@"正在上传图片"];
+    
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+    [AFHttpClient uploadWithURLAttachment:imageData];
+    [AFHttpClient sharedClient].UploadFileStatus = ^(BOOL isSuccess ,NSDictionary *dictionary){
+        if (isSuccess) {
+            [self hideHUDWithComplete:@"上传成功"];
+            NSString *imgUrl = [dictionary objectForKey:@"data"];
+            NSLog(@"imgUrl == %@",imgUrl);
+            NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:imgUrl,@"content", nil];
+            //获取原来的图片路径
+            NSDictionary *oldDic = [contentArray objectAtIndex:2];
+            if ([oldDic isKindOfClass:[NSDictionary class]]&&[[oldDic objectForKey:@"content"] length]>0) {
+                [SDWebImageManager.sharedManager.imageCache removeImageForKey:[oldDic objectForKey:@"content"]];
+            }
+            
+            [contentArray replaceObjectAtIndex:2 withObject:dictionary];
+            
+            [infoTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:2 inSection:0], nil] withRowAnimation:UITableViewRowAnimationFade];
+            
+        }else
+        {
+            [self hideHUDFaild:[dictionary objectForKey:@"data"]];
+        }
+    };
+}
+//获取数据
+-(void)getEntContactInfo
+{
+    [self showHUD:@"正在加载数据"];
+    NSString *infoJson = [CombiningData getMineInfo:kGetEntContactInfo];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUD];
+                NSArray *dataArray = [result objectForKey:@"data"];
+                NSLog(@"dataArray== %@",dataArray);
+                [self dealWithData:dataArray];
+            }else
+            {
+                [self hideHUDFaild:[result objectForKey:@"message"]];
+                NSLog(@"error message == %@",[result objectForKey:@"message"]);
+            }
+        }else
+        {
+            [self hideHUD];
+            [self showAlertView:@"服务器请求失败"];
+        }
+        
+    };
+
+}
+//将获取的数据进行处理
+-(void)dealWithData:(NSArray*)array
+{
+    NSDictionary *dic = nil;
+    if ([array count]>0) {
+        dic = [array firstObject];
+    }else
+    {
+        return;
+    }
+    NSArray *keyArray = [NSArray arrayWithObjects:@"contact_name",@"contact_no",@"accredit_url", nil];
+    for (int i =0; i < [keyArray count]; i++)
+    {
+        NSString *keyString = [keyArray objectAtIndex:i];
+        NSString *content = [Util getCorrectString:[dic objectForKey:keyString]];
+        
+        if ([content length]>0) {
+            NSMutableDictionary *dictionary = nil;
+            dictionary = [NSMutableDictionary dictionary];
+            [dictionary setObject:content forKey:@"content"];
+            [contentArray replaceObjectAtIndex:i withObject:dictionary];
+        }
+
+    }
+    NSLog(@"getContentArray == %@",contentArray);
+    [infoTableView reloadData];
 }
 
 @end

@@ -23,6 +23,7 @@
     __weak IBOutlet NSLayoutConstraint *proWidth;
     __weak IBOutlet NSLayoutConstraint *proHeight;
 }
+@property(nonatomic)int entStatus;
 - (IBAction)saveEnterpriseInfo:(id)sender;
 
 @end

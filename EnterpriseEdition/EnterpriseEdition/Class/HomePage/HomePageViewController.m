@@ -15,6 +15,7 @@
 #import "OpenPositionViewController.h" //发布职位
 #import "LoginViewController.h"
 #import "HireOfView.h"
+#import "ResumeInfoViewController.h"
 
 #import "LocationViewController.h"
 
@@ -24,6 +25,8 @@
 {
     //横向滚动视图
     BannerView *bannerView;
+    //banner数组
+    NSArray *bannerArray;
     
     //应聘部分的视图
     HireOfView *hireOfView;
@@ -59,12 +62,23 @@
     if (kDeviceVersion>=7.0 &&[self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    
+    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:Rgb(230, 230, 230,0.0)] forBarMetrics:UIBarMetricsDefault];
     //导航栏下面是否显示内容
     [self.navigationController.navigationBar setTranslucent:YES];
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    int isLogin = [[userDefault objectForKey:kLoginOrExit] intValue];
+    if (isLogin>0) {
+        [self performSelector:@selector(requestInfoFromWeb) withObject:nil afterDelay:0.0];
+    }
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -131,9 +145,26 @@
         frame = CGRectMake(0, 0, kWidth, kBannerViewHeight);
     }
     bannerView = [[BannerView alloc] initWithFrame:frame];
-    [bannerView loadBannerImage:[NSArray arrayWithObjects:@"11",@"11",@"11", nil]];
+    __weak HomePageViewController *wself = self ;
+    bannerView.clickedBannerAction = ^(int index){
+        HomePageViewController *sself = wself;
+        [sself clickedBannerAction:index];
+    };
+//    [bannerView loadBannerImage:[NSArray arrayWithObjects:@"11",@"11",@"11", nil]];
     [view addSubview:bannerView];
 }
+-(void)clickedBannerAction:(int)index
+{
+    if ([bannerArray count]>0) {
+        NSDictionary *dic = [bannerArray objectAtIndex:index];
+        if ([[dic objectForKey:@"jump_type"] intValue]==1) {
+            NSLog(@"index == %d",index);
+            NSString *source = [dic objectForKey:@"source"];
+            NSLog(@"source== %@",source);
+        }
+    }
+}
+
 #pragma mark - navigation上的左右按钮
 -(void)initItems
 {
@@ -171,7 +202,7 @@
 //    hireView = [[HireView alloc] initWithFrame:frame];
     hireOfView = [[HireOfView alloc] initWithFrame:frame];
     //假数据
-    NSArray *array = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"职位 10个",@"string",@"10个",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"急招 剩余12时",@"string",@"剩余12时",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"已下载 100份",@"string",@"100份",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"已收到 100份",@"string",@"100份",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"发布职位",@"string",@"",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"收藏 100份",@"string",@"100份",@"substring", nil], nil];
+    NSArray *array = [self getHireData:nil];//[NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"职位 10个",@"string",@"10个",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"急招 剩余12时",@"string",@"剩余12时",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"已下载 100份",@"string",@"100份",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"已收到 100份",@"string",@"100份",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"发布职位",@"string",@"",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"收藏 100份",@"string",@"100份",@"substring", nil], nil];
     
     [hireOfView loadItem:array];
     //点击事件的触发
@@ -285,6 +316,11 @@
     }else
     {
         NSLog(@"查看第%ld个人的简历",(long)index);
+        ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
+        infoVC.resumeID = 117377;
+        infoVC.userID = 117377;
+        infoVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:infoVC animated:YES];
     }
     
 }
@@ -301,5 +337,104 @@
 {
     return YES;
 //    return NO;
+}
+#pragma mark - 从服务器获取信息
+-(void)requestInfoFromWeb
+{
+    NSArray *jsonArray = [NSArray arrayWithObjects:[CombiningData getPicList],[CombiningData getUIDInfo:kNumberList], nil];
+    __block int requestCount = 0;
+    [self showHUD:@"正在加载数据"];
+    for (int i=0; i < [jsonArray count]; i++) {
+        NSString *jsonString = [jsonArray objectAtIndex:i];
+        
+        //请求服务器
+        [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
+        [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+            requestCount++;
+            if (requestCount==[jsonArray count]) {
+                [self hideHUD];
+            }
+            if (result!=nil) {
+                if ([[result objectForKey:@"result"] intValue]>0) {
+                    [self dealWithData:result];
+                }else
+                {
+                    NSLog(@"error message == %@",[result objectForKey:@"message"]);
+                }
+            }else
+            {
+//                [self showAlertView:@"服务器请求失败"];
+            }
+        };
+
+    }
+}
+-(void)dealWithData:(id)result
+{
+    NSString *json = [result objectForKey:@"requestJson"];
+    NSDictionary *dic = [Util dictionaryWithJsonString:json];
+    NSString *type = [dic objectForKey:@"type"];
+    if ([type isEqualToString:kPictureList]) {
+        bannerArray = [NSArray arrayWithArray:[result objectForKey:@"data"]];
+        [bannerView loadBannerImage:bannerArray];
+    }else if ([type isEqualToString:kNumberList])
+    {
+        NSLog(@"data == %@",[result objectForKey:@"data"]);
+        NSArray *resultArr = [result objectForKey:@"data"];
+        if ([resultArr count]>0) {
+            NSArray *array = [self getHireData:[resultArr firstObject]];
+            [hireOfView loadItem:array];
+        }
+       
+   
+    }
+ }
+#pragma mark - 应聘信息数组
+-(NSMutableArray*)getHireData:(NSDictionary*)dataDic
+{
+    NSArray *titleArray = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"职位",@"string", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"急招",@"string", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"已下载",@"string", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"已收到",@"string",nil],[NSDictionary dictionaryWithObjectsAndKeys:@"发布职位",@"string",nil],[NSDictionary dictionaryWithObjectsAndKeys:@"收藏",@"string",nil], nil];
+    if (dataDic==nil) {
+        return (NSMutableArray*)titleArray;
+    }else
+    {
+        NSArray *keyArray = [NSArray arrayWithObjects:@"job",@"emergent",@"download",@"apply",@"position",@"favorite", nil];
+        NSMutableArray *resultArray = [NSMutableArray array];
+        for (int i = 0; i< [titleArray count]; i++) {
+            NSString *keyString = [keyArray objectAtIndex:i];
+            NSString *content = [dataDic objectForKey:keyString];
+            NSDictionary * dic = [titleArray objectAtIndex:i];
+            if ([Util getCorrectString:content]>0) {
+                NSMutableDictionary *newDic = [NSMutableDictionary dictionary];
+                if (i==0) {
+                    NSString *string = [NSString stringWithFormat:@"%@ %@个",[dic objectForKey:@"string"],content];
+                    [newDic setObject:string forKey:@"string"];
+                    [newDic setObject:[NSString stringWithFormat:@"%@个",content] forKey:@"substring"];
+                }else if (i==1)
+                {
+                    NSString *string = [NSString stringWithFormat:@"%@ 剩余%@时",[dic objectForKey:@"string"],[content substringToIndex:1]];
+                    [newDic setObject:string forKey:@"string"];
+                    [newDic setObject:[NSString stringWithFormat:@"剩余%@时",[content substringToIndex:1]] forKey:@"substring"];
+                }else
+                {
+                    NSString *string = [NSString stringWithFormat:@"%@ %@份",[dic objectForKey:@"string"],content];
+                    [newDic setObject:string forKey:@"string"];
+                    [newDic setObject:[NSString stringWithFormat:@"%@份",content] forKey:@"substring"];
+                
+                }
+                [resultArray addObject:newDic];
+            }else
+            {
+                NSMutableDictionary *newDic = [NSMutableDictionary dictionaryWithDictionary:dic];
+               
+                [newDic setObject:@"" forKey:@"substring"];
+                [resultArray addObject:newDic];
+           
+            }
+            
+        }
+        
+        return resultArray;
+   
+    }
 }
 @end

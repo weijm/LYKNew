@@ -22,7 +22,7 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"修改密码";
     self.view.backgroundColor = kCVBackgroundColor;
-    [self initItems];
+//    [self initItems];
     
     contentArray = [[NSMutableArray alloc] init];
     for (int i =0; i<3; i++) {
@@ -31,32 +31,33 @@
     
     NSString *acount = [[NSUserDefaults standardUserDefaults] objectForKey:kAccount];
     phoneLab.text = acount;
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma mark - 编辑按钮
--(void)initItems
-{
-    CGRect frame = CGRectMake(0, 0, 50, 30);
-    
-    UIButton *leftBt = [[UIButton alloc] initWithFrame:frame];
-    [leftBt setImage:[UIImage imageNamed:@"back_bt"] forState:UIControlStateNormal];
-    UIEdgeInsets imageInsets = leftBt.imageEdgeInsets;
-    leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-30, imageInsets.bottom, imageInsets.right+20);
-    [leftBt addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
-    self.navigationItem.leftBarButtonItem = leftItem;
-        
-    
-}
--(void)leftAction
-{
-    
-    [self.navigationController popViewControllerAnimated:YES];
-}
+//#pragma mark - 编辑按钮
+//-(void)initItems
+//{
+//    CGRect frame = CGRectMake(0, 0, 50, 30);
+//    
+//    UIButton *leftBt = [[UIButton alloc] initWithFrame:frame];
+//    [leftBt setImage:[UIImage imageNamed:@"back_bt"] forState:UIControlStateNormal];
+//    UIEdgeInsets imageInsets = leftBt.imageEdgeInsets;
+//    leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-30, imageInsets.bottom, imageInsets.right+20);
+//    [leftBt addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
+//    self.navigationItem.leftBarButtonItem = leftItem;
+//        
+//    
+//}
+//-(void)leftAction
+//{
+//    
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -124,14 +125,14 @@
 }
 
 - (IBAction)nextAction:(id)sender {
-    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:currentTextField.text,@"content", nil];
-    [contentArray replaceObjectAtIndex:currentTextField.tag withObject:dictionary];
+    [self editTextFiledAndCancelKey:NO];
     NSObject *obj = [contentArray objectAtIndex:0];
     //验证旧密码是否填写正确
     if ([obj isKindOfClass:[NSDictionary class]]) {
         NSDictionary *dic = (NSDictionary*)obj;
         NSString *oldPassWord = [dic objectForKey:@"content"];
-        if ([oldPassWord isEqualToString:@"123456aa"]) {//与旧密码对比 通过
+        NSString *rightPsd = [[NSUserDefaults standardUserDefaults] objectForKey:KPassWord];
+        if ([oldPassWord isEqualToString:rightPsd]) {//与旧密码对比 通过
             obj = [contentArray objectAtIndex:1];
             if ([obj isKindOfClass:[NSDictionary class]]) {//新填写的密码验证
                 dic = (NSDictionary*)obj;
@@ -143,7 +144,8 @@
                         NSString *reviewPassWord = [dic objectForKey:@"content"];
                         if ([reviewPassWord isEqualToString:newPassWord]) {//新密码和确认密码相同
                             //修改密码发送请求
-                            
+                            [self requestChangePaw:oldPassWord New:newPassWord];
+//                            [self performSelector:@selector(requestChangePaw) withObject:nil afterDelay:0.0];
                             NSLog(@"修改密码成功");
                         }else
                         {
@@ -169,6 +171,40 @@
     }
 }
 
+-(void)requestChangePaw:(NSString*)password New:(NSString*)newPsd
+{
+    [self showHUD:@"正在修改密码"];
+    NSString *infoJson = [CombiningData changePassword:password NewPsd:newPsd];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUDWithComplete:@"修改成功"];
+                [self.navigationController popViewControllerAnimated:YES];
+                //出现登录页面
+                //退出登录
+                [[NSNotificationCenter defaultCenter] postNotificationName:kLoginOrExit object:@"1"];
+                //清空本地缓存的数据
+                NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+                [userDefault setObject:@"" forKey:kLoginOrExit];
+                [userDefault setObject:@"" forKey:KPassWord];
+                [userDefault setObject:@"" forKey:kUID];
+                [userDefault setObject:@"" forKey:KIID];
+               
+                
+            }else
+            {
+                [self hideHUDFaild:[result objectForKey:@"message"]];
+                NSLog(@"error message == %@",[result objectForKey:@"message"]);
+            }
+        }else
+        {
+            [self hideHUDFaild:@"服务器请求失败"];
+        }
+        
+    };
 
+}
 
 @end

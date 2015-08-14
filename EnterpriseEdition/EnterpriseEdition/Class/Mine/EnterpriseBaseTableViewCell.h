@@ -45,9 +45,6 @@
 /**
  初始化标题 提示语
  */
--(void)initData:(NSDictionary*)dictionary;
-/**
- 设置编辑的内容
- */
--(void)loadContent:(NSObject*)obj;
+-(void)initData:(NSDictionary*)dictionary Content:(NSObject*)obj;
+
 @end

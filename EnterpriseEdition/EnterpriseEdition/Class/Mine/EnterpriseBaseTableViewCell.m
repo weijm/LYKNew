@@ -25,7 +25,7 @@
 
     // Configure the view for the selected state
 }
--(void)initData:(NSDictionary*)dictionary
+-(void)initData:(NSDictionary*)dictionary Content:(NSObject*)obj
 {
     titleLab.text = [dictionary objectForKey:@"title"];
     contentTextField.placeholder = [dictionary objectForKey:@"placeholder"];
@@ -42,6 +42,7 @@
         contentTextField.hidden = YES;
         contentTextView.hidden = NO;
         contentTextView.placeholder = @"请输入1000字以内描述";
+        contentTextView.text = [self getContent:obj];
         titBgToBottom.constant = [Util myYOrHeight:40];
     }else
     {
@@ -58,6 +59,7 @@
         contentTextField.hidden = NO;
         contentTextView.hidden = YES;
         titBgToBottom.constant = 0;
+        contentTextField.text = [self getContent:obj];
     }
     
     //必填的显示星星 非必填的不显示星星
@@ -68,16 +70,17 @@
         markImg.hidden = NO;
     }
 }
--(void)loadContent:(NSObject*)obj
+
+-(NSString*)getContent:(NSObject*)obj
 {
     if ([obj isKindOfClass:[NSDictionary class]]) {
         NSDictionary *dic = (NSDictionary*)obj;
         NSString *content = [dic objectForKey:@"content"];
         if ([content length]>0) {
-            contentTextField.text = content;
+            return content;
         }
-        
     }
+    return @"";
 }
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField

@@ -18,6 +18,7 @@
     __weak IBOutlet SMPageControl *spacePageControl;
    
 }
+@property(nonatomic,copy) void(^clickedBannerAction)(int index);
 /**
  初始化scrollView上的视图
  */
