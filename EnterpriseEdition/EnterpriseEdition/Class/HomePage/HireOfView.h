@@ -28,5 +28,6 @@
     
 }
 @property (nonatomic,copy) void(^clickedHire)(int index);
+@property (nonatomic) BOOL isValid;
 -(void)loadItem:(NSArray*)array;
 @end

@@ -118,6 +118,9 @@
 {
     if ([text isEqualToString:@"\n"]) {
         [contentTextView resignFirstResponder];
+        if ([_delegate respondsToSelector:@selector(cancelKey)]) {
+            [_delegate cancelKey];
+        }
         return NO;
     }
     NSString *newString = [textView.text stringByReplacingCharactersInRange:range withString:text];

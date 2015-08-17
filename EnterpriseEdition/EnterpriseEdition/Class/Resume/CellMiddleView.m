@@ -7,6 +7,7 @@
 //
 
 #import "CellMiddleView.h"
+#import "UIImageView+WebCache.h"
 
 @implementation CellMiddleView
 
@@ -26,7 +27,8 @@
             secondLab.font = [UIFont systemFontOfSize:11];
             thirdLab.font = [UIFont systemFontOfSize:11];
         }
-        protraitImg.layer.cornerRadius = protraitImg.frame.size.width;
+        protraitImg.layer.cornerRadius = protraitImg.frame.size.width/2;
+        protraitImg.layer.masksToBounds = YES;
         experienceLab.layer.cornerRadius = experienceLab.frame.size.height/2;
         experienceLab.layer.masksToBounds = YES;
     }
@@ -35,16 +37,51 @@
 
 -(void)loadData:(NSDictionary *)dictionary
 {
-    NSString *exp = [dictionary objectForKey:@"experience"];
-    if ([exp length]>0) {
-        experienceLab.text = exp;
+    NSString *urlString = [Util getCorrectString:[dictionary objectForKey:@"head_img"]];
+    NSString *sexString = [dictionary objectForKey:@"sex"];
+    NSString *defaultStr = nil;
+    if ([sexString isEqualToString:@"女"]) {
+        defaultStr = @"resume_protrait_weman_default";
+    }else
+    {
+        defaultStr = @"resume_protrait_man_default";
+   
+    }
+    
+    if ([urlString length]>0) {
+        [protraitImg sd_setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:[UIImage imageNamed:defaultStr]];
+    }else
+    {
+        protraitImg.image = [UIImage imageNamed:defaultStr];
+    }
+    
+    
+    if ([[dictionary objectForKey:@"internships"] intValue]==1) {
+        experienceLab.text = @"有工作经验";;
         experienceLab.hidden = NO;
     }else
     {
         experienceLab.hidden = YES;
     }
-    firstLab.text = [NSString stringWithFormat:@"%@  %@  %@",[dictionary objectForKey:@"name"],[dictionary objectForKey:@"sex"],[dictionary objectForKey:@"selfjob"]];
-    secondLab.text = [NSString stringWithFormat:@"%@ | %@ | %@",[dictionary objectForKey:@"age"],[dictionary objectForKey:@"record"],[dictionary objectForKey:@"money"]];
-    thirdLab.text = [NSString stringWithFormat:@"%@ | %@",[dictionary objectForKey:@"professional"],[dictionary objectForKey:@"school"]];
+    
+    
+    firstLab.text = [NSString stringWithFormat:@"%@  %@  %@",[dictionary objectForKey:@"full_name"],[dictionary objectForKey:@"sex"],[dictionary objectForKey:@"job_type"]];
+    secondLab.text = [NSString stringWithFormat:@"%@ | %@ | %@ | %@",[dictionary objectForKey:@"birthday"],[Util getCorrectString:[dictionary objectForKey:@"certificate_type"]],[dictionary objectForKey:@"salary"],[Util getCorrectString:[dictionary objectForKey:@"employment_type"]]];
+    NSString *major_name = [Util getCorrectString:[dictionary objectForKey:@"major_name"]];
+    NSString *school_name = [Util getCorrectString:[dictionary objectForKey:@"school_name"]];
+    if ([major_name length]>0&&[school_name length]>0) {
+        thirdLab.text = [NSString stringWithFormat:@"%@ | %@",major_name,school_name];
+    }else if([major_name length]>0&&[school_name length]==0)
+    {
+        thirdLab.text = [NSString stringWithFormat:@"%@",major_name];
+   
+    }else if([major_name length]==0&&[school_name length]>0)
+    {
+        thirdLab.text = [NSString stringWithFormat:@"%@",school_name];
+    }else
+    {
+        thirdLab.text = @"学校专业暂无";
+    }
+    
 }
 @end

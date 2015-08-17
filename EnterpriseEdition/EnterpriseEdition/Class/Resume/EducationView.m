@@ -29,7 +29,15 @@
         NSString *endTime = [self getEndTime:[dictionary objectForKey:@"end_year"] Month:[dictionary objectForKey:@"end_month"]];
         timeLab.text = [NSString stringWithFormat:@"%@/%@-%@",[dictionary objectForKey:@"start_year"],[dictionary objectForKey:@"start_month"],endTime];
         schoolLab.text = [NSString stringWithFormat:@"%@ | %@",[dictionary objectForKey:@"school_name"],[dictionary objectForKey:@"college"]];
-        proLab.text = [NSString stringWithFormat:@"%@ | %@ | %@",[dictionary objectForKey:@"major_name"],[CombiningData getCertificateType:[[dictionary objectForKey:@"certificate_type"] intValue]],[dictionary objectForKey:@"major_name"]];
+        NSString *majorName = [Util getCorrectString:[dictionary objectForKey:@"major_name"]];
+        NSString *cerType = [CombiningData getCertificateType:[[dictionary objectForKey:@"certificate_type"] intValue]];
+        if ([majorName length]>0&&[cerType length]>0) {
+            proLab.text = [NSString stringWithFormat:@"%@ | %@ ",majorName,cerType];
+        }else
+        {
+            proLab.text = [NSString stringWithFormat:@"%@%@ ",majorName,cerType];
+        }
+        
     }
 }
 -(NSString*)getEndTime:(NSString*)endYear Month:(NSString*)endMonth

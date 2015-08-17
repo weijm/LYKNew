@@ -23,7 +23,7 @@
                         <constraint firstAttribute="height" constant="1" id="5KQ-JZ-tIP"/>
                     </constraints>
                 </view>
-                <button opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAk-3J-uju">
+                <button hidden="YES" opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAk-3J-uju">
                     <rect key="frame" x="122.5" y="69" width="75" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="2fm-zD-WxE"/>
@@ -44,7 +44,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eDC-Ga-kYL" userLabel="arrowBg">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eDC-Ga-kYL" userLabel="arrowBg">
                     <rect key="frame" x="182.5" y="69" width="30" height="30"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_filtrate_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="nfC-kp-0P5">

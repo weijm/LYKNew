@@ -14,6 +14,7 @@
                 <outlet property="infoLab" destination="KZx-h4-b8Q" id="lLM-A9-QcK"/>
                 <outlet property="protraitImag" destination="y8C-5P-IAf" id="87x-rr-O99"/>
                 <outlet property="rateLab" destination="9ml-Wi-zFO" id="323-f1-zxX"/>
+                <outlet property="stateBg" destination="EIL-ko-LTg" id="Wxe-Ua-1kJ"/>
                 <outlet property="urgentView" destination="Orh-NJ-LnO" id="54o-iP-8MR"/>
             </connections>
         </placeholder>

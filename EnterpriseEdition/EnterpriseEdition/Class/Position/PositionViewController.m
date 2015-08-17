@@ -34,6 +34,7 @@
     //选中状态的标记数组
     NSMutableArray *chooseArray;
     
+    
     //获取的当前页数
     int currentPage1;
     int currentPage2;
@@ -99,10 +100,12 @@
         NSLog(@"cell row == %ld",(long)indexPath.row);
     }
     //获取数据
-    NSDictionary *dictionary = nil;
+    NSMutableDictionary *dictionary = nil;
     if (categaryType == 1) {
-        dictionary = [validArray objectAtIndex:indexPath.row];
+        dictionary = [NSMutableDictionary dictionaryWithDictionary:[validArray objectAtIndex:indexPath.row]];
+        
         cell.showCheckImg = NO;
+        
     }else if (categaryType == 2)
     {
         dictionary = [offlineArray objectAtIndex:indexPath.row];
@@ -169,7 +172,7 @@
     }
     //恢复 非编辑状态
     if (rightBt.specialMark ==1) {
-        [self rightAction];
+        return;
     }
     NSDictionary *dictionary = nil;
     if (categaryType ==1) {
@@ -520,6 +523,35 @@
         self.navigationItem.rightBarButtonItem.enabled = YES;
     }
 }
+#pragma mark - 在非编辑状态下 下拉加载更多
+- (void)refreshData
+{
+    if (rightBt.specialMark == 0) {//不处于编辑状态 可以加载更多
+        isLoading = YES;
+        //请求数据
+        [self requestPositionList:YES];
+        //本页其他事件不可触发
+        [self subViewEnabled:NO];
+    }else
+    {
+        [dataTableView stopRefresh];
+    }
+}
+//停止刷新
+-(void)stopRefreshLoading
+{
+    [dataTableView stopRefresh];
+    isLoading = NO;
+    [self subViewEnabled:YES];
+    [dataTableView changeProText:NO];
+}
+#pragma mark - 加载数据中 不可以点击本页的事件
+-(void)subViewEnabled:(BOOL)enable
+{
+    self.navigationItem.rightBarButtonItem.enabled = enable;
+    self.navigationItem.leftBarButtonItem.enabled = enable;
+    headerView.userInteractionEnabled = enable;
+}
 #pragma mark - 请求服务器
 -(void)requestPositionList:(BOOL)isMore
 {
@@ -541,18 +573,28 @@
         default:
             break;
     }
-    NSString *listJson = nil;
+    NSString *listJson = [CombiningData getPositionList:page Status:status];;
+    NSArray *jsonArr = nil;
     if (!isMore) {
         [self showHUD:@"正在加载数据"];
-        listJson = [CombiningData getPositionList:page Status:status];
+        jsonArr = [NSArray arrayWithObjects:[CombiningData getMineInfo:kGetUrgentInfo],listJson, nil];
+//        jsonArr = [NSArray arrayWithObjects:[CombiningData getMineInfo:kGetUrgentInfo],listJson, nil];
+        
     }else
     {
-        listJson = [CombiningData getPositionList:(page+1) Status:status];
+        jsonArr = [NSArray arrayWithObjects:listJson, nil];
     }
-    
     //请求服务器
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost WithSSl:nil];
     [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        NSString *json = [result objectForKey:@"requestJson"];
+        NSDictionary *dic = [Util dictionaryWithJsonString:json];
+        NSString *type = [dic objectForKey:@"type"];
+        if ([type isEqualToString:kGetUrgentInfo]) {
+            //处理急招的信息
+            [self dealUrgentInfo:result];
+            return ;
+        }
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 //加载首页数据
@@ -594,9 +636,7 @@
                     {
                         [self stopRefreshLoading];
                     }
-                    
                 }
-                
                 NSLog(@"message == %@",[result objectForKey:@"message"]);
             }
         }else
@@ -609,42 +649,22 @@
                 isLoading = NO;
                 [self subViewEnabled:YES];
             }
-            
             NSLog(@"%@",error);
         }
     };
 
+    
 }
-#pragma mark - 在非编辑状态下 下拉加载更多
-- (void)refreshData
+#pragma mark - 处理列表返回的结果
+-(void)dealUrgentInfo:(id)result
 {
-    if (rightBt.specialMark == 0) {//不处于编辑状态 可以加载更多
-        isLoading = YES;
-        //请求数据
-        [self requestPositionList:YES];
-        //本页其他事件不可触发
-        [self subViewEnabled:NO];
-    }else
-    {
-        [dataTableView stopRefresh];
+    NSArray *dataAr= [result objectForKey:@"data"];
+    if ([dataAr count]>0) {
+//        urgentDic = [dataAr firstObject];
     }
+    [dataTableView reloadData];
 }
-//停止刷新
--(void)stopRefreshLoading
-{
-    [dataTableView stopRefresh];
-    isLoading = NO;
-    [self subViewEnabled:YES];
-    [dataTableView changeProText:NO];
-}
-#pragma mark - 加载数据中 不可以点击本页的事件
--(void)subViewEnabled:(BOOL)enable
-{
-    self.navigationItem.rightBarButtonItem.enabled = enable;
-    self.navigationItem.leftBarButtonItem.enabled = enable;
-    headerView.userInteractionEnabled = enable;
-}
-
+#pragma mark- 批量处理请求服务器
 -(void)batchDealWithPosition:(NSArray*)idsArray Status:(int)status
 {
     [self showHUD:@"正在处理数据"];
@@ -679,6 +699,5 @@
         }
         
     };
-
 }
 @end

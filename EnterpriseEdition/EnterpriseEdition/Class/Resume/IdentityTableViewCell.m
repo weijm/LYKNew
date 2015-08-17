@@ -12,7 +12,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    addressToTop.constant = 5.5;
+//    addressToTop.constant = 5.5;
     
 }
 
@@ -64,5 +64,16 @@
     {
         return @"其他";
     }
+}
+-(void)loadRetaimCount:(NSString*)downloadCount
+{
+    if (downloadCount!=nil) {
+        showDownloadCountLab.text = [NSString stringWithFormat:@"剩余%@次",downloadCount];
+        showDownloadCountLab.hidden = NO;
+    }else
+    {
+        showDownloadCountLab.hidden = YES;
+    }
+    
 }
 @end

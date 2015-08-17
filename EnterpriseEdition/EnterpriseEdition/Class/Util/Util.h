@@ -82,10 +82,7 @@
  判断字符串是整数
  */
 +(BOOL)isPureInt:(NSString*)string;
-/**
- 获取字符串中的type值
- */
-+(NSString*)getTypeFromJson:(NSString*)jsonString;
+
 
 #pragma mark - 文件路径
 /**
@@ -113,5 +110,10 @@
  将json转换为字典
  */
 + (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
+
+/**
+ 将剔除字符
+ */
+
 @end
 

@@ -81,6 +81,28 @@
     return jobtyepId;
 
 }
+// 获取专业名称的Ids
+-(int)getMajorIds:(int)fid Name:(NSString*)name
+{
+    __block int majorId = 0;
+    NSString *dbPath = [Util getSQLitePath];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+    if (![db open]) {
+        NSLog(@"could not open db");
+    }
+    [db setShouldCacheStatements:YES];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
+    [queue inDatabase:^(FMDatabase *db){
+        FMResultSet *rs = [db executeQuery:@"select * from t_major where fid = ? and name = ?",[NSNumber numberWithInt:fid],name];
+        while ([rs next]) {
+            majorId = [rs intForColumn:@"id"];
+        }
+        [rs close];
+    }];
+    return majorId;
+    
+}
+
 // 获取民族
 -(NSString*)getNationStringById:(int)nationID
 {
@@ -100,6 +122,46 @@
         [rs close];
     }];
     return nationString;
+
+}
+-(int)getIndustryIdsByName:(NSString *)name
+{
+    __block int industryId = 0;
+    NSString *dbPath = [Util getSQLitePath];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+    if (![db open]) {
+        NSLog(@"could not open db");
+    }
+    [db setShouldCacheStatements:YES];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
+    [queue inDatabase:^(FMDatabase *db){
+        FMResultSet *rs = [db executeQuery:@"select * from t_industry where name = ?",name];
+        while ([rs next]) {
+            industryId = [rs intForColumn:@"id"];
+        }
+        [rs close];
+    }];
+    return industryId;
+
+}
+-(int)getJobTypeIdsByName:(NSString *)name
+{
+    __block int jobtyepId = 0;
+    NSString *dbPath = [Util getSQLitePath];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+    if (![db open]) {
+        NSLog(@"could not open db");
+    }
+    [db setShouldCacheStatements:YES];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
+    [queue inDatabase:^(FMDatabase *db){
+        FMResultSet *rs = [db executeQuery:@"select * from t_job_type where name = ?",name];
+        while ([rs next]) {
+            jobtyepId = [rs intForColumn:@"id"];
+        }
+        [rs close];
+    }];
+    return jobtyepId;
 
 }
 @end

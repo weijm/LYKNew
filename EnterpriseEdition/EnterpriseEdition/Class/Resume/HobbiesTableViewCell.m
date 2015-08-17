@@ -51,12 +51,14 @@
         NSArray *dataArray = (NSArray*)object;
         if ([dataArray count]>0) {
             NSDictionary* dic = [dataArray firstObject];
-            contentLab.text = [dic objectForKey:key];
+            NSString *content = [dic objectForKey:key];
+           
+            contentLab.text = [content stringByReplacingOccurrencesOfString:@"\\n" withString:@" "];
             emptyView.hidden = YES;
             contentLab.hidden = NO;
             
             CGSize theStringSize = [contentLab.text sizeWithFont:contentLab.font constrainedToSize:contentLab.frame.size lineBreakMode:contentLab.lineBreakMode];
-            contentLab.frame = CGRectMake(contentLab.frame.origin.x, contentLab.frame.origin.y, theStringSize.width, theStringSize.height);
+            contentLab.frame = CGRectMake(contentLab.frame.origin.x, contentLab.frame.origin.y, theStringSize.width, theStringSize.height+30);
         }else
         {
             emptyView.hidden = NO;

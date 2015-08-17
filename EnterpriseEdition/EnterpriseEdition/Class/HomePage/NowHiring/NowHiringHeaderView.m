@@ -37,15 +37,17 @@
         //初始化按钮
         [self initButtonView];
         
-        [self initProgressView];
+//        [self initProgressView];
         
-        [self loadCountTextColor];
+        
     }
     return self;
 }
 //初始化剩余时间进度条
 -(void)initProgressView
 {
+    NSArray *timeArr = [[_urgDic objectForKey:@"over_time"] componentsSeparatedByString:@":"];
+    remainingTime = [[timeArr firstObject] intValue]*60*60+[timeArr[1] intValue]*60+[timeArr[2] intValue];
     float pvY = subbg.frame.origin.y-(kPVHeight - [Util myYOrHeight:kBTHeight])/2;
     circleProgressView = [[CircleProgressView alloc] initWithFrame:CGRectMake((kWidth-kPVHeight)/2,pvY , kPVHeight, kPVHeight)];
     [btBg addSubview:circleProgressView];
@@ -60,11 +62,13 @@
     UIColor *tintColor = [UIColor redColor];
     circleProgressView.status = NSLocalizedString(@"circle-progress-view.status-in-progress", nil);
     circleProgressView.tintColor = tintColor;
-    remainingTime = 16*60*60+45*60+30;
+//    remainingTime = 16*60*60+45*60+30;
     circleProgressView.remainingTime = remainingTime;//剩余时间
     circleProgressView.elapsedTime = kLimitTime-remainingTime;//已过时间
     
     [self startTimer];
+    contentLab.text = [NSString stringWithFormat:@"%@/%@",[_urgDic objectForKey:@"resume_num"],[_urgDic objectForKey:@"resume_max"]];
+    [self loadCountTextColor];
 }
 //初始化按钮
 - (void)initButtonView
@@ -83,7 +87,8 @@
 }
 -(void)loadCountTextColor
 {
-    NSRange range = NSMakeRange(0, 2);
+    NSRange range1 = [contentLab.text rangeOfString:@"/"];
+    NSRange range = NSMakeRange(0, range1.location);
     NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:contentLab.text];
     //设置字体颜色
     [attributedStr addAttribute:NSForegroundColorAttributeName

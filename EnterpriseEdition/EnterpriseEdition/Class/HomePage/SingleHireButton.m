@@ -37,8 +37,9 @@
 // 初始化按钮图片及文字
 -(void)loadSubViewAndData:(NSDictionary*)dictionary
 {
-    NSString *imgStr = [NSString stringWithFormat:@"homepage_hire_icon%ld",self.tag+1];
+    NSString *imgStr = [NSString stringWithFormat:@"homepage_hire_icon%d",(int)self.tag+1];
     [itemBt setBackgroundImage:[UIImage imageNamed:imgStr] forState:UIControlStateNormal];
+    
     //初始化文字
     if ([dictionary allKeys].count>1) {
         [self loadLabText:[dictionary objectForKey:@"string"] stytleStr:[dictionary objectForKey:@"substring"]];
@@ -63,7 +64,9 @@
     {
         range = NSMakeRange(0, 0);
     }
-    
+    if (string == nil) {
+        return;
+    }
     NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:string];
     //设置字体颜色
     [attributedStr addAttribute:NSForegroundColorAttributeName

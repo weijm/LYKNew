@@ -30,4 +30,11 @@
  获取民族
  */
 -(NSString*)getNationStringById:(int)nationID;
+/**
+ 获取专业名称的Ids
+ */
+-(int)getMajorIds:(int)fid Name:(NSString*)name;
+
+-(int)getIndustryIdsByName:(NSString *)name;
+-(int)getJobTypeIdsByName:(NSString *)name;
 @end

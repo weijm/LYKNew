@@ -20,6 +20,6 @@
     //工作内容
     
     __weak IBOutlet UILabel *contentLab;
-}
+   }
 -(void)loadData:(NSDictionary*)dictioanry;
 @end

@@ -203,7 +203,7 @@
     switch (index) {
         case 1://对应
             _titleLab.text = @"学    历 ";
-            leftArray = [NSArray arrayWithObjects:@"大  专",@"本  科",@"研究生",@"博  士",nil];
+            leftArray = [NSArray arrayWithObjects:@"大  专",@"本  科",@"研究生",@"博  士",@"其  他",nil];
             self.locate.country = [leftArray objectAtIndex:0];
             break;
         case 2://对应

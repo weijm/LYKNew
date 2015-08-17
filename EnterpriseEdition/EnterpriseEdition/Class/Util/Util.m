@@ -274,17 +274,6 @@
     
     return [scan scanInt:&val]&&[scan isAtEnd]&&[string integerValue]>0;
 }
-+(NSString*)getTypeFromJson:(NSString*)jsonString
-{
-    NSString *string1 = @"type\":\"";
-    NSString *string2 = @"\",\"token";
-    NSRange range1 = [jsonString rangeOfString:string1];
-    NSRange range2 = [jsonString rangeOfString:string2];
-    
-    NSRange newRange = NSMakeRange(range1.location+range1.length, range2.location-(range1.location+range1.length));
-    NSString *type = [jsonString substringWithRange:newRange];
-    return type;
-}
 #pragma mark - 文件的相关操作
 //document的路径
 +(NSString*)documentPath

@@ -60,11 +60,38 @@
     if (dictionary !=nil) {
         NSString *str1 = [Util getCorrectString:[dictionary objectForKey:@"city_id_1"]];
         NSString *str2 = [Util getCorrectString:[dictionary objectForKey:@"city_id_2"]];
-        if ([str1 isEqualToString:str2]) {
-            locationLab.text = [NSString stringWithFormat:@"%@|%@",str2,[Util getCorrectString:[dictionary objectForKey:@"city_id_3"]]];
+        NSString *str3 = [Util getCorrectString:[dictionary objectForKey:@"city_id_3"]];
+        
+        if([str1 isEqualToString:@"0"])
+        {
+            str1 = @"";
+        }
+        if([str2 isEqualToString:@"0"])
+        {
+            str2 = @"";
+        }
+        if([str3 isEqualToString:@"0"])
+        {
+            str3 = @"";
+        }
+        if ([str1 length]>0&&[str2 length]>0&&[str3 length]>0) {
+            if ([str1 isEqualToString:str2]) {
+                locationLab.text = [NSString stringWithFormat:@"%@|%@",str2,str3];
+            }else
+            {
+                locationLab.text = [NSString stringWithFormat:@"%@|%@|%@",str1,str2,str3];
+            }
+            
         }else
         {
-            locationLab.text = [NSString stringWithFormat:@"%@|%@|%@",str1,str2,[Util getCorrectString:[dictionary objectForKey:@"city_id_3"]]];
+            
+            if ([str3 length]>0) {
+                locationLab.text = [NSString stringWithFormat:@"%@|%@",str1,str3];
+            }else
+            {
+                 locationLab.text = [NSString stringWithFormat:@"%@",str1];
+            }
+
         }
         
     }

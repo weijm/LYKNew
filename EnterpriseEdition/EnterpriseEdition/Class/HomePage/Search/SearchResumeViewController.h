@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "SearchResumeTableViewCell.h"
 #import "FiltrateView.h"
-@interface SearchResumeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,SearchResumeTableViewCellDelegate,FiltrateViewDelegate>
+@class BaseTableView;
+@interface SearchResumeViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,SearchResumeTableViewCellDelegate,FiltrateViewDelegate>
 {
    
-    __weak IBOutlet UITableView *dataTableView;
+    __weak IBOutlet BaseTableView *dataTableView;
+    
     NSMutableArray *dataArray;
     //选中状态的标志
     NSMutableArray *chooseArray;

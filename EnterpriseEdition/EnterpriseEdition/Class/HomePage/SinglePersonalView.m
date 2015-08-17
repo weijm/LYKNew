@@ -7,6 +7,7 @@
 //
 
 #import "SinglePersonalView.h"
+#import "UIImageView+WebCache.h"
 
 @implementation SinglePersonalView
 
@@ -40,6 +41,7 @@
         
         //设置头像圆角
         protraitImg.layer.cornerRadius = protraitimgHeight.constant/2;
+        protraitImg.layer.masksToBounds = YES;
         //设置匹配度视图圆角
         rateLab.layer.masksToBounds = YES;
         rateLab.layer.cornerRadius = rateHeight.constant/2;
@@ -53,13 +55,32 @@
 -(void)loadSubView:(NSDictionary*)dictionary
 {
     if (dictionary!=nil) {
-        protraitImg.backgroundColor = [Util randomColor];
-        rateLab.text = [NSString stringWithFormat:@"匹配度%ld%%",(long)[Util randomRate]];
-        NSString *jobString = [dictionary objectForKey:@"job"];
-        jobLab.text = jobString;
+        NSString *urlString = [Util getCorrectString:[dictionary objectForKey:@"head_img"]];
+        if ([urlString length]>0) {
+            [protraitImg sd_setImageWithURL:[NSURL URLWithString:urlString]];
+        }else
+        {
+            protraitImg.backgroundColor = [Util randomColor];
+        }
         
-        nameLab.text = [dictionary objectForKey:@"name"];
-        proLab.text = [dictionary objectForKey:@"pro"];
+        rateLab.text = [NSString stringWithFormat:@"匹配度%.0f%%",[[dictionary objectForKey:@"result_value"] floatValue]*100];
+        NSString *jobString = [Util getCorrectString:[dictionary objectForKey:@"job_name"]];
+        if ([jobString length]>4) {
+            jobLab.text = [jobString substringToIndex:4];
+        }else
+        {
+            jobLab.text = jobString;
+        }
+        
+        
+//        nameLab.text = [dictionary objectForKey:@"name"];
+        NSString *content = [NSString stringWithFormat:@"%@ %@",[dictionary objectForKey:@"school_name"],[dictionary objectForKey:@"college"]];
+        proLab.text = content;
+    }else
+    {
+        jobLab.text = @"";
+        proLab.text = @"";
+   
     }
 }
 @end

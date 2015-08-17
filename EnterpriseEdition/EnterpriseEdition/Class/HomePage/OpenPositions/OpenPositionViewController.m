@@ -54,7 +54,8 @@
     lineWidth.constant = 0.5;
     
     [[LocationViewController shareInstance] startLocation];
-    NSLog(@"infoDic == %@",_infoDic);
+    [self changeInfoInLocation];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,7 +74,77 @@
 #pragma mark - 转化编辑数据
 -(void)changeInfoInLocation
 {
-    
+    NSDictionary *dic = _infoDic;
+    if (dic==nil) {
+        return;
+    }
+    NSArray *keyArray = [NSArray arrayWithObjects:@"title",@"industry_name",@"job_type_name",@"need_count",@"work_type",[NSArray arrayWithObjects:@"salary_min",@"salary_max", nil],[NSArray arrayWithObjects:@"city_name_1",@"city_name_2",@"city_name_3", nil],@"address",@"job_description",@"certificate_type",@"work_exp_type",@"department",@"benefit",nil];
+    for (int i =0; i < [keyArray count]; i++)
+    {
+        NSObject *obj = [keyArray objectAtIndex:i];
+        
+        if ([obj isKindOfClass:[NSString class]]) {
+            NSString *keyString = (NSString*)obj;
+            NSObject *contentobj = [Util getCorrectString:[dic objectForKey:keyString]];
+            if ([contentobj isKindOfClass:[NSString class]]) {
+                NSString *content = (NSString*)contentobj;
+                if ([content length]>0) {
+                    NSMutableDictionary *dictionary = nil;
+                    if (i==1||i==2||i==4||i==9||i==10) {
+                        dictionary = [NSMutableDictionary dictionaryWithDictionary:[self getIdsFromContentByWeb:content Index:i]];
+                        [dictionary setObject:content forKey:@"content"];
+                    }else{
+                        dictionary = [NSMutableDictionary dictionary];
+                        [dictionary setObject:content forKey:@"content"];
+                    }
+                    
+                    [contentArray replaceObjectAtIndex:i withObject:dictionary];
+                }
+            }else
+            {
+                NSArray *contArray = (NSArray*)contentobj;
+                NSMutableString *content = [NSMutableString string];
+                for (int i =0; i < [contArray count]; i++) {
+                    [content appendString:[contArray objectAtIndex:i]];
+                }
+                NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+                [dictionary setObject:content forKey:@"content"];
+                [contentArray replaceObjectAtIndex:i withObject:dictionary];
+            }
+            
+            
+        }else if ([obj isKindOfClass:[NSArray class]])
+        {
+            if (i==6) {
+                NSString *content = nil;
+                NSString *str1 = [Util getCorrectString:[dic objectForKey:@"city_name_1"]];
+                NSString *str2 = [Util getCorrectString:[dic objectForKey:@"city_name_2"]];
+                if ([str2 isEqualToString:str1]) {
+                    content = [NSString stringWithFormat:@"%@%@",str1,[Util getCorrectString:[dic objectForKey:@"city_name_3"]]];
+                }else
+                {
+                    content = [NSString stringWithFormat:@"%@%@%@",str1,str2,[Util getCorrectString:[dic objectForKey:@"city_name_3"]]];
+                }
+                //获取对应的id
+                NSDictionary *contentDictionry = [NSDictionary dictionaryWithObjectsAndKeys:str1,@"city1",str2,@"city2",[dic objectForKey:@"city_name_3"],@"city3", nil];
+                
+                NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[self getIdByContent:contentDictionry Index:5]];
+                [dictionary setObject:content forKey:@"content"];
+                [contentArray replaceObjectAtIndex:i withObject:dictionary];
+            }else if (i == 5)
+            {
+                NSString *content = [NSString stringWithFormat:@"%@-%@",[dic objectForKey:@"salary_min"],[dic objectForKey:@"salary_max"]];
+                NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:content,@"content",[dic objectForKey:@"salary_min"],@"salary_min",[dic objectForKey:@"salary_max"],@"salary_max", nil];
+                [contentArray replaceObjectAtIndex:i withObject:dictionary];
+           
+            }
+           
+            
+        }
+        
+    }
+    NSLog(@"getContentArray == %@",contentArray);
+    [dataTableView reloadData];
 }
 
 #pragma mark - Items按钮触发事件
@@ -369,6 +440,14 @@
     
     BOOL isFull = [self checkInfo];
     if (isFull) {//当填写的信息完整并有效时 保存到服务器
+        if(_isEditAgain)
+        {//从详情进入编辑
+            [self requestSaveOrCommitInfo:kEditPositionInfo Prompt:@"保存" jobId:[_infoDic objectForKey:@"id"]];
+            
+        }else
+        {//新建保存
+            [self requestSaveOrCommitInfo:kSavePositionInfo Prompt:@"保存" jobId:@""];
+        }
         
     }
 }
@@ -376,33 +455,36 @@
 - (IBAction)commitAction:(id)sender {
     BOOL isFull = [self checkInfo];
     if (isFull) {//当填写的信息完整并有效时 提交到服务器
-        NSLog(@"contentArray == %@",contentArray);
-        NSString *jsonString = [CombiningData addPosition:contentArray];
-        [self showHUD:@"正在提交"];
-        //请求服务器
-        [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
-        [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-            if (result!=nil) {
-                if ([[result objectForKey:@"result"] intValue]>0) {
-                    [self hideHUDWithComplete:@"提交成功"];
-                    //返回上一页
-                    [self leftAction];
-                    
-                    
-                }else
-                {
-                    [self hideHUDFaild:[result objectForKey:@"message"]];
-                    NSLog(@"error message == %@",[result objectForKey:@"message"]);
-                }
+        [self requestSaveOrCommitInfo:kCommitPosition Prompt:@"提交" jobId:@""];
+    }
+}
+#pragma mark - 请求服务器
+-(void)requestSaveOrCommitInfo:(NSString*)type Prompt:(NSString*)ptomptString jobId:(NSString*)jID
+{
+    NSLog(@"contentArray == %@",contentArray);
+    NSString *jsonString = [CombiningData addPosition:contentArray Type:type PositionId:jID];
+    [self showHUD:[NSString stringWithFormat:@"正在%@",ptomptString]];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUDWithComplete:[NSString stringWithFormat:@"%@成功",ptomptString]];
+                //返回上一页
+                [self leftAction];
             }else
             {
-                [self hideHUD];
-                [self showAlertView:@"服务器请求失败"];
+                [self hideHUDFaild:[result objectForKey:@"message"]];
+                NSLog(@"error message == %@",[result objectForKey:@"message"]);
             }
-            
-        };
+        }else
+        {
+            [self hideHUD];
+            [self showAlertView:@"服务器请求失败"];
+        }
+        
+    };
 
-    }
 }
 #pragma mark - 验证所填写的信息
 -(BOOL)checkInfo
@@ -469,6 +551,58 @@
         [dic setObject:@"60000" forKey:@"salary_max"];
     }
     return dic;
+}
+//将字符串转换id
+-(NSMutableDictionary*)getIdsFromContentByWeb:(NSString*)content Index:(int)index
+{
+    NSMutableDictionary * newDic = [NSMutableDictionary dictionary];
+    if (index == 1) {//所属行业
+        NSArray *array = [content componentsSeparatedByString:@" "];
+        NSMutableDictionary *dic =[NSMutableDictionary dictionary];
+        if ([array count]>1) {
+            [dic setObject:[array firstObject] forKey:@"industry_id0"];
+            [dic setObject:[array lastObject] forKey:@"industry_id1"];
+            newDic = [self getIdByContent:dic Index:7];
+            return newDic;
+        }else
+        {
+            int indexId= [[PositionObject shareInstance] getIndustryIdsByName:content];
+            [dic setObject:[NSNumber numberWithInt:indexId] forKey:@"industry_id1"];
+            return dic;
+        }
 
+    }else if (index==2)//职位名称
+    {
+        NSArray *array = [content componentsSeparatedByString:@" "];
+        NSMutableDictionary *dic =[NSMutableDictionary dictionary];
+        if ([array count]>1) {
+            [dic setObject:[array firstObject] forKey:@"job_type_id0"];
+            [dic setObject:[array lastObject] forKey:@"job_type_id1"];
+            newDic = [self getIdByContent:dic Index:0];
+            return newDic;
+        }else
+        {
+            int indexId= [[PositionObject shareInstance] getJobTypeIdsByName:content];
+            [dic setObject:[NSNumber numberWithInt:indexId] forKey:@"job_type_id1"];
+            return dic;
+        }
+
+    }else if (index == 4)//职位类型
+    {
+        NSString *compangSize = [CombiningData getJObTypeId:[Util getCorrectString:content]];
+        [newDic setObject:compangSize forKey:@"selectedId"];
+        return newDic;
+    }else if (index == 9)//学历要求
+    {
+        NSString *compangSize = [CombiningData getCerId:[Util getCorrectString:content]];
+        [newDic setObject:compangSize forKey:@"selectedId"];
+        return newDic;
+    }else if (index == 10)//工作经验
+    {
+        NSString *compangSize = [CombiningData getExpId:[Util getCorrectString:content]];
+        [newDic setObject:compangSize forKey:@"selectedId"];
+        return newDic;
+    }
+    return nil;
 }
 @end

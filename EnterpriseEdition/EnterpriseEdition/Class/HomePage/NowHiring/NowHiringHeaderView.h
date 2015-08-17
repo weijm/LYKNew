@@ -24,8 +24,8 @@
 }
 @property (strong, nonatomic) NSTimer *timer;
 @property (nonatomic) Session *session;
-
+@property (nonatomic,strong) NSDictionary *urgDic;
 @property (nonatomic,copy)void(^chooseHeaderBtAction)(NSInteger index);
-
+-(void)initProgressView;
 -(void)stopTimer;
 @end

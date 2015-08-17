@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "NowHiringTableViewCell.h"
-@interface NowHiringViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,NowHiringTableViewCellDelegate>
+@class BaseTableView;
+@interface NowHiringViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,NowHiringTableViewCellDelegate>
 {
     
   
-    __weak IBOutlet UITableView *dataTableView;
+    
+    __weak IBOutlet BaseTableView *dataTableView;
     int categaryType;
     NSMutableArray *receivedArray;
     NSMutableArray *commendArray;
 }
+@property(nonatomic,strong)NSDictionary *urgentDic;
 @end

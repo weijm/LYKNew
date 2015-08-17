@@ -25,6 +25,10 @@
     
     UIView *headerView;
     
+    BOOL isLoading;
+    
+    int currentPage;
+    
 }
 @end
 
@@ -33,12 +37,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title = @"搜索简历";
     self.view.backgroundColor = kCVBackgroundColor;
     [self initHeaderView];
     //初始化编辑按钮
-    [self initItems];
+//    [self initItems];
     //初始化搜索条
-    [self initSearchBar];
+//    [self initSearchBar];
     //导航条的颜色
     [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.translucent = NO;
@@ -88,32 +93,32 @@
 }
 
 #pragma mark - 编辑按钮
--(void)initItems
-{
-    CGRect frame = CGRectMake(0, 0, 15, 30);
-    
-    UIButton *leftBt = [[UIButton alloc] initWithFrame:frame];
-    [leftBt setImage:[UIImage imageNamed:@"back_bt"] forState:UIControlStateNormal];
-    UIEdgeInsets imageInsets = leftBt.imageEdgeInsets;
-    leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-10, imageInsets.bottom, imageInsets.right+10);
-    [leftBt addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
-    self.navigationItem.leftBarButtonItem = leftItem;
-    
-    frame = CGRectMake(0, 0, 30, 30);
-    rightBt = [[UIButton_Custom alloc] initWithFrame:frame];
-    [rightBt setImage:[UIImage imageNamed:@"home_edit_btn"] forState:UIControlStateNormal];
-    imageInsets = rightBt.imageEdgeInsets;
-    rightBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left+10, imageInsets.bottom, imageInsets.right-10);
-    rightBt.titleLabel.font = [UIFont systemFontOfSize:14];
-    UIEdgeInsets titleInsets = rightBt.titleEdgeInsets;
-    rightBt.titleEdgeInsets = UIEdgeInsetsMake(titleInsets.top, titleInsets.left+10, titleInsets.bottom, titleInsets.right-10);
-    [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
-    self.navigationItem.rightBarButtonItem = rightItem;
-    self.navigationItem.rightBarButtonItem.enabled = NO;
-
-}
+//-(void)initItems
+//{
+//    CGRect frame = CGRectMake(0, 0, 15, 30);
+//    
+//    UIButton *leftBt = [[UIButton alloc] initWithFrame:frame];
+//    [leftBt setImage:[UIImage imageNamed:@"back_bt"] forState:UIControlStateNormal];
+//    UIEdgeInsets imageInsets = leftBt.imageEdgeInsets;
+//    leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-10, imageInsets.bottom, imageInsets.right+10);
+//    [leftBt addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
+//    self.navigationItem.leftBarButtonItem = leftItem;
+//    
+//    frame = CGRectMake(0, 0, 30, 30);
+//    rightBt = [[UIButton_Custom alloc] initWithFrame:frame];
+//    [rightBt setImage:[UIImage imageNamed:@"home_edit_btn"] forState:UIControlStateNormal];
+//    imageInsets = rightBt.imageEdgeInsets;
+//    rightBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left+10, imageInsets.bottom, imageInsets.right-10);
+//    rightBt.titleLabel.font = [UIFont systemFontOfSize:14];
+//    UIEdgeInsets titleInsets = rightBt.titleEdgeInsets;
+//    rightBt.titleEdgeInsets = UIEdgeInsetsMake(titleInsets.top, titleInsets.left+10, titleInsets.bottom, titleInsets.right-10);
+//    [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
+//    self.navigationItem.rightBarButtonItem = rightItem;
+//    self.navigationItem.rightBarButtonItem.enabled = NO;
+//
+//}
 -(void)leftAction
 {
     if(footerView)
@@ -210,34 +215,17 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if ([dataArray count]!=0) {
-        if (rightBt.specialMark==1) {
-            return [Util myYOrHeight:11];
-        }else
-        {
-            return [Util myYOrHeight:35];
-        }
-        
+    if (rightBt.specialMark==1) {
+        return [Util myYOrHeight:11];
     }else
     {
-        return 0;
+        return [Util myYOrHeight:35];
     }
     
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if ([dataArray count]!=0) {
-        if (rightBt.specialMark==1) {
-            headerView.hidden = YES;
-        }else
-        {
-            headerView.hidden = NO;
-        }
-        return headerView;
-    }else
-    {
-        return nil;
-    }
+    return headerView;
     
 }
 
@@ -284,6 +272,12 @@
         NSLog(@"确定 筛选条件");
         NSMutableArray *conArray = [NSMutableArray arrayWithArray:conditionArray];
         NSLog(@"conditionArray == %@",conArray);
+        dataArray = [NSMutableArray array];
+        [dataTableView reloadData];
+        //请求服务器
+        [self requestSearchResume:conArray isMore:NO];
+        
+
         //确定搜索条件 进行搜索
         [filtrateView removeFromSuperview];
     }else
@@ -298,7 +292,8 @@
 -(void)showConditions:(int)row Content:(NSDictionary*)dictionary
 {
     if (row == 5 || row == 3 || row ==0) {//地区 此处可以查询对应的id
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        NSDictionary *idsDic = [self getIdByContent:dictionary Index:row];
+        NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:idsDic];
         NSString *province = [dictionary objectForKey:@"province"];
         NSString *city = [dictionary objectForKey:@"city"];
         NSString *district = [dictionary objectForKey:@"district"];
@@ -315,6 +310,31 @@
     {//其他
         [filtrateView reloadTableView:row withContent:dictionary];
     }
+}
+-(NSMutableDictionary*)getIdByContent:(NSDictionary*)dictionary Index:(int)row
+{
+    NSMutableDictionary *idsDic = nil;
+    switch (row) {
+        case 0://职位名称
+        {
+            idsDic = [CombiningData getJobTypeIDsByContent:dictionary];
+        }
+            break;
+        case 5://省市区
+        {
+            idsDic = [CombiningData getCityIDsByContent:dictionary];
+        }
+            break;
+        case 3://专业
+        {
+            idsDic = [CombiningData getMajorIDsByContent:dictionary];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    return idsDic;
 }
 
 #pragma mark - UISearchBarDelegate
@@ -445,6 +465,111 @@
     }
     if ([dataArray count]>0) {
          self.navigationItem.rightBarButtonItem.enabled = YES;
+    }
+}
+-(void)requestSearchResume:(NSArray*)array isMore:(BOOL)isMore
+{
+    int page = currentPage;
+    NSString *jsonString = nil;
+    if (isMore) {
+        jsonString = [CombiningData searchResumeInManager:array PageIndex:page];
+    }else{
+        jsonString = [CombiningData searchResumeInManager:array PageIndex:1];
+    }
+    [self showHUD:@"搜索中"];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                //加载首页数据
+                NSArray *dataArr = [result objectForKey:@"data"];
+                //全选数组标记
+                if(page==1)
+                {   //如果第一页 加载的时候 初始化 chooseArray 否则直接增加到数组中
+                    chooseArray = [NSMutableArray array];
+                }
+                for (int i=0; i< [dataArr count]; i++) {
+                    [chooseArray addObject:@""];
+                }
+                [self dealWithResponeData:dataArr];
+                //将提示视图取消
+                if (!isMore) {
+                    [self hideHUD];
+                }else
+                {
+                    [dataTableView stopRefresh];
+                    isLoading = NO;
+                    [self subViewEnabled:YES];
+                }
+                
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                if ([message length]==0) {
+                    message = @"搜索结果0";
+                }
+                if (!isMore) {
+                    [self hideHUDFaild:message];
+                }else
+                {
+                    NSString *msg = [result objectForKey:@"message"];
+                    if ([msg length]==0) {
+                        [dataTableView changeProText:YES];
+                        [self performSelector:@selector(stopRefreshLoading) withObject:nil afterDelay:0.5];
+                    }else
+                    {
+                        [self stopRefreshLoading];
+                    }
+                    
+                }
+                
+                NSLog(@"message == %@",[result objectForKey:@"message"]);
+            }
+        }else
+        {
+            if (!isMore) {
+                [self hideHUDFaild:@"服务器请求失败"];
+            }else
+            {
+                [dataTableView stopRefresh];
+                isLoading = NO;
+                [self subViewEnabled:YES];
+            }
+            
+            NSLog(@"%@",error);
+        }
+    };
+    
+}
+//停止刷新
+-(void)stopRefreshLoading
+{
+    [dataTableView stopRefresh];
+    isLoading = NO;
+    [self subViewEnabled:YES];
+    [dataTableView changeProText:NO];
+}
+#pragma mark - 加载数据中 不可以点击本页的事件
+-(void)subViewEnabled:(BOOL)enable
+{
+    self.navigationItem.rightBarButtonItem.enabled = enable;
+    self.navigationItem.leftBarButtonItem.enabled = enable;
+    headerView.userInteractionEnabled = enable;
+}
+-(void)dealWithResponeData:(NSArray*)array
+{
+    if (currentPage>1) {
+        [dataArray addObjectsFromArray:array];
+    }else
+    {
+        dataArray = [NSMutableArray arrayWithArray:array];
+    }
+    currentPage++;
+    [dataTableView reloadData];
+    if ([dataArray count]>0) {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+        headerView.userInteractionEnabled = YES;
     }
 }
 @end

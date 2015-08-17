@@ -16,6 +16,8 @@
 #import "CertificateTableViewCell.h"
 #import "UIButton+Custom.h"
 
+#define MAXFLOAT [Util myYOrHeight:200]
+
 @interface ResumeInfoViewController ()
 {
     BOOL showIndentityInfo;
@@ -24,6 +26,7 @@
     InfoHeaderView * headerView;
     
     NSString *contactPhone;
+    NSString *downloadCount;
 }
 @end
 
@@ -32,6 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
     self.title = @"简历详情";
     lineWidth.constant = 0.5;
     showIndentityInfo = NO;
@@ -163,9 +167,15 @@
                 NSArray *dataArray = (NSArray*)object;
                 if ([dataArray count]>0) {
                     NSDictionary *dic = [dataArray firstObject];
-                    NSString *contentString = [dic objectForKey:key];
-                    int row = [Util getRow:(int)[contentString length] eachCount:[self getEachLength:0]];
-                    return row*20;
+                    
+                    NSString *contentString = [[dic objectForKey:key] stringByReplacingOccurrencesOfString:@"\\n" withString:@""];
+                    int row = [Util getRow:(int)[contentString length] eachCount:[self getEachLength:(int)index]];
+                    if ([contentString length]==0||row==1) {
+                        return [Util myYOrHeight: 40];
+                    }
+                    CGSize titleSize = [contentString sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake([Util myXOrWidth:160], MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
+                    return titleSize.height;
+
                 }
             }
             return [Util myYOrHeight: 40];
@@ -218,6 +228,9 @@
     }
     if (showIndentityInfo) {
         [cell loadData:[self getFirstObject]];
+    }else
+    {
+        [cell loadRetaimCount:downloadCount];
     }
     return cell;
 }
@@ -311,12 +324,17 @@
         button.backgroundColor = Rgb(227, 227, 231, 1.0);
         [button setTitle:@"取消收藏" forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        //通知服务器添加收藏
+        [self requesBatchDealWithResumeType:1];
     }else
     {
         button.specialMark = 0;
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         button.backgroundColor = Rgb(95, 182, 239, 1.0);
         [button setTitle:@"收    藏" forState:UIControlStateNormal];
+        //通知服务器取消收藏
+        [self requesBatchDealWithResumeType:2];
+
     }
     
 }
@@ -324,7 +342,7 @@
 -(void)requestResumeInfo
 {
     [self showHUD:@"加载数据中"];
-    NSArray *typeArray = [NSArray arrayWithObjects:kResumeBaseInfo,kResumeJobObjective,kResumeDegreeList,kResumeInterest,kResumeInternships,kResumeAppraisal,kResumeReward,kResumeCertify, nil];
+    NSArray *typeArray = [NSArray arrayWithObjects:kResumeBaseInfo,kResumeJobObjective,kResumeDegreeList,kResumeInterest,kResumeInternships,kResumeAppraisal,kResumeReward,kResumeCertify,kResumeDownloadCount,kResumeStatus, nil];
     NSInteger requestCount = [typeArray count];
     __block int responeCount = 0;
     for (int i = 0; i < requestCount; i++) {
@@ -344,7 +362,27 @@
             }
             if (result!=nil) {
                 if ([[result objectForKey:@"result"] intValue]>0) {
-                    [self dealWithInfo:result Type:typeArray];
+                    NSDictionary *resultDic = [Util dictionaryWithJsonString:[result objectForKey:@"requestJson"]];
+                    NSString *responType = [resultDic objectForKey:@"type"];
+                    if ([responType isEqualToString:kResumeDownloadCount]) {
+                        NSArray *tempArr = [result objectForKey:@"data"];
+                        if ([tempArr count]>0) {
+                            downloadCount = [[tempArr firstObject] objectForKey:@"count"];
+                            [infoTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:0 inSection:0], nil] withRowAnimation:UITableViewRowAnimationNone];
+                        }
+                        
+                    }else if ([responType isEqualToString:kResumeStatus])
+                    {
+                        NSArray *tempArr = [result objectForKey:@"data"];
+                        if ([tempArr count]>0) {
+                            NSDictionary *statuDic = [tempArr firstObject];
+                            [headerView loadStatus:statuDic];
+                        }
+                    }else
+                    {
+                         [self dealWithInfo:result Type:typeArray];
+                    }
+                   
                     
                 }else
                 {
@@ -358,19 +396,53 @@
 -(void)dealWithInfo:(id)responObj Type:(NSArray*)typeArray
 {
     NSString *requestJson = [responObj objectForKey:@"requestJson"];
-    NSString *typeString = [Util getTypeFromJson:requestJson];
+    NSDictionary *jsonDic = [Util dictionaryWithJsonString:requestJson];
+    NSString *typeString = [jsonDic objectForKey:@"type"];//
     NSInteger index = [typeArray indexOfObject:typeString];
     //数组里面的第几个
     NSArray *dataArray = [responObj objectForKey:@"data"];
-    
-    [infoArray replaceObjectAtIndex:index withObject:dataArray];
-    [infoTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:index inSection:0], nil] withRowAnimation:UITableViewRowAnimationFade];
-    
-    //刷新headerView 和标题
-    if (index ==0) {
-        [self getFirstObject];
+    if ([dataArray count]>0) {
+        [infoArray replaceObjectAtIndex:index withObject:dataArray];
+        [infoTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:index inSection:0], nil] withRowAnimation:UITableViewRowAnimationFade];
+        //刷新headerView 和标题
+        if (index ==0) {
+            [self getFirstObject];
+        }
     }
+    
+    
+   
 }
+#pragma mark - 收藏和取消收藏
+#pragma mark - 批量编辑简历
+-(void)requesBatchDealWithResumeType:(int)type
+{
+    [self showHUD:@"正在处理数据"];
+    NSString *infoJson = [CombiningData batchManagerResume:[NSString stringWithFormat:@"%d",_resumeID] Status:type];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUDWithComplete:@"数据处理成功"];
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                if ([message length]==0) {
+                    message = @"处理失败";
+                }
+                [self hideHUDFaild:message];
+                NSLog(@"error message == %@",[result objectForKey:@"message"]);
+            }
+        }else
+        {
+            [self hideHUDFaild:@"服务器请求失败"];
+        }
+        
+    };
+    
+}
+
 #pragma mark- 每行文本显示的字数
 -(int)getEachLength:(int)index
 {
@@ -394,14 +466,25 @@
     NSObject *obj = [infoArray objectAtIndex:index];
     if ([obj isKindOfClass:[NSArray class]]) {
         NSArray *array = (NSArray*)obj;
+        float sizeX = [Util myXOrWidth:160];
+        
+        if (kIphone4||kIphone5) {
+            sizeX = 250;
+        }
         if ([array count]>0) {
             for (int i = 0; i < [array count]; i++)
             {
                 NSDictionary *dic = [array objectAtIndex:i];
-                NSString *content = [dic objectForKey:@"job_description"];
+                NSString *content = [[dic objectForKey:@"job_description"] stringByReplacingOccurrencesOfString:@"\\n" withString:@""];
+                CGSize titleSize = [content sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake(sizeX, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
+                float height = titleSize.height+[Util myYOrHeight:80];
                 int row = [Util getRow:(int)[content length] eachCount:[self getEachLength:(int)index]];
-                float height = 80+row*19;
+//                float
+                if (row ==1) {
+                    height = [Util myYOrHeight:80]+row*19;
+                }
                 viewHeight = viewHeight+height;
+                
             }
         }else
         {

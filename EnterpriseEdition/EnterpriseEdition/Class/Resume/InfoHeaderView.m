@@ -32,6 +32,7 @@
         CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 0.918, 0.667, 0.494, 1 });
         expLab.layer.borderColor = colorref;
         
+        
     }
     return self;
 }
@@ -40,8 +41,8 @@
     if (dictionary != nil && [dictionary isKindOfClass:[NSDictionary class]]) {
         NSString *nation = [CombiningData getNationStringByID:[[dictionary objectForKey:@"nation_id"] intValue]];
         int sexIndex = [[dictionary objectForKey:@"sex"] intValue];
-        NSString *sexString = (sexIndex==0)?@"男":@"女";
-        NSString *pImg = (sexIndex==0)?@"resume_protrait_man_default":@"resume_protrait_weman_default";
+        NSString *sexString = (sexIndex==1)?@"男":@"女";
+        NSString *pImg = (sexIndex==1)?@"resume_protrait_man_default":@"resume_protrait_weman_default";
         [protraitImag sd_setImageWithURL:[NSURL URLWithString:[dictionary objectForKey:@"head_img"]]placeholderImage:[UIImage imageNamed:pImg]];
         infoLab.text = [NSString stringWithFormat:@"%@ %@ %@",sexString,nation,[dictionary objectForKey:@"birthday"]];
         
@@ -59,6 +60,30 @@
     }else
     {
         return @"未填";
+    }
+}
+-(void)loadStatus:(NSDictionary*)dictionary
+{
+    if (dictionary!=nil) {
+        if ([[dictionary objectForKey:@"emergent"] intValue]==0) {
+            urgentView.hidden = YES;
+        }else
+        {
+            urgentView.hidden = NO;
+        }
+        
+        if ([[dictionary objectForKey:@"eval"] intValue]==0) {
+            editView.hidden = YES;
+        }else
+        {
+            editView.hidden = NO;
+        }
+        if ([[dictionary objectForKey:@"download"] intValue]==0) {
+            download.hidden = YES;
+        }else
+        {
+            download.hidden = NO;
+        }
     }
 }
 @end

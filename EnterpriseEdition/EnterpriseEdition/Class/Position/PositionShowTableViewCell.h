@@ -61,12 +61,15 @@
     CircleProgressView *circleProgressView;
     
     NSTimeInterval remainingTime;
+    
+    
 }
 @property (strong, nonatomic) NSTimer *timer;
 @property (nonatomic) Session *session;
 
 @property(nonatomic,weak) id<PositionShowTableViewCellDelegate> delegate;
 @property (nonatomic) BOOL showCheckImg;
+//@property (nonatomic,strong) NSDictionary *urgentDictionary;
 /**
  加载数据
  */

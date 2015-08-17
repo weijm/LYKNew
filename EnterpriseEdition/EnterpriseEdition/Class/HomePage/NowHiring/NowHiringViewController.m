@@ -20,6 +20,8 @@
     FooterView *footerView;
     
     NowHiringHeaderView *headerView;
+    BOOL isLoading;
+    int currentPage;
 }
 @end
 
@@ -30,6 +32,7 @@
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = kCVBackgroundColor;
     self.title = @"急招";
+    currentPage = 1;
     //导航条的颜色
     [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.translucent = NO;
@@ -41,12 +44,13 @@
     dataTableView.separatorColor = [UIColor clearColor];
     
     //初始化items
-    [self initItems];
+//    [self initItems];
 
     
     categaryType = 1;
-    [self getData];
-}
+    [self performSelector:@selector(requestResumeListFromPosition:) withObject:[NSNumber numberWithBool:NO] afterDelay:0.0];
+    NSLog(@"dd == %@",_urgentDic);
+   }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -131,6 +135,8 @@
         NowHiringViewController *sself = wself;
         [sself chooseAction:index isChooseAll:NO];
     };
+    headerView.urgDic = [NSDictionary dictionaryWithDictionary:_urgentDic] ;
+    [headerView initProgressView];
     headerView.backgroundColor = kCVBackgroundColor;
     [self.view addSubview:headerView];
 }
@@ -155,68 +161,32 @@
     }
 
 }
-#pragma mark - 获取数据
--(void)getData
-{
-   NSMutableArray * dataArray = [[NSMutableArray alloc] init];
-    NSString *jobStr = @"软件工程师";
-    
-    for (int i =0; i < 6; i++) {
-        NSString *job = [NSString stringWithFormat:@"%@%d",jobStr,i];
-        NSString *time = [NSString stringWithFormat:@"08-%d",i+10];
-        NSString *name = [NSString stringWithFormat:@"张晓%d",i];
-        NSString *age = [NSString stringWithFormat:@"%d",i];
-        NSString *money = [NSString stringWithFormat:@"%d-%d",500*(i+1),800*(i+1)];
-        NSString *exp = (i%3==0)?@"有工作经验":@"";
-        NSString *urgent = @"0";
-        NSString *colledted = @"0";
-        NSString *download = @"0";
-        
-        [dataArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:job,@"job",urgent,@"urgent",colledted,@"collected",download,@"download",time,@"time",name,@"name",@"女",@"sex",@"UI设计师",@"selfjob",age,@"age",@"本科",@"record",money,@"money",@"艺术设计",@"professional",@"中国传媒大学",@"school",exp,@"experience",nil]];
-    }
-    
-    
-    chooseArray = [[NSMutableArray alloc] initWithCapacity:[dataArray count]];
-    for (int i=0; i< [dataArray count]; i++) {
-        [chooseArray addObject:@""];
-    }
-    if (categaryType==1) {
-        receivedArray = dataArray;
-    }else
-    {
-        commendArray = dataArray;
-    }
-    if ([dataArray count]>0) {
-        self.navigationItem.rightBarButtonItem.enabled = YES;
-    }
-    [dataTableView reloadData];
-}
 #pragma mark - 编辑按钮
--(void)initItems
-{
-    CGRect frame = CGRectMake(0, 0, 50, 30);
-    
-    UIButton *leftBt = [[UIButton alloc] initWithFrame:frame];
-    [leftBt setImage:[UIImage imageNamed:@"back_bt"] forState:UIControlStateNormal];
-    UIEdgeInsets imageInsets = leftBt.imageEdgeInsets;
-    leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-30, imageInsets.bottom, imageInsets.right+20);
-    [leftBt addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
-    self.navigationItem.leftBarButtonItem = leftItem;
-    
-    rightBt = [[UIButton_Custom alloc] initWithFrame:frame];
-    [rightBt setImage:[UIImage imageNamed:@"home_edit_btn"] forState:UIControlStateNormal];
-    imageInsets = rightBt.imageEdgeInsets;
-    rightBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left+20, imageInsets.bottom, imageInsets.right-20);
-    rightBt.titleLabel.font = [UIFont systemFontOfSize:14];
-    UIEdgeInsets titleInsets = rightBt.titleEdgeInsets;
-    rightBt.titleEdgeInsets = UIEdgeInsetsMake(titleInsets.top, titleInsets.left+20, titleInsets.bottom, titleInsets.right-20);
-    [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
-    self.navigationItem.rightBarButtonItem = rightItem;
-    self.navigationItem.rightBarButtonItem.enabled = NO;
-    
-}
+//-(void)initItems
+//{
+//    CGRect frame = CGRectMake(0, 0, 50, 30);
+//    
+//    UIButton *leftBt = [[UIButton alloc] initWithFrame:frame];
+//    [leftBt setImage:[UIImage imageNamed:@"back_bt"] forState:UIControlStateNormal];
+//    UIEdgeInsets imageInsets = leftBt.imageEdgeInsets;
+//    leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-30, imageInsets.bottom, imageInsets.right+20);
+//    [leftBt addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
+//    self.navigationItem.leftBarButtonItem = leftItem;
+//    
+//    rightBt = [[UIButton_Custom alloc] initWithFrame:frame];
+//    [rightBt setImage:[UIImage imageNamed:@"home_edit_btn"] forState:UIControlStateNormal];
+//    imageInsets = rightBt.imageEdgeInsets;
+//    rightBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left+20, imageInsets.bottom, imageInsets.right-20);
+//    rightBt.titleLabel.font = [UIFont systemFontOfSize:14];
+//    UIEdgeInsets titleInsets = rightBt.titleEdgeInsets;
+//    rightBt.titleEdgeInsets = UIEdgeInsetsMake(titleInsets.top, titleInsets.left+20, titleInsets.bottom, titleInsets.right-20);
+//    [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
+//    self.navigationItem.rightBarButtonItem = rightItem;
+//    self.navigationItem.rightBarButtonItem.enabled = NO;
+//    
+//}
 -(void)leftAction
 {
     if(footerView)
@@ -294,8 +264,14 @@
 {
     if(index<10)
     {
+        if (index ==0) {
+            currentPage = 1;
+            [self requestResumeListFromPosition:NO];
+        }else if (index == 1)
+        {
+            [self requestInfoFromWeb];
+        }
         categaryType = (int)index+1;
-        [self getData];
         [dataTableView reloadData];
     }else
     {
@@ -339,4 +315,153 @@
     }
     return enableArray;
 }
+-(void)requestResumeListFromPosition:(BOOL)isMore
+{
+    
+    int page = currentPage;
+    NSString *jsonString = nil;
+    if (!isMore) {
+        [self showHUD:@"正在加载数据"];
+    }
+    jsonString = [CombiningData getResumeListFromPosiotion:[_urgentDic objectForKey:@"id"]  PageIndex:page];
+    
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                //加载首页数据
+                NSArray *dataArr = [result objectForKey:@"data"];
+                //全选数组标记
+                if(page==1)
+                {   //如果第一页 加载的时候 初始化 chooseArray 否则直接增加到数组中
+                    chooseArray = [NSMutableArray array];
+                }
+                for (int i=0; i< [dataArr count]; i++) {
+                    [chooseArray addObject:@""];
+                }
+                [self dealWithResponeData:dataArr];
+                //将提示视图取消
+                if (!isMore) {
+                    [self hideHUD];
+                }else
+                {
+                    [dataTableView stopRefresh];
+                    isLoading = NO;
+                    [self subViewEnabled:YES];
+                }
+                
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                if ([message length]==0) {
+                    message = @"数据为空";
+                }
+                if (!isMore) {
+                    [self hideHUDFaild:message];
+                }else
+                {
+                    NSString *msg = [result objectForKey:@"message"];
+                    if ([msg isEqualToString:@"已经到最后一页"]) {
+                        [dataTableView changeProText:YES];
+                        [self performSelector:@selector(stopRefreshLoading) withObject:nil afterDelay:0.25];
+                    }else
+                    {
+                        [self stopRefreshLoading];
+                    }
+                }
+                
+                NSLog(@"message == %@",[result objectForKey:@"message"]);
+            }
+        }else
+        {
+            if (!isMore) {
+                [self hideHUDFaild:@"服务器请求失败"];
+            }else
+            {
+                [dataTableView stopRefresh];
+                isLoading = NO;
+                [self subViewEnabled:YES];
+            }
+            
+            NSLog(@"%@",error);
+        }
+    };
+    
+}
+//停止刷新
+-(void)stopRefreshLoading
+{
+    [dataTableView stopRefresh];
+    isLoading = NO;
+    [self subViewEnabled:YES];
+    [dataTableView changeProText:NO];
+}
+-(void)dealWithResponeData:(NSArray*)array
+{
+    if (currentPage>1) {
+        [receivedArray addObjectsFromArray:array];
+    }else
+    {
+        receivedArray = [NSMutableArray arrayWithArray:array];
+    }
+    currentPage++;
+    [dataTableView reloadData];
+//    if ([dataArray count]>0) {
+//        self.navigationItem.rightBarButtonItem.enabled = YES;
+//        headerView.userInteractionEnabled = YES;
+//    }
+}
+#pragma mark - 加载数据中 不可以点击本页的事件
+-(void)subViewEnabled:(BOOL)enable
+{
+    self.navigationItem.rightBarButtonItem.enabled = enable;
+    self.navigationItem.leftBarButtonItem.enabled = enable;
+    headerView.userInteractionEnabled = enable;
+}
+//刷新加载更多
+-(void)refreshData
+{
+    if (rightBt.specialMark == 0) {//不处于编辑状态 可以加载更多
+        isLoading = YES;
+        //请求数据
+        [self requestResumeListFromPosition:YES];
+        //本页其他事件不可触发
+        [self subViewEnabled:NO];
+    }else
+    {
+        [dataTableView stopRefresh];
+    }
+}
+#pragma mark - 从服务器获取信息
+-(void)requestInfoFromWeb
+{
+    NSString *jsonString = [CombiningData getUIDInfo:kCommendList];
+    __block int requestCount = 0;
+    [self showHUD:@"正在加载数据"];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        requestCount++;
+        
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUD];
+                commendArray = [result objectForKey:@"data"];
+                [dataTableView reloadData];
+
+            }else
+            {
+                [self hideHUDFaild:[result objectForKey:@"message"]];
+                NSLog(@"error message == %@",[result objectForKey:@"message"]);
+            }
+        }else
+        {
+            [self hideHUDFaild:@"服务器请求失败"];
+            //                [self showAlertView:@"服务器请求失败"];
+        }
+    };
+
+}
+
 @end

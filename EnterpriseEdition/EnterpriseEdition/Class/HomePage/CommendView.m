@@ -39,6 +39,11 @@
 //加载子视图的数据
 -(void)loadSubView:(NSArray*)array
 {
+    for (UIView *view in [bottombg subviews]) {
+        if ([view isKindOfClass:[CommendEmpt class]]||[view isKindOfClass:[SinglePersonalView class]]) {
+            [view removeFromSuperview];
+        }
+    }
     if ([array count]==0) {
         NSLog(@"frame == %@",NSStringFromCGRect(bottombg.frame));
         CommendEmpt *emptyView = [[CommendEmpt alloc] initWithFrame:CGRectMake(0, 0, kWidth, bottombg.frame.size.height)];

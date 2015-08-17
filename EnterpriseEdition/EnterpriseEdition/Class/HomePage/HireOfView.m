@@ -48,6 +48,10 @@
     int   index = 0;//第几个按钮
     UIView *subView = topBg;
     NSDictionary *dic;
+    float itemY = 0;
+    if (kIphone4||kIphone5) {
+        itemY = 10;
+    }
     for (int i =0; i < kTotaleItemCount; i++)
     {
         dic = [array objectAtIndex:i];
@@ -57,9 +61,10 @@
             subView = bottomBg;
         }
         float itemX = edgeToLeft + itemW*index;
-        CGRect frame = CGRectMake(itemX, 0, itemW, itemH);
+        CGRect frame = CGRectMake(itemX, itemY, itemW, itemH);
         SingleHireButton *itemView = [[SingleHireButton alloc] initWithFrame:frame];
         itemView.tag = i;
+        itemView.isValid = _isValid;
         [itemView loadSubViewAndData:dic];
         itemView.clickedItem = ^(int index){
             [self clickedItemAction:index];

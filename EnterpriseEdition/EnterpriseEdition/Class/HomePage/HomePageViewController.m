@@ -11,13 +11,13 @@
 #import "CommendView.h"
 #import "SearchResumeViewController.h"//搜索
 #import "NowHiringViewController.h"//急招
-#import "CommendResumeViewController.h"//简历推荐
+#import "CommendResumeForJobViewController.h"//简历推荐更多
 #import "OpenPositionViewController.h" //发布职位
 #import "LoginViewController.h"
 #import "HireOfView.h"
 #import "ResumeInfoViewController.h"
-
 #import "LocationViewController.h"
+#import "WebSourceViewController.h"
 
 #define kBannerViewHeight [Util myYOrHeight:180]
 #define kHireViewHeight [Util myYOrHeight:174]
@@ -38,6 +38,13 @@
 
     //推荐数组
     NSArray *commendArray;
+    //是否是第一次加载
+    BOOL isFirst;
+    
+    NSDictionary *urgentDic;
+    
+    //急招职位是否有效
+    BOOL urgentOverdue;
 }
 @end
 
@@ -63,7 +70,7 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     
-    
+    urgentOverdue = NO;
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -161,6 +168,10 @@
             NSLog(@"index == %d",index);
             NSString *source = [dic objectForKey:@"source"];
             NSLog(@"source== %@",source);
+            WebSourceViewController *webVC = [[WebSourceViewController alloc] init];
+            webVC.hidesBottomBarWhenPushed = YES;
+            webVC.sourceString = source;
+            [self.navigationController pushViewController:webVC animated:YES];
         }
     }
 }
@@ -222,17 +233,18 @@
         commendViewH = kHeight - 150-hireH ;
     }
     CGRect frame = CGRectMake(0, 0, kWidth, commendViewH);
-    //假数据
-    NSArray *dataArray = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"UI设计师",@"job",@"王伟",@"name",@"艺术设计",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"ios开发师",@"job",@"赵倩",@"name",@"计算机专业",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"java开发",@"job",@"王东志",@"name",@"软件工程",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"web开发",@"job",@"刘一民",@"name",@"数学专业",@"pro", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"前段设计",@"job",@"李浩",@"name",@"外语专业",@"pro", nil], nil];
+    
+   
     
     commendView = [[CommendView alloc] initWithFrame:frame];
-    NSString * iid = KGETOBJ(KIID);
-    if ([iid intValue]>0) {
-        [commendView loadSubView:dataArray];
-    }else
-    {
-        [commendView loadSubView:nil];
-    }
+    [commendView loadSubView:nil];
+//    NSString * iid = KGETOBJ(KIID);
+//    if ([iid intValue]>0) {
+//        [commendView loadSubView:dataArray];
+//    }else
+//    {
+//        
+//    }
     
     //点击某个人的触发事件
     
@@ -257,11 +269,13 @@
         case 1:
         {
             NSString * iid = KGETOBJ(KIID);
-            if ([iid intValue]<1) {
+            
+            if ([iid intValue]<1||urgentOverdue) {
                 [Util showPrompt:@"当前您没有急招职位"];
                 return;
             }
             NowHiringViewController *nowhiringVC = [[NowHiringViewController alloc] init];
+            nowhiringVC.urgentDic = urgentDic;
             nowhiringVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:nowhiringVC animated:YES];
 
@@ -310,15 +324,19 @@
         if (![self getEnterpriseCheckState]) {
             return;
         }
-        CommendResumeViewController *commendVC = [[CommendResumeViewController alloc] init];
-        commendVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:commendVC animated:YES];
+        //查看简历
+        CommendResumeForJobViewController *commendForJobVC = [[CommendResumeForJobViewController alloc] init];
+        commendForJobVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:commendForJobVC animated:YES];
+//        CommendResumeViewController *commendVC = [[CommendResumeViewController alloc] init];
+//        commendVC.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:commendVC animated:YES];
     }else
     {
         NSLog(@"查看第%ld个人的简历",(long)index);
         ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
-        infoVC.resumeID = 117377;
-        infoVC.userID = 117377;
+        infoVC.resumeID = [[[commendArray objectAtIndex:index] objectForKey:@"id"] intValue];
+//        infoVC.userID = 117377;
         infoVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:infoVC animated:YES];
     }
@@ -341,7 +359,15 @@
 #pragma mark - 从服务器获取信息
 -(void)requestInfoFromWeb
 {
-    NSArray *jsonArray = [NSArray arrayWithObjects:[CombiningData getPicList],[CombiningData getUIDInfo:kNumberList], nil];
+    NSArray *jsonArray = nil;
+    if (!isFirst) {
+        jsonArray = [NSArray arrayWithObjects:[CombiningData getPicList],[CombiningData getUIDInfo:kNumberList],[CombiningData getUIDInfo:kCommendList],[CombiningData getMineInfo:kGetUrgentInfo], nil];
+        isFirst = YES;
+    }else
+    {
+        jsonArray = [NSArray arrayWithObjects:[CombiningData getUIDInfo:kNumberList],[CombiningData getUIDInfo:kCommendList],[CombiningData getMineInfo:kGetUrgentInfo], nil];
+    }
+    
     __block int requestCount = 0;
     [self showHUD:@"正在加载数据"];
     for (int i=0; i < [jsonArray count]; i++) {
@@ -356,9 +382,10 @@
             }
             if (result!=nil) {
                 if ([[result objectForKey:@"result"] intValue]>0) {
-                    [self dealWithData:result];
+                    [self dealWithData:result isSuccess:YES];
                 }else
                 {
+                    [self dealWithData:result isSuccess:NO];
                     NSLog(@"error message == %@",[result objectForKey:@"message"]);
                 }
             }else
@@ -369,25 +396,56 @@
 
     }
 }
--(void)dealWithData:(id)result
+-(void)dealWithData:(id)result isSuccess:(BOOL)isSuccess
 {
     NSString *json = [result objectForKey:@"requestJson"];
     NSDictionary *dic = [Util dictionaryWithJsonString:json];
     NSString *type = [dic objectForKey:@"type"];
     if ([type isEqualToString:kPictureList]) {
-        bannerArray = [NSArray arrayWithArray:[result objectForKey:@"data"]];
-        [bannerView loadBannerImage:bannerArray];
+        if (isSuccess) {
+            bannerArray = [NSArray arrayWithArray:[result objectForKey:@"data"]];
+            [bannerView loadBannerImage:bannerArray];
+        }
+        
     }else if ([type isEqualToString:kNumberList])
     {
-        NSLog(@"data == %@",[result objectForKey:@"data"]);
-        NSArray *resultArr = [result objectForKey:@"data"];
-        if ([resultArr count]>0) {
-            NSArray *array = [self getHireData:[resultArr firstObject]];
-            [hireOfView loadItem:array];
+        if (isSuccess) {
+            NSArray *resultArr = [result objectForKey:@"data"];
+            if ([resultArr count]>0) {
+                NSArray *array = [self getHireData:[resultArr firstObject]];
+                [hireOfView loadItem:array];
+            }
+        }
+       
+    }else if([type isEqualToString:kCommendList])
+    {
+        if (isSuccess) {
+            commendArray = [result objectForKey:@"data"];
+            [commendView loadSubView:commendArray];
+        }
+       
+        
+   
+    }else if ([type isEqualToString:kGetUrgentInfo])
+    {
+        if (isSuccess) {
+            NSArray *tempAr = [result objectForKey:@"data"];
+            if ([tempAr count]>0) {
+                urgentDic = [tempAr objectAtIndex:0];
+                urgentOverdue = NO;
+            }
+        }else
+        {
+            NSString *message = [result objectForKey:@"message"];
+            if ([message isEqualToString:@"该企业急招职位已过期"]) {
+                urgentOverdue = YES;
+            }
+            
         }
        
    
     }
+        
  }
 #pragma mark - 应聘信息数组
 -(NSMutableArray*)getHireData:(NSDictionary*)dataDic
@@ -411,9 +469,17 @@
                     [newDic setObject:[NSString stringWithFormat:@"%@个",content] forKey:@"substring"];
                 }else if (i==1)
                 {
-                    NSString *string = [NSString stringWithFormat:@"%@ 剩余%@时",[dic objectForKey:@"string"],[content substringToIndex:1]];
-                    [newDic setObject:string forKey:@"string"];
-                    [newDic setObject:[NSString stringWithFormat:@"剩余%@时",[content substringToIndex:1]] forKey:@"substring"];
+                    if ([content integerValue]>=72||[content integerValue]==0) {
+                        NSString *string = [NSString stringWithFormat:@"%@",[dic objectForKey:@"string"]];
+                        [newDic setObject:string forKey:@"string"];
+                        [newDic setObject:@"" forKey:@"substring"];
+                    }else
+                    {
+                        NSString *string = [NSString stringWithFormat:@"%@ 剩余%@时",[dic objectForKey:@"string"],content];
+                        [newDic setObject:string forKey:@"string"];
+                        [newDic setObject:[NSString stringWithFormat:@"剩余%@时",content] forKey:@"substring"];
+                    }
+                    
                 }else
                 {
                     NSString *string = [NSString stringWithFormat:@"%@ %@份",[dic objectForKey:@"string"],content];
@@ -430,11 +496,8 @@
                 [resultArray addObject:newDic];
            
             }
-            
         }
-        
         return resultArray;
-   
     }
 }
 @end

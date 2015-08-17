@@ -33,17 +33,28 @@
                     [vie removeFromSuperview];
                 }
             }
+            float oldViewY = 0;
+            float sizeX = [Util myXOrWidth:160];
 
+            if (kIphone4||kIphone5) {
+                sizeX = 250;
+            }
             for (int i = 0; i < [array count]; i++)
             {
                 NSDictionary *dic = [array objectAtIndex:i];
-                NSString *content = [dic objectForKey:@"job_description"];
+                NSString *content = [[dic objectForKey:@"job_description"] stringByReplacingOccurrencesOfString:@"\\n" withString:@""];
+                CGSize titleSize = [content sizeWithFont:[UIFont systemFontOfSize:10] constrainedToSize:CGSizeMake(sizeX, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
                 int row = [Util getRow:(int)[content length] eachCount:[self getEachLength]];
-                float height = 80+row*18;
-                CGRect frame = CGRectMake(0, height*i, kWidth-85, height);
+//                float height = 90+row*18;
+                float height = titleSize.height+90;
+                if (row ==1) {
+                    height = [Util myYOrHeight:80]+row*19;
+                }
+                CGRect frame = CGRectMake(0, oldViewY, kWidth-85, height);
                 ExperienceView *view = [[ExperienceView alloc] initWithFrame:frame];
                 [view loadData:dic];
                 [infobg addSubview:view];
+                oldViewY = oldViewY+height;
             }
             
         }else

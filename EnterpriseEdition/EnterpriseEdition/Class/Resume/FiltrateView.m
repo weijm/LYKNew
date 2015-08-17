@@ -28,7 +28,7 @@
         filtrateTableView.separatorColor = [UIColor clearColor];
         filtrateTableView.backgroundColor = [UIColor clearColor];
         titleArray = [[NSMutableArray alloc] initWithObjects:@"按 职  位",@"学      历",@"期望薪资",@"专      业",@"职位类型",@"期望城市",@"工作经验", nil];
-        contentArray = [[NSMutableArray alloc] initWithObjects:@"0",@"0",@"0",@"0",@"0",@"0",@"0", nil];
+        contentArray = [NSMutableArray  arrayWithObjects:@"0",@"0",@"0",@"0",@"0",@"0",@"0", nil];
         filtrateTableView.tableFooterView = [self footerView];
     }
     return self;
@@ -51,6 +51,7 @@
         cell.backgroundColor = [UIColor clearColor];
         cell.titleLab.hidden = YES;
         cell.contentBg.hidden = YES;
+        [contentArray replaceObjectAtIndex:0 withObject:@"0"];
     }else
     {
         cell.backgroundColor = [UIColor whiteColor];
@@ -128,6 +129,7 @@
 //重置筛选条件
 -(void)resetFiltrate
 {
+    contentArray = [NSMutableArray  arrayWithObjects:@"0",@"0",@"0",@"0",@"0",@"0",@"0", nil];
     isReset = YES;
     [filtrateTableView reloadData];
     //重置时 确认按钮不可点击
@@ -157,7 +159,14 @@
     if (contentDic) {//编辑数据不为空
         //编辑个数加1
         editCount++;
-        [contentArray replaceObjectAtIndex:row withObject:contentDic];
+        if (row == 2) {//薪资
+            NSDictionary *dic = [self getMaxAnMinSalary:contentDic];
+            [contentArray replaceObjectAtIndex:row withObject:dic];
+        }else
+        {
+            [contentArray replaceObjectAtIndex:row withObject:contentDic];
+        }
+//        [contentArray replaceObjectAtIndex:row withObject:contentDic];
     }else
     {
         //编辑个数减1
@@ -178,5 +187,21 @@
     }
 }
 
+#pragma mark - 将薪资进行转化
+-(NSMutableDictionary*)getMaxAnMinSalary:(NSDictionary*)dictionary
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:dictionary];
+    NSArray *salaryArr = [[dictionary objectForKey:@"content"] componentsSeparatedByString:@"-"];
+    if ([salaryArr count]>0) {
+        [dic setObject:[salaryArr firstObject] forKey:@"salary_min"];
+        [dic setObject:[salaryArr lastObject] forKey:@"salary_max"];
+    }else
+    {
+        [dic setObject:@"20000" forKey:@"salary_min"];
+        [dic setObject:@"60000" forKey:@"salary_max"];
+    }
+    return dic;
+    
+}
 
 @end

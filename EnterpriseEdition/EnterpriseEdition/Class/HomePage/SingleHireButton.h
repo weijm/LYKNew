@@ -28,6 +28,7 @@
    
 }
 @property(nonatomic,copy) void(^clickedItem)(int index);
+@property(nonatomic) BOOL isValid;
 /**
  初始化按钮图片及文字
  */

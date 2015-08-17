@@ -38,9 +38,9 @@
 +(NSString*)registerUser:(NSString*)phone Password:(NSString*)password Verify:(NSString*)code;
 #pragma mark - 职位
 /**
- 提交职位
+ 提交职位 保存 编辑职位信息
  */
-+(NSString*)addPosition:(NSArray*)contentArray;
++(NSString*)addPosition:(NSArray*)contentArray Type:(NSString*)type PositionId:(NSString*)jobId;
 /**
  获取职位列表
  */
@@ -57,8 +57,24 @@
  设置急招
  */
 +(NSString*)setPositionUrgent:(NSString*)jobId MaxCount:(int)count;
-
+/**
+ 查看职位对应的简历
+ */
++(NSString*)getResumeListFromPosiotion:(NSString*)jobId PageIndex:(int)page;
 #pragma mark - 简历
+/**
+ 简历列表
+ */
++(NSString*)getResumeList:(int)page Status:(int)status;
+
+/**
+ 筛选简历
+ */
++(NSString*)searchResumeInManager:(NSArray*)contentArray PageIndex:(int)page;
+/**
+ 批量管理简历
+ */
++(NSString*)batchManagerResume:(NSString*)idsString Status:(int)type;
 /**
  获取简历详情
  */
@@ -99,6 +115,10 @@
  */
 +(NSMutableDictionary*)getJobTypeIDsByContent:(NSDictionary*)dictionary;
 /**
+ 获取专业名称对应的ids字典
+ */
++(NSMutableDictionary*)getMajorIDsByContent:(NSDictionary*)dictionary;
+/**
  根据数字获取职位类型
  */
 +(NSString*)getJobType:(int)index;
@@ -118,7 +138,18 @@
  获取人数规模id
  */
 +(NSString*)getCompanySize:(NSString*)string;
-
+/**
+ 获取职位类型id
+ */
++(NSString*)getJObTypeId:(NSString*)string;
+/**
+ 获取职位类型id
+ */
++(NSString*)getCerId:(NSString*)string;
+/**
+ 获取职位类型id
+ */
++(NSString*)getExpId:(NSString*)string;
 /**
  拼写ids
  */

@@ -31,6 +31,10 @@
 
 
 #pragma mark - 职位
+//保存职位信息
+#define kSavePositionInfo @"ent_job_save"
+//编辑职位信息
+#define kEditPositionInfo @"ent_job_edit"
 //提交审核职位
 #define kCommitPosition @"ent_job_add"
 //获取职位列表
@@ -41,13 +45,26 @@
 #define kPositionManagerStatus @"ent_job_status"
 //设置急招
 #define kPositionUrgent @"ent_job_emergent_status"
+//查看职位对应的简历
+#define kResumeFromPosition @"ent_job_resume_list"
+
+//获取急招职位信息
+#define kGetUrgentInfo @"ent_job_emergent_view"
 
 #pragma mark - 简历
 #pragma mark - 简历列表
 //简历管理里面的简历列表
-#define kResumeList @""
+#define kResumeList @"ent_resume_list"
+//筛选简历
+#define kSearchResume @"ent_resume_search_list"
+
+#define kBatchDealResume @"ent_resume_favorites"
 
 #pragma mark - 简历详情
+//简历详情剩余次数
+#define kResumeDownloadCount @"ent_download_count"
+//简历状态
+#define kResumeStatus @"stu_resume_status"
 //简历的个人信息
 #define kResumeBaseInfo @"stu_resume_user_info_view"
 //简历求职意向
@@ -84,6 +101,8 @@
 #define kPictureList @"ent_index_picture_list"
 //数据的获取
 #define kNumberList @"ent_index_statistics"
+//简历推荐
+#define kCommendList @"ent_index_recommend_list"
 
 
 //上传图片

@@ -23,8 +23,8 @@
     
     __weak IBOutlet NSLayoutConstraint *promptTotop;
 }
-@property (nonatomic) BOOL isEditAgain;
-@property (nonatomic) BOOL fromPositionManager;
+@property (nonatomic) BOOL isEditAgain;//是否再次编辑
+@property (nonatomic) BOOL fromPositionManager;//是否从职位管理里面进入的添加
 @property (nonatomic,strong) NSDictionary *infoDic;
 /**
  将数据保存到本地

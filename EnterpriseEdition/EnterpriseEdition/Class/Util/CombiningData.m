@@ -64,7 +64,7 @@
 }
 #pragma mark - 职位
 //提交职位
-+(NSString*)addPosition:(NSArray*)contentArray
++(NSString*)addPosition:(NSArray*)contentArray Type:(NSString*)type PositionId:(NSString*)jobId
 {
     NSMutableString *subJson = [NSMutableString string] ;
     NSArray *keyArray = [NSArray arrayWithObjects:@"title",@"industry_id",@"job_type_id",@"need_count",@"work_type",[NSArray arrayWithObjects:@"salary_min",@"salary_max", nil],[NSArray arrayWithObjects:@"city_id_1",@"city_id_2",@"city_id_3", nil ],@"address",@"job_description",@"certificate_type",@"work_exp_type",@"department",@"benefit", nil];
@@ -80,6 +80,9 @@
                 if ([keyString hasSuffix:@"id"]) {
                     contentString = [contentDic objectForKey:[NSString stringWithFormat:@"%@1",keyString]];
                 }
+                if ([keyString isEqualToString:@"work_type"]) {
+                     contentString = [contentDic objectForKey:@"selectedId"];
+                }
 
             }
             //拼接字符串
@@ -91,6 +94,9 @@
             for (int j =0; j < [subKeyArr count]; j++) {
                 NSString* keyString = [subKeyArr objectAtIndex:j];
                 NSString *contentString = [contentDic objectForKey:keyString];
+                if (contentString==nil) {
+                    contentString = @"";
+                }
                 //拼接字符串
                 [subJson appendFormat:@"\"%@\":\"%@\",",keyString,contentString];
             }
@@ -102,8 +108,19 @@
     NSString *longitude = [NSString stringWithFormat:@"%@",[userDefault objectForKey:kLongitude]];
     NSString *uid = [userDefault objectForKey:kUID];
     NSString *iid = [userDefault objectForKey:KIID];
+    NSString *keyId = nil;
+    NSString *keyValue =nil;
+    if ([type isEqualToString:kEditPositionInfo]) {
+        keyId = @"jid";
+        keyValue = jobId;
+        
+    }else
+    {
+        keyId = @"iid";
+        keyValue = iid;
+    }
     NSString *jsonString = [NSString stringWithFormat:
-                            @"{\"token\":\"%@\",\"type\":\"%@\",%@\"latitude\":\"%@\",\"longitude\":\"%@\",\"uid\":\"%@\",\"iid\":\"%@\"}",kToken,kCommitPosition,subJson,[Util getCorrectString:latitude],[Util getCorrectString:longitude],uid,iid];
+                            @"{\"token\":\"%@\",\"type\":\"%@\",%@\"latitude\":\"%@\",\"longitude\":\"%@\",\"uid\":\"%@\",\"%@\":\"%@\"}",kToken,type,subJson,[Util getCorrectString:latitude],[Util getCorrectString:longitude],uid,keyId,keyValue];
     return jsonString;
 }
 //获取职位列表
@@ -143,12 +160,101 @@
                             @"{\"token\":\"%@\",\"type\":\"%@\",\"ent_job_id\":\"%@\",\"max_count\":\"%@\",\"ent_user_id\":\"%@\"}",kToken,kPositionUrgent,jobId,countString,uid];
     return jsonString;
 }
++(NSString*)getResumeListFromPosiotion:(NSString*)jobId PageIndex:(int)page
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userDefault objectForKey:kUID];
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"job_id\":\"%@\",\"ent_user_id\":\"%@\",\"page\":\"%@\"}",kToken,kResumeFromPosition,jobId,uid,[NSString stringWithFormat:@"%d",page]];
+    return jsonString;
+}
 #pragma mark -简历
++(NSString*)getResumeList:(int)page Status:(int)status
+{
+    NSString *pageString = [NSString stringWithFormat:@"%d",page];
+    NSString *statusString = [NSString stringWithFormat:@"%d",status];
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"ent_user_id\":\"%@\",\"page\":\"%@\",\"list_type\":\"%@\"}",kToken,kResumeList,KGETOBJ(kUID),pageString,statusString];
+    return jsonString;
+    
+}
+// 筛选简历
++(NSString*)searchResumeInManager:(NSArray*)contentArray PageIndex:(int)page
+{
+    NSMutableString *subJson = [NSMutableString string] ;
+    NSArray *keyArray = [NSArray arrayWithObjects:@"job_type_id",@"certificate_type",[NSArray arrayWithObjects:@"salary_min",@"salary_max", nil],@"major_id",@"employment_type",[NSArray arrayWithObjects:@"city_id_1",@"city_id_2",@"city_id_3", nil],@"internships", nil];
+    for (int i = 0; i < [contentArray count]; i++) {
+        NSObject *contentObj = [contentArray objectAtIndex:i];
+        NSObject *keyObj = [keyArray objectAtIndex:i];
+        if ([keyObj isKindOfClass:[NSString class]]) {//键是字符串
+            NSString *keyString = (NSString*)keyObj;
+            NSString *contentString = @"";
+            if ([contentObj isKindOfClass:[NSDictionary class]]) {//值的字符串
+                NSDictionary *contentDic = (NSDictionary*)contentObj;
+                contentString = [contentDic objectForKey:@"content"];
+                if ([keyString hasSuffix:@"id"]) {
+                    contentString = [contentDic objectForKey:[NSString stringWithFormat:@"%@1",keyString]];
+                }else if([keyString hasSuffix:@"type"])
+                {
+                    contentString = [contentDic objectForKey:@"selectedId"];
+                }
+                
+            }
+            //拼接字符串
+            [subJson appendFormat:@"\"%@\":\"%@\",",keyString,contentString];
+        }else if([keyObj isKindOfClass:[NSArray class]])
+        {
+            NSArray *subKeyArr = (NSArray*)keyObj;
+            NSDictionary *contentDic = (NSDictionary*)contentObj;
+            for (int j =0; j < [subKeyArr count]; j++) {
+                NSString* keyString = [subKeyArr objectAtIndex:j];
+                 NSString *contentString = @"";
+                if ([contentDic isKindOfClass:[NSDictionary class]]) {
+                    contentString = [contentDic objectForKey:keyString];
+                }
+                
+                //拼接字符串
+                [subJson appendFormat:@"\"%@\":\"%@\",",keyString,contentString];
+            }
+            
+        }
+    }
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    
+    NSString *uid = [userDefault objectForKey:kUID];
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",%@\"uid\":\"%@\",\"page\":\"%@\"}",kToken,kSearchResume,subJson,uid,[NSString stringWithFormat:@"%d",page]];
+    return jsonString;
+}
++(NSString*)batchManagerResume:(NSString*)idsString Status:(int)type
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    
+    NSString *uid = [userDefault objectForKey:kUID];
+    NSString *statusString = [NSString stringWithFormat:@"%d",type];
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"resume_ids\":\"%@\",\"action_type\":\"%@\",\"ent_user_id\":\"%@\"}",kToken,kBatchDealResume,idsString,statusString,uid];
+    return jsonString;
+ 
+}
 //获取简历详情
 +(NSString*)getResumeInfo:(NSString*)type keyString:(NSString*)key Value:(NSString*)value
 {
-    NSString *jsonString = [NSString stringWithFormat:
-                            @"{\"type\":\"%@\",\"token\":\"%@\",\"%@\":\"%@\"}",type,kToken,key,value];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    
+    NSString *uid = [userDefault objectForKey:kUID];
+
+    NSString *jsonString;
+    jsonString = [NSString stringWithFormat:
+                  @"{\"type\":\"%@\",\"token\":\"%@\",\"%@\":\"%@\",\"ent_user_id\":\"%@\"}",type,kToken,key,value,uid];
+//    if ([key length]>0) {
+//        
+//    }else
+//    {
+//        jsonString = [NSString stringWithFormat:
+//                      @"{\"type\":\"%@\",\"token\":\"%@\",\"ent_user_id\":\"%@\"}",type,kToken,uid];
+//    }
+    
     return jsonString;
 }
 //上传企业资料
@@ -316,7 +422,24 @@
         }
     }
     return idsDic;
-
+}
+//获取专业名称对应的ids字典
++(NSMutableDictionary*)getMajorIDsByContent:(NSDictionary*)dictionary
+{
+    NSMutableDictionary * idsDic = [[NSMutableDictionary alloc] init];
+    NSArray *values = [dictionary allValues];
+    int majorID = 0;
+    for (int i =0; i < [values count]; i++) {
+        NSString *name = [values objectAtIndex:i];
+        int oldId = majorID;
+        majorID = [[PositionObject shareInstance] getMajorIds:majorID Name:name];
+        if (majorID >oldId) {
+            NSString *key = [NSString stringWithFormat:@"major_id%d",i];
+            [idsDic setObject:[NSNumber numberWithInt:majorID] forKey:key];
+        }
+    }
+    return idsDic;
+    
 }
 +(NSString*)getJobType:(int)index
 {
@@ -370,6 +493,36 @@
     }
     return @"";
     
+}
++(NSString*)getJObTypeId:(NSString*)string
+{
+    NSArray *array = [NSArray arrayWithObjects:@"全职",@"兼职",@"实习", nil];
+    for (int i = 0; i < [array count]; i++) {
+        if ([[array objectAtIndex:i] isEqualToString:string]) {
+            return [NSString stringWithFormat:@"%d",i];
+        }
+    }
+    return @"";
+}
++(NSString*)getCerId:(NSString*)string
+{
+    NSArray *array = [NSArray arrayWithObjects:@"大  专",@"本  科",@"研究生",@"博  士",@"其  他",nil];
+    for (int i = 0; i < [array count]; i++) {
+        if ([[array objectAtIndex:i] isEqualToString:string]) {
+            return [NSString stringWithFormat:@"%d",i];
+        }
+    }
+    return @"";
+}
++(NSString*)getExpId:(NSString*)string
+{
+    NSArray *array = [NSArray arrayWithObjects:@"不限", @"有工作经验",@"无工作经验",nil];
+    for (int i = 0; i < [array count]; i++) {
+        if ([[array objectAtIndex:i] isEqualToString:string]) {
+            return [NSString stringWithFormat:@"%d",i];
+        }
+    }
+    return @"";
 }
 +(NSString*)getIdsByArray:(NSArray*)array
 {

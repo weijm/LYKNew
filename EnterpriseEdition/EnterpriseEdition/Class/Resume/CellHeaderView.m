@@ -41,8 +41,19 @@
     }
     [self showRateViewBg];
 
-    jobLab.text = [dictionary objectForKey:@"job"];
-    timeLab.text = [dictionary objectForKey:@"time"];
+    jobLab.text = [dictionary objectForKey:@"title"];
+    NSString *timeString = [dictionary objectForKey:@"add_time"];
+    
+    NSRange range = [timeString rangeOfString:@"2015-"];
+    if (range.length>0) {
+         timeString = [timeString substringFromIndex:(range.length+range.location)];
+    }
+    timeLab.text = timeString;
+    
+    NSString * rateStr = [Util getCorrectString:[dictionary objectForKey:@"result_value"]];
+    if ([rateStr length]>0) {
+        rateLab.text = [NSString stringWithFormat:@"%.0f%%",[rateStr floatValue]*100];
+    }
     
 }
 -(void)showRateViewBg
@@ -69,6 +80,7 @@
     
     if (showRateView) {
         rateView.hidden = NO;
+        jobTitLab.hidden = YES;
     }else
     {
         rateView.hidden = YES;

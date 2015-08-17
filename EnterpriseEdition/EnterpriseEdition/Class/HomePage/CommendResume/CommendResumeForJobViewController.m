@@ -10,6 +10,8 @@
 #import "UIButton+Custom.h"
 #import "FooterView.h"
 #import "FiltratePickerView.h"
+#import "ResumeInfoViewController.h"
+
 
 @interface CommendResumeForJobViewController ()
 {
@@ -20,6 +22,11 @@
     FiltrateView *filtrateView;
     
     UIView *headerView;
+    
+    int currentPage;
+    BOOL isLoading;
+    //是否是搜索
+    BOOL isSearching;
 }
 @end
 
@@ -28,32 +35,57 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"职位名称-简历推荐";
+    
     
     self.view.backgroundColor = kCVBackgroundColor;
     //初始化编辑按钮
     [self initItems];
     //初始化headerView
-    [self initHeaderView];
+//    [self initHeaderView];
+    
+    currentPage = 1;
+    isLoading = NO;
+    isSearching = NO;
 
     if (!_isForPisition) {
+        self.title = @"更多推荐简历";
         //导航条的颜色
         [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
+        self.navigationController.navigationBar.translucent = NO;
+        [self performSelector:@selector(requestInfoFromWeb) withObject:nil afterDelay:0.0];
+        
+    }else//从简历管理里面进入的
+    {
+        self.title = @"职位名称-简历推荐";
+        //获取数据
+        [self performSelector:@selector(requestResumeListFromPosition:) withObject:[NSNumber numberWithBool:NO] afterDelay:0.0];
     }
    
     //设置tableView
     dataTableView.backgroundColor = [UIColor clearColor];
     dataTableView.separatorColor = [UIColor clearColor];
-    
+    [dataTableView setupRefresh];
+    __weak CommendResumeForJobViewController *wself = self;
+    dataTableView.refreshData = ^{
+        CommendResumeForJobViewController *sself = wself;
+        [sself refreshData];
+    };
+   
     //获取数据
-    [self getData];
+//    [self getData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    if (!_isForPisition) {
+        [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
+        self.navigationController.navigationBar.translucent = NO;
+    }
+}
 #pragma mark - 编辑按钮
 -(void)initItems
 {
@@ -66,18 +98,18 @@
     [leftBt addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
     self.navigationItem.leftBarButtonItem = leftItem;
-    
-    rightBt = [[UIButton_Custom alloc] initWithFrame:frame];
-    [rightBt setImage:[UIImage imageNamed:@"home_edit_btn"] forState:UIControlStateNormal];
-    imageInsets = rightBt.imageEdgeInsets;
-    rightBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left+20, imageInsets.bottom, imageInsets.right-20);
-    rightBt.titleLabel.font = [UIFont systemFontOfSize:14];
-    UIEdgeInsets titleInsets = rightBt.titleEdgeInsets;
-    rightBt.titleEdgeInsets = UIEdgeInsetsMake(titleInsets.top, titleInsets.left+20, titleInsets.bottom, titleInsets.right-20);
-    [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
-    self.navigationItem.rightBarButtonItem = rightItem;
-    self.navigationItem.rightBarButtonItem.enabled = NO;
+//
+//    rightBt = [[UIButton_Custom alloc] initWithFrame:frame];
+//    [rightBt setImage:[UIImage imageNamed:@"home_edit_btn"] forState:UIControlStateNormal];
+//    imageInsets = rightBt.imageEdgeInsets;
+//    rightBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left+20, imageInsets.bottom, imageInsets.right-20);
+//    rightBt.titleLabel.font = [UIFont systemFontOfSize:14];
+//    UIEdgeInsets titleInsets = rightBt.titleEdgeInsets;
+//    rightBt.titleEdgeInsets = UIEdgeInsetsMake(titleInsets.top, titleInsets.left+20, titleInsets.bottom, titleInsets.right-20);
+//    [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
+//    self.navigationItem.rightBarButtonItem = rightItem;
+//    self.navigationItem.rightBarButtonItem.enabled = NO;
     
 }
 -(void)leftAction
@@ -152,24 +184,41 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (rightBt.specialMark == 1) {
-        return [Util myYOrHeight:11];
-    }else
-    {
-        return [Util myYOrHeight:35];
-    }
-    
+    return [Util myYOrHeight:11];
+//    if (rightBt.specialMark == 1) {
+//        return [Util myYOrHeight:11];
+//    }else
+//    {
+//        return [Util myYOrHeight:35];
+//    }
     
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (rightBt.specialMark == 1) {
-        headerView.hidden = YES;
-    }else
-    {
-        headerView.hidden = NO;
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, [Util myYOrHeight:11])];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
+//    if (rightBt.specialMark == 1) {
+//        headerView.hidden = YES;
+//    }else
+//    {
+//        headerView.hidden = NO;
+//    }
+//    return headerView;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (rightBt.specialMark ==1) {
+        return;
     }
-    return headerView;
+    ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
+    NSDictionary *dic = nil;
+    dic = [dataArray objectAtIndex:indexPath.row];
+    infoVC.resumeID = [[dic objectForKey:@"id"] intValue];
+    infoVC.sex = [dic objectForKey:@"sex"];
+    infoVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:infoVC animated:YES];
+    
 }
 -(void)initHeaderView
 {
@@ -179,6 +228,7 @@
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, [Util myYOrHeight:35]-4.5, kWidth, 0.5)];
     line.backgroundColor = Rgb(150, 204, 243, 0.7);
     [headerView addSubview:line];
+    headerView.userInteractionEnabled = NO;
     
     float btW = [Util myXOrWidth:150];
     UIButton *filtrateBt = [[UIButton alloc] initWithFrame:CGRectMake((kWidth-btW)/2, 3, btW, [Util myYOrHeight:35]-5)];
@@ -197,6 +247,9 @@
 #pragma -mark - 综合筛选的事件
 -(void)filtrateAction
 {
+    if (isLoading) {//正在加载更多时 不可以筛选
+        return;
+    }
     self.navigationItem.rightBarButtonItem.enabled = NO;
     float filtrateH = topBarheight;
     CGRect frame = CGRectMake(0, filtrateH, kWidth, kHeight-filtrateH);
@@ -235,14 +288,22 @@
 {
     if (sureOrCancel) {
         NSLog(@"确定 筛选条件");
+        isSearching = YES;
+        currentPage = 1;//筛选的第一页
         NSMutableArray *conArray = [NSMutableArray arrayWithArray:conditionArray];
         NSLog(@"conditionArray == %@",conArray);
+        //
         //确定搜索条件 进行搜索
         [filtrateView removeFromSuperview];
     }else
     {
         NSLog(@"取消");
         [filtrateView removeFromSuperview];
+        if (isSearching) {//之前筛选过 有残留数据
+            isSearching = NO;
+            currentPage = 1;
+            
+        }
     }
     self.navigationItem.rightBarButtonItem.enabled = YES;
 }
@@ -360,7 +421,160 @@
     }
     self.navigationItem.rightBarButtonItem.enabled = YES;
 }
+#define  mark - 获取更多推荐简历
+-(void)requestInfoFromWeb
+{
+    NSString *jsonString = [CombiningData getUIDInfo:kCommendList];
+    __block int requestCount = 0;
+    [self showHUD:@"正在加载数据"];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        requestCount++;
+        
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUD];
+                dataArray = [result objectForKey:@"data"];
+                [dataTableView reloadData];
+                
+            }else
+            {
+                [self hideHUDFaild:[result objectForKey:@"message"]];
+                NSLog(@"error message == %@",[result objectForKey:@"message"]);
+            }
+        }else
+        {
+            [self hideHUDFaild:@"服务器请求失败"];
+            //                [self showAlertView:@"服务器请求失败"];
+        }
+    };
+    
+}
 
+#pragma mark - 获取职位收到的简历
+-(void)requestResumeListFromPosition:(BOOL)isMore
+{
+    
+    int page = currentPage;
+    NSString *jsonString = nil;
+    if (!isMore) {
+        [self showHUD:@"正在加载数据"];
+    }
+    if (isSearching) {//正在筛选 筛选json
+        
+    }else
+    {
+        jsonString = [CombiningData getResumeListFromPosiotion:_jobId  PageIndex:page];
+    }
+    
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                //加载首页数据
+                NSArray *dataArr = [result objectForKey:@"data"];
+                //全选数组标记
+                if(page==1)
+                {   //如果第一页 加载的时候 初始化 chooseArray 否则直接增加到数组中
+                    chooseArray = [NSMutableArray array];
+                }
+                for (int i=0; i< [dataArr count]; i++) {
+                    [chooseArray addObject:@""];
+                }
+                [self dealWithResponeData:dataArr];
+                //将提示视图取消
+                if (!isMore) {
+                    [self hideHUD];
+                }else
+                {
+                    [dataTableView stopRefresh];
+                    isLoading = NO;
+                    [self subViewEnabled:YES];
+                }
+                
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                if ([message length]==0) {
+                    message = @"数据为空";
+                }
+                if (!isMore) {
+                    [self hideHUDFaild:message];
+                }else
+                {
+                    NSString *msg = [result objectForKey:@"message"];
+                    if ([msg isEqualToString:@"该职位下暂无投递简历"]) {
+                        [dataTableView changeProText:YES];
+                        [self performSelector:@selector(stopRefreshLoading) withObject:nil afterDelay:0.25];
+                    }else
+                    {
+                        [self stopRefreshLoading];
+                    }
+                }
+                
+                NSLog(@"message == %@",[result objectForKey:@"message"]);
+            }
+        }else
+        {
+            if (!isMore) {
+                [self hideHUDFaild:@"服务器请求失败"];
+            }else
+            {
+                [dataTableView stopRefresh];
+                isLoading = NO;
+                [self subViewEnabled:YES];
+            }
+            
+            NSLog(@"%@",error);
+        }
+    };
 
+}
+//停止刷新
+-(void)stopRefreshLoading
+{
+    [dataTableView stopRefresh];
+    isLoading = NO;
+    [self subViewEnabled:YES];
+    [dataTableView changeProText:NO];
+}
+-(void)dealWithResponeData:(NSArray*)array
+{
+    if (currentPage>1) {
+        [dataArray addObjectsFromArray:array];
+    }else
+    {
+        dataArray = [NSMutableArray arrayWithArray:array];
+    }
+    currentPage++;
+        [dataTableView reloadData];
+    if ([dataArray count]>0) {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+        headerView.userInteractionEnabled = YES;
+    }
+}
+#pragma mark - 加载数据中 不可以点击本页的事件
+-(void)subViewEnabled:(BOOL)enable
+{
+    self.navigationItem.rightBarButtonItem.enabled = enable;
+    self.navigationItem.leftBarButtonItem.enabled = enable;
+    headerView.userInteractionEnabled = enable;
+}
+//刷新加载更多
+-(void)refreshData
+{
+    if (rightBt.specialMark == 0) {//不处于编辑状态 可以加载更多
+        isLoading = YES;
+        //请求数据
+        [self requestResumeListFromPosition:YES];
+        //本页其他事件不可触发
+        [self subViewEnabled:NO];
+    }else
+    {
+        [dataTableView stopRefresh];
+    }
+}
 
 @end

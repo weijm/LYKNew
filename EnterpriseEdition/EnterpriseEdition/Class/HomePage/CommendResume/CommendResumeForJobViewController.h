@@ -9,15 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "CommendResumeForJobTableViewCell.h"
 #import "FiltrateView.h"
-@interface CommendResumeForJobViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,CommendResumeForJobTableViewCellDelegate,FiltrateViewDelegate>
+@class BaseTableView;
+@interface CommendResumeForJobViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,CommendResumeForJobTableViewCellDelegate,FiltrateViewDelegate>
 {
     
-    __weak IBOutlet UITableView *dataTableView;
    
+   
+    __weak IBOutlet BaseTableView *dataTableView;
     
     NSMutableArray *dataArray;
     //选中状态的标志
     NSMutableArray *chooseArray;
 }
 @property (nonatomic) BOOL isForPisition;//职位收到的简历进入
+@property (nonatomic) NSString *jobId;
 @end

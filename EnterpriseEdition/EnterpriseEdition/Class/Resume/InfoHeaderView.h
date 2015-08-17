@@ -28,6 +28,9 @@
     __weak IBOutlet UIImageView *editView;
     //下载
     __weak IBOutlet UIImageView *download;
+    
+    __weak IBOutlet UIView *stateBg;
 }
 -(void)loadData:(NSDictionary*)dictionary;
+-(void)loadStatus:(NSDictionary*)dictionary;
 @end

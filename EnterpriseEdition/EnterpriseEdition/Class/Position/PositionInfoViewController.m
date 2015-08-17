@@ -195,6 +195,7 @@
 {
     CommendResumeForJobViewController *resumeVC = [[CommendResumeForJobViewController alloc] init];
     resumeVC.isForPisition = YES;
+    resumeVC.jobId = _jobId;//@"118077";
     [self.navigationController pushViewController:resumeVC animated:YES];
 }
 #pragma mark - 初始化footerView

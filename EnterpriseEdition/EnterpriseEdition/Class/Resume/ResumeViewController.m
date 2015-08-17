@@ -13,7 +13,7 @@
 #import "ResumeInfoViewController.h"
 
 
-#define kHeaderViewHeight [Util myYOrHeight:68]
+#define kHeaderViewHeight [Util myYOrHeight:55]
 
 @interface ResumeViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -49,6 +49,10 @@
     
     //是否正在加载数据
     BOOL isLoading;
+    //是否是搜索结果展示
+    BOOL isSearching;
+    int searchingCurrentPage;
+    
 }
 @end
 @implementation ResumeViewController
@@ -60,7 +64,6 @@
     self.view.backgroundColor = kCVBackgroundColor;
     //初始化headerView
     [self initHeaderView];
-    dataArray = [[NSMutableArray alloc] initWithArray:[self getContentData:0]];
     [self initTableView];
     isEdit = NO;
     //默认是收到的简历
@@ -72,6 +75,7 @@
     [dataTableView setupRefresh];
     
     isLoading = NO;
+    isSearching = NO;
 
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -79,7 +83,8 @@
     currentPage1 = 1;
     currentPage2 = 1;
     currentPage3 = 1;
-//    [self getData];
+    searchingCurrentPage =1;
+    [self performSelector:@selector(getData) withObject:nil afterDelay:0.0];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -192,34 +197,16 @@
         currentPage1 = 1;
         currentPage2 = 1;
         currentPage3 = 1;
-        //获取服务器的数据
-//        [self getData];
-        NSArray *tempArray = nil;
-
-        switch (index) {
-            case 0:
-                dataArray = [[NSMutableArray alloc] initWithArray:[self getContentData:0]];
-                tempArray = dataArray;
-                resumeCategory = 1;
-                
-                break;
-            case 1:
-                colledtedArray = [[NSMutableArray alloc] initWithArray:[self getContentData:1]];
-                tempArray = colledtedArray;
-                break;
-            case 2:
-                downloadArray = [[NSMutableArray alloc] initWithArray:[self getContentData:2]];
-                tempArray = downloadArray;
-                break;
-            default:
-                break;
+        isSearching = NO;
+        
+        if (index ==0) {
+            resumeCategory = 1;
         }
+        
         resumeCategory = (int)index +1;
-//        if ([tempArray count]>0) {
-//            [dataTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-//        }
+        //获取服务器的数据
+        [self performSelector:@selector(getData) withObject:nil afterDelay:0.0];
         [filtrateView changeTitleArray:resumeCategory];
-        [dataTableView reloadData];
     }else
     {
         switch (index) {
@@ -237,15 +224,30 @@
                 break;
             case 20:
                 NSLog(@"选中简历类型 1 收藏选中的简历");
+            {
+                NSArray *resultArr = [self dealWithBatchData];
+                [self requesBatchDealWithResume:resultArr type:1];
+            }
                 break;
             case 30:
                 NSLog(@"选中简历类型 1 删除选中的简历");
+            {
+                
+            }
                 break;
             case 200:
                 NSLog(@"选中简历类型 2 取消收藏选中的简历");
+            {
+                NSArray *resultArr = [self dealWithBatchData];
+                [self requesBatchDealWithResume:resultArr type:2];
+            }
                 break;
             case 2000:
                 NSLog(@"选中简历类型 3 收藏选中的简历");
+            {
+                NSArray *resultArr = [self dealWithBatchData];
+                [self requesBatchDealWithResume:resultArr type:1];
+            }
                 break;
             case 3000:
                 NSLog(@"选中简历类型 3 删除选中的简历");
@@ -255,6 +257,31 @@
         }
     }
 }
+#pragma mark - 需要批量操作的数据
+-(NSMutableArray*)dealWithBatchData
+{
+    NSArray *tempArray = nil;
+    if (resumeCategory ==1) {
+        tempArray = dataArray;
+    }else if (resumeCategory == 2)
+    {
+        tempArray = colledtedArray;
+    }else
+    {
+        tempArray = downloadArray;
+    }
+    NSMutableArray *dealArray = [NSMutableArray array];
+    for (int i = 0; i < [chooseArray count]; i++) {
+        NSString *choose = [chooseArray objectAtIndex:i];
+        if ([choose intValue]==1) {//被选中的
+            NSDictionary * aDic = [tempArray objectAtIndex:i];
+            [dealArray addObject:[aDic objectForKey:@"stu_resume_id"]];
+        }
+    }
+    
+    return dealArray;
+}
+
 #pragma mark - 筛选按钮触发的事件
 -(void)filtrateAction
 {
@@ -366,8 +393,7 @@
         [self rightAction];
     }
     ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
-    infoVC.resumeID = 117377;
-    infoVC.userID = 117377;
+//    infoVC.resumeID = 117377;
     NSDictionary *dic = nil;
     if (resumeCategory ==1) {
         dic = [dataArray objectAtIndex:indexPath.row];
@@ -379,6 +405,7 @@
     {
         dic = [downloadArray objectAtIndex:indexPath.row];
     }
+    infoVC.resumeID = [[dic objectForKey:@"stu_resume_id"] intValue];
  
     infoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:infoVC animated:YES];
@@ -464,8 +491,12 @@
 {
     if (sureOrCancel) {
         NSLog(@"确定 筛选条件");
+        isSearching = YES;
+        searchingCurrentPage =1;
         NSMutableArray *conArray = [NSMutableArray arrayWithArray:conditionArray];
         NSLog(@"conditionArray == %@",conArray);
+        //请求服务器
+//        [self requestSearchResume:conArray isMore:NO];
         //确定搜索条件 进行搜索
         [filtrateView removeFromSuperview];
     }else
@@ -480,7 +511,8 @@
 -(void)showConditions:(int)row Content:(NSDictionary*)dictionary
 {
     if (row == 5 || row == 3 || row ==0) {//地区 此处可以查询对应的id
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+         NSDictionary *idsDic = [self getIdByContent:dictionary Index:row];
+        NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:idsDic] ;
         NSString *province = [dictionary objectForKey:@"province"];
         NSString *city = [dictionary objectForKey:@"city"];
         NSString *district = [dictionary objectForKey:@"district"];
@@ -498,82 +530,126 @@
         [filtrateView reloadTableView:row withContent:dictionary];
     }
 }
-#pragma mark - 获取数据
--(NSMutableArray*)getContentData:(int)index
+#pragma mark - 将pickerView选取的内容转换为id
+-(NSMutableDictionary*)getIdByContent:(NSDictionary*)dictionary Index:(int)row
 {
-    NSMutableArray *array = [[NSMutableArray alloc] init];
-    NSString *jobStr;
-    if (index==0) {
-        jobStr = @"软件工程师";
-    }else if (index ==1)
-    {
-        jobStr = @"交互设计师";
-    }else
-    {
-        jobStr = @"测试工程师";
+    NSMutableDictionary *idsDic = nil;
+    switch (row) {
+        case 0://职位名称
+        {
+            idsDic = [CombiningData getJobTypeIDsByContent:dictionary];
+        }
+            break;
+        case 5://省市区
+        {
+            idsDic = [CombiningData getCityIDsByContent:dictionary];
+        }
+            break;
+        case 3://所属行业
+        {
+            idsDic = [CombiningData getMajorIDsByContent:dictionary];
+        }
+            break;
+            
+        default:
+            break;
     }
-    for (int i =0; i < 6+index; i++) {
-        NSString *job = [NSString stringWithFormat:@"%@%d",jobStr,i];
-        NSString *time = [NSString stringWithFormat:@"15-08-0%d",i];
-        NSString *name = [NSString stringWithFormat:@"张晓%d%d",index,i];
-        NSString *age = [NSString stringWithFormat:@"%d%d",index+1,i];
-        NSString *money = [NSString stringWithFormat:@"%d-%d",500*(i+1),800*(i+1)];
-        NSString *exp = (i%(index+1)==0)?@"有工作经验":@"";
-        NSString *urgent = (i%(index+1)==0)?@"1":@"0";
-        NSString *colledted = (i%4==0)?@"1":@"0";
-        NSString *download = (i%2 == 0)?@"1":@"0";
-        
-        [array addObject:[NSDictionary dictionaryWithObjectsAndKeys:job,@"job",urgent,@"urgent",colledted,@"collected",download,@"download",time,@"time",name,@"name",@"女",@"sex",@"UI设计师",@"selfjob",age,@"age",@"本科",@"record",money,@"money",@"艺术设计",@"professional",@"中国传媒大学",@"school",exp,@"experience",nil]];
-    }
-    return array;
+    return idsDic;
 }
+
 #pragma mark - 获取数据
 -(void)getData
 {
-    [self requestPositionList:NO];
+    [self requestResumeList:NO];
 }
 -(void)dealWithResponeData:(NSArray*)array
 {
     NSArray *tempArray = nil;
-    switch (resumeCategory) {
-        case 1:
-        {
-            if (currentPage1>1) {
-                [dataArray addObjectsFromArray:array];
-            }else
+    if (isSearching) {
+        switch (resumeCategory) {
+            case 1:
             {
-                dataArray = [NSMutableArray arrayWithArray:array];
+                if (searchingCurrentPage>1) {
+                    [dataArray addObjectsFromArray:array];
+                }else
+                {
+                    dataArray = [NSMutableArray arrayWithArray:array];
+                }
+                searchingCurrentPage++;
+                tempArray  = dataArray;
             }
-            currentPage1++;
-            tempArray  = dataArray;
-        }
-            break;
-        case 2:
-        {
-            if (currentPage2>1) {
-                [colledtedArray addObjectsFromArray:array];
-            }else
+                break;
+            case 2:
             {
-                colledtedArray = [NSMutableArray arrayWithArray:array];
+                if (searchingCurrentPage>1) {
+                    [colledtedArray addObjectsFromArray:array];
+                }else
+                {
+                    colledtedArray = [NSMutableArray arrayWithArray:array];
+                }
+                searchingCurrentPage++;
+                tempArray = colledtedArray;
             }
-            currentPage2++;
-            tempArray = colledtedArray;
-        }
-            break;
-        case 3:
-        {
-            if (currentPage3>1) {
-                [downloadArray addObjectsFromArray:array];
-            }else
+                break;
+            case 3:
             {
-                downloadArray = [NSMutableArray arrayWithArray:array];
+                if (searchingCurrentPage>1) {
+                    [downloadArray addObjectsFromArray:array];
+                }else
+                {
+                    downloadArray = [NSMutableArray arrayWithArray:array];
+                }
+                searchingCurrentPage++;
+                tempArray = downloadArray;
             }
-            currentPage3++;
-            tempArray = downloadArray;
+                break;
+            default:
+                break;
         }
-            break;
-        default:
-            break;
+
+    }else
+    {
+        switch (resumeCategory) {
+            case 1:
+            {
+                if (currentPage1>1) {
+                    [dataArray addObjectsFromArray:array];
+                }else
+                {
+                    dataArray = [NSMutableArray arrayWithArray:array];
+                }
+                currentPage1++;
+                tempArray  = dataArray;
+            }
+                break;
+            case 2:
+            {
+                if (currentPage2>1) {
+                    [colledtedArray addObjectsFromArray:array];
+                }else
+                {
+                    colledtedArray = [NSMutableArray arrayWithArray:array];
+                }
+                currentPage2++;
+                tempArray = colledtedArray;
+            }
+                break;
+            case 3:
+            {
+                if (currentPage3>1) {
+                    [downloadArray addObjectsFromArray:array];
+                }else
+                {
+                    downloadArray = [NSMutableArray arrayWithArray:array];
+                }
+                currentPage3++;
+                tempArray = downloadArray;
+            }
+                break;
+            default:
+                break;
+        }
+
     }
     [dataTableView reloadData];
     if ([tempArray count]>0) {
@@ -581,23 +657,52 @@
     }
 }
 
-#pragma mark - 请求服务器
--(void)requestPositionList:(BOOL)isMore
+#pragma mark - 只有在非批量编辑的状态下才可以下拉加载更多
+- (void)refreshData
+{
+    if (isEdit) {//编辑状态 不可以加载更多
+        [dataTableView stopRefresh];
+    }else
+    {
+        isLoading = YES;
+        //请求数据
+        [self requestResumeList:YES];
+        //本页其他事件不可触发
+        [self subViewEnabled:NO];
+    }
+}
+#pragma mark - 加载数据中 不可以点击本页的事件
+-(void)subViewEnabled:(BOOL)enable
+{
+    self.navigationItem.rightBarButtonItem.enabled = enable;
+    self.navigationItem.leftBarButtonItem.enabled = enable;
+    headerView.userInteractionEnabled = enable;
+}
+//停止刷新
+-(void)stopRefreshLoading
+{
+    [dataTableView stopRefresh];
+    isLoading = NO;
+    [self subViewEnabled:YES];
+    [dataTableView changeProText:NO];
+}
+#pragma mark - 请求从服务器获取简历列表
+-(void)requestResumeList:(BOOL)isMore
 {
     int page = 1;
     int status = 0;
     switch (resumeCategory) {
         case 1:
             page = currentPage1;
-            status = 0;
+            status = 1;
             break;
         case 2:
             page = currentPage2;
-            status = 1;
+            status = 2;
             break;
         case 3:
             page = currentPage3;
-            status = -1;
+            status = 3;
             break;
         default:
             break;
@@ -605,7 +710,7 @@
     if (!isMore) {
         [self showHUD:@"正在加载数据"];
     }
-    NSString *listJson = [CombiningData getPositionList:(page+1) Status:status];
+    NSString *listJson = [CombiningData getResumeList:page Status:status];
     //请求服务器
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost WithSSl:nil];
     [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
@@ -639,13 +744,26 @@
                     message = @"数据为空";
                 }
                 if (!isMore) {
+                    if ([message isEqualToString:@"该职位下暂无投递简历"]) {
+                        if (resumeCategory ==1) {
+                            dataArray = [NSMutableArray array];
+                        }else if (resumeCategory ==2)
+                        {
+                            colledtedArray = [NSMutableArray array];
+                        }else
+                        {
+                            downloadArray = [NSMutableArray array];
+                        }
+                        [dataTableView reloadData];
+                    }
                     [self hideHUDFaild:message];
                 }else
                 {
-                    [dataTableView stopRefresh];
-                    isLoading = NO;
-                    [self subViewEnabled:YES];
+                    //                    NSString *msg = [result objectForKey:@"message"];
+                    [dataTableView changeProText:YES];
+                    [self performSelector:@selector(stopRefreshLoading) withObject:nil afterDelay:0.5];
                 }
+                
                 
                 NSLog(@"message == %@",[result objectForKey:@"message"]);
             }
@@ -665,27 +783,41 @@
     };
     
 }
-#pragma mark - 只有在非批量编辑的状态下才可以下拉加载更多
-- (void)refreshData
+#pragma mark - 批量编辑简历
+-(void)requesBatchDealWithResume:(NSArray*)array type:(int)type
 {
-    [dataTableView stopRefresh];
-//    if (isEdit) {//编辑状态 不可以加载更多
-//        [dataTableView stopRefresh];
-//    }else
-//    {
-//        isLoading = YES;
-//        //请求数据
-//        [self requestPositionList:YES];
-//        //本页其他事件不可触发
-//        [self subViewEnabled:NO];
-//    }
-}
-#pragma mark - 加载数据中 不可以点击本页的事件
--(void)subViewEnabled:(BOOL)enable
-{
-    self.navigationItem.rightBarButtonItem.enabled = enable;
-    self.navigationItem.leftBarButtonItem.enabled = enable;
-    headerView.userInteractionEnabled = enable;
-}
+    [self showHUD:@"正在处理数据"];
+    NSString *idsString = [CombiningData getIdsByArray:array];
+    NSString *infoJson = [CombiningData batchManagerResume:idsString Status:type];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUD];
+                [self rightAction];
+                //仍然加载首页
+                currentPage1 = 1;
+                currentPage2 = 1;
+                currentPage3 = 1;
+                [self requestResumeList:NO];
+                
+                
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                if ([message length]==0) {
+                    message = @"处理失败";
+                }
+                [self hideHUDFaild:message];
+                NSLog(@"error message == %@",[result objectForKey:@"message"]);
+            }
+        }else
+        {
+            [self hideHUDFaild:@"服务器请求失败"];
+        }
+        
+    };
 
+}
 @end

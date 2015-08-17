@@ -36,10 +36,15 @@
 //加载数据
 -(void)loadPositionData:(NSDictionary*)dictionary
 {
-    int urgent = [[dictionary objectForKey:@"urgent"] intValue];
     //简历分数
     int resumeNumber = [[dictionary objectForKey:@"resume_num"] intValue];
-    if (urgent == 0) {//不是急招职位
+    NSString *rtime = [dictionary objectForKey:@"remarinTime"];
+    if ([[Util getCorrectString:rtime] length]==0) {//不是急招职位
+        for (UIView *view in [rightBg subviews]) {
+            if ([view isKindOfClass:[CircleProgressView class]]) {
+                [view removeFromSuperview];
+            }
+        }
         urgentImg.hidden = YES;
         bgToTop.constant = 8;
         bgToBottom.constant = 15;
@@ -52,7 +57,7 @@
             resumeNumberImg.hidden = YES;
             resumeNumberLab.text = @"";
         }
-        
+        resumeNumberLab.textColor = kNavigationBgColor;
         //是否显示审核标志
         if (_showCheckImg) {
             urgentImg.hidden = NO;
@@ -63,6 +68,9 @@
 
     }else//是急招职位
     {
+        NSArray *timeArr = [rtime componentsSeparatedByString:@":"];
+        remainingTime = [[timeArr firstObject] intValue]*60*60+[timeArr[1] intValue]*60+[timeArr[2] intValue];
+       
         [self initProgressView];
         urgentImg.hidden = NO;
         validTimeLab.hidden = YES;
@@ -196,7 +204,8 @@
     UIColor *tintColor = [UIColor redColor];
     circleProgressView.status = NSLocalizedString(@"circle-progress-view.status-in-progress", nil);
     circleProgressView.tintColor = tintColor;
-    remainingTime = 16*60*60+45*60+30;
+//    NSArray *timeArr = [[_urgentDictionary objectForKey:@"over_time"] componentsSeparatedByString:@":"];
+//    remainingTime = [[timeArr firstObject] intValue]*60*60+[timeArr[1] intValue]*60+[timeArr[2] intValue];
     circleProgressView.remainingTime = remainingTime;//剩余时间
     circleProgressView.elapsedTime = kLimitTime-remainingTime;//已过时间
     

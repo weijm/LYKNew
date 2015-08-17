@@ -121,6 +121,9 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="其他" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIs-pa-itM" userLabel="lab2">
                                         <rect key="frame" x="66" y="0.0" width="164" height="25"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="QMV-Ti-0Gj"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.33333333329999998" green="0.35294117650000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -152,8 +155,8 @@
                                         <color key="textColor" red="0.2284619" green="0.24067449439999999" blue="0.2483729761" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京市石景山实行大街8号23号楼506" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egw-uv-Boq" userLabel="lab2">
-                                        <rect key="frame" x="66" y="0.0" width="164" height="31.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京市石景山实行大街8号23号楼506" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egw-uv-Boq" userLabel="lab2">
+                                        <rect key="frame" x="70" y="0.0" width="160" height="41"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.3803921569" green="0.40000000000000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -164,8 +167,9 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="egw-uv-Boq" secondAttribute="trailing" id="13I-vX-QxI"/>
                                     <constraint firstItem="ADz-d3-CED" firstAttribute="leading" secondItem="RDv-le-0yB" secondAttribute="leading" id="JnU-eE-nQu"/>
+                                    <constraint firstItem="egw-uv-Boq" firstAttribute="leading" secondItem="ADz-d3-CED" secondAttribute="trailing" constant="10" id="POa-jm-U1C"/>
                                     <constraint firstAttribute="centerY" secondItem="ADz-d3-CED" secondAttribute="centerY" id="QDb-5j-hsG"/>
-                                    <constraint firstItem="egw-uv-Boq" firstAttribute="leading" secondItem="ADz-d3-CED" secondAttribute="trailing" constant="6" id="kwF-m8-sAj"/>
+                                    <constraint firstAttribute="centerY" secondItem="egw-uv-Boq" secondAttribute="centerY" id="fRr-YH-xLF"/>
                                     <constraint firstItem="egw-uv-Boq" firstAttribute="top" secondItem="RDv-le-0yB" secondAttribute="top" id="n3B-OJ-d3B"/>
                                 </constraints>
                             </view>
@@ -266,6 +270,7 @@
                 <outlet property="mailLab" destination="2pc-Gh-OjE" id="YlT-42-F80"/>
                 <outlet property="phoneLab" destination="a6a-aC-bnQ" id="mmV-jh-C3T"/>
                 <outlet property="politicalLab" destination="CIs-pa-itM" id="8Ds-Uv-wil"/>
+                <outlet property="showDownloadCountLab" destination="jEl-dK-8uI" id="Std-km-R5Z"/>
             </connections>
             <point key="canvasLocation" x="165" y="375.5"/>
         </tableViewCell>
