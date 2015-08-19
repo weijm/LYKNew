@@ -52,7 +52,7 @@
                                     <constraint firstAttribute="width" constant="8" id="u9s-7I-wLO"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请选择" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LQc-6W-fUV" userLabel="contentTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请选择" textAlignment="right" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="LQc-6W-fUV" userLabel="contentTextField">
                                 <rect key="frame" x="0.0" y="0.0" width="171" height="57.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>

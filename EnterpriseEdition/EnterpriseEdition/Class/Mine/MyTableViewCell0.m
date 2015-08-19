@@ -51,7 +51,7 @@
     }
     
     int  status = [[dictionary objectForKey:@"ent_status"] intValue];
-    if (status == 1) {
+    if (status == 0) {
         statusImg.image = [UIImage imageNamed:@"my_check_pass"];
     }else
     {

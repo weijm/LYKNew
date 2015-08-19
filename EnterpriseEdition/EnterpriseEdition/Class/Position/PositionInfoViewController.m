@@ -264,20 +264,17 @@
 {
     switch (index) {
         case 1://上线
-            NSLog(@"上线");
         {
             [self batchDealWithPosition:_jobId Status:0];
        
         }
             break;
         case 2://删除
-            NSLog(@"删除");
         {
             [self batchDealWithPosition:_jobId Status:-9];
         }
             break;
         case 3://下线
-            NSLog(@"下线");
         {
             [self batchDealWithPosition:_jobId Status:1];
 
@@ -292,7 +289,6 @@
 #pragma mark - 设置急招
 -(void)setUrgent:(int)count
 {
-    NSLog(@" 设置急招 == %d",count);
     [self requestUrgentInfo:count];
 
 }
@@ -314,7 +310,6 @@
 {
     
     NSString *infoJson = [CombiningData getPositionInfo:[_jobId intValue]];
-    NSLog(@"infoJson == %@",infoJson);
     [self showHUD:@"正在加载数据"];
     //请求服务器
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
@@ -325,7 +320,6 @@
                 //加载首页数据
                 NSArray *dataArr = [result objectForKey:@"data"];
                 if ([dataArr count]>0) {
-                    NSLog(@"dataArr== %@",dataArr);
                     infoDictionary = [NSMutableDictionary dictionaryWithDictionary:[dataArr firstObject]];
                 }
                 [dataTableView reloadData];
@@ -339,13 +333,11 @@
                 [self hideHUD];
                 UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alterView show];
-                  NSLog(@"message == %@",[result objectForKey:@"message"]);
             }
         }else
         {
            [self hideHUDFaild:@"服务器请求失败"];
             
-            NSLog(@"%@",error);
         }
     };
 
@@ -387,7 +379,6 @@
                     message = @"处理失败";
                 }
                 [self hideHUDFaild:message];
-                NSLog(@"error message == %@",[result objectForKey:@"message"]);
             }
         }else
         {
@@ -418,7 +409,6 @@
                     message = @"处理失败";
                 }
                 [self hideHUDFaild:message];
-                NSLog(@"error message == %@",[result objectForKey:@"message"]);
             }
         }else
         {

@@ -128,6 +128,8 @@
     [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:rightItem,rightItem1, nil];
+    filtrateBt.enabled = NO;
+    rightBt.enabled = NO;
     
 }
 -(void)leftAction
@@ -267,24 +269,24 @@
 #pragma mark - 获取数据
 -(void)getData
 {
-    dataArray = [[NSMutableArray alloc] init];
-    NSString *infoStr = @"消息标题";
-    NSString *notiStr = @"通知标题";
-    for (int i =0; i < 6; i++) {
-        NSString *title = (i%2==0)?infoStr:notiStr;
-        NSString *titleStr = [NSString stringWithFormat:@"%@%d",title,i];
-        NSString *time = [NSString stringWithFormat:@"08/%d",i+10];
-        NSString *info = [NSString stringWithFormat:@"消息摘要%d消息摘要%d消息摘要%d消息消息消息消息消息消息",i,i,i];
-        NSString *type = (i%2==0)?@"1":@"2";
-        
-        [dataArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:titleStr,@"title",info,@"info",type,@"type",time,@"time",nil]];
-    }
-    
-    [dataTableView reloadData];
-    chooseArray = [[NSMutableArray alloc] initWithCapacity:[dataArray count]];
-    for (int i=0; i< [dataArray count]; i++) {
-        [chooseArray addObject:@""];
-    }
+//    dataArray = [[NSMutableArray alloc] init];
+//    NSString *infoStr = @"消息标题";
+//    NSString *notiStr = @"通知标题";
+//    for (int i =0; i < 6; i++) {
+//        NSString *title = (i%2==0)?infoStr:notiStr;
+//        NSString *titleStr = [NSString stringWithFormat:@"%@%d",title,i];
+//        NSString *time = [NSString stringWithFormat:@"08/%d",i+10];
+//        NSString *info = [NSString stringWithFormat:@"消息摘要%d消息摘要%d消息摘要%d消息消息消息消息消息消息",i,i,i];
+//        NSString *type = (i%2==0)?@"1":@"2";
+//        
+//        [dataArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:titleStr,@"title",info,@"info",type,@"type",time,@"time",nil]];
+//    }
+//    
+//    [dataTableView reloadData];
+//    chooseArray = [[NSMutableArray alloc] initWithCapacity:[dataArray count]];
+//    for (int i=0; i< [dataArray count]; i++) {
+//        [chooseArray addObject:@""];
+//    }
 }
 -(void)refreshData
 {

@@ -27,13 +27,13 @@
 #pragma mark - 编辑按钮
 -(void)initItems
 {
-    CGRect frame = CGRectMake(0, 0, 15, 30);
+    CGRect frame = CGRectMake(0, 0, 50, 30);
     
     UIButton *leftBt = [UIButton buttonWithType:UIButtonTypeCustom];
     leftBt.frame = frame;
     [leftBt setImage:[UIImage imageNamed:@"back_bt"] forState:UIControlStateNormal];
     UIEdgeInsets imageInsets = leftBt.imageEdgeInsets;
-    leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-10, imageInsets.bottom, imageInsets.right+10);
+    leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-20, imageInsets.bottom, imageInsets.right+20);
     [leftBt addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
     self.navigationItem.leftBarButtonItem = leftItem;

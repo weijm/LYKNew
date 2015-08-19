@@ -51,7 +51,7 @@
         NSArray *dataArray = (NSArray*)object;
         if ([dataArray count]>0) {
             NSDictionary* dic = [dataArray firstObject];
-            NSString *content = [dic objectForKey:key];
+            NSString *content = [Util getCorrectString:[dic objectForKey:key]];
            
             contentLab.text = [content stringByReplacingOccurrencesOfString:@"\\n" withString:@" "];
             emptyView.hidden = YES;

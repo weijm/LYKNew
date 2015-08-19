@@ -223,34 +223,29 @@
             }
                 break;
             case 20:
-                NSLog(@"选中简历类型 1 收藏选中的简历");
             {
                 NSArray *resultArr = [self dealWithBatchData];
                 [self requesBatchDealWithResume:resultArr type:1];
             }
                 break;
             case 30:
-                NSLog(@"选中简历类型 1 删除选中的简历");
             {
                 
             }
                 break;
             case 200:
-                NSLog(@"选中简历类型 2 取消收藏选中的简历");
             {
                 NSArray *resultArr = [self dealWithBatchData];
                 [self requesBatchDealWithResume:resultArr type:2];
             }
                 break;
             case 2000:
-                NSLog(@"选中简历类型 3 收藏选中的简历");
             {
                 NSArray *resultArr = [self dealWithBatchData];
                 [self requesBatchDealWithResume:resultArr type:1];
             }
                 break;
             case 3000:
-                NSLog(@"选中简历类型 3 删除选中的简历");
                 break;
             default:
                 break;
@@ -490,18 +485,15 @@
 -(void)makeSureOrCancelAction:(BOOL)sureOrCancel Conditions:(NSArray *)conditionArray
 {
     if (sureOrCancel) {
-        NSLog(@"确定 筛选条件");
         isSearching = YES;
         searchingCurrentPage =1;
         NSMutableArray *conArray = [NSMutableArray arrayWithArray:conditionArray];
-        NSLog(@"conditionArray == %@",conArray);
         //请求服务器
 //        [self requestSearchResume:conArray isMore:NO];
         //确定搜索条件 进行搜索
         [filtrateView removeFromSuperview];
     }else
     {
-        NSLog(@"取消");
         [filtrateView removeFromSuperview];
     }
     self.tabBarController.tabBar.hidden = NO;
@@ -765,7 +757,6 @@
                 }
                 
                 
-                NSLog(@"message == %@",[result objectForKey:@"message"]);
             }
         }else
         {
@@ -778,7 +769,6 @@
                 [self subViewEnabled:YES];
             }
             
-            NSLog(@"%@",error);
         }
     };
     
@@ -810,7 +800,6 @@
                     message = @"处理失败";
                 }
                 [self hideHUDFaild:message];
-                NSLog(@"error message == %@",[result objectForKey:@"message"]);
             }
         }else
         {

@@ -26,7 +26,6 @@
     NSString *dbPath = [Util getSQLitePath];
     FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
     if (![db open]) {
-        NSLog(@"could not open db");
     }
     [db setShouldCacheStatements:YES];
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];

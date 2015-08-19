@@ -44,6 +44,7 @@
         contentTextView.hidden = NO;
         contentTextView.placeholder = @"请输入1000字以内描述";
         titBgToBottom.constant = [Util myYOrHeight:70];
+        
     }else
     {
         if (index == 0||index==3||index==7||index==8||index==11||index==12) {
@@ -70,6 +71,10 @@
         NSString *content = [dic objectForKey:@"content"];
         if ([content length]>0) {
             contentTextField.text = content;
+            if(self.tag == 8)
+            {
+                contentTextView.text = content;
+            }
         }
         
     }
@@ -77,12 +82,14 @@
 #pragma mark - UITextFieldDelegate
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if (self.tag ==0||self.tag ==11||self.tag ==12) {
+    if (self.tag ==0||self.tag ==11||self.tag ==12||self.tag ==7) {
         NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
         int stringLength = (self.tag==12)?50:30;
         if ([newString length]>stringLength)
         {
-            [textField resignFirstResponder];
+            if ([_delegate respondsToSelector:@selector(cancelKey)]) {
+                [_delegate cancelKey];
+            }
             return  NO;
         }
 
@@ -123,10 +130,14 @@
         }
         return NO;
     }
+    int stringLength = 1000;
     NSString *newString = [textView.text stringByReplacingCharactersInRange:range withString:text];
-    if ([newString length]>1000)
+    if ([newString length]>stringLength)
     {
         [contentTextView resignFirstResponder];
+        if ([_delegate respondsToSelector:@selector(cancelKey)]) {
+            [_delegate cancelKey];
+        }
         return  NO;
     }
 

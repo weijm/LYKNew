@@ -16,7 +16,7 @@
 #import "CertificateTableViewCell.h"
 #import "UIButton+Custom.h"
 
-#define MAXFLOAT [Util myYOrHeight:200]
+//#define MAXFLOATCUSTOM [Util myYOrHeight:400]
 
 @interface ResumeInfoViewController ()
 {
@@ -55,7 +55,7 @@
     {
         colletedBt.specialMark = 1;
     }
-    [self loadCollectedBtState:colletedBt];
+    [self loadCollectedBtState:colletedBt isRequest:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -167,13 +167,16 @@
                 NSArray *dataArray = (NSArray*)object;
                 if ([dataArray count]>0) {
                     NSDictionary *dic = [dataArray firstObject];
-                    
-                    NSString *contentString = [[dic objectForKey:key] stringByReplacingOccurrencesOfString:@"\\n" withString:@""];
+                    NSString *tempStr = [Util getCorrectString:[dic objectForKey:key]];
+                    NSString *contentString = [tempStr stringByReplacingOccurrencesOfString:@"\\n" withString:@""];
                     int row = [Util getRow:(int)[contentString length] eachCount:[self getEachLength:(int)index]];
                     if ([contentString length]==0||row==1) {
                         return [Util myYOrHeight: 40];
                     }
-                    CGSize titleSize = [contentString sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake([Util myXOrWidth:160], MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
+                    CGSize titleSize = [contentString sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake([Util myXOrWidth:160], MAXFLOATCUSTOM) lineBreakMode:UILineBreakModeWordWrap];
+                    if (titleSize.height < [Util myYOrHeight: 40]) {
+                        return [Util myYOrHeight: 40];
+                    }
                     return titleSize.height;
 
                 }
@@ -315,9 +318,9 @@
 
 - (IBAction)collectedAction:(id)sender {
     UIButton_Custom *button = (UIButton_Custom*)sender;
-    [self loadCollectedBtState:button];
+    [self loadCollectedBtState:button isRequest:YES];
 }
--(void)loadCollectedBtState:(UIButton_Custom*)button
+-(void)loadCollectedBtState:(UIButton_Custom*)button isRequest:(BOOL)isRequest
 {
     if (button.specialMark ==0) {
         button.specialMark = 1;
@@ -325,7 +328,10 @@
         [button setTitle:@"取消收藏" forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         //通知服务器添加收藏
-        [self requesBatchDealWithResumeType:1];
+        if (isRequest) {
+            [self requesBatchDealWithResumeType:1];
+        }
+        
     }else
     {
         button.specialMark = 0;
@@ -333,7 +339,10 @@
         button.backgroundColor = Rgb(95, 182, 239, 1.0);
         [button setTitle:@"收    藏" forState:UIControlStateNormal];
         //通知服务器取消收藏
-        [self requesBatchDealWithResumeType:2];
+        if (isRequest) {
+            [self requesBatchDealWithResumeType:2];
+        }
+        
 
     }
     
@@ -377,6 +386,14 @@
                         if ([tempArr count]>0) {
                             NSDictionary *statuDic = [tempArr firstObject];
                             [headerView loadStatus:statuDic];
+                            //如果已经收藏的简历 显示的是取消收藏
+                            if ([[statuDic objectForKey:@"favorite"] intValue]==1) {
+                                colletedBt.specialMark = 0;
+                            }else
+                            {
+                                colletedBt.specialMark = 1;
+                            }
+                            [self loadCollectedBtState:colletedBt isRequest:NO];
                         }
                     }else
                     {
@@ -401,7 +418,7 @@
     NSInteger index = [typeArray indexOfObject:typeString];
     //数组里面的第几个
     NSArray *dataArray = [responObj objectForKey:@"data"];
-    if ([dataArray count]>0) {
+    if (dataArray!=nil &&[dataArray count]>0) {
         [infoArray replaceObjectAtIndex:index withObject:dataArray];
         [infoTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:index inSection:0], nil] withRowAnimation:UITableViewRowAnimationFade];
         //刷新headerView 和标题
@@ -432,7 +449,6 @@
                     message = @"处理失败";
                 }
                 [self hideHUDFaild:message];
-                NSLog(@"error message == %@",[result objectForKey:@"message"]);
             }
         }else
         {
@@ -464,6 +480,23 @@
 {
     float viewHeight =0;
     NSObject *obj = [infoArray objectAtIndex:index];
+    int row1Count = 0;
+    float row1Height = [Util myYOrHeight:105];
+    float onlyOnewHeight = [Util myYOrHeight:80];
+    float edgeHeight = 232;
+    float textHeigt = [Util myYOrHeight:45];
+    float onetextHeigt = [Util myYOrHeight:70];
+    
+    if (kIphone5||kIphone4) {
+        row1Height = 110;
+        onlyOnewHeight = 100;
+        edgeHeight = 186;
+        onetextHeigt = 80;
+        textHeigt = 70;
+    }else if (kIphone6plus)
+    {
+        textHeigt = [Util myYOrHeight:45];
+    }
     if ([obj isKindOfClass:[NSArray class]]) {
         NSArray *array = (NSArray*)obj;
         float sizeX = [Util myXOrWidth:160];
@@ -476,14 +509,29 @@
             {
                 NSDictionary *dic = [array objectAtIndex:i];
                 NSString *content = [[dic objectForKey:@"job_description"] stringByReplacingOccurrencesOfString:@"\\n" withString:@""];
-                CGSize titleSize = [content sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake(sizeX, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
-                float height = titleSize.height+[Util myYOrHeight:80];
+                CGSize titleSize = [content sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake(sizeX, MAXFLOATCUSTOM) lineBreakMode:UILineBreakModeWordWrap];
+                float height1 = titleSize.height+textHeigt;
+                if ([array count]==1) {
+                    height1 = titleSize.height+onetextHeigt;
+                }
+                
+                if (titleSize.height>=edgeHeight&&[array count]==1) {
+                    height1 = titleSize.height+onlyOnewHeight;
+                }
                 int row = [Util getRow:(int)[content length] eachCount:[self getEachLength:(int)index]];
 //                float
                 if (row ==1) {
-                    height = [Util myYOrHeight:80]+row*19;
+                    
+                    row1Count++;
+                    if (row1Count>=2) {
+                        height1 =row1Height +row*19;
+                    }else
+                    {
+                        height1 =onlyOnewHeight +row*19;
+                    }
+                    
                 }
-                viewHeight = viewHeight+height;
+                viewHeight = viewHeight+height1;
                 
             }
         }else
@@ -508,9 +556,9 @@
             for (int i = 0; i < count; i++)
             {
                 NSDictionary *dic = [array objectAtIndex:i];
-                float height = [Util myYOrHeight:40];
+                float height = 95;
                 if ([[dic objectForKey:@"certify_url"] length]>0) {
-                    height = 100;
+                    height = 95 ;
                 }
                 cellHeight = cellHeight+height;
             }

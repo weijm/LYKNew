@@ -30,8 +30,8 @@
             infoBg.hidden = NO;
             emptyView.hidden = YES;
             NSDictionary *dictionary = [dataArray firstObject];
-            industryLab.text = [dictionary objectForKey:@"industry_name"];
-            jobLab.text = [dictionary objectForKey:@"job_type_name"];
+            industryLab.text = [Util getCorrectString:[dictionary objectForKey:@"industry_name"]];
+            jobLab.text = [Util getCorrectString:[dictionary objectForKey:@"job_type_name"]];
             jobTypeLab.text = [CombiningData getJobType:[[dictionary objectForKey:@"employment_type"] intValue]];
             cityLab.text = [NSString stringWithFormat:@"%@%@%@",[Util getCorrectString:[dictionary objectForKey:@"city_name"]],[Util getCorrectString:[dictionary objectForKey:@"city_name_1"]],[Util getCorrectString:[dictionary objectForKey:@"city_name_2"]]];
             salaryLab.text = [NSString stringWithFormat:@"%dK-%dK",[[dictionary objectForKey:@"salary_min"] intValue]/1000,[[dictionary objectForKey:@"salary_max"] intValue]/1000];

@@ -30,6 +30,7 @@
         case 0:
         {
             if (_cellType == 2) {//设置密码页面 手机号直接显示
+                titleLab.text = @"手 机 号";
                 contentTextField.userInteractionEnabled = NO;
                 NSMutableString *phone = [[NSMutableString alloc] initWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:kRegisterAccount]];
                 NSRange range = NSMakeRange(3,4);
@@ -157,7 +158,6 @@
 {
     seconds--;
     timesLab.text = [NSString stringWithFormat:@"%d秒后可重新获取",seconds];
-    NSLog(@" timesLab.text== %@",timesLab.text);
     if (seconds == 0) {
         //终止计时器
         if (codeTimer) {
@@ -195,7 +195,6 @@
 //下一步
 -(void)nextAction
 {
-    NSLog(@"注册 nextAction");
     if ([_delegate respondsToSelector:@selector(clickedNextBtAction)]) {
         [_delegate clickedNextBtAction];
     }

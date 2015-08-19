@@ -94,7 +94,7 @@
     btY = frame.origin.y+frame.size.height+[Util myYOrHeight:10];
     frame = CGRectMake((kWidth-btW)/2, btY, btW, [Util myYOrHeight:30]);
     UIButton *forgetBt = [[UIButton alloc] initWithFrame:frame];
-    [forgetBt setTitle:@"忘记密码" forState:UIControlStateNormal];
+    [forgetBt setTitle:@"忘记密码?" forState:UIControlStateNormal];
     forgetBt.titleLabel.font = [UIFont systemFontOfSize:12];
     [forgetBt setTitleColor:Rgb(254, 156, 50,1.0) forState:UIControlStateNormal];
     forgetBt.tag = 2;
@@ -166,6 +166,7 @@
                     NSString *iid = [resultDic objectForKey:@"info_id"];
                     [userDefault setObject:uid forKey:kUID];
                     [userDefault setObject:iid forKey:KIID];
+                    [userDefault setObject:[Util getCorrectString:[resultDic objectForKey:@"status"]] forKey:kEntStatus];
                 }
                 //标记是否登录成功
                 [userDefault setObject:@"1" forKey:kLoginOrExit];
@@ -176,7 +177,8 @@
                 
             }else
             {
-                [self hideHUDFaild:[result objectForKey:@"message"]];
+                [self hideHUD];
+                [Util showPrompt:[result objectForKey:@"message"]];
             }
         }else
         {

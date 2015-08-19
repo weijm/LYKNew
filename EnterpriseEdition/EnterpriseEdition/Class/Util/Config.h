@@ -53,6 +53,10 @@
 
 #define QMapKey @"OXWBZ-MZHR4-77TUD-DXUNN-R2FPZ-YBB2J"
 
+#define MAXFLOATCUSTOM  [Util myYOrHeight:200]
+
+
+
 #define KUSERACCOUNT
 #define KGETOBJ(key) [[NSUserDefaults standardUserDefaults] objectForKey:key]
 
@@ -68,6 +72,7 @@
 #define kRegisterAccount @"kRegisterAccount"
 #define kLicense @"license.png"
 #define kLogo @"logo.png"
+#define kEntStatus @"EntStatus"
 //导入公共文件
 #import "Util.h"
 #import "WebInterface.h"

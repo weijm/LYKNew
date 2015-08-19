@@ -27,11 +27,10 @@
     if (dictioanry!=nil&&[dictioanry isKindOfClass:[NSDictionary class]]) {
         timeLab.text = [NSString stringWithFormat:@"%@--%@",[dictioanry objectForKey:@"start_date"],[dictioanry objectForKey:@"end_date"]];
         orgLab.text = [dictioanry objectForKey:@"company_name"];
-        positionLab.text = [NSString stringWithFormat:@"%@ | %@",[dictioanry objectForKey:@"job_type_name"],[dictioanry objectForKey:@"industry_name"]];
+        positionLab.text = [NSString stringWithFormat:@"%@ | %@",[Util getCorrectString:[dictioanry objectForKey:@"job_type_name"]],[dictioanry objectForKey:@"industry_name"]];
         NSString *jobContent = [dictioanry objectForKey:@"job_description"];
         contentLab.text = [jobContent stringByReplacingOccurrencesOfString:@"\\n" withString:@""];
         CGSize theStringSize = [contentLab.text sizeWithFont:contentLab.font constrainedToSize:contentLab.frame.size lineBreakMode:contentLab.lineBreakMode];
-        NSLog(@"size == %@",NSStringFromCGSize(theStringSize));
         if (theStringSize.width <200) {
 //            contentLab.frame = CGRectMake(contentLab.frame.origin.x+10, contentLab.frame.origin.y+20, theStringSize.width, theStringSize.height);
         }else

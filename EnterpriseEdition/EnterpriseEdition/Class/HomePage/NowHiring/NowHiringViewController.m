@@ -10,7 +10,9 @@
 #import "UIButton+Custom.h"
 #import "FooterView.h"
 #import "NowHiringHeaderView.h"
+#import "ResumeInfoViewController.h"
 #define kNHeaderViewHeight [Util myYOrHeight:70]
+
 @interface NowHiringViewController ()
 {
     NSMutableArray *chooseArray;
@@ -49,14 +51,17 @@
     
     categaryType = 1;
     [self performSelector:@selector(requestResumeListFromPosition:) withObject:[NSNumber numberWithBool:NO] afterDelay:0.0];
-    NSLog(@"dd == %@",_urgentDic);
    }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.translucent = NO;
+}
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -125,6 +130,13 @@
     }
 
     return headerView;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
+    infoVC.resumeID = [[[commendArray objectAtIndex:indexPath.row] objectForKey:@"id"] intValue];
+    infoVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:infoVC animated:YES];
 }
 #pragma mark - 初始化headerView
 -(void)initHeaderView
@@ -288,13 +300,10 @@
             }
                 break;
             case 20:
-                NSLog(@"选中简历类型 1 收藏选中的简历");
                 break;
             case 30:
-                NSLog(@"选中简历类型 1 删除选中的简历");
                 break;
             case 200:
-                NSLog(@"选中简历类型 2 取消收藏选中的简历");
                 break;
             default:
                 break;
@@ -371,7 +380,6 @@
                     }
                 }
                 
-                NSLog(@"message == %@",[result objectForKey:@"message"]);
             }
         }else
         {
@@ -384,7 +392,6 @@
                 [self subViewEnabled:YES];
             }
             
-            NSLog(@"%@",error);
         }
     };
     
@@ -453,7 +460,6 @@
             }else
             {
                 [self hideHUDFaild:[result objectForKey:@"message"]];
-                NSLog(@"error message == %@",[result objectForKey:@"message"]);
             }
         }else
         {

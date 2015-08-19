@@ -119,7 +119,6 @@
 #pragma mark - 查看协议
 -(void)lookUpAgreement
 {
-    NSLog(@"查看协议");
 }
 
 #pragma mark - RegisterTableViewCellDelegate
@@ -172,10 +171,7 @@
 //下一步
 -(void)clickedNextBtAction
 {
-    [self editTextFiledAndCancelKey:NO];
-    RegisterSuccessViewController *successVC = [[RegisterSuccessViewController alloc] init];
-    [self.navigationController pushViewController:successVC animated:YES];
-    return;
+    
     NSString *phone = [contentArray firstObject];
     if ([Util checkTelephone:phone]) {//手机号正确
         NSString *password = [contentArray objectAtIndex:1];
@@ -185,7 +181,6 @@
                 NSString *codeStr = [contentArray objectAtIndex:3];
                 if ([codeStr length]>0) {
                     //所有信息填写完整 请求服务器注册
-                    NSLog(@"注册信息填写完整 请求服务器");
                     [self requestRegister:phone Password:password Code:codeStr];
                 }else
                 {
@@ -213,7 +208,6 @@
                 [self hideHUDWithComplete:@"验证码发送成功"];
             }else
             {
-                NSLog(@"result == %@",result);
                 [self hideHUDFaild:[result objectForKey:@"message"]];
             }
         }else
@@ -251,13 +245,11 @@
                 [self.navigationController pushViewController:successVC animated:YES];
             }else
             {
-                NSLog(@"result == %@",[result objectForKey:@"message"]);
                 [self hideHUDFaild:[result objectForKey:@"message"]];
             }
         }else
         {
             [self hideHUD];
-            NSLog(@"error == %@",error);
             [self showAlertView:@"服务器请求失败"];
         }
         

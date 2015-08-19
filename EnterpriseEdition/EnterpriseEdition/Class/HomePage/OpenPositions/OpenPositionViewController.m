@@ -143,7 +143,6 @@
         }
         
     }
-    NSLog(@"getContentArray == %@",contentArray);
     [dataTableView reloadData];
 }
 
@@ -461,7 +460,6 @@
 #pragma mark - 请求服务器
 -(void)requestSaveOrCommitInfo:(NSString*)type Prompt:(NSString*)ptomptString jobId:(NSString*)jID
 {
-    NSLog(@"contentArray == %@",contentArray);
     NSString *jsonString = [CombiningData addPosition:contentArray Type:type PositionId:jID];
     [self showHUD:[NSString stringWithFormat:@"正在%@",ptomptString]];
     //请求服务器
@@ -475,7 +473,6 @@
             }else
             {
                 [self hideHUDFaild:[result objectForKey:@"message"]];
-                NSLog(@"error message == %@",[result objectForKey:@"message"]);
             }
         }else
         {

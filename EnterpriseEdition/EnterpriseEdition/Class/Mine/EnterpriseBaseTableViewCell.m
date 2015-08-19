@@ -83,6 +83,23 @@
     return @"";
 }
 #pragma mark - UITextFieldDelegate
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (self.tag ==0||self.tag == 4) {
+        NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        int stringLength = (self.tag==6)?1000:30;
+        if ([newString length]>stringLength)
+        {
+            if ([_delegate respondsToSelector:@selector(cancelKey)]) {
+                [_delegate cancelKey];
+            }
+            return  NO;
+        }
+        
+    }
+    
+    return YES;
+}
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     if ([_delegate respondsToSelector:@selector(setEditView:)]) {

@@ -117,7 +117,6 @@
         NSString *surePassword = [contentArray objectAtIndex:2];
         if ([surePassword length]>0) {
             if ([surePassword isEqualToString:password]) {//两次输入的密码一致 提交服务器修改
-                NSLog(@"设置密码的内容填写正确，请求服务器修改");
                 [self requestForgetNewPassword:password];
             }else
             {
@@ -146,7 +145,6 @@
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }else
             {
-                NSLog(@"result == %@",result);
                 [self hideHUDFaild:[result objectForKey:@"message"]];
             }
         }else

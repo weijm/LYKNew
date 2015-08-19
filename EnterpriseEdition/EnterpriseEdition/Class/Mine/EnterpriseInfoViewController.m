@@ -338,17 +338,14 @@
 #pragma mark - UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"actionSheet tag == %ld",actionSheet.tag);
     switch (buttonIndex) {
         case 0:
         {
-            NSLog(@"从相册选取");
             [self addOfAlbum];
         }
             break;
         case 1:
         {
-            NSLog(@"拍张新照片");
             [self addOfCamera];
         }
             break;
@@ -442,17 +439,14 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     // Handle the end of the image write process
     if (!error) {
         
-        NSLog(@"保存成功");
     } else {
         
-        NSLog(@"保存失败 : %@",[error localizedDescription]);
     }
 }
 //将图片保存到本地
 -(void)saveImgInLoaction:(UIImage*)image
 {
     //将图片保存到本地
-    NSLog(@"imgtype == %d",imgType);
     NSString *fileName = (imgType==5)?kLicense:kLogin;
     NSString *imgPath = [NSString stringWithFormat:@"%@/%@",[Util getFileDir],fileName];
     NSData *imgData = UIImagePNGRepresentation(image);
@@ -491,7 +485,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 #pragma mark - 保存方法
 - (IBAction)saveEnterpriseInfo:(id)sender {
-    NSLog(@"content == %@",contentArray);
     BOOL isFull = [self checkInfo];
     if (isFull) {//信息填写完整时执行
         [self performSelector:@selector(requestSaveEntInfo) withObject:nil afterDelay:0.0];
@@ -555,7 +548,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             }else
             {
                 [self hideHUDFaild:[result objectForKey:@"message"]];
-                NSLog(@"error message == %@",[result objectForKey:@"message"]);
             }
         }else
         {
@@ -608,12 +600,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUD];
                 NSArray *dataArray = [result objectForKey:@"data"];
-                NSLog(@"dataArray== %@",dataArray);
                 [self dealWithData:dataArray];
             }else
             {
                 [self hideHUDFaild:[result objectForKey:@"message"]];
-                NSLog(@"error message == %@",[result objectForKey:@"message"]);
             }
         }else
         {
@@ -660,8 +650,12 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             NSString *content = nil;
             NSString *str1 = [Util getCorrectString:[dic objectForKey:@"city_id_1"]];
             NSString *str2 = [Util getCorrectString:[dic objectForKey:@"city_id_2"]];
+            NSString *str3 = [Util getCorrectString:[dic objectForKey:@"city_id_3"]];
+            if ([str3 isEqualToString:@"0"]) {
+                str3 = @"";
+            }
             if ([str2 isEqualToString:str1]) {
-                content = [NSString stringWithFormat:@"%@%@",str1,[dic objectForKey:@"city_id_3"]];
+                content = [NSString stringWithFormat:@"%@%@",str1,str3];
             }else
             {
                 content = [NSString stringWithFormat:@"%@%@%@",str1,str2,[dic objectForKey:@"city_id_3"]];
@@ -676,7 +670,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         }
         
     }
-    NSLog(@"getContentArray == %@",contentArray);
     [infoTableView reloadData];
 }
 //上传图片
@@ -690,7 +683,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         if (isSuccess) {
             [self hideHUDWithComplete:@"上传成功"];
             NSString *imgUrl = [dictionary objectForKey:@"data"];
-            NSLog(@"imgUrl == %@",imgUrl);
             NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:imgUrl,@"content", nil];
             //获取原来的图片路径
             NSDictionary *oldDic = [contentArray objectAtIndex:imgType];

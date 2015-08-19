@@ -112,8 +112,8 @@
 + (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
 
 /**
- 将剔除字符
+ 计算字符长度
  */
-
++(int)convertToInt:(NSString*)strtemp;
 @end
 

@@ -72,7 +72,6 @@
 -(void)clicked:(id)sender
 {
     UIButton *bt = (UIButton *)sender;
-    NSLog(@"bt tag == %ld",(long)bt.tag);
 }
 -(void)setShowRateView:(BOOL)showRateView
 {

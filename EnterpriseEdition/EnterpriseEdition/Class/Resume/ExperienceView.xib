@@ -73,7 +73,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未填写" lineBreakMode="tailTruncation" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5QX-rY-ziS" userLabel="contentLab">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未填写" lineBreakMode="tailTruncation" numberOfLines="30" baselineAdjustment="alignBaselines" minimumFontSize="300" translatesAutoresizingMaskIntoConstraints="NO" id="5QX-rY-ziS" userLabel="contentLab">
                             <rect key="frame" x="2" y="10" width="308" height="63"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>

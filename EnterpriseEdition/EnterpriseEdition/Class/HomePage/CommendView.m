@@ -45,7 +45,6 @@
         }
     }
     if ([array count]==0) {
-        NSLog(@"frame == %@",NSStringFromCGRect(bottombg.frame));
         CommendEmpt *emptyView = [[CommendEmpt alloc] initWithFrame:CGRectMake(0, 0, kWidth, bottombg.frame.size.height)];
         [bottombg addSubview:emptyView];
         return;

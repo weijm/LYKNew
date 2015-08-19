@@ -32,7 +32,7 @@
         [cerImg sd_setImageWithURL:[NSURL URLWithString:imgUrl]];
     }else
     {
-        bottomBg.hidden = YES;
+//        bottomBg.hidden = YES;
     }
 }
 @end

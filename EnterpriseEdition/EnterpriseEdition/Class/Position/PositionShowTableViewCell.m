@@ -237,7 +237,6 @@
     if (self.timer) {
         [self.timer invalidate];
         self.timer = nil;
-        NSLog(@"timer zhi kong");
     }
 }
 

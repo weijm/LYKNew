@@ -43,7 +43,7 @@
             {
                 NSDictionary *dic = [array objectAtIndex:i];
                 NSString *content = [[dic objectForKey:@"job_description"] stringByReplacingOccurrencesOfString:@"\\n" withString:@""];
-                CGSize titleSize = [content sizeWithFont:[UIFont systemFontOfSize:10] constrainedToSize:CGSizeMake(sizeX, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
+                CGSize titleSize = [content sizeWithFont:[UIFont systemFontOfSize:10] constrainedToSize:CGSizeMake(sizeX, MAXFLOATCUSTOM) lineBreakMode:UILineBreakModeWordWrap];
                 int row = [Util getRow:(int)[content length] eachCount:[self getEachLength]];
 //                float height = 90+row*18;
                 float height = titleSize.height+90;

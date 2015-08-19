@@ -36,7 +36,7 @@
             for (int i = 0; i < count; i++)
             {
                 NSDictionary *dic = [array objectAtIndex:i];
-                float height = 40;
+                float height = 90;
                 if ([[dic objectForKey:@"certify_url"] length]>0) {
                     height = 90;
                 }

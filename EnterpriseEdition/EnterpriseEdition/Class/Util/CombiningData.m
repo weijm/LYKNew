@@ -296,7 +296,6 @@
     NSString *uid = [userDefault objectForKey:kUID];
     NSString *jsonString = [NSString stringWithFormat:
                             @"{\"token\":\"%@\",\"type\":\"%@\",%@\"ent_user_id\":\"%@\"}",kToken,kEntInfoUpload,subJson,uid];
-    NSLog(@"jsonString == %@",jsonString);
     return jsonString;
 
 }
@@ -324,7 +323,6 @@
     NSString *uid = [userDefault objectForKey:kUID];
     NSString *jsonString = [NSString stringWithFormat:
                             @"{\"token\":\"%@\",\"type\":\"%@\",%@\"ent_user_id\":\"%@\"}",kToken,kEntContactUpload,subJson,uid];
-    NSLog(@"uploadEntContact jsonString == %@",jsonString);
     return jsonString;
 
     
@@ -336,14 +334,12 @@
     NSString *uid = [userDefault objectForKey:kUID];
     NSString *jsonString = [NSString stringWithFormat:
                             @"{\"token\":\"%@\",\"type\":\"%@\",\"ent_user_id\":\"%@\"}",kToken,type,uid];
-    NSLog(@"jsonString == %@",jsonString);
     return jsonString;
 }
 +(NSString*)getPicList
 {
     NSString *jsonString = [NSString stringWithFormat:
                             @"{\"token\":\"%@\",\"type\":\"%@\"}",kToken,kPictureList];
-    NSLog(@"getPicList jsonString == %@",jsonString);
     return jsonString;
 }
 +(NSString*)getUIDInfo:(NSString*)type
@@ -352,7 +348,6 @@
     NSString *uid = [userDefault objectForKey:kUID];
     NSString *jsonString = [NSString stringWithFormat:
                             @"{\"token\":\"%@\",\"type\":\"%@\",\"uid\":\"%@\"}",kToken,type,uid];
-    NSLog(@"jsonString == %@",jsonString);
     return jsonString;
 }
 //md5加密

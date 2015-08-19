@@ -97,7 +97,6 @@
     PositionShowTableViewCell *cell = (PositionShowTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"PositionShowTableViewCell" owner:self options:nil] lastObject];
-        NSLog(@"cell row == %ld",(long)indexPath.row);
     }
     //获取数据
     NSMutableDictionary *dictionary = nil;
@@ -239,8 +238,8 @@
 }
 -(void)leftAction
 {
-    NSString * iid = KGETOBJ(KIID);
-    if ([iid intValue]<1) {
+     NSString * iidStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kEntStatus];
+    if ([iidStatus intValue]==1) {
         [Util showPrompt:@"您还未提交资料审核，暂不能发布职位"];
         return;
     }
@@ -380,7 +379,7 @@
             dataArray = toAuditArray;
         }
         if ([dataArray count]>0) {
-            [dataTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+//            [dataTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
         }
                 
     }else
@@ -400,14 +399,12 @@
                 break;
             case 20:
             {
-                NSLog(@"有效职位 刷新");
                 NSMutableArray *refreshArr = [self dealWithBatchData];
                 [self batchDealWithPosition:refreshArr Status:-8];//刷新
            
             }
                 break;
             case 30:
-                NSLog(@"有效职位 删除");
             {
                 NSMutableArray *refreshArr = [self dealWithBatchData];
                 [self batchDealWithPosition:refreshArr Status:-9];//删除
@@ -415,28 +412,24 @@
                 break;
             case 40:
             {
-                NSLog(@"有效职位 下线");
                 NSMutableArray *refreshArr = [self dealWithBatchData];
                 [self batchDealWithPosition:refreshArr Status:1];//下线
             }
                 break;
             case 200:
             {
-                NSLog(@"下线职位 删除选中职位");
                 NSMutableArray *refreshArr = [self dealWithBatchData];
                 [self batchDealWithPosition:refreshArr Status:-9];//删除
             }
                 break;
             case 300:
             {
-                NSLog(@"下线职位 上线选中职位");
                 NSMutableArray *refreshArr = [self dealWithBatchData];
                 [self batchDealWithPosition:refreshArr Status:0];//上线
             }
                 break;
             case 2000:
             {
-                NSLog(@"待审核职位 删除选中职位");
                 NSMutableArray *refreshArr = [self dealWithBatchData];
                 [self batchDealWithPosition:refreshArr Status:-9];//删除
             }
@@ -577,13 +570,13 @@
     NSArray *jsonArr = nil;
     if (!isMore) {
         [self showHUD:@"正在加载数据"];
-        jsonArr = [NSArray arrayWithObjects:[CombiningData getMineInfo:kGetUrgentInfo],listJson, nil];
 //        jsonArr = [NSArray arrayWithObjects:[CombiningData getMineInfo:kGetUrgentInfo],listJson, nil];
         
     }else
     {
         jsonArr = [NSArray arrayWithObjects:listJson, nil];
     }
+     jsonArr = [NSArray arrayWithObjects:listJson, nil];
     //请求服务器
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost WithSSl:nil];
     [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
@@ -592,7 +585,7 @@
         NSString *type = [dic objectForKey:@"type"];
         if ([type isEqualToString:kGetUrgentInfo]) {
             //处理急招的信息
-            [self dealUrgentInfo:result];
+//            [self dealUrgentInfo:result];
             return ;
         }
         if (result!=nil) {
@@ -623,6 +616,16 @@
                 NSString *message = [result objectForKey:@"message"];
                 if ([message length]==0) {
                     message = @"数据为空";
+                    if (categaryType ==1) {
+                        validArray = [NSMutableArray array];
+                    }else if (categaryType ==2)
+                    {
+                        offlineArray = [NSMutableArray array];
+                    }else
+                    {
+                        toAuditArray = [NSMutableArray array];
+                    }
+                    [dataTableView reloadData];
                 }
                 if (!isMore) {
                     [self hideHUDFaild:message];
@@ -637,7 +640,6 @@
                         [self stopRefreshLoading];
                     }
                 }
-                NSLog(@"message == %@",[result objectForKey:@"message"]);
             }
         }else
         {
@@ -649,7 +651,6 @@
                 isLoading = NO;
                 [self subViewEnabled:YES];
             }
-            NSLog(@"%@",error);
         }
     };
 
@@ -691,7 +692,6 @@
                     message = @"处理失败";
                 }
                 [self hideHUDFaild:message];
-                NSLog(@"error message == %@",[result objectForKey:@"message"]);
             }
         }else
         {

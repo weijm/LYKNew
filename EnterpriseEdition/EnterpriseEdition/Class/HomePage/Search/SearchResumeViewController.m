@@ -11,6 +11,7 @@
 #import "FooterView.h"
 #import "FiltratePickerView.h"
 #import "CustomSearchBar.h"
+#import "ResumeInfoViewController.h"
 
 #define kSearchBarRect CGRectMake(0,22,kWidth,40)
 @interface SearchResumeViewController ()
@@ -53,7 +54,11 @@
     
   
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.translucent = NO;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -228,7 +233,13 @@
     return headerView;
     
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
+    infoVC.resumeID = [[[dataArray objectAtIndex:indexPath.row] objectForKey:@"stu_resume_id"] intValue];
+    infoVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:infoVC animated:YES];
+}
 #pragma -mark - 综合筛选的事件
 -(void)filtrateAction
 {
@@ -269,9 +280,7 @@
 -(void)makeSureOrCancelAction:(BOOL)sureOrCancel Conditions:(NSArray *)conditionArray
 {
     if (sureOrCancel) {
-        NSLog(@"确定 筛选条件");
         NSMutableArray *conArray = [NSMutableArray arrayWithArray:conditionArray];
-        NSLog(@"conditionArray == %@",conArray);
         dataArray = [NSMutableArray array];
         [dataTableView reloadData];
         //请求服务器
@@ -282,7 +291,6 @@
         [filtrateView removeFromSuperview];
     }else
     {
-        NSLog(@"取消");
         [filtrateView removeFromSuperview];
     }
     customSearchBar.userInteractionEnabled = YES;
@@ -348,7 +356,6 @@
 }
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
-    NSLog(@"searchBarShouldBeginEditing");
     [self addEditBg];
     return YES;
 }
@@ -411,7 +418,6 @@
         }
             break;
         case 200:
-            NSLog(@"选中简历类型 2 取消收藏选中的简历");
             break;
         
         default:
@@ -524,7 +530,6 @@
                     
                 }
                 
-                NSLog(@"message == %@",[result objectForKey:@"message"]);
             }
         }else
         {
@@ -537,7 +542,6 @@
                 [self subViewEnabled:YES];
             }
             
-            NSLog(@"%@",error);
         }
     };
     

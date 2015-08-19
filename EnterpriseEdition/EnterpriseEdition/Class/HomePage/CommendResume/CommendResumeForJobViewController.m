@@ -287,17 +287,14 @@
 -(void)makeSureOrCancelAction:(BOOL)sureOrCancel Conditions:(NSArray *)conditionArray
 {
     if (sureOrCancel) {
-        NSLog(@"确定 筛选条件");
         isSearching = YES;
         currentPage = 1;//筛选的第一页
         NSMutableArray *conArray = [NSMutableArray arrayWithArray:conditionArray];
-        NSLog(@"conditionArray == %@",conArray);
         //
         //确定搜索条件 进行搜索
         [filtrateView removeFromSuperview];
     }else
     {
-        NSLog(@"取消");
         [filtrateView removeFromSuperview];
         if (isSearching) {//之前筛选过 有残留数据
             isSearching = NO;
@@ -367,7 +364,6 @@
         }
             break;
         case 200:
-            NSLog(@"选中简历类型 2 取消收藏选中的简历");
             break;
             
         default:
@@ -441,7 +437,6 @@
             }else
             {
                 [self hideHUDFaild:[result objectForKey:@"message"]];
-                NSLog(@"error message == %@",[result objectForKey:@"message"]);
             }
         }else
         {
@@ -514,7 +509,6 @@
                     }
                 }
                 
-                NSLog(@"message == %@",[result objectForKey:@"message"]);
             }
         }else
         {
@@ -527,7 +521,6 @@
                 [self subViewEnabled:YES];
             }
             
-            NSLog(@"%@",error);
         }
     };
 

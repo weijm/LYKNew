@@ -146,7 +146,6 @@
                             //修改密码发送请求
                             [self requestChangePaw:oldPassWord New:newPassWord];
 //                            [self performSelector:@selector(requestChangePaw) withObject:nil afterDelay:0.0];
-                            NSLog(@"修改密码成功");
                         }else
                         {
                             [Util showPrompt:@"确认密码错误"];
@@ -196,7 +195,6 @@
             }else
             {
                 [self hideHUDFaild:[result objectForKey:@"message"]];
-                NSLog(@"error message == %@",[result objectForKey:@"message"]);
             }
         }else
         {

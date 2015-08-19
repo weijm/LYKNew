@@ -275,6 +275,7 @@
                 return;
             }
             NowHiringViewController *nowhiringVC = [[NowHiringViewController alloc] init];
+            NSLog(@"urgentDic ==%@",urgentDic);
             nowhiringVC.urgentDic = urgentDic;
             nowhiringVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:nowhiringVC animated:YES];
@@ -295,8 +296,8 @@
             break;
         case 4:
         {
-            NSString * iid = KGETOBJ(KIID);
-            if ([iid intValue]<1) {
+            NSString * iidStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kEntStatus];
+            if ([iidStatus intValue]==1) {
                 [Util showPrompt:@"您还未提交资料审核，暂不能发布职位"];
                 return;
             }
@@ -328,15 +329,12 @@
         CommendResumeForJobViewController *commendForJobVC = [[CommendResumeForJobViewController alloc] init];
         commendForJobVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:commendForJobVC animated:YES];
-//        CommendResumeViewController *commendVC = [[CommendResumeViewController alloc] init];
-//        commendVC.hidesBottomBarWhenPushed = YES;
-//        [self.navigationController pushViewController:commendVC animated:YES];
+
     }else
     {
         NSLog(@"查看第%ld个人的简历",(long)index);
         ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
         infoVC.resumeID = [[[commendArray objectAtIndex:index] objectForKey:@"id"] intValue];
-//        infoVC.userID = 117377;
         infoVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:infoVC animated:YES];
     }
@@ -412,6 +410,7 @@
         if (isSuccess) {
             NSArray *resultArr = [result objectForKey:@"data"];
             if ([resultArr count]>0) {
+                NSLog(@"resultArr== %@",result);
                 NSArray *array = [self getHireData:[resultArr firstObject]];
                 [hireOfView loadItem:array];
             }
@@ -430,6 +429,7 @@
     {
         if (isSuccess) {
             NSArray *tempAr = [result objectForKey:@"data"];
+            NSLog(@"kGetUrgentInfo== %@",tempAr);
             if ([tempAr count]>0) {
                 urgentDic = [tempAr objectAtIndex:0];
                 urgentOverdue = NO;
@@ -459,7 +459,7 @@
         NSMutableArray *resultArray = [NSMutableArray array];
         for (int i = 0; i< [titleArray count]; i++) {
             NSString *keyString = [keyArray objectAtIndex:i];
-            NSString *content = [dataDic objectForKey:keyString];
+            NSString *content = [Util getCorrectString:[dataDic objectForKey:keyString]];
             NSDictionary * dic = [titleArray objectAtIndex:i];
             if ([Util getCorrectString:content]>0) {
                 NSMutableDictionary *newDic = [NSMutableDictionary dictionary];
@@ -469,7 +469,7 @@
                     [newDic setObject:[NSString stringWithFormat:@"%@个",content] forKey:@"substring"];
                 }else if (i==1)
                 {
-                    if ([content integerValue]>=72||[content integerValue]==0) {
+                    if ([content integerValue]>72||[content integerValue]==0) {
                         NSString *string = [NSString stringWithFormat:@"%@",[dic objectForKey:@"string"]];
                         [newDic setObject:string forKey:@"string"];
                         [newDic setObject:@"" forKey:@"substring"];
