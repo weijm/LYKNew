@@ -87,9 +87,11 @@
 {
     if (self.tag ==0||self.tag == 4) {
         NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-        int stringLength = (self.tag==6)?1000:30;
+        int stringLength = 30;
         if ([newString length]>stringLength)
         {
+            [Util showPrompt:@"不能超过30字"];
+            textField.text = [newString substringToIndex:stringLength];
             if ([_delegate respondsToSelector:@selector(cancelKey)]) {
                 [_delegate cancelKey];
             }
@@ -116,6 +118,25 @@
     return YES;
 }
 #pragma mark - UITextViewDelegate
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if (self.tag ==6) {
+        NSString *newString = [textView.text stringByReplacingCharactersInRange:range withString:text];
+        int stringLength = 1000;
+        if ([newString length]>stringLength)
+        {
+            textView.text = [newString substringToIndex:stringLength];
+            [Util showPrompt:@"不能超过1000字"];
+            if ([_delegate respondsToSelector:@selector(cancelKey)]) {
+                [_delegate cancelKey];
+            }
+            return  NO;
+        }
+        
+    }
+    
+    return YES;
+}
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
     if ([_delegate respondsToSelector:@selector(setEditView:)]) {

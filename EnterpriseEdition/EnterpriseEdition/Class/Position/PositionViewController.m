@@ -66,6 +66,18 @@
     };
     
     isLoading = NO;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginOrExit:) name:kLoginOrExit object:nil];
+    
+}
+-(void)loginOrExit:(NSNotification*)notifiCation
+{
+    BOOL isLoginOut = [[notifiCation object] boolValue];
+    if (isLoginOut) {
+        validArray = nil;
+        offlineArray = nil;
+        toAuditArray = nil;
+        chooseArray = nil;
+    }
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -187,7 +199,8 @@
     PositionInfoViewController *piVC = [[PositionInfoViewController alloc] init];
     piVC.hidesBottomBarWhenPushed = YES;
     piVC.jobId = [dictionary objectForKey:@"id"];
-    piVC.isUrgent = NO;//设置是否为急招职位
+    piVC.positionStatus = [Util getCorrectString:[dictionary objectForKey:@"status"]];
+    
     [self.navigationController pushViewController:piVC animated:YES];
 }
 #pragma mark - PositionShowTableViewCellDelegate
@@ -467,6 +480,7 @@
 -(void)getData
 {
     [self requestPositionList:NO];
+    
 }
 -(void)dealWithResponeData:(NSArray*)array
 {

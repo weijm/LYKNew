@@ -296,9 +296,15 @@
 #pragma mark - 查看身份信息详情
 -(void)lookIdentityInfo
 {
+    if (downloadCount<=0) {
+        return;
+    }
     showIndentityInfo = YES;
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [infoTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
+    
+    //请求接口信息
+    [self requestDownloadCount];
     
 }
 #pragma mark - 点击事件
@@ -416,6 +422,9 @@
     NSDictionary *jsonDic = [Util dictionaryWithJsonString:requestJson];
     NSString *typeString = [jsonDic objectForKey:@"type"];//
     NSInteger index = [typeArray indexOfObject:typeString];
+    if (index>7||index<0) {
+        return;
+    }
     //数组里面的第几个
     NSArray *dataArray = [responObj objectForKey:@"data"];
     if (dataArray!=nil &&[dataArray count]>0) {
@@ -431,7 +440,6 @@
    
 }
 #pragma mark - 收藏和取消收藏
-#pragma mark - 批量编辑简历
 -(void)requesBatchDealWithResumeType:(int)type
 {
     [self showHUD:@"正在处理数据"];
@@ -458,7 +466,27 @@
     };
     
 }
-
+#pragma mark - 点击查看联系方式通知服务器请求
+-(void)requestDownloadCount
+{
+    NSString *infoJson = [CombiningData getLookContact:_jobID ResumeId:[NSString stringWithFormat:@"%d",_resumeID]];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                if ([message length]==0) {
+                    message = @"处理失败";
+                }
+            }
+        }else
+        {
+        }
+    };
+}
 #pragma mark- 每行文本显示的字数
 -(int)getEachLength:(int)index
 {

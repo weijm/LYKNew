@@ -63,6 +63,10 @@
 +(NSString*)getResumeListFromPosiotion:(NSString*)jobId PageIndex:(int)page;
 #pragma mark - 简历
 /**
+ 点击查看简历联系方式
+ */
++(NSString*)getLookContact:(NSString*)jobID ResumeId:(NSString*)resumeID;
+/**
  简历列表
  */
 +(NSString*)getResumeList:(int)page Status:(int)status;

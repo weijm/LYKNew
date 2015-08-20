@@ -29,19 +29,25 @@
 //加载数据
 -(void)loadData:(NSDictionary*)dictionary
 {
-    if(_type==0)
-    {
-        jobTitLab.hidden = NO;
-        jobLab.hidden = NO;
-    }else
-    {
-        jobTitLab.hidden = YES;
-        jobLab.hidden = YES;
-        
-    }
+//    if(_type==0)
+//    {
+//        jobTitLab.hidden = NO;
+//        jobLab.hidden = NO;
+//    }else
+//    {
+//        jobTitLab.hidden = YES;
+//        jobLab.hidden = YES;
+//        
+//    }
+    jobTitLab.hidden = NO;
+    jobLab.hidden = NO;
     [self showRateViewBg];
+    NSString *titleContent = [Util getCorrectString:[dictionary objectForKey:@"title"]];
+    if (_type!=0) {
+        titleContent = [Util getCorrectString:[dictionary objectForKey:@"job_type"]];
+    }
 
-    jobLab.text = [dictionary objectForKey:@"title"];
+    jobLab.text = titleContent;
     NSString *timeString = [dictionary objectForKey:@"add_time"];
     
     NSRange range = [timeString rangeOfString:@"2015-"];
@@ -71,7 +77,7 @@
 }
 -(void)clicked:(id)sender
 {
-    UIButton *bt = (UIButton *)sender;
+//    UIButton *bt = (UIButton *)sender;
 }
 -(void)setShowRateView:(BOOL)showRateView
 {

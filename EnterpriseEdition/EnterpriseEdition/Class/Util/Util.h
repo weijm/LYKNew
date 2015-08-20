@@ -86,6 +86,14 @@
 
 #pragma mark - 文件路径
 /**
+ 输出bug内容
+ */
++(void)printBugContent;
+/**
+ 获取document下得子文件
+ */
++(NSArray*)getSubFileInDocument;
+/**
  获取document的路径
  */
 +(NSString*)documentPath;

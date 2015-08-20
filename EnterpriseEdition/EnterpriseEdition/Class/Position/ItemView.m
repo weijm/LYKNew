@@ -59,7 +59,16 @@
             labHeight.constant = 40;
             _contentLab.numberOfLines = 2;
             
-            _contentLab.text = [NSString stringWithFormat:@"%@%@%@%@",[Util getCorrectString:[dic objectForKey:@"city_name_1"]],[Util getCorrectString:[dic objectForKey:@"city_name_2"]],[Util getCorrectString:[dic objectForKey:@"city_name_3"]],[Util getCorrectString:[dic objectForKey:@"address"]]];
+            NSString *str1 = [Util getCorrectString:[dic objectForKey:@"city_name_1"]];
+            NSString *str2 = [Util getCorrectString:[dic objectForKey:@"city_name_2"]];
+            NSString *str3 = [Util getCorrectString:[dic objectForKey:@"city_name_3"]];
+            if ([str1 isEqualToString:str2]) {
+                _contentLab.text = [NSString stringWithFormat:@"%@%@%@",str1,str3,[Util getCorrectString:[dic objectForKey:@"address"]]];
+            }else
+            {
+                _contentLab.text = [NSString stringWithFormat:@"%@%@%@%@",str1,str2,str3,[Util getCorrectString:[dic objectForKey:@"address"]]];
+            }
+            
             //当地址为两行时 图标向上移动
             int line = [Util getRow:(int)[_contentLab.text length] eachCount:20];
             if (line >= 2) {

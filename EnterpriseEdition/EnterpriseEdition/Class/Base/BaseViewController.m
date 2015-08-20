@@ -67,7 +67,7 @@
     self.hud.labelText = title;
     
     //延迟隐藏
-    [self.hud hide:YES afterDelay:0.5f];
+    [self.hud hide:YES afterDelay:1.5f];
 }
 //数据请求错误提示
 - (void)hideHUDFaild:(NSString *)title
@@ -78,7 +78,7 @@
     self.hud.labelText = title;
     
     //延迟隐藏
-    [self.hud hide:YES afterDelay:0.5f];
+    [self.hud hide:YES afterDelay:1.5f];
 }
 - (void)showAlertView:(NSString *)alertTitle
 {

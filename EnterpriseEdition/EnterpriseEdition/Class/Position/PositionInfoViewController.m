@@ -195,7 +195,7 @@
 {
     CommendResumeForJobViewController *resumeVC = [[CommendResumeForJobViewController alloc] init];
     resumeVC.isForPisition = YES;
-    resumeVC.jobId = _jobId;//@"118077";
+    resumeVC.jobId = @"118077";
     [self.navigationController pushViewController:resumeVC animated:YES];
 }
 #pragma mark - 初始化footerView
@@ -214,6 +214,8 @@
         [sself chooseAction:index isChooseAll:isAll];
     };
     [self.view addSubview:footerView];
+    
+    [self loadFooterViewStatus];
 }
 #pragma mark - fooerView上的选择不同按钮的触发事件
 -(void)chooseAction:(NSInteger)index isChooseAll:(BOOL)isAll
@@ -256,6 +258,35 @@
             
         default:
             break;
+    }
+    
+}
+#pragma mark - 根据状态判断 footerView的按钮是否可点击
+-(void)loadFooterViewStatus
+{
+    if ([_positionStatus isEqualToString:@"正常"]) {
+        
+    }else if ([_positionStatus isEqualToString:@"下线"])
+    {
+        NSArray *enableArray = [NSArray arrayWithObjects:@"20", nil];
+        //设置除了全选按钮可点击 其余按钮不可点击
+        [footerView setButton:enableArray Enable:NO];
+    }else if ([_positionStatus isEqualToString:@"审核中"])
+    {
+        NSArray *enableArray = [NSArray arrayWithObjects:@"10",@"20",@"30", nil];
+        //设置除了全选按钮可点击 其余按钮不可点击
+        [footerView setButton:enableArray Enable:NO];
+        
+    }else if ([_positionStatus isEqualToString:@"已保存"])
+    {
+        NSArray *enableArray = [NSArray arrayWithObjects:@"10",@"20", nil];
+        //设置除了全选按钮可点击 其余按钮不可点击
+        [footerView setButton:enableArray Enable:NO];
+    }else
+    {//审核未通过
+        NSArray *enableArray = [NSArray arrayWithObjects:@"10",@"20", nil];
+        //设置除了全选按钮可点击 其余按钮不可点击
+        [footerView setButton:enableArray Enable:NO];
     }
     
 }
@@ -359,7 +390,7 @@
                 [self hideHUDWithComplete:@"数据处理成功"];
                 //仍然加载首页
                 if (tempstatus == -9) {
-                    [self.navigationController popViewControllerAnimated:YES];
+                    [self performSelector:@selector(leftAction) withObject:nil afterDelay:1.5];
                 }else
                 {
                     if (tempstatus == 0) {

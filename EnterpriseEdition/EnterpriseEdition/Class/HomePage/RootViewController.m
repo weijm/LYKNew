@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 #import "LoginViewController.h"
 #import "LocationViewController.h"
+#import "HomePageViewController.h"
 
 @interface RootViewController ()
 {
@@ -76,6 +77,8 @@
     self.selectedViewController = [vcArray firstObject];
     //定位
     [[LocationViewController shareInstance] loadLocation];
+    
+       
 
 }
 -(void)loginOrExit:(NSNotification *)notification

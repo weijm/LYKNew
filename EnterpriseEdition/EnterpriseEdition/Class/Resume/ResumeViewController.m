@@ -29,9 +29,9 @@
     //已下载的简历数据数组
     NSMutableArray *downloadArray;
     //当前操作的cell
-    ResumeTableViewCell *currentCell;
+//    ResumeTableViewCell *currentCell;
     //点击事件
-    UITapGestureRecognizer *tap;
+    __weak UITapGestureRecognizer *tap;
    //是否出现全部编辑的标志
     BOOL isEdit;
     //简历类别
@@ -76,7 +76,19 @@
     
     isLoading = NO;
     isSearching = NO;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginOrExit:) name:kLoginOrExit object:nil];
 
+}
+-(void)loginOrExit:(NSNotification*)notifiCation
+{
+    BOOL isLoginOut = [[notifiCation object] boolValue];
+    if (isLoginOut) {
+        dataArray = nil;
+        colledtedArray = nil;
+        downloadArray = nil;
+        chooseArray = nil;
+    }
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -401,6 +413,7 @@
         dic = [downloadArray objectAtIndex:indexPath.row];
     }
     infoVC.resumeID = [[dic objectForKey:@"stu_resume_id"] intValue];
+    infoVC.jobID = [Util getCorrectString:[dic objectForKey:@"ent_job_id"]];
  
     infoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:infoVC animated:YES];
@@ -421,22 +434,22 @@
 //    return [Util myYOrHeight:bottomH]*row;
 //}
 #pragma mark - ResumeTableViewCellDelegate
--(void)revertLeftOrRightSwipView:(ResumeTableViewCell*)cell selected:(BOOL)isSelected
-{
-    if (isSelected) {
-        if (currentCell) {
-            [currentCell revertView];
-        }
-        currentCell = cell;
-        tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(revertCell)];
-        [dataTableView addGestureRecognizer:tap];
-    }
-}
--(void)revertCell
-{
-    [currentCell revertView];
-    [dataTableView removeGestureRecognizer:tap];
-}
+//-(void)revertLeftOrRightSwipView:(ResumeTableViewCell*)cell selected:(BOOL)isSelected
+//{
+//    if (isSelected) {
+//        if (currentCell) {
+//            [currentCell revertView];
+//        }
+//        currentCell = cell;
+//        tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(revertCell)];
+//        [dataTableView addGestureRecognizer:tap];
+//    }
+//}
+//-(void)revertCell
+//{
+//    [currentCell revertView];
+//    [dataTableView removeGestureRecognizer:tap];
+//}
 //点击选中按钮
 -(void)clickedChooseBtAction:(int)index Selected:(NSString*)isSelected
 {
@@ -601,6 +614,7 @@
 
     }else
     {
+//        DLog(@"dealWithResponeData array == %@",array);
         switch (resumeCategory) {
             case 1:
             {
@@ -736,7 +750,7 @@
                     message = @"数据为空";
                 }
                 if (!isMore) {
-                    if ([message isEqualToString:@"该职位下暂无投递简历"]) {
+                    if ([message isEqualToString:@"该企业暂无投递简历"]||[message isEqualToString:@"该职位下暂无投递简历"]) {
                         if (resumeCategory ==1) {
                             dataArray = [NSMutableArray array];
                         }else if (resumeCategory ==2)

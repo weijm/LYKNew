@@ -11,9 +11,10 @@
 #endif
 //登录的token码
 #define kToken @"0a20ece95e098dd38621410f5a3f8dda"
-//服务器地址
-#define kWEB_BASE_URL @"http://ezz.teiit.com:88/interface_ent/"
-//#define kWEB_BASE_URL @"http://192.168.2.226/interface_ent/"
+//开发服务器地址
+//#define kWEB_BASE_URL @"http://ezz.teiit.com:88/interface_ent/"
+//测试服务器地址
+#define kWEB_BASE_URL @"http://192.168.2.226/interface_ent/"
 #pragma mark - 登录
 //登录接口
 #define kLogin @"ent_login"
@@ -54,6 +55,8 @@
 
 #pragma mark - 简历
 #pragma mark - 简历列表
+//简历点击查看联系方式
+#define kResumeTapLookContact @"ent_resume_download"
 //简历管理里面的简历列表
 #define kResumeList @"ent_resume_list"
 //筛选简历
@@ -106,6 +109,6 @@
 #define kCommendList @"ent_index_recommend_list"
 
 
-//上传图片
-#define kUploadImg [NSString stringWithFormat:@"%@upload_file_0a20ece95e098dd38621410f5a3f8dda.php",kWEB_BASE_URL]
+//上传图片 
+#define kUploadImg [NSString stringWithFormat:@"http://42.62.92.59:88/interface_ent/upload_file_0a20ece95e098dd38621410f5a3f8dda.php"]
 

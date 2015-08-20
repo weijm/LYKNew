@@ -37,6 +37,12 @@
 }
 -(void)loadSubView:(NSDictionary*)dictionary
 {
+    if (dictionary == nil) {
+        enterpriseNameLab.text = @"暂无";
+        statusImg.hidden = YES;
+        return;
+    }
+    statusImg.hidden = NO;
     NSString *logoUrl = [dictionary objectForKey:@"logo_url"];
     if ([[Util getCorrectString:logoUrl] length]>0) {
         [iconImg sd_setImageWithURL:[NSURL URLWithString:logoUrl] placeholderImage:[UIImage imageNamed:@"my_icon"]];

@@ -22,4 +22,6 @@
 @property (nonatomic) BOOL reviewTips;
 @property (nonatomic,strong) NSString  *jobId;
 @property (nonatomic) BOOL isUrgent;
+@property (nonatomic,strong) NSString *positionStatus;
+
 @end

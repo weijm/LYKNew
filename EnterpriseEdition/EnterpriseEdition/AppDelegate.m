@@ -10,6 +10,7 @@
 #import "RootViewController.h"
 #import <QMapKit/QMapKit.h>
 #import "LoginViewController.h"
+#import "NdUncaughtExceptionHandler.h"
 
 @interface AppDelegate ()
 
@@ -47,6 +48,8 @@
     if ([loginOrExit integerValue]!= 1) {
         [rootVC presentViewController:navigation animated:YES completion:nil];
     }
+     [NdUncaughtExceptionHandler setDefaultHandler];
+//    [Util printBugContent];
     return YES;
 }
 

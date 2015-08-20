@@ -404,6 +404,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         if (isSuccess) {
             [self hideHUDWithComplete:@"上传成功"];
             NSString *imgUrl = [dictionary objectForKey:@"data"];
+            DLog(@"imgUrl== %@",imgUrl);
             NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:imgUrl,@"content", nil];
             //获取原来的图片路径
             NSDictionary *oldDic = [contentArray objectAtIndex:2];

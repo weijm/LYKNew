@@ -469,7 +469,8 @@
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUDWithComplete:[NSString stringWithFormat:@"%@成功",ptomptString]];
                 //返回上一页
-                [self leftAction];
+                [self performSelector:@selector(leftAction) withObject:nil afterDelay:1.5];
+                
             }else
             {
                 [self hideHUDFaild:[result objectForKey:@"message"]];
@@ -501,7 +502,7 @@
         if ([obj isKindOfClass:[NSDictionary class]]) {
             NSDictionary *contentDic = (NSDictionary*)obj;
             NSString *content = [contentDic objectForKey:@"content"];
-            if (i==0||i==11) {
+            if (i==0||i==11||i==7) {
                 if ([content length]>30) {
                     [Util showPrompt:[NSString stringWithFormat:@"%@ 不能超过30字",title]];
                     isFull = NO;
@@ -523,10 +524,17 @@
                 }
             }else if (i==3)
             {
+                int needCount = [content intValue];
                 if (![Util isPureInt:content]) {
                     [Util showPrompt:[NSString stringWithFormat:@"请输入实际需要招聘人数"]];
-                    isFull = NO;
-                    break;
+                    
+                }else
+                {
+                    if (needCount >255) {
+                        [Util showPrompt:[NSString stringWithFormat:@"招聘人数不可以超过255"]];
+                        isFull = NO;
+                        break;
+                    }
                 }
             }
         }

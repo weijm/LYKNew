@@ -36,14 +36,14 @@
                             </constraints>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_version_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="QOu-NY-PpQ">
-                            <rect key="frame" x="203" y="108" width="193" height="156"/>
+                            <rect key="frame" x="254.5" y="149" width="90" height="90"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="193" id="UZl-pR-nbk"/>
-                                <constraint firstAttribute="height" constant="156" id="mZh-Vv-CNi"/>
+                                <constraint firstAttribute="width" constant="90" id="UZl-pR-nbk"/>
+                                <constraint firstAttribute="height" constant="90" id="mZh-Vv-CNi"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.1zhaozhao.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0s-zI-x6E">
-                            <rect key="frame" x="0.0" y="214" width="600" height="21"/>
+                            <rect key="frame" x="0.0" y="249" width="600" height="21"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="hTU-o1-r39"/>
@@ -53,7 +53,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IOS版本号2.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAI-KQ-PP7">
-                            <rect key="frame" x="0.0" y="235" width="600" height="21"/>
+                            <rect key="frame" x="0.0" y="270" width="600" height="21"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="9f8-Hk-IPR"/>
@@ -68,13 +68,13 @@
                         <constraint firstItem="iJv-1X-Da3" firstAttribute="leading" secondItem="1hz-o3-cn7" secondAttribute="leading" id="1Hb-Kl-yWR"/>
                         <constraint firstItem="DAI-KQ-PP7" firstAttribute="leading" secondItem="1hz-o3-cn7" secondAttribute="leading" id="FxK-45-hBw"/>
                         <constraint firstAttribute="centerX" secondItem="QOu-NY-PpQ" secondAttribute="centerX" id="Gge-BP-6Mu"/>
-                        <constraint firstItem="V0s-zI-x6E" firstAttribute="top" secondItem="QOu-NY-PpQ" secondAttribute="bottom" constant="-50" id="JJb-Xk-oRG"/>
+                        <constraint firstItem="V0s-zI-x6E" firstAttribute="top" secondItem="QOu-NY-PpQ" secondAttribute="bottom" constant="10" id="JJb-Xk-oRG"/>
                         <constraint firstAttribute="centerY" secondItem="iJv-1X-Da3" secondAttribute="centerY" id="Ks5-v4-ddc"/>
                         <constraint firstAttribute="trailing" secondItem="DAI-KQ-PP7" secondAttribute="trailing" id="Kz5-FB-2ta"/>
                         <constraint firstItem="V0s-zI-x6E" firstAttribute="leading" secondItem="1hz-o3-cn7" secondAttribute="leading" id="LkW-zV-wgF"/>
                         <constraint firstAttribute="trailing" secondItem="V0s-zI-x6E" secondAttribute="trailing" id="Ndz-lT-5tL"/>
                         <constraint firstItem="DAI-KQ-PP7" firstAttribute="top" secondItem="V0s-zI-x6E" secondAttribute="bottom" id="d4G-gx-xra"/>
-                        <constraint firstItem="iJv-1X-Da3" firstAttribute="top" secondItem="QOu-NY-PpQ" secondAttribute="bottom" constant="-115" id="gxy-at-xSt"/>
+                        <constraint firstItem="iJv-1X-Da3" firstAttribute="top" secondItem="QOu-NY-PpQ" secondAttribute="bottom" constant="-90" id="gxy-at-xSt"/>
                         <constraint firstAttribute="trailing" secondItem="iJv-1X-Da3" secondAttribute="trailing" id="op4-LD-k1K"/>
                     </constraints>
                 </view>

@@ -498,23 +498,35 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     for (int i =0; i< count; i++) {
 
         NSObject *obj = [contentArray objectAtIndex:i];
+        NSDictionary *dic = [titleArray objectAtIndex:i];
+        NSString *title = [dic objectForKey:@"title"];
         if ([obj isKindOfClass:[NSString class]]) {
-            NSDictionary *dic = [titleArray objectAtIndex:i];
+            
             if (i==7||i==8||i==9) {//非必填项
                 continue;
             }
             
-            NSString *title = [dic objectForKey:@"title"];
+            
             [Util showPrompt:[NSString stringWithFormat:@"%@ 不能为空",title]];
             isFull = NO;
             break;
         }else
         {
+             NSDictionary *dic = (NSDictionary*)obj;
+            NSString *content = [Util getCorrectString:[dic objectForKey:@"content"]];
             if (i==9) {
-                NSDictionary *dic = (NSDictionary*)obj;
-                BOOL isRight = [Util checkWebSite:[dic objectForKey:@"content"]];
+               
+                BOOL isRight = [Util checkWebSite:content];
                 if (!isRight) {
                     [Util showPrompt:@"网址格式不正确"];
+                    break;
+                }
+            }
+            if (i==0||i==4 ||i==6) {
+                int strLenght = (i==6)?1000:30;
+                if ([content length]>strLenght) {
+                    [Util showPrompt:[NSString stringWithFormat:@"%@ 不超过%d字",title,strLenght]];
+                    isFull = NO;
                     break;
                 }
             }
@@ -683,6 +695,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         if (isSuccess) {
             [self hideHUDWithComplete:@"上传成功"];
             NSString *imgUrl = [dictionary objectForKey:@"data"];
+            DLog(@"imgUrl== %@",imgUrl);
             NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:imgUrl,@"content", nil];
             //获取原来的图片路径
             NSDictionary *oldDic = [contentArray objectAtIndex:imgType];

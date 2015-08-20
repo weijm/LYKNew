@@ -174,7 +174,14 @@
     [userDefault setObject:@"" forKey:kLoginOrExit];
     [userDefault setObject:@"" forKey:kUID];
     [userDefault setObject:@"" forKey:KIID];
-
+    
+    [self performSelector:@selector(reloadView) withObject:nil afterDelay:1.5];
+    
+}
+-(void)reloadView
+{
+    resumeInfoDic = nil;
+    [dataTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:0 inSection:0],[NSIndexPath indexPathForRow:1 inSection:0], nil] withRowAnimation:UITableViewRowAnimationNone];
 }
 -(void)requestMineInfo
 {
@@ -195,6 +202,8 @@
             }else
             {
                 [self hideHUDFaild:[result objectForKey:@"message"]];
+                resumeInfoDic = nil;
+                [dataTableView reloadData];
             }
         }else
         {

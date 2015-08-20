@@ -71,6 +71,8 @@
     }
     
     urgentOverdue = NO;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginOrExit:) name:kLoginOrExit object:nil];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -91,7 +93,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)loginOrExit:(NSNotification*)notifiCation
+{
+    BOOL isLoginOut = [[notifiCation object] boolValue];
+    if (isLoginOut) {
+        [self loadEmtyHireView];
+    }
+}
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -209,11 +217,13 @@
 #pragma mark - 初始化应聘部分的视图
 -(void)initHireView:(UIView*)view
 {
+    if (hireOfView) {
+        [hireOfView removeFromSuperview];
+    }
     CGRect frame = CGRectMake(0, 0, kWidth,kHireViewHeight );
-//    hireView = [[HireView alloc] initWithFrame:frame];
     hireOfView = [[HireOfView alloc] initWithFrame:frame];
     //假数据
-    NSArray *array = [self getHireData:nil];//[NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"职位 10个",@"string",@"10个",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"急招 剩余12时",@"string",@"剩余12时",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"已下载 100份",@"string",@"100份",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"已收到 100份",@"string",@"100份",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"发布职位",@"string",@"",@"substring", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"收藏 100份",@"string",@"100份",@"substring", nil], nil];
+    NSArray *array = [self getHireData:nil];
     
     [hireOfView loadItem:array];
     //点击事件的触发
@@ -223,6 +233,12 @@
         [sSelf hireAction:index];
     };
     [view addSubview:hireOfView];
+}
+-(void)loadEmtyHireView
+{
+    NSArray *array = [self getHireData:nil];
+    
+    [hireOfView loadItem:array];
 }
 #pragma mark - 初始化推荐部分的视图
 - (void)initCommendView:(UIView*)view
@@ -359,15 +375,16 @@
 {
     NSArray *jsonArray = nil;
     if (!isFirst) {
+        
         jsonArray = [NSArray arrayWithObjects:[CombiningData getPicList],[CombiningData getUIDInfo:kNumberList],[CombiningData getUIDInfo:kCommendList],[CombiningData getMineInfo:kGetUrgentInfo], nil];
         isFirst = YES;
     }else
     {
         jsonArray = [NSArray arrayWithObjects:[CombiningData getUIDInfo:kNumberList],[CombiningData getUIDInfo:kCommendList],[CombiningData getMineInfo:kGetUrgentInfo], nil];
     }
-    
-    __block int requestCount = 0;
     [self showHUD:@"正在加载数据"];
+    __block int requestCount = 0;
+    
     for (int i=0; i < [jsonArray count]; i++) {
         NSString *jsonString = [jsonArray objectAtIndex:i];
         
@@ -410,7 +427,6 @@
         if (isSuccess) {
             NSArray *resultArr = [result objectForKey:@"data"];
             if ([resultArr count]>0) {
-                NSLog(@"resultArr== %@",result);
                 NSArray *array = [self getHireData:[resultArr firstObject]];
                 [hireOfView loadItem:array];
             }

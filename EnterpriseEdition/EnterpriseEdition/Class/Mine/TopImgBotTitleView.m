@@ -35,7 +35,7 @@
         case 0:
         {
             NSString *content = [dictoinary objectForKey:@"download_total"];
-            countLab.text = ([content length]==0)?@"100":content;
+            countLab.text = ([content length]==0)?@"0":content;
             titLab.text = @"当日剩余下载次数";
 
         }
@@ -43,7 +43,7 @@
         case 1:
         {
             NSString *content = [dictoinary objectForKey:@"resume_get_total"];
-            countLab.text = ([content length]==0)?@"100":content;
+            countLab.text = ([content length]==0)?@"0":content;
             titLab.text = @"当日收到简历份数";
         }
             
@@ -51,7 +51,7 @@
         case 2:
         {
             NSString *content = [dictoinary objectForKey:@"resume_favor_total"];
-            countLab.text = ([content length]==0)?@"100":content;
+            countLab.text = ([content length]==0)?@"0":content;
             titLab.text = @"当日收藏简历份数";
 
         }

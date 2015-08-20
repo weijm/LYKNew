@@ -80,9 +80,11 @@
                 if ([keyString hasSuffix:@"id"]) {
                     contentString = [contentDic objectForKey:[NSString stringWithFormat:@"%@1",keyString]];
                 }
-                if ([keyString isEqualToString:@"work_type"]) {
+                if ([keyString isEqualToString:@"work_type"]||[keyString isEqualToString:@"work_exp_type"]||[keyString isEqualToString:@"certificate_type"]) {
                      contentString = [contentDic objectForKey:@"selectedId"];
                 }
+                
+                
 
             }
             //拼接字符串
@@ -169,6 +171,14 @@
     return jsonString;
 }
 #pragma mark -简历
+//点击查看简历联系方式
++(NSString*)getLookContact:(NSString*)jobID ResumeId:(NSString*)resumeID
+{
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"ent_user_id\":\"%@\",\"resume_id\":\"%@\",\"ent_job_id\":\"%@\"}",kToken,kResumeTapLookContact,KGETOBJ(kUID),resumeID,jobID];
+    return jsonString;
+}
+//简历列表
 +(NSString*)getResumeList:(int)page Status:(int)status
 {
     NSString *pageString = [NSString stringWithFormat:@"%d",page];

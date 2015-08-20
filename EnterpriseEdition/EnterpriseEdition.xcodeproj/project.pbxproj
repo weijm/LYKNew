@@ -237,6 +237,7 @@
 		20D1CDEC1B56326100E97935 /* InfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D1CDEB1B56326100E97935 /* InfoHeaderView.xib */; };
 		20D1CDF81B56474500E97935 /* ResumeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D1CDF61B56474500E97935 /* ResumeInfoViewController.m */; };
 		20D1CDF91B56474500E97935 /* ResumeInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D1CDF71B56474500E97935 /* ResumeInfoViewController.xib */; };
+		20D44F0B1B844CC900DB9550 /* NdUncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D44F0A1B844CC900DB9550 /* NdUncaughtExceptionHandler.m */; };
 		20D468571B6EF7B4008A7B78 /* homepage_banner_select@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D468551B6EF7B4008A7B78 /* homepage_banner_select@3x.png */; };
 		20D468581B6EF7B4008A7B78 /* homepage_banner_selected_highted@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D468561B6EF7B4008A7B78 /* homepage_banner_selected_highted@3x.png */; };
 		20D468631B6EFF1D008A7B78 /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D468621B6EFF1D008A7B78 /* SMPageControl.m */; };
@@ -673,6 +674,8 @@
 		20D1CDF51B56474500E97935 /* ResumeInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResumeInfoViewController.h; sourceTree = "<group>"; };
 		20D1CDF61B56474500E97935 /* ResumeInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResumeInfoViewController.m; sourceTree = "<group>"; };
 		20D1CDF71B56474500E97935 /* ResumeInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResumeInfoViewController.xib; sourceTree = "<group>"; };
+		20D44F091B844CC900DB9550 /* NdUncaughtExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NdUncaughtExceptionHandler.h; sourceTree = "<group>"; };
+		20D44F0A1B844CC900DB9550 /* NdUncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NdUncaughtExceptionHandler.m; sourceTree = "<group>"; };
 		20D468551B6EF7B4008A7B78 /* homepage_banner_select@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_banner_select@3x.png"; sourceTree = "<group>"; };
 		20D468561B6EF7B4008A7B78 /* homepage_banner_selected_highted@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_banner_selected_highted@3x.png"; sourceTree = "<group>"; };
 		20D468611B6EFF1D008A7B78 /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
@@ -1345,6 +1348,8 @@
 				20D58BB01B54FACD007B2A3F /* LocationViewController.xib */,
 				20D468A91B6F1A23008A7B78 /* CombiningData.h */,
 				20D468AA1B6F1A23008A7B78 /* CombiningData.m */,
+				20D44F091B844CC900DB9550 /* NdUncaughtExceptionHandler.h */,
+				20D44F0A1B844CC900DB9550 /* NdUncaughtExceptionHandler.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -2288,6 +2293,7 @@
 				20D4689D1B6F12AB008A7B78 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				20F0F2551B5E242E00CB1D71 /* MyInfoViewController.m in Sources */,
 				2000779A1B71ED690015E261 /* SDWebImageDownloader.m in Sources */,
+				20D44F0B1B844CC900DB9550 /* NdUncaughtExceptionHandler.m in Sources */,
 				202D480C1B621D6500654E7C /* InfoDetailTitleAndImgTableViewCell.m in Sources */,
 				203542F31B4CBB45007FF4A8 /* LoginViewController.m in Sources */,
 				20F0F2351B5E137700CB1D71 /* CommendResumeTableViewCell.m in Sources */,

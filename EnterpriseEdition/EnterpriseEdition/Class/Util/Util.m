@@ -270,11 +270,47 @@
 +(BOOL)isPureInt:(NSString*)string
 {
     NSScanner *scan = [NSScanner scannerWithString:string];
-    int val;
+    NSInteger val;
     
-    return [scan scanInt:&val]&&[scan isAtEnd]&&[string integerValue]>0;
+    return [scan scanInteger:&val]&&[scan isAtEnd]&&[string integerValue]>0;
 }
 #pragma mark - 文件的相关操作
++(void)printBugContent
+{
+    NSArray *array = [self getSubFileInDocument];
+    NSLog(@"array == %@",array);
+    for (int i =0; i< [array count]; i++) {
+        NSString *fileName = [array objectAtIndex:i];
+        if ([fileName hasSuffix:@".txt"]) {
+            NSString *filePath = [NSString stringWithFormat:@"%@/%@",[self documentPath],fileName];
+            NSString *fileStr = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+            NSLog(@"fileString %d == %@",i,fileStr);
+        }
+    }
+}
+// 获取document下得子文件
++(NSArray*)getSubFileInDocument
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    //在这里获取应用程序Documents文件夹里的文件及文件夹列表
+    
+    NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *documentDir = [documentPaths objectAtIndex:0];
+    
+    NSError *error = nil;
+    
+    NSArray *fileList = [[NSArray alloc] init];
+    
+    //fileList便是包含有该文件夹下所有文件的文件名及文件夹名的数组
+    //fileList便是包含有该文件夹下所有文件的文件名及文件夹名的数组
+    
+    fileList = [fileManager contentsOfDirectoryAtPath:documentDir error:&error];
+    return fileList;
+
+    
+}
 //document的路径
 +(NSString*)documentPath
 {

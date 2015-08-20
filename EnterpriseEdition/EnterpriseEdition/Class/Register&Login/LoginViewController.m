@@ -139,6 +139,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)dismissLoginView
+{
+    //将登录页面取消
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 #pragma mark - 服务器请求
 -(void)requestLogin:(NSString*)userName password:(NSString*)password
 {
@@ -151,8 +156,7 @@
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUDWithComplete:@"登录成功"];
                 
-                //将登录页面取消
-                [self dismissViewControllerAnimated:YES completion:nil];
+                
                 //加载首页数据
                 if ([_delegate respondsToSelector:@selector(loginSuccess)]) {
                     [_delegate loginSuccess];
@@ -174,7 +178,7 @@
                 [userDefault setObject:userName forKey:kAccount];
                 [userDefault setObject:password forKey:KPassWord];
                 [userDefault synchronize];
-                
+                [self performSelector:@selector(dismissLoginView) withObject:nil afterDelay:1.5];
             }else
             {
                 [self hideHUD];

@@ -30,6 +30,13 @@
     titleLab.text = [dictionary objectForKey:@"title"];
     contentTextField.placeholder = [dictionary objectForKey:@"placeholder"];
     int index = (int)self.tag;
+    if(index ==3)
+    {
+        contentTextField.keyboardType = UIKeyboardTypeNumberPad;
+    }else
+    {
+         contentTextField.keyboardType = UIKeyboardTypeDefault;
+    }
     
     if (index==1||index>=9) {
         markImg.hidden = YES;

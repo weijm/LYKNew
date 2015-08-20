@@ -23,4 +23,9 @@
  查看简历
  */
 -(void)lookupPersonalResume:(NSInteger) index;
+
+/**
+ 重新加载hireView
+ */
+-(void)loadEmtyHireView;
 @end
