@@ -53,8 +53,16 @@
     
     lineWidth.constant = 0.5;
     
-    [[LocationViewController shareInstance] startLocation];
+//    [[LocationViewController shareInstance] startLocation];
     [self changeInfoInLocation];
+    
+    NSString * iidStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kEntStatus];
+    if ([iidStatus intValue]==1) {
+        commitBt.enabled = NO;
+    }else
+    {
+        commitBt.enabled = YES;
+    }
 
 }
 
@@ -149,8 +157,14 @@
 #pragma mark - Items按钮触发事件
 -(void)leftAction
 {
-    [self.navigationController popViewControllerAnimated:YES];
-    [[LocationViewController shareInstance] stopLocation];
+    if (_isEditAgain) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }else
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
+//    [[LocationViewController shareInstance] stopLocation];
 }
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -441,11 +455,11 @@
     if (isFull) {//当填写的信息完整并有效时 保存到服务器
         if(_isEditAgain)
         {//从详情进入编辑
-            [self requestSaveOrCommitInfo:kEditPositionInfo Prompt:@"保存" jobId:[_infoDic objectForKey:@"id"]];
+            [self requestSaveOrCommitInfo:kSavePositionInfo Prompt:@"保存" jobId:[_infoDic objectForKey:@"id"] ActionType:@"1"];
             
         }else
         {//新建保存
-            [self requestSaveOrCommitInfo:kSavePositionInfo Prompt:@"保存" jobId:@""];
+            [self requestSaveOrCommitInfo:kSavePositionInfo Prompt:@"保存" jobId:@"0" ActionType:@"1"];
         }
         
     }
@@ -454,13 +468,19 @@
 - (IBAction)commitAction:(id)sender {
     BOOL isFull = [self checkInfo];
     if (isFull) {//当填写的信息完整并有效时 提交到服务器
-        [self requestSaveOrCommitInfo:kCommitPosition Prompt:@"提交" jobId:@""];
+        if (_isEditAgain) {
+            [self requestSaveOrCommitInfo:kSavePositionInfo Prompt:@"提交" jobId:[_infoDic objectForKey:@"id"] ActionType:@"2"];
+        }else
+        {
+            [self requestSaveOrCommitInfo:kSavePositionInfo Prompt:@"提交" jobId:@"0" ActionType:@"2"];
+        }
+        
     }
 }
 #pragma mark - 请求服务器
--(void)requestSaveOrCommitInfo:(NSString*)type Prompt:(NSString*)ptomptString jobId:(NSString*)jID
+-(void)requestSaveOrCommitInfo:(NSString*)type Prompt:(NSString*)ptomptString jobId:(NSString*)jID  ActionType:(NSString*)actionType
 {
-    NSString *jsonString = [CombiningData addPosition:contentArray Type:type PositionId:jID];
+    NSString *jsonString = [CombiningData addPosition:contentArray Type:type PositionId:jID ActionType:actionType];
     [self showHUD:[NSString stringWithFormat:@"正在%@",ptomptString]];
     //请求服务器
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];

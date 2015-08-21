@@ -22,6 +22,9 @@
     __weak IBOutlet NSLayoutConstraint *lineWidth;
     
     __weak IBOutlet NSLayoutConstraint *promptTotop;
+    
+    __weak IBOutlet UIButton *commitBt;
+    
 }
 @property (nonatomic) BOOL isEditAgain;//是否再次编辑
 @property (nonatomic) BOOL fromPositionManager;//是否从职位管理里面进入的添加

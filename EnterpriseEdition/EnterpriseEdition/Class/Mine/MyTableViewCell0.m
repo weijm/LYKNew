@@ -40,6 +40,7 @@
     if (dictionary == nil) {
         enterpriseNameLab.text = @"暂无";
         statusImg.hidden = YES;
+        iconImg.image = [UIImage imageNamed:@"my_icon"];
         return;
     }
     statusImg.hidden = NO;

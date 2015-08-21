@@ -123,5 +123,10 @@
  计算字符长度
  */
 +(int)convertToInt:(NSString*)strtemp;
+
+/**
+ 获取职位名称
+ */
++(NSString*)getPositionTitle:(NSString*)title;
 @end
 

@@ -15,6 +15,7 @@
 #import "ExperienceTableViewCell.h"
 #import "CertificateTableViewCell.h"
 #import "UIButton+Custom.h"
+#import "FirstInfoTableViewCell.h"
 
 //#define MAXFLOATCUSTOM [Util myYOrHeight:400]
 
@@ -64,20 +65,19 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-    [UIView animateWithDuration:0.2 animations:^{
-        [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:Rgb(230, 230, 230,0.0)] forBarMetrics:UIBarMetricsDefault];
-        //导航栏下面是否显示内容
-        [self.navigationController.navigationBar setTranslucent:YES];
-        self.navigationController.navigationBar.shadowImage = [Util imageWithColor:[UIColor clearColor]];
-    }];
+    [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:Rgb(230, 230, 230,0.0)] forBarMetrics:UIBarMetricsDefault];
+    //导航栏下面是否显示内容
+    [self.navigationController.navigationBar setTranslucent:YES];
+    self.navigationController.navigationBar.shadowImage = [Util imageWithColor:[UIColor clearColor]];
  }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [UIView animateWithDuration:0.2 animations:^{
-        [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
-       
-    }];
+    [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
+//    [UIView animateWithDuration:0.2 animations:^{
+//        [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
+//       
+//    }];
 }
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -220,10 +220,10 @@
 //身份信息cell
 -(UITableViewCell*)getIdentityCell:(UITableView*)tableView Index:(NSIndexPath *)indexPath
 {
-    static NSString *cell0=@"IdentityId";
-    IdentityTableViewCell *cell = (IdentityTableViewCell *)[infoTableView dequeueReusableCellWithIdentifier:cell0];//（寻找标识符为cellid并且没被用到的cell用于重用）
+    static NSString *cell0=@"FirstInfoTableViewCellID";
+    FirstInfoTableViewCell *cell = (FirstInfoTableViewCell *)[infoTableView dequeueReusableCellWithIdentifier:cell0];//（寻找标识符为cellid并且没被用到的cell用于重用）
     if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"IdentityTableViewCell" owner:self options:nil] lastObject];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"FirstInfoTableViewCell" owner:self options:nil] lastObject];
         [cell showInfo:showIndentityInfo];
         cell.lookIdentityInfo = ^{
             [self lookIdentityInfo];
@@ -477,10 +477,10 @@
             if ([[result objectForKey:@"result"] intValue]>0) {
             }else
             {
-                NSString *message = [result objectForKey:@"message"];
-                if ([message length]==0) {
-                    message = @"处理失败";
-                }
+//                NSString *message = [result objectForKey:@"message"];
+//                if ([message length]==0) {
+//                    message = @"处理失败";
+//                }
             }
         }else
         {

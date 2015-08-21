@@ -10,7 +10,7 @@
 #import "CommendResumeForJobTableViewCell.h"
 #import "FiltrateView.h"
 @class BaseTableView;
-@interface CommendResumeForJobViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,CommendResumeForJobTableViewCellDelegate,FiltrateViewDelegate>
+@interface CommendResumeForJobViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,CommendResumeForJobTableViewCellDelegate>
 {
     
    

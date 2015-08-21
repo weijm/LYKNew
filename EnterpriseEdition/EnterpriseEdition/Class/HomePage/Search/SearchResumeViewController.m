@@ -10,7 +10,6 @@
 #import "UIButton+Custom.h"
 #import "FooterView.h"
 #import "FiltratePickerView.h"
-#import "CustomSearchBar.h"
 #import "ResumeInfoViewController.h"
 
 #define kSearchBarRect CGRectMake(0,22,kWidth,40)
@@ -66,36 +65,36 @@
 
 #pragma mark - 初始化搜索条
 //初始化导航条
--(void)initSearchBar
-{
-    customSearchBar = [[UISearchBar alloc] initWithFrame:kSearchBarRect];
-    //添加的searchBar标记
-    customSearchBar.delegate = self;
-    //设置searchBar的背景图片
-    customSearchBar.backgroundImage = [Util imageWithColor:[UIColor clearColor]];
-    //searchBar的提示文字
-    if (kIphone6) {
-        customSearchBar.placeholder = @"搜索                                                      ";
-    }else if (kIphone6plus)
-    {
-        customSearchBar.placeholder = @"搜索                                                              ";
-    }else
-    {
-        customSearchBar.placeholder = @"搜索                                         ";
-    }
-    
-    //设置textFiled的背景
-    [customSearchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"resume_search_bg"] forState:UIControlStateNormal];
-    [customSearchBar setImage:[UIImage imageNamed:@"homepage_search_bt"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
-    UITextField *searchField = [customSearchBar valueForKey:@"_searchField"];
-    if (searchField) {
-        searchField.textColor = [UIColor whiteColor];
-    }
-    
-    customSearchBar.barStyle = UIBarStyleBlackTranslucent;
-    //添加到页面上
-    self.navigationItem.titleView = customSearchBar;
-}
+//-(void)initSearchBar
+//{
+//    customSearchBar = [[UISearchBar alloc] initWithFrame:kSearchBarRect];
+//    //添加的searchBar标记
+//    customSearchBar.delegate = self;
+//    //设置searchBar的背景图片
+//    customSearchBar.backgroundImage = [Util imageWithColor:[UIColor clearColor]];
+//    //searchBar的提示文字
+//    if (kIphone6) {
+//        customSearchBar.placeholder = @"搜索                                                      ";
+//    }else if (kIphone6plus)
+//    {
+//        customSearchBar.placeholder = @"搜索                                                              ";
+//    }else
+//    {
+//        customSearchBar.placeholder = @"搜索                                         ";
+//    }
+//    
+//    //设置textFiled的背景
+//    [customSearchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"resume_search_bg"] forState:UIControlStateNormal];
+//    [customSearchBar setImage:[UIImage imageNamed:@"homepage_search_bt"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+//    UITextField *searchField = [customSearchBar valueForKey:@"_searchField"];
+//    if (searchField) {
+//        searchField.textColor = [UIColor whiteColor];
+//    }
+//    
+//    customSearchBar.barStyle = UIBarStyleBlackTranslucent;
+//    //添加到页面上
+//    self.navigationItem.titleView = customSearchBar;
+//}
 
 #pragma mark - 编辑按钮
 //-(void)initItems
@@ -235,8 +234,15 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString * iidStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kEntStatus];
+    if ([iidStatus intValue]==1) {
+        [Util showPrompt:@"您还没有通过企业审核，请到个人中心提交企业资料。"];
+        return;
+    }
+
     ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
     infoVC.resumeID = [[[dataArray objectAtIndex:indexPath.row] objectForKey:@"stu_resume_id"] intValue];
+    infoVC.jobID = @"0";
     infoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:infoVC animated:YES];
 }
@@ -345,41 +351,41 @@
     return idsDic;
 }
 
-#pragma mark - UISearchBarDelegate
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    //取消键盘
-    [self cancelKey];
-    //搜索内容
-    [self getData];
-    
-}
-- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
-{
-    [self addEditBg];
-    return YES;
-}
-#pragma mark-添加和取消键盘的事件
--(void)addEditBg
-{
-    CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    UIView *bg = [[UIView alloc] initWithFrame:frame];
-    bg.backgroundColor = [UIColor lightGrayColor];
-    bg.alpha = 0.3;
-    bg.tag = 1000;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelKey)];
-    [bg addGestureRecognizer:tap];
-    [self.view addSubview:bg];
-}
--(void)cancelKey
-{
-    UIView *bg = [self.view viewWithTag:1000];
-    if (bg) {
-        [bg removeFromSuperview];
-    }
-    [customSearchBar resignFirstResponder];
-    customSearchBar.text = nil;
-}
+//#pragma mark - UISearchBarDelegate
+//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+//{
+//    //取消键盘
+//    [self cancelKey];
+//    //搜索内容
+//    [self getData];
+//    
+//}
+//- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+//{
+//    [self addEditBg];
+//    return YES;
+//}
+//#pragma mark-添加和取消键盘的事件
+//-(void)addEditBg
+//{
+//    CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+//    UIView *bg = [[UIView alloc] initWithFrame:frame];
+//    bg.backgroundColor = [UIColor lightGrayColor];
+//    bg.alpha = 0.3;
+//    bg.tag = 1000;
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelKey)];
+//    [bg addGestureRecognizer:tap];
+//    [self.view addSubview:bg];
+//}
+//-(void)cancelKey
+//{
+//    UIView *bg = [self.view viewWithTag:1000];
+//    if (bg) {
+//        [bg removeFromSuperview];
+//    }
+//    [customSearchBar resignFirstResponder];
+//    customSearchBar.text = nil;
+//}
 #pragma mark - 初始化footerView
 -(void)initFooerView
 {
@@ -478,11 +484,13 @@
     int page = currentPage;
     NSString *jsonString = nil;
     if (isMore) {
+        
         jsonString = [CombiningData searchResumeInManager:array PageIndex:page];
     }else{
+        [self showHUD:@"搜索中"];
         jsonString = [CombiningData searchResumeInManager:array PageIndex:1];
     }
-    [self showHUD:@"搜索中"];
+    
     //请求服务器
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
     [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){

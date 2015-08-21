@@ -39,7 +39,7 @@
     //全选时 选择记录数组
     NSMutableArray *chooseArray;
     //筛选视图
-    FiltrateView *filtrateView;
+//    FiltrateView *filtrateView;
     
     UIButton *rightBt;
     //获取的当前页数
@@ -96,7 +96,8 @@
     currentPage2 = 1;
     currentPage3 = 1;
     searchingCurrentPage =1;
-    [self performSelector:@selector(getData) withObject:nil afterDelay:0.0];
+    [self getData];
+//    [self performSelector:@selector(getData) withObject:nil afterDelay:0.0];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -116,6 +117,7 @@
     [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
     self.navigationItem.rightBarButtonItem = rightItem;
+    self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 #pragma mark - 导航条右侧按钮的点击事件
 -(void)rightAction
@@ -196,10 +198,10 @@
         ResumeViewController *sself = wself;
         [sself chooseAction:index isChooseAll:NO];
     };
-    headerView.clickedFiltrateAction = ^{
-        ResumeViewController *sself = wself;
-        [sself filtrateAction];
-    };
+//    headerView.clickedFiltrateAction = ^{
+//        ResumeViewController *sself = wself;
+////        [sself filtrateAction];
+//    };
     [self.view addSubview:headerView];
 }
 #pragma mark - headerView和fooerView上的选择不同按钮的触发事件
@@ -218,7 +220,7 @@
         resumeCategory = (int)index +1;
         //获取服务器的数据
         [self performSelector:@selector(getData) withObject:nil afterDelay:0.0];
-        [filtrateView changeTitleArray:resumeCategory];
+//        [filtrateView changeTitleArray:resumeCategory];
     }else
     {
         switch (index) {
@@ -290,18 +292,18 @@
 }
 
 #pragma mark - 筛选按钮触发的事件
--(void)filtrateAction
-{
-    self.navigationItem.rightBarButtonItem.enabled = NO;
-    self.tabBarController.tabBar.hidden = YES;
-    float filtrateH = headerView.frame.origin.y+kHeaderViewHeight-[Util myYOrHeight:22];
-    CGRect frame = CGRectMake(0, filtrateH, kWidth, kHeight-filtrateH);
-    filtrateView = [[FiltrateView alloc] initWithFrame:frame];
-    filtrateView.delegate = self;
-    //根据所选简历分类 加载的筛选内容不同
-    [filtrateView changeTitleArray:resumeCategory];
-    [self.view addSubview:filtrateView];
-}
+//-(void)filtrateAction
+//{
+//    self.navigationItem.rightBarButtonItem.enabled = NO;
+//    self.tabBarController.tabBar.hidden = YES;
+//    float filtrateH = headerView.frame.origin.y+kHeaderViewHeight-[Util myYOrHeight:22];
+//    CGRect frame = CGRectMake(0, filtrateH, kWidth, kHeight-filtrateH);
+//    filtrateView = [[FiltrateView alloc] initWithFrame:frame];
+//    filtrateView.delegate = self;
+//    //根据所选简历分类 加载的筛选内容不同
+//    [filtrateView changeTitleArray:resumeCategory];
+//    [self.view addSubview:filtrateView];
+//}
 #pragma mark - 可点或不可点击的按钮数组
 -(NSArray*)getEnableBtArray
 {
@@ -469,98 +471,98 @@
         }
     }
 }
-#pragma mark - 综合筛选FiltrateViewDelegate
--(void)didSelectedRow:(int)row
-{
-    CGRect frame = CGRectMake(0, kHeight, kWidth, 258);
-    int style = 0;
-    if(row == 5)//地区
-    {
-        style = 2;
-    }else if(row == 3||row==0)//专业 此处修改[self showConditions: Content:]随着修改
-    {
-        style = 1;
-    }
-    if (resumeCategory>1&&row==0) {
-        return;
-    }
-
-    
-    FiltratePickerView *pickerView = [[FiltratePickerView alloc] initWithFrame:frame pickerStyle:style];
-    pickerView.didSelectedPickerRow = ^(int index,NSDictionary *dictionary){
-        [self showConditions:index Content:dictionary];
-    };
-    pickerView.categoryType = resumeCategory;
-    [pickerView loadData:row];
-    [pickerView showInView:self.view];
-    
-}
--(void)makeSureOrCancelAction:(BOOL)sureOrCancel Conditions:(NSArray *)conditionArray
-{
-    if (sureOrCancel) {
-        isSearching = YES;
-        searchingCurrentPage =1;
-        NSMutableArray *conArray = [NSMutableArray arrayWithArray:conditionArray];
-        //请求服务器
-//        [self requestSearchResume:conArray isMore:NO];
-        //确定搜索条件 进行搜索
-        [filtrateView removeFromSuperview];
-    }else
-    {
-        [filtrateView removeFromSuperview];
-    }
-    self.tabBarController.tabBar.hidden = NO;
-    self.navigationItem.rightBarButtonItem.enabled = YES;
-}
-#pragma mark -将筛选条件显示到界面
--(void)showConditions:(int)row Content:(NSDictionary*)dictionary
-{
-    if (row == 5 || row == 3 || row ==0) {//地区 此处可以查询对应的id
-         NSDictionary *idsDic = [self getIdByContent:dictionary Index:row];
-        NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:idsDic] ;
-        NSString *province = [dictionary objectForKey:@"province"];
-        NSString *city = [dictionary objectForKey:@"city"];
-        NSString *district = [dictionary objectForKey:@"district"];
-        NSString *content;
-        if ([province isEqualToString:city]) {
-            content = [NSString stringWithFormat:@"%@ %@",province,district];
-        }else
-        {
-            content = [NSString stringWithFormat:@"%@ %@ %@",province,city,district];
-        }
-        [dic setObject:content forKey:@"content"];
-        [filtrateView reloadTableView:row withContent:dic];
-    }else
-    {//其他
-        [filtrateView reloadTableView:row withContent:dictionary];
-    }
-}
-#pragma mark - 将pickerView选取的内容转换为id
--(NSMutableDictionary*)getIdByContent:(NSDictionary*)dictionary Index:(int)row
-{
-    NSMutableDictionary *idsDic = nil;
-    switch (row) {
-        case 0://职位名称
-        {
-            idsDic = [CombiningData getJobTypeIDsByContent:dictionary];
-        }
-            break;
-        case 5://省市区
-        {
-            idsDic = [CombiningData getCityIDsByContent:dictionary];
-        }
-            break;
-        case 3://所属行业
-        {
-            idsDic = [CombiningData getMajorIDsByContent:dictionary];
-        }
-            break;
-            
-        default:
-            break;
-    }
-    return idsDic;
-}
+//#pragma mark - 综合筛选FiltrateViewDelegate
+//-(void)didSelectedRow:(int)row
+//{
+//    CGRect frame = CGRectMake(0, kHeight, kWidth, 258);
+//    int style = 0;
+//    if(row == 5)//地区
+//    {
+//        style = 2;
+//    }else if(row == 3||row==0)//专业 此处修改[self showConditions: Content:]随着修改
+//    {
+//        style = 1;
+//    }
+//    if (resumeCategory>1&&row==0) {
+//        return;
+//    }
+//
+//    
+//    FiltratePickerView *pickerView = [[FiltratePickerView alloc] initWithFrame:frame pickerStyle:style];
+//    pickerView.didSelectedPickerRow = ^(int index,NSDictionary *dictionary){
+//        [self showConditions:index Content:dictionary];
+//    };
+//    pickerView.categoryType = resumeCategory;
+//    [pickerView loadData:row];
+//    [pickerView showInView:self.view];
+//    
+//}
+//-(void)makeSureOrCancelAction:(BOOL)sureOrCancel Conditions:(NSArray *)conditionArray
+//{
+//    if (sureOrCancel) {
+//        isSearching = YES;
+//        searchingCurrentPage =1;
+////        NSMutableArray *conArray = [NSMutableArray arrayWithArray:conditionArray];
+//        //请求服务器
+////        [self requestSearchResume:conArray isMore:NO];
+//        //确定搜索条件 进行搜索
+//        [filtrateView removeFromSuperview];
+//    }else
+//    {
+//        [filtrateView removeFromSuperview];
+//    }
+//    self.tabBarController.tabBar.hidden = NO;
+//    self.navigationItem.rightBarButtonItem.enabled = YES;
+//}
+//#pragma mark -将筛选条件显示到界面
+//-(void)showConditions:(int)row Content:(NSDictionary*)dictionary
+//{
+//    if (row == 5 || row == 3 || row ==0) {//地区 此处可以查询对应的id
+//         NSDictionary *idsDic = [self getIdByContent:dictionary Index:row];
+//        NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:idsDic] ;
+//        NSString *province = [dictionary objectForKey:@"province"];
+//        NSString *city = [dictionary objectForKey:@"city"];
+//        NSString *district = [dictionary objectForKey:@"district"];
+//        NSString *content;
+//        if ([province isEqualToString:city]) {
+//            content = [NSString stringWithFormat:@"%@ %@",province,district];
+//        }else
+//        {
+//            content = [NSString stringWithFormat:@"%@ %@ %@",province,city,district];
+//        }
+//        [dic setObject:content forKey:@"content"];
+//        [filtrateView reloadTableView:row withContent:dic];
+//    }else
+//    {//其他
+//        [filtrateView reloadTableView:row withContent:dictionary];
+//    }
+//}
+//#pragma mark - 将pickerView选取的内容转换为id
+//-(NSMutableDictionary*)getIdByContent:(NSDictionary*)dictionary Index:(int)row
+//{
+//    NSMutableDictionary *idsDic = nil;
+//    switch (row) {
+//        case 0://职位名称
+//        {
+//            idsDic = [CombiningData getJobTypeIDsByContent:dictionary];
+//        }
+//            break;
+//        case 5://省市区
+//        {
+//            idsDic = [CombiningData getCityIDsByContent:dictionary];
+//        }
+//            break;
+//        case 3://所属行业
+//        {
+//            idsDic = [CombiningData getMajorIDsByContent:dictionary];
+//        }
+//            break;
+//            
+//        default:
+//            break;
+//    }
+//    return idsDic;
+//}
 
 #pragma mark - 获取数据
 -(void)getData

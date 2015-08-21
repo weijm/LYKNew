@@ -65,8 +65,41 @@
     }
     
     
-    firstLab.text = [NSString stringWithFormat:@"%@  %@  %@",[dictionary objectForKey:@"full_name"],[dictionary objectForKey:@"sex"],[dictionary objectForKey:@"job_type"]];
-    secondLab.text = [NSString stringWithFormat:@"%@ | %@ | %@ | %@",[dictionary objectForKey:@"birthday"],[Util getCorrectString:[dictionary objectForKey:@"certificate_type"]],[dictionary objectForKey:@"salary"],[Util getCorrectString:[dictionary objectForKey:@"employment_type"]]];
+    NSString *fstr1 = [Util getCorrectString:[dictionary objectForKey:@"full_name"]];
+    NSString *fstr2 = [Util getCorrectString:[dictionary objectForKey:@"sex"]];
+    NSString *fstr3 = [Util getCorrectString:[dictionary objectForKey:@"job_type"]];
+    if (fstr1 == nil) {
+        fstr1 = @"";
+    }
+    if (fstr2 == nil) {
+        fstr2 = @"";
+    }
+    if (fstr3 == nil) {
+        fstr3 = @"";
+    }
+    firstLab.text = [NSString stringWithFormat:@"%@  %@  %@",fstr1,fstr2,fstr3];
+    if ([fstr1 length]==0&&[fstr2 length]==0&&[fstr3 length]==0) {
+        firstLab.text = @"暂无";
+    }
+    
+    fstr1 = [Util getCorrectString:[dictionary objectForKey:@"birthday"]];
+    fstr2 = [Util getCorrectString:[dictionary objectForKey:@"certificate_type"]];
+    fstr3 = [Util getCorrectString:[dictionary objectForKey:@"salary"]];
+    NSString *fstr4 = [Util getCorrectString:[dictionary objectForKey:@"employment_type"]];
+    if ([fstr2 length]>0) {
+        fstr2 = [NSString stringWithFormat:@" | %@",fstr2];
+    }
+    if ([fstr3 length]>0) {
+        fstr3 = [NSString stringWithFormat:@" | %@",fstr3];
+    }
+    
+    if ([fstr4 length]>0) {
+        fstr4 = [NSString stringWithFormat:@" | %@",fstr4];
+    }
+    
+    secondLab.text = [NSString stringWithFormat:@"%@%@%@%@",fstr1,fstr2,fstr3,fstr4];
+    
+    
     NSString *major_name = [Util getCorrectString:[dictionary objectForKey:@"major_name"]];
     NSString *school_name = [Util getCorrectString:[dictionary objectForKey:@"school_name"]];
     if ([major_name length]>0&&[school_name length]>0) {

@@ -50,23 +50,44 @@
         contentTextField.hidden = YES;
         contentTextView.hidden = NO;
         contentTextView.placeholder = @"请输入1000字以内描述";
-        titBgToBottom.constant = [Util myYOrHeight:70];
-        
+        if (kIphone4) {
+        }else
+        {
+            titBgToBottom.constant = [Util myYOrHeight:70];
+
+        }
     }else
     {
         if (index == 0||index==3||index==7||index==8||index==11||index==12) {
             arrowImg.hidden = YES;
-            contentTextFieldToRight.constant = -8;
+            if (kIphone4) {
+            }else
+            {
+                contentTextFieldToRight.constant = -8;
+                
+            }
             contentTextField.userInteractionEnabled = YES;
         }else
         {
             arrowImg.hidden = NO;
-            contentTextFieldToRight.constant = 8;
+            if (kIphone4) {
+            }else
+            {
+                contentTextFieldToRight.constant = 8;
+                
+            }
+//            contentTextFieldToRight.constant = 8;
             contentTextField.userInteractionEnabled = NO;
         }
         contentTextField.hidden = NO;
         contentTextView.hidden = YES;
-        titBgToBottom.constant = 0;
+        if (kIphone4) {
+        }else
+        {
+            titBgToBottom.constant = 0;
+            
+        }
+//        titBgToBottom.constant = 0;
         
         
     }

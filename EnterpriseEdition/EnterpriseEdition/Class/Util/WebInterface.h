@@ -12,9 +12,9 @@
 //登录的token码
 #define kToken @"0a20ece95e098dd38621410f5a3f8dda"
 //开发服务器地址
-//#define kWEB_BASE_URL @"http://ezz.teiit.com:88/interface_ent/"
+#define kWEB_BASE_URL @"http://ezz.teiit.com:88/interface_ent/"
 //测试服务器地址
-#define kWEB_BASE_URL @"http://192.168.2.226/interface_ent/"
+//#define kWEB_BASE_URL @"http://192.168.2.226/interface_ent/"
 #pragma mark - 登录
 //登录接口
 #define kLogin @"ent_login"

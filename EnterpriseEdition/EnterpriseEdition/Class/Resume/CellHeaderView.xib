@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -11,6 +11,8 @@
                 <outlet property="jobLab" destination="g7M-NL-cAT" id="ezQ-Ir-M8S"/>
                 <outlet property="jobTitLab" destination="sMG-ui-v7Q" id="Z2U-gV-h3n"/>
                 <outlet property="rateLab" destination="EP5-Nb-rCU" id="PMG-d0-8HX"/>
+                <outlet property="rateLabToLeft" destination="jTm-cz-JtP" id="Gf5-UQ-dol"/>
+                <outlet property="rateLabToTop" destination="b94-jC-BUs" id="frk-n9-eNt"/>
                 <outlet property="rateView" destination="6xN-Ff-c4R" id="fii-AA-2Ew"/>
                 <outlet property="timeLab" destination="xQR-PV-YeF" id="52c-9z-E7H"/>
             </connections>
@@ -52,6 +54,7 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="应聘：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMG-ui-v7Q">
                             <rect key="frame" x="0.0" y="0.0" width="50" height="21"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="0WY-RF-Yx2"/>
                                 <constraint firstAttribute="height" constant="21" id="6Dw-X9-7FX"/>
@@ -116,6 +119,6 @@
         </view>
     </objects>
     <resources>
-        <image name="resume_rate_bg.png" width="39" height="38"/>
+        <image name="resume_rate_bg.png" width="33" height="34"/>
     </resources>
 </document>

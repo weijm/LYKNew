@@ -36,6 +36,7 @@
 {
     CGRect frame = CGRectMake(0, 0, kWidth - [Util myXOrWidth:Edge]*2, kHeaderViewH);
     headerView = [[CellHeaderView alloc] initWithFrame:frame];
+    headerView.type = 1;
     [subView addSubview:headerView];
 }
 //初始化middleView

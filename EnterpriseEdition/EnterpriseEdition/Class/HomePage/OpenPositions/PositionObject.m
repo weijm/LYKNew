@@ -28,14 +28,20 @@
     if (![db open]) {
     }
     [db setShouldCacheStatements:YES];
-    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
-    [queue inDatabase:^(FMDatabase *db){
-        FMResultSet *rs = [db executeQuery:@"select * from t_city where fid = ? and name = ?",[NSNumber numberWithInt:fid],name];
-        while ([rs next]) {
-            cityId = [rs intForColumn:@"id"];
-        }
-        [rs close];
-    }];
+    FMResultSet *rs = [db executeQuery:@"select * from t_city where fid = ? and name = ?",[NSNumber numberWithInt:fid],name];
+    while ([rs next]) {
+        cityId = [rs intForColumn:@"id"];
+    }
+    [rs close];
+
+//    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
+//    [queue inDatabase:^(FMDatabase *db){
+//        FMResultSet *rs = [db executeQuery:@"select * from t_city where fid = ? and name = ?",[NSNumber numberWithInt:fid],name];
+//        while ([rs next]) {
+//            cityId = [rs intForColumn:@"id"];
+//        }
+//        [rs close];
+//    }];
     return cityId;
 }
 // 获取行业的id
@@ -48,14 +54,19 @@
         NSLog(@"could not open db");
     }
     [db setShouldCacheStatements:YES];
-    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
-    [queue inDatabase:^(FMDatabase *db){
-        FMResultSet *rs = [db executeQuery:@"select * from t_industry where fid = ? and name = ?",[NSNumber numberWithInt:fid],name];
-        while ([rs next]) {
-            industryId = [rs intForColumn:@"id"];
-        }
-        [rs close];
-    }];
+    FMResultSet *rs = [db executeQuery:@"select * from t_industry where fid = ? and name = ?",[NSNumber numberWithInt:fid],name];
+    while ([rs next]) {
+        industryId = [rs intForColumn:@"id"];
+    }
+    [rs close];
+//    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
+//    [queue inDatabase:^(FMDatabase *db){
+//        FMResultSet *rs = [db executeQuery:@"select * from t_industry where fid = ? and name = ?",[NSNumber numberWithInt:fid],name];
+//        while ([rs next]) {
+//            industryId = [rs intForColumn:@"id"];
+//        }
+//        [rs close];
+//    }];
     return industryId;
     
 }
@@ -69,14 +80,12 @@
         NSLog(@"could not open db");
     }
     [db setShouldCacheStatements:YES];
-    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
-    [queue inDatabase:^(FMDatabase *db){
-        FMResultSet *rs = [db executeQuery:@"select * from t_job_type where fid = ? and name = ?",[NSNumber numberWithInt:fid],name];
-        while ([rs next]) {
-            jobtyepId = [rs intForColumn:@"id"];
-        }
-        [rs close];
-    }];
+//    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
+    FMResultSet *rs = [db executeQuery:@"select * from t_job_type where fid = ? and name = ?",[NSNumber numberWithInt:fid],name];
+    while ([rs next]) {
+        jobtyepId = [rs intForColumn:@"id"];
+    }
+    [rs close];
     return jobtyepId;
 
 }
@@ -90,14 +99,19 @@
         NSLog(@"could not open db");
     }
     [db setShouldCacheStatements:YES];
-    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
-    [queue inDatabase:^(FMDatabase *db){
-        FMResultSet *rs = [db executeQuery:@"select * from t_major where fid = ? and name = ?",[NSNumber numberWithInt:fid],name];
-        while ([rs next]) {
-            majorId = [rs intForColumn:@"id"];
-        }
-        [rs close];
-    }];
+    FMResultSet *rs = [db executeQuery:@"select * from t_major where fid = ? and name = ?",[NSNumber numberWithInt:fid],name];
+    while ([rs next]) {
+        majorId = [rs intForColumn:@"id"];
+    }
+    [rs close];
+//    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
+//    [queue inDatabase:^(FMDatabase *db){
+//        FMResultSet *rs = [db executeQuery:@"select * from t_major where fid = ? and name = ?",[NSNumber numberWithInt:fid],name];
+//        while ([rs next]) {
+//            majorId = [rs intForColumn:@"id"];
+//        }
+//        [rs close];
+//    }];
     return majorId;
     
 }
@@ -105,21 +119,26 @@
 // 获取民族
 -(NSString*)getNationStringById:(int)nationID
 {
-    __block NSString *nationString = @"汉族";
+    __block NSString *nationString = @"未填写";
     NSString *dbPath = [Util getSQLitePath];
     FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
     if (![db open]) {
         NSLog(@"could not open db");
     }
     [db setShouldCacheStatements:YES];
-    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
-    [queue inDatabase:^(FMDatabase *db){
-        FMResultSet *rs = [db executeQuery:@"select * from t_nation where id = ?",[NSNumber numberWithInt:nationID]];
-        while ([rs next]) {
-            nationString = [rs stringForColumn:@"name"];
-        }
-        [rs close];
-    }];
+    FMResultSet *rs = [db executeQuery:@"select * from t_nation where id = ?",[NSNumber numberWithInt:nationID]];
+    while ([rs next]) {
+        nationString = [rs stringForColumn:@"name"];
+    }
+    [rs close];
+//    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
+//    [queue inDatabase:^(FMDatabase *db){
+//        FMResultSet *rs = [db executeQuery:@"select * from t_nation where id = ?",[NSNumber numberWithInt:nationID]];
+//        while ([rs next]) {
+//            nationString = [rs stringForColumn:@"name"];
+//        }
+//        [rs close];
+//    }];
     return nationString;
 
 }
@@ -132,14 +151,19 @@
         NSLog(@"could not open db");
     }
     [db setShouldCacheStatements:YES];
-    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
-    [queue inDatabase:^(FMDatabase *db){
-        FMResultSet *rs = [db executeQuery:@"select * from t_industry where name = ?",name];
-        while ([rs next]) {
-            industryId = [rs intForColumn:@"id"];
-        }
-        [rs close];
-    }];
+    FMResultSet *rs = [db executeQuery:@"select * from t_industry where name = ?",name];
+    while ([rs next]) {
+        industryId = [rs intForColumn:@"id"];
+    }
+    [rs close];
+//    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
+//    [queue inDatabase:^(FMDatabase *db){
+//        FMResultSet *rs = [db executeQuery:@"select * from t_industry where name = ?",name];
+//        while ([rs next]) {
+//            industryId = [rs intForColumn:@"id"];
+//        }
+//        [rs close];
+//    }];
     return industryId;
 
 }

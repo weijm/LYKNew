@@ -64,7 +64,7 @@
 }
 #pragma mark - 职位
 //提交职位
-+(NSString*)addPosition:(NSArray*)contentArray Type:(NSString*)type PositionId:(NSString*)jobId
++(NSString*)addPosition:(NSArray*)contentArray Type:(NSString*)type PositionId:(NSString*)jobId ActionType:(NSString*)actionType
 {
     NSMutableString *subJson = [NSMutableString string] ;
     NSArray *keyArray = [NSArray arrayWithObjects:@"title",@"industry_id",@"job_type_id",@"need_count",@"work_type",[NSArray arrayWithObjects:@"salary_min",@"salary_max", nil],[NSArray arrayWithObjects:@"city_id_1",@"city_id_2",@"city_id_3", nil ],@"address",@"job_description",@"certificate_type",@"work_exp_type",@"department",@"benefit", nil];
@@ -110,19 +110,10 @@
     NSString *longitude = [NSString stringWithFormat:@"%@",[userDefault objectForKey:kLongitude]];
     NSString *uid = [userDefault objectForKey:kUID];
     NSString *iid = [userDefault objectForKey:KIID];
-    NSString *keyId = nil;
-    NSString *keyValue =nil;
-    if ([type isEqualToString:kEditPositionInfo]) {
-        keyId = @"jid";
-        keyValue = jobId;
-        
-    }else
-    {
-        keyId = @"iid";
-        keyValue = iid;
-    }
+
+   
     NSString *jsonString = [NSString stringWithFormat:
-                            @"{\"token\":\"%@\",\"type\":\"%@\",%@\"latitude\":\"%@\",\"longitude\":\"%@\",\"uid\":\"%@\",\"%@\":\"%@\"}",kToken,type,subJson,[Util getCorrectString:latitude],[Util getCorrectString:longitude],uid,keyId,keyValue];
+                            @"{\"token\":\"%@\",\"type\":\"%@\",%@\"latitude\":\"%@\",\"longitude\":\"%@\",\"uid\":\"%@\",\"iid\":\"%@\",\"job_id\":\"%@\",\"action_type\":\"%@\"}",kToken,type,subJson,[Util getCorrectString:latitude],[Util getCorrectString:longitude],uid,iid,jobId,actionType];
     return jsonString;
 }
 //获取职位列表
@@ -380,13 +371,16 @@
 +(NSMutableDictionary*)getCityIDsByContent:(NSDictionary*)dictionary
 {
     NSMutableDictionary * idsDic = [[NSMutableDictionary alloc] init];
+     NSArray *keyArray = [NSArray arrayWithObjects:@"province",@"city",@"district", nil];
     NSArray *values = [dictionary allValues];
     int cityID = 1;
     for (int i =0; i < [values count]; i++) {
-        NSString *name = [values objectAtIndex:i];
+        NSString *name = [dictionary objectForKey:[keyArray objectAtIndex:i]];
+        if ([[Util getCorrectString:name] length]==0) {
+            continue;
+        }
         int oldId = cityID;
         cityID = [[PositionObject shareInstance] getProvinceOrCityOrAreas:cityID Name:name];
-        
         if (cityID >oldId) {
             NSString *key = [NSString stringWithFormat:@"city_id_%d",i+1];
             [idsDic setObject:[NSNumber numberWithInt:cityID] forKey:key];
@@ -399,9 +393,13 @@
 {
     NSMutableDictionary * idsDic = [[NSMutableDictionary alloc] init];
     NSArray *values = [dictionary allValues];
+    NSArray *keyArray = [NSArray arrayWithObjects:@"province",@"city",@"district", nil];
     int industryID = 0;
     for (int i =0; i < [values count]; i++) {
-        NSString *name = [values objectAtIndex:i];
+        NSString *name = [dictionary objectForKey:[keyArray objectAtIndex:i]];
+        if ([[Util getCorrectString:name] length]==0) {
+            continue;
+        }
         int oldId = industryID;
         industryID = [[PositionObject shareInstance]getIndustryIds:industryID Name:name];
         if (industryID >oldId) {
@@ -416,9 +414,13 @@
 {
     NSMutableDictionary * idsDic = [[NSMutableDictionary alloc] init];
     NSArray *values = [dictionary allValues];
+     NSArray *keyArray = [NSArray arrayWithObjects:@"province",@"city",@"district", nil];
     int jobTypeID = 0;
     for (int i =0; i < [values count]; i++) {
-        NSString *name = [values objectAtIndex:i];
+        NSString *name = [dictionary objectForKey:[keyArray objectAtIndex:i]];
+        if ([[Util getCorrectString:name] length]==0) {
+            continue;
+        }
         int oldId = jobTypeID;
         jobTypeID = [[PositionObject shareInstance] getJobTypeIds:jobTypeID Name:name];
         if (jobTypeID >oldId) {
@@ -432,10 +434,14 @@
 +(NSMutableDictionary*)getMajorIDsByContent:(NSDictionary*)dictionary
 {
     NSMutableDictionary * idsDic = [[NSMutableDictionary alloc] init];
+     NSArray *keyArray = [NSArray arrayWithObjects:@"province",@"city",@"district", nil];
     NSArray *values = [dictionary allValues];
     int majorID = 0;
     for (int i =0; i < [values count]; i++) {
-        NSString *name = [values objectAtIndex:i];
+        NSString *name = [dictionary objectForKey:[keyArray objectAtIndex:i]];
+        if ([[Util getCorrectString:name] length]==0) {
+            continue;
+        }
         int oldId = majorID;
         majorID = [[PositionObject shareInstance] getMajorIds:majorID Name:name];
         if (majorID >oldId) {
@@ -468,9 +474,12 @@
     }else if(index == 2)
     {
         return @"研究生";
-    }else
+    }else if(index == 3)
     {
         return @"博士";
+    }else
+    {
+        return @"不限";
     }
 }
 +(NSString*)getNationStringByID:(int)nationId

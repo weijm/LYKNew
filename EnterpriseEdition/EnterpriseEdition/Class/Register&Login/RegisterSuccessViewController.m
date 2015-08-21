@@ -25,10 +25,10 @@
     
     randomBt.layer.cornerRadius = 5;
     randomBt.layer.masksToBounds = YES;
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 0.0823, 0.545, 0.902, 1 });
-    randomBt.layer.borderColor = colorref;
+
+    randomBt.layer.borderColor = [UIColor colorWithRed:0.0823 green:0.545 blue:0.902 alpha:1].CGColor;
     randomBt.layer.borderWidth = 1.5;
+    
 }
 
 - (void)didReceiveMemoryWarning {

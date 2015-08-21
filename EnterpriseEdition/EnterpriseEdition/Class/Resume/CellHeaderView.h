@@ -24,6 +24,10 @@
     
     
     __weak IBOutlet NSLayoutConstraint *infobgToLeft;
+    
+    __weak IBOutlet NSLayoutConstraint *rateLabToTop;
+    
+    __weak IBOutlet NSLayoutConstraint *rateLabToLeft;
 }
 @property (nonatomic) int  type;// 0 显示应聘岗位的 1 不显示应聘岗位
 @property (nonatomic) BOOL showRateView;//yes显示 no不显示

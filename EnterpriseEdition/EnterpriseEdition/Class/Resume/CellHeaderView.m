@@ -46,7 +46,7 @@
     if (_type!=0) {
         titleContent = [Util getCorrectString:[dictionary objectForKey:@"job_type"]];
     }
-
+    
     jobLab.text = titleContent;
     NSString *timeString = [dictionary objectForKey:@"add_time"];
     
@@ -60,12 +60,19 @@
     if ([rateStr length]>0) {
         rateLab.text = [NSString stringWithFormat:@"%.0f%%",[rateStr floatValue]*100];
     }
+    if (kIphone4||kIphone5) {
+        rateLab.font = [UIFont systemFontOfSize:10];
+    }
     
 }
 -(void)showRateViewBg
 {
     if (_showRateView) {
         rateView.hidden = NO;
+        if (kIphone5||kIphone4) {
+            rateLabToLeft.constant = -10;
+            rateLabToTop.constant = -8;
+        }
         infobgToLeft.constant = 30;
         rateLab.transform = CGAffineTransformMakeRotation(-(180 / M_PI));
         

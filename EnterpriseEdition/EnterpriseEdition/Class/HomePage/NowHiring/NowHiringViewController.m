@@ -135,6 +135,7 @@
 {
     ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
     infoVC.resumeID = [[[commendArray objectAtIndex:indexPath.row] objectForKey:@"id"] intValue];
+    
     infoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:infoVC animated:YES];
 }

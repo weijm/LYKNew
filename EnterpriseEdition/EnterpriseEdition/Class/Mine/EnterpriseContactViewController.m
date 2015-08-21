@@ -354,13 +354,36 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     BOOL isFull = YES;
     for (int i =0; i< count; i++) {
         NSObject *obj = [contentArray objectAtIndex:i];
+        NSDictionary *dic = [titleArray objectAtIndex:i];
+        NSString *title = [dic objectForKey:@"title"];
         if ([obj isKindOfClass:[NSString class]]) {
             
-            NSDictionary *dic = [titleArray objectAtIndex:i];
-            NSString *title = [dic objectForKey:@"title"];
+            
             [Util showPrompt:[NSString stringWithFormat:@"%@ 不能为空",title]];
             isFull = NO;
             break;
+        }else
+        {
+            NSDictionary *dic = (NSDictionary*)obj;
+            NSString *content = [Util getCorrectString:[dic objectForKey:@"content"]];
+            if (i==9) {
+                
+                BOOL isRight = [Util checkWebSite:content];
+                if (!isRight) {
+                    [Util showPrompt:@"网址格式不正确"];
+                    isFull = NO;
+                    break;
+                }
+            }
+            if (i==0||i==1) {
+                int strLenght = (i==0)?15:30;
+                if ([content length]>strLenght) {
+                    [Util showPrompt:[NSString stringWithFormat:@"%@ 不超过%d字",title,strLenght]];
+                    isFull = NO;
+                    break;
+                }
+            }
+
         }
     }
     return isFull;

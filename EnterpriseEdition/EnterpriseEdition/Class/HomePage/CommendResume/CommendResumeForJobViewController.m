@@ -56,7 +56,6 @@
         
     }else//从简历管理里面进入的
     {
-        self.title = @"职位名称-简历推荐";
         //获取数据
         [self performSelector:@selector(requestResumeListFromPosition:) withObject:[NSNumber numberWithBool:NO] afterDelay:0.0];
     }

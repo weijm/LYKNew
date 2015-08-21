@@ -140,6 +140,12 @@
         ResumeChooseBtView *tempView = (ResumeChooseBtView*)[subView viewWithTag:index];
         if (tempView) {
             tempView.userInteractionEnabled = isEnable;
+            if (!isEnable) {
+                tempView.alpha = 0.5;
+            }else
+            {
+                tempView.alpha = 1;
+            }
         }
     }
 }

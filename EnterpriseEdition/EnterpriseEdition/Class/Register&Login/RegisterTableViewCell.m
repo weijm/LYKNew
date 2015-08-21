@@ -12,7 +12,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    seconds = 60;
+    seconds = 59;
     lineHeight.constant = 0.5;
 }
 
@@ -72,6 +72,8 @@
                 timesLab.hidden = YES;
                 //监听停止计时器
                 [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopCodeTimer) name:@"CodeTimer" object:nil];
+                //开始计时
+//                [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startCodeTimer) name:@"StartCodeTimer" object:nil];
             }
         }
             break;
@@ -128,6 +130,14 @@
     [bg addSubview:nextBt];
     
 }
+-(void)startCodeTimer
+{
+    //手机号正确 视图倒计时
+    codeTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countDown) userInfo:nil repeats:YES];
+    codeMarkLab.hidden = YES;
+    timesLab.hidden = NO;
+    
+}
 - (IBAction)getCodeTimes:(id)sender {
     
     if ([_delegate respondsToSelector:@selector(cancelKey)]) {
@@ -137,13 +147,8 @@
     NSString *phone = [[NSUserDefaults standardUserDefaults] objectForKey:kRegisterAccount];
     //判断手机号是否正确
     if ([Util checkTelephone:phone]) {
-        //手机号正确 视图倒计时
-        codeTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countDown) userInfo:nil repeats:YES];
-        
         codeBt.enabled = NO;
-        codeMarkLab.hidden = YES;
-        timesLab.hidden = NO;
-        
+        [self startCodeTimer];
         // 从服务器获取验证码
         if ([_delegate respondsToSelector:@selector(getCode)]) {
             [_delegate getCode];
@@ -167,8 +172,8 @@
         //获取验证码按钮可点
         codeBt.enabled = YES;
         //显示时间的lab
-        timesLab.text = @"60秒后可重新获取";
-        seconds = 60;
+        timesLab.text = @"59秒后可重新获取";
+        seconds = 59;
         codeMarkLab.hidden = NO;
         timesLab.hidden = YES;
         
@@ -186,7 +191,7 @@
     //获取验证码按钮可点
     codeBt.enabled = YES;
     //显示时间的lab
-    timesLab.text = @"60秒后可重新获取";
+    timesLab.text = @"59秒后可重新获取";
     
     codeMarkLab.hidden = NO;
     timesLab.hidden = YES;

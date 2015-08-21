@@ -170,6 +170,9 @@
 //判断字符串是否为空
 +(NSString*)getCorrectString:(NSString*)string
 {
+    if (string == nil) {
+        return @"";
+    }
     if ([[[string class] description] isEqualToString:@"NSNull"]) {
         return @"";
     }
@@ -392,5 +395,18 @@
     }
     return (strlength+1)/2;
     
+}
++(NSString*)getPositionTitle:(NSString*)title
+{
+    NSString *tit = [self getCorrectString:title];
+    NSString *resultStr = nil;
+    
+    if ([tit length]>4) {
+         resultStr = [NSString stringWithFormat:@"%@...收到的简历",[tit substringToIndex:4]];
+    }else
+    {
+        resultStr = [NSString stringWithFormat:@"%@收到的简历",tit];
+    }
+    return resultStr;
 }
 @end

@@ -31,7 +31,14 @@
     
     NSString *acount = [[NSUserDefaults standardUserDefaults] objectForKey:kAccount];
     phoneLab.text = acount;
-    
+    if (kIphone5) {
+        nextBtToLine.constant = nextBtToLine.constant+40;
+        tableToBottom.constant = -50;
+    }else if (kIphone4)
+    {
+        nextBtToLine.constant = nextBtToLine.constant+60;
+        tableToBottom.constant = -90;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -148,7 +155,7 @@
 //                            [self performSelector:@selector(requestChangePaw) withObject:nil afterDelay:0.0];
                         }else
                         {
-                            [Util showPrompt:@"确认密码错误"];
+                            [Util showPrompt:@"两次输入的密码不一致"];
                         }
                     }else
                     {

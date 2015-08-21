@@ -85,20 +85,40 @@
 #pragma mark - UITextFieldDelegate
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if (self.tag ==0||self.tag == 4) {
-        NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-        int stringLength = 30;
-        if ([newString length]>stringLength)
-        {
-            [Util showPrompt:@"不能超过30字"];
-            textField.text = [newString substringToIndex:stringLength];
-            if ([_delegate respondsToSelector:@selector(cancelKey)]) {
-                [_delegate cancelKey];
+    if(_cellType ==1)
+    {
+        if (self.tag ==0) {
+            NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+            int stringLength = 15;
+            if ([newString length]>stringLength)
+            {
+                [Util showPrompt:@"不能超过15字"];
+                textField.text = [newString substringToIndex:stringLength];
+                if ([_delegate respondsToSelector:@selector(cancelKey)]) {
+                    [_delegate cancelKey];
+                }
+                return  NO;
             }
-            return  NO;
+            
         }
-        
+    }else
+    {
+        if (self.tag ==0||self.tag == 4) {
+            NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+            int stringLength = 30;
+            if ([newString length]>stringLength)
+            {
+                [Util showPrompt:@"不能超过30字"];
+                textField.text = [newString substringToIndex:stringLength];
+                if ([_delegate respondsToSelector:@selector(cancelKey)]) {
+                    [_delegate cancelKey];
+                }
+                return  NO;
+            }
+            
+        }
     }
+    
     
     return YES;
 }

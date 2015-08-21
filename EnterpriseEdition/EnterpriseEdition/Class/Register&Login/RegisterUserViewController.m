@@ -36,6 +36,7 @@
     contentArray = [[NSMutableArray alloc] initWithObjects:@"",@"",@"",@"",@"", nil];
     //设置协议的字体颜色
     [self loadTopLabText];
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kRegisterAccount];
     
 }
 -(void)viewWillDisappear:(BOOL)animated
@@ -163,6 +164,10 @@
         }else
         {
             [contentArray replaceObjectAtIndex:currentTextField.tag withObject:@""];
+            //将需要注册的手机号码进行存储
+            if (currentTextField.tag == 0) {
+                [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kRegisterAccount];
+            }
         }
 
     }
@@ -171,7 +176,7 @@
 //下一步
 -(void)clickedNextBtAction
 {
-    
+    [self editTextFiledAndCancelKey:YES];
     NSString *phone = [contentArray firstObject];
     if ([Util checkTelephone:phone]) {//手机号正确
         NSString *password = [contentArray objectAtIndex:1];
@@ -188,7 +193,7 @@
                 }
             }else
             {
-                [Util showPrompt:@"确认密码不一致"];
+                [Util showPrompt:@"两次输入的密码不一致"];
             }
             
         }
@@ -206,6 +211,8 @@
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUDWithComplete:@"验证码发送成功"];
+                [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kRegisterAccount];
+//                [[NSNotificationCenter defaultCenter] postNotificationName:@"StartCodeTimer" object:nil];
             }else
             {
                 [self hideHUDFaild:[result objectForKey:@"message"]];

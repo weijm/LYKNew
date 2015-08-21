@@ -251,11 +251,11 @@
 }
 -(void)leftAction
 {
-     NSString * iidStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kEntStatus];
-    if ([iidStatus intValue]==1) {
-        [Util showPrompt:@"您还未提交资料审核，暂不能发布职位"];
-        return;
-    }
+//     NSString * iidStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kEntStatus];
+//    if ([iidStatus intValue]==1) {
+//        [Util showPrompt:@"您还未提交资料审核，暂不能发布职位"];
+//        return;
+//    }
     if (rightBt.specialMark == 1) {
         [self rightAction];
     }
@@ -628,21 +628,22 @@
             }else
             {
                 NSString *message = [result objectForKey:@"message"];
-                if ([message length]==0) {
-                    message = @"数据为空";
-                    if (categaryType ==1) {
-                        validArray = [NSMutableArray array];
-                    }else if (categaryType ==2)
-                    {
-                        offlineArray = [NSMutableArray array];
-                    }else
-                    {
-                        toAuditArray = [NSMutableArray array];
-                    }
-                    [dataTableView reloadData];
-                }
+                
                 if (!isMore) {
-                    [self hideHUDFaild:message];
+                    if ([message length]==0) {
+                        message = @"暂无数据";
+                        if (categaryType ==1) {
+                            validArray = [NSMutableArray array];
+                        }else if (categaryType ==2)
+                        {
+                            offlineArray = [NSMutableArray array];
+                        }else
+                        {
+                            toAuditArray = [NSMutableArray array];
+                        }
+                        [dataTableView reloadData];
+                    }
+                     [self hideHUDFaild:message];
                 }else
                 {
                     NSString *msg = [result objectForKey:@"message"];
@@ -690,7 +691,7 @@
     [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
-                [self hideHUDWithComplete:@"数据处理成功"];
+                [self hideHUD];
                 [self rightAction];
                 //仍然加载首页
                 currentPage1 = 1;

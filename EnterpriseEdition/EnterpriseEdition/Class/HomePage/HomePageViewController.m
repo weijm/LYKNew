@@ -200,7 +200,7 @@
     UIButton *leftBt = [[UIButton alloc] initWithFrame:frame];
     [leftBt setImage:[UIImage imageNamed:@"home_search_btn"] forState:UIControlStateNormal];
     UIEdgeInsets imageInsets = leftBt.imageEdgeInsets;
-    leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-20, imageInsets.bottom, imageInsets.right+20);
+    leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-5, imageInsets.bottom, imageInsets.right+5);
     [leftBt addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
     self.navigationItem.leftBarButtonItem = leftItem;
@@ -243,6 +243,10 @@
 #pragma mark - 初始化推荐部分的视图
 - (void)initCommendView:(UIView*)view
 {
+    if (commendView) {
+        [commendView removeFromSuperview];
+        commendView = nil;
+    }
     float hireH = kHireViewHeight;
     float commendViewH = kHeight - kBannerViewHeight-hireH - [Util myYOrHeight:45];
     if (kIphone4) {
@@ -312,11 +316,11 @@
             break;
         case 4:
         {
-            NSString * iidStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kEntStatus];
-            if ([iidStatus intValue]==1) {
-                [Util showPrompt:@"您还未提交资料审核，暂不能发布职位"];
-                return;
-            }
+//            NSString * iidStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kEntStatus];
+//            if ([iidStatus intValue]==1) {
+//                [Util showPrompt:@"您还未提交资料审核，暂不能发布职位"];
+//                return;
+//            }
             OpenPositionViewController *openpVC = [[OpenPositionViewController alloc] init];
             openpVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:openpVC animated:YES];
@@ -336,6 +340,11 @@
 #pragma mark - 查看简历
 -(void)lookupPersonalResume:(NSInteger) index
 {
+    NSString * iidStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kEntStatus];
+    if ([iidStatus intValue]==1) {
+        [Util showPrompt:@"您还没有通过企业审核，请到个人中心提交企业资料。"];
+        return;
+    }
     if (index == 100) {
         NSLog(@"查看更多推荐简历");
         if (![self getEnterpriseCheckState]) {
@@ -351,6 +360,7 @@
         NSLog(@"查看第%ld个人的简历",(long)index);
         ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
         infoVC.resumeID = [[[commendArray objectAtIndex:index] objectForKey:@"id"] intValue];
+        infoVC.jobID = 0;
         infoVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:infoVC animated:YES];
     }
@@ -496,12 +506,16 @@
                         [newDic setObject:[NSString stringWithFormat:@"剩余%@时",content] forKey:@"substring"];
                     }
                     
+                }else if(i==4)
+                {
+                    NSString *string = [NSString stringWithFormat:@"%@",[dic objectForKey:@"string"]];
+                    [newDic setObject:string forKey:@"string"];
+                    [newDic setObject:@"" forKey:@"substring"];
                 }else
                 {
                     NSString *string = [NSString stringWithFormat:@"%@ %@份",[dic objectForKey:@"string"],content];
                     [newDic setObject:string forKey:@"string"];
                     [newDic setObject:[NSString stringWithFormat:@"%@份",content] forKey:@"substring"];
-                
                 }
                 [resultArray addObject:newDic];
             }else

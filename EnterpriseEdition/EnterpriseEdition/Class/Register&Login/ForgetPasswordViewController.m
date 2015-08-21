@@ -30,6 +30,7 @@
     
     contentArray = [[NSMutableArray alloc] initWithObjects:@"",@"",@"",nil];
     
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kRegisterAccount];
     [self loadBottomLabText];
 }
 -(void)viewWillDisappear:(BOOL)animated
@@ -132,6 +133,9 @@
         }else
         {
             [contentArray replaceObjectAtIndex:currentTextField.tag withObject:@""];
+            if (currentTextField.tag == 0) {
+                [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kRegisterAccount];
+            }
         }
     }
 }
@@ -170,6 +174,8 @@
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUDWithComplete:@"验证码发送成功"];
+                
+//                 [[NSNotificationCenter defaultCenter] postNotificationName:@"StartCodeTimer" object:nil];
             }else
             {
                 NSLog(@"result == %@",result);

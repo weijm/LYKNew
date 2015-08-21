@@ -14,6 +14,10 @@
     NSMutableArray *contentArray;
     
     __weak IBOutlet UILabel *phoneLab;
+    
+    
+    __weak IBOutlet NSLayoutConstraint *tableToBottom;
+    __weak IBOutlet NSLayoutConstraint *nextBtToLine;
 }
 /**
  下一步的触发事件

@@ -40,7 +40,7 @@
 /**
  提交职位 保存 编辑职位信息
  */
-+(NSString*)addPosition:(NSArray*)contentArray Type:(NSString*)type PositionId:(NSString*)jobId;
++(NSString*)addPosition:(NSArray*)contentArray Type:(NSString*)type PositionId:(NSString*)jobId ActionType:(NSString*)actionType;
 /**
  获取职位列表
  */

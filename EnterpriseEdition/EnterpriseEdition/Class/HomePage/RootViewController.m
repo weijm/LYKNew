@@ -28,7 +28,7 @@
     if (kTestType) {
         
         //定位
-        [[LocationViewController shareInstance] loadLocation];
+//        [[LocationViewController shareInstance] loadLocation];
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginOrExit:) name:kLoginOrExit object:nil];
@@ -76,7 +76,7 @@
 //    [self initVC];
     self.selectedViewController = [vcArray firstObject];
     //定位
-    [[LocationViewController shareInstance] loadLocation];
+//    [[LocationViewController shareInstance] loadLocation];
     
        
 

@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ResumeTableViewCell.h"
-#import "FiltrateView.h"
+//#import "FiltrateView.h"
 
-@interface ResumeViewController : BaseViewController<ResumeTableViewCellDelegate,FiltrateViewDelegate>
+@interface ResumeViewController : BaseViewController<ResumeTableViewCellDelegate>
 {
     
 }

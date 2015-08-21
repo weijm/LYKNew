@@ -519,6 +519,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                 BOOL isRight = [Util checkWebSite:content];
                 if (!isRight) {
                     [Util showPrompt:@"网址格式不正确"];
+                    isFull = NO;
                     break;
                 }
             }
