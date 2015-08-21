@@ -78,6 +78,7 @@
     isSearching = NO;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginOrExit:) name:kLoginOrExit object:nil];
+    
 
 }
 -(void)loginOrExit:(NSNotification*)notifiCation
@@ -357,6 +358,7 @@
     ResumeTableViewCell *cell = (ResumeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ResumeTableViewCell" owner:self options:nil] lastObject];
+        NSLog(@"cell tag == %d",indexPath.row);
     }
     cell.delegate = self;
     //加载视图数据
@@ -719,9 +721,9 @@
         [self showHUD:@"正在加载数据"];
     }
     NSString *listJson = [CombiningData getResumeList:page Status:status];
+    
     //请求服务器
-    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost WithSSl:nil];
-    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 //加载首页数据
@@ -786,7 +788,8 @@
             }
             
         }
-    };
+
+    }];
     
 }
 #pragma mark - 批量编辑简历
@@ -796,8 +799,7 @@
     NSString *idsString = [CombiningData getIdsByArray:array];
     NSString *infoJson = [CombiningData batchManagerResume:idsString Status:type];
     //请求服务器
-    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUD];
@@ -821,8 +823,6 @@
         {
             [self hideHUDFaild:@"服务器请求失败"];
         }
-        
-    };
-
+    }];
 }
 @end

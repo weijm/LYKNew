@@ -592,14 +592,13 @@
     }
      jsonArr = [NSArray arrayWithObjects:listJson, nil];
     //请求服务器
-    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost WithSSl:nil];
-    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         NSString *json = [result objectForKey:@"requestJson"];
         NSDictionary *dic = [Util dictionaryWithJsonString:json];
         NSString *type = [dic objectForKey:@"type"];
         if ([type isEqualToString:kGetUrgentInfo]) {
             //处理急招的信息
-//            [self dealUrgentInfo:result];
+            //            [self dealUrgentInfo:result];
             return ;
         }
         if (result!=nil) {
@@ -643,7 +642,7 @@
                         }
                         [dataTableView reloadData];
                     }
-                     [self hideHUDFaild:message];
+                    [self hideHUDFaild:message];
                 }else
                 {
                     NSString *msg = [result objectForKey:@"message"];
@@ -667,8 +666,9 @@
                 [self subViewEnabled:YES];
             }
         }
-    };
 
+    }];
+    
     
 }
 #pragma mark - 处理列表返回的结果
@@ -687,8 +687,7 @@
     NSString *idsString = [CombiningData getIdsByArray:idsArray];
     NSString *infoJson = [CombiningData positionManager:idsString Status:status];
     //请求服务器
-    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUD];
@@ -712,7 +711,33 @@
         {
             [self hideHUDFaild:@"服务器请求失败"];
         }
-        
-    };
+    }];
+//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+//        if (result!=nil) {
+//            if ([[result objectForKey:@"result"] intValue]>0) {
+//                [self hideHUD];
+//                [self rightAction];
+//                //仍然加载首页
+//                currentPage1 = 1;
+//                currentPage2 = 1;
+//                currentPage3 = 1;
+//                [self requestPositionList:NO];
+//                
+//                
+//            }else
+//            {
+//                NSString *message = [result objectForKey:@"message"];
+//                if ([message length]==0) {
+//                    message = @"处理失败";
+//                }
+//                [self hideHUDFaild:message];
+//            }
+//        }else
+//        {
+//            [self hideHUDFaild:@"服务器请求失败"];
+//        }
+//        
+//    };
 }
 @end

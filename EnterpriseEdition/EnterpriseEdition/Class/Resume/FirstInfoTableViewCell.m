@@ -45,7 +45,6 @@
         addressLab.text = [NSString stringWithFormat:@"%@%@%@",[Util getCorrectString:[dic objectForKey:@"city_name_1"]],[Util getCorrectString:[dic objectForKey:@"city_name_2"]],[Util getCorrectString:[dic objectForKey:@"city_name_3"]]];
         politicalLab.text = [self getPoliticalString:[[dic objectForKey:@"political_type"] intValue]];
     }
-    
 }
 -(NSString*)getPoliticalString:(int)index
 {

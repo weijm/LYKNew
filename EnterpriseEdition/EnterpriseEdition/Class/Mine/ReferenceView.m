@@ -21,9 +21,8 @@
         [self addSubview:containerView];
         expBt.layer.cornerRadius = 3;
         expBt.layer.borderWidth = 1.5;
-        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-        CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 0.553, 0.7490, 0.9412, 1 });
-        expBt.layer.borderColor = colorref;
+      
+        expBt.layer.borderColor = [UIColor colorWithRed:0.553 green:0.7490 blue:0.9412 alpha:1.0].CGColor;
         expBt.layer.masksToBounds = YES;
     }
     return self;

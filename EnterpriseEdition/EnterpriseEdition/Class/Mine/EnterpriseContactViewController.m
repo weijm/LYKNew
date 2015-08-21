@@ -396,13 +396,12 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     [self showHUD:@"正在保存"];
     NSString *infoJson = [CombiningData uploadEntContact:contentArray];
     //请求服务器
-    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUDWithComplete:@"保存成功"];
                 [self.navigationController popToRootViewControllerAnimated:YES];
-               
+                
             }else
             {
                 [self hideHUDFaild:[result objectForKey:@"message"]];
@@ -412,8 +411,26 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             [self hideHUD];
             [self showAlertView:@"服务器请求失败"];
         }
-        
-    };
+
+    }];
+//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+//        if (result!=nil) {
+//            if ([[result objectForKey:@"result"] intValue]>0) {
+//                [self hideHUDWithComplete:@"保存成功"];
+//                [self.navigationController popToRootViewControllerAnimated:YES];
+//               
+//            }else
+//            {
+//                [self hideHUDFaild:[result objectForKey:@"message"]];
+//            }
+//        }else
+//        {
+//            [self hideHUD];
+//            [self showAlertView:@"服务器请求失败"];
+//        }
+//        
+//    };
 
 }
 //上传图片
@@ -421,9 +438,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [self showHUD:@"正在上传图片"];
     
-    NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
-    [AFHttpClient uploadWithURLAttachment:imageData];
-    [AFHttpClient sharedClient].UploadFileStatus = ^(BOOL isSuccess ,NSDictionary *dictionary){
+//    NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+    [AFHttpClient uploadWithURLAttachment:image finishDidBlock:^(BOOL isSuccess, NSDictionary *dictionary) {
         if (isSuccess) {
             [self hideHUDWithComplete:@"上传成功"];
             NSString *imgUrl = [dictionary objectForKey:@"data"];
@@ -443,7 +459,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         {
             [self hideHUDFaild:[dictionary objectForKey:@"data"]];
         }
-    };
+    }];
 }
 //获取数据
 -(void)getEntContactInfo
@@ -451,8 +467,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     [self showHUD:@"正在加载数据"];
     NSString *infoJson = [CombiningData getMineInfo:kGetEntContactInfo];
     //请求服务器
-    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUD];
@@ -467,8 +482,25 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             [self hideHUD];
             [self showAlertView:@"服务器请求失败"];
         }
-        
-    };
+    }];
+//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+//        if (result!=nil) {
+//            if ([[result objectForKey:@"result"] intValue]>0) {
+//                [self hideHUD];
+//                NSArray *dataArray = [result objectForKey:@"data"];
+//                [self dealWithData:dataArray];
+//            }else
+//            {
+//                [self hideHUDFaild:[result objectForKey:@"message"]];
+//            }
+//        }else
+//        {
+//            [self hideHUD];
+//            [self showAlertView:@"服务器请求失败"];
+//        }
+//        
+//    };
 
 }
 //将获取的数据进行处理

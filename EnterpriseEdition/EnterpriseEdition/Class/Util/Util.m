@@ -304,7 +304,7 @@
     
     NSError *error = nil;
     
-    NSArray *fileList = [[NSArray alloc] init];
+    NSArray *fileList = nil;
     
     //fileList便是包含有该文件夹下所有文件的文件名及文件夹名的数组
     //fileList便是包含有该文件夹下所有文件的文件名及文件夹名的数组

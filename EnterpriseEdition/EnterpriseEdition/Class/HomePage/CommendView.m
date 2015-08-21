@@ -60,6 +60,7 @@
         frame = CGRectMake(edgeToLeft + singleW*i, 0, singleW, singleH);
         SinglePersonalView *singleView = [[SinglePersonalView alloc] initWithFrame:frame];
         singleView.tag = i;
+        singleView.sex = [dic objectForKey:@"sex"];
         //初始化子视图数据
         [singleView loadSubView:dic];
         [bottombg addSubview:singleView];

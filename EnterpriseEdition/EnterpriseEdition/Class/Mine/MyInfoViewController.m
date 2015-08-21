@@ -12,7 +12,7 @@
 #import "MyTableViewCell2.h"
 #import "VersionViewController.h"
 #import "ChangePasswordViewController.h"
-#import "InfoViewController.h"
+//#import "InfoViewController.h"
 #import "EnterpriseInfoViewController.h"
 
 
@@ -48,7 +48,7 @@
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return 5;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -126,9 +126,8 @@
     bt.backgroundColor = Rgb(255, 255, 255, 1.0);
     bt.layer.borderWidth = 0.25;
     bt.layer.cornerRadius = 3;
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 0.694, 0.694, 0.714, 1 });
-    bt.layer.borderColor = colorref;
+   
+    bt.layer.borderColor = [UIColor colorWithRed:0.694 green:0.694 blue:0.714 alpha:1.0].CGColor;
     [footerView addSubview:bt];
     return footerView;
 }
@@ -140,21 +139,21 @@
         enterpriseInfoVC.entStatus = [[resumeInfoDic objectForKey:@"ent_status"] intValue];
         [self.navigationController pushViewController:enterpriseInfoVC animated:YES];
     }
+//    else if (indexPath.row == 2) {
+//        InfoViewController *infoVC = [[InfoViewController alloc] init];
+//        infoVC.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:infoVC animated:YES];
+//    }
     else if (indexPath.row == 2) {
-        InfoViewController *infoVC = [[InfoViewController alloc] init];
-        infoVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:infoVC animated:YES];
-    }
-    else if (indexPath.row == 3) {
         VersionViewController *versionVC = [[VersionViewController alloc] init];
         versionVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:versionVC animated:YES];
-    }else if (indexPath.row == 5)
+    }else if (indexPath.row == 4)
     {
         ChangePasswordViewController *changPVC = [[ChangePasswordViewController alloc] init];
         changPVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:changPVC animated:YES];
-    }else if (indexPath.row == 4)
+    }else if (indexPath.row == 3)
     {
         //客服电话
         if ([Util checkDevice:@"iPod"]||[Util checkDevice:@"iPad"]){
@@ -188,9 +187,7 @@
    [self showHUD:@"正在加载数据"];
     NSString *infoJson = [CombiningData getMineInfo:kMineInfo];
     //请求服务器
-    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-       
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUD];
@@ -207,11 +204,8 @@
             }
         }else
         {
-               [self hideHUDFaild:@"服务器请求失败"];
+            [self hideHUDFaild:@"服务器请求失败"];
         }
-    };
-    
-
-   
+    }];
 }
 @end

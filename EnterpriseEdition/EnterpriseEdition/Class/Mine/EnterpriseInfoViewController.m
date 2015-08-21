@@ -9,6 +9,7 @@
 #import "EnterpriseInfoViewController.h"
 #import "EnterpriseContactViewController.h"
 #import "SDWebImageManager.h"
+#import "PositionObject.h"
 
 @interface EnterpriseInfoViewController ()
 {
@@ -40,7 +41,7 @@
     titleArray = [NSArray arrayWithContentsOfFile:[Util getBundlePath:@"enterpriseInfo.plist"]];
     contentArray = [[NSMutableArray alloc] init];
     for (int i =0; i<[titleArray count]; i++) {
-        [contentArray addObject:@"0"];
+        [contentArray addObject:@" "];
     }
     
     [self performSelector:@selector(getEntInfoFromWeb) withObject:nil afterDelay:0.0];
@@ -305,7 +306,7 @@
             [contentArray replaceObjectAtIndex:tempView.tag withObject:dictionary];
         }else
         {
-            [contentArray replaceObjectAtIndex:tempView.tag withObject:@"0"];
+            [contentArray replaceObjectAtIndex:tempView.tag withObject:@""];
         }
         
     }
@@ -324,7 +325,7 @@
             [contentArray replaceObjectAtIndex:tempView.tag withObject:dictionary];
         }else
         {
-            [contentArray replaceObjectAtIndex:tempView.tag withObject:@"0"];
+            [contentArray replaceObjectAtIndex:tempView.tag withObject:@""];
         }
     }
 }
@@ -536,6 +537,17 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     return isFull;
 
 }
+#pragma mark - 保存完成后的动作
+-(void)nextActionAfterSave
+{
+    if (_entStatus==0) {//正常 审核通过
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }else{
+        EnterpriseContactViewController *contactVC = [[EnterpriseContactViewController alloc] init];
+        [self.navigationController pushViewController:contactVC animated:YES];
+    }
+
+}
 #pragma mark - 请求服务器
 //保存到服务器
 -(void)requestSaveEntInfo
@@ -544,20 +556,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     NSMutableArray *resultArray = [self getRow2AndRow7Id];
     NSString *infoJson = [CombiningData uploadEntInfo:resultArray];
     //请求服务器
-    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUD];
-                if (_entStatus==0) {
-                    
-                    EnterpriseContactViewController *contactVC = [[EnterpriseContactViewController alloc] init];
-                    [self.navigationController pushViewController:contactVC animated:YES];
-                }else{//正常 审核通过
-                    [self hideHUD];
-                    [self.navigationController popToRootViewControllerAnimated:YES];
-                }
-                
+                [self performSelector:@selector(nextActionAfterSave) withObject:nil afterDelay:1.5];
             }else
             {
                 [self hideHUDFaild:[result objectForKey:@"message"]];
@@ -567,8 +570,24 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             [self hideHUD];
             [self showAlertView:@"服务器请求失败"];
         }
-        
-    };
+    }];
+//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+//        if (result!=nil) {
+//            if ([[result objectForKey:@"result"] intValue]>0) {
+//                [self hideHUD];
+//                [self performSelector:@selector(nextActionAfterSave) withObject:nil afterDelay:1.5];
+//            }else
+//            {
+//                [self hideHUDFaild:[result objectForKey:@"message"]];
+//            }
+//        }else
+//        {
+//            [self hideHUD];
+//            [self showAlertView:@"服务器请求失败"];
+//        }
+//        
+//    };
 }
 //将企业性质和人数规模转化id
 -(NSMutableArray*)getRow2AndRow7Id
@@ -607,8 +626,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     [self showHUD:@"正在加载数据"];
     NSString *infoJson = [CombiningData getMineInfo:kGetEntInfo];
     //请求服务器
-    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUD];
@@ -623,8 +641,25 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             [self hideHUD];
             [self showAlertView:@"服务器请求失败"];
         }
-        
-    };
+    }];
+//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+//        if (result!=nil) {
+//            if ([[result objectForKey:@"result"] intValue]>0) {
+//                [self hideHUD];
+//                NSArray *dataArray = [result objectForKey:@"data"];
+//                [self dealWithData:dataArray];
+//            }else
+//            {
+//                [self hideHUDFaild:[result objectForKey:@"message"]];
+//            }
+//        }else
+//        {
+//            [self hideHUD];
+//            [self showAlertView:@"服务器请求失败"];
+//        }
+//        
+//    };
 }
 //将获取的数据进行处理
 -(void)dealWithData:(NSArray*)array
@@ -674,7 +709,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                 content = [NSString stringWithFormat:@"%@%@%@",str1,str2,[dic objectForKey:@"city_id_3"]];
             }
             //获取对应的id
-            NSDictionary *contentDictionry = [NSDictionary dictionaryWithObjectsAndKeys:str1,@"city1",str2,@"city2",[dic objectForKey:@"city_id_3"],@"city3", nil];
+            NSDictionary *contentDictionry = [NSDictionary dictionaryWithObjectsAndKeys:str1,@"province",str2,@"city",[dic objectForKey:@"city_id_3"],@"district", nil];
             
             NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[self getIdByContent:contentDictionry Index:5]];
             [dictionary setObject:content forKey:@"content"];
@@ -690,9 +725,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [self showHUD:@"正在上传图片"];
 
-    NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
-    [AFHttpClient uploadWithURLAttachment:imageData];
-    [AFHttpClient sharedClient].UploadFileStatus = ^(BOOL isSuccess ,NSDictionary *dictionary){
+//    NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+    
+    [AFHttpClient uploadWithURLAttachment:image finishDidBlock:^(BOOL isSuccess, NSDictionary *dictionary) {
         if (isSuccess) {
             [self hideHUDWithComplete:@"上传成功"];
             NSString *imgUrl = [dictionary objectForKey:@"data"];
@@ -712,7 +747,28 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         {
             [self hideHUDFaild:[dictionary objectForKey:@"data"]];
         }
-    };
+    }];
+//    [AFHttpClient sharedClient].UploadFileStatus = ^(BOOL isSuccess ,NSDictionary *dictionary){
+//        if (isSuccess) {
+//            [self hideHUDWithComplete:@"上传成功"];
+//            NSString *imgUrl = [dictionary objectForKey:@"data"];
+//            DLog(@"imgUrl== %@",imgUrl);
+//            NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:imgUrl,@"content", nil];
+//            //获取原来的图片路径
+//            NSDictionary *oldDic = [contentArray objectAtIndex:imgType];
+//            if ([oldDic isKindOfClass:[NSDictionary class]]&&[[oldDic objectForKey:@"content"] length]>0) {
+//                [SDWebImageManager.sharedManager.imageCache removeImageForKey:[oldDic objectForKey:@"content"]];
+//            }
+//            
+//            [contentArray replaceObjectAtIndex:imgType withObject:dictionary];
+//            
+//            [infoTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:imgType inSection:0], nil] withRowAnimation:UITableViewRowAnimationFade];
+//            
+//        }else
+//        {
+//            [self hideHUDFaild:[dictionary objectForKey:@"data"]];
+//        }
+//    };
 }
 //将字符串转换id
 -(NSMutableDictionary*)getIdsFromContentByWeb:(NSString*)content Index:(int)index
@@ -721,10 +777,15 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     if (index == 1) {
         NSArray *array = [content componentsSeparatedByString:@" "];
         NSMutableDictionary *dic =[NSMutableDictionary dictionary];
-        if ([array count]>0) {
-            [dic setObject:[array firstObject] forKey:@"industry_id0"];
-            [dic setObject:[array lastObject] forKey:@"industry_id1"];
+        if ([array count]>1) {
+            [dic setObject:[array firstObject] forKey:@"province"];
+            [dic setObject:[array lastObject] forKey:@"city"];
             newDic = [self getIdByContent:dic Index:7];
+            return newDic;
+        }else
+        {
+            int insId = [[PositionObject shareInstance] getIndustryIdsByName:[Util getCorrectString:content]];
+            [newDic setObject:[NSNumber numberWithInt:insId] forKey:@"industry_id1"];
             return newDic;
         }
     }else if (index==2)//企业性质

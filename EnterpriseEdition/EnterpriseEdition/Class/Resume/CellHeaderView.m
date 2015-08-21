@@ -69,7 +69,7 @@
 {
     if (_showRateView) {
         rateView.hidden = NO;
-        if (kIphone5||kIphone4) {
+        if (kIphone4) {
             rateLabToLeft.constant = -10;
             rateLabToTop.constant = -8;
         }

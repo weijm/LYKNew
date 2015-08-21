@@ -60,7 +60,7 @@
 /**
  查看职位对应的简历
  */
-+(NSString*)getResumeListFromPosiotion:(NSString*)jobId PageIndex:(int)page;
++(NSString*)getResumeListFromPosiotion:(NSString*)jobId PageIndex:(int)page IsUrgent:(NSString*)urgent;
 #pragma mark - 简历
 /**
  点击查看简历联系方式

@@ -59,9 +59,11 @@
     NSString * iidStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kEntStatus];
     if ([iidStatus intValue]==1) {
         commitBt.enabled = NO;
+        commitBt.alpha = 0.5;
     }else
     {
         commitBt.enabled = YES;
+        commitBt.alpha = 1;
     }
 
 }
@@ -134,7 +136,7 @@
                     content = [NSString stringWithFormat:@"%@%@%@",str1,str2,[Util getCorrectString:[dic objectForKey:@"city_name_3"]]];
                 }
                 //获取对应的id
-                NSDictionary *contentDictionry = [NSDictionary dictionaryWithObjectsAndKeys:str1,@"city1",str2,@"city2",[dic objectForKey:@"city_name_3"],@"city3", nil];
+                NSDictionary *contentDictionry = [NSDictionary dictionaryWithObjectsAndKeys:str1,@"province",str2,@"city",[dic objectForKey:@"city_name_3"],@"district", nil];
                 
                 NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[self getIdByContent:contentDictionry Index:5]];
                 [dictionary setObject:content forKey:@"content"];
@@ -483,8 +485,7 @@
     NSString *jsonString = [CombiningData addPosition:contentArray Type:type PositionId:jID ActionType:actionType];
     [self showHUD:[NSString stringWithFormat:@"正在%@",ptomptString]];
     //请求服务器
-    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
-    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUDWithComplete:[NSString stringWithFormat:@"%@成功",ptomptString]];
@@ -500,8 +501,26 @@
             [self hideHUD];
             [self showAlertView:@"服务器请求失败"];
         }
-        
-    };
+    }];
+//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
+//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+//        if (result!=nil) {
+//            if ([[result objectForKey:@"result"] intValue]>0) {
+//                [self hideHUDWithComplete:[NSString stringWithFormat:@"%@成功",ptomptString]];
+//                //返回上一页
+//                [self performSelector:@selector(leftAction) withObject:nil afterDelay:1.5];
+//                
+//            }else
+//            {
+//                [self hideHUDFaild:[result objectForKey:@"message"]];
+//            }
+//        }else
+//        {
+//            [self hideHUD];
+//            [self showAlertView:@"服务器请求失败"];
+//        }
+//        
+//    };
 
 }
 #pragma mark - 验证所填写的信息

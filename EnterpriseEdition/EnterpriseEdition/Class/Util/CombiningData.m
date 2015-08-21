@@ -106,14 +106,14 @@
         }
     }
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    NSString *latitude = [NSString stringWithFormat:@"%@",[userDefault objectForKey:kLatitude]];
-    NSString *longitude = [NSString stringWithFormat:@"%@",[userDefault objectForKey:kLongitude]];
+    NSString *latitude = [NSString stringWithFormat:@"%@",[Util getCorrectString:[userDefault objectForKey:kLatitude]]];
+    NSString *longitude = [NSString stringWithFormat:@"%@",[Util getCorrectString:[userDefault objectForKey:kLongitude]]];
     NSString *uid = [userDefault objectForKey:kUID];
     NSString *iid = [userDefault objectForKey:KIID];
 
    
     NSString *jsonString = [NSString stringWithFormat:
-                            @"{\"token\":\"%@\",\"type\":\"%@\",%@\"latitude\":\"%@\",\"longitude\":\"%@\",\"uid\":\"%@\",\"iid\":\"%@\",\"job_id\":\"%@\",\"action_type\":\"%@\"}",kToken,type,subJson,[Util getCorrectString:latitude],[Util getCorrectString:longitude],uid,iid,jobId,actionType];
+                            @"{\"token\":\"%@\",\"type\":\"%@\",%@\"latitude\":\"%@\",\"longitude\":\"%@\",\"uid\":\"%@\",\"iid\":\"%@\",\"job_id\":\"%@\",\"action_type\":\"%@\"}",kToken,type,subJson,latitude,longitude,uid,iid,jobId,actionType];
     return jsonString;
 }
 //获取职位列表
@@ -153,12 +153,12 @@
                             @"{\"token\":\"%@\",\"type\":\"%@\",\"ent_job_id\":\"%@\",\"max_count\":\"%@\",\"ent_user_id\":\"%@\"}",kToken,kPositionUrgent,jobId,countString,uid];
     return jsonString;
 }
-+(NSString*)getResumeListFromPosiotion:(NSString*)jobId PageIndex:(int)page
++(NSString*)getResumeListFromPosiotion:(NSString*)jobId PageIndex:(int)page IsUrgent:(NSString*)urgent
 {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     NSString *uid = [userDefault objectForKey:kUID];
     NSString *jsonString = [NSString stringWithFormat:
-                            @"{\"token\":\"%@\",\"type\":\"%@\",\"job_id\":\"%@\",\"ent_user_id\":\"%@\",\"page\":\"%@\"}",kToken,kResumeFromPosition,jobId,uid,[NSString stringWithFormat:@"%d",page]];
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"job_id\":\"%@\",\"ent_user_id\":\"%@\",\"page\":\"%@\",\"emergent\":\"%@\"}",kToken,kResumeFromPosition,jobId,uid,[NSString stringWithFormat:@"%d",page],urgent];
     return jsonString;
 }
 #pragma mark -简历
@@ -393,7 +393,14 @@
 {
     NSMutableDictionary * idsDic = [[NSMutableDictionary alloc] init];
     NSArray *values = [dictionary allValues];
-    NSArray *keyArray = [NSArray arrayWithObjects:@"province",@"city",@"district", nil];
+    NSArray *keyArray;
+    if ([values count]>1) {
+        keyArray = [NSArray arrayWithObjects:@"province",@"city",@"district", nil];
+    }else
+    {
+         keyArray = [NSArray arrayWithObjects:@"city",@"district", nil];
+    }
+    
     int industryID = 0;
     for (int i =0; i < [values count]; i++) {
         NSString *name = [dictionary objectForKey:[keyArray objectAtIndex:i]];

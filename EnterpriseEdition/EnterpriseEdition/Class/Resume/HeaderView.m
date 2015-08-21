@@ -28,9 +28,8 @@
         CGRect frame1 = CGRectMake([Util myXOrWidth:kEdgeWidth], [Util myYOrHeight:10], (kWidth-[Util myXOrWidth:kEdgeWidth]*2), [Util myYOrHeight:kBTHeight]);
         subbg = [[UIView alloc] initWithFrame:frame1];
         subbg.layer.cornerRadius = 5;
-        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-        CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 0.0078, 0.5451, 0.902, 1 });
-        subbg.layer.borderColor = colorref;
+
+        subbg.layer.borderColor = [UIColor colorWithRed:0.0078 green:0.5451 blue:0.902 alpha:1.0].CGColor;
         subbg.layer.borderWidth = 1.5;
         subbg.layer.masksToBounds= YES;
         [chooseBg addSubview:subbg];

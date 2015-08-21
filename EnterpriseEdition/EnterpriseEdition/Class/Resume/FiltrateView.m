@@ -104,9 +104,8 @@
     filtrateBt.backgroundColor = [UIColor whiteColor];
     filtrateBt.layer.borderWidth = 0.25;
     filtrateBt.layer.cornerRadius = 3;
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 0.694, 0.694, 0.714, 1 });
-    filtrateBt.layer.borderColor = colorref;
+  
+    filtrateBt.layer.borderColor = [UIColor colorWithRed:0.694 green:0.694 blue:0.714 alpha:1.0].CGColor;
     filtrateBt.titleLabel.font = [UIFont systemFontOfSize:13];
     [filtrateBt addTarget:self action:@selector(resetFiltrate) forControlEvents:UIControlEventTouchUpInside];
     [footer addSubview:filtrateBt];
@@ -192,7 +191,7 @@
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:dictionary];
     NSArray *salaryArr = [[dictionary objectForKey:@"content"] componentsSeparatedByString:@"-"];
-    if ([salaryArr count]>0) {
+    if ([salaryArr count]>1) {
         [dic setObject:[salaryArr firstObject] forKey:@"salary_min"];
         [dic setObject:[salaryArr lastObject] forKey:@"salary_max"];
     }else

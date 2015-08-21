@@ -12,8 +12,8 @@
 
 #define CONTENTTYPEJSON @"application/json"
 
-typedef void(^CompleteLoadBlock) (id result);
-
+typedef void(^UploadFileStatus)(BOOL isSuccess ,NSDictionary *dictionary);;
+typedef void (^FinishDidBlock)(id result,NSError *error);
 typedef enum : NSUInteger {
     HttpMethodPost,         //http post 请求
     HttpMethodGet,          //http get 请求
@@ -22,13 +22,13 @@ typedef enum : NSUInteger {
 
 @interface AFHttpClient : AFHTTPSessionManager
 //上传头像回调
-@property(nonatomic,copy)void(^UploadFileStatus)(BOOL isSuccess ,NSDictionary *dictionary);
-//下载文件获取字节流
-@property(nonatomic,copy)void(^DownloadFile)(NSData *data);
+//@property(nonatomic,copy)void(^UploadFileStatus)(BOOL isSuccess ,NSDictionary *dictionary);
+////下载文件获取字节流
+//@property(nonatomic,copy)void(^DownloadFile)(NSData *data);
 //异步请求 返回的结果
-@property (nonatomic,copy) void(^FinishedDidBlock)(id result,NSError *error);
-+ (instancetype)sharedClientWithUrlString:(NSString*)urlString;
-+ (instancetype)sharedClient;
+//@property (nonatomic,copy) void(^FinishedDidBlock)(id result,NSError *error);
+//+ (instancetype)sharedClientWithUrlString:(NSString*)urlString;
+//+ (instancetype)sharedClient;
 
 /**
  *  http请求的基类
@@ -40,10 +40,10 @@ typedef enum : NSUInteger {
  *
  *  @return 返回一个task (暂时没用到）
  */
-+ (NSURLSessionDataTask *)taskHttpWithURL:(NSString *)urlString
-                                   params:(NSMutableDictionary *)params
-                               httpMethod:(HttpMethod)httpMethod
-                            completeBlock:(CompleteLoadBlock)block;
+//+ (NSURLSessionDataTask *)taskHttpWithURL:(NSString *)urlString
+//                                   params:(NSMutableDictionary *)params
+//                               httpMethod:(HttpMethod)httpMethod
+//                            completeBlock:(CompleteLoadBlock)block;
 
 /**
  *  同步请求
@@ -54,7 +54,7 @@ typedef enum : NSUInteger {
  *
  *  @return id
  */
-+ (id)syncHttpWithURL:(NSString *)urlString params:(NSDictionary *)params httpMethod:(HttpMethod)httpMethod WithSSl:(AFSecurityPolicy*)_securityPolicy;
+//+ (id)syncHttpWithURL:(NSString *)urlString params:(NSDictionary *)params httpMethod:(HttpMethod)httpMethod WithSSl:(AFSecurityPolicy*)_securityPolicy;
 /**
  *  同步请求
  *
@@ -64,11 +64,12 @@ typedef enum : NSUInteger {
  *  @param _securityPolicy ssl请求文件
  *  @return id
  */
-+ (void)asyncHTTPWithURl:(NSString*)urlString params:(NSString*)params httpMethod:(HttpMethod)httpMethod WithSSl:(AFSecurityPolicy*)_securityPolicy;
+//+ (void)asyncHTTPWithURl:(NSString*)urlString params:(NSString*)params httpMethod:(HttpMethod)httpMethod WithSSl:(AFSecurityPolicy*)_securityPolicy;
 
++ (void)asyncHTTPWithURl:(NSString*)urlString params:(NSString*)params httpMethod:(HttpMethod)httpMethod finishDidBlock:(FinishDidBlock)finishDidBlock;
 //+ (id)uploadWithURL:(NSString *)urlString attachment:(NSData *)fileData;
-+ (void)uploadWithURLAttachment:(NSData *)fileData;
-//下载文件
-+ (void)downloadWithUrl:(NSString *)urlString WithBaseUrl:(NSString*)baseUrl WithSSl:(AFSecurityPolicy*)_securityPolicy;
++ (void)uploadWithURLAttachment:(UIImage *)img finishDidBlock:(UploadFileStatus)uploadFileStatus;
+////下载文件
+//+ (void)downloadWithUrl:(NSString *)urlString WithBaseUrl:(NSString*)baseUrl WithSSl:(AFSecurityPolicy*)_securityPolicy;
 @end
 

@@ -36,7 +36,8 @@
 {
     CGRect frame = CGRectMake(0, 0, 50, 30);
     
-    UIButton *leftBt = [[UIButton alloc] initWithFrame:frame];
+    UIButton *leftBt = [UIButton buttonWithType:UIButtonTypeCustom];//[UIButton alloc] initWithFrame:frame];
+    leftBt.frame = frame;
     [leftBt setImage:[UIImage imageNamed:@"back_bt"] forState:UIControlStateNormal];
     UIEdgeInsets imageInsets = leftBt.imageEdgeInsets;
     leftBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left-30, imageInsets.bottom, imageInsets.right+20);

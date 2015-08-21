@@ -367,8 +367,7 @@
 
         NSString *jsonString = [CombiningData getResumeInfo:typeString keyString:key Value:value];
         //请求服务器
-        [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
-        [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
             //请求次数
             responeCount++;
             //如果请求次数与typeArray个数相同 取消缓冲页面
@@ -403,17 +402,65 @@
                         }
                     }else
                     {
-                         [self dealWithInfo:result Type:typeArray];
+                        [self dealWithInfo:result Type:typeArray];
                     }
-                   
+                    
                     
                 }else
                 {
                     //请求的数据有问题
-//                    NSLog(@"result == %@",result);
+                    //                    NSLog(@"result == %@",result);
                 }
             }
-        };
+
+        }];
+//        [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
+//        [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+//            //请求次数
+//            responeCount++;
+//            //如果请求次数与typeArray个数相同 取消缓冲页面
+//            if (responeCount == [typeArray count]) {
+//                [self hideHUD];
+//            }
+//            if (result!=nil) {
+//                if ([[result objectForKey:@"result"] intValue]>0) {
+//                    NSDictionary *resultDic = [Util dictionaryWithJsonString:[result objectForKey:@"requestJson"]];
+//                    NSString *responType = [resultDic objectForKey:@"type"];
+//                    if ([responType isEqualToString:kResumeDownloadCount]) {
+//                        NSArray *tempArr = [result objectForKey:@"data"];
+//                        if ([tempArr count]>0) {
+//                            downloadCount = [[tempArr firstObject] objectForKey:@"count"];
+//                            [infoTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:0 inSection:0], nil] withRowAnimation:UITableViewRowAnimationNone];
+//                        }
+//                        
+//                    }else if ([responType isEqualToString:kResumeStatus])
+//                    {
+//                        NSArray *tempArr = [result objectForKey:@"data"];
+//                        if ([tempArr count]>0) {
+//                            NSDictionary *statuDic = [tempArr firstObject];
+//                            [headerView loadStatus:statuDic];
+//                            //如果已经收藏的简历 显示的是取消收藏
+//                            if ([[statuDic objectForKey:@"favorite"] intValue]==1) {
+//                                colletedBt.specialMark = 0;
+//                            }else
+//                            {
+//                                colletedBt.specialMark = 1;
+//                            }
+//                            [self loadCollectedBtState:colletedBt isRequest:NO];
+//                        }
+//                    }else
+//                    {
+//                         [self dealWithInfo:result Type:typeArray];
+//                    }
+//                   
+//                    
+//                }else
+//                {
+//                    //请求的数据有问题
+////                    NSLog(@"result == %@",result);
+//                }
+//            }
+//        };
     }
 }
 -(void)dealWithInfo:(id)responObj Type:(NSArray*)typeArray
@@ -445,8 +492,7 @@
     [self showHUD:@"正在处理数据"];
     NSString *infoJson = [CombiningData batchManagerResume:[NSString stringWithFormat:@"%d",_resumeID] Status:type];
     //请求服务器
-    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUDWithComplete:@"数据处理成功"];
@@ -462,8 +508,7 @@
         {
             [self hideHUDFaild:@"服务器请求失败"];
         }
-        
-    };
+    }];
     
 }
 #pragma mark - 点击查看联系方式通知服务器请求
@@ -471,21 +516,21 @@
 {
     NSString *infoJson = [CombiningData getLookContact:_jobID ResumeId:[NSString stringWithFormat:@"%d",_resumeID]];
     //请求服务器
-    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
             }else
             {
-//                NSString *message = [result objectForKey:@"message"];
-//                if ([message length]==0) {
-//                    message = @"处理失败";
-//                }
+                //                NSString *message = [result objectForKey:@"message"];
+                //                if ([message length]==0) {
+                //                    message = @"处理失败";
+                //                }
             }
         }else
         {
         }
-    };
+    }];
+
 }
 #pragma mark- 每行文本显示的字数
 -(int)getEachLength:(int)index

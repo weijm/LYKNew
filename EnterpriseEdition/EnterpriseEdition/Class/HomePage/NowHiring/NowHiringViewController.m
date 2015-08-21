@@ -50,8 +50,9 @@
 
     
     categaryType = 1;
-    [self performSelector:@selector(requestResumeListFromPosition:) withObject:[NSNumber numberWithBool:NO] afterDelay:0.0];
-   }
+//    [self performSelector:@selector(requestResumeListFromPosition:) withObject:[NSNumber numberWithBool:NO] afterDelay:0.0];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -61,6 +62,7 @@
 {
     [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.translucent = NO;
+    [self requestResumeListFromPosition:NO];
 }
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -333,11 +335,10 @@
     if (!isMore) {
         [self showHUD:@"正在加载数据"];
     }
-    jsonString = [CombiningData getResumeListFromPosiotion:[_urgentDic objectForKey:@"id"]  PageIndex:page];
+    jsonString = [CombiningData getResumeListFromPosiotion:[_urgentDic objectForKey:@"id"]  PageIndex:page IsUrgent:@"1"];
     
     //请求服务器
-    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
-    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 //加载首页数据
@@ -394,7 +395,67 @@
             }
             
         }
-    };
+
+    }];
+//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
+//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+//        if (result!=nil) {
+//            if ([[result objectForKey:@"result"] intValue]>0) {
+//                //加载首页数据
+//                NSArray *dataArr = [result objectForKey:@"data"];
+//                //全选数组标记
+//                if(page==1)
+//                {   //如果第一页 加载的时候 初始化 chooseArray 否则直接增加到数组中
+//                    chooseArray = [NSMutableArray array];
+//                }
+//                for (int i=0; i< [dataArr count]; i++) {
+//                    [chooseArray addObject:@""];
+//                }
+//                [self dealWithResponeData:dataArr];
+//                //将提示视图取消
+//                if (!isMore) {
+//                    [self hideHUD];
+//                }else
+//                {
+//                    [dataTableView stopRefresh];
+//                    isLoading = NO;
+//                    [self subViewEnabled:YES];
+//                }
+//                
+//            }else
+//            {
+//                NSString *message = [result objectForKey:@"message"];
+//                if ([message length]==0) {
+//                    message = @"数据为空";
+//                }
+//                if (!isMore) {
+//                    [self hideHUDFaild:message];
+//                }else
+//                {
+//                    NSString *msg = [result objectForKey:@"message"];
+//                    if ([msg isEqualToString:@"已经到最后一页"]) {
+//                        [dataTableView changeProText:YES];
+//                        [self performSelector:@selector(stopRefreshLoading) withObject:nil afterDelay:0.25];
+//                    }else
+//                    {
+//                        [self stopRefreshLoading];
+//                    }
+//                }
+//                
+//            }
+//        }else
+//        {
+//            if (!isMore) {
+//                [self hideHUDFaild:@"服务器请求失败"];
+//            }else
+//            {
+//                [dataTableView stopRefresh];
+//                isLoading = NO;
+//                [self subViewEnabled:YES];
+//            }
+//            
+//        }
+//    };
     
 }
 //停止刷新
@@ -445,19 +506,15 @@
 -(void)requestInfoFromWeb
 {
     NSString *jsonString = [CombiningData getUIDInfo:kCommendList];
-    __block int requestCount = 0;
     [self showHUD:@"正在加载数据"];
     //请求服务器
-    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
-    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-        requestCount++;
-        
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUD];
                 commendArray = [result objectForKey:@"data"];
                 [dataTableView reloadData];
-
+                
             }else
             {
                 [self hideHUDFaild:[result objectForKey:@"message"]];
@@ -467,7 +524,7 @@
             [self hideHUDFaild:@"服务器请求失败"];
             //                [self showAlertView:@"服务器请求失败"];
         }
-    };
+    }];
 
 }
 

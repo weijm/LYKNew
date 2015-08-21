@@ -56,11 +56,13 @@
 {
     if (dictionary!=nil) {
         NSString *urlString = [Util getCorrectString:[dictionary objectForKey:@"head_img"]];
+         NSString *imgName = ([_sex isEqualToString:@"女"]?@"resume_protrait_weman_default":@"resume_protrait_man_default");
         if ([urlString length]>0) {
-            [protraitImg sd_setImageWithURL:[NSURL URLWithString:urlString]];
+            [protraitImg sd_setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:[UIImage imageNamed:imgName]];
         }else
         {
-            protraitImg.backgroundColor = [Util randomColor];
+           
+            protraitImg.image = [UIImage imageNamed:imgName];
         }
         
         rateLab.text = [NSString stringWithFormat:@"匹配度%.0f%%",[[dictionary objectForKey:@"result_value"] floatValue]*100];

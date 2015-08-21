@@ -303,7 +303,10 @@
             break;
         case 2://删除
         {
-            [self batchDealWithPosition:_jobId Status:-9];
+//            [self batchDealWithPosition:_jobId Status:-9];
+            UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"确定是否删除" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+            alterView.tag = 2;
+            [alterView show];
         }
             break;
         case 3://下线
@@ -344,8 +347,7 @@
     NSString *infoJson = [CombiningData getPositionInfo:[_jobId intValue]];
     [self showHUD:@"正在加载数据"];
     //请求服务器
-    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUD];
@@ -364,19 +366,53 @@
                 }
                 [self hideHUD];
                 UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                alterView.tag = 1;
                 [alterView show];
             }
         }else
         {
-           [self hideHUDFaild:@"服务器请求失败"];
+            [self hideHUDFaild:@"服务器请求失败"];
             
         }
-    };
+    }];
+//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+//        if (result!=nil) {
+//            if ([[result objectForKey:@"result"] intValue]>0) {
+//                [self hideHUD];
+//                //加载首页数据
+//                NSArray *dataArr = [result objectForKey:@"data"];
+//                if ([dataArr count]>0) {
+//                    infoDictionary = [NSMutableDictionary dictionaryWithDictionary:[dataArr firstObject]];
+//                }
+//                [dataTableView reloadData];
+//                
+//            }else
+//            {
+//                NSString *message = [result objectForKey:@"message"];
+//                if ([message length]==0) {
+//                    message = @"数据为空";
+//                }
+//                [self hideHUD];
+//                UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//                [alterView show];
+//            }
+//        }else
+//        {
+//           [self hideHUDFaild:@"服务器请求失败"];
+//            
+//        }
+//    };
 
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    [self leftAction];
+    if (alertView.tag ==1) {
+        [self leftAction];
+    }else
+    {
+    }
+    
 }
 -(void)batchDealWithPosition:(NSString*)idsString Status:(int)status
 {
@@ -384,8 +420,7 @@
     NSString *infoJson = [CombiningData positionManager:idsString Status:status];
     __block int tempstatus = status;
     //请求服务器
-    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUDWithComplete:@"数据处理成功"];
@@ -416,7 +451,40 @@
         {
             [self hideHUDFaild:@"服务器请求失败"];
         }
-    };
+    }];
+//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+//        if (result!=nil) {
+//            if ([[result objectForKey:@"result"] intValue]>0) {
+//                [self hideHUDWithComplete:@"数据处理成功"];
+//                //仍然加载首页
+//                if (tempstatus == -9) {
+//                    [self performSelector:@selector(leftAction) withObject:nil afterDelay:1.5];
+//                }else
+//                {
+//                    if (tempstatus == 0) {
+//                        [infoDictionary setObject:@"正常" forKey:@"status"];
+//                    }else
+//                    {
+//                        [infoDictionary setObject:@"下线" forKey:@"status"];
+//                    }
+//                    [dataTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:0 inSection:0], nil] withRowAnimation:UITableViewRowAnimationNone];
+//                }
+//                
+//                
+//            }else
+//            {
+//                NSString *message = [result objectForKey:@"message"];
+//                if ([message length]==0) {
+//                    message = @"处理失败";
+//                }
+//                [self hideHUDFaild:message];
+//            }
+//        }else
+//        {
+//            [self hideHUDFaild:@"服务器请求失败"];
+//        }
+//    };
     
 }
 -(void)requestUrgentInfo:(int)maxCount
@@ -424,14 +492,13 @@
     [self showHUD:@"正在处理数据"];
     NSString *infoJson = [CombiningData setPositionUrgent:_jobId MaxCount:maxCount];
     //请求服务器
-    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUDWithComplete:@"数据处理成功"];
                 //仍然加载首页
                 _isUrgent = YES;
-               [dataTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:0 inSection:0], nil] withRowAnimation:UITableViewRowAnimationNone];
+                [dataTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:0 inSection:0], nil] withRowAnimation:UITableViewRowAnimationNone];
                 
                 
             }else
@@ -446,7 +513,30 @@
         {
             [self hideHUDFaild:@"服务器请求失败"];
         }
-    };
+    }];
+//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
+//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+//        if (result!=nil) {
+//            if ([[result objectForKey:@"result"] intValue]>0) {
+//                [self hideHUDWithComplete:@"数据处理成功"];
+//                //仍然加载首页
+//                _isUrgent = YES;
+//               [dataTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:0 inSection:0], nil] withRowAnimation:UITableViewRowAnimationNone];
+//                
+//                
+//            }else
+//            {
+//                NSString *message = [result objectForKey:@"message"];
+//                if ([message length]==0) {
+//                    message = @"处理失败";
+//                }
+//                [self hideHUDFaild:message];
+//            }
+//        }else
+//        {
+//            [self hideHUDFaild:@"服务器请求失败"];
+//        }
+//    };
     
 }
 

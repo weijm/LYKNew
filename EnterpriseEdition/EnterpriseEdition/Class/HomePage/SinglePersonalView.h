@@ -32,6 +32,7 @@
     __weak IBOutlet NSLayoutConstraint *rateWidth;
     __weak IBOutlet NSLayoutConstraint *infoBgToTop;
 }
+@property(nonatomic,strong) NSString *sex;
 /**
  初始化子视图数据
  */

@@ -28,9 +28,8 @@
         expLab.layer.cornerRadius = expLab.frame.size.height/2;
         expLab.layer.masksToBounds = YES;
         expLab.layer.borderWidth = 1;
-        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-        CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 0.918, 0.667, 0.494, 1 });
-        expLab.layer.borderColor = colorref;
+       
+        expLab.layer.borderColor = [UIColor colorWithRed:0.918 green:0.667 blue:0.494 alpha:1.0].CGColor;
         
         
     }
@@ -41,8 +40,8 @@
     if (dictionary != nil && [dictionary isKindOfClass:[NSDictionary class]]) {
         NSString *nation = [CombiningData getNationStringByID:[[dictionary objectForKey:@"nation_id"] intValue]];
         int sexIndex = [[dictionary objectForKey:@"sex"] intValue];
-        NSString *sexString = (sexIndex==1)?@"男":@"女";
-        NSString *pImg = (sexIndex==1)?@"resume_protrait_man_default":@"resume_protrait_weman_default";
+        NSString *sexString = (sexIndex==0)?@"男":@"女";
+        NSString *pImg = (sexIndex==0)?@"resume_protrait_man_default":@"resume_protrait_weman_default";
         [protraitImag sd_setImageWithURL:[NSURL URLWithString:[dictionary objectForKey:@"head_img"]]placeholderImage:[UIImage imageNamed:pImg]];
         infoLab.text = [NSString stringWithFormat:@"%@ %@ %@",sexString,nation,[dictionary objectForKey:@"birthday"]];
         

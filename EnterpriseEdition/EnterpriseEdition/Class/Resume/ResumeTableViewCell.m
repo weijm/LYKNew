@@ -24,8 +24,8 @@
     
     self.backgroundColor = [UIColor clearColor];
     bg.layer.cornerRadius = 5;
-    collectdBg.layer.cornerRadius = 5;
-    deleteBg.layer.cornerRadius = 5;
+//    collectdBg.layer.cornerRadius = 5;
+//    deleteBg.layer.cornerRadius = 5;
     
     [self initHeaderView];
     [self initMiddleView];
@@ -90,95 +90,95 @@
 //    [bg addSubview:bottomView];
 //    
 //}
-//手势响应事件
--(void)swipAction:(UISwipeGestureRecognizer*)sender
-{
-    float offsetX = [Util myXOrWidth:80];
-
-    if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
-        float bgX = bg.frame.origin.x;
-        if (bgX==10) {
-            collectdBg.hidden = NO;
-            if ([_delegate respondsToSelector:@selector(revertLeftOrRightSwipView:selected:)]) {
-                [_delegate revertLeftOrRightSwipView:self selected:YES ];
-            }
-            [UIView animateWithDuration:0.25 animations:^{
-                CGRect frame = collectdBg.frame;
-                frame.origin.x = bg.frame.origin.x;
-                collectdBg.frame = frame;
-                frame = bg.frame;
-                frame.origin.x = frame.origin.x+offsetX;
-                bg.frame = frame;
-            } completion:^(BOOL finished){}];
-        }else if (bgX<10)
-        {
-            if ([_delegate respondsToSelector:@selector(revertLeftOrRightSwipView:selected:)]) {
-                [_delegate revertLeftOrRightSwipView:self selected:NO ];
-            }
-            [self revertView];
-        }
-    }else if (sender.direction == UISwipeGestureRecognizerDirectionLeft)
-    {
-        float bgX = bg.frame.origin.x;
-        if (bgX==10) {
-            deleteBg.hidden = NO;
-            if ([_delegate respondsToSelector:@selector(revertLeftOrRightSwipView:selected:)]) {
-                [_delegate revertLeftOrRightSwipView:self selected:YES ];
-            }
-            [UIView animateWithDuration:0.25 animations:^{
-                CGRect frame = deleteBg.frame;
-                frame.origin.x = frame.origin.x-offsetX;
-                deleteBg.frame = frame;
-                frame = bg.frame;
-                frame.origin.x = frame.origin.x-offsetX;
-                bg.frame = frame;
-            } completion:^(BOOL finished){}];
-        }else if (bgX>10)
-        {//还原收藏
-            if ([_delegate respondsToSelector:@selector(revertLeftOrRightSwipView:selected:)]) {
-                [_delegate revertLeftOrRightSwipView:self selected:NO ];
-            }
-            [self revertView];
-        }
-    }
-}
-// 还原左右滑动视图
--(void)revertView
-{
-    float offsetX = [Util myXOrWidth:80];
-    float bgX = bg.frame.origin.x;
-    if (bgX<10)
-    {
-        [UIView animateWithDuration:0.25 animations:^{
-            CGRect frame = bg.frame;
-            frame.origin.x = frame.origin.x+offsetX;
-            bg.frame = frame;
-            frame = deleteBg.frame;
-            frame.origin.x = frame.origin.x+offsetX;
-            deleteBg.frame = frame;
-            
-        } completion:^(BOOL finished){
-            deleteBg.hidden = YES;
-        }];
-
-    }
-    
-    if (bgX>10)
-    {//还原收藏
-        [UIView animateWithDuration:0.25 animations:^{
-            CGRect frame = bg.frame;
-            frame.origin.x = frame.origin.x-offsetX;
-            bg.frame = frame;
-            frame = collectdBg.frame;
-            frame.origin.x = frame.origin.x-offsetX;
-            collectdBg.frame = frame;
-            
-            
-        } completion:^(BOOL finished){
-            collectdBg.hidden = YES;
-        }];
-    }
-}
+////手势响应事件
+//-(void)swipAction:(UISwipeGestureRecognizer*)sender
+//{
+//    float offsetX = [Util myXOrWidth:80];
+//
+//    if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
+//        float bgX = bg.frame.origin.x;
+//        if (bgX==10) {
+//            collectdBg.hidden = NO;
+//            if ([_delegate respondsToSelector:@selector(revertLeftOrRightSwipView:selected:)]) {
+//                [_delegate revertLeftOrRightSwipView:self selected:YES ];
+//            }
+//            [UIView animateWithDuration:0.25 animations:^{
+//                CGRect frame = collectdBg.frame;
+//                frame.origin.x = bg.frame.origin.x;
+//                collectdBg.frame = frame;
+//                frame = bg.frame;
+//                frame.origin.x = frame.origin.x+offsetX;
+//                bg.frame = frame;
+//            } completion:^(BOOL finished){}];
+//        }else if (bgX<10)
+//        {
+//            if ([_delegate respondsToSelector:@selector(revertLeftOrRightSwipView:selected:)]) {
+//                [_delegate revertLeftOrRightSwipView:self selected:NO ];
+//            }
+//            [self revertView];
+//        }
+//    }else if (sender.direction == UISwipeGestureRecognizerDirectionLeft)
+//    {
+//        float bgX = bg.frame.origin.x;
+//        if (bgX==10) {
+//            deleteBg.hidden = NO;
+//            if ([_delegate respondsToSelector:@selector(revertLeftOrRightSwipView:selected:)]) {
+//                [_delegate revertLeftOrRightSwipView:self selected:YES ];
+//            }
+//            [UIView animateWithDuration:0.25 animations:^{
+//                CGRect frame = deleteBg.frame;
+//                frame.origin.x = frame.origin.x-offsetX;
+//                deleteBg.frame = frame;
+//                frame = bg.frame;
+//                frame.origin.x = frame.origin.x-offsetX;
+//                bg.frame = frame;
+//            } completion:^(BOOL finished){}];
+//        }else if (bgX>10)
+//        {//还原收藏
+//            if ([_delegate respondsToSelector:@selector(revertLeftOrRightSwipView:selected:)]) {
+//                [_delegate revertLeftOrRightSwipView:self selected:NO ];
+//            }
+//            [self revertView];
+//        }
+//    }
+//}
+//// 还原左右滑动视图
+//-(void)revertView
+//{
+//    float offsetX = [Util myXOrWidth:80];
+//    float bgX = bg.frame.origin.x;
+//    if (bgX<10)
+//    {
+//        [UIView animateWithDuration:0.25 animations:^{
+//            CGRect frame = bg.frame;
+//            frame.origin.x = frame.origin.x+offsetX;
+//            bg.frame = frame;
+//            frame = deleteBg.frame;
+//            frame.origin.x = frame.origin.x+offsetX;
+//            deleteBg.frame = frame;
+//            
+//        } completion:^(BOOL finished){
+//            deleteBg.hidden = YES;
+//        }];
+//
+//    }
+//    
+//    if (bgX>10)
+//    {//还原收藏
+//        [UIView animateWithDuration:0.25 animations:^{
+//            CGRect frame = bg.frame;
+//            frame.origin.x = frame.origin.x-offsetX;
+//            bg.frame = frame;
+//            frame = collectdBg.frame;
+//            frame.origin.x = frame.origin.x-offsetX;
+//            collectdBg.frame = frame;
+//            
+//            
+//        } completion:^(BOOL finished){
+//            collectdBg.hidden = YES;
+//        }];
+//    }
+//}
 -(void)changeLocation:(BOOL)show Selected:(int)isSelected
 {
     float bgX = bg.frame.origin.x;

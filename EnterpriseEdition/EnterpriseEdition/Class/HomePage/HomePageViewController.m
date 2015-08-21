@@ -390,7 +390,8 @@
         isFirst = YES;
     }else
     {
-        jsonArray = [NSArray arrayWithObjects:[CombiningData getUIDInfo:kNumberList],[CombiningData getUIDInfo:kCommendList],[CombiningData getMineInfo:kGetUrgentInfo], nil];
+        //[CombiningData getUIDInfo:kCommendList],
+        jsonArray = [NSArray arrayWithObjects:[CombiningData getUIDInfo:kNumberList],[CombiningData getMineInfo:kGetUrgentInfo], nil];
     }
     [self showHUD:@"正在加载数据"];
     __block int requestCount = 0;
@@ -399,8 +400,7 @@
         NSString *jsonString = [jsonArray objectAtIndex:i];
         
         //请求服务器
-        [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
-        [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+        [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
             requestCount++;
             if (requestCount==[jsonArray count]) {
                 [self hideHUD];
@@ -411,13 +411,17 @@
                 }else
                 {
                     [self dealWithData:result isSuccess:NO];
-                    NSLog(@"error message == %@",[result objectForKey:@"message"]);
+//                    NSLog(@"error message == %@",[result objectForKey:@"message"]);
                 }
             }else
             {
-//                [self showAlertView:@"服务器请求失败"];
+                //                [self showAlertView:@"服务器请求失败"];
             }
-        };
+
+        }];
+//        [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
+//        [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
+//                   };
 
     }
 }
@@ -455,7 +459,6 @@
     {
         if (isSuccess) {
             NSArray *tempAr = [result objectForKey:@"data"];
-            NSLog(@"kGetUrgentInfo== %@",tempAr);
             if ([tempAr count]>0) {
                 urgentDic = [tempAr objectAtIndex:0];
                 urgentOverdue = NO;

@@ -246,7 +246,7 @@
     switch (self.tag) {
         case 0:
             [_chooseBt setTitle:@"有效职位" forState:UIControlStateNormal];
-            _chooseBt.backgroundColor = Rgb(16, 117, 224, 1.0);
+            _chooseBt.backgroundColor = Rgb(2, 139, 230, 1.0);
             [_chooseBt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             break;
         case 1:

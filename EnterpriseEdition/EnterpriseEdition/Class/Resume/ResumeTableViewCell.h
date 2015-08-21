@@ -24,10 +24,10 @@
    //全选按钮背景
     
     __weak IBOutlet UIView *chooseBg;
-    //删除按钮背景
-    __weak IBOutlet UIView *deleteBg;
-    //收藏按钮背景
-    __weak IBOutlet UIView *collectdBg;
+//    //删除按钮背景
+//    __weak IBOutlet UIView *deleteBg;
+//    //收藏按钮背景
+//    __weak IBOutlet UIView *collectdBg;
     
     //cell上的内容背景
    
