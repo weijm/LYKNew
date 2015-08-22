@@ -390,7 +390,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 -(void)back
 {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    if (_isFromRegister==1) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kLoginOrExit object:@"0"];
+    }else
+    {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+    
 }
 #pragma mark - 请求服务器
 //保存数据

@@ -172,9 +172,7 @@
     if ([bannerArray count]>0) {
         NSDictionary *dic = [bannerArray objectAtIndex:index];
         if ([[dic objectForKey:@"jump_type"] intValue]==1) {
-            NSLog(@"index == %d",index);
             NSString *source = [dic objectForKey:@"source"];
-            NSLog(@"source== %@",source);
             WebSourceViewController *webVC = [[WebSourceViewController alloc] init];
             webVC.hidesBottomBarWhenPushed = YES;
             webVC.sourceString = source;
@@ -257,13 +255,6 @@
     
     commendView = [[CommendView alloc] initWithFrame:frame];
     [commendView loadSubView:nil];
-//    NSString * iid = KGETOBJ(KIID);
-//    if ([iid intValue]>0) {
-//        [commendView loadSubView:dataArray];
-//    }else
-//    {
-//        
-//    }
     
     //点击某个人的触发事件
     
@@ -287,14 +278,12 @@
             break;
         case 1:
         {
-            NSString * iid = KGETOBJ(KIID);
-            
-            if ([iid intValue]<1||urgentOverdue) {
+            NSString * iidStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kEntStatus];
+            if ([iidStatus intValue]==1||urgentOverdue) {
                 [Util showPrompt:@"当前您没有急招职位"];
                 return;
             }
             NowHiringViewController *nowhiringVC = [[NowHiringViewController alloc] init];
-            NSLog(@"urgentDic ==%@",urgentDic);
             nowhiringVC.urgentDic = urgentDic;
             nowhiringVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:nowhiringVC animated:YES];
@@ -379,14 +368,8 @@
 -(void)requestInfoFromWeb
 {
     NSArray *jsonArray = nil;
-    if (!isFirst) {
-        
-        jsonArray = [NSArray arrayWithObjects:[CombiningData getPicList],[CombiningData getUIDInfo:kNumberList],[CombiningData getUIDInfo:kCommendList],[CombiningData getMineInfo:kGetUrgentInfo], nil];
-        isFirst = YES;
-    }else
-    {
-        jsonArray = [NSArray arrayWithObjects:[CombiningData getUIDInfo:kNumberList],[CombiningData getMineInfo:kGetUrgentInfo], nil];
-    }
+    jsonArray = [NSArray arrayWithObjects:[CombiningData getPicList],[CombiningData getUIDInfo:kNumberList],[CombiningData getUIDInfo:kCommendList],[CombiningData getMineInfo:kGetUrgentInfo], nil];
+
     [self showHUD:@"正在加载数据"];
     __block int requestCount = 0;
     NSString *jsonString = nil;

@@ -71,11 +71,11 @@
             urgentView.hidden = NO;
         }
         
-        if ([[dictionary objectForKey:@"eval"] intValue]==0) {
-            editView.hidden = YES;
+        if ([[dictionary objectForKey:@"eval"] floatValue]>0) {
+            editView.hidden = NO;
         }else
         {
-            editView.hidden = NO;
+            editView.hidden = YES;
         }
         if ([[dictionary objectForKey:@"download"] intValue]==0) {
             download.hidden = YES;

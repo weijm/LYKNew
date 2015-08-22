@@ -4,18 +4,76 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EnterpriseEdition/Class/Resume/InfoHeaderView.m"
-            timestampString = "461918258.913489"
+            scope = "0"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnterpriseEdition/Class/Position/PositionInfoViewController.m"
+            timestampString = "461925843.031269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "-loadData:"
+            startingLineNumber = "416"
+            endingLineNumber = "416"
+            landmarkName = "-batchDealWithPosition:Status:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[PositionInfoViewController batchDealWithPosition:Status:]"
+                  moduleName = "EnterpriseEdition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lyk/Desktop/LYKNew/EnterpriseEdition/EnterpriseEdition/Class/Position/PositionInfoViewController.m"
+                  timestampString = "461925843.04307"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "416"
+                  endingLineNumber = "416"
+                  offsetFromSymbolStart = "146">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__59-[PositionInfoViewController batchDealWithPosition:Status:]_block_invoke"
+                  moduleName = "EnterpriseEdition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lyk/Desktop/LYKNew/EnterpriseEdition/EnterpriseEdition/Class/Position/PositionInfoViewController.m"
+                  timestampString = "461925843.043201"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "416"
+                  endingLineNumber = "416"
+                  offsetFromSymbolStart = "42">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnterpriseEdition/Class/Position/PositionInfoViewController.m"
+            timestampString = "461925921.715284"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "437"
+            endingLineNumber = "437"
+            landmarkName = "-batchDealWithPosition:Status:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

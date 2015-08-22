@@ -166,9 +166,8 @@
                 if ([dataArr count]>0) {
                     NSDictionary * resultDic = [dataArr firstObject];
                     NSString *uid = [resultDic objectForKey:@"uid"];
-                    NSString *iid = [resultDic objectForKey:@"info_id"];
                     [userDefault setObject:uid forKey:kUID];
-                    [userDefault setObject:iid forKey:KIID];
+
                     [userDefault setObject:[Util getCorrectString:[resultDic objectForKey:@"status"]] forKey:kEntStatus];
                 }
                 //标记是否登录成功

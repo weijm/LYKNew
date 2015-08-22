@@ -205,26 +205,18 @@
 }
 -(void)getCode
 {
-    NSString *phone = [contentArray firstObject];
+    
     [self showHUD:@"正在获取验证码"];
-    NSString *getCodeJson = [CombiningData securityCode:phone];
-    //请求服务器
-    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:getCodeJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
-        if (result!=nil) {
-            if ([[result objectForKey:@"result"] intValue]>0) {
-                [self hideHUDWithComplete:@"验证码发送成功"];
-                [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kRegisterAccount];
-                //                [[NSNotificationCenter defaultCenter] postNotificationName:@"StartCodeTimer" object:nil];
-            }else
-            {
-                [self hideHUDFaild:[result objectForKey:@"message"]];
-            }
-        }else
-        {
-            [self hideHUD];
-            [self showAlertView:@"服务器请求失败"];
-        }
-    }];
+   
+}
+-(void)cancelGetCodeLoding:(NSString*)string
+{
+    if ([string isEqualToString:@"验证码发送成功"]) {
+        [self hideHUDWithComplete:@"验证码发送成功"];
+    }else
+    {
+        [self hideHUDFaild:string];
+    }
 }
 //注册请求服务器
 -(void)requestRegister:(NSString*)phone Password:(NSString*)password Code:(NSString*)code;
@@ -243,9 +235,10 @@
                     NSString *uid = [resultDic objectForKey:@"uid"];
                     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
                     [userDefault setObject:uid forKey:kUID];
+                    [userDefault setObject:@"1" forKey:kEntStatus];
                     //将用户名改变
                     [userDefault setObject:phone forKey:kAccount];
-                    [userDefault setObject:@"" forKey:KPassWord];
+                    [userDefault setObject:password forKey:KPassWord];
                     [userDefault synchronize];
                 }
                 RegisterSuccessViewController *successVC = [[RegisterSuccessViewController alloc] init];

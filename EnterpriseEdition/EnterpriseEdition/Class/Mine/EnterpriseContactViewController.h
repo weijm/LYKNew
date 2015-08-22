@@ -18,6 +18,7 @@
     __weak IBOutlet UITableView *infoTableView;
 
 }
+@property (nonatomic) int isFromRegister;
 - (IBAction)saveAndCommit:(id)sender;
 
 @end

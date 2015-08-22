@@ -195,7 +195,6 @@
                 [userDefault setObject:@"" forKey:kLoginOrExit];
                 [userDefault setObject:@"" forKey:KPassWord];
                 [userDefault setObject:@"" forKey:kUID];
-                [userDefault setObject:@"" forKey:KIID];
                 
                 
             }else
@@ -207,34 +206,6 @@
             [self hideHUDFaild:@"服务器请求失败"];
         }
     }];
-//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-//        if (result!=nil) {
-//            if ([[result objectForKey:@"result"] intValue]>0) {
-//                [self hideHUDWithComplete:@"修改成功"];
-//                [self.navigationController popViewControllerAnimated:YES];
-//                //出现登录页面
-//                //退出登录
-//                [[NSNotificationCenter defaultCenter] postNotificationName:kLoginOrExit object:@"1"];
-//                //清空本地缓存的数据
-//                NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-//                [userDefault setObject:@"" forKey:kLoginOrExit];
-//                [userDefault setObject:@"" forKey:KPassWord];
-//                [userDefault setObject:@"" forKey:kUID];
-//                [userDefault setObject:@"" forKey:KIID];
-//               
-//                
-//            }else
-//            {
-//                [self hideHUDFaild:[result objectForKey:@"message"]];
-//            }
-//        }else
-//        {
-//            [self hideHUDFaild:@"服务器请求失败"];
-//        }
-//        
-//    };
-
 }
 
 @end

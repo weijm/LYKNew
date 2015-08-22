@@ -18,6 +18,9 @@
 
 //获取验证码
 -(void)getCode;
+
+//取消后去验证码加载视图
+-(void)cancelGetCodeLoding:(NSString*)string;
 @end
 
 @interface RegisterTableViewCell : UITableViewCell<UITextFieldDelegate>

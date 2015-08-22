@@ -216,7 +216,13 @@
     ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
     NSDictionary *dic = nil;
     dic = [dataArray objectAtIndex:indexPath.row];
-    infoVC.resumeID = [dic objectForKey:@"stu_resume_id"] ;
+    if (_isForPisition) {
+        infoVC.resumeID = [dic objectForKey:@"stu_resume_id"] ;
+    }else
+    {
+        infoVC.resumeID = [dic objectForKey:@"id"] ;
+    }
+    
     infoVC.sex = [dic objectForKey:@"sex"];
     infoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:infoVC animated:YES];

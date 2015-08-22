@@ -109,11 +109,10 @@
     NSString *latitude = [NSString stringWithFormat:@"%@",[Util getCorrectString:[userDefault objectForKey:kLatitude]]];
     NSString *longitude = [NSString stringWithFormat:@"%@",[Util getCorrectString:[userDefault objectForKey:kLongitude]]];
     NSString *uid = [userDefault objectForKey:kUID];
-    NSString *iid = [userDefault objectForKey:KIID];
 
    
     NSString *jsonString = [NSString stringWithFormat:
-                            @"{\"token\":\"%@\",\"type\":\"%@\",%@\"latitude\":\"%@\",\"longitude\":\"%@\",\"uid\":\"%@\",\"iid\":\"%@\",\"job_id\":\"%@\",\"action_type\":\"%@\"}",kToken,type,subJson,latitude,longitude,uid,iid,jobId,actionType];
+                            @"{\"token\":\"%@\",\"type\":\"%@\",%@\"latitude\":\"%@\",\"longitude\":\"%@\",\"uid\":\"%@\",\"job_id\":\"%@\",\"action_type\":\"%@\"}",kToken,type,subJson,latitude,longitude,uid,jobId,actionType];
     return jsonString;
 }
 //获取职位列表

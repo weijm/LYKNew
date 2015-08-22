@@ -29,7 +29,7 @@
     if (dictionary) {
         titleLab.text = [dictionary objectForKey:@"title"];
         contentLab.text = [NSString stringWithFormat:@"%@ | %@",[Util getCorrectString:[dictionary objectForKey:@"job_type_name"]],[dictionary objectForKey:@"industry_name"]];
-        NSString *status = [dictionary objectForKey:@"status"];
+        NSString *status = [Util getCorrectString:[dictionary objectForKey:@"status"]];
         if ([status isEqualToString:@"正常"]) {
             status = @"有效";
             statusImg.image = [UIImage imageNamed:@"position_valid_mark"];

@@ -272,7 +272,7 @@
 -(void)loadFooterViewStatus
 {
     _positionStatus = [Util getCorrectString:_positionStatus];
-    if ([_positionStatus length]) {
+    if ([_positionStatus length]==0) {
         return;
     }
     if ([_positionStatus isEqualToString:@"正常"]) {

@@ -66,7 +66,6 @@
 #define kAccount @"account"
 #define KPassWord @"password"
 #define kUID @"uid"//用户ID
-#define KIID @"iid"//企业信息ID
 #define kLatitude @"latitude"
 #define kLongitude @"longitude"
 #define kRegisterAccount @"kRegisterAccount"

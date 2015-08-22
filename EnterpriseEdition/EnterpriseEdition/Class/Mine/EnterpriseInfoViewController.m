@@ -41,7 +41,7 @@
     titleArray = [NSArray arrayWithContentsOfFile:[Util getBundlePath:@"enterpriseInfo.plist"]];
     contentArray = [[NSMutableArray alloc] init];
     for (int i =0; i<[titleArray count]; i++) {
-        [contentArray addObject:@" "];
+        [contentArray addObject:@""];
     }
     
     [self performSelector:@selector(getEntInfoFromWeb) withObject:nil afterDelay:0.0];
@@ -554,6 +554,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         [self.navigationController popToRootViewControllerAnimated:YES];
     }else{
         EnterpriseContactViewController *contactVC = [[EnterpriseContactViewController alloc] init];
+        contactVC.isFromRegister = _isFromRegister;
         [self.navigationController pushViewController:contactVC animated:YES];
     }
 
@@ -581,23 +582,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             [self showAlertView:@"服务器请求失败"];
         }
     }];
-//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-//        if (result!=nil) {
-//            if ([[result objectForKey:@"result"] intValue]>0) {
-//                [self hideHUD];
-//                [self performSelector:@selector(nextActionAfterSave) withObject:nil afterDelay:1.5];
-//            }else
-//            {
-//                [self hideHUDFaild:[result objectForKey:@"message"]];
-//            }
-//        }else
-//        {
-//            [self hideHUD];
-//            [self showAlertView:@"服务器请求失败"];
-//        }
-//        
-//    };
+
 }
 //将企业性质和人数规模转化id
 -(NSMutableArray*)getRow2AndRow7Id
@@ -652,24 +637,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             [self showAlertView:@"服务器请求失败"];
         }
     }];
-//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-//        if (result!=nil) {
-//            if ([[result objectForKey:@"result"] intValue]>0) {
-//                [self hideHUD];
-//                NSArray *dataArray = [result objectForKey:@"data"];
-//                [self dealWithData:dataArray];
-//            }else
-//            {
-//                [self hideHUDFaild:[result objectForKey:@"message"]];
-//            }
-//        }else
-//        {
-//            [self hideHUD];
-//            [self showAlertView:@"服务器请求失败"];
-//        }
-//        
-//    };
 }
 //将获取的数据进行处理
 -(void)dealWithData:(NSArray*)array
@@ -709,6 +676,12 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             NSString *str1 = [Util getCorrectString:[dic objectForKey:@"city_id_1"]];
             NSString *str2 = [Util getCorrectString:[dic objectForKey:@"city_id_2"]];
             NSString *str3 = [Util getCorrectString:[dic objectForKey:@"city_id_3"]];
+            if ([str1 isEqualToString:@"0"]) {
+                str1 = @"";
+            }
+            if ([str2 isEqualToString:@"0"]) {
+                str2 = @"";
+            }
             if ([str3 isEqualToString:@"0"]) {
                 str3 = @"";
             }
@@ -758,27 +731,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             [self hideHUDFaild:[dictionary objectForKey:@"data"]];
         }
     }];
-//    [AFHttpClient sharedClient].UploadFileStatus = ^(BOOL isSuccess ,NSDictionary *dictionary){
-//        if (isSuccess) {
-//            [self hideHUDWithComplete:@"上传成功"];
-//            NSString *imgUrl = [dictionary objectForKey:@"data"];
-//            DLog(@"imgUrl== %@",imgUrl);
-//            NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:imgUrl,@"content", nil];
-//            //获取原来的图片路径
-//            NSDictionary *oldDic = [contentArray objectAtIndex:imgType];
-//            if ([oldDic isKindOfClass:[NSDictionary class]]&&[[oldDic objectForKey:@"content"] length]>0) {
-//                [SDWebImageManager.sharedManager.imageCache removeImageForKey:[oldDic objectForKey:@"content"]];
-//            }
-//            
-//            [contentArray replaceObjectAtIndex:imgType withObject:dictionary];
-//            
-//            [infoTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:imgType inSection:0], nil] withRowAnimation:UITableViewRowAnimationFade];
-//            
-//        }else
-//        {
-//            [self hideHUDFaild:[dictionary objectForKey:@"data"]];
-//        }
-//    };
 }
 //将字符串转换id
 -(NSMutableDictionary*)getIdsFromContentByWeb:(NSString*)content Index:(int)index

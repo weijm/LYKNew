@@ -40,9 +40,12 @@
     UIButton *bt = (UIButton*)sender;
     if (bt.tag == 1) {//填写企业资料
         EnterpriseInfoViewController *enterpriseVC = [[EnterpriseInfoViewController alloc] init];
+        enterpriseVC.isFromRegister = 1;
         [self.navigationController pushViewController:enterpriseVC animated:YES];
     }else
     {//随便看看
+        //标记是否登录成功
+        [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kLoginOrExit];
         [[NSNotificationCenter defaultCenter] postNotificationName:kLoginOrExit object:@"0"];
     }
 }

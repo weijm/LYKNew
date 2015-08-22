@@ -143,16 +143,38 @@
     if ([_delegate respondsToSelector:@selector(cancelKey)]) {
         [_delegate cancelKey];
     }
-
     NSString *phone = [[NSUserDefaults standardUserDefaults] objectForKey:kRegisterAccount];
     //判断手机号是否正确
     if ([Util checkTelephone:phone]) {
         codeBt.enabled = NO;
-        [self startCodeTimer];
         // 从服务器获取验证码
         if ([_delegate respondsToSelector:@selector(getCode)]) {
             [_delegate getCode];
         }
+        NSString *getCodeJson = [CombiningData securityCode:phone];
+        //请求服务器
+        [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:getCodeJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
+            if (result!=nil) {
+                if ([[result objectForKey:@"result"] intValue]>0) {
+                    [self startCodeTimer];
+                    if ([_delegate respondsToSelector:@selector(cancelGetCodeLoding:)]) {
+                        [_delegate cancelGetCodeLoding:@"验证码发送成功"];
+                    }
+                }else
+                {
+                    if ([_delegate respondsToSelector:@selector(cancelGetCodeLoding:)]) {
+                        [_delegate cancelGetCodeLoding:[result objectForKey:@"message"]];
+                    }
+
+                }
+            }else
+            {
+                if ([_delegate respondsToSelector:@selector(cancelGetCodeLoding:)]) {
+                    [_delegate cancelGetCodeLoding:[result objectForKey:@"服务器请求失败"]];
+                }
+            }
+        }];
+
         
     }
     

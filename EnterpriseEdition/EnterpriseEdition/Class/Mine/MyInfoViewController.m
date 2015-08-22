@@ -172,7 +172,6 @@
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     [userDefault setObject:@"" forKey:kLoginOrExit];
     [userDefault setObject:@"" forKey:kUID];
-    [userDefault setObject:@"" forKey:KIID];
     
     [self performSelector:@selector(reloadView) withObject:nil afterDelay:1.5];
     
