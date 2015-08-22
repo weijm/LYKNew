@@ -594,7 +594,7 @@
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:dictionary];
     NSArray *salaryArr = [[dictionary objectForKey:@"content"] componentsSeparatedByString:@"-"];
-    if ([salaryArr count]>0) {
+    if ([salaryArr count]>1) {
         [dic setObject:[salaryArr firstObject] forKey:@"salary_min"];
         [dic setObject:[salaryArr lastObject] forKey:@"salary_max"];
     }else

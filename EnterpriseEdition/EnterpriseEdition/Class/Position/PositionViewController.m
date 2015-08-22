@@ -77,6 +77,7 @@
         offlineArray = nil;
         toAuditArray = nil;
         chooseArray = nil;
+        self.navigationItem.rightBarButtonItem.enabled = NO;
     }
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -307,6 +308,10 @@
 #pragma mark - 初始化HeaderView
 -(void)initHeaderView
 {
+    if (headerView) {
+        [headerView removeFromSuperview];
+        headerView = nil;
+    }
     headerView = [[PositionHeaderView alloc] initWithFrame:CGRectMake(0, topBarheight, kWidth, kPHeaderViewHeight)];
     __weak PositionViewController *wself = self;
     headerView.chooseHeaderBtAction = ^(NSInteger index){
@@ -379,7 +384,8 @@
         {
             dataArray = toAuditArray;
         }
-        if ([dataArray count]>0) {
+        if ([dataArray count]==0) {
+            self.navigationItem.rightBarButtonItem.enabled = NO;
 //            [dataTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
         }
                 
