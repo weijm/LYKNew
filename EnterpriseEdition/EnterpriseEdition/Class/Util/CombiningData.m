@@ -526,7 +526,7 @@
 }
 +(NSString*)getCerId:(NSString*)string
 {
-    NSArray *array = [NSArray arrayWithObjects:@"大  专",@"本  科",@"研究生",@"博  士",@"其  他",nil];
+    NSArray *array = [NSArray arrayWithObjects:@"大  专",@"本  科",@"研究生",@"博  士",@"不  限",nil];
     for (int i = 0; i < [array count]; i++) {
         if ([[array objectAtIndex:i] isEqualToString:string]) {
             return [NSString stringWithFormat:@"%d",i];

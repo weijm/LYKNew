@@ -115,7 +115,6 @@
 {
     if (self.tag ==0||self.tag ==11||self.tag ==12||self.tag ==7) {
         NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-        NSLog(@"newString == %@",newString);
 
         
         int stringLength = (self.tag==12)?50:30;

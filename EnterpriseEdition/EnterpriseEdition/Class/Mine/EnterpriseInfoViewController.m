@@ -486,6 +486,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 #pragma mark - 保存方法
 - (IBAction)saveEnterpriseInfo:(id)sender {
+
     [self editTextFiledAndCancelKey:YES];
     [self editTextViewAndCancelKey:YES];
     BOOL isFull = [self checkInfo];

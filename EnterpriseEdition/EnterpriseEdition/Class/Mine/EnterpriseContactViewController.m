@@ -9,6 +9,7 @@
 #import "EnterpriseContactViewController.h"
 #import "ReferenceView.h"
 #import "SDWebImageManager.h"
+#import "ExpViewController.h"
 
 @interface EnterpriseContactViewController ()
 {
@@ -136,6 +137,8 @@
 //查看样例的触发事件
 -(void)lookUpExample
 {
+    ExpViewController *expVC = [[ExpViewController alloc] init];
+    [self.navigationController pushViewController:expVC animated:YES];
 }
 #pragma mark - EnterpriseBaseTableViewCellDelegate
 -(void)setEditView:(UIView*)_editView

@@ -41,6 +41,9 @@
 		20054EA81B663536009FA771 /* EnterpriseContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20054EA61B663536009FA771 /* EnterpriseContactViewController.xib */; };
 		20054EAB1B663DA1009FA771 /* ReferenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20054EAA1B663DA1009FA771 /* ReferenceView.m */; };
 		20054EAD1B663DAD009FA771 /* ReferenceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20054EAC1B663DAD009FA771 /* ReferenceView.xib */; };
+		200692241B8879C000A7B290 /* ExpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 200692221B8879C000A7B290 /* ExpViewController.m */; };
+		200692251B8879C000A7B290 /* ExpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 200692231B8879C000A7B290 /* ExpViewController.xib */; };
+		200692271B887C4E00A7B290 /* exp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 200692261B887C4E00A7B290 /* exp@2x.png */; };
 		2007808C1B6B432B004D9EB4 /* position_check_state0@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 200780891B6B432B004D9EB4 /* position_check_state0@3x.png */; };
 		2007808D1B6B432B004D9EB4 /* position_check_state1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2007808A1B6B432B004D9EB4 /* position_check_state1@3x.png */; };
 		2007808E1B6B432B004D9EB4 /* position_check_state2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2007808B1B6B432B004D9EB4 /* position_check_state2@3x.png */; };
@@ -449,6 +452,10 @@
 		20054EA91B663DA1009FA771 /* ReferenceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceView.h; sourceTree = "<group>"; };
 		20054EAA1B663DA1009FA771 /* ReferenceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceView.m; sourceTree = "<group>"; };
 		20054EAC1B663DAD009FA771 /* ReferenceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReferenceView.xib; sourceTree = "<group>"; };
+		200692211B8879C000A7B290 /* ExpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpViewController.h; sourceTree = "<group>"; };
+		200692221B8879C000A7B290 /* ExpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpViewController.m; sourceTree = "<group>"; };
+		200692231B8879C000A7B290 /* ExpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpViewController.xib; sourceTree = "<group>"; };
+		200692261B887C4E00A7B290 /* exp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exp@2x.png"; sourceTree = "<group>"; };
 		200780891B6B432B004D9EB4 /* position_check_state0@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_check_state0@3x.png"; sourceTree = "<group>"; };
 		2007808A1B6B432B004D9EB4 /* position_check_state1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_check_state1@3x.png"; sourceTree = "<group>"; };
 		2007808B1B6B432B004D9EB4 /* position_check_state2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_check_state2@3x.png"; sourceTree = "<group>"; };
@@ -1002,6 +1009,9 @@
 				20054EA41B663536009FA771 /* EnterpriseContactViewController.h */,
 				20054EA51B663536009FA771 /* EnterpriseContactViewController.m */,
 				20054EA61B663536009FA771 /* EnterpriseContactViewController.xib */,
+				200692211B8879C000A7B290 /* ExpViewController.h */,
+				200692221B8879C000A7B290 /* ExpViewController.m */,
+				200692231B8879C000A7B290 /* ExpViewController.xib */,
 			);
 			name = EnterpriseInfo;
 			sourceTree = "<group>";
@@ -1339,6 +1349,7 @@
 				20F0F2371B5E160C00CB1D71 /* CommendResume */,
 				20BA85B91B6763BF00757788 /* homepage_commend_img@3x.png */,
 				20D468C51B6F670D008A7B78 /* homepage_nopass@3x.png */,
+				200692261B887C4E00A7B290 /* exp@2x.png */,
 				20D468641B6F06D7008A7B78 /* homepage_search_bt@3x.png */,
 				20D468551B6EF7B4008A7B78 /* homepage_banner_select@3x.png */,
 				20D468561B6EF7B4008A7B78 /* homepage_banner_selected_highted@3x.png */,
@@ -2161,6 +2172,7 @@
 				20BA85D91B67837500757788 /* resume_edit@3x.png in Resources */,
 				20054EA21B6628DA009FA771 /* homepage_hire_icon3@3x.png in Resources */,
 				20B43D1C1B85CD730067E37C /* my_check_nopass@2x.png in Resources */,
+				200692271B887C4E00A7B290 /* exp@2x.png in Resources */,
 				20BB62211B4E5C8D006BD455 /* CellMiddleView.xib in Resources */,
 				20BA85E41B6788DC00757788 /* resume_search_bt@3x.png in Resources */,
 				20B43D241B85CF260067E37C /* resume_choose_bt@2x.png in Resources */,
@@ -2294,6 +2306,7 @@
 				20C93F891B68D0510050514B /* my_enterprise_left_line@3x.png in Resources */,
 				203A301C1B86C7120058E40E /* login_number_mark@2x.png in Resources */,
 				20F0F22F1B5DF89000CB1D71 /* CommendResumeViewController.xib in Resources */,
+				200692251B8879C000A7B290 /* ExpViewController.xib in Resources */,
 				20F0F2631B5E310E00CB1D71 /* PositionTableViewCell.xib in Resources */,
 				201EDB201B579BE90080A12A /* ExperienceTableViewCell.xib in Resources */,
 				20BA85BF1B67693900757788 /* homepage_hire_icon5@3x.png in Resources */,
@@ -2454,6 +2467,7 @@
 				203FDC541B86B642003C0B0F /* FirstInfoTableViewCell.m in Sources */,
 				20D6F4381B60CB7C00AC0394 /* MyTableViewCell0.m in Sources */,
 				203EF5161B69B004000F292D /* HireOfView.m in Sources */,
+				200692241B8879C000A7B290 /* ExpViewController.m in Sources */,
 				20F0F22E1B5DF89000CB1D71 /* CommendResumeViewController.m in Sources */,
 				20A32A0B1B58A2CB00E1B5F8 /* FMResultSet.m in Sources */,
 				2097D3121B462F0A00611432 /* RootViewController.m in Sources */,
