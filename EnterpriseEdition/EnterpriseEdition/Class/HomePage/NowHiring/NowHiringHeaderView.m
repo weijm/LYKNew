@@ -47,6 +47,7 @@
 {
     NSArray *timeArr = [[_urgDic objectForKey:@"over_time"] componentsSeparatedByString:@":"];
     remainingTime = [[timeArr firstObject] intValue]*60*60+[timeArr[1] intValue]*60+[timeArr[2] intValue];
+
     float pvY = subbg.frame.origin.y-(kPVHeight - [Util myYOrHeight:kBTHeight])/2;
     circleProgressView = [[CircleProgressView alloc] initWithFrame:CGRectMake((kWidth-kPVHeight)/2,pvY , kPVHeight, kPVHeight)];
     [btBg addSubview:circleProgressView];
@@ -64,8 +65,9 @@
 //    remainingTime = 16*60*60+45*60+30;
     circleProgressView.remainingTime = remainingTime;//剩余时间
     circleProgressView.elapsedTime = kLimitTime-remainingTime;//已过时间
-    
-    [self startTimer];
+    if (remainingTime!=0) {
+        [self startTimer];
+    }
     contentLab.text = [NSString stringWithFormat:@"%@/%@",[_urgDic objectForKey:@"resume_num"],[_urgDic objectForKey:@"resume_max"]];
     [self loadCountTextColor];
 }
@@ -128,6 +130,10 @@
 {
     if ((self.session) && (self.session.state == kSessionStateStart))
     {
+        if (remainingTime==0) {
+            [self stopTimer];
+            return;
+        }
         remainingTime--;
         circleProgressView.remainingTime = remainingTime;
         circleProgressView.elapsedTime = kLimitTime - remainingTime;

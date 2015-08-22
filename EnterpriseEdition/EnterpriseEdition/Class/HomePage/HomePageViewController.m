@@ -71,7 +71,7 @@
     
     urgentOverdue = NO;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginOrExit:) name:kLoginOrExit object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginOut:) name:kLoginOut object:nil];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -92,8 +92,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)loginOrExit:(NSNotification*)notifiCation
+-(void)loginOut:(NSNotification*)notifiCation
 {
+    
     BOOL isLoginOut = [[notifiCation object] boolValue];
     if (isLoginOut) {
         [self loadEmtyHireView];
@@ -279,7 +280,7 @@
         case 1:
         {
             NSString * iidStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kEntStatus];
-            if ([iidStatus intValue]==1||urgentOverdue) {
+            if ([iidStatus intValue]==1) {
                 [Util showPrompt:@"当前您没有急招职位"];
                 return;
             }
@@ -426,32 +427,23 @@
             commendArray = [result objectForKey:@"data"];
             [commendView loadSubView:commendArray];
         }
-       
-        
    
     }else if ([type isEqualToString:kGetUrgentInfo])
     {
-        NSUserDefaults * userDefauflt = [NSUserDefaults standardUserDefaults];
-        NSString *urgentKey = [NSString stringWithFormat:@"%@Urgent",[userDefauflt objectForKey:kAccount]];
+     
         if (isSuccess) {
             NSArray *tempAr = [result objectForKey:@"data"];
             if ([tempAr count]>0) {
                 urgentDic = [tempAr objectAtIndex:0];
-                urgentOverdue = NO;
-                //将急招简历的id保存
-                [userDefauflt setObject:[urgentDic objectForKey:@"id"] forKey:urgentKey];
             }else
             {
-                [userDefauflt setObject:@"" forKey:urgentKey];
             }
             
         }else
         {
             NSString *message = [result objectForKey:@"message"];
             if ([message isEqualToString:@"该企业急招职位已过期"]) {
-                urgentOverdue = YES;
             }
-             [userDefauflt setObject:@"" forKey:urgentKey];
         }
        
    

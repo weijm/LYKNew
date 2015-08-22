@@ -32,8 +32,8 @@
     switch (self.tag) {
         case 0:
         {
-            NSString *salary_min = [dic objectForKey:@"salary_min"];
-            NSString *salary_max = [dic objectForKey:@"salary_max"];
+            NSString *salary_min =[Util getCorrectString: [dic objectForKey:@"salary_min"]];
+            NSString *salary_max = [Util getCorrectString:[dic objectForKey:@"salary_max"]];
               _contentLab.text = [NSString stringWithFormat:@"%dK-%dK",[salary_min intValue]/1000,[salary_max intValue]/1000];
         }
             break;

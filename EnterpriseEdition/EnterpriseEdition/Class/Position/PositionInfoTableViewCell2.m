@@ -40,7 +40,7 @@
 }
 -(void)loadData:(NSString*)content
 {
-    textView.text = content;
+    textView.text = [Util getCorrectString:content];
     [self setTextViewParagraphStyle];
 }
 @end

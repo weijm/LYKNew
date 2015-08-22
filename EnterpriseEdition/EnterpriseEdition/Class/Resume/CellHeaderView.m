@@ -52,7 +52,6 @@
     }
     if ([_urgentJobName length]!=0) {
         titleContent = [Util getBundlePath:_urgentJobName];
-        NSLog(@"_urgentJobName == %@",_urgentJobName);
     }
     jobLab.text = titleContent;
     NSString *timeString = [dictionary objectForKey:@"add_time"];
@@ -76,6 +75,10 @@
 {
     if (_showRateView) {
         rateView.hidden = NO;
+        if (kIphone4) {
+            rateLabToLeft.constant = -10;
+            rateLabToTop.constant = -5;
+        }
         
         infobgToLeft.constant = 30;
         rateLab.transform = CGAffineTransformMakeRotation(-(180 / M_PI));

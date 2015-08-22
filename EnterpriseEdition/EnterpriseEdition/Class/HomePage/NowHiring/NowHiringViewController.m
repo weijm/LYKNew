@@ -24,6 +24,8 @@
     NowHiringHeaderView *headerView;
     BOOL isLoading;
     int currentPage;
+    
+    int isFirst;
 }
 @end
 
@@ -50,7 +52,7 @@
 
     
     categaryType = 1;
-//    [self performSelector:@selector(requestResumeListFromPosition:) withObject:[NSNumber numberWithBool:NO] afterDelay:0.0];
+    
     
 }
 
@@ -62,7 +64,10 @@
 {
     [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.translucent = NO;
-    [self requestResumeListFromPosition:NO];
+    if (isFirst==0) {
+        [self requestResumeListFromPosition:NO];
+        isFirst = 1;
+    }
 }
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -137,8 +142,18 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
-    infoVC.resumeID = [[commendArray objectAtIndex:indexPath.row] objectForKey:@"id"] ;
-    
+    NSDictionary *dic = nil;
+    if (categaryType == 1) {
+        dic = [receivedArray objectAtIndex:indexPath.row];
+        infoVC.resumeID = [dic objectForKey:@"stu_resume_id"] ;
+        infoVC.jobID = [_urgentDic objectForKey:@"id"];
+    }else
+    {
+        dic = [commendArray objectAtIndex:indexPath.row];
+        infoVC.resumeID = [dic objectForKey:@"id"] ;
+        infoVC.jobID = @"0";
+
+    }
     infoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:infoVC animated:YES];
 }
@@ -398,66 +413,6 @@
         }
 
     }];
-//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
-//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-//        if (result!=nil) {
-//            if ([[result objectForKey:@"result"] intValue]>0) {
-//                //加载首页数据
-//                NSArray *dataArr = [result objectForKey:@"data"];
-//                //全选数组标记
-//                if(page==1)
-//                {   //如果第一页 加载的时候 初始化 chooseArray 否则直接增加到数组中
-//                    chooseArray = [NSMutableArray array];
-//                }
-//                for (int i=0; i< [dataArr count]; i++) {
-//                    [chooseArray addObject:@""];
-//                }
-//                [self dealWithResponeData:dataArr];
-//                //将提示视图取消
-//                if (!isMore) {
-//                    [self hideHUD];
-//                }else
-//                {
-//                    [dataTableView stopRefresh];
-//                    isLoading = NO;
-//                    [self subViewEnabled:YES];
-//                }
-//                
-//            }else
-//            {
-//                NSString *message = [result objectForKey:@"message"];
-//                if ([message length]==0) {
-//                    message = @"数据为空";
-//                }
-//                if (!isMore) {
-//                    [self hideHUDFaild:message];
-//                }else
-//                {
-//                    NSString *msg = [result objectForKey:@"message"];
-//                    if ([msg isEqualToString:@"已经到最后一页"]) {
-//                        [dataTableView changeProText:YES];
-//                        [self performSelector:@selector(stopRefreshLoading) withObject:nil afterDelay:0.25];
-//                    }else
-//                    {
-//                        [self stopRefreshLoading];
-//                    }
-//                }
-//                
-//            }
-//        }else
-//        {
-//            if (!isMore) {
-//                [self hideHUDFaild:@"服务器请求失败"];
-//            }else
-//            {
-//                [dataTableView stopRefresh];
-//                isLoading = NO;
-//                [self subViewEnabled:YES];
-//            }
-//            
-//        }
-//    };
-    
 }
 //停止刷新
 -(void)stopRefreshLoading
@@ -477,10 +432,7 @@
     }
     currentPage++;
     [dataTableView reloadData];
-//    if ([dataArray count]>0) {
-//        self.navigationItem.rightBarButtonItem.enabled = YES;
-//        headerView.userInteractionEnabled = YES;
-//    }
+
 }
 #pragma mark - 加载数据中 不可以点击本页的事件
 -(void)subViewEnabled:(BOOL)enable
@@ -513,12 +465,18 @@
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUD];
-                commendArray = [result objectForKey:@"data"];
+                commendArray = [NSMutableArray arrayWithArray:[result objectForKey:@"data"]];
                 [dataTableView reloadData];
                 
             }else
             {
-                [self hideHUDFaild:[result objectForKey:@"message"]];
+                if ([[result objectForKey:@"message"] isEqualToString:@"已经到最后一页"]) {
+                    [self hideHUD];
+                }else
+                {
+                    [self hideHUDFaild:[result objectForKey:@"message"]];
+                }
+                
             }
         }else
         {

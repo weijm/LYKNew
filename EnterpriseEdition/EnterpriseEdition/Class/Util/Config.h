@@ -61,6 +61,7 @@
 #define KGETOBJ(key) [[NSUserDefaults standardUserDefaults] objectForKey:key]
 
 #define kLoginOrExit @"loginOrExit" 
+#define kLoginOut @"loginOut"
 
 
 #define kAccount @"account"

@@ -53,15 +53,15 @@
 //    [self requestPositonInfo];
     [self performSelector:@selector(requestPositonInfo) withObject:nil afterDelay:0.0];
     
-    NSUserDefaults * userDefauflt = [NSUserDefaults standardUserDefaults];
-    NSString *urgentKey = [NSString stringWithFormat:@"%@Urgent",[userDefauflt objectForKey:kAccount]];
-    NSString *urgentId = [userDefauflt objectForKey:urgentKey];
-    if ([urgentId isEqualToString:_jobId]) {
-        _isUrgent = YES;
-    }else
-    {
-        _isUrgent = NO;
-    }
+//    NSUserDefaults * userDefauflt = [NSUserDefaults standardUserDefaults];
+//    NSString *urgentKey = [NSString stringWithFormat:@"%@Urgent",[userDefauflt objectForKey:kAccount]];
+//    NSString *urgentId = [userDefauflt objectForKey:urgentKey];
+//    if ([urgentId isEqualToString:_jobId]) {
+//        _isUrgent = YES;
+//    }else
+//    {
+//        _isUrgent = NO;
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -241,10 +241,6 @@
             break;
         case 20:
         {
-            if (_isUrgent) {
-                [Util showPrompt:@"该职位已经是急招职位"];
-                return;
-            }
             urgentView = [[PositionSetUrgentView alloc] initWithFrame:CGRectMake(0, 0, kWidth-40, 256)];
             __weak PositionInfoViewController *wself = self;
             urgentView.makeSurePositionUrgent = ^(int count){
@@ -366,6 +362,12 @@
                 if ([dataArr count]>0) {
                     infoDictionary = [NSMutableDictionary dictionaryWithDictionary:[dataArr firstObject]];
                     _positionStatus = [infoDictionary objectForKey:@"status"];
+                    if ([[Util getCorrectString:[infoDictionary objectForKey:@"emergent"]] intValue]==1) {
+                        _isUrgent = YES;
+                    }else
+                    {
+                        _isUrgent = NO;
+                    }
                     [self loadFooterViewStatus];
                 }
                 [dataTableView reloadData];
@@ -411,26 +413,26 @@
 {
     [self showHUD:@"正在处理数据"];
     NSString *infoJson = [CombiningData positionManager:idsString Status:status];
-    __block int tempstatus = status;
+//    __block int tempstatus = status;
     //请求服务器
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUDWithComplete:@"数据处理成功"];
                 //仍然加载首页
-                if (tempstatus == -9) {
-                    [self performSelector:@selector(leftAction) withObject:nil afterDelay:1.5];
-                }else
-                {
-                    if (tempstatus == 0) {
-                        [infoDictionary setObject:@"正常" forKey:@"status"];
-                    }else
-                    {
-                        [infoDictionary setObject:@"下线" forKey:@"status"];
-                    }
-                    [dataTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:0 inSection:0], nil] withRowAnimation:UITableViewRowAnimationNone];
-                }
-                
+//                if (tempstatus == -9) {
+//                    
+//                }else
+//                {
+//                    if (tempstatus == 0) {
+//                        [infoDictionary setObject:@"正常" forKey:@"status"];
+//                    }else
+//                    {
+//                        [infoDictionary setObject:@"下线" forKey:@"status"];
+//                    }
+//                    [dataTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:0 inSection:0], nil] withRowAnimation:UITableViewRowAnimationNone];
+//                }
+                [self performSelector:@selector(leftAction) withObject:nil afterDelay:1.5];
                 
             }else
             {

@@ -77,11 +77,11 @@
     isLoading = NO;
     isSearching = NO;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginOrExit:) name:kLoginOrExit object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginOut:) name:kLoginOut object:nil];
     
 
 }
--(void)loginOrExit:(NSNotification*)notifiCation
+-(void)loginOut:(NSNotification*)notifiCation
 {
     BOOL isLoginOut = [[notifiCation object] boolValue];
     if (isLoginOut) {
@@ -367,11 +367,11 @@
         dictionary = [dataArray objectAtIndex:indexPath.row];
     }else if (resumeCategory ==2)
     {
-        cell.isShowTopBg = 0;
+        cell.isShowTopBg = 1;
         dictionary = [colledtedArray objectAtIndex:indexPath.row];
     }else
     {
-        cell.isShowTopBg = 0;
+        cell.isShowTopBg = 1;
         dictionary = [downloadArray objectAtIndex:indexPath.row];
    
     }

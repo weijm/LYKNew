@@ -394,7 +394,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 -(void)back
 {
     if (_isFromRegister==1) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kLoginOrExit object:@"0"];
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        [userDefault setObject:@"1" forKey:kLoginOrExit];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kLoginOut object:@"0"];
     }else
     {
         [self.navigationController popToRootViewControllerAnimated:YES];

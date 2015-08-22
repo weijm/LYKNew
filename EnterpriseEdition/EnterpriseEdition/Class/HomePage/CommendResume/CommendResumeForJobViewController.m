@@ -218,9 +218,11 @@
     dic = [dataArray objectAtIndex:indexPath.row];
     if (_isForPisition) {
         infoVC.resumeID = [dic objectForKey:@"stu_resume_id"] ;
+        infoVC.jobID = _jobId;
     }else
     {
         infoVC.resumeID = [dic objectForKey:@"id"] ;
+        infoVC.jobID = @"0";
     }
     
     infoVC.sex = [dic objectForKey:@"sex"];

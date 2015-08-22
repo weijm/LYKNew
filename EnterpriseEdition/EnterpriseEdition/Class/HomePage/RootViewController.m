@@ -26,7 +26,7 @@
     [self initVC];
    
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginOrExit:) name:kLoginOrExit object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginOut:) name:kLoginOut object:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -76,7 +76,7 @@
        
 
 }
--(void)loginOrExit:(NSNotification *)notification
+-(void)loginOut:(NSNotification *)notification
 {
     NSString *loginOrExit = [notification object];
     if([loginOrExit intValue]==1)

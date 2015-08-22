@@ -165,49 +165,18 @@
 }
 -(void)getCode
 {
-    NSString *phone = [contentArray firstObject];
-    [self showHUD:@"正在获取验证码"];
-    NSString *getCodeJson = [CombiningData forgetPasswordSecurityCode:phone];
-    //请求服务器
-    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:getCodeJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
-        if (result!=nil) {
-            if ([[result objectForKey:@"result"] intValue]>0) {
-                [self hideHUDWithComplete:@"验证码发送成功"];
-                
-                //                 [[NSNotificationCenter defaultCenter] postNotificationName:@"StartCodeTimer" object:nil];
-            }else
-            {
-                NSLog(@"result == %@",result);
-                [self hideHUDFaild:[result objectForKey:@"message"]];
-            }
-        }else
-        {
-            [self hideHUD];
-            [self showAlertView:@"服务器请求失败"];
-        }
-    }];
-//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:getCodeJson httpMethod:HttpMethodPost WithSSl:nil];
-//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-//        if (result!=nil) {
-//            if ([[result objectForKey:@"result"] intValue]>0) {
-//                [self hideHUDWithComplete:@"验证码发送成功"];
-//                
-////                 [[NSNotificationCenter defaultCenter] postNotificationName:@"StartCodeTimer" object:nil];
-//            }else
-//            {
-//                NSLog(@"result == %@",result);
-//                [self hideHUDFaild:[result objectForKey:@"message"]];
-//            }
-//        }else
-//        {
-//            [self hideHUD];
-//            [self showAlertView:@"服务器请求失败"];
-//        }
-//        
-//    };
     
+    [self showHUD:@"正在获取验证码"];
     
 }
-
+-(void)cancelGetCodeLoding:(NSString*)string
+{
+    if ([string isEqualToString:@"验证码发送成功"]) {
+        [self hideHUDWithComplete:@"验证码发送成功"];
+    }else
+    {
+        [self hideHUDFaild:string];
+    }
+}
 
 @end

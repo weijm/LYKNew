@@ -165,7 +165,7 @@
 +(NSString*)getLookContact:(NSString*)jobID ResumeId:(NSString*)resumeID
 {
     NSString *jsonString = [NSString stringWithFormat:
-                            @"{\"token\":\"%@\",\"type\":\"%@\",\"ent_user_id\":\"%@\",\"resume_id\":\"%@\",\"ent_job_id\":\"%@\"}",kToken,kResumeTapLookContact,KGETOBJ(kUID),resumeID,jobID];
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"ent_user_id\":\"%@\",\"resume_id\":\"%@\",\"ent_job_id\":\"%@\"}",kToken,kResumeTapLookContact,KGETOBJ(kUID),resumeID,[Util getCorrectString:jobID]];
     return jsonString;
 }
 //简历列表

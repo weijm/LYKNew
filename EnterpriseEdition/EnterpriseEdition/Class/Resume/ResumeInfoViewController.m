@@ -474,10 +474,6 @@
             if ([[result objectForKey:@"result"] intValue]>0) {
             }else
             {
-                //                NSString *message = [result objectForKey:@"message"];
-                //                if ([message length]==0) {
-                //                    message = @"处理失败";
-                //                }
             }
         }else
         {

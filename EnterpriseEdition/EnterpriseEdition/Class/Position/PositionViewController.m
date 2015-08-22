@@ -66,10 +66,10 @@
     };
     
     isLoading = NO;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginOrExit:) name:kLoginOrExit object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginOut:) name:kLoginOut object:nil];
     
 }
--(void)loginOrExit:(NSNotification*)notifiCation
+-(void)loginOut:(NSNotification*)notifiCation
 {
     BOOL isLoginOut = [[notifiCation object] boolValue];
     if (isLoginOut) {
@@ -78,6 +78,12 @@
         toAuditArray = nil;
         chooseArray = nil;
         self.navigationItem.rightBarButtonItem.enabled = NO;
+    }else
+    {
+        currentPage1 = 1;
+        currentPage2 = 1;
+        currentPage3 = 1;
+        [self getData];
     }
 }
 -(void)viewDidAppear:(BOOL)animated
