@@ -159,6 +159,9 @@
     NSDictionary *dic = [dataArray objectAtIndex:indexPath.row];
     if (_isForPisition) {
         cell.isShowRateView = NO;
+    }else
+    {
+        cell.isShowTopBg = 1;
     }
     [cell loadSearchResumeData:dic];
     //全部选中按钮使用
@@ -213,7 +216,7 @@
     ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
     NSDictionary *dic = nil;
     dic = [dataArray objectAtIndex:indexPath.row];
-    infoVC.resumeID = [[dic objectForKey:@"id"] intValue];
+    infoVC.resumeID = [dic objectForKey:@"stu_resume_id"] ;
     infoVC.sex = [dic objectForKey:@"sex"];
     infoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:infoVC animated:YES];
@@ -253,7 +256,7 @@
     float filtrateH = topBarheight;
     CGRect frame = CGRectMake(0, filtrateH, kWidth, kHeight-filtrateH);
     filtrateView = [[FiltrateView alloc] initWithFrame:frame];
-    filtrateView.delegate = self;
+//    filtrateView.delegate = self;
     //根据所选简历分类 加载的筛选内容不同
     [filtrateView changeTitleArray:2];
     [self.view addSubview:filtrateView];
@@ -285,23 +288,23 @@
 }
 -(void)makeSureOrCancelAction:(BOOL)sureOrCancel Conditions:(NSArray *)conditionArray
 {
-    if (sureOrCancel) {
-        isSearching = YES;
-        currentPage = 1;//筛选的第一页
-        NSMutableArray *conArray = [NSMutableArray arrayWithArray:conditionArray];
-        //
-        //确定搜索条件 进行搜索
-        [filtrateView removeFromSuperview];
-    }else
-    {
-        [filtrateView removeFromSuperview];
-        if (isSearching) {//之前筛选过 有残留数据
-            isSearching = NO;
-            currentPage = 1;
-            
-        }
-    }
-    self.navigationItem.rightBarButtonItem.enabled = YES;
+//    if (sureOrCancel) {
+//        isSearching = YES;
+//        currentPage = 1;//筛选的第一页
+//        NSMutableArray *conArray = [NSMutableArray arrayWithArray:conditionArray];
+//        //
+//        //确定搜索条件 进行搜索
+//        [filtrateView removeFromSuperview];
+//    }else
+//    {
+//        [filtrateView removeFromSuperview];
+//        if (isSearching) {//之前筛选过 有残留数据
+//            isSearching = NO;
+//            currentPage = 1;
+//            
+//        }
+//    }
+//    self.navigationItem.rightBarButtonItem.enabled = YES;
 }
 #pragma mark -将筛选条件显示到界面
 -(void)showConditions:(int)row Content:(NSDictionary*)dictionary
@@ -420,7 +423,6 @@
 -(void)requestInfoFromWeb
 {
     NSString *jsonString = [CombiningData getUIDInfo:kCommendList];
-    __block int requestCount = 0;
     [self showHUD:@"正在加载数据"];
     //请求服务器
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
@@ -538,66 +540,6 @@
         }
 
     }];
-    
-//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
-//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-//        if (result!=nil) {
-//            if ([[result objectForKey:@"result"] intValue]>0) {
-//                //加载首页数据
-//                NSArray *dataArr = [result objectForKey:@"data"];
-//                //全选数组标记
-//                if(page==1)
-//                {   //如果第一页 加载的时候 初始化 chooseArray 否则直接增加到数组中
-//                    chooseArray = [NSMutableArray array];
-//                }
-//                for (int i=0; i< [dataArr count]; i++) {
-//                    [chooseArray addObject:@""];
-//                }
-//                [self dealWithResponeData:dataArr];
-//                //将提示视图取消
-//                if (!isMore) {
-//                    [self hideHUD];
-//                }else
-//                {
-//                    [dataTableView stopRefresh];
-//                    isLoading = NO;
-//                    [self subViewEnabled:YES];
-//                }
-//                
-//            }else
-//            {
-//                NSString *message = [result objectForKey:@"message"];
-//                if ([message length]==0) {
-//                    message = @"数据为空";
-//                }
-//                if (!isMore) {
-//                    [self hideHUDFaild:message];
-//                }else
-//                {
-//                    NSString *msg = [result objectForKey:@"message"];
-//                    if ([msg isEqualToString:@"该职位下暂无投递简历"]) {
-//                        [dataTableView changeProText:YES];
-//                        [self performSelector:@selector(stopRefreshLoading) withObject:nil afterDelay:0.25];
-//                    }else
-//                    {
-//                        [self stopRefreshLoading];
-//                    }
-//                }
-//                
-//            }
-//        }else
-//        {
-//            if (!isMore) {
-//                [self hideHUDFaild:@"服务器请求失败"];
-//            }else
-//            {
-//                [dataTableView stopRefresh];
-//                isLoading = NO;
-//                [self subViewEnabled:YES];
-//            }
-//            
-//        }
-//    };
 
 }
 //停止刷新

@@ -486,6 +486,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 #pragma mark - 保存方法
 - (IBAction)saveEnterpriseInfo:(id)sender {
+    [self editTextFiledAndCancelKey:YES];
+    [self editTextViewAndCancelKey:YES];
     BOOL isFull = [self checkInfo];
     if (isFull) {//信息填写完整时执行
         [self performSelector:@selector(requestSaveEntInfo) withObject:nil afterDelay:0.0];
@@ -515,6 +517,14 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         {
              NSDictionary *dic = (NSDictionary*)obj;
             NSString *content = [Util getCorrectString:[dic objectForKey:@"content"]];
+            if (i==0||i==4||i==6||i==9) {
+                if ([Util stringContainsEmoji:content]) {
+                    [Util showPrompt:[NSString stringWithFormat:@"%@ 不符合规则，请重新输入",title]];
+                    isFull = NO;
+                    break;
+                }
+                
+            }
             if (i==9) {
                
                 BOOL isRight = [Util checkWebSite:content];

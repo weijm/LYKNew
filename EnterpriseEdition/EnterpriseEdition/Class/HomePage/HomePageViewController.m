@@ -16,7 +16,6 @@
 #import "LoginViewController.h"
 #import "HireOfView.h"
 #import "ResumeInfoViewController.h"
-#import "LocationViewController.h"
 #import "WebSourceViewController.h"
 
 #define kBannerViewHeight [Util myYOrHeight:180]
@@ -316,11 +315,7 @@
             break;
         case 4:
         {
-//            NSString * iidStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kEntStatus];
-//            if ([iidStatus intValue]==1) {
-//                [Util showPrompt:@"您还未提交资料审核，暂不能发布职位"];
-//                return;
-//            }
+
             OpenPositionViewController *openpVC = [[OpenPositionViewController alloc] init];
             openpVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:openpVC animated:YES];
@@ -359,7 +354,7 @@
     {
         NSLog(@"查看第%ld个人的简历",(long)index);
         ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
-        infoVC.resumeID = [[[commendArray objectAtIndex:index] objectForKey:@"id"] intValue];
+        infoVC.resumeID = [[commendArray objectAtIndex:index] objectForKey:@"id"];
         infoVC.jobID = 0;
         infoVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:infoVC animated:YES];
@@ -390,14 +385,13 @@
         isFirst = YES;
     }else
     {
-        //[CombiningData getUIDInfo:kCommendList],
         jsonArray = [NSArray arrayWithObjects:[CombiningData getUIDInfo:kNumberList],[CombiningData getMineInfo:kGetUrgentInfo], nil];
     }
     [self showHUD:@"正在加载数据"];
     __block int requestCount = 0;
-    
+    NSString *jsonString = nil;
     for (int i=0; i < [jsonArray count]; i++) {
-        NSString *jsonString = [jsonArray objectAtIndex:i];
+        jsonString = [jsonArray objectAtIndex:i];
         
         //请求服务器
         [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
@@ -411,19 +405,16 @@
                 }else
                 {
                     [self dealWithData:result isSuccess:NO];
-//                    NSLog(@"error message == %@",[result objectForKey:@"message"]);
+
                 }
             }else
             {
-                //                [self showAlertView:@"服务器请求失败"];
             }
 
         }];
-//        [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
-//        [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-//                   };
-
     }
+    jsonString = nil;
+    jsonArray = nil;
 }
 -(void)dealWithData:(id)result isSuccess:(BOOL)isSuccess
 {
@@ -432,7 +423,7 @@
     NSString *type = [dic objectForKey:@"type"];
     if ([type isEqualToString:kPictureList]) {
         if (isSuccess) {
-            bannerArray = [NSArray arrayWithArray:[result objectForKey:@"data"]];
+            bannerArray = [result objectForKey:@"data"];
             [bannerView loadBannerImage:bannerArray];
         }
         
@@ -457,19 +448,27 @@
    
     }else if ([type isEqualToString:kGetUrgentInfo])
     {
+        NSUserDefaults * userDefauflt = [NSUserDefaults standardUserDefaults];
+        NSString *urgentKey = [NSString stringWithFormat:@"%@Urgent",[userDefauflt objectForKey:kAccount]];
         if (isSuccess) {
             NSArray *tempAr = [result objectForKey:@"data"];
             if ([tempAr count]>0) {
                 urgentDic = [tempAr objectAtIndex:0];
                 urgentOverdue = NO;
+                //将急招简历的id保存
+                [userDefauflt setObject:[urgentDic objectForKey:@"id"] forKey:urgentKey];
+            }else
+            {
+                [userDefauflt setObject:@"" forKey:urgentKey];
             }
+            
         }else
         {
             NSString *message = [result objectForKey:@"message"];
             if ([message isEqualToString:@"该企业急招职位已过期"]) {
                 urgentOverdue = YES;
             }
-            
+             [userDefauflt setObject:@"" forKey:urgentKey];
         }
        
    

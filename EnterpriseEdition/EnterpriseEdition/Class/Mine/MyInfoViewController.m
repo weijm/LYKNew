@@ -195,6 +195,7 @@
                 if ([dataArray count]>0) {
                     resumeInfoDic = [dataArray firstObject];
                     [dataTableView reloadData];
+                    [[NSUserDefaults standardUserDefaults] setObject:[Util getCorrectString:[resumeInfoDic objectForKey:@"ent_status"]] forKey:kEntStatus];
                 }
             }else
             {

@@ -109,6 +109,30 @@
         time = refreshTime;
     }
     validTimeLab.text = [NSString stringWithFormat:@"%@%@",statusStr,time];
+    if (_isShowTimeLab) {
+        validTimeLab.hidden = NO;
+        if (kIphone6||kIphone6plus) {
+            bgToTop.constant = 11;
+            bgToBottom.constant = 5;
+        }else
+        {
+            bgToTop.constant = 8;
+            bgToBottom.constant = 8;
+        }
+        
+    }else
+    {
+        validTimeLab.hidden = YES;
+        if (kIphone6||kIphone6plus) {
+            bgToTop.constant = 18;
+            bgToBottom.constant = -5;
+        }else
+        {
+            bgToTop.constant = 12;
+            bgToBottom.constant = 0;
+        }
+       
+    }
 }
 -(int)getStatusByString:(NSString*)string
 {

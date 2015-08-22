@@ -213,9 +213,18 @@
 
 #pragma mark -
 #pragma mark Class methods
-
++(id)shareInstance
+{
+    static MBProgressHUD *instance = nil;
+    static dispatch_once_t once;
+    dispatch_once(&once,^{
+        instance = [[MBProgressHUD alloc] initWithFrame:CGRectMake(0,0, kWidth, kHeight)];;
+    });
+    return instance;
+    
+}
 + (MBProgressHUD *)showHUDAddedTo:(UIView *)view animated:(BOOL)animated {
-	MBProgressHUD *hud;
+	MBProgressHUD *hud = [self shareInstance];
     
     if (hud == nil) {
         

@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
     [self initItems];
 }
 
@@ -47,7 +48,6 @@
 //显示提示
 - (void)showHUD:(NSString *)title {
     _hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
-    
     _hud.labelText = title;
     _hud.dimBackground = YES;
 }

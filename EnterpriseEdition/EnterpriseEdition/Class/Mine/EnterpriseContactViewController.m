@@ -366,14 +366,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         {
             NSDictionary *dic = (NSDictionary*)obj;
             NSString *content = [Util getCorrectString:[dic objectForKey:@"content"]];
-            if (i==9) {
-                
-                BOOL isRight = [Util checkWebSite:content];
-                if (!isRight) {
-                    [Util showPrompt:@"网址格式不正确"];
+            if (i==0||i==1) {
+                if ([Util stringContainsEmoji:content]) {
+                    [Util showPrompt:[NSString stringWithFormat:@"%@ 不符合规则，请重新输入",title]];
                     isFull = NO;
                     break;
                 }
+                
             }
             if (i==0||i==1) {
                 int strLenght = (i==0)?15:30;
@@ -389,6 +388,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     return isFull;
     
 }
+-(void)back
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 #pragma mark - 请求服务器
 //保存数据
 -(void)requestSaveContact
@@ -400,7 +403,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 [self hideHUDWithComplete:@"保存成功"];
-                [self.navigationController popToRootViewControllerAnimated:YES];
+                [self performSelector:@selector(back) withObject:nil afterDelay:1.5];
                 
             }else
             {
@@ -413,25 +416,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         }
 
     }];
-//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-//        if (result!=nil) {
-//            if ([[result objectForKey:@"result"] intValue]>0) {
-//                [self hideHUDWithComplete:@"保存成功"];
-//                [self.navigationController popToRootViewControllerAnimated:YES];
-//               
-//            }else
-//            {
-//                [self hideHUDFaild:[result objectForKey:@"message"]];
-//            }
-//        }else
-//        {
-//            [self hideHUD];
-//            [self showAlertView:@"服务器请求失败"];
-//        }
-//        
-//    };
-
 }
 //上传图片
 -(void)uploadImg:(UIImage*)image
@@ -483,24 +467,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             [self showAlertView:@"服务器请求失败"];
         }
     }];
-//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-//        if (result!=nil) {
-//            if ([[result objectForKey:@"result"] intValue]>0) {
-//                [self hideHUD];
-//                NSArray *dataArray = [result objectForKey:@"data"];
-//                [self dealWithData:dataArray];
-//            }else
-//            {
-//                [self hideHUDFaild:[result objectForKey:@"message"]];
-//            }
-//        }else
-//        {
-//            [self hideHUD];
-//            [self showAlertView:@"服务器请求失败"];
-//        }
-//        
-//    };
 
 }
 //将获取的数据进行处理

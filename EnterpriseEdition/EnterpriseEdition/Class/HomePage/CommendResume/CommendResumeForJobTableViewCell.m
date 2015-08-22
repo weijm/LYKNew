@@ -41,6 +41,7 @@
 //加载数据
 -(void)loadSearchResumeData:(NSDictionary*)dictionary
 {
+    headerView.type = _isShowTopBg;
     [headerView loadData:dictionary];
     //初始化middleView数据
     [middleView loadData:dictionary];

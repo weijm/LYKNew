@@ -50,6 +50,7 @@
 {
     //初始化headerView数据
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:dictionary];
+    headerView.type =_isShowTopBg;
     [headerView loadData:dic];
     //初始化middleView数据
     [middleView loadData:dic];

@@ -358,18 +358,20 @@
     ResumeTableViewCell *cell = (ResumeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ResumeTableViewCell" owner:self options:nil] lastObject];
-        NSLog(@"cell tag == %d",indexPath.row);
     }
     cell.delegate = self;
     //加载视图数据
     NSDictionary *dictionary = nil;
     if (resumeCategory == 1) {
+        cell.isShowTopBg = 0;
         dictionary = [dataArray objectAtIndex:indexPath.row];
     }else if (resumeCategory ==2)
     {
+        cell.isShowTopBg = 0;
         dictionary = [colledtedArray objectAtIndex:indexPath.row];
     }else
     {
+        cell.isShowTopBg = 0;
         dictionary = [downloadArray objectAtIndex:indexPath.row];
    
     }
@@ -416,7 +418,7 @@
     {
         dic = [downloadArray objectAtIndex:indexPath.row];
     }
-    infoVC.resumeID = [[dic objectForKey:@"stu_resume_id"] intValue];
+    infoVC.resumeID = [dic objectForKey:@"stu_resume_id"] ;
     infoVC.jobID = [Util getCorrectString:[dic objectForKey:@"ent_job_id"]];
  
     infoVC.hidesBottomBarWhenPushed = YES;

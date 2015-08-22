@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
-#import <QMapKit/QMapKit.h>
 #import "LoginViewController.h"
 #import "NdUncaughtExceptionHandler.h"
 
@@ -26,10 +25,6 @@
     
     //设置状态条为白色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-    
-    //定位功能
-    [QMapServices sharedServices].apiKey = @"OXWBZ-MZHR4-77TUD-DXUNN-R2FPZ-YBB2J";
-
 
     LoginViewController *loginVC = [[LoginViewController alloc] init];
     RootViewController *rootVC = [[RootViewController alloc] init];
@@ -49,7 +44,7 @@
         [rootVC presentViewController:navigation animated:YES completion:nil];
     }
      [NdUncaughtExceptionHandler setDefaultHandler];
-//    [Util printBugContent];
+    [Util printBugContent];
     return YES;
 }
 

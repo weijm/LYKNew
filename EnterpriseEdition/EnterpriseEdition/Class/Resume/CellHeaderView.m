@@ -44,9 +44,16 @@
     [self showRateViewBg];
     NSString *titleContent = [Util getCorrectString:[dictionary objectForKey:@"title"]];
     if (_type!=0) {
-        titleContent = [Util getCorrectString:[dictionary objectForKey:@"job_type"]];
+        infoBg.hidden = YES;
+//        titleContent = [Util getCorrectString:[dictionary objectForKey:@"job_type"]];
+    }else
+    {
+        infoBg.hidden = NO;
     }
-    
+    if ([_urgentJobName length]!=0) {
+        titleContent = [Util getBundlePath:_urgentJobName];
+        NSLog(@"_urgentJobName == %@",_urgentJobName);
+    }
     jobLab.text = titleContent;
     NSString *timeString = [dictionary objectForKey:@"add_time"];
     
@@ -69,10 +76,7 @@
 {
     if (_showRateView) {
         rateView.hidden = NO;
-        if (kIphone4) {
-            rateLabToLeft.constant = -10;
-            rateLabToTop.constant = -8;
-        }
+        
         infobgToLeft.constant = 30;
         rateLab.transform = CGAffineTransformMakeRotation(-(180 / M_PI));
         

@@ -104,7 +104,10 @@
                 contentTextView.text = content;
             }
         }
-        
+    }else if ([obj isKindOfClass:[NSString class]])
+    {
+        contentTextField.text = @"";
+   
     }
 }
 #pragma mark - UITextFieldDelegate
@@ -112,6 +115,9 @@
 {
     if (self.tag ==0||self.tag ==11||self.tag ==12||self.tag ==7) {
         NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        NSLog(@"newString == %@",newString);
+
+        
         int stringLength = (self.tag==12)?50:30;
         if ([newString length]>stringLength)
         {
@@ -151,6 +157,9 @@
 }
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
+    if ([Util stringContainsEmoji:text]) {
+        return NO;
+    }
     if ([text isEqualToString:@"\n"]) {
         [contentTextView resignFirstResponder];
         if ([_delegate respondsToSelector:@selector(cancelKey)]) {

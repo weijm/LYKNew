@@ -171,6 +171,9 @@
                 self.locate.state = [[leftArray objectAtIndex:row] objectForKey:@"firstName"];
                 if ([rightArray count]>0) {
                     self.locate.city = [rightArray objectAtIndex:0];
+                }else
+                {
+                     self.locate.city = @"";
                 }
                 break;
             case 1:

@@ -52,7 +52,7 @@
 {
     if(index ==0)
     {
-        return @"应届毕业";
+        return @"无工作经验";
     }else if(index == 1)
     {
         return @"有工作经验";

@@ -57,6 +57,7 @@
     
 }
 @property (nonatomic,assign) id<ResumeTableViewCellDelegate> delegate;
+@property (nonatomic) int isShowTopBg;
 /**
  加载视图上的内容
  */

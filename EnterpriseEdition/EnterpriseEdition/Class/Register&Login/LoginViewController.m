@@ -190,50 +190,6 @@
             NSLog(@"%@",error);
         }
     }];
-//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:loginJson httpMethod:HttpMethodPost WithSSl:nil];
-//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-//        if (result!=nil) {
-//            if ([[result objectForKey:@"result"] intValue]>0) {
-//                [self hideHUDWithComplete:@"登录成功"];
-//                
-//                
-//                //加载首页数据
-//                if ([_delegate respondsToSelector:@selector(loginSuccess)]) {
-//                    [_delegate loginSuccess];
-//                }
-//                //将用户ID 企业ID进行存储
-//                 NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-//                NSArray *dataArr = [result objectForKey:@"data"];
-//                if ([dataArr count]>0) {
-//                    NSDictionary * resultDic = [dataArr firstObject];
-//                     NSString *uid = [resultDic objectForKey:@"uid"];
-//                    NSString *iid = [resultDic objectForKey:@"info_id"];
-//                    [userDefault setObject:uid forKey:kUID];
-//                    [userDefault setObject:iid forKey:KIID];
-//                    [userDefault setObject:[Util getCorrectString:[resultDic objectForKey:@"status"]] forKey:kEntStatus];
-//                }
-//                //标记是否登录成功
-//                [userDefault setObject:@"1" forKey:kLoginOrExit];
-//               
-//                [userDefault setObject:userName forKey:kAccount];
-//                [userDefault setObject:password forKey:KPassWord];
-//                [userDefault synchronize];
-//                [self performSelector:@selector(dismissLoginView) withObject:nil afterDelay:1.5];
-//            }else
-//            {
-//                [self hideHUD];
-//                [Util showPrompt:[result objectForKey:@"message"]];
-//            }
-//        }else
-//        {
-//            [self hideHUD];
-//            [self showAlertView:@"服务器请求失败"];
-//            NSLog(@"%@",error);
-//        }
-//        
-//    };
-    
-    
 }
 #pragma mark - 编辑按钮
 -(void)initRightItems

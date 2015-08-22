@@ -8,7 +8,6 @@
 
 #import "RootViewController.h"
 #import "LoginViewController.h"
-#import "LocationViewController.h"
 #import "HomePageViewController.h"
 
 @interface RootViewController ()
@@ -25,11 +24,7 @@
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = [UIColor whiteColor];
     [self initVC];
-    if (kTestType) {
-        
-        //定位
-//        [[LocationViewController shareInstance] loadLocation];
-    }
+   
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginOrExit:) name:kLoginOrExit object:nil];
 }

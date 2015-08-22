@@ -104,9 +104,12 @@
 {
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = 4;// 字体的行间距
-    
+    float fontSize = 12;
+    if (kIphone4||kIphone5) {
+        fontSize = 11;
+    }
     NSDictionary *attributes = @{
-                                 NSFontAttributeName:[UIFont systemFontOfSize:12],
+                                 NSFontAttributeName:[UIFont systemFontOfSize:fontSize],
                                  NSParagraphStyleAttributeName:paragraphStyle,
                                  NSForegroundColorAttributeName:
                                      Rgb(0, 0, 0, 0.8)

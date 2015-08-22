@@ -26,6 +26,7 @@
 -(void)loadData:(NSDictionary*)dictionary Type:(int)type
 {
     headerView.showRateView = (type>1)?YES:NO;
+    headerView.urgentJobName = _urgentJobName;
     [headerView loadData:dictionary];
     //初始化middleView数据
     [middleView loadData:dictionary];

@@ -84,6 +84,7 @@
     cell.delegate = self;
     NSDictionary *dic ;
     if (categaryType == 1) {
+        cell.urgentJobName = [Util getCorrectString:[_urgentDic objectForKey:@"job_type"]];
         dic = [receivedArray objectAtIndex:indexPath.row];
     }else
     {
@@ -136,7 +137,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
-    infoVC.resumeID = [[[commendArray objectAtIndex:indexPath.row] objectForKey:@"id"] intValue];
+    infoVC.resumeID = [[commendArray objectAtIndex:indexPath.row] objectForKey:@"id"] ;
     
     infoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:infoVC animated:YES];

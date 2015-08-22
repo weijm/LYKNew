@@ -114,16 +114,18 @@
     NSMutableDictionary *dictionary = nil;
     if (categaryType == 1) {
         dictionary = [NSMutableDictionary dictionaryWithDictionary:[validArray objectAtIndex:indexPath.row]];
-        
+        cell.isShowTimeLab = YES;
         cell.showCheckImg = NO;
         
     }else if (categaryType == 2)
     {
         dictionary = [offlineArray objectAtIndex:indexPath.row];
+        cell.isShowTimeLab = NO;
         cell.showCheckImg = NO;
     }else
     {
         dictionary = [toAuditArray objectAtIndex:indexPath.row];
+        cell.isShowTimeLab = YES;
         cell.showCheckImg = YES;
     }
     //加载数据
@@ -156,22 +158,12 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary * dictionary ;
-    if (categaryType == 1) {
-        dictionary = [validArray objectAtIndex:indexPath.row];
-    }else if (categaryType == 2)
+    if (categaryType == 2)
     {
-        dictionary = [offlineArray objectAtIndex:indexPath.row];
-    }else
-    {
-        dictionary = [toAuditArray objectAtIndex:indexPath.row];
+        return [Util myYOrHeight:80];
     }
-     int urgent = [[dictionary objectForKey:@"urgent"] intValue];
-    if (urgent > 0) {
-        return [Util myYOrHeight:103];
-    }else
+    else
     {
-       
         return [Util myYOrHeight:100];
     }
     
@@ -251,11 +243,7 @@
 }
 -(void)leftAction
 {
-//     NSString * iidStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kEntStatus];
-//    if ([iidStatus intValue]==1) {
-//        [Util showPrompt:@"您还未提交资料审核，暂不能发布职位"];
-//        return;
-//    }
+
     if (rightBt.specialMark == 1) {
         [self rightAction];
     }

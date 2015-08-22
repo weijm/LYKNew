@@ -36,6 +36,7 @@
 }
 @property (nonatomic,weak) id<CommendResumeForJobTableViewCellDelegate> delegate;
 @property (nonatomic) BOOL isShowRateView;
+@property (nonatomic) int isShowTopBg;
 /**
  加载数据
  */

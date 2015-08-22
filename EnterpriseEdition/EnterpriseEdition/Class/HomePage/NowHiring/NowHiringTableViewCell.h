@@ -35,6 +35,7 @@
 
 }
 @property (nonatomic,weak) id<NowHiringTableViewCellDelegate> delegate;
+@property (nonatomic,strong) NSString *urgentJobName;
 /**
  加载数据
  */

@@ -181,13 +181,7 @@ static AFHttpClient *_sharedClient = nil;
 
 + (void)asyncHTTPWithURl:(NSString*)urlString params:(NSString*)params httpMethod:(HttpMethod)httpMethod finishDidBlock:(FinishDidBlock)finishDidBlock
 {
-    NSString *method = nil;
-    //确定请求方式
-    if(httpMethod == HttpMethodPost) method = @"POST";
-    if (httpMethod == HttpMethodGet) method = @"GET";
-    if (method == nil) return;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-   
     //设置请求类型 以json的形式请求
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     //设置请求返回是json的形式
@@ -199,31 +193,20 @@ static AFHttpClient *_sharedClient = nil;
     //如果报接受类型不一致请替换一致text/html或别的
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/plain",@"text/html",nil];
     
-    if ([method isEqualToString:@"POST"]) {
-        [manager POST:urlString
-           parameters:params
-              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                  if ([responseObject isKindOfClass:[NSDictionary class]]) {
-                      NSMutableDictionary *resultDic = [NSMutableDictionary dictionaryWithDictionary:responseObject];
-                      [resultDic setObject:params forKey:@"requestJson"];
-                      finishDidBlock(resultDic,nil);
-                      return ;
-                  }
-                  finishDidBlock(responseObject,nil);
+    [manager POST:urlString
+       parameters:params
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                  NSMutableDictionary *resultDic = [NSMutableDictionary dictionaryWithDictionary:responseObject];
+                  [resultDic setObject:params forKey:@"requestJson"];
+                  finishDidBlock(resultDic,nil);
+                  return ;
               }
-              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                  finishDidBlock(nil,error);
-              }];
-    }else if ([method isEqualToString:@"GET"])
-    {
-        [manager GET:urlString
-          parameters:nil
-             success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                 
-             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                 
-             }];
-    }
+              finishDidBlock(responseObject,nil);
+          }
+          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              finishDidBlock(nil,error);
+          }];
 
 }
 

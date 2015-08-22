@@ -39,11 +39,7 @@
     
     //将提示视图隐藏
     promptBg.hidden = YES;
-//    if (YES) {
-//        tableViewToTop.constant = promptBg.frame.size.height;
-//    }
 
-    
     //初始化item
     [self initItems];
     
@@ -56,6 +52,16 @@
     //加载数据
 //    [self requestPositonInfo];
     [self performSelector:@selector(requestPositonInfo) withObject:nil afterDelay:0.0];
+    
+    NSUserDefaults * userDefauflt = [NSUserDefaults standardUserDefaults];
+    NSString *urgentKey = [NSString stringWithFormat:@"%@Urgent",[userDefauflt objectForKey:kAccount]];
+    NSString *urgentId = [userDefauflt objectForKey:urgentKey];
+    if ([urgentId isEqualToString:_jobId]) {
+        _isUrgent = YES;
+    }else
+    {
+        _isUrgent = NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -265,6 +271,10 @@
 #pragma mark - 根据状态判断 footerView的按钮是否可点击
 -(void)loadFooterViewStatus
 {
+    _positionStatus = [Util getCorrectString:_positionStatus];
+    if ([_positionStatus length]) {
+        return;
+    }
     if ([_positionStatus isEqualToString:@"正常"]) {
         
     }else if ([_positionStatus isEqualToString:@"下线"])
@@ -303,7 +313,7 @@
             break;
         case 2://删除
         {
-//            [self batchDealWithPosition:_jobId Status:-9];
+            
             UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"确定是否删除" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
             alterView.tag = 2;
             [alterView show];
@@ -355,6 +365,8 @@
                 NSArray *dataArr = [result objectForKey:@"data"];
                 if ([dataArr count]>0) {
                     infoDictionary = [NSMutableDictionary dictionaryWithDictionary:[dataArr firstObject]];
+                    _positionStatus = [infoDictionary objectForKey:@"status"];
+                    [self loadFooterViewStatus];
                 }
                 [dataTableView reloadData];
                 
@@ -375,35 +387,6 @@
             
         }
     }];
-//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-//        if (result!=nil) {
-//            if ([[result objectForKey:@"result"] intValue]>0) {
-//                [self hideHUD];
-//                //加载首页数据
-//                NSArray *dataArr = [result objectForKey:@"data"];
-//                if ([dataArr count]>0) {
-//                    infoDictionary = [NSMutableDictionary dictionaryWithDictionary:[dataArr firstObject]];
-//                }
-//                [dataTableView reloadData];
-//                
-//            }else
-//            {
-//                NSString *message = [result objectForKey:@"message"];
-//                if ([message length]==0) {
-//                    message = @"数据为空";
-//                }
-//                [self hideHUD];
-//                UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//                [alterView show];
-//            }
-//        }else
-//        {
-//           [self hideHUDFaild:@"服务器请求失败"];
-//            
-//        }
-//    };
-
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -411,6 +394,16 @@
         [self leftAction];
     }else
     {
+        switch (buttonIndex) {
+            case 0:
+                [self batchDealWithPosition:_jobId Status:-9];
+                break;
+            case 1:
+                break;
+                
+            default:
+                break;
+        }
     }
     
 }
@@ -452,40 +445,6 @@
             [self hideHUDFaild:@"服务器请求失败"];
         }
     }];
-//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-//        if (result!=nil) {
-//            if ([[result objectForKey:@"result"] intValue]>0) {
-//                [self hideHUDWithComplete:@"数据处理成功"];
-//                //仍然加载首页
-//                if (tempstatus == -9) {
-//                    [self performSelector:@selector(leftAction) withObject:nil afterDelay:1.5];
-//                }else
-//                {
-//                    if (tempstatus == 0) {
-//                        [infoDictionary setObject:@"正常" forKey:@"status"];
-//                    }else
-//                    {
-//                        [infoDictionary setObject:@"下线" forKey:@"status"];
-//                    }
-//                    [dataTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:0 inSection:0], nil] withRowAnimation:UITableViewRowAnimationNone];
-//                }
-//                
-//                
-//            }else
-//            {
-//                NSString *message = [result objectForKey:@"message"];
-//                if ([message length]==0) {
-//                    message = @"处理失败";
-//                }
-//                [self hideHUDFaild:message];
-//            }
-//        }else
-//        {
-//            [self hideHUDFaild:@"服务器请求失败"];
-//        }
-//    };
-    
 }
 -(void)requestUrgentInfo:(int)maxCount
 {
@@ -514,30 +473,7 @@
             [self hideHUDFaild:@"服务器请求失败"];
         }
     }];
-//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-//        if (result!=nil) {
-//            if ([[result objectForKey:@"result"] intValue]>0) {
-//                [self hideHUDWithComplete:@"数据处理成功"];
-//                //仍然加载首页
-//                _isUrgent = YES;
-//               [dataTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:0 inSection:0], nil] withRowAnimation:UITableViewRowAnimationNone];
-//                
-//                
-//            }else
-//            {
-//                NSString *message = [result objectForKey:@"message"];
-//                if ([message length]==0) {
-//                    message = @"处理失败";
-//                }
-//                [self hideHUDFaild:message];
-//            }
-//        }else
-//        {
-//            [self hideHUDFaild:@"服务器请求失败"];
-//        }
-//    };
-    
+
 }
 
 @end

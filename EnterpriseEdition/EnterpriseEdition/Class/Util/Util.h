@@ -25,7 +25,7 @@
 /**
  正则表达式 手机号码验证
  */
-+ (BOOL)isMobileNumber:(NSString *)mobileNum;
+//+ (BOOL)isMobileNumber:(NSString *)mobileNum;
 
 /**
  根据数组中的类名称，title，image 生成tabbar的Viewcontrollers
@@ -128,5 +128,11 @@
  获取职位名称
  */
 +(NSString*)getPositionTitle:(NSString*)title;
+/**
+ 去掉占位符
+ */
++ (BOOL)stringContainsEmoji:(NSString *)string;
+
+
 @end
 

@@ -97,6 +97,7 @@
 		203A30281B8716480058E40E /* AgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203A30261B8716480058E40E /* AgreementViewController.m */; };
 		203A30291B8716480058E40E /* AgreementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203A30271B8716480058E40E /* AgreementViewController.xib */; };
 		203A302B1B8716DC0058E40E /* qiyexieyi.html in Resources */ = {isa = PBXBuildFile; fileRef = 203A302A1B8716DC0058E40E /* qiyexieyi.html */; };
+		203A302D1B8744CF0058E40E /* homepage_commendRe_urgent_mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203A302C1B8744CF0058E40E /* homepage_commendRe_urgent_mark@2x.png */; };
 		203C930E1B70B88900AA017E /* CPTextViewPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 203C930D1B70B88900AA017E /* CPTextViewPlaceholder.m */; };
 		203D994E1B735E6E00A39F46 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 203D993E1B735E6E00A39F46 /* MJRefresh.bundle */; };
 		203D994F1B735E6E00A39F46 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 203D99411B735E6E00A39F46 /* MJRefreshBaseView.m */; };
@@ -316,14 +317,6 @@
 		20D468991B6F12AB008A7B78 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4687B1B6F12AB008A7B78 /* AFURLRequestSerialization.m */; };
 		20D4689A1B6F12AB008A7B78 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4687D1B6F12AB008A7B78 /* AFURLResponseSerialization.m */; };
 		20D4689B1B6F12AB008A7B78 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4687F1B6F12AB008A7B78 /* AFURLSessionManager.m */; };
-		20D4689C1B6F12AB008A7B78 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D468821B6F12AB008A7B78 /* AFNetworkActivityIndicatorManager.m */; };
-		20D4689D1B6F12AB008A7B78 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D468841B6F12AB008A7B78 /* UIActivityIndicatorView+AFNetworking.m */; };
-		20D4689E1B6F12AB008A7B78 /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D468861B6F12AB008A7B78 /* UIAlertView+AFNetworking.m */; };
-		20D4689F1B6F12AB008A7B78 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D468881B6F12AB008A7B78 /* UIButton+AFNetworking.m */; };
-		20D468A01B6F12AB008A7B78 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4688A1B6F12AB008A7B78 /* UIImageView+AFNetworking.m */; };
-		20D468A11B6F12AB008A7B78 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4688D1B6F12AB008A7B78 /* UIProgressView+AFNetworking.m */; };
-		20D468A21B6F12AB008A7B78 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4688F1B6F12AB008A7B78 /* UIRefreshControl+AFNetworking.m */; };
-		20D468A31B6F12AB008A7B78 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D468911B6F12AB008A7B78 /* UIWebView+AFNetworking.m */; };
 		20D468A51B6F12CA008A7B78 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D468A41B6F12CA008A7B78 /* Security.framework */; };
 		20D468A71B6F12DF008A7B78 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D468A61B6F12DF008A7B78 /* MobileCoreServices.framework */; };
 		20D468AB1B6F1A23008A7B78 /* CombiningData.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D468AA1B6F1A23008A7B78 /* CombiningData.m */; };
@@ -336,13 +329,9 @@
 		20D468C91B6F676B008A7B78 /* CommendEmpt.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D468C81B6F676B008A7B78 /* CommendEmpt.m */; };
 		20D468CB1B6F6779008A7B78 /* CommendEmpt.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D468CA1B6F6779008A7B78 /* CommendEmpt.xib */; };
 		20D468CD1B6F7130008A7B78 /* position_add_bt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D468CC1B6F7130008A7B78 /* position_add_bt@3x.png */; };
-		20D58BA71B54F814007B2A3F /* QMapKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20D58BA61B54F814007B2A3F /* QMapKit.bundle */; };
 		20D58BA91B54F82C007B2A3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D58BA81B54F82C007B2A3F /* QuartzCore.framework */; };
 		20D58BAB1B54F834007B2A3F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D58BAA1B54F834007B2A3F /* CoreLocation.framework */; };
 		20D58BAD1B54F841007B2A3F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D58BAC1B54F841007B2A3F /* SystemConfiguration.framework */; };
-		20D58BB11B54FACD007B2A3F /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D58BAF1B54FACD007B2A3F /* LocationViewController.m */; };
-		20D58BB21B54FACD007B2A3F /* LocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D58BB01B54FACD007B2A3F /* LocationViewController.xib */; };
-		20D58BB61B54FC92007B2A3F /* QMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D58BB51B54FC92007B2A3F /* QMapKit.framework */; };
 		20D6F4191B608B0200AC0394 /* PositionOperationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D6F4181B608B0200AC0394 /* PositionOperationView.m */; };
 		20D6F41B1B608B1000AC0394 /* PositionOperationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D6F41A1B608B1000AC0394 /* PositionOperationView.xib */; };
 		20D6F41E1B6091A500AC0394 /* PositionSetUrgentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D6F41D1B6091A500AC0394 /* PositionSetUrgentView.m */; };
@@ -540,6 +529,7 @@
 		203A30261B8716480058E40E /* AgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgreementViewController.m; sourceTree = "<group>"; };
 		203A30271B8716480058E40E /* AgreementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgreementViewController.xib; sourceTree = "<group>"; };
 		203A302A1B8716DC0058E40E /* qiyexieyi.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = qiyexieyi.html; sourceTree = "<group>"; };
+		203A302C1B8744CF0058E40E /* homepage_commendRe_urgent_mark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_commendRe_urgent_mark@2x.png"; sourceTree = "<group>"; };
 		203C930C1B70B88900AA017E /* CPTextViewPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTextViewPlaceholder.h; sourceTree = "<group>"; };
 		203C930D1B70B88900AA017E /* CPTextViewPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPTextViewPlaceholder.m; sourceTree = "<group>"; };
 		203D993E1B735E6E00A39F46 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
@@ -822,23 +812,6 @@
 		20D4687D1B6F12AB008A7B78 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		20D4687E1B6F12AB008A7B78 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		20D4687F1B6F12AB008A7B78 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		20D468811B6F12AB008A7B78 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
-		20D468821B6F12AB008A7B78 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
-		20D468831B6F12AB008A7B78 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
-		20D468841B6F12AB008A7B78 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
-		20D468851B6F12AB008A7B78 /* UIAlertView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+AFNetworking.h"; sourceTree = "<group>"; };
-		20D468861B6F12AB008A7B78 /* UIAlertView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+AFNetworking.m"; sourceTree = "<group>"; };
-		20D468871B6F12AB008A7B78 /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AFNetworking.h"; sourceTree = "<group>"; };
-		20D468881B6F12AB008A7B78 /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+AFNetworking.m"; sourceTree = "<group>"; };
-		20D468891B6F12AB008A7B78 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
-		20D4688A1B6F12AB008A7B78 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		20D4688B1B6F12AB008A7B78 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+AFNetworking.h"; sourceTree = "<group>"; };
-		20D4688C1B6F12AB008A7B78 /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
-		20D4688D1B6F12AB008A7B78 /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
-		20D4688E1B6F12AB008A7B78 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
-		20D4688F1B6F12AB008A7B78 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
-		20D468901B6F12AB008A7B78 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
-		20D468911B6F12AB008A7B78 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		20D468A41B6F12CA008A7B78 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		20D468A61B6F12DF008A7B78 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		20D468A81B6F14FE008A7B78 /* WebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebInterface.h; sourceTree = "<group>"; };
@@ -857,14 +830,9 @@
 		20D468C81B6F676B008A7B78 /* CommendEmpt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommendEmpt.m; sourceTree = "<group>"; };
 		20D468CA1B6F6779008A7B78 /* CommendEmpt.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommendEmpt.xib; sourceTree = "<group>"; };
 		20D468CC1B6F7130008A7B78 /* position_add_bt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_add_bt@3x.png"; sourceTree = "<group>"; };
-		20D58BA61B54F814007B2A3F /* QMapKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = QMapKit.bundle; sourceTree = "<group>"; };
 		20D58BA81B54F82C007B2A3F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		20D58BAA1B54F834007B2A3F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		20D58BAC1B54F841007B2A3F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		20D58BAE1B54FACD007B2A3F /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
-		20D58BAF1B54FACD007B2A3F /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
-		20D58BB01B54FACD007B2A3F /* LocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationViewController.xib; sourceTree = "<group>"; };
-		20D58BB51B54FC92007B2A3F /* QMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QMapKit.framework; sourceTree = "<group>"; };
 		20D6F4171B608B0200AC0394 /* PositionOperationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionOperationView.h; sourceTree = "<group>"; };
 		20D6F4181B608B0200AC0394 /* PositionOperationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionOperationView.m; sourceTree = "<group>"; };
 		20D6F41A1B608B1000AC0394 /* PositionOperationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PositionOperationView.xib; sourceTree = "<group>"; };
@@ -947,7 +915,6 @@
 				20D468A71B6F12DF008A7B78 /* MobileCoreServices.framework in Frameworks */,
 				20D468A51B6F12CA008A7B78 /* Security.framework in Frameworks */,
 				20A32A0D1B58A38800E1B5F8 /* libsqlite3.0.dylib in Frameworks */,
-				20D58BB61B54FC92007B2A3F /* QMapKit.framework in Frameworks */,
 				20D58BAD1B54F841007B2A3F /* SystemConfiguration.framework in Frameworks */,
 				20D58BAB1B54F834007B2A3F /* CoreLocation.framework in Frameworks */,
 				20D58BA91B54F82C007B2A3F /* QuartzCore.framework in Frameworks */,
@@ -1250,7 +1217,6 @@
 				20D468691B6F127A008A7B78 /* AFNetworking */,
 				20F0F21D1B5DD59400CB1D71 /* CircularProgressView */,
 				20A329FB1B58A2CB00E1B5F8 /* FMDB */,
-				20D58BA11B54F763007B2A3F /* QMap */,
 				208EBDAF1B4A82C000AB0730 /* CustomLab */,
 			);
 			path = Third;
@@ -1431,9 +1397,6 @@
 				2097D31D1B46390C00611432 /* Util.m */,
 				205CA9C11B4BD9F4007BAC89 /* UIButton+Custom.h */,
 				205CA9C21B4BD9F4007BAC89 /* UIButton+Custom.m */,
-				20D58BAE1B54FACD007B2A3F /* LocationViewController.h */,
-				20D58BAF1B54FACD007B2A3F /* LocationViewController.m */,
-				20D58BB01B54FACD007B2A3F /* LocationViewController.xib */,
 				20D468A91B6F1A23008A7B78 /* CombiningData.h */,
 				20D468AA1B6F1A23008A7B78 /* CombiningData.m */,
 				20D44F091B844CC900DB9550 /* NdUncaughtExceptionHandler.h */,
@@ -1527,6 +1490,7 @@
 		20B43CE01B85C6820067E37C /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				203A302C1B8744CF0058E40E /* homepage_commendRe_urgent_mark@2x.png */,
 				20B43D681B85D6C40067E37C /* home_search_btn@2x.png */,
 				20B43D041B85CC110067E37C /* homepage_banner_select@2x.png */,
 				20B43D051B85CC110067E37C /* homepage_banner_selected_highted@2x.png */,
@@ -1766,7 +1730,6 @@
 				20D4686A1B6F12AB008A7B78 /* AFHttpClient.h */,
 				20D4686B1B6F12AB008A7B78 /* AFHttpClient.m */,
 				20D4686C1B6F12AB008A7B78 /* AFNetworking */,
-				20D468801B6F12AB008A7B78 /* UIKit+AFNetworking */,
 			);
 			path = AFNetworking;
 			sourceTree = "<group>";
@@ -1797,30 +1760,6 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
-		20D468801B6F12AB008A7B78 /* UIKit+AFNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				20D468811B6F12AB008A7B78 /* AFNetworkActivityIndicatorManager.h */,
-				20D468821B6F12AB008A7B78 /* AFNetworkActivityIndicatorManager.m */,
-				20D468831B6F12AB008A7B78 /* UIActivityIndicatorView+AFNetworking.h */,
-				20D468841B6F12AB008A7B78 /* UIActivityIndicatorView+AFNetworking.m */,
-				20D468851B6F12AB008A7B78 /* UIAlertView+AFNetworking.h */,
-				20D468861B6F12AB008A7B78 /* UIAlertView+AFNetworking.m */,
-				20D468871B6F12AB008A7B78 /* UIButton+AFNetworking.h */,
-				20D468881B6F12AB008A7B78 /* UIButton+AFNetworking.m */,
-				20D468891B6F12AB008A7B78 /* UIImageView+AFNetworking.h */,
-				20D4688A1B6F12AB008A7B78 /* UIImageView+AFNetworking.m */,
-				20D4688B1B6F12AB008A7B78 /* UIKit+AFNetworking.h */,
-				20D4688C1B6F12AB008A7B78 /* UIProgressView+AFNetworking.h */,
-				20D4688D1B6F12AB008A7B78 /* UIProgressView+AFNetworking.m */,
-				20D4688E1B6F12AB008A7B78 /* UIRefreshControl+AFNetworking.h */,
-				20D4688F1B6F12AB008A7B78 /* UIRefreshControl+AFNetworking.m */,
-				20D468901B6F12AB008A7B78 /* UIWebView+AFNetworking.h */,
-				20D468911B6F12AB008A7B78 /* UIWebView+AFNetworking.m */,
-			);
-			path = "UIKit+AFNetworking";
-			sourceTree = "<group>";
-		};
 		20D468B11B6F431B008A7B78 /* HUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -1843,15 +1782,6 @@
 				203D99571B7361A200A39F46 /* BaseTableView.m */,
 			);
 			path = Base;
-			sourceTree = "<group>";
-		};
-		20D58BA11B54F763007B2A3F /* QMap */ = {
-			isa = PBXGroup;
-			children = (
-				20D58BB51B54FC92007B2A3F /* QMapKit.framework */,
-				20D58BA61B54F814007B2A3F /* QMapKit.bundle */,
-			);
-			path = QMap;
 			sourceTree = "<group>";
 		};
 		20D6F4331B60CB5700AC0394 /* View */ = {
@@ -2379,7 +2309,6 @@
 				20E9E16A1B5F8EBD0013A865 /* PositionInfoTableViewCell1.xib in Resources */,
 				20B43D201B85CF1B0067E37C /* my_enterprise_addpic_bt@2x.png in Resources */,
 				203EF51D1B69B313000F292D /* SingleHireButton.xib in Resources */,
-				20D58BA71B54F814007B2A3F /* QMapKit.bundle in Resources */,
 				20C93F5A1B686D000050514B /* position_valid_mark@3x.png in Resources */,
 				20D468CB1B6F6779008A7B78 /* CommendEmpt.xib in Resources */,
 				20BA85B21B674E3300757788 /* position_prompt_img@3x.png in Resources */,
@@ -2390,6 +2319,7 @@
 				20B43D0D1B85CC1A0067E37C /* my_cell_icon3@2x.png in Resources */,
 				20BA85D01B677C9B00757788 /* homepage_commendRe_numberMark@3x.png in Resources */,
 				20BB62161B4E5622006BD455 /* CellHeaderView.xib in Resources */,
+				203A302D1B8744CF0058E40E /* homepage_commendRe_urgent_mark@2x.png in Resources */,
 				20B43D5E1B85D5170067E37C /* resume_edit@2x.png in Resources */,
 				20BA85CE1B676E4500757788 /* resume_icon@3x.png in Resources */,
 				20BA85C21B676CA300757788 /* 11@3x.png in Resources */,
@@ -2421,7 +2351,6 @@
 				20B43D271B85CF3C0067E37C /* my_version_icon@2x.png in Resources */,
 				20B43D121B85CC3E0067E37C /* my_info_filtrate_bt@2x.png in Resources */,
 				20E9E16F1B5F8ECD0013A865 /* PositionInfoTableViewCell2.xib in Resources */,
-				20D58BB21B54FACD007B2A3F /* LocationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2451,7 +2380,6 @@
 				201EDB1A1B5795AB0080A12A /* HobbiesTableViewCell.m in Sources */,
 				201A9C821B53634E00664792 /* FiltrateTableViewCell.m in Sources */,
 				20E9E1691B5F8EBD0013A865 /* PositionInfoTableViewCell1.m in Sources */,
-				20D468A31B6F12AB008A7B78 /* UIWebView+AFNetworking.m in Sources */,
 				20F0F2221B5DD59400CB1D71 /* CircleProgressView.m in Sources */,
 				20054EA71B663536009FA771 /* EnterpriseContactViewController.m in Sources */,
 				20D468951B6F12AB008A7B78 /* AFHTTPSessionManager.m in Sources */,
@@ -2478,7 +2406,6 @@
 				20D468AB1B6F1A23008A7B78 /* CombiningData.m in Sources */,
 				20F0F23F1B5E1C6A00CB1D71 /* CommendResumeForJobViewController.m in Sources */,
 				20D468C91B6F676B008A7B78 /* CommendEmpt.m in Sources */,
-				20D468A01B6F12AB008A7B78 /* UIImageView+AFNetworking.m in Sources */,
 				200077951B71ED690015E261 /* README.md in Sources */,
 				202A6F461B6348C8003DF241 /* RegisterTableViewCell.m in Sources */,
 				20A32A3A1B5909AD00E1B5F8 /* OpenPositionViewController.m in Sources */,
@@ -2510,7 +2437,6 @@
 				203C930E1B70B88900AA017E /* CPTextViewPlaceholder.m in Sources */,
 				20D468921B6F12AB008A7B78 /* AFHttpClient.m in Sources */,
 				2000779B1B71ED690015E261 /* SDWebImageDownloaderOperation.m in Sources */,
-				20D4689E1B6F12AB008A7B78 /* UIAlertView+AFNetworking.m in Sources */,
 				20F0F25B1B5E24D500CB1D71 /* PositionViewController.m in Sources */,
 				200077A01B71ED690015E261 /* UIImage+MultiFormat.m in Sources */,
 				20BB62011B4E260A006BD455 /* HeaderView.m in Sources */,
@@ -2522,18 +2448,15 @@
 				20E9E16E1B5F8ECD0013A865 /* PositionInfoTableViewCell2.m in Sources */,
 				202D47EB1B61C81D00654E7C /* ChangePasswordTableViewCell.m in Sources */,
 				203A30281B8716480058E40E /* AgreementViewController.m in Sources */,
-				20D4689C1B6F12AB008A7B78 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				20D468961B6F12AB008A7B78 /* AFNetworkReachabilityManager.m in Sources */,
 				203D99521B735E6E00A39F46 /* MJRefreshHeaderView.m in Sources */,
 				20D468C01B6F4814008A7B78 /* BaseViewController.m in Sources */,
 				203FDC541B86B642003C0B0F /* FirstInfoTableViewCell.m in Sources */,
 				20D6F4381B60CB7C00AC0394 /* MyTableViewCell0.m in Sources */,
 				203EF5161B69B004000F292D /* HireOfView.m in Sources */,
-				20D4689F1B6F12AB008A7B78 /* UIButton+AFNetworking.m in Sources */,
 				20F0F22E1B5DF89000CB1D71 /* CommendResumeViewController.m in Sources */,
 				20A32A0B1B58A2CB00E1B5F8 /* FMResultSet.m in Sources */,
 				2097D3121B462F0A00611432 /* RootViewController.m in Sources */,
-				20D4689D1B6F12AB008A7B78 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				20F0F2551B5E242E00CB1D71 /* MyInfoViewController.m in Sources */,
 				2000779A1B71ED690015E261 /* SDWebImageDownloader.m in Sources */,
 				20D44F0B1B844CC900DB9550 /* NdUncaughtExceptionHandler.m in Sources */,
@@ -2560,15 +2483,12 @@
 				2076B2CB1B5CEB7F00BC7D97 /* NowHiringHeaderView.m in Sources */,
 				20D1CDEA1B56325100E97935 /* InfoHeaderView.m in Sources */,
 				20D468631B6EFF1D008A7B78 /* SMPageControl.m in Sources */,
-				20D58BB11B54FACD007B2A3F /* LocationViewController.m in Sources */,
 				2035430E1B4CBD40007FF4A8 /* ResumeViewController.m in Sources */,
 				203D99501B735E6E00A39F46 /* MJRefreshConst.m in Sources */,
-				20D468A11B6F12AB008A7B78 /* UIProgressView+AFNetworking.m in Sources */,
 				20E9E1521B5F68DA0013A865 /* PositionShowTableViewCell.m in Sources */,
 				20054EAB1B663DA1009FA771 /* ReferenceView.m in Sources */,
 				201EDB2E1B579C7C0080A12A /* CertificateTableViewCell.m in Sources */,
 				20D6F43D1B60CB9300AC0394 /* MyTableViewCell1.m in Sources */,
-				20D468A21B6F12AB008A7B78 /* UIRefreshControl+AFNetworking.m in Sources */,
 				20A32A0A1B58A2CB00E1B5F8 /* FMDatabaseQueue.m in Sources */,
 				202D48241B62452E00654E7C /* LoginHeaderView.m in Sources */,
 				203542F71B4CBB45007FF4A8 /* RegisterUserViewController.m in Sources */,
@@ -2712,14 +2632,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/EnterpriseEdition/Class/Third/QMap",
-					/Users/lyk/Downloads/iOS_2D_Map_v1_1_1_15361/SDKs,
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EnterpriseEdition/PrefixHeader.pch";
 				INFOPLIST_FILE = EnterpriseEdition/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2734,14 +2650,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/EnterpriseEdition/Class/Third/QMap",
-					/Users/lyk/Downloads/iOS_2D_Map_v1_1_1_15361/SDKs,
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EnterpriseEdition/PrefixHeader.pch";
 				INFOPLIST_FILE = EnterpriseEdition/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

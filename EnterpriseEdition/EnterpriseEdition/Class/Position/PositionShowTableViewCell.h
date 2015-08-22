@@ -66,7 +66,7 @@
 }
 @property (strong, nonatomic) NSTimer *timer;
 @property (nonatomic) Session *session;
-
+@property (nonatomic)  BOOL isShowTimeLab;
 @property(nonatomic,weak) id<PositionShowTableViewCellDelegate> delegate;
 @property (nonatomic) BOOL showCheckImg;
 //@property (nonatomic,strong) NSDictionary *urgentDictionary;

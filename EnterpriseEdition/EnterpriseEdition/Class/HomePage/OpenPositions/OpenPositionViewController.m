@@ -8,7 +8,6 @@
 
 #import "OpenPositionViewController.h"
 #import "PositionObject.h"
-#import "LocationViewController.h"
 
 
 @interface OpenPositionViewController ()
@@ -48,7 +47,7 @@
     titleArray = [NSArray arrayWithContentsOfFile:[Util getBundlePath:@"position.plist"]];
     contentArray = [[NSMutableArray alloc] init];
     for (int i =0; i<[titleArray count]; i++) {
-        [contentArray addObject:@""];
+        [contentArray addObject:@" "];
     }
     
     lineWidth.constant = 0.5;
@@ -446,7 +445,7 @@
             [contentArray replaceObjectAtIndex:tempView.tag withObject:dictionary];
         }else
         {
-            [contentArray replaceObjectAtIndex:tempView.tag withObject:@"0"];
+            [contentArray replaceObjectAtIndex:tempView.tag withObject:@" "];
         }
     }
 }
@@ -482,6 +481,7 @@
 #pragma mark - 请求服务器
 -(void)requestSaveOrCommitInfo:(NSString*)type Prompt:(NSString*)ptomptString jobId:(NSString*)jID  ActionType:(NSString*)actionType
 {
+    DLog(@"contentArray  == %@",contentArray);
     NSString *jsonString = [CombiningData addPosition:contentArray Type:type PositionId:jID ActionType:actionType];
     [self showHUD:[NSString stringWithFormat:@"正在%@",ptomptString]];
     //请求服务器
@@ -541,6 +541,14 @@
         if ([obj isKindOfClass:[NSDictionary class]]) {
             NSDictionary *contentDic = (NSDictionary*)obj;
             NSString *content = [contentDic objectForKey:@"content"];
+            if (i==0||i==7||i==11||i==8||i==12) {
+                if ([Util stringContainsEmoji:content]) {
+                    [Util showPrompt:[NSString stringWithFormat:@"%@ 不符合规则，请重新输入",title]];
+                    isFull = NO;
+                    break;
+                }
+
+            }
             if (i==0||i==11||i==7) {
                 if ([content length]>30) {
                     [Util showPrompt:[NSString stringWithFormat:@"%@ 不能超过30字",title]];

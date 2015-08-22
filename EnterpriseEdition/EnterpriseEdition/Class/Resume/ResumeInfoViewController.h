@@ -18,7 +18,7 @@
     __weak IBOutlet UIButton *callBt;
 }
 @property (nonatomic,strong) NSString *sex ;//用户性别
-@property (nonatomic) int resumeID;//简历的ID
+@property (nonatomic,strong) NSString *resumeID;//简历的ID
 @property (nonatomic) BOOL fromCollected;//是否是收藏的简历
 
 @property (nonatomic,strong) NSString *jobID;//职位ID
