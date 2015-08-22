@@ -151,7 +151,14 @@
         if ([_delegate respondsToSelector:@selector(getCode)]) {
             [_delegate getCode];
         }
-        NSString *getCodeJson = [CombiningData securityCode:phone];
+        NSString * getCodeJson = nil;
+        if (_cellType==0) {
+            getCodeJson = [CombiningData securityCode:phone];
+        }else
+        {
+             getCodeJson = [CombiningData forgetPasswordSecurityCode:phone];
+        }
+       
         //请求服务器
         [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:getCodeJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
             if (result!=nil) {
