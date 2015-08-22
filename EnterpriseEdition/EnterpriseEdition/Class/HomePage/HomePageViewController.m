@@ -280,7 +280,8 @@
         case 1:
         {
             NSString * iidStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kEntStatus];
-            if ([iidStatus intValue]==1) {
+            NSString *urgentId = [Util getCorrectString:[urgentDic objectForKey:@"id"]];
+            if ([iidStatus intValue]==1||[urgentId intValue]==0) {
                 [Util showPrompt:@"当前您没有急招职位"];
                 return;
             }
@@ -345,7 +346,7 @@
         NSLog(@"查看第%ld个人的简历",(long)index);
         ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
         infoVC.resumeID = [[commendArray objectAtIndex:index] objectForKey:@"id"];
-        infoVC.jobID = 0;
+        infoVC.jobID = @"0";
         infoVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:infoVC animated:YES];
     }
