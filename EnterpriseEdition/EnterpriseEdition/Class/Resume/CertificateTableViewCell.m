@@ -57,7 +57,6 @@
         emptyView.hidden = NO;
         infobg.hidden = YES;
     }
-    
-
 }
+
 @end

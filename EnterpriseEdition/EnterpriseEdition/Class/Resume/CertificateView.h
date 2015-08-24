@@ -14,6 +14,12 @@
     __weak IBOutlet UIView *bottomBg;
     
     __weak IBOutlet UIImageView *cerImg;
+    
+    NSString *pictureUrl;
+    
+    __weak IBOutlet NSLayoutConstraint *cerImgWidth;
+    
+    __weak IBOutlet NSLayoutConstraint *cerImgHeight;
 }
 -(void)loadData:(NSDictionary*)dictionary;
 @end

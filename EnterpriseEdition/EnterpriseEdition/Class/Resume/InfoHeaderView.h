@@ -30,6 +30,10 @@
     __weak IBOutlet UIImageView *download;
     
     __weak IBOutlet UIView *stateBg;
+    
+    __weak IBOutlet NSLayoutConstraint *proWidth;
+    __weak IBOutlet NSLayoutConstraint *proHeight;
+    
 }
 -(void)loadData:(NSDictionary*)dictionary;
 -(void)loadStatus:(NSDictionary*)dictionary;

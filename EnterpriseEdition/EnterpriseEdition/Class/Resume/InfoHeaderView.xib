@@ -12,6 +12,8 @@
                 <outlet property="editView" destination="V5y-eg-Tdb" id="7c4-Tn-lRr"/>
                 <outlet property="expLab" destination="Ken-2D-auD" id="i0p-Ww-dG0"/>
                 <outlet property="infoLab" destination="KZx-h4-b8Q" id="lLM-A9-QcK"/>
+                <outlet property="proHeight" destination="9Vn-mI-GMH" id="ai8-yR-dtd"/>
+                <outlet property="proWidth" destination="Gkw-Md-JFT" id="YBb-SW-CXq"/>
                 <outlet property="protraitImag" destination="y8C-5P-IAf" id="87x-rr-O99"/>
                 <outlet property="rateLab" destination="9ml-Wi-zFO" id="323-f1-zxX"/>
                 <outlet property="stateBg" destination="EIL-ko-LTg" id="Wxe-Ua-1kJ"/>

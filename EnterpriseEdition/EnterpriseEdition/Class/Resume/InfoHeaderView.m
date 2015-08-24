@@ -20,7 +20,16 @@
         containerView.frame = newFrame;
         [self addSubview:containerView];
         
-        protraitImag.layer.cornerRadius = protraitImag.frame.size.height/2;
+        if (kIphone4||kIphone5) {
+            proWidth.constant = 60;
+            proHeight.constant = 60;
+        }else if (kIphone6)
+        {
+            proWidth.constant = 80;
+            proHeight.constant = 80;
+        }
+        
+        protraitImag.layer.cornerRadius = proHeight.constant/2;
         protraitImag.layer.masksToBounds = YES;
         rateLab.layer.cornerRadius = rateLab.frame.size.height/2;
         rateLab.layer.masksToBounds = YES;

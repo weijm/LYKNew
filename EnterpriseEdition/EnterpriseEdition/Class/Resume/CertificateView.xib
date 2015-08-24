@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -9,6 +9,8 @@
             <connections>
                 <outlet property="bottomBg" destination="oHr-Qd-UuX" id="zRO-k1-wYS"/>
                 <outlet property="cerImg" destination="Dkw-rN-LCJ" id="Jpg-Ew-aXI"/>
+                <outlet property="cerImgHeight" destination="umZ-AU-CPX" id="X1D-Ur-qS5"/>
+                <outlet property="cerImgWidth" destination="6Rc-Ct-Spg" id="jId-rb-8jk"/>
                 <outlet property="titleLab" destination="enU-xR-Zxa" id="ehy-vJ-PL4"/>
             </connections>
         </placeholder>
@@ -52,7 +54,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHr-Qd-UuX" userLabel="bottpmView">
                     <rect key="frame" x="0.0" y="25" width="320" height="81"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dkw-rN-LCJ" userLabel="cerImg">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_cer_default.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dkw-rN-LCJ" userLabel="cerImg">
                             <rect key="frame" x="6" y="15" width="50" height="50"/>
                             <color key="backgroundColor" red="0.97254901959999995" green="0.36862745099999999" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -85,4 +87,7 @@
             <point key="canvasLocation" x="187" y="329.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="resume_cer_default.png" width="70" height="70"/>
+    </resources>
 </document>

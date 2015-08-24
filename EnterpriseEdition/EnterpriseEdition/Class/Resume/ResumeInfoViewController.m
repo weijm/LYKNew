@@ -74,10 +74,7 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
-//    [UIView animateWithDuration:0.2 animations:^{
-//        [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
-//       
-//    }];
+
 }
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -290,6 +287,7 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"CertificateTableViewCell" owner:self options:nil] lastObject];
     }
+   
     [cell loadCertificate:[infoArray objectAtIndex:indexPath.row]];
     return cell;
 }
@@ -307,6 +305,7 @@
     [self requestDownloadCount];
     
 }
+
 #pragma mark - 点击事件
 - (IBAction)makeCall:(id)sender {
     //客服电话
