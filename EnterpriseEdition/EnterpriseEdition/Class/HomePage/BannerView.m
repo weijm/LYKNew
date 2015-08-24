@@ -38,7 +38,7 @@
 #pragma mark - 初始化scrollView上的视图
 -(void)loadBannerImage:(NSArray*)dataArray
 {
-    NSInteger imageCount = dataArray.count;
+    imageCount = dataArray.count;
     int scrollAnchor = -kWidth;
     for (int i =0; i < imageCount; i++) {
         NSDictionary *dic = [dataArray objectAtIndex:i];
@@ -48,6 +48,10 @@
         imageView.clipsToBounds = NO;
         imageView.tag = i;
         [bannerScrollView addSubview:imageView];
+        //添加自动轮播的效果
+        if (i==imageCount-1) {
+            [self shufflingTimer];
+        }
     }
     bannerScrollView.contentSize = CGSizeMake(scrollAnchor+kWidth, self.frame.size.height);
     
@@ -60,6 +64,35 @@
     //点击bannerImage的触发事件
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchImageInScrollView:)];
     [bannerScrollView addGestureRecognizer:tap];
+}
+#pragma mark - 自动轮播
+-(void)shufflingTimer
+{
+    if (shuffTimer) {
+        [self stopShuffling];
+    }
+    shuffTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(startShuffling) userInfo:nil repeats:YES];
+}
+-(void)startShuffling
+{
+    NSInteger curIndex = 0;
+    if (spacePageControl.currentPage == imageCount-1) {
+        curIndex = 0;
+    }else
+    {
+        curIndex = spacePageControl.currentPage+1;
+    }
+    spacePageControl.currentPage = curIndex;
+    CGPoint offset = CGPointMake(bannerScrollView.frame.size.width * curIndex, 0);
+    [bannerScrollView setContentOffset:offset animated:YES];
+}
+-(void)stopShuffling
+{
+    if (shuffTimer) {
+        //终止计时器
+        [shuffTimer invalidate];
+        shuffTimer = nil;
+    }
 }
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)_scrollView

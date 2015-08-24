@@ -70,6 +70,7 @@
     }
     
     urgentOverdue = NO;
+    isFirst = YES;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginOut:) name:kLoginOut object:nil];
 }
@@ -165,7 +166,6 @@
         HomePageViewController *sself = wself;
         [sself clickedBannerAction:index];
     };
-//    [bannerView loadBannerImage:[NSArray arrayWithObjects:@"11",@"11",@"11", nil]];
     [view addSubview:bannerView];
 }
 -(void)clickedBannerAction:(int)index
@@ -370,7 +370,14 @@
 -(void)requestInfoFromWeb
 {
     NSArray *jsonArray = nil;
-    jsonArray = [NSArray arrayWithObjects:[CombiningData getPicList],[CombiningData getUIDInfo:kNumberList],[CombiningData getUIDInfo:kCommendList],[CombiningData getMineInfo:kGetUrgentInfo], nil];
+    if (isFirst) {
+         jsonArray = [NSArray arrayWithObjects:[CombiningData getPicList],[CombiningData getUIDInfo:kNumberList],[CombiningData getUIDInfo:kCommendList],[CombiningData getMineInfo:kGetUrgentInfo], nil];
+        isFirst = NO;
+    }else
+    {
+        jsonArray = [NSArray arrayWithObjects:[CombiningData getUIDInfo:kNumberList],[CombiningData getUIDInfo:kCommendList],[CombiningData getMineInfo:kGetUrgentInfo], nil];
+    }
+    
 
     [self showHUD:@"正在加载数据"];
     __block int requestCount = 0;

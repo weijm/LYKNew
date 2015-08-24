@@ -43,8 +43,10 @@
     for (int i =0; i<[titleArray count]; i++) {
         [contentArray addObject:@""];
     }
+    if (_isFromRegister!=1) {
+        [self performSelector:@selector(getEntInfoFromWeb) withObject:nil afterDelay:0.0];
+    }
     
-    [self performSelector:@selector(getEntInfoFromWeb) withObject:nil afterDelay:0.0];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -657,6 +659,12 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         if ([obj isKindOfClass:[NSString class]]) {
             NSString *keyString = (NSString*)obj;
             NSString *content = [Util getCorrectString:[dic objectForKey:keyString]];
+            //当取到的企业名称为空的时候 说明未填写企业资料 直接跳出
+            if (i==0) {
+                if ([content length]==0) {
+                    return;
+                }
+            }
             
             if ([content length]>0) {
                 NSMutableDictionary *dictionary = nil;

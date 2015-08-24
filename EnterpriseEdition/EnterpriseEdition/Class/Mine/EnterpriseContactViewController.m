@@ -43,7 +43,10 @@
     infoTableView.tableFooterView = [self getFooterView];
     
     contentArray = [[NSMutableArray alloc] initWithObjects:@"0",@"0",@"0", nil];
-    [self performSelector:@selector(getEntContactInfo) withObject:nil afterDelay:0.2];
+    if (_isFromRegister!=1) {
+        [self performSelector:@selector(getEntContactInfo) withObject:nil afterDelay:0.2];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

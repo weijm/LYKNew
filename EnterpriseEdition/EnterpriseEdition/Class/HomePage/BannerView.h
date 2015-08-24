@@ -16,6 +16,10 @@
    
     
     __weak IBOutlet SMPageControl *spacePageControl;
+    
+    NSTimer *shuffTimer;
+    
+    NSInteger imageCount;
    
 }
 @property(nonatomic,copy) void(^clickedBannerAction)(int index);
