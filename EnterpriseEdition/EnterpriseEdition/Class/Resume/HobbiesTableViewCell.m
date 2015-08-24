@@ -57,8 +57,9 @@
             emptyView.hidden = YES;
             contentLab.hidden = NO;
             
-            CGSize theStringSize = [contentLab.text sizeWithFont:contentLab.font constrainedToSize:contentLab.frame.size lineBreakMode:contentLab.lineBreakMode];
-            contentLab.frame = CGRectMake(contentLab.frame.origin.x, contentLab.frame.origin.y, theStringSize.width, theStringSize.height+30);
+            CGSize textSize = [contentLab.text sizeWithFont:[UIFont systemFontOfSize:14] maxSize:CGSizeMake([self getLabWidth], MAXFLOAT)];
+            
+            contentLab.frame = CGRectMake(contentLab.frame.origin.x, contentLab.frame.origin.y, textSize.width, textSize.height+100);
         }else
         {
             emptyView.hidden = NO;
@@ -68,6 +69,18 @@
     {
         emptyView.hidden = NO;
         contentLab.hidden = YES;
+    }
+}
+-(float)getLabWidth
+{
+    if (kIphone6plus) {
+        return 316;
+    }else if (kIphone6)
+    {
+        return 222;
+    }else
+    {
+        return 222;
     }
 }
 @end

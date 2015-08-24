@@ -173,11 +173,11 @@
                     if ([contentString length]==0||row==1) {
                         return [Util myYOrHeight: 40];
                     }
-                    CGSize titleSize = [contentString sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake([Util myXOrWidth:160], MAXFLOATCUSTOM) lineBreakMode:UILineBreakModeWordWrap];
-                    if (titleSize.height < [Util myYOrHeight: 40]) {
+                    CGSize textSize = [contentString sizeWithFont:[UIFont systemFontOfSize:[self getLabFont]] maxSize:CGSizeMake([self getLabWidth], MAXFLOAT)];
+                    if (textSize.height < [Util myYOrHeight: 40]) {
                         return [Util myYOrHeight: 40];
                     }
-                    return titleSize.height;
+                    return textSize.height;
 
                 }
             }
@@ -531,7 +531,7 @@
             {
                 NSDictionary *dic = [array objectAtIndex:i];
                 NSString *content = [[dic objectForKey:@"job_description"] stringByReplacingOccurrencesOfString:@"\\n" withString:@""];
-                CGSize titleSize = [content sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake(sizeX, MAXFLOATCUSTOM) lineBreakMode:UILineBreakModeWordWrap];
+                CGSize titleSize = [content sizeWithFont:[UIFont systemFontOfSize:14] maxSize:CGSizeMake([self getExeLabWidth], MAXFLOAT)];
                 float height1 = titleSize.height+textHeigt;
                 if ([array count]==1) {
                     height1 = titleSize.height+onetextHeigt;
@@ -594,6 +594,42 @@
     }
 
     return cellHeight;
+}
+#pragma mark - 兴趣 特长 自我评价 个人荣誉的lab宽度
+-(float)getLabWidth
+{
+    if (kIphone6plus) {
+        return 300;
+    }else if (kIphone6)
+    {
+        return 277;
+    }else
+    {
+        return 222;
+    }
+}
+-(float)getLabFont
+{
+    if (kIphone5||kIphone4) {
+        return 17;
+    }else
+    {
+        return 16;
+    }
+}
+
+#pragma mark -工作经验内容的lab宽度
+-(float)getExeLabWidth
+{
+    if (kIphone6plus) {
+        return 290;
+    }else if (kIphone6)
+    {
+        return 250;
+    }else
+    {
+        return 222;
+    }
 }
 #pragma mark - 获取第一个数据
 -(NSDictionary*)getFirstObject

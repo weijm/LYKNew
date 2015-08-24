@@ -43,7 +43,7 @@
             {
                 NSDictionary *dic = [array objectAtIndex:i];
                 NSString *content = [[dic objectForKey:@"job_description"] stringByReplacingOccurrencesOfString:@"\\n" withString:@""];
-                CGSize titleSize = [content sizeWithFont:[UIFont systemFontOfSize:10] constrainedToSize:CGSizeMake(sizeX, MAXFLOATCUSTOM) lineBreakMode:UILineBreakModeWordWrap];
+                CGSize titleSize = [content sizeWithFont:[UIFont systemFontOfSize:[self getLabFontSize]] maxSize:CGSizeMake([self getLabWidth], MAXFLOAT)];
                 int row = [Util getRow:(int)[content length] eachCount:[self getEachLength]];
 //                float height = 90+row*18;
                 float height = titleSize.height+90;
@@ -75,6 +75,25 @@
     }else
     {
         return 22;
+    }
+}
+-(float)getLabWidth
+{
+    if (kIphone6plus) {
+        return 260;
+    }else
+    {
+        return 222;
+    }
+    
+}
+-(float)getLabFontSize
+{
+    if (kIphone5||kIphone4) {
+        return 13;
+    }else
+    {
+        return 12;
     }
 }
 @end

@@ -80,3 +80,4 @@
 #import "CombiningData.h"
 #import "BaseViewController.h"
 #import "BaseTableView.h"
+#import "NSString+Extension.h"

@@ -122,6 +122,7 @@
 		203FDC551B86B642003C0B0F /* FirstInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203FDC531B86B642003C0B0F /* FirstInfoTableViewCell.xib */; };
 		203FEFE21B7EF16F00B5D3CF /* WebSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203FEFE01B7EF16F00B5D3CF /* WebSourceViewController.m */; };
 		203FEFE31B7EF16F00B5D3CF /* WebSourceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203FEFE11B7EF16F00B5D3CF /* WebSourceViewController.xib */; };
+		204168A81B8AED3600263B83 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 204168A71B8AED3600263B83 /* NSString+Extension.m */; };
 		205CA9C31B4BD9F4007BAC89 /* UIButton+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 205CA9C21B4BD9F4007BAC89 /* UIButton+Custom.m */; };
 		2076B2BA1B5C9A1E00BC7D97 /* SearchResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2076B2B81B5C9A1E00BC7D97 /* SearchResumeViewController.m */; };
 		2076B2BB1B5C9A1E00BC7D97 /* SearchResumeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2076B2B91B5C9A1E00BC7D97 /* SearchResumeViewController.xib */; };
@@ -572,6 +573,8 @@
 		203FEFDF1B7EF16F00B5D3CF /* WebSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSourceViewController.h; sourceTree = "<group>"; };
 		203FEFE01B7EF16F00B5D3CF /* WebSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSourceViewController.m; sourceTree = "<group>"; };
 		203FEFE11B7EF16F00B5D3CF /* WebSourceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebSourceViewController.xib; sourceTree = "<group>"; };
+		204168A61B8AED3600263B83 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		204168A71B8AED3600263B83 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		205CA9C11B4BD9F4007BAC89 /* UIButton+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Custom.h"; sourceTree = "<group>"; };
 		205CA9C21B4BD9F4007BAC89 /* UIButton+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Custom.m"; sourceTree = "<group>"; };
 		2076B2B71B5C9A1E00BC7D97 /* SearchResumeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResumeViewController.h; sourceTree = "<group>"; };
@@ -1412,6 +1415,8 @@
 				20D468AA1B6F1A23008A7B78 /* CombiningData.m */,
 				20D44F091B844CC900DB9550 /* NdUncaughtExceptionHandler.h */,
 				20D44F0A1B844CC900DB9550 /* NdUncaughtExceptionHandler.m */,
+				204168A61B8AED3600263B83 /* NSString+Extension.h */,
+				204168A71B8AED3600263B83 /* NSString+Extension.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -2496,6 +2501,7 @@
 				208EBDB21B4A82CE00AB0730 /* MarkupParser.m in Sources */,
 				2076B2CB1B5CEB7F00BC7D97 /* NowHiringHeaderView.m in Sources */,
 				20D1CDEA1B56325100E97935 /* InfoHeaderView.m in Sources */,
+				204168A81B8AED3600263B83 /* NSString+Extension.m in Sources */,
 				20D468631B6EFF1D008A7B78 /* SMPageControl.m in Sources */,
 				2035430E1B4CBD40007FF4A8 /* ResumeViewController.m in Sources */,
 				203D99501B735E6E00A39F46 /* MJRefreshConst.m in Sources */,

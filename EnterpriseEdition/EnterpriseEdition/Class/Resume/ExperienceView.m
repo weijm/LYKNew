@@ -30,16 +30,43 @@
         positionLab.text = [NSString stringWithFormat:@"%@ | %@",[Util getCorrectString:[dictioanry objectForKey:@"job_type_name"]],[dictioanry objectForKey:@"industry_name"]];
         NSString *jobContent = [dictioanry objectForKey:@"job_description"];
         contentLab.text = [jobContent stringByReplacingOccurrencesOfString:@"\\n" withString:@""];
-        CGSize theStringSize = [contentLab.text sizeWithFont:contentLab.font constrainedToSize:contentLab.frame.size lineBreakMode:contentLab.lineBreakMode];
+        CGSize theStringSize = [contentLab.text sizeWithFont:[UIFont systemFontOfSize:[self getLabFontSize]] maxSize:CGSizeMake([self getLabWidth], MAXFLOAT)];
         if (theStringSize.width <200) {
 //            contentLab.frame = CGRectMake(contentLab.frame.origin.x+10, contentLab.frame.origin.y+20, theStringSize.width, theStringSize.height);
         }else
         {
             contentLab.frame = CGRectMake(contentLab.frame.origin.x, contentLab.frame.origin.y, theStringSize.width, theStringSize.height);
         }
-        
+      
 
         
     }
 }
+-(float)getLabWidth
+{
+    if (kIphone6plus) {
+        return 300;
+    }else if (kIphone6)
+    {
+        return 290;
+    }
+    else
+    {
+        return 222;
+    }
+}
+-(float)getLabFontSize
+{
+    if (kIphone4||kIphone5) {
+        return 13;
+    }else if(kIphone6)
+    {
+        return 10;
+    }else
+    {
+        return 8;
+    }
+}
+
+
 @end
