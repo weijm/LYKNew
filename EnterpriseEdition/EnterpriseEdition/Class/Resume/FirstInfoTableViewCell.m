@@ -56,10 +56,14 @@
     }else if (index == 2)
     {
         return @"党员";
-    }else
+    }else if (index == 3)
     {
         return @"其他";
+    }else //-1
+    {
+        return @"未填";
     }
+    
 }
 -(void)loadRetaimCount:(NSString*)downloadCount
 {
