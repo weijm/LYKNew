@@ -41,8 +41,13 @@
         arrowImg.hidden = YES;
         contentTextField.hidden = YES;
         contentTextView.hidden = NO;
-        contentTextView.placeholder = @"请输入1000字以内描述";
-        contentTextView.text = [self getContent:obj];
+        NSString *conText = [self getContent:obj];
+        if ([conText length]>0) {
+            contentTextView.text = conText;
+        }else
+        {
+            contentTextView.placeholder = @"请输入1000字以内描述";
+        }  
         titBgToBottom.constant = [Util myYOrHeight:40];
     }else
     {

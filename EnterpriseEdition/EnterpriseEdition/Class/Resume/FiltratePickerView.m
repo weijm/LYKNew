@@ -200,6 +200,110 @@
     }
     
 }
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row
+          forComponent:(NSInteger)component reusingView:(UIView *)view
+{
+    
+    if (pStyle == PickerStyleNormal) {
+        UILabel *mycom1 = view ? (UILabel *) view : [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 270.0f, 20.0f)];
+        selectedRow = (int)row;
+        self.locate.country = [leftArray objectAtIndex:row];
+        mycom1.text = [leftArray objectAtIndex:row];
+        mycom1.textAlignment = NSTextAlignmentCenter;
+        
+        [mycom1 setFont:[UIFont systemFontOfSize: 13]];
+        mycom1.backgroundColor = [UIColor clearColor];
+        return mycom1;
+    }else if (pStyle == PickerStyleTwoColumn)
+    {
+        UILabel *mycom1 = view ? (UILabel *) view : [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, kWidth/2, 20.0f)];
+        mycom1.textAlignment = NSTextAlignmentCenter;
+        
+        [mycom1 setFont:[UIFont systemFontOfSize: 13]];
+        mycom1.backgroundColor = [UIColor clearColor];
+        switch (component) {
+            case 0:
+                
+                rightArray = [[leftArray objectAtIndex:row] objectForKey:@"secondArray"];
+                
+                [_pickerView selectRow:0 inComponent:1 animated:YES];
+                [_pickerView reloadComponent:1];
+                
+                self.locate.state = [[leftArray objectAtIndex:row] objectForKey:@"firstName"];
+                if ([rightArray count]>0) {
+                    self.locate.city = [rightArray objectAtIndex:0];
+                }else
+                {
+                    self.locate.city = @"";
+                }
+                mycom1.text = self.locate.state;
+                break;
+            case 1:
+            {
+                if ([rightArray count]>row) {
+                    self.locate.city = [rightArray objectAtIndex:row];
+                    mycom1.text = self.locate.city;
+                }
+            }
+                break;
+            default:
+                break;
+        }
+        return mycom1;
+    }
+    {
+        UILabel *mycom1 = view ? (UILabel *) view : [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, kWidth/3, 20.0f)];
+        mycom1.textAlignment = NSTextAlignmentCenter;
+        [mycom1 setFont:[UIFont systemFontOfSize: 13]];
+        mycom1.backgroundColor = [UIColor clearColor];
+        switch (component) {
+            case 0:
+                rightArray = [NSArray arrayWithArray:[[leftArray objectAtIndex:row] objectForKey:@"cities"]];
+                [_pickerView selectRow:0 inComponent:1 animated:YES];
+                [_pickerView reloadComponent:1];
+                
+                subRightArray = [[rightArray objectAtIndex:0] objectForKey:@"area"];
+                [_pickerView selectRow:0 inComponent:2 animated:YES];
+                [_pickerView reloadComponent:2];
+                self.locate.state = [[leftArray objectAtIndex:row] objectForKey:@"state"];
+                self.locate.city = [[rightArray objectAtIndex:0] objectForKey:@"city"];
+                if ([subRightArray count] > 0) {
+                    self.locate.district = [subRightArray objectAtIndex:0];
+                } else{
+                    self.locate.district = @"";
+                }
+                mycom1.text = self.locate.state;
+                break;
+            case 1:
+                if ([rightArray count]>row) {
+                    subRightArray = [[rightArray objectAtIndex:row] objectForKey:@"area"];
+                    [_pickerView selectRow:0 inComponent:2 animated:YES];
+                    [_pickerView reloadComponent:2];
+                    
+                    self.locate.city = [[rightArray objectAtIndex:row] objectForKey:@"city"];
+                    if ([subRightArray count] > 0) {
+                        _locate.district = [subRightArray objectAtIndex:0];
+                    } else{
+                        self.locate.district = @"";
+                    }
+                    mycom1.text = self.locate.city;
+                }
+                break;
+            case 2:
+                if ([subRightArray count] > row) {
+                    self.locate.district = [subRightArray objectAtIndex:row];
+                } else{
+                    self.locate.district = @"";
+                }
+                mycom1.text = self.locate.district;
+                break;
+            default:
+                break;
+        }
+        return mycom1;
+    }
+    
+}
 -(void)loadData:(int)index
 {
     currentIndex = index;
