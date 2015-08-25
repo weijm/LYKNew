@@ -27,6 +27,10 @@
  修改密码
  */
 +(NSString*)changePassword:(NSString*)password NewPsd:(NSString*)newPassword;
+/**
+ 验证码验证
+ */
++(NSString*)checkCode:(NSString*)code Mobile:(NSString*)phone;
 #pragma mark - 注册
 /**
  获取验证码

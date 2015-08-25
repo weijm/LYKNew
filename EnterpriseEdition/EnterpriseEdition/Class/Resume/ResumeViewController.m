@@ -77,10 +77,14 @@
     isLoading = NO;
     isSearching = NO;
     
+    //退出登录
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginOut:) name:kLoginOut object:nil];
+    //首页点击进入
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chooseVC:) name:@"SelectedVC" object:nil];
     
 
 }
+//退出登录
 -(void)loginOut:(NSNotification*)notifiCation
 {
     BOOL isLoginOut = [[notifiCation object] boolValue];
@@ -89,6 +93,17 @@
         colledtedArray = nil;
         downloadArray = nil;
         chooseArray = nil;
+    }
+}
+//首页点击进入
+#pragma mark - 消息通知 切换控制器
+-(void)chooseVC:(NSNotification*)notification
+{
+    NSString *object = [notification object];
+    int index = [object intValue]/10;
+    if (index==1) {
+        int selected = index%10;
+        NSLog(@"selected == %d",selected);
     }
 }
 -(void)viewDidAppear:(BOOL)animated

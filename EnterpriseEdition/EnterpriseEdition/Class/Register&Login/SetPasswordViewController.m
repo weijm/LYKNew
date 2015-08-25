@@ -152,23 +152,5 @@
             [self showAlertView:@"服务器请求失败"];
         }
     }];
-//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:getCodeJson httpMethod:HttpMethodPost WithSSl:nil];
-//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-//        if (result!=nil) {
-//            if ([[result objectForKey:@"result"] intValue]>0) {
-//                [self hideHUDWithComplete:@"修改密码成功"];
-//                [self.navigationController popToRootViewControllerAnimated:YES];
-//            }else
-//            {
-//                [self hideHUDFaild:[result objectForKey:@"message"]];
-//            }
-//        }else
-//        {
-//            [self hideHUD];
-//            [self showAlertView:@"服务器请求失败"];
-//        }
-//        
-//    };
-
 }
 @end

@@ -26,8 +26,12 @@
     
     InfoHeaderView * headerView;
     
+    NSDictionary *statusDic;
+    
     NSString *contactPhone;
     NSString *downloadCount;
+    
+    UIWebView *phoneWebView;
 }
 @end
 
@@ -309,15 +313,25 @@
 
 #pragma mark - 点击事件
 - (IBAction)makeCall:(id)sender {
+    if ([[statusDic objectForKey:@"download"] intValue]==0) {
+        [Util showPrompt:@"对不起，您还未下载该简历"];
+        return;
+    }
     //客服电话
     if ([Util checkDevice:@"iPod"]||[Util checkDevice:@"iPad"]){
         [Util showPrompt:@"该设备不支持打电话的功能"];
         return;
     }
     if ([contactPhone length]>0) {
+        if (phoneWebView==nil) {
+            phoneWebView = [[UIWebView alloc] init];
+        }
         NSString *telPhone = [NSString stringWithFormat:@"tel:%@",contactPhone];
-        NSURL *phoneNumberURL = [NSURL URLWithString:telPhone];//联系电话电话
-        [[UIApplication sharedApplication] openURL:phoneNumberURL];
+        NSURL *url = [NSURL URLWithString:telPhone];
+        [phoneWebView loadRequest:[NSURLRequest requestWithURL:url]];
+        
+//        NSURL *phoneNumberURL = [NSURL URLWithString:telPhone];//联系电话电话
+//        [[UIApplication sharedApplication] openURL:phoneNumberURL];
     }
     
 }
@@ -364,7 +378,6 @@
         NSString *typeString = [typeArray objectAtIndex:i];
         NSString *key = @"rid";
         NSString *value = [NSString stringWithFormat:@"%@",_resumeID];
-
         NSString *jsonString = [CombiningData getResumeInfo:typeString keyString:key Value:value];
         //请求服务器
         [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
@@ -390,6 +403,7 @@
                         NSArray *tempArr = [result objectForKey:@"data"];
                         if ([tempArr count]>0) {
                             NSDictionary *statuDic = [tempArr firstObject];
+                            statusDic = [NSDictionary dictionaryWithDictionary:statuDic];
                             [headerView loadStatus:statuDic];
                             //如果已经收藏的简历 显示的是取消收藏
                             if ([[statuDic objectForKey:@"favorite"] intValue]==1) {
@@ -399,6 +413,11 @@
                                 colletedBt.specialMark = 1;
                             }
                             [self loadCollectedBtState:colletedBt isRequest:NO];
+                            if ([[statuDic objectForKey:@"download"] intValue]==1) {
+                                showIndentityInfo = YES;
+                                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                                [infoTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
+                            }
                         }
                     }else
                     {

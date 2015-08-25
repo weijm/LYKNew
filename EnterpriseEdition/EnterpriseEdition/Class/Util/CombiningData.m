@@ -36,6 +36,7 @@
                             @"{\"token\":\"%@\",\"type\":\"%@\",\"mob_no\":\"%@\",\"new_password\":\"%@\",\"verify\":\"%@\"}",kToken,kForgetSetNewPsw,phone,md5Password,code];
     return jsonString;
 }
+// 修改密码
 +(NSString*)changePassword:(NSString*)password NewPsd:(NSString*)newPassword
 {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
@@ -46,6 +47,13 @@
                             @"{\"token\":\"%@\",\"type\":\"%@\",\"ent_user_id\":\"%@\",\"password_old\":\"%@\",\"password_new\":\"%@\",\"password_new2\":\"%@\"}",kToken,kChangePsw,uid,md5Passwordold,md5PasswordNew,md5PasswordNew];
     return jsonString;
 
+}
+// 验证码验证
++(NSString*)checkCode:(NSString*)code Mobile:(NSString*)phone
+{
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"mob_no\":\"%@\",\"verify\":\"%@\"}",kToken,kCodeCheck,phone,code];
+    return jsonString;
 }
 #pragma mark - 注册
 +(NSString*)securityCode:(NSString*)phone

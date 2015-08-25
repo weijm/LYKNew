@@ -24,6 +24,8 @@
 #define kForgetPasswordGetCode @"ent_forget_verify"
 //忘记密码时 设置新密码
 #define kForgetSetNewPsw @"ent_forget_newpassword"
+//验证验证码
+#define kCodeCheck @"ent_reg_check"
 
 //修改密码
 #define kChangePsw @"ent_my_password_edit"

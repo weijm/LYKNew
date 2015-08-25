@@ -152,16 +152,38 @@
             [[NSUserDefaults standardUserDefaults] setObject:phone forKey:kAccount];
             [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:KPassWord];
             //手机号和验证码输入完毕 请求服务器
-            NSLog(@"忘记密码信息填写完整 请求服务器");
-            SetPasswordViewController *setPasswordVC = [[SetPasswordViewController alloc] init];
-            setPasswordVC.verifyCode = code;
-            [self.navigationController pushViewController:setPasswordVC animated:YES];
+//            NSLog(@"忘记密码信息填写完整 请求服务器");
+            [self requestCheck:phone Verify:code];
+           
         }else
         {
             [Util showPrompt:@"验证码不能为空"];
         }
     }
-    
+}
+-(void)requestCheck:(NSString*)phone Verify:(NSString*)code
+{
+    [self showHUD:@"正在提交验证码"];
+    NSString *getCodeJson = [CombiningData checkCode:code Mobile:phone];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:getCodeJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUD];
+                SetPasswordViewController *setPasswordVC = [[SetPasswordViewController alloc] init];
+                setPasswordVC.verifyCode = code;
+                [self.navigationController pushViewController:setPasswordVC animated:YES];
+            }else
+            {
+                [self hideHUDFaild:[result objectForKey:@"message"]];
+            }
+        }else
+        {
+            [self hideHUD];
+            [self showAlertView:@"服务器请求失败"];
+        }
+    }];
+
 }
 -(void)getCode
 {

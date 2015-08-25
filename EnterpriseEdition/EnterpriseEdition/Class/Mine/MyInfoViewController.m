@@ -22,6 +22,7 @@
 @interface MyInfoViewController ()
 {
     NSDictionary * resumeInfoDic;
+    UIWebView *phoneWebView;
 }
 @end
 
@@ -160,8 +161,11 @@
             [Util showPrompt:@"该设备不支持打电话的功能"];
             return;
         }
-        NSURL *phoneNumberURL = [NSURL URLWithString:@"tel:4008907977"];//客服电话
-        [[UIApplication sharedApplication] openURL:phoneNumberURL];
+        if (phoneWebView==nil) {
+            phoneWebView = [[UIWebView alloc] init];
+        }
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel:4008907977"]];
+        [phoneWebView loadRequest:[NSURLRequest requestWithURL:url]];
     }
 }
 -(void)exitApplication
