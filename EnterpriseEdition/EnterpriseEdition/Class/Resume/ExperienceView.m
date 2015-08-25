@@ -29,7 +29,7 @@
         orgLab.text = [dictioanry objectForKey:@"company_name"];
         positionLab.text = [NSString stringWithFormat:@"%@ | %@",[Util getCorrectString:[dictioanry objectForKey:@"job_type_name"]],[dictioanry objectForKey:@"industry_name"]];
         NSString *jobContent = [dictioanry objectForKey:@"job_description"];
-        contentLab.text = [jobContent stringByReplacingOccurrencesOfString:@"\\n" withString:@""];
+        contentLab.text = [jobContent stringByReplacingOccurrencesOfString:@"\n" withString:@""];
         CGSize theStringSize = [contentLab.text sizeWithFont:[UIFont systemFontOfSize:[self getLabFontSize]] maxSize:CGSizeMake([self getLabWidth], MAXFLOAT)];
         if (theStringSize.width <200) {
 //            contentLab.frame = CGRectMake(contentLab.frame.origin.x+10, contentLab.frame.origin.y+20, theStringSize.width, theStringSize.height);

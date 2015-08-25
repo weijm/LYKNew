@@ -74,7 +74,7 @@
 -(float)getLabWidth
 {
     if (kIphone6plus) {
-        return 316;
+        return 300;
     }else if (kIphone6)
     {
         return 222;

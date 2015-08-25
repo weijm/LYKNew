@@ -171,8 +171,8 @@
                         return [Util myYOrHeight: 40];
                     }
                     CGSize textSize = [contentString sizeWithFont:[UIFont systemFontOfSize:[self getLabFont]] maxSize:CGSizeMake([self getLabWidth], MAXFLOAT)];
-                    if (textSize.height < [Util myYOrHeight: 40]) {
-                        return [Util myYOrHeight: 40];
+                    if (textSize.height < [self getLabHeight]) {
+                        return [self getLabHeight];
                     }
                     return textSize.height;
 
@@ -510,6 +510,7 @@
     float edgeHeight = 232;
     float textHeigt = [Util myYOrHeight:45];
     float onetextHeigt = [Util myYOrHeight:70];
+    float fontSize = 19;
     
     if (kIphone5||kIphone4) {
         row1Height = 110;
@@ -517,9 +518,10 @@
         edgeHeight = 186;
         onetextHeigt = 80;
         textHeigt = 70;
-    }else if (kIphone6plus)
+    }else
     {
-        textHeigt = [Util myYOrHeight:45];
+        fontSize = 21;
+        onlyOnewHeight = [Util myYOrHeight:85];
     }
     if ([obj isKindOfClass:[NSArray class]]) {
         NSArray *array = (NSArray*)obj;
@@ -532,7 +534,7 @@
             for (int i = 0; i < [array count]; i++)
             {
                 NSDictionary *dic = [array objectAtIndex:i];
-                NSString *content = [[dic objectForKey:@"job_description"] stringByReplacingOccurrencesOfString:@"\\n" withString:@""];
+                NSString *content = [[dic objectForKey:@"job_description"] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
                 CGSize titleSize = [content sizeWithFont:[UIFont systemFontOfSize:14] maxSize:CGSizeMake([self getExeLabWidth], MAXFLOAT)];
                 float height1 = titleSize.height+textHeigt;
                 if ([array count]==1) {
@@ -543,15 +545,14 @@
                     height1 = titleSize.height+onlyOnewHeight;
                 }
                 int row = [Util getRow:(int)[content length] eachCount:[self getEachLength:(int)index]];
-//                float
                 if (row ==1) {
                     
                     row1Count++;
                     if (row1Count>=2) {
-                        height1 =row1Height +row*19;
+                        height1 =row1Height +row*fontSize;
                     }else
                     {
-                        height1 =onlyOnewHeight +row*19;
+                        height1 =onlyOnewHeight +row*fontSize;
                     }
                     
                 }
@@ -617,6 +618,15 @@
     }else
     {
         return 16;
+    }
+}
+-(float)getLabHeight
+{
+    if (kIphone6plus) {
+        return 120;
+    }else
+    {
+        return [Util myYOrHeight: 40];
     }
 }
 

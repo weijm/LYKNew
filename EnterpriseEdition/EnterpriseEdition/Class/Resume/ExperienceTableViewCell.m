@@ -35,20 +35,26 @@
             }
             float oldViewY = 0;
             float sizeX = [Util myXOrWidth:160];
+            float onlyHeight = [Util myYOrHeight:80];
+            float fontSize = 19;
 
             if (kIphone4||kIphone5) {
                 sizeX = 250;
             }
+            
+            if (kIphone6plus) {
+                onlyHeight = [Util myYOrHeight:100];
+                fontSize = 23;
+            }
             for (int i = 0; i < [array count]; i++)
             {
                 NSDictionary *dic = [array objectAtIndex:i];
-                NSString *content = [[dic objectForKey:@"job_description"] stringByReplacingOccurrencesOfString:@"\\n" withString:@""];
+                NSString *content = [[dic objectForKey:@"job_description"] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
                 CGSize titleSize = [content sizeWithFont:[UIFont systemFontOfSize:[self getLabFontSize]] maxSize:CGSizeMake([self getLabWidth], MAXFLOAT)];
                 int row = [Util getRow:(int)[content length] eachCount:[self getEachLength]];
-//                float height = 90+row*18;
                 float height = titleSize.height+90;
                 if (row ==1) {
-                    height = [Util myYOrHeight:80]+row*19;
+                    height = onlyHeight+row*fontSize;
                 }
                 CGRect frame = CGRectMake(0, oldViewY, kWidth-85, height);
                 ExperienceView *view = [[ExperienceView alloc] initWithFrame:frame];
