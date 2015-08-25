@@ -212,6 +212,7 @@
 -(void)initHeaderView
 {
     headerView = [[InfoHeaderView alloc] initWithFrame:CGRectMake(0, 0, kWidth, [Util myYOrHeight:180])];
+    headerView.internships = _internships;
 }
 #pragma mark - 不同cell的初始化
 //身份信息cell
@@ -403,13 +404,15 @@
                     {
                         [self dealWithInfo:result Type:typeArray];
                     }
-                    
-                    
                 }else
                 {
                     //请求的数据有问题
-                    //                    NSLog(@"result == %@",result);
+                    NSLog(@"result>0 == %@",result);
                 }
+            }else
+            {
+                NSLog(@"result == %@",result);
+                
             }
 
         }];

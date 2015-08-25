@@ -54,7 +54,7 @@
         [protraitImag sd_setImageWithURL:[NSURL URLWithString:[dictionary objectForKey:@"head_img"]]placeholderImage:[UIImage imageNamed:pImg]];
         infoLab.text = [NSString stringWithFormat:@"%@ %@ %@",sexString,nation,[dictionary objectForKey:@"birthday"]];
         
-        expLab.text = [self getExpByIndex:[[dictionary objectForKey:@"fresh"] intValue]];
+        expLab.text = [self getExpByIndex:_internships];
     }
 }
 -(NSString*)getExpByIndex:(int)index
@@ -92,6 +92,11 @@
         {
             download.hidden = NO;
         }
+    }else
+    {
+        urgentView.hidden = YES;
+        editView.hidden = YES;
+        download.hidden = YES;
     }
 }
 @end

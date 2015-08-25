@@ -39,7 +39,7 @@
                         <constraint firstAttribute="height" constant="1" id="ypc-u0-CAj"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y8C-5P-IAf" userLabel="protraitImg">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_protrait_man_default.png" translatesAutoresizingMaskIntoConstraints="NO" id="y8C-5P-IAf" userLabel="protraitImg">
                     <rect key="frame" x="130" y="80" width="96" height="96"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="96" id="9Vn-mI-GMH"/>
@@ -60,7 +60,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v9A-Ul-3cK" userLabel="bView">
                     <rect key="frame" x="0.0" y="151" width="357" height="90"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女  汉族  1980-8-5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZx-h4-b8Q" userLabel="infoLab">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未填写" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZx-h4-b8Q" userLabel="infoLab">
                             <rect key="frame" x="0.0" y="34" width="357" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="irC-Dg-fCY"/>
@@ -69,7 +69,7 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="应届毕业生" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ken-2D-auD" userLabel="expLab">
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未填写" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ken-2D-auD" userLabel="expLab">
                             <rect key="frame" x="138" y="55" width="80" height="18"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -160,6 +160,7 @@
         <image name="resume_download.png" width="14" height="16"/>
         <image name="resume_edit.png" width="16" height="16"/>
         <image name="resume_info_bg.png" width="375" height="129"/>
+        <image name="resume_protrait_man_default.png" width="60" height="61"/>
         <image name="resume_urgent.png" width="17" height="16"/>
     </resources>
 </document>

@@ -224,7 +224,7 @@
         infoVC.resumeID = [dic objectForKey:@"id"] ;
         infoVC.jobID = @"0";
     }
-    
+    infoVC.internships = [[dic objectForKey:@"internships"] intValue];
     infoVC.sex = [dic objectForKey:@"sex"];
     infoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:infoVC animated:YES];

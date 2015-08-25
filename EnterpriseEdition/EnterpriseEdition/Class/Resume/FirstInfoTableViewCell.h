@@ -32,6 +32,8 @@
     //什么信息都为空的时候显示
     __weak IBOutlet UITextField *emptyView;
     __weak IBOutlet UILabel *showDownloadCountLab;
+    
+    NSDictionary *infoDic;
 }
 @property(nonatomic,copy) void(^lookIdentityInfo)(void);
 @property (nonatomic,strong) NSString *retaimCount;

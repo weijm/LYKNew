@@ -35,6 +35,7 @@
     __weak IBOutlet NSLayoutConstraint *proHeight;
     
 }
+@property(nonatomic) int internships;//0无 1有
 -(void)loadData:(NSDictionary*)dictionary;
 -(void)loadStatus:(NSDictionary*)dictionary;
 @end

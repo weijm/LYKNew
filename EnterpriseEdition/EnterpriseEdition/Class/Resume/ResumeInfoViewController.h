@@ -20,6 +20,7 @@
 @property (nonatomic,strong) NSString *sex ;//用户性别
 @property (nonatomic,strong) NSString *resumeID;//简历的ID
 @property (nonatomic) BOOL fromCollected;//是否是收藏的简历
+@property (nonatomic) int  internships;//0无 1有
 
 @property (nonatomic,strong) NSString *jobID;//职位ID
 - (IBAction)makeCall:(id)sender;

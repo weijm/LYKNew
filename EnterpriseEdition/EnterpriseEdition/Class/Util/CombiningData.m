@@ -490,6 +490,9 @@
 }
 +(NSString*)getNationStringByID:(int)nationId
 {
+    if (nationId==0) {
+        return @"未填写";
+    }
     NSString *nation = [[PositionObject shareInstance] getNationStringById:nationId];
     return nation;
 }

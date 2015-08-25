@@ -345,8 +345,10 @@
     {
         NSLog(@"查看第%ld个人的简历",(long)index);
         ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
-        infoVC.resumeID = [[commendArray objectAtIndex:index] objectForKey:@"id"];
+        NSDictionary *dic = [commendArray objectAtIndex:index];
+        infoVC.resumeID = [dic objectForKey:@"id"];
         infoVC.jobID = @"0";
+        infoVC.internships = [[dic objectForKey:@"internships"] intValue];
         infoVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:infoVC animated:YES];
     }

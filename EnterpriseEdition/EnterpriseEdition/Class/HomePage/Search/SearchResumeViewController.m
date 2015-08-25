@@ -241,8 +241,10 @@
     }
 
     ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
-    infoVC.resumeID = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"stu_resume_id"];
+    NSDictionary *dic = [dataArray objectAtIndex:indexPath.row];
+    infoVC.resumeID = [dic objectForKey:@"stu_resume_id"];
     infoVC.jobID = @"0";
+    infoVC.internships = [[dic objectForKey:@"internships"] intValue];
     infoVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:infoVC animated:YES];
 }

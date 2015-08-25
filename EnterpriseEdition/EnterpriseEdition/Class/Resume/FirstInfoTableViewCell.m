@@ -20,6 +20,10 @@
     // Configure the view for the selected state
 }
 - (IBAction)lookUpInfo:(id)sender {
+    if (infoDic == nil) {
+        [Util showPrompt:@"身份信息为空"];
+        return;
+    }
     self.lookIdentityInfo();
     
     littleInfoBg.hidden = YES;
@@ -39,6 +43,7 @@
 -(void)loadData:(NSDictionary*)dic
 {
     [self showInfo:YES];
+    infoDic = dic;
     if (dic != nil) {
         phoneLab.text = [Util getCorrectString:[dic objectForKey:@"contact_no"]];
         mailLab.text = [Util getCorrectString:[dic objectForKey:@"email"]];
