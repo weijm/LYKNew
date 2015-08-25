@@ -46,7 +46,7 @@
     if (_isFromRegister!=1) {
         [self performSelector:@selector(getEntInfoFromWeb) withObject:nil afterDelay:0.0];
     }
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -251,14 +251,25 @@
     }
     
     //让编辑第10行和11行的时候 编辑框可见
-    if(editView.tag == 6||editView.tag == 9)
+    if(editView.tag == 6||editView.tag ==9)
     {
-        if (infoTableViewToBottom.constant ==44) {
-            [UIView animateWithDuration:0.5 animations:^{
-                infoTableViewToBottom.constant = 200;
-                infoTableViewToTop.constant = infoTableViewToTop.constant-200;
-            }];
+        if (editView.tag ==6) {
+            if (infoTableViewToBottom.constant ==44) {
+                [UIView animateWithDuration:0.5 animations:^{
+                    infoTableViewToBottom.constant = 44+200;
+                    infoTableViewToTop.constant = infoTableViewToTop.constant-200;
+                }];
+            }
+        }else
+        {
+            if (infoTableViewToBottom.constant ==44) {
+                [UIView animateWithDuration:0.5 animations:^{
+                    infoTableViewToBottom.constant =44+ 250;
+                    infoTableViewToTop.constant = infoTableViewToTop.constant-250;
+                }];
+            }
         }
+       
     }else
     {//对于其他的编辑框还原dataTableView位置
         if (infoTableViewToBottom.constant !=44) {
@@ -290,8 +301,9 @@
     //还原dataTableView位置
     if (infoTableViewToBottom.constant !=44) {
         [UIView animateWithDuration:0.5 animations:^{
+            float offY = infoTableViewToBottom.constant-44;
             infoTableViewToBottom.constant = 44;
-            infoTableViewToTop.constant = infoTableViewToTop.constant+200;
+            infoTableViewToTop.constant = infoTableViewToTop.constant+offY;
         }];
     }
 }
