@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExperienceView">
             <connections>
+                <outlet property="botBgToBottom" destination="iBJ-UQ-7lm" id="ZpG-Xa-6vS"/>
+                <outlet property="bottomBg" destination="qnJ-aP-azb" id="MGe-Bi-3iv"/>
                 <outlet property="contentLab" destination="5QX-rY-ziS" id="lhQ-1n-QGz"/>
                 <outlet property="orgLab" destination="0ZZ-U3-S8Q" id="6a5-m7-Amt"/>
                 <outlet property="positionLab" destination="Bxy-ID-YOn" id="TgF-GD-BNk"/>

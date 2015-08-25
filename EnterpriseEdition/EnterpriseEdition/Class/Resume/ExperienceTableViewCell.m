@@ -56,9 +56,13 @@
                 if (row ==1) {
                     height = onlyHeight+row*fontSize;
                 }
+                NSString *imgUrl = [Util getCorrectString:[dic objectForKey:@"certify_url"]];
+                if ([imgUrl length]>0) {//有图片
+                    height = height+60;
+                }
                 CGRect frame = CGRectMake(0, oldViewY, kWidth-85, height);
                 ExperienceView *view = [[ExperienceView alloc] initWithFrame:frame];
-                [view loadData:dic];
+                [view loadSubView:dic];
                 [infobg addSubview:view];
                 oldViewY = oldViewY+height;
             }

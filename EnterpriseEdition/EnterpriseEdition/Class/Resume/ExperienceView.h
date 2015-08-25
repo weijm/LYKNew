@@ -20,6 +20,15 @@
     //工作内容
     
     __weak IBOutlet UILabel *contentLab;
-   }
+    
+    __weak IBOutlet UIView *bottomBg;
+    
+    __weak IBOutlet NSLayoutConstraint *botBgToBottom;
+    
+    UIImageView *cerImg;
+    
+     NSString *pictureUrl;
+}
 -(void)loadData:(NSDictionary*)dictioanry;
+-(void)loadSubView:(NSDictionary*)dictionary;
 @end

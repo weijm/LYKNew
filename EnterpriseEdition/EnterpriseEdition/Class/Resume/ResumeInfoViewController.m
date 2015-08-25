@@ -556,6 +556,12 @@
                     }
                     
                 }
+                
+                NSString *imgUrl = [Util getCorrectString:[dic objectForKey:@"certify_url"]];
+                if ([imgUrl length]>0) {//有图片
+                    height1 = height1+60;
+                }
+                
                 viewHeight = viewHeight+height1;
                 
             }
@@ -624,10 +630,14 @@
 {
     if (kIphone6plus) {
         return 120;
-    }else
+    }else if(kIphone6)
     {
         return [Util myYOrHeight: 40];
+    }else
+    {
+        return 60;
     }
+    
 }
 
 #pragma mark -工作经验内容的lab宽度
