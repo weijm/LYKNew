@@ -62,6 +62,10 @@
             if (view.tag != index) {
                 [view.chooseBt setTitleColor:Rgb(49, 129, 218, 1.0) forState:UIControlStateNormal];
                 view.chooseBt.backgroundColor = [UIColor clearColor];
+            }else
+            {
+                view.chooseBt.backgroundColor = Rgb(2, 139, 230, 1.0);
+                [view.chooseBt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             }
         }
     }

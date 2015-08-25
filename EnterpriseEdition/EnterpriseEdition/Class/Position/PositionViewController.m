@@ -54,11 +54,14 @@
     //初始化items
     [self initItems];
     
+    
+    //默认的有效职位类型
+    if (categaryType==0) {
+        categaryType = 1;
+    }
+    
     //初始化headerView
     [self initHeaderView];
-    //默认的有效职位类型
-    categaryType = 1;
-    
     
     [dataTableView setupRefresh];
     dataTableView.refreshData = ^{
@@ -85,6 +88,15 @@
         currentPage3 = 1;
         [self getData];
     }
+}
+//从首页点击进入
+-(void)loadStatusFromHomePage:(int)index
+{
+    categaryType = index;
+    if (headerView) {
+        [headerView chooseBtAction:index-1];
+    }
+    
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -324,6 +336,7 @@
         PositionViewController *sself = wself;
         [sself chooseAction:index isChooseAll:NO];
     };
+    [headerView chooseBtAction:categaryType-1];
     headerView.backgroundColor = kCVBackgroundColor;
     [self.view addSubview:headerView];
 }

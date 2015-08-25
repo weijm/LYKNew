@@ -14,8 +14,8 @@
     int categaryType;//headerView上的选择类型 1有效职位 2下线职位 3待审核职位
     
     __weak IBOutlet BaseTableView *dataTableView;
-    
-    
 
 }
+//从首页点击进入
+-(void)loadStatusFromHomePage:(int)index;
 @end

@@ -329,9 +329,6 @@
         NSString *telPhone = [NSString stringWithFormat:@"tel:%@",contactPhone];
         NSURL *url = [NSURL URLWithString:telPhone];
         [phoneWebView loadRequest:[NSURLRequest requestWithURL:url]];
-        
-//        NSURL *phoneNumberURL = [NSURL URLWithString:telPhone];//联系电话电话
-//        [[UIApplication sharedApplication] openURL:phoneNumberURL];
     }
     
 }

@@ -21,7 +21,11 @@
 @property (nonatomic,copy)void(^chooseHeaderBtAction)(NSInteger index);
 @property (nonatomic,copy)void(^clickedFiltrateAction)(void);
 /**
- 点击删选按钮 触发的事件
+ 点击筛选按钮 触发的事件
  */
 - (IBAction)clickedFiltreateBtAction:(id)sender;
+/**
+ 点击headerView上的按钮的触发事件
+ */
+-(void)chooseBtAction:(NSInteger)index;
 @end

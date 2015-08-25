@@ -62,12 +62,17 @@
     //导航条右侧按钮
     [self initItems];
     self.view.backgroundColor = kCVBackgroundColor;
+    isEdit = NO;
+    
+    //默认是收到的简历
+    if (resumeCategory==0) {
+        resumeCategory = 1;
+    }
+    
     //初始化headerView
     [self initHeaderView];
     [self initTableView];
-    isEdit = NO;
-    //默认是收到的简历
-    resumeCategory = 1;
+    
     chooseArray = [NSMutableArray array];
     for (int i =0; i<[dataArray count]; i++) {
         [chooseArray addObject:@"0"];
@@ -79,10 +84,7 @@
     
     //退出登录
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginOut:) name:kLoginOut object:nil];
-    //首页点击进入
-     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chooseVC:) name:@"SelectedVC" object:nil];
     
-
 }
 //退出登录
 -(void)loginOut:(NSNotification*)notifiCation
@@ -95,15 +97,14 @@
         chooseArray = nil;
     }
 }
-//首页点击进入
-#pragma mark - 消息通知 切换控制器
--(void)chooseVC:(NSNotification*)notification
+
+#pragma mark - 首页点击进入
+-(void)loadStatusFromHomePage:(int)index
 {
-    NSString *object = [notification object];
-    int index = [object intValue]/10;
-    if (index==1) {
-        int selected = index%10;
-        NSLog(@"selected == %d",selected);
+     NSLog(@"selected == %d",index);
+    resumeCategory = index;
+    if (headerView) {
+        [headerView chooseBtAction:index-1];
     }
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -214,10 +215,8 @@
         ResumeViewController *sself = wself;
         [sself chooseAction:index isChooseAll:NO];
     };
-//    headerView.clickedFiltrateAction = ^{
-//        ResumeViewController *sself = wself;
-////        [sself filtrateAction];
-//    };
+    [headerView chooseBtAction:resumeCategory-1];
+
     [self.view addSubview:headerView];
 }
 #pragma mark - headerView和fooerView上的选择不同按钮的触发事件

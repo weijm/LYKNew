@@ -274,7 +274,7 @@
         case 0:
             NSLog(@"职位");
         {
-             [[NSNotificationCenter defaultCenter] postNotificationName:@"SelectedVC" object:@"20"];
+             [[NSNotificationCenter defaultCenter] postNotificationName:@"SelectedVC" object:@"21"];
         }
             break;
         case 1:

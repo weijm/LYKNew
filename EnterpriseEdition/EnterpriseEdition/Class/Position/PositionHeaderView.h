@@ -15,4 +15,5 @@
      UIView *subbg;
 }
 @property (nonatomic,copy)void(^chooseHeaderBtAction)(NSInteger index);
+-(void)chooseBtAction:(NSInteger)index;
 @end

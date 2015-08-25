@@ -9,6 +9,8 @@
 #import "RootViewController.h"
 #import "LoginViewController.h"
 #import "HomePageViewController.h"
+#import "ResumeViewController.h"
+#import "PositionViewController.h"
 
 @interface RootViewController ()
 {
@@ -61,8 +63,29 @@
 -(void)chooseVC:(NSNotification*)notification
 {
     NSString *object = [notification object];
-    int index = [object intValue]/10;
+    int selectedIndex = [object intValue];
+    int index = selectedIndex/10;
     self.selectedViewController = [vcArray objectAtIndex:index];
+    UINavigationController *nav = [vcArray objectAtIndex:index];
+    int selectedStatus = selectedIndex%10;
+    if (index==1) {//简历管理
+        NSArray *array = nav.viewControllers;
+        if ([array count]>0) {
+            ResumeViewController *resumeVC = (ResumeViewController *)[array firstObject];
+            [resumeVC loadStatusFromHomePage:selectedStatus];
+            
+        }
+    }else if (index ==2)//职位管理
+    {
+        NSArray *array = nav.viewControllers;
+        if ([array count]>0) {
+            PositionViewController *positionVC = (PositionViewController *)[array firstObject];
+            [positionVC loadStatusFromHomePage:selectedStatus];
+            
+        }
+        
+    }
+    
 
 }
 #pragma mark - LoginViewControllerDelegate;

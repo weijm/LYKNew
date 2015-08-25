@@ -14,4 +14,6 @@
 {
     
 }
+//从首页点击进入
+-(void)loadStatusFromHomePage:(int)index;
 @end
