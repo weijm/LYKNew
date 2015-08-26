@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CPTextViewPlaceholder.h"
+#import "LPlaceholderTextView.h"
 @protocol PositionTableViewCellDelegate <NSObject>
 @optional
 -(void)setEditView:(UIView*)_editView;
@@ -28,7 +28,7 @@
     
     __weak IBOutlet UITextField *contentTextField;
     
-    __weak IBOutlet CPTextViewPlaceholder *contentTextView;
+    __weak IBOutlet LPlaceholderTextView *contentTextView;
     __weak IBOutlet NSLayoutConstraint *contentTextFieldToRight;
     
     __weak IBOutlet NSLayoutConstraint *titBgToBottom;

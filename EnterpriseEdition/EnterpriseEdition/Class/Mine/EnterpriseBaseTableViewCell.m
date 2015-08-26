@@ -46,7 +46,8 @@
             contentTextView.text = conText;
         }else
         {
-            contentTextView.placeholder = @"请输入1000字以内描述";
+            contentTextView.placeholderText = @"请输入1000字以内描述";
+            contentTextView.placeholderColor = Rgb(0, 0, 0, 0.5);
         }  
         titBgToBottom.constant = [Util myYOrHeight:40];
     }else

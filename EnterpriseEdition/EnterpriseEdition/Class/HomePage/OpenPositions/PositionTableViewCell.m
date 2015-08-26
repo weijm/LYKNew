@@ -49,7 +49,8 @@
         arrowImg.hidden = YES;
         contentTextField.hidden = YES;
         contentTextView.hidden = NO;
-        contentTextView.placeholder = @"请输入1000字以内描述";
+        contentTextView.placeholderText = @"请输入1000字以内描述";
+        contentTextView.placeholderColor = Rgb(0, 0, 0, 0.5);
         if (kIphone4) {
         }else
         {
@@ -156,9 +157,7 @@
 }
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    if ([Util stringContainsEmoji:text]) {
-        return NO;
-    }
+    
     if ([text isEqualToString:@"\n"]) {
         [contentTextView resignFirstResponder];
         if ([_delegate respondsToSelector:@selector(cancelKey)]) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -39,7 +39,7 @@
                                     <outlet property="delegate" destination="KGk-i7-Jjw" id="FiB-Ia-8rv"/>
                                 </connections>
                             </textField>
-                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NcO-BO-W13" userLabel="contentTextView" customClass="CPTextViewPlaceholder">
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NcO-BO-W13" userLabel="contentTextView" customClass="LPlaceholderTextView">
                                 <rect key="frame" x="0.0" y="5" width="170" height="54.5"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -115,7 +115,7 @@
                 <outlet property="arrowImg" destination="qI6-M2-EEU" id="eol-sY-dVQ"/>
                 <outlet property="contentTextField" destination="rUK-Da-gxc" id="pcG-i5-JHn"/>
                 <outlet property="contentTextFieldToRight" destination="ND3-V4-PuN" id="D4H-Dx-RhW"/>
-                <outlet property="contentTextView" destination="NcO-BO-W13" id="aJ9-aK-R4C"/>
+                <outlet property="contentTextView" destination="NcO-BO-W13" id="JPJ-p8-DJu"/>
                 <outlet property="lineHeight" destination="yxm-JX-NCy" id="stI-lj-JuR"/>
                 <outlet property="markImg" destination="4V3-Yr-faU" id="hq0-TR-vez"/>
                 <outlet property="titBgToBottom" destination="sjG-VI-KzD" id="xHs-X4-NRX"/>
@@ -128,7 +128,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="position_title_mark.png" width="13" height="14"/>
-        <image name="resume_search_bt.png" width="13" height="7"/>
+        <image name="position_title_mark.png" width="6" height="6"/>
+        <image name="resume_search_bt.png" width="8" height="4"/>
     </resources>
 </document>
