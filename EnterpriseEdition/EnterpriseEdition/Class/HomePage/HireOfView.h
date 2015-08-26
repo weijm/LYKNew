@@ -30,4 +30,9 @@
 @property (nonatomic,copy) void(^clickedHire)(int index);
 @property (nonatomic) BOOL isValid;
 -(void)loadItem:(NSArray*)array;
+
+/**
+ 修改某些按钮标题
+ */
+-(void)changeHireBtTitle:(NSDictionary*)dictionary Index:(int)index;
 @end

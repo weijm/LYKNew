@@ -114,11 +114,21 @@
     currentPage3 = 1;
     searchingCurrentPage =1;
     [self getData];
-//    [self performSelector:@selector(getData) withObject:nil afterDelay:0.0];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)viewDidDisappear:(BOOL)animated
+{
+    currentPage1 = 1;
+    currentPage2 = 1;
+    currentPage3 = 1;
+    resumeCategory = 1;
+    if (headerView) {
+        [headerView changeButtonBgAndTextColor:resumeCategory-1];
+    }
+    
 }
 #pragma mark - navigation上的左右按钮
 -(void)initItems
@@ -821,27 +831,50 @@
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
-                [self hideHUD];
-                [self rightAction];
-                //仍然加载首页
-                currentPage1 = 1;
-                currentPage2 = 1;
-                currentPage3 = 1;
-                [self requestResumeList:NO];
                 
+                [self batchDataPrompt:result Success:YES];
+                [self performSelector:@selector(afterSecondsGetData) withObject:nil afterDelay:1.5];
                 
             }else
             {
-                NSString *message = [result objectForKey:@"message"];
-                if ([message length]==0) {
-                    message = @"处理失败";
-                }
-                [self hideHUDFaild:message];
+                [self batchDataPrompt:result Success:NO];
             }
         }else
         {
-            [self hideHUDFaild:@"服务器请求失败"];
+            [self batchDataPrompt:result Success:NO];
         }
     }];
+}
+
+-(void)batchDataPrompt:(id)result Success:(BOOL)isSuccess
+{
+    NSString *statusString = [result objectForKey:@"requestJson"];
+    NSDictionary *dic = [Util dictionaryWithJsonString:statusString];
+    int status = [[dic objectForKey:@"action_type"] intValue];
+    if (isSuccess) {
+        [self rightAction];
+        //仍然加载首页
+        currentPage1 = 1;
+        currentPage2 = 1;
+        currentPage3 = 1;
+        if (status == 1) {//收藏成功
+            [self hideHUDWithComplete:@"收藏成功"];
+        }else if (status == 2)//取消收藏
+        {
+            [self hideHUDWithComplete:@"取消收藏成功"];
+        }
+    }else
+    {
+        if (status == 1) {//收藏成功
+            [self hideHUDFaild:@"收藏失败"];
+        }else if (status == 2)//取消收藏
+        {
+            [self hideHUDFaild:@"取消收藏失败"];
+        }
+    }
+}
+-(void)afterSecondsGetData
+{
+    [self requestResumeList:NO];
 }
 @end

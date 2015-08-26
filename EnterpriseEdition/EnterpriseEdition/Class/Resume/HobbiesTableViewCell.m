@@ -52,14 +52,20 @@
         if ([dataArray count]>0) {
             NSDictionary* dic = [dataArray firstObject];
             NSString *content = [Util getCorrectString:[dic objectForKey:key]];
-           
-            contentLab.text = [content stringByReplacingOccurrencesOfString:@"\\n" withString:@" "];
-            emptyView.hidden = YES;
-            contentLab.hidden = NO;
-            
-            CGSize textSize = [contentLab.text sizeWithFont:[UIFont systemFontOfSize:14] maxSize:CGSizeMake([self getLabWidth], MAXFLOAT)];
-            
-            contentLab.frame = CGRectMake(contentLab.frame.origin.x, contentLab.frame.origin.y, textSize.width, textSize.height+100);
+            content = [content stringByReplacingOccurrencesOfString:@"\\n" withString:@""];
+            if ([content length]>0) {
+                contentLab.text = content;
+                emptyView.hidden = YES;
+                contentLab.hidden = NO;
+                
+                CGSize textSize = [contentLab.text sizeWithFont:[UIFont systemFontOfSize:14] maxSize:CGSizeMake([self getLabWidth], MAXFLOAT)];
+                
+                contentLab.frame = CGRectMake(contentLab.frame.origin.x, contentLab.frame.origin.y, textSize.width, textSize.height+100);
+            }else
+            {
+                emptyView.hidden = NO;
+                contentLab.hidden = YES;
+            }
         }else
         {
             emptyView.hidden = NO;

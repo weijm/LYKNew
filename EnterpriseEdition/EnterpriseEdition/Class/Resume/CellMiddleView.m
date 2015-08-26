@@ -85,6 +85,9 @@
     fstr1 = [Util getCorrectString:[dictionary objectForKey:@"birthday"]];
     fstr2 = [Util getCorrectString:[dictionary objectForKey:@"certificate_type"]];
     fstr3 = [Util getCorrectString:[dictionary objectForKey:@"salary"]];
+    if ([fstr3 isEqualToString:@"0-0"]) {
+        fstr3 = @"面议";
+    }
     NSString *fstr4 = [Util getCorrectString:[dictionary objectForKey:@"employment_type"]];
     if ([fstr2 length]>0) {
         fstr2 = [NSString stringWithFormat:@" | %@",fstr2];

@@ -20,6 +20,10 @@
     __weak IBOutlet NSLayoutConstraint *cerImgWidth;
     
     __weak IBOutlet NSLayoutConstraint *cerImgHeight;
+    
+    UIImageView *cerImgView;
 }
 -(void)loadData:(NSDictionary*)dictionary;
+
+-(void)loadSubView:(NSDictionary*)dictionary;
 @end

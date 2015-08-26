@@ -54,7 +54,16 @@
 - (IBAction)clickedItemAction:(id)sender {
     self.clickedItem((int)self.tag);
 }
-
+-(void)changeSubViewTitle:(NSDictionary*)dictionary
+{
+    if ([dictionary allKeys].count>1) {
+        [self loadLabText:[dictionary objectForKey:@"string"] stytleStr:[dictionary objectForKey:@"substring"]];
+    }else
+    {
+         [self loadLabText:[dictionary objectForKey:@"string"] stytleStr:@""];
+        
+    }
+}
 -(void)loadLabText:(NSString*)string stytleStr:(NSString*)subStr
 {
     NSRange range ;

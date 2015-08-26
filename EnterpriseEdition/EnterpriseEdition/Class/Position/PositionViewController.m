@@ -105,6 +105,16 @@
     currentPage3 = 1;
     [self getData];
 }
+-(void)viewDidDisappear:(BOOL)animated
+{
+    currentPage1 = 1;
+    currentPage2 = 1;
+    currentPage3 = 1;
+    categaryType = 1;
+    if (headerView) {
+        [headerView changeButtonBgAndTextColor:categaryType-1];
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -691,54 +701,70 @@
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
-                [self hideHUD];
-                [self rightAction];
-                //仍然加载首页
-                currentPage1 = 1;
-                currentPage2 = 1;
-                currentPage3 = 1;
-                [self requestPositionList:NO];
-                
+                [self batchDataPrompt:result Success:YES];
+                [self performSelector:@selector(afterSecondRequestPosition) withObject:nil afterDelay:1.5];
                 
             }else
             {
-                NSString *message = [result objectForKey:@"message"];
-                if ([message length]==0) {
-                    message = @"处理失败";
-                }
-                [self hideHUDFaild:message];
+                [self batchDataPrompt:result Success:NO];
             }
         }else
         {
             [self hideHUDFaild:@"服务器请求失败"];
         }
     }];
-//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost WithSSl:nil];
-//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-//        if (result!=nil) {
-//            if ([[result objectForKey:@"result"] intValue]>0) {
-//                [self hideHUD];
-//                [self rightAction];
-//                //仍然加载首页
-//                currentPage1 = 1;
-//                currentPage2 = 1;
-//                currentPage3 = 1;
-//                [self requestPositionList:NO];
-//                
-//                
-//            }else
-//            {
-//                NSString *message = [result objectForKey:@"message"];
-//                if ([message length]==0) {
-//                    message = @"处理失败";
-//                }
-//                [self hideHUDFaild:message];
-//            }
-//        }else
-//        {
-//            [self hideHUDFaild:@"服务器请求失败"];
-//        }
-//        
-//    };
+
+}
+#pragma mark - 批量操作的提示
+-(void)batchDataPrompt:(id)result Success:(BOOL)isSuccess
+{
+    NSString *statusString = [result objectForKey:@"requestJson"];
+    NSDictionary *dic = [Util dictionaryWithJsonString:statusString];
+    int status = [[dic objectForKey:@"new_status"] intValue];
+    if (isSuccess) {
+        [self rightAction];
+        //仍然加载首页
+        currentPage1 = 1;
+        currentPage2 = 1;
+        currentPage3 = 1;
+        if (status == 1) {//下线成功
+            [self hideHUDWithComplete:@"下线成功"];
+        }else if (status == 0)//上线成功
+        {
+            [self hideHUDWithComplete:@"上线成功"];
+        }else if (status == -8)//刷新成功
+        {
+            [self hideHUDWithComplete:@"刷新成功"];
+        }else if (status == -9)//删除成功
+        {
+            [self hideHUDWithComplete:@"删除成功"];
+        }else
+        {
+            [self hideHUD];
+        }
+    }else
+    {
+        if (status == 1) {//下线失败
+            [self hideHUDFaild:@"下线失败"];
+        }else if (status == 0)//上线失败
+        {
+            [self hideHUDFaild:@"上线失败"];
+        }else if (status == -8)//刷新失败
+        {
+            [self hideHUDFaild:@"刷新失败"];
+        }else if (status == -9)//删除失败
+        {
+            [self hideHUDFaild:@"删除失败"];
+        }else
+        {
+            [self hideHUD];
+        }
+        
+    }
+}
+#pragma mark - 延后几秒执行
+-(void)afterSecondRequestPosition
+{
+    [self requestPositionList:NO];
 }
 @end

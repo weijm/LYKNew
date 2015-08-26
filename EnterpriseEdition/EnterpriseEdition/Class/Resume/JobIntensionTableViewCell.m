@@ -34,7 +34,16 @@
             jobLab.text = [Util getCorrectString:[dictionary objectForKey:@"job_type_name"]];
             jobTypeLab.text = [CombiningData getJobType:[[dictionary objectForKey:@"employment_type"] intValue]];
             cityLab.text = [NSString stringWithFormat:@"%@%@%@",[Util getCorrectString:[dictionary objectForKey:@"city_name"]],[Util getCorrectString:[dictionary objectForKey:@"city_name_1"]],[Util getCorrectString:[dictionary objectForKey:@"city_name_2"]]];
-            salaryLab.text = [NSString stringWithFormat:@"%dK-%dK",[[dictionary objectForKey:@"salary_min"] intValue]/1000,[[dictionary objectForKey:@"salary_max"] intValue]/1000];
+            
+            NSString *salaryMin = [Util getCorrectString:[dictionary objectForKey:@"salary_min"]];
+            NSString *salaryMax = [Util getCorrectString:[dictionary objectForKey:@"salary_max"]];
+            if ([salaryMax intValue]==0||[salaryMin intValue]==0) {
+                salaryLab.text = @"面议";
+            }else
+            {
+                salaryLab.text = [NSString stringWithFormat:@"%dK-%dK",[salaryMin intValue]/1000,[salaryMax intValue]/1000];
+            }
+            
             
         }else
         {

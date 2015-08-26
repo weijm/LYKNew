@@ -33,18 +33,23 @@
                     [vie removeFromSuperview];
                 }
             }
+            float totalHeight =0;
             for (int i = 0; i < count; i++)
             {
                 NSDictionary *dic = [array objectAtIndex:i];
                 float height = 90;
                 if ([[dic objectForKey:@"certify_url"] length]>0) {
                     height = 90;
+                }else
+                {
+                   height = [Util myYOrHeight:45];
                 }
                 
-                CGRect frame = CGRectMake(0, height*i, infobg.frame.size.width, height);
+                CGRect frame = CGRectMake(0, totalHeight, infobg.frame.size.width, height);
                 CertificateView *view = [[CertificateView alloc] initWithFrame:frame];
-                [view loadData:dic];
+                [view loadSubView:dic];
                 [infobg addSubview:view];
+                totalHeight = totalHeight+height;
             }
         }else
         {

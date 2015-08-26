@@ -53,6 +53,9 @@
 {
     if (dictionary!=nil&&[dictionary isKindOfClass:[NSDictionary class]])
     {
+        for (UIView *view in [self subviews]) {
+            [view removeFromSuperview];
+        }
         CGRect frame = CGRectMake(0, 0, [self getLabWidth], 18);
         UILabel *dataLab = [[UILabel alloc] initWithFrame:frame];
         dataLab.backgroundColor = [UIColor clearColor];

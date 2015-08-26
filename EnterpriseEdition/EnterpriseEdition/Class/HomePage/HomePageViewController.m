@@ -373,11 +373,11 @@
 {
     NSArray *jsonArray = nil;
     if (isFirst) {
-         jsonArray = [NSArray arrayWithObjects:[CombiningData getPicList],[CombiningData getUIDInfo:kNumberList],[CombiningData getUIDInfo:kCommendList],[CombiningData getMineInfo:kGetUrgentInfo], nil];
+         jsonArray = [NSArray arrayWithObjects:[CombiningData getMineInfo:kGetUrgentInfo],[CombiningData getPicList],[CombiningData getUIDInfo:kNumberList],[CombiningData getUIDInfo:kCommendList], nil];
         isFirst = NO;
     }else
     {
-        jsonArray = [NSArray arrayWithObjects:[CombiningData getUIDInfo:kNumberList],[CombiningData getUIDInfo:kCommendList],[CombiningData getMineInfo:kGetUrgentInfo], nil];
+        jsonArray = [NSArray arrayWithObjects:[CombiningData getMineInfo:kGetUrgentInfo],[CombiningData getUIDInfo:kNumberList],[CombiningData getUIDInfo:kCommendList], nil];
     }
     
 
@@ -399,7 +399,6 @@
                 }else
                 {
                     [self dealWithData:result isSuccess:NO];
-
                 }
             }else
             {
@@ -426,8 +425,8 @@
         if (isSuccess) {
             NSArray *resultArr = [result objectForKey:@"data"];
             if ([resultArr count]>0) {
-                NSArray *array = [self getHireData:[resultArr firstObject]];
-                [hireOfView loadItem:array];
+                hireArray = [self getHireData:[resultArr firstObject]];
+                [hireOfView loadItem:hireArray];
             }
         }
        
@@ -445,6 +444,12 @@
             NSArray *tempAr = [result objectForKey:@"data"];
             if ([tempAr count]>0) {
                 urgentDic = [tempAr objectAtIndex:0];
+                //更新急招剩余时间 如果大于1小时 不更新
+                NSString*remaining = [self getUrgentRemaining];
+                if ([remaining length]>0) {
+                    [hireOfView changeHireBtTitle:[NSDictionary dictionaryWithObjectsAndKeys:@"急招 不足1小时",@"string",@"不足1小时",@"substring", nil] Index:1];
+                }
+                
             }else
             {
             }
@@ -483,14 +488,23 @@
                 }else if (i==1)
                 {
                     if ([content integerValue]>72||[content integerValue]==0) {
-                        NSString *string = [NSString stringWithFormat:@"%@",[dic objectForKey:@"string"]];
-                        [newDic setObject:string forKey:@"string"];
-                        [newDic setObject:@"" forKey:@"substring"];
+                         NSString *retaim = [self getUrgentRemaining];
+                        if ([retaim length]>0) {//小于1小时
+                            NSString *string = [NSString stringWithFormat:@"%@ %@",[dic objectForKey:@"string"],retaim];
+                            [newDic setObject:string forKey:@"string"];
+                            [newDic setObject:retaim forKey:@"substring"];
+                        }else
+                        {//急招过期
+                            NSString *string = [NSString stringWithFormat:@"%@",[dic objectForKey:@"string"]];
+                            [newDic setObject:string forKey:@"string"];
+                            [newDic setObject:@"" forKey:@"substring"];
+                        }
                     }else
                     {
                         NSString *string = [NSString stringWithFormat:@"%@ 剩余%@时",[dic objectForKey:@"string"],content];
                         [newDic setObject:string forKey:@"string"];
                         [newDic setObject:[NSString stringWithFormat:@"剩余%@时",content] forKey:@"substring"];
+                       
                     }
                     
                 }else if(i==4)
@@ -516,5 +530,27 @@
         }
         return resultArray;
     }
+}
+
+-(NSString*)getUrgentRemaining
+{
+    NSString *remainTime = [urgentDic objectForKey:@"over_time"];
+    
+    NSArray *array = [remainTime componentsSeparatedByString:@":"];
+    NSString *resultString = @"";
+    int strCount = 0;
+    for (int i=0; i< [array count]; i++) {
+        NSString *str = [array objectAtIndex:i];
+        if ([str isEqualToString:@"00"]) {
+            if (i==0) {
+                resultString = @"不足1小时";
+            }
+            strCount++;
+        }
+    }
+    if (strCount<[array count]) {
+        return resultString;
+    }
+    return @"";
 }
 @end

@@ -115,7 +115,6 @@
 }
 -(void)chooseBtAction:(NSInteger)index
 {
-    NSLog(@"footer index == %ld",index);
     if (index == 10||index ==100||index == 1000) {//判断 是全选 还是取消全选
         ResumeChooseBtView *btView = (ResumeChooseBtView *)[subView viewWithTag:index];
         if (btView.chooseBt.specialMark == 0) {

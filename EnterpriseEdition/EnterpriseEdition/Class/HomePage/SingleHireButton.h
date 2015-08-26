@@ -38,4 +38,8 @@
  点击事件
  */
 - (IBAction)clickedItemAction:(id)sender;
+/**
+ 修改文字
+ */
+-(void)changeSubViewTitle:(NSDictionary*)dictionary;
 @end

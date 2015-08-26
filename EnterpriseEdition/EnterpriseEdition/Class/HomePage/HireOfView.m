@@ -72,6 +72,20 @@
         [subView addSubview:itemView];
     }
 }
+-(void)changeHireBtTitle:(NSDictionary*)dictionary Index:(int)index
+{
+    //获取SingleHireButton
+    SingleHireButton *itemView = nil;
+    if (index>=kItemCount) {
+        itemView = (SingleHireButton *)[bottomBg viewWithTag:index];
+    }else
+    {
+        itemView = (SingleHireButton *)[topBg viewWithTag:index];
+    }
+    if (itemView!=nil) {
+        [itemView changeSubViewTitle:dictionary];
+    }
+}
 -(void)clickedItemAction:(int)index
 {
     self.clickedHire(index);
