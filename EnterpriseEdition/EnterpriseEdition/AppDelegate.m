@@ -10,6 +10,8 @@
 #import "RootViewController.h"
 #import "LoginViewController.h"
 #import "NdUncaughtExceptionHandler.h"
+#import "ResumeViewController.h"
+#import "PositionViewController.h"
 
 @interface AppDelegate ()
 
@@ -30,6 +32,7 @@
     RootViewController *rootVC = [[RootViewController alloc] init];
     rootVC.loginVC = loginVC;
     loginVC.delegate = rootVC;
+    rootVC.delegate = self;
     self.window.rootViewController = rootVC;
     //登录页面
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:loginVC];
@@ -69,5 +72,22 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+#pragma mark - UITabBarControllerDelegate
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    UINavigationController *nav = (UINavigationController*)viewController;
+    NSArray *array = nav.viewControllers;
+    if ([array count]>0) {
+        UIViewController *vc = (UIViewController *)[array firstObject];
+        if ([[[vc class] description] isEqualToString:@"ResumeViewController"]) {
+            ResumeViewController *resumeVC = (ResumeViewController *)vc;
+            [resumeVC loadStatusFromHomePage:1];
 
+        }else if ([[[vc class] description] isEqualToString:@"PositionViewController"])
+        {
+            PositionViewController *resumeVC = (PositionViewController *)vc;
+            [resumeVC loadStatusFromHomePage:1];
+        }
+    }
+}
 @end

@@ -11,7 +11,7 @@
 #import "FooterView.h"
 #import "NowHiringHeaderView.h"
 #import "ResumeInfoViewController.h"
-#define kNHeaderViewHeight [Util myYOrHeight:70]
+#define kNHeaderViewHeight [Util myYOrHeight:85]
 
 @interface NowHiringViewController ()
 {

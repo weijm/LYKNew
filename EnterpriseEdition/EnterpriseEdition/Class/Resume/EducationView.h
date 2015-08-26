@@ -17,4 +17,5 @@
     __weak IBOutlet UILabel *proLab;
 }
 -(void)loadData:(NSDictionary*)dictionary;
+-(void)loadSubView:(NSDictionary*)dictionary;
 @end

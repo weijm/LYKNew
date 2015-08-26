@@ -83,6 +83,11 @@
     }
     
     fstr1 = [Util getCorrectString:[dictionary objectForKey:@"birthday"]];
+    if ([fstr1 length]>6) {//大于4位 说明取到的是出生日期
+        if ([fstr1 length]>0) {
+            fstr1 = [NSString stringWithFormat:@"%@岁",[Util getCorrectString:[dictionary objectForKey:@"age"]]];
+        }
+    }
     fstr2 = [Util getCorrectString:[dictionary objectForKey:@"certificate_type"]];
     fstr3 = [Util getCorrectString:[dictionary objectForKey:@"salary"]];
     if ([fstr3 isEqualToString:@"0-0"]) {

@@ -10,8 +10,8 @@
 #import "ResumeChooseBtView.h"
 #import "UIButton+Custom.h"
 #define kEdgeWidth 25
-#define kBTHeight 27
-#define kPVHeight [Util myYOrHeight:40]
+#define kBTHeight 30
+#define kPVHeight [Util myYOrHeight:50]
 #define kLimitTime 72*60*60
 @implementation NowHiringHeaderView
 

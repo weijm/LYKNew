@@ -107,13 +107,13 @@
 }
 -(void)viewDidDisappear:(BOOL)animated
 {
-    currentPage1 = 1;
-    currentPage2 = 1;
-    currentPage3 = 1;
-    categaryType = 1;
-    if (headerView) {
-        [headerView changeButtonBgAndTextColor:categaryType-1];
-    }
+//    currentPage1 = 1;
+//    currentPage2 = 1;
+//    currentPage3 = 1;
+//    categaryType = 1;
+//    if (headerView) {
+//        [headerView changeButtonBgAndTextColor:categaryType-1];
+//    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

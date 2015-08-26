@@ -22,13 +22,13 @@
                         </constraints>
                     </imageView>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrz-SL-To5" userLabel="chooseBg">
-                        <rect key="frame" x="-10" y="5" width="20" height="117.5"/>
+                        <rect key="frame" x="-10" y="5" width="35" height="117.5"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N97-TF-MNF" userLabel="chooseBt" customClass="UIButton_Custom">
-                                <rect key="frame" x="-4" y="45" width="27" height="27.5"/>
+                                <rect key="frame" x="1" y="43" width="32" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="27" id="58o-Mn-aMl"/>
-                                    <constraint firstAttribute="width" constant="27" id="9hy-cb-qhE"/>
+                                    <constraint firstAttribute="height" constant="32" id="58o-Mn-aMl"/>
+                                    <constraint firstAttribute="width" constant="32" id="9hy-cb-qhE"/>
                                 </constraints>
                                 <state key="normal" image="resume_choose_bt.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -40,7 +40,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="20" id="1V3-OC-abH"/>
+                            <constraint firstAttribute="width" constant="35" id="1V3-OC-abH"/>
                             <constraint firstAttribute="centerX" secondItem="N97-TF-MNF" secondAttribute="centerX" id="RHm-2u-mHy"/>
                             <constraint firstAttribute="centerY" secondItem="N97-TF-MNF" secondAttribute="centerY" id="dMw-nE-51T"/>
                         </constraints>

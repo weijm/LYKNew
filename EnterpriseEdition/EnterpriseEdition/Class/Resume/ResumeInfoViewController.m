@@ -466,14 +466,10 @@
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
-                [self hideHUDWithComplete:@"数据处理成功"];
+                [self batchDataPrompt:result Success:YES];
             }else
             {
-                NSString *message = [result objectForKey:@"message"];
-                if ([message length]==0) {
-                    message = @"处理失败";
-                }
-                [self hideHUDFaild:message];
+               [self batchDataPrompt:result Success:NO];
             }
         }else
         {
@@ -499,6 +495,30 @@
     }];
 
 }
+#pragma mark - 收藏或取消收藏的提示
+-(void)batchDataPrompt:(id)result Success:(BOOL)isSuccess
+{
+    NSString *statusString = [result objectForKey:@"requestJson"];
+    NSDictionary *dic = [Util dictionaryWithJsonString:statusString];
+    int status = [[dic objectForKey:@"action_type"] intValue];
+    if (isSuccess) {
+        if (status == 1) {//收藏成功
+            [self hideHUDWithComplete:@"收藏成功"];
+        }else if (status == 2)//取消收藏
+        {
+            [self hideHUDWithComplete:@"取消收藏成功"];
+        }
+    }else
+    {
+        if (status == 1) {//收藏成功
+            [self hideHUDFaild:@"收藏失败"];
+        }else if (status == 2)//取消收藏
+        {
+            [self hideHUDFaild:@"取消收藏失败"];
+        }
+    }
+}
+
 #pragma mark- 每行文本显示的字数
 -(int)getEachLength:(int)index
 {
@@ -678,7 +698,11 @@
         NSArray *array = (NSArray*)obj;
         if ([array count]>0) {
             dictionary = [array firstObject];
-            self.title = [dictionary objectForKey:@"name"];
+            NSString *titleString = [dictionary objectForKey:@"name"];
+            if ([titleString length]>8) {//如果名字长度大于8 自动截取
+                titleString = [titleString substringToIndex:8];
+            }
+            self.title = titleString;
             [headerView loadData:dictionary];
             contactPhone = [dictionary objectForKey:@"contact_no"];
         }

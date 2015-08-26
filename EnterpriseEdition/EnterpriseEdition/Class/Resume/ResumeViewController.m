@@ -101,7 +101,6 @@
 #pragma mark - 首页点击进入
 -(void)loadStatusFromHomePage:(int)index
 {
-     NSLog(@"selected == %d",index);
     resumeCategory = index;
     if (headerView) {
         [headerView changeButtonBgAndTextColor:index-1];
@@ -121,14 +120,13 @@
 }
 -(void)viewDidDisappear:(BOOL)animated
 {
-    currentPage1 = 1;
-    currentPage2 = 1;
-    currentPage3 = 1;
-    resumeCategory = 1;
-    if (headerView) {
-        [headerView changeButtonBgAndTextColor:resumeCategory-1];
-    }
-    
+//    currentPage1 = 1;
+//    currentPage2 = 1;
+//    currentPage3 = 1;
+//    resumeCategory = 1;
+//    if (headerView) {
+//        [headerView changeButtonBgAndTextColor:resumeCategory-1];
+//    }
 }
 #pragma mark - navigation上的左右按钮
 -(void)initItems
@@ -426,8 +424,8 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (isEdit) {
-        [self rightAction];
+    if (isEdit) {//当处于编辑状态时 不让其进入详情
+        return;
     }
     ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
     NSDictionary *dic = nil;

@@ -37,6 +37,7 @@
         }
         float viewW = kWidth- 95;
         float viewH = 70;
+        float edge = 5;
         for (UIView *vie in [infoBg subviews]) {
             if (vie) {
                 [vie removeFromSuperview];
@@ -45,8 +46,8 @@
         for (int i =0; i< count; i++)
         {
             NSDictionary *dic = [dataArray objectAtIndex:i];
-            EducationView *eduView = [[EducationView alloc] initWithFrame:CGRectMake(0, viewH*i, viewW, viewH)];
-            [eduView loadData:dic];
+            EducationView *eduView = [[EducationView alloc] initWithFrame:CGRectMake(0, viewH*i+edge*i, viewW, viewH)];
+            [eduView loadSubView:dic];
             [infoBg addSubview:eduView];
             
         }

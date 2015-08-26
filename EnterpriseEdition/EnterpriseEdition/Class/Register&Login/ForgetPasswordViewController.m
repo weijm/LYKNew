@@ -15,6 +15,7 @@
     UITapGestureRecognizer *cancelKeyTap;
     
     NSMutableArray *contentArray;
+    UIWebView *phoneWebView;
 }
 @end
 
@@ -63,6 +64,16 @@
 -(void)makeCall
 {
     NSLog(@"拨打电话");
+    //客服电话
+    if ([Util checkDevice:@"iPod"]||[Util checkDevice:@"iPad"]){
+        [Util showPrompt:@"该设备不支持打电话的功能"];
+        return;
+    }
+    if (phoneWebView==nil) {
+        phoneWebView = [[UIWebView alloc] init];
+    }
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel:4008907977"]];
+    [phoneWebView loadRequest:[NSURLRequest requestWithURL:url]];
     
 }
 #pragma mark -UITableViewDelegate

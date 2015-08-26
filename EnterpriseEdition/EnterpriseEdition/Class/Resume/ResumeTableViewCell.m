@@ -200,7 +200,7 @@
             [UIView animateWithDuration:0.25 animations:^{
                 bgToLeft.constant = 40;
                 bgToRight.constant = -20;
-                chooseToLeft.constant = 10;
+                chooseToLeft.constant = 0;
                 
             } completion:^(BOOL finished){
                 

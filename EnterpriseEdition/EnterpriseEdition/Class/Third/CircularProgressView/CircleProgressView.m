@@ -120,16 +120,25 @@
     
     NSMutableAttributedString *attributedString;
     
-    
+    float fontSize1 = 9;
+    float fontSize2 = 8;
+    if (kIphone6) {
+        fontSize1 = 11;
+        fontSize2 = 10;
+    }else if(kIphone6plus)
+    {
+        fontSize1 = 12;
+        fontSize2 = 11;
+    }
     if (_status.length > 0) {
 
         attributedString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n%@", progressString, _status]];
        
         [attributedString addAttributes:@{
-                                        NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-thin" size:9]}
+                                        NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-thin" size:fontSize1]}
                                 range:NSMakeRange(0, progressString.length)];
         [attributedString addAttributes:@{
-                                        NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-thin" size:8]}
+                                        NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-thin" size:fontSize2]}
                                 range:NSMakeRange(progressString.length+1, _status.length)];
         [attributedString addAttributes:@{
                                           NSForegroundColorAttributeName: [UIColor grayColor]}

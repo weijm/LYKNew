@@ -205,6 +205,9 @@
                 }else if([keyString hasSuffix:@"type"])
                 {
                     contentString = [contentDic objectForKey:@"selectedId"];
+                }else if ([keyString isEqualToString:@"internships"])
+                {
+                    contentString = [contentDic objectForKey:@"selectedId"];
                 }
                 
             }
