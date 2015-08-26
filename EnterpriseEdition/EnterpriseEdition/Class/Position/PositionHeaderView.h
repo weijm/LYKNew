@@ -16,4 +16,8 @@
 }
 @property (nonatomic,copy)void(^chooseHeaderBtAction)(NSInteger index);
 -(void)chooseBtAction:(NSInteger)index;
+
+//修改header的界面
+-(void)changeButtonBgAndTextColor:(int)index;
+
 @end

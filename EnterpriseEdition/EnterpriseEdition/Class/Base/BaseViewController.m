@@ -49,6 +49,7 @@
 - (void)showHUD:(NSString *)title {
     _hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
     _hud.customView = nil;
+    _hud.mode = MBProgressHUDModeIndeterminate;
     _hud.labelText = title;
     _hud.dimBackground = YES;
 }

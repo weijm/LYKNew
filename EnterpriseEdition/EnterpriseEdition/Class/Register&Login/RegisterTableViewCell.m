@@ -103,6 +103,10 @@
         if ([contentString length]>0) {
             contentTextField.text = contentString;
             codeTextField.text = contentString;
+        }else
+        {
+            contentTextField.text = @"";
+            codeTextField.text = @"";
         }
     }
 }

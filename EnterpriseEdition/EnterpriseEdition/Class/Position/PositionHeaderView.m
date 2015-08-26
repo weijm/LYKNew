@@ -57,6 +57,12 @@
 -(void)chooseBtAction:(NSInteger)index
 {
     //界面更改
+    [self changeButtonBgAndTextColor:(int)index];
+    //事件处理
+    self.chooseHeaderBtAction(index);
+}
+-(void)changeButtonBgAndTextColor:(int)index
+{
     for (ResumeChooseBtView *view in [subbg subviews]) {
         if ([view isKindOfClass:[ResumeChooseBtView class]]) {
             if (view.tag != index) {
@@ -69,8 +75,7 @@
             }
         }
     }
-    //事件处理
-    self.chooseHeaderBtAction(index);
+    
 }
 
 @end

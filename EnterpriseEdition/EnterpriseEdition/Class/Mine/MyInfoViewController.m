@@ -170,14 +170,9 @@
 }
 -(void)exitApplication
 {
-    //退出登录
-    [[NSNotificationCenter defaultCenter] postNotificationName:kLoginOut object:@"1"];
-    //清空本地缓存的数据
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setObject:@"" forKey:kLoginOrExit];
-    [userDefault setObject:@"" forKey:kUID];
+    UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"确定要退出该账号吗？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+    [alterView show];
     
-    [self performSelector:@selector(reloadView) withObject:nil afterDelay:1.5];
     
 }
 -(void)reloadView
@@ -211,5 +206,20 @@
             [self hideHUDFaild:@"服务器请求失败"];
         }
     }];
+}
+
+#pragma mark - 退出确认
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex ==0) {
+        //退出登录
+        [[NSNotificationCenter defaultCenter] postNotificationName:kLoginOut object:@"1"];
+        //清空本地缓存的数据
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        [userDefault setObject:@"" forKey:kLoginOrExit];
+        [userDefault setObject:@"" forKey:kUID];
+        
+        [self performSelector:@selector(reloadView) withObject:nil afterDelay:1.5];
+    }
 }
 @end

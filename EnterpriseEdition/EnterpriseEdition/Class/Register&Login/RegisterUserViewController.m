@@ -37,13 +37,21 @@
     contentArray = [[NSMutableArray alloc] initWithObjects:@"",@"",@"",@"",@"", nil];
     //设置协议的字体颜色
     [self loadTopLabText];
-    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kRegisterAccount];
+    
     
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
     //将计时器停止
     [[NSNotificationCenter defaultCenter] postNotificationName:@"CodeTimer" object:nil];
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    contentArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",  nil];
+    [dataTableView reloadData];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kRegisterAccount];
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

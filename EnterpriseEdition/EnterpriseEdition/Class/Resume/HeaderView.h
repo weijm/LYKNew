@@ -28,4 +28,7 @@
  点击headerView上的按钮的触发事件
  */
 -(void)chooseBtAction:(NSInteger)index;
+
+//修改header的界面
+-(void)changeButtonBgAndTextColor:(int)index;
 @end

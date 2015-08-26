@@ -104,7 +104,7 @@
      NSLog(@"selected == %d",index);
     resumeCategory = index;
     if (headerView) {
-        [headerView chooseBtAction:index-1];
+        [headerView changeButtonBgAndTextColor:index-1];
     }
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -215,7 +215,7 @@
         ResumeViewController *sself = wself;
         [sself chooseAction:index isChooseAll:NO];
     };
-    [headerView chooseBtAction:resumeCategory-1];
+    [headerView changeButtonBgAndTextColor:resumeCategory-1];
 
     [self.view addSubview:headerView];
 }
@@ -775,12 +775,15 @@
                             dataArray = [NSMutableArray array];
                         }else if (resumeCategory ==2)
                         {
+                            message = @"该企业暂无收藏简历";
                             colledtedArray = [NSMutableArray array];
                         }else
                         {
+                            message = @"该企业暂无下载简历";
                             downloadArray = [NSMutableArray array];
                         }
                         [dataTableView reloadData];
+                        self.navigationItem.rightBarButtonItem.enabled = NO;
                     }
                     [self hideHUDFaild:message];
                 }else

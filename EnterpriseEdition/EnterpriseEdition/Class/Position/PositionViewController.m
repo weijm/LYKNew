@@ -94,7 +94,7 @@
 {
     categaryType = index;
     if (headerView) {
-        [headerView chooseBtAction:index-1];
+        [headerView changeButtonBgAndTextColor:index-1];
     }
     
 }
@@ -336,7 +336,7 @@
         PositionViewController *sself = wself;
         [sself chooseAction:index isChooseAll:NO];
     };
-    [headerView chooseBtAction:categaryType-1];
+    [headerView changeButtonBgAndTextColor:categaryType-1];
     headerView.backgroundColor = kCVBackgroundColor;
     [self.view addSubview:headerView];
 }
@@ -594,26 +594,11 @@
             break;
     }
     NSString *listJson = [CombiningData getPositionList:page Status:status];;
-    NSArray *jsonArr = nil;
     if (!isMore) {
         [self showHUD:@"正在加载数据"];
-//        jsonArr = [NSArray arrayWithObjects:[CombiningData getMineInfo:kGetUrgentInfo],listJson, nil];
-        
-    }else
-    {
-        jsonArr = [NSArray arrayWithObjects:listJson, nil];
     }
-     jsonArr = [NSArray arrayWithObjects:listJson, nil];
     //请求服务器
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
-        NSString *json = [result objectForKey:@"requestJson"];
-        NSDictionary *dic = [Util dictionaryWithJsonString:json];
-        NSString *type = [dic objectForKey:@"type"];
-        if ([type isEqualToString:kGetUrgentInfo]) {
-            //处理急招的信息
-            //            [self dealUrgentInfo:result];
-            return ;
-        }
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
                 //加载首页数据
@@ -642,16 +627,19 @@
                 NSString *message = [result objectForKey:@"message"];
                 
                 if (!isMore) {
-                    if ([message length]==0) {
-                        message = @"暂无数据";
+                    if ([message length]==0||[message isEqualToString:@"该企业暂无职位"]) {
+                        
                         if (categaryType ==1) {
                             validArray = [NSMutableArray array];
+                            message = @"该企业暂无收到的简历";
                         }else if (categaryType ==2)
                         {
                             offlineArray = [NSMutableArray array];
+                            message = @"该企业暂无下线的简历";
                         }else
                         {
                             toAuditArray = [NSMutableArray array];
+                             message = @"该企业暂无待审核的简历";
                         }
                         [dataTableView reloadData];
                     }
