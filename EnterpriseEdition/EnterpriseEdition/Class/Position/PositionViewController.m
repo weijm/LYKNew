@@ -81,6 +81,7 @@
         toAuditArray = nil;
         chooseArray = nil;
         self.navigationItem.rightBarButtonItem.enabled = NO;
+        [dataTableView reloadData];
     }else
     {
         currentPage1 = 1;
@@ -105,16 +106,7 @@
     currentPage3 = 1;
     [self getData];
 }
--(void)viewDidDisappear:(BOOL)animated
-{
-//    currentPage1 = 1;
-//    currentPage2 = 1;
-//    currentPage3 = 1;
-//    categaryType = 1;
-//    if (headerView) {
-//        [headerView changeButtonBgAndTextColor:categaryType-1];
-//    }
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

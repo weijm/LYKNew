@@ -95,6 +95,8 @@
         colledtedArray = nil;
         downloadArray = nil;
         chooseArray = nil;
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+        [dataTableView reloadData];
     }
 }
 
