@@ -423,7 +423,6 @@
                 }else
                 {
                     //请求的数据有问题
-                    NSLog(@"result>0 == %@",result);
                 }
             }else
             {

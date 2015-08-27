@@ -585,7 +585,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
-                [self hideHUD];
+                [self hideHUDWithComplete:@"保存成功"];
                 [self performSelector:@selector(nextActionAfterSave) withObject:nil afterDelay:1.5];
             }else
             {

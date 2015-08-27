@@ -93,12 +93,12 @@
 {
     if(_cellType ==1)
     {
-        if (self.tag ==0) {
+        if (self.tag ==0||self.tag ==1) {
             NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-            int stringLength = 15;
+            int stringLength = (self.tag==0)?15:20;
             if ([newString length]>stringLength)
             {
-                [Util showPrompt:@"不能超过15字"];
+                [Util showPrompt:[NSString stringWithFormat:@"不能超过%d字",stringLength]];
                 textField.text = [newString substringToIndex:stringLength];
                 if ([_delegate respondsToSelector:@selector(cancelKey)]) {
                     [_delegate cancelKey];

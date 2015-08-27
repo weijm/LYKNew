@@ -381,7 +381,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                 
             }
             if (i==0||i==1) {
-                int strLenght = (i==0)?15:30;
+                int strLenght = (i==0)?15:20;
                 if ([content length]>strLenght) {
                     [Util showPrompt:[NSString stringWithFormat:@"%@ 不超过%d字",title,strLenght]];
                     isFull = NO;
