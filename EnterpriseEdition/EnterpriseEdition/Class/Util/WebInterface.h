@@ -118,3 +118,13 @@
 //线上
 //#define kUploadImg [NSString stringWithFormat:@"http://interface.ezz2.1zhaozhao.com/upload_file_0a20ece95e098dd38621410f5a3f8dda.php"]
 
+
+#pragma mark - 信息
+//消息列表
+#define kMsgList @"ent_message_list"
+//消息详情
+#define kMsgInfo @"ent_message_view"
+//批量设置已读和删除
+#define kMsgSet @"ent_message_set"
+//获取消息的未读数量
+#define kMsgUnReadCount @"ent_message_new"

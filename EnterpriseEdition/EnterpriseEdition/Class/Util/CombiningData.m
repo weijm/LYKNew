@@ -361,6 +361,18 @@
                             @"{\"token\":\"%@\",\"type\":\"%@\",\"uid\":\"%@\"}",kToken,type,uid];
     return jsonString;
 }
+#pragma mark - 信息
++(NSString*)getMsgList:(int)filter Page:(int)page
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userDefault objectForKey:kUID];
+    NSString *filterStr = [NSString stringWithFormat:@"%d",filter];
+    NSString *pagestr = [NSString stringWithFormat:@"%d",page];
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"filter\":\"%@\",\"page\":\"%@\",\"ent_user_id\":\"%@\"}",kToken,kMsgList,filterStr,pagestr,uid];
+    return jsonString;
+    
+}
 //md5加密
 + (NSString *)md5HexDigest:(NSString *)password
 {

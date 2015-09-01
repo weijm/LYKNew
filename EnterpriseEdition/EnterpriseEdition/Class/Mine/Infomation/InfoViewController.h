@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "InfoTableViewCell.h"
 
-@interface InfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,InfoTableViewCellDelegate>
+@interface InfoViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,InfoTableViewCellDelegate>
 {
     
     __weak IBOutlet BaseTableView *dataTableView;

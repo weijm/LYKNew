@@ -481,7 +481,6 @@
 #pragma mark - 请求服务器
 -(void)requestSaveOrCommitInfo:(NSString*)type Prompt:(NSString*)ptomptString jobId:(NSString*)jID  ActionType:(NSString*)actionType
 {
-    DLog(@"contentArray  == %@",contentArray);
     NSString *jsonString = [CombiningData addPosition:contentArray Type:type PositionId:jID ActionType:actionType];
     [self showHUD:[NSString stringWithFormat:@"正在%@",ptomptString]];
     //请求服务器

@@ -109,6 +109,12 @@
  获取首页数据
  */
 +(NSString*)getUIDInfo:(NSString*)type;
+#pragma mark - 信息
+/**
+ 获取信息列表
+ */
++(NSString*)getMsgList:(int)filter Page:(int)page;
+
 #pragma mark - 从本地数据库中转换id
 /**
  获取地区对应的ids字典

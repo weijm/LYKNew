@@ -29,6 +29,11 @@
     
     int currentPage;
     
+    //条件数组
+    NSArray *contionArray;
+    
+    
+    
 }
 @end
 
@@ -51,7 +56,13 @@
     dataTableView.backgroundColor = [UIColor clearColor];
     dataTableView.separatorColor = [UIColor clearColor];
     
-  
+    [dataTableView setupRefresh];
+    __weak SearchResumeViewController *wself = self;
+    dataTableView.refreshData = ^{
+        SearchResumeViewController *sself = wself;
+        [sself refreshData];
+    };
+    currentPage = 1;//第一页
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -61,6 +72,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+#pragma mark - 刷新
+//刷新加载更多
+-(void)refreshData
+{
+    isLoading = YES;
+    //请求数据
+    [self requestSearchResume:contionArray isMore:YES];
+    //本页其他事件不可触发
+    [self subViewEnabled:NO];
 }
 
 #pragma mark - 初始化搜索条
@@ -291,10 +312,11 @@
         NSMutableArray *conArray = [NSMutableArray arrayWithArray:conditionArray];
         dataArray = [NSMutableArray array];
         [dataTableView reloadData];
+        //记录条件数组
+        contionArray = [NSArray arrayWithArray:conArray];
+        currentPage = 1;
         //请求服务器
         [self requestSearchResume:conArray isMore:NO];
-        
-
         //确定搜索条件 进行搜索
         [filtrateView removeFromSuperview];
     }else
@@ -521,7 +543,7 @@
             }else
             {
                 NSString *message = [result objectForKey:@"message"];
-                if ([message length]==0) {
+                if ([message length]==0||[message isEqualToString:@"没找到简历"]) {
                     message = @"搜索结果0";
                 }
                 if (!isMore) {
@@ -529,7 +551,7 @@
                 }else
                 {
                     NSString *msg = [result objectForKey:@"message"];
-                    if ([msg length]==0) {
+                    if ([msg length]==0||[msg isEqualToString:@"没找到简历"]) {
                         [dataTableView changeProText:YES];
                         [self performSelector:@selector(stopRefreshLoading) withObject:nil afterDelay:0.5];
                     }else
@@ -553,67 +575,6 @@
             
         }
     }];
-//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
-//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-//        if (result!=nil) {
-//            if ([[result objectForKey:@"result"] intValue]>0) {
-//                //加载首页数据
-//                NSArray *dataArr = [result objectForKey:@"data"];
-//                //全选数组标记
-//                if(page==1)
-//                {   //如果第一页 加载的时候 初始化 chooseArray 否则直接增加到数组中
-//                    chooseArray = [NSMutableArray array];
-//                }
-//                for (int i=0; i< [dataArr count]; i++) {
-//                    [chooseArray addObject:@""];
-//                }
-//                [self dealWithResponeData:dataArr];
-//                //将提示视图取消
-//                if (!isMore) {
-//                    [self hideHUD];
-//                }else
-//                {
-//                    [dataTableView stopRefresh];
-//                    isLoading = NO;
-//                    [self subViewEnabled:YES];
-//                }
-//                
-//            }else
-//            {
-//                NSString *message = [result objectForKey:@"message"];
-//                if ([message length]==0) {
-//                    message = @"搜索结果0";
-//                }
-//                if (!isMore) {
-//                    [self hideHUDFaild:message];
-//                }else
-//                {
-//                    NSString *msg = [result objectForKey:@"message"];
-//                    if ([msg length]==0) {
-//                        [dataTableView changeProText:YES];
-//                        [self performSelector:@selector(stopRefreshLoading) withObject:nil afterDelay:0.5];
-//                    }else
-//                    {
-//                        [self stopRefreshLoading];
-//                    }
-//                    
-//                }
-//                
-//            }
-//        }else
-//        {
-//            if (!isMore) {
-//                [self hideHUDFaild:@"服务器请求失败"];
-//            }else
-//            {
-//                [dataTableView stopRefresh];
-//                isLoading = NO;
-//                [self subViewEnabled:YES];
-//            }
-//            
-//        }
-//    };
-    
 }
 //停止刷新
 -(void)stopRefreshLoading

@@ -52,7 +52,7 @@
         //导航条的颜色
         [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
         self.navigationController.navigationBar.translucent = NO;
-        [self performSelector:@selector(requestInfoFromWeb) withObject:nil afterDelay:0.0];
+        [self performSelector:@selector(requestInfoFromWeb:) withObject:[NSNumber numberWithBool:NO] afterDelay:0.0];
         
     }else//从简历管理里面进入的
     {
@@ -70,8 +70,6 @@
         [sself refreshData];
     };
    
-    //获取数据
-//    [self getData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,6 +83,7 @@
         self.navigationController.navigationBar.translucent = NO;
     }
 }
+
 #pragma mark - 编辑按钮
 -(void)initItems
 {
@@ -400,36 +399,13 @@
         }
     }
 }
-#pragma mark - 获取数据
--(void)getData
-{
-    dataArray = [[NSMutableArray alloc] init];
-    NSString *jobStr = @"软件工程师";
-    
-    for (int i =0; i < 6; i++) {
-        NSString *job = [NSString stringWithFormat:@"%@%d",jobStr,i];
-        NSString *time = [NSString stringWithFormat:@"08-%d",i+10];
-        NSString *name = [NSString stringWithFormat:@"张晓%d",i];
-        NSString *age = [NSString stringWithFormat:@"%d",i];
-        NSString *money = [NSString stringWithFormat:@"%d-%d",500*(i+1),800*(i+1)];
-        NSString *exp = (i%3==0)?@"有工作经验":@"";
-        NSString *urgent = @"0";
-        NSString *colledted = @"0";
-        NSString *download = @"0";
-        
-        [dataArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:job,@"job",urgent,@"urgent",colledted,@"collected",download,@"download",time,@"time",name,@"name",@"女",@"sex",@"UI设计师",@"selfjob",age,@"age",@"本科",@"record",money,@"money",@"艺术设计",@"professional",@"中国传媒大学",@"school",exp,@"experience",nil]];
-    }
-    
-    [dataTableView reloadData];
-    chooseArray = [[NSMutableArray alloc] initWithCapacity:[dataArray count]];
-    for (int i=0; i< [dataArray count]; i++) {
-        [chooseArray addObject:@""];
-    }
-    self.navigationItem.rightBarButtonItem.enabled = YES;
-}
 #define  mark - 获取更多推荐简历
--(void)requestInfoFromWeb
+-(void)requestInfoFromWeb:(BOOL)isMore
 {
+//    int page = currentPage;
+//    if (!isMore) {
+//        [self showHUD:@"正在加载数据"];
+//    }
     NSString *jsonString = [CombiningData getUIDInfo:kCommendList];
     [self showHUD:@"正在加载数据"];
     //请求服务器
@@ -450,29 +426,8 @@
             //                [self showAlertView:@"服务器请求失败"];
         }
     }];
-//    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost WithSSl:nil];
-//    [AFHttpClient sharedClient].FinishedDidBlock = ^(id result,NSError *error){
-//        requestCount++;
-//        
-//        if (result!=nil) {
-//            if ([[result objectForKey:@"result"] intValue]>0) {
-//                [self hideHUD];
-//                dataArray = [result objectForKey:@"data"];
-//                [dataTableView reloadData];
-//                
-//            }else
-//            {
-//                [self hideHUDFaild:[result objectForKey:@"message"]];
-//            }
-//        }else
-//        {
-//            [self hideHUDFaild:@"服务器请求失败"];
-//            //                [self showAlertView:@"服务器请求失败"];
-//        }
-//    };
     
 }
-
 #pragma mark - 获取职位收到的简历
 -(void)requestResumeListFromPosition:(BOOL)isMore
 {
@@ -583,15 +538,20 @@
 //刷新加载更多
 -(void)refreshData
 {
-    if (rightBt.specialMark == 0) {//不处于编辑状态 可以加载更多
+    if (!_isForPisition) {//推荐简历 加载更多
+        isLoading = YES;
+        //请求数据
+        [self requestInfoFromWeb:YES];
+        //本页其他事件不可触发
+        [self subViewEnabled:NO];
+    }else
+    {//职位下收到的简历 加载更多
         isLoading = YES;
         //请求数据
         [self requestResumeListFromPosition:YES];
         //本页其他事件不可触发
         [self subViewEnabled:NO];
-    }else
-    {
-        [dataTableView stopRefresh];
+   
     }
 }
 

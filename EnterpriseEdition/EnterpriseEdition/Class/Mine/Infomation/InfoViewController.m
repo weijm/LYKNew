@@ -23,6 +23,13 @@
     UIButton_Custom *filtrateBt;
     
     InfoFiltrateView *infoFiltrateView;
+    int currentPage;
+    
+    BOOL isMore;
+    
+    BOOL isLoading;
+    
+    int selectedFilter;
 }
 @end
 
@@ -44,11 +51,18 @@
         InfoViewController *sself = wself;
         [sself refreshData];
     };
+    currentPage = 1;
+    selectedFilter = 0;
+    [self performSelector:@selector(requestData) withObject:nil afterDelay:0.0];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)requestData
+{
+    [self requestMsgList:selectedFilter];
 }
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -291,5 +305,88 @@
 -(void)refreshData
 {
     [dataTableView stopRefresh];
+}
+#pragma mark - 请求服务器
+-(void)requestMsgList:(int)filter
+{
+    int page = currentPage;
+    
+    if (!isMore) {
+        [self showHUD:@"正在加载数据"];
+    }
+    NSString *listJson = [CombiningData getMsgList:filter Page:currentPage];
+    
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                //加载首页数据
+                NSArray *dataArr = [result objectForKey:@"data"];
+                //全选数组标记
+                if(page==1)
+                {   //如果第一页 加载的时候 初始化 chooseArray 否则直接增加到数组中
+                    chooseArray = [NSMutableArray array];
+                }
+                for (int i=0; i< [dataArr count]; i++) {
+                    [chooseArray addObject:@""];
+                }
+//                [self dealWithResponeData:dataArr];
+                //将提示视图取消
+                if (!isMore) {
+                    [self hideHUD];
+                }else
+                {
+                    [dataTableView stopRefresh];
+                    isLoading = NO;
+//                    [self subViewEnabled:YES];
+                }
+                
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                if ([message length]==0) {
+                    message = @"数据为空";
+                }
+                if (!isMore) {
+                    dataArray = nil;
+                    [dataTableView reloadData];
+                    self.navigationItem.rightBarButtonItem.enabled = NO;
+                    [self hideHUDFaild:message];
+                }else
+                {
+                    //                    NSString *msg = [result objectForKey:@"message"];
+                    [dataTableView changeProText:YES];
+                    [self performSelector:@selector(stopRefreshLoading) withObject:nil afterDelay:0.5];
+                }
+                
+                
+            }
+        }else
+        {
+            if (!isMore) {
+                [self hideHUDFaild:@"服务器请求失败"];
+            }else
+            {
+                [dataTableView stopRefresh];
+                isLoading = NO;
+                [self subViewEnabled:YES];
+            }
+            
+        }
+        
+    }];
+}
+-(void)subViewEnabled:(BOOL)enable
+{
+    self.navigationItem.rightBarButtonItem.enabled = enable;
+    self.navigationItem.leftBarButtonItem.enabled = enable;
+}
+//停止刷新
+-(void)stopRefreshLoading
+{
+    [dataTableView stopRefresh];
+    isLoading = NO;
+    [self subViewEnabled:YES];
+    [dataTableView changeProText:NO];
 }
 @end

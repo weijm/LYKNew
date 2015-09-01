@@ -47,6 +47,10 @@
         case 4:
             titleLab.text = @"修改密码";
             break;
+        case 5:
+            titleLab.text = @"信       息";
+            break;
+
             
         default:
             break;

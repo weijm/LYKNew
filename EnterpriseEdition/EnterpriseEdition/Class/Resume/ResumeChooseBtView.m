@@ -25,7 +25,7 @@
         if (kIphone5||kIphone4) {
             _chooseBt.titleLabel.font = [UIFont systemFontOfSize:13];
         }
-        
+        vline.backgroundColor = Rgb(2, 139, 230, 1.0);
     }
     return self;
 }

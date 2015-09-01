@@ -12,7 +12,7 @@
 #import "MyTableViewCell2.h"
 #import "VersionViewController.h"
 #import "ChangePasswordViewController.h"
-//#import "InfoViewController.h"
+#import "InfoViewController.h"
 #import "EnterpriseInfoViewController.h"
 
 
@@ -49,7 +49,7 @@
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 6;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -140,11 +140,6 @@
         enterpriseInfoVC.entStatus = [[resumeInfoDic objectForKey:@"ent_status"] intValue];
         [self.navigationController pushViewController:enterpriseInfoVC animated:YES];
     }
-//    else if (indexPath.row == 2) {
-//        InfoViewController *infoVC = [[InfoViewController alloc] init];
-//        infoVC.hidesBottomBarWhenPushed = YES;
-//        [self.navigationController pushViewController:infoVC animated:YES];
-//    }
     else if (indexPath.row == 2) {
         VersionViewController *versionVC = [[VersionViewController alloc] init];
         versionVC.hidesBottomBarWhenPushed = YES;
@@ -167,6 +162,11 @@
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel:4008907977"]];
         [phoneWebView loadRequest:[NSURLRequest requestWithURL:url]];
     }
+        else if (indexPath.row == 5) {
+            InfoViewController *infoVC = [[InfoViewController alloc] init];
+            infoVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:infoVC animated:YES];
+        }
 }
 -(void)exitApplication
 {
