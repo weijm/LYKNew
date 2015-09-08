@@ -40,10 +40,17 @@
     
     
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"注册"];
+}
 -(void)viewWillDisappear:(BOOL)animated
 {
     //将计时器停止
     [[NSNotificationCenter defaultCenter] postNotificationName:@"CodeTimer" object:nil];
+    //
+    [MobClick endLogPageView:@"注册"];
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -229,12 +236,15 @@
 //注册请求服务器
 -(void)requestRegister:(NSString*)phone Password:(NSString*)password Code:(NSString*)code;
 {
+    
     [self showHUD:@"正在注册"];
     NSString *registerJson = [CombiningData registerUser:phone Password:password Verify:code];
     //请求服务器
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:registerJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {
             if ([[result objectForKey:@"result"] intValue]>0) {
+                //注册成功 友盟统计
+                [MobClick event:@"registerId"];
                 [self hideHUDWithComplete:@"注册成功"];
                 //将用户ID 进行存储
                 NSArray *dataArr = [result objectForKey:@"data"];

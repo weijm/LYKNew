@@ -81,3 +81,5 @@
 #import "BaseViewController.h"
 #import "BaseTableView.h"
 #import "NSString+Extension.h"
+//友盟统计
+#import "MobClick.h"

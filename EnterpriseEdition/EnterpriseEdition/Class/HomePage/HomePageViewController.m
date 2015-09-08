@@ -17,6 +17,7 @@
 #import "HireOfView.h"
 #import "ResumeInfoViewController.h"
 #import "WebSourceViewController.h"
+#import "ScanCodeViewController.h"
 
 #define kBannerViewHeight [Util myYOrHeight:180]
 #define kHireViewHeight [Util myYOrHeight:174]
@@ -202,6 +203,18 @@
     [leftBt addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
     self.navigationItem.leftBarButtonItem = leftItem;
+    
+//    UIButton *rightBt = [UIButton buttonWithType:UIButtonTypeCustom];//[[UIButton alloc] initWithFrame:frame];
+//    rightBt.frame = frame;
+//    [rightBt setImage:[UIImage imageNamed:@"home_edit_btn"] forState:UIControlStateNormal];
+//    imageInsets = rightBt.imageEdgeInsets;
+//    rightBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left+20, imageInsets.bottom, imageInsets.right-20);
+//    rightBt.titleLabel.font = [UIFont systemFontOfSize:14];
+//    UIEdgeInsets titleInsets = rightBt.titleEdgeInsets;
+//    rightBt.titleEdgeInsets = UIEdgeInsetsMake(titleInsets.top, titleInsets.left+20, titleInsets.bottom, titleInsets.right-20);
+//    [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
+//    self.navigationItem.rightBarButtonItem = rightItem;
 }
 #pragma mark -- item Action
 -(void)leftAction
@@ -211,6 +224,12 @@
     searchVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:searchVC animated:YES];
     
+}
+-(void)rightAction
+{
+    ScanCodeViewController *scanVC = [[ScanCodeViewController alloc] init];
+    scanVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:scanVC animated:YES];
 }
 #pragma mark - 初始化应聘部分的视图
 -(void)initHireView:(UIView*)view

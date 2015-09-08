@@ -12,7 +12,6 @@
 #import "NdUncaughtExceptionHandler.h"
 #import "ResumeViewController.h"
 #import "PositionViewController.h"
-#import "MobClick.h"
 
 @interface AppDelegate ()
 

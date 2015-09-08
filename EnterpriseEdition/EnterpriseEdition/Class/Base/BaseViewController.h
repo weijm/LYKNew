@@ -27,4 +27,6 @@
 //数据请求错误提示
 - (void)hideHUDFaild:(NSString *)title;
 - (void)showAlertView:(NSString *)alertTitle;
+
+-(void)leftAction;
 @end

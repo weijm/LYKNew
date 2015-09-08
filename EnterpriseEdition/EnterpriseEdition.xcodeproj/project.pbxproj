@@ -62,6 +62,12 @@
 		200897881B902DDA00B155EC /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2008977C1B902DDA00B155EC /* InfoViewController.xib */; };
 		200A57701B9E7356003FF9FD /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 200A576D1B9E7356003FF9FD /* libMobClickLibrary.a */; };
 		200A57721B9E739B003FF9FD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 200A57711B9E739B003FF9FD /* libz.dylib */; };
+		200A57781B9ED206003FF9FD /* ScanCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 200A57761B9ED206003FF9FD /* ScanCodeViewController.m */; };
+		200A57791B9ED206003FF9FD /* ScanCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 200A57771B9ED206003FF9FD /* ScanCodeViewController.xib */; };
+		200A577B1B9ED233003FF9FD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 200A577A1B9ED233003FF9FD /* AVFoundation.framework */; };
+		200A577E1B9ED999003FF9FD /* home_pick_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 200A577C1B9ED999003FF9FD /* home_pick_bg@2x.png */; };
+		200A577F1B9ED999003FF9FD /* home_scan_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 200A577D1B9ED999003FF9FD /* home_scan_line@2x.png */; };
+		200A57841B9EDEB5003FF9FD /* QrCodeGenerated.m in Sources */ = {isa = PBXBuildFile; fileRef = 200A57831B9EDEB5003FF9FD /* QrCodeGenerated.m */; };
 		2018CA381B60E77000F6200F /* VersionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2018CA361B60E77000F6200F /* VersionViewController.m */; };
 		2018CA391B60E77000F6200F /* VersionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2018CA371B60E77000F6200F /* VersionViewController.xib */; };
 		2018CA3F1B60EE5B00F6200F /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2018CA3D1B60EE5B00F6200F /* ChangePasswordViewController.m */; };
@@ -499,6 +505,14 @@
 		200A576E1B9E7356003FF9FD /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		200A576F1B9E7356003FF9FD /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		200A57711B9E739B003FF9FD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		200A57751B9ED206003FF9FD /* ScanCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanCodeViewController.h; sourceTree = "<group>"; };
+		200A57761B9ED206003FF9FD /* ScanCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanCodeViewController.m; sourceTree = "<group>"; };
+		200A57771B9ED206003FF9FD /* ScanCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScanCodeViewController.xib; sourceTree = "<group>"; };
+		200A577A1B9ED233003FF9FD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		200A577C1B9ED999003FF9FD /* home_pick_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_pick_bg@2x.png"; sourceTree = "<group>"; };
+		200A577D1B9ED999003FF9FD /* home_scan_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_line@2x.png"; sourceTree = "<group>"; };
+		200A57821B9EDEB5003FF9FD /* QrCodeGenerated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QrCodeGenerated.h; sourceTree = "<group>"; };
+		200A57831B9EDEB5003FF9FD /* QrCodeGenerated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QrCodeGenerated.m; sourceTree = "<group>"; };
 		2018CA351B60E77000F6200F /* VersionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionViewController.h; sourceTree = "<group>"; };
 		2018CA361B60E77000F6200F /* VersionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionViewController.m; sourceTree = "<group>"; };
 		2018CA371B60E77000F6200F /* VersionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VersionViewController.xib; sourceTree = "<group>"; };
@@ -962,6 +976,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				200A577B1B9ED233003FF9FD /* AVFoundation.framework in Frameworks */,
 				200A57721B9E739B003FF9FD /* libz.dylib in Frameworks */,
 				200A57701B9E7356003FF9FD /* libMobClickLibrary.a in Frameworks */,
 				20D468A71B6F12DF008A7B78 /* MobileCoreServices.framework in Frameworks */,
@@ -1121,6 +1136,18 @@
 				200A576F1B9E7356003FF9FD /* MobClickSocialAnalytics.h */,
 			);
 			path = StatisticsSDK;
+			sourceTree = "<group>";
+		};
+		200A57811B9EDE7B003FF9FD /* QrCode */ = {
+			isa = PBXGroup;
+			children = (
+				200A57751B9ED206003FF9FD /* ScanCodeViewController.h */,
+				200A57761B9ED206003FF9FD /* ScanCodeViewController.m */,
+				200A57771B9ED206003FF9FD /* ScanCodeViewController.xib */,
+				200A57821B9EDEB5003FF9FD /* QrCodeGenerated.h */,
+				200A57831B9EDEB5003FF9FD /* QrCodeGenerated.m */,
+			);
+			name = QrCode;
 			sourceTree = "<group>";
 		};
 		201A9C7E1B53608500664792 /* FiltrateView */ = {
@@ -1327,7 +1354,7 @@
 		2097D2C71B461E7000611432 = {
 			isa = PBXGroup;
 			children = (
-				200A57711B9E739B003FF9FD /* libz.dylib */,
+				200A577A1B9ED233003FF9FD /* AVFoundation.framework */,
 				2097D3211B463D1A00611432 /* Framework */,
 				2097D2D21B461E7000611432 /* EnterpriseEdition */,
 				2097D2EC1B461E7000611432 /* EnterpriseEditionTests */,
@@ -1496,6 +1523,7 @@
 				20D44F0A1B844CC900DB9550 /* NdUncaughtExceptionHandler.m */,
 				204168A61B8AED3600263B83 /* NSString+Extension.h */,
 				204168A71B8AED3600263B83 /* NSString+Extension.m */,
+				200A57811B9EDE7B003FF9FD /* QrCode */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1503,6 +1531,7 @@
 		2097D3211B463D1A00611432 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				200A57711B9E739B003FF9FD /* libz.dylib */,
 				20D468A61B6F12DF008A7B78 /* MobileCoreServices.framework */,
 				20D468A41B6F12CA008A7B78 /* Security.framework */,
 				20A32A0C1B58A38800E1B5F8 /* libsqlite3.0.dylib */,
@@ -1585,6 +1614,8 @@
 		20B43CE01B85C6820067E37C /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				200A577C1B9ED999003FF9FD /* home_pick_bg@2x.png */,
+				200A577D1B9ED999003FF9FD /* home_scan_line@2x.png */,
 				203A302C1B8744CF0058E40E /* homepage_commendRe_urgent_mark@2x.png */,
 				20B43D681B85D6C40067E37C /* home_search_btn@2x.png */,
 				20B43D041B85CC110067E37C /* homepage_banner_select@2x.png */,
@@ -2247,6 +2278,7 @@
 				20B43D2A1B85D1FD0067E37C /* my_enterprise_left_line@2x.png in Resources */,
 				20B43D031B85CBFD0067E37C /* my_notification_icon@2x.png in Resources */,
 				20C93F4E1B6861600050514B /* position_item_icon3@3x.png in Resources */,
+				200A57791B9ED206003FF9FD /* ScanCodeViewController.xib in Resources */,
 				201EDB111B575F0F0080A12A /* JobIntensionTableViewCell.xib in Resources */,
 				201EDB1B1B5795AB0080A12A /* HobbiesTableViewCell.xib in Resources */,
 				20054EA81B663536009FA771 /* EnterpriseContactViewController.xib in Resources */,
@@ -2271,6 +2303,7 @@
 				20C93F5D1B689E000050514B /* position_urgent_select@3x.png in Resources */,
 				20D1CDF91B56474500E97935 /* ResumeInfoViewController.xib in Resources */,
 				20F0F25C1B5E24D500CB1D71 /* PositionViewController.xib in Resources */,
+				200A577F1B9ED999003FF9FD /* home_scan_line@2x.png in Resources */,
 				20C93F8D1B68D1B20050514B /* login_number_mark@3x.png in Resources */,
 				20B43D1D1B85CD730067E37C /* my_check_pass@2x.png in Resources */,
 				20F0F2361B5E137700CB1D71 /* CommendResumeTableViewCell.xib in Resources */,
@@ -2435,6 +2468,7 @@
 				2076B2C81B5CEB3400BC7D97 /* NowHiringTableViewCell.xib in Resources */,
 				203EF5211B6A298D000F292D /* resume_search_bg@3x.png in Resources */,
 				20C93F4F1B6861600050514B /* position_item_icon5@3x.png in Resources */,
+				200A577E1B9ED999003FF9FD /* home_pick_bg@2x.png in Resources */,
 				20B43D4C1B85D2D60067E37C /* position_prompt_img@2x.png in Resources */,
 				201EDB161B57819E0080A12A /* EducationTableViewCell.xib in Resources */,
 				20B43D491B85D2D60067E37C /* position_item_icon5@2x.png in Resources */,
@@ -2513,6 +2547,7 @@
 				200897811B902DDA00B155EC /* InfoDetailViewController.m in Sources */,
 				20D6F44B1B60D0FA00AC0394 /* TopImgBotTitleView.m in Sources */,
 				201EDB1F1B579BE90080A12A /* ExperienceTableViewCell.m in Sources */,
+				200A57841B9EDEB5003FF9FD /* QrCodeGenerated.m in Sources */,
 				201EDB321B57AA6A0080A12A /* ExperienceView.m in Sources */,
 				20054E7F1B65DC01009FA771 /* SetPasswordViewController.m in Sources */,
 				20D468AB1B6F1A23008A7B78 /* CombiningData.m in Sources */,
@@ -2547,6 +2582,7 @@
 				203D99581B7361A200A39F46 /* BaseTableView.m in Sources */,
 				2097D2D61B461E7000611432 /* main.m in Sources */,
 				20D468921B6F12AB008A7B78 /* AFHttpClient.m in Sources */,
+				200A57781B9ED206003FF9FD /* ScanCodeViewController.m in Sources */,
 				2000779B1B71ED690015E261 /* SDWebImageDownloaderOperation.m in Sources */,
 				20F0F25B1B5E24D500CB1D71 /* PositionViewController.m in Sources */,
 				200077A01B71ED690015E261 /* UIImage+MultiFormat.m in Sources */,

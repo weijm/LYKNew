@@ -205,6 +205,9 @@
                 }else if([keyString hasSuffix:@"type"])
                 {
                     contentString = [contentDic objectForKey:@"selectedId"];
+                    if ([keyString isEqualToString:@"certificate_type"]&&[contentString intValue]==4) {
+                        contentString = @"-1";
+                    }
                 }else if ([keyString isEqualToString:@"internships"])
                 {
                     contentString = [contentDic objectForKey:@"selectedId"];
