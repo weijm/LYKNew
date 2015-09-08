@@ -176,6 +176,8 @@
                     if ([_delegate respondsToSelector:@selector(cancelGetCodeLoding:)]) {
                         [_delegate cancelGetCodeLoding:[result objectForKey:@"message"]];
                     }
+                    //获取验证码按钮可点
+                    codeBt.enabled = YES;
 
                 }
             }else
@@ -183,6 +185,8 @@
                 if ([_delegate respondsToSelector:@selector(cancelGetCodeLoding:)]) {
                     [_delegate cancelGetCodeLoding:[result objectForKey:@"服务器请求失败"]];
                 }
+                //获取验证码按钮可点
+                codeBt.enabled = YES;
             }
         }];
 

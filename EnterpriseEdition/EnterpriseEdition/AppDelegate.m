@@ -12,6 +12,7 @@
 #import "NdUncaughtExceptionHandler.h"
 #import "ResumeViewController.h"
 #import "PositionViewController.h"
+#import "MobClick.h"
 
 @interface AppDelegate ()
 
@@ -24,6 +25,12 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
+    //友盟统计
+    [MobClick startWithAppkey:@"55ee385467e58e6578003dad" reportPolicy:BATCH   channelId:@""];
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    [MobClick setAppVersion:version];
+    //发布时注释掉
+     [MobClick setLogEnabled:YES];
     
     //设置状态条为白色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
@@ -46,8 +53,7 @@
     if ([loginOrExit integerValue]!= 1) {
         [rootVC presentViewController:navigation animated:YES completion:nil];
     }
-     [NdUncaughtExceptionHandler setDefaultHandler];
-    [Util printBugContent];
+    
     return YES;
 }
 

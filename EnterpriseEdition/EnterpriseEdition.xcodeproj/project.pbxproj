@@ -60,6 +60,8 @@
 		200897861B902DDA00B155EC /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 200897791B902DDA00B155EC /* InfoTableViewCell.xib */; };
 		200897871B902DDA00B155EC /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2008977B1B902DDA00B155EC /* InfoViewController.m */; };
 		200897881B902DDA00B155EC /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2008977C1B902DDA00B155EC /* InfoViewController.xib */; };
+		200A57701B9E7356003FF9FD /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 200A576D1B9E7356003FF9FD /* libMobClickLibrary.a */; };
+		200A57721B9E739B003FF9FD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 200A57711B9E739B003FF9FD /* libz.dylib */; };
 		2018CA381B60E77000F6200F /* VersionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2018CA361B60E77000F6200F /* VersionViewController.m */; };
 		2018CA391B60E77000F6200F /* VersionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2018CA371B60E77000F6200F /* VersionViewController.xib */; };
 		2018CA3F1B60EE5B00F6200F /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2018CA3D1B60EE5B00F6200F /* ChangePasswordViewController.m */; };
@@ -493,6 +495,10 @@
 		2008977A1B902DDA00B155EC /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		2008977B1B902DDA00B155EC /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		2008977C1B902DDA00B155EC /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
+		200A576D1B9E7356003FF9FD /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		200A576E1B9E7356003FF9FD /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		200A576F1B9E7356003FF9FD /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
+		200A57711B9E739B003FF9FD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2018CA351B60E77000F6200F /* VersionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionViewController.h; sourceTree = "<group>"; };
 		2018CA361B60E77000F6200F /* VersionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionViewController.m; sourceTree = "<group>"; };
 		2018CA371B60E77000F6200F /* VersionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VersionViewController.xib; sourceTree = "<group>"; };
@@ -956,6 +962,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				200A57721B9E739B003FF9FD /* libz.dylib in Frameworks */,
+				200A57701B9E7356003FF9FD /* libMobClickLibrary.a in Frameworks */,
 				20D468A71B6F12DF008A7B78 /* MobileCoreServices.framework in Frameworks */,
 				20D468A51B6F12CA008A7B78 /* Security.framework in Frameworks */,
 				20A32A0D1B58A38800E1B5F8 /* libsqlite3.0.dylib in Frameworks */,
@@ -1103,6 +1111,16 @@
 				2008977C1B902DDA00B155EC /* InfoViewController.xib */,
 			);
 			path = Infomation;
+			sourceTree = "<group>";
+		};
+		200A576C1B9E7356003FF9FD /* StatisticsSDK */ = {
+			isa = PBXGroup;
+			children = (
+				200A576D1B9E7356003FF9FD /* libMobClickLibrary.a */,
+				200A576E1B9E7356003FF9FD /* MobClick.h */,
+				200A576F1B9E7356003FF9FD /* MobClickSocialAnalytics.h */,
+			);
+			path = StatisticsSDK;
 			sourceTree = "<group>";
 		};
 		201A9C7E1B53608500664792 /* FiltrateView */ = {
@@ -1282,6 +1300,7 @@
 		208EBDAE1B4A82C000AB0730 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				200A576C1B9E7356003FF9FD /* StatisticsSDK */,
 				203D993D1B735E6E00A39F46 /* MJRefresh */,
 				200077731B71ED690015E261 /* SDWebImage */,
 				203C930B1B70B82000AA017E /* TextViewPlaceholder */,
@@ -1308,6 +1327,7 @@
 		2097D2C71B461E7000611432 = {
 			isa = PBXGroup;
 			children = (
+				200A57711B9E739B003FF9FD /* libz.dylib */,
 				2097D3211B463D1A00611432 /* Framework */,
 				2097D2D21B461E7000611432 /* EnterpriseEdition */,
 				2097D2EC1B461E7000611432 /* EnterpriseEditionTests */,
@@ -2733,6 +2753,10 @@
 				INFOPLIST_FILE = EnterpriseEdition/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EnterpriseEdition/Class/Third/StatisticsSDK",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "45d74193-b7eb-4d20-90ff-191fc86f9207";
@@ -2752,6 +2776,10 @@
 				INFOPLIST_FILE = EnterpriseEdition/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EnterpriseEdition/Class/Third/StatisticsSDK",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "45d74193-b7eb-4d20-90ff-191fc86f9207";

@@ -539,11 +539,12 @@
 -(void)refreshData
 {
     if (!_isForPisition) {//推荐简历 加载更多
-        isLoading = YES;
-        //请求数据
-        [self requestInfoFromWeb:YES];
-        //本页其他事件不可触发
-        [self subViewEnabled:NO];
+        [self stopRefreshLoading];
+//        isLoading = YES;
+//        //请求数据
+//        [self requestInfoFromWeb:YES];
+//        //本页其他事件不可触发
+//        [self subViewEnabled:NO];
     }else
     {//职位下收到的简历 加载更多
         isLoading = YES;
