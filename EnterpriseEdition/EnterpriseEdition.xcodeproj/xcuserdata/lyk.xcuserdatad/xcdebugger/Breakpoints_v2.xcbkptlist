@@ -77,5 +77,53 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnterpriseEdition/Class/HomePage/Search/SearchResumeViewController.m"
+            timestampString = "463455551.825674"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "519"
+            endingLineNumber = "519"
+            landmarkName = "-requestSearchResume:isMore:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SearchResumeViewController requestSearchResume:isMore:]"
+                  moduleName = "EnterpriseEdition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lyk/Desktop/LYKNew/EnterpriseEdition/EnterpriseEdition/Class/HomePage/Search/SearchResumeViewController.m"
+                  timestampString = "463455551.850991"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "519"
+                  endingLineNumber = "519"
+                  offsetFromSymbolStart = "316">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__57-[SearchResumeViewController requestSearchResume:isMore:]_block_invoke"
+                  moduleName = "EnterpriseEdition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lyk/Desktop/LYKNew/EnterpriseEdition/EnterpriseEdition/Class/HomePage/Search/SearchResumeViewController.m"
+                  timestampString = "463455551.851253"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "519"
+                  endingLineNumber = "519"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

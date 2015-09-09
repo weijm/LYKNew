@@ -1354,7 +1354,6 @@
 		2097D2C71B461E7000611432 = {
 			isa = PBXGroup;
 			children = (
-				200A577A1B9ED233003FF9FD /* AVFoundation.framework */,
 				2097D3211B463D1A00611432 /* Framework */,
 				2097D2D21B461E7000611432 /* EnterpriseEdition */,
 				2097D2EC1B461E7000611432 /* EnterpriseEditionTests */,
@@ -1531,6 +1530,7 @@
 		2097D3211B463D1A00611432 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				200A577A1B9ED233003FF9FD /* AVFoundation.framework */,
 				200A57711B9E739B003FF9FD /* libz.dylib */,
 				20D468A61B6F12DF008A7B78 /* MobileCoreServices.framework */,
 				20D468A41B6F12CA008A7B78 /* Security.framework */,
