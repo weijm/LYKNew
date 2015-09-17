@@ -102,6 +102,11 @@
         }
         
     }
-    
+    if (_isInQRCode) {
+        arrowImg.hidden = YES;
+    }else
+    {
+        arrowImg.hidden = NO;
+    }
 }
 @end

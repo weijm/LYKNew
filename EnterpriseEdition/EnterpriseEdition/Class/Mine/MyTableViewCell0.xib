@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -107,6 +107,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="arrowHeight" destination="Bs4-aj-td3" id="D9K-6F-FYQ"/>
+                <outlet property="arrowImg" destination="ehq-e6-JCq" id="Vf6-Kb-GKJ"/>
                 <outlet property="arrowwidth" destination="Ofl-a9-gr0" id="IbM-BS-uxx"/>
                 <outlet property="enterpriseNameLab" destination="g18-tC-Cb4" id="hXR-JK-Csz"/>
                 <outlet property="iconHeight" destination="zSw-cS-bkM" id="9N6-nP-Kaa"/>
@@ -121,8 +122,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="my_check_pass.png" width="70" height="70"/>
-        <image name="my_enterprise_arrow.png" width="15" height="15"/>
-        <image name="my_icon.png" width="70" height="70"/>
+        <image name="my_check_pass.png" width="69" height="15"/>
+        <image name="my_enterprise_arrow.png" width="7" height="14"/>
+        <image name="my_icon.png" width="58" height="58"/>
     </resources>
 </document>

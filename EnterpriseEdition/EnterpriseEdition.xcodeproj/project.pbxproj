@@ -62,12 +62,12 @@
 		200897881B902DDA00B155EC /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2008977C1B902DDA00B155EC /* InfoViewController.xib */; };
 		200A57701B9E7356003FF9FD /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 200A576D1B9E7356003FF9FD /* libMobClickLibrary.a */; };
 		200A57721B9E739B003FF9FD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 200A57711B9E739B003FF9FD /* libz.dylib */; };
-		200A57781B9ED206003FF9FD /* ScanCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 200A57761B9ED206003FF9FD /* ScanCodeViewController.m */; };
-		200A57791B9ED206003FF9FD /* ScanCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 200A57771B9ED206003FF9FD /* ScanCodeViewController.xib */; };
 		200A577B1B9ED233003FF9FD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 200A577A1B9ED233003FF9FD /* AVFoundation.framework */; };
 		200A577E1B9ED999003FF9FD /* home_pick_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 200A577C1B9ED999003FF9FD /* home_pick_bg@2x.png */; };
 		200A577F1B9ED999003FF9FD /* home_scan_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 200A577D1B9ED999003FF9FD /* home_scan_line@2x.png */; };
 		200A57841B9EDEB5003FF9FD /* QrCodeGenerated.m in Sources */ = {isa = PBXBuildFile; fileRef = 200A57831B9EDEB5003FF9FD /* QrCodeGenerated.m */; };
+		200B2FDB1BAA5A54002FEDCD /* homepage_jobfair_default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 200B2FDA1BAA5A54002FEDCD /* homepage_jobfair_default@3x.png */; };
+		200B2FDD1BAA5A63002FEDCD /* homepage_jobfair_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 200B2FDC1BAA5A63002FEDCD /* homepage_jobfair_default@2x.png */; };
 		2018CA381B60E77000F6200F /* VersionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2018CA361B60E77000F6200F /* VersionViewController.m */; };
 		2018CA391B60E77000F6200F /* VersionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2018CA371B60E77000F6200F /* VersionViewController.xib */; };
 		2018CA3F1B60EE5B00F6200F /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2018CA3D1B60EE5B00F6200F /* ChangePasswordViewController.m */; };
@@ -158,6 +158,8 @@
 		204168AF1B8B0C7B00263B83 /* resume_cer_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204168AE1B8B0C7B00263B83 /* resume_cer_default@2x.png */; };
 		204168B11B8B0C8700263B83 /* resume_cer_default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204168B01B8B0C8700263B83 /* resume_cer_default@3x.png */; };
 		205CA9C31B4BD9F4007BAC89 /* UIButton+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 205CA9C21B4BD9F4007BAC89 /* UIButton+Custom.m */; };
+		207334B41BAA93FB00EA3A61 /* MyCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207334B21BAA93FB00EA3A61 /* MyCodeViewController.m */; };
+		207334B51BAA93FB00EA3A61 /* MyCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 207334B31BAA93FB00EA3A61 /* MyCodeViewController.xib */; };
 		2076B2BA1B5C9A1E00BC7D97 /* SearchResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2076B2B81B5C9A1E00BC7D97 /* SearchResumeViewController.m */; };
 		2076B2BB1B5C9A1E00BC7D97 /* SearchResumeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2076B2B91B5C9A1E00BC7D97 /* SearchResumeViewController.xib */; };
 		2076B2BF1B5CA83C00BC7D97 /* SearchResumeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2076B2BD1B5CA83C00BC7D97 /* SearchResumeTableViewCell.m */; };
@@ -194,6 +196,8 @@
 		20A32A2C1B59096500E1B5F8 /* NowHiringViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A32A2A1B59096500E1B5F8 /* NowHiringViewController.xib */; };
 		20A32A3A1B5909AD00E1B5F8 /* OpenPositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A32A381B5909AD00E1B5F8 /* OpenPositionViewController.m */; };
 		20A32A3B1B5909AD00E1B5F8 /* OpenPositionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A32A391B5909AD00E1B5F8 /* OpenPositionViewController.xib */; };
+		20A4D5D21BAAA22200C0D265 /* ScanCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A4D5D01BAAA22200C0D265 /* ScanCodeViewController.m */; };
+		20A4D5D31BAAA22200C0D265 /* ScanCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A4D5D11BAAA22200C0D265 /* ScanCodeViewController.xib */; };
 		20B43CE51B85C6BF0067E37C /* home_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20B43CE11B85C6BF0067E37C /* home_icon@2x.png */; };
 		20B43CE61B85C6BF0067E37C /* my_person_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20B43CE21B85C6BF0067E37C /* my_person_icon@2x.png */; };
 		20B43CE71B85C6BF0067E37C /* position_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20B43CE31B85C6BF0067E37C /* position_icon@2x.png */; };
@@ -521,14 +525,13 @@
 		200A576E1B9E7356003FF9FD /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		200A576F1B9E7356003FF9FD /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		200A57711B9E739B003FF9FD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		200A57751B9ED206003FF9FD /* ScanCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanCodeViewController.h; sourceTree = "<group>"; };
-		200A57761B9ED206003FF9FD /* ScanCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanCodeViewController.m; sourceTree = "<group>"; };
-		200A57771B9ED206003FF9FD /* ScanCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScanCodeViewController.xib; sourceTree = "<group>"; };
 		200A577A1B9ED233003FF9FD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		200A577C1B9ED999003FF9FD /* home_pick_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_pick_bg@2x.png"; sourceTree = "<group>"; };
 		200A577D1B9ED999003FF9FD /* home_scan_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_line@2x.png"; sourceTree = "<group>"; };
 		200A57821B9EDEB5003FF9FD /* QrCodeGenerated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QrCodeGenerated.h; sourceTree = "<group>"; };
 		200A57831B9EDEB5003FF9FD /* QrCodeGenerated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QrCodeGenerated.m; sourceTree = "<group>"; };
+		200B2FDA1BAA5A54002FEDCD /* homepage_jobfair_default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_jobfair_default@3x.png"; sourceTree = "<group>"; };
+		200B2FDC1BAA5A63002FEDCD /* homepage_jobfair_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_jobfair_default@2x.png"; sourceTree = "<group>"; };
 		2018CA351B60E77000F6200F /* VersionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionViewController.h; sourceTree = "<group>"; };
 		2018CA361B60E77000F6200F /* VersionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionViewController.m; sourceTree = "<group>"; };
 		2018CA371B60E77000F6200F /* VersionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VersionViewController.xib; sourceTree = "<group>"; };
@@ -661,6 +664,9 @@
 		204168B01B8B0C8700263B83 /* resume_cer_default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_cer_default@3x.png"; sourceTree = "<group>"; };
 		205CA9C11B4BD9F4007BAC89 /* UIButton+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Custom.h"; sourceTree = "<group>"; };
 		205CA9C21B4BD9F4007BAC89 /* UIButton+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Custom.m"; sourceTree = "<group>"; };
+		207334B11BAA93FB00EA3A61 /* MyCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCodeViewController.h; sourceTree = "<group>"; };
+		207334B21BAA93FB00EA3A61 /* MyCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCodeViewController.m; sourceTree = "<group>"; };
+		207334B31BAA93FB00EA3A61 /* MyCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCodeViewController.xib; sourceTree = "<group>"; };
 		2076B2B71B5C9A1E00BC7D97 /* SearchResumeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResumeViewController.h; sourceTree = "<group>"; };
 		2076B2B81B5C9A1E00BC7D97 /* SearchResumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResumeViewController.m; sourceTree = "<group>"; };
 		2076B2B91B5C9A1E00BC7D97 /* SearchResumeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResumeViewController.xib; sourceTree = "<group>"; };
@@ -722,6 +728,9 @@
 		20A32A371B5909AD00E1B5F8 /* OpenPositionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenPositionViewController.h; sourceTree = "<group>"; };
 		20A32A381B5909AD00E1B5F8 /* OpenPositionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenPositionViewController.m; sourceTree = "<group>"; };
 		20A32A391B5909AD00E1B5F8 /* OpenPositionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpenPositionViewController.xib; sourceTree = "<group>"; };
+		20A4D5CF1BAAA22200C0D265 /* ScanCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanCodeViewController.h; sourceTree = "<group>"; };
+		20A4D5D01BAAA22200C0D265 /* ScanCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanCodeViewController.m; sourceTree = "<group>"; };
+		20A4D5D11BAAA22200C0D265 /* ScanCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScanCodeViewController.xib; sourceTree = "<group>"; };
 		20B43CE11B85C6BF0067E37C /* home_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_icon@2x.png"; sourceTree = "<group>"; };
 		20B43CE21B85C6BF0067E37C /* my_person_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my_person_icon@2x.png"; sourceTree = "<group>"; };
 		20B43CE31B85C6BF0067E37C /* position_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "position_icon@2x.png"; sourceTree = "<group>"; };
@@ -1177,9 +1186,6 @@
 		200A57811B9EDE7B003FF9FD /* QrCode */ = {
 			isa = PBXGroup;
 			children = (
-				200A57751B9ED206003FF9FD /* ScanCodeViewController.h */,
-				200A57761B9ED206003FF9FD /* ScanCodeViewController.m */,
-				200A57771B9ED206003FF9FD /* ScanCodeViewController.xib */,
 				200A57821B9EDEB5003FF9FD /* QrCodeGenerated.h */,
 				200A57831B9EDEB5003FF9FD /* QrCodeGenerated.m */,
 			);
@@ -1303,6 +1309,7 @@
 		2037E8C71BA94AEB0068AE7D /* JobFair */ = {
 			isa = PBXGroup;
 			children = (
+				200B2FDA1BAA5A54002FEDCD /* homepage_jobfair_default@3x.png */,
 				2037E8C81BA94AF90068AE7D /* homepage_jobfair_icon0@3x.png */,
 				2037E8C91BA94AF90068AE7D /* homepage_jobfair_icon1@3x.png */,
 				2037E8CA1BA94AF90068AE7D /* homepage_jobfair_icon2@3x.png */,
@@ -1313,6 +1320,7 @@
 		2037E8CE1BA96EFA0068AE7D /* JobFair */ = {
 			isa = PBXGroup;
 			children = (
+				200B2FDC1BAA5A63002FEDCD /* homepage_jobfair_default@2x.png */,
 				2037E8CF1BA96F0E0068AE7D /* homepage_jobfair_icon0@2x.png */,
 				2037E8D01BA96F0E0068AE7D /* homepage_jobfair_icon1@2x.png */,
 				2037E8D11BA96F0E0068AE7D /* homepage_jobfair_icon2@2x.png */,
@@ -1568,6 +1576,7 @@
 		2097D30E1B462F0A00611432 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				20A4D5CE1BAAA20F00C0D265 /* ScanQRC */,
 				2030B9841BA8FA0500C9739A /* JobFair */,
 				203FEFDE1B7EF14900B5D3CF /* WebSource */,
 				20F0F22A1B5DF84400CB1D71 /* CommendResume */,
@@ -1683,6 +1692,16 @@
 				20A32A391B5909AD00E1B5F8 /* OpenPositionViewController.xib */,
 			);
 			path = OpenPositions;
+			sourceTree = "<group>";
+		};
+		20A4D5CE1BAAA20F00C0D265 /* ScanQRC */ = {
+			isa = PBXGroup;
+			children = (
+				20A4D5CF1BAAA22200C0D265 /* ScanCodeViewController.h */,
+				20A4D5D01BAAA22200C0D265 /* ScanCodeViewController.m */,
+				20A4D5D11BAAA22200C0D265 /* ScanCodeViewController.xib */,
+			);
+			path = ScanQRC;
 			sourceTree = "<group>";
 		};
 		20B43CDF1B85C6820067E37C /* 2@ */ = {
@@ -2197,6 +2216,9 @@
 				2018CA3C1B60EE5B00F6200F /* ChangePasswordViewController.h */,
 				2018CA3D1B60EE5B00F6200F /* ChangePasswordViewController.m */,
 				2018CA3E1B60EE5B00F6200F /* ChangePasswordViewController.xib */,
+				207334B11BAA93FB00EA3A61 /* MyCodeViewController.h */,
+				207334B21BAA93FB00EA3A61 /* MyCodeViewController.m */,
+				207334B31BAA93FB00EA3A61 /* MyCodeViewController.xib */,
 			);
 			name = Mine;
 			path = EnterpriseEdition/Class/Mine;
@@ -2366,6 +2388,7 @@
 				2037E8D71BA9806F0068AE7D /* home_pick_bg@3x.png in Resources */,
 				2097D3191B462F9900611432 /* BannerView.xib in Resources */,
 				20B43D481B85D2D60067E37C /* position_item_icon4@2x.png in Resources */,
+				200B2FDB1BAA5A54002FEDCD /* homepage_jobfair_default@3x.png in Resources */,
 				2030B9891BA8FA7500C9739A /* JobFairListViewController.xib in Resources */,
 				20D6F4521B60D5A000AC0394 /* MyTableViewCell2.xib in Resources */,
 				20B43D621B85D5170067E37C /* resume_search_bt@2x.png in Resources */,
@@ -2377,13 +2400,13 @@
 				20B43D2A1B85D1FD0067E37C /* my_enterprise_left_line@2x.png in Resources */,
 				20B43D031B85CBFD0067E37C /* my_notification_icon@2x.png in Resources */,
 				20C93F4E1B6861600050514B /* position_item_icon3@3x.png in Resources */,
-				200A57791B9ED206003FF9FD /* ScanCodeViewController.xib in Resources */,
 				201EDB111B575F0F0080A12A /* JobIntensionTableViewCell.xib in Resources */,
 				201EDB1B1B5795AB0080A12A /* HobbiesTableViewCell.xib in Resources */,
 				20054EA81B663536009FA771 /* EnterpriseContactViewController.xib in Resources */,
 				20BA85BE1B67693900757788 /* homepage_hire_icon4@3x.png in Resources */,
 				20E9E1761B5F97A50013A865 /* ItemView.xib in Resources */,
 				20A32A3B1B5909AD00E1B5F8 /* OpenPositionViewController.xib in Resources */,
+				20A4D5D31BAAA22200C0D265 /* ScanCodeViewController.xib in Resources */,
 				20B43D411B85D2D60067E37C /* position_claim_close_bt@2x.png in Resources */,
 				20B43CF31B85C8AC0067E37C /* homepage_hire_icon1@2x.png in Resources */,
 				20B43D431B85D2D60067E37C /* position_invalid_mark@2x.png in Resources */,
@@ -2469,6 +2492,7 @@
 				201EDB2F1B579C7C0080A12A /* CertificateTableViewCell.xib in Resources */,
 				2097D3131B462F0A00611432 /* RootViewController.xib in Resources */,
 				2007808D1B6B432B004D9EB4 /* position_check_state1@3x.png in Resources */,
+				200B2FDD1BAA5A63002FEDCD /* homepage_jobfair_default@2x.png in Resources */,
 				20BA85E21B67878B00757788 /* resume_protrait_weman_default@3x.png in Resources */,
 				20C93F851B68CD980050514B /* my_enterprise_addpic_bt@3x.png in Resources */,
 				20B43CE61B85C6BF0067E37C /* my_person_icon@2x.png in Resources */,
@@ -2518,6 +2542,7 @@
 				20B43D0F1B85CC1A0067E37C /* my_cell_icon5@2x.png in Resources */,
 				20C93F681B68A1EA0050514B /* my_cell_icon5@3x.png in Resources */,
 				20E9E1651B5F8EAB0013A865 /* PositionInfoTableViewCell0.xib in Resources */,
+				207334B51BAA93FB00EA3A61 /* MyCodeViewController.xib in Resources */,
 				20B43D2B1B85D1FD0067E37C /* my_enterprise_right_line@2x.png in Resources */,
 				20BA85C61B676DB200757788 /* home_search_btn@3x.png in Resources */,
 				20C93F5E1B689E000050514B /* position_urgent_selected@3x.png in Resources */,
@@ -2626,6 +2651,7 @@
 				20D4689A1B6F12AB008A7B78 /* AFURLResponseSerialization.m in Sources */,
 				20D468981B6F12AB008A7B78 /* AFURLConnectionOperation.m in Sources */,
 				200077991B71ED690015E261 /* SDWebImageDecoder.m in Sources */,
+				207334B41BAA93FB00EA3A61 /* MyCodeViewController.m in Sources */,
 				203FEFE21B7EF16F00B5D3CF /* WebSourceViewController.m in Sources */,
 				203D99551B735E6E00A39F46 /* UIView+MJExtension.m in Sources */,
 				201EDB1A1B5795AB0080A12A /* HobbiesTableViewCell.m in Sources */,
@@ -2694,7 +2720,6 @@
 				203D99581B7361A200A39F46 /* BaseTableView.m in Sources */,
 				2097D2D61B461E7000611432 /* main.m in Sources */,
 				20D468921B6F12AB008A7B78 /* AFHttpClient.m in Sources */,
-				200A57781B9ED206003FF9FD /* ScanCodeViewController.m in Sources */,
 				2000779B1B71ED690015E261 /* SDWebImageDownloaderOperation.m in Sources */,
 				20F0F25B1B5E24D500CB1D71 /* PositionViewController.m in Sources */,
 				200077A01B71ED690015E261 /* UIImage+MultiFormat.m in Sources */,
@@ -2720,6 +2745,7 @@
 				2030B98D1BA8FAAA00C9739A /* JobFairInfoViewController.m in Sources */,
 				2097D3121B462F0A00611432 /* RootViewController.m in Sources */,
 				20F0F2551B5E242E00CB1D71 /* MyInfoViewController.m in Sources */,
+				20A4D5D21BAAA22200C0D265 /* ScanCodeViewController.m in Sources */,
 				2000779A1B71ED690015E261 /* SDWebImageDownloader.m in Sources */,
 				20D44F0B1B844CC900DB9550 /* NdUncaughtExceptionHandler.m in Sources */,
 				203542F31B4CBB45007FF4A8 /* LoginViewController.m in Sources */,
@@ -2821,8 +2847,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Qing Yin (HAUT46K9ZD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Qing Yin (HAUT46K9ZD)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2844,7 +2870,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5d413e6f-6aaa-406e-9cfc-2449e415e18e";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2867,8 +2893,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Qing Yin (HAUT46K9ZD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Qing Yin (HAUT46K9ZD)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -2883,7 +2909,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5d413e6f-6aaa-406e-9cfc-2449e415e18e";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -2908,7 +2934,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5d413e6f-6aaa-406e-9cfc-2449e415e18e";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2931,7 +2957,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5d413e6f-6aaa-406e-9cfc-2449e415e18e";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

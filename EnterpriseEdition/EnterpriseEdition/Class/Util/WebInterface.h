@@ -118,7 +118,7 @@
 
 
 //上传图片 
-#define kUploadImg [NSString stringWithFormat:@"http://42.62.92.59:88/interface_ent/upload_file_0a20ece95e098dd38621410f5a3f8dda.php"]
+#define kUploadImg [NSString stringWithFormat:@"http://42.62.92.59/interface_ent/upload_file_0a20ece95e098dd38621410f5a3f8dda.php"]
 //线上
 //#define kUploadImg [NSString stringWithFormat:@"http://interface.ezz2.1zhaozhao.com/upload_file_0a20ece95e098dd38621410f5a3f8dda.php"]
 

@@ -95,5 +95,9 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
     CGColorSpaceRelease(colorSpace);
     return resultUIImage;
 }
-
+-(UIImage*)generatedQrCodeImageByContent:(NSString*)contentString
+{
+    UIImage *resultImg = [self createNonInterpolatedUIImageFormCIImage:[self createQRForString:contentString] withSize:[Util myXOrWidth:200]];
+    return resultImg;
+}
 @end

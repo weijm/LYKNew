@@ -8,6 +8,7 @@
 
 #import "JobFairInfoViewController.h"
 #import "JobFairListTableViewCell.h"
+#import "ScanCodeViewController.h"
 
 #define kFooterBtH [Util myYOrHeight:35]
 
@@ -32,7 +33,19 @@
     
     [self initFooterView];
 }
-
+-(void)leftAction
+{
+    NSArray *array = self.navigationController.viewControllers;
+    for (int i =0; i< [array count]; i++) {
+        UIViewController *vc = [array objectAtIndex:i];
+        if ([vc isKindOfClass:[ScanCodeViewController class]]) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }else if (i==[array count]-1)
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -54,9 +67,6 @@
     else if (state ==1)
     {
         titStr = @"审核中...";
-    }else if (state ==2)
-    {
-        titStr = @"已开始";
     }else
     {
         titStr = @"已结束";

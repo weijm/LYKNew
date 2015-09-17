@@ -7,7 +7,10 @@
 //
 
 #import "ScanCodeViewController.h"
-
+#import "JobFairInfoViewController.h"
+#import "ResumeInfoViewController.h"
+#define kScanWidth [Util myXOrWidth:250]
+#define kScanY [Util myYOrHeight:80]
 @interface ScanCodeViewController ()
 
 @end
@@ -20,9 +23,9 @@
     self.title = @"二维码扫描";
     [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.translucent = NO;
-    float imgW = [Util myXOrWidth:250];
+    float imgW = kScanWidth;
     float imgX = (kWidth-imgW)/2;
-    float imgY = [Util myYOrHeight:80];
+    float imgY = kScanY;
     UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(imgX,imgY ,imgW,imgW)];
     imageView.image = [UIImage imageNamed:@"home_pick_bg"];
     [self.view addSubview:imageView];
@@ -30,26 +33,30 @@
     //遮罩视图
     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, imgY)];
     bgView.backgroundColor = [UIColor blackColor];
-    bgView.alpha = 0.5;
+    bgView.alpha = 0.8;
     [self.view addSubview:bgView];
     
     bgView = [[UIView alloc] initWithFrame:CGRectMake(0, imgY, imgX, imgW)];
     bgView.backgroundColor = [UIColor blackColor];
-    bgView.alpha = 0.5;
+    bgView.alpha = 0.8;
     [self.view addSubview:bgView];
     
     bgView = [[UIView alloc] initWithFrame:CGRectMake(imgX+imgW, imgY, imgX, imgW)];
     bgView.backgroundColor = [UIColor blackColor];
-    bgView.alpha = 0.5;
+    bgView.alpha = 0.8;
     [self.view addSubview:bgView];
     bgView = [[UIView alloc] initWithFrame:CGRectMake(0, imgY+imgW, kWidth, kHeight-(imgY+imgW+topBarheight))];
     bgView.backgroundColor = [UIColor blackColor];
-    bgView.alpha = 0.5;
+    bgView.alpha = 0.8;
     [self.view addSubview:bgView];
 
 
-    UILabel * labIntroudction= [[UILabel alloc] initWithFrame:CGRectMake(imgX, imgY+imgW+[Util myYOrHeight:10], imgW, 50)];
-    labIntroudction.font = [UIFont systemFontOfSize:14];
+    float fontSize = 17;
+    if (kIphone5||kIphone4) {
+        fontSize = 14;
+    }
+    UILabel * labIntroudction= [[UILabel alloc] initWithFrame:CGRectMake(imgX, imgY+imgW+[Util myYOrHeight:20], imgW, 50)];
+    labIntroudction.font = [UIFont systemFontOfSize:fontSize];
     labIntroudction.backgroundColor = [UIColor clearColor];
     labIntroudction.numberOfLines=2;
     labIntroudction.textColor=[UIColor greenColor];
@@ -73,7 +80,7 @@
 -(void)leftAction
 {
     [self.navigationController popViewControllerAnimated:YES];
-    [timer invalidate];
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -127,6 +134,8 @@
     // 条码类型 AVMetadataObjectTypeQRCode
     _output.metadataObjectTypes =@[AVMetadataObjectTypeQRCode];
     
+    [_output setRectOfInterest:CGRectMake((kScanY)/kHeight,((kWidth-kScanWidth)/2)/kWidth,kScanWidth/kHeight,kScanWidth/kWidth)];
+    
     // Preview
     _preview =[AVCaptureVideoPreviewLayer layerWithSession:self.session];
     _preview.videoGravity = AVLayerVideoGravityResizeAspectFill;
@@ -151,13 +160,54 @@
     }
     
     [_session stopRunning];
-    [self leftAction];
-    [Util showPrompt:stringValue];
-//    [self dismissViewControllerAnimated:YES completion:^
-//     {
-//        
-//     }];
-}
+    [timer invalidate];
+    
+    NSArray *subArr = [stringValue componentsSeparatedByString:@":"];
+    if ([subArr count]==2) {
+        NSString *markStr = [subArr firstObject];
+        if ([markStr isEqualToString:@"EZZ_FAIR"]) {
+            UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"签到成功" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            [alterView show];
+            
+        }else if ([markStr isEqualToString:@"EZZ_RES"])
+        {
+            ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
+            infoVC.resumeID = [NSString stringWithFormat:@"%@",[subArr lastObject]] ;
+            infoVC.jobID = @"0";
+//            infoVC.internships = [[Util getCorrectString:[dic objectForKey:@"internships"]] intValue];
+            infoVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:infoVC animated:YES];
+            NSLog(@"进入简历详情%@",[subArr lastObject]);
+        }else
+        {
+            UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"扫描的二维码格式错误" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+            alterView.tag = 10;
+            [alterView show];
+        }
+    }else
+    {
+        UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"扫描的二维码格式错误" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        alterView.tag = 10;
+        [alterView show];
+    }
 
+}
+#pragma mark -
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 10) {
+        [self leftAction];
+    }else
+    {
+        if (buttonIndex==0) {
+            [self leftAction];
+        }else
+        {
+            JobFairInfoViewController *infoVC = [[JobFairInfoViewController alloc] init];
+            [self.navigationController pushViewController:infoVC animated:YES];
+        }
+    }
+    
+}
 
 @end

@@ -35,6 +35,8 @@
     
     //拨打热线
     UIWebView *phoneWebView;
+    
+    BOOL isLoading;
 }
 @end
 
@@ -58,8 +60,10 @@
     allArray = [NSMutableArray array];
     myArray = [NSMutableArray array];
     
+    currentPage1 = 1;
+    currentPage2 =1;
     [self getData:categaryType];
-    [self getData:2];
+//    [self getData:2];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,7 +99,7 @@
     currentPage2 = 1;
     categaryType = (int)index+1;
     
-    [dataTableView reloadData];
+    
 }
 
 #pragma mark - 初始化数据列表
@@ -110,6 +114,15 @@
     dataTableView.delegate = self;
     dataTableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:dataTableView];
+    
+    [dataTableView setupRefresh];
+    __weak JobFairListViewController *wself = self;
+    dataTableView.refreshData = ^{
+        JobFairListViewController *sself = wself;
+        [sself refreshData];
+    };
+    
+    isLoading = NO;
 }
 #pragma mark -UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -181,7 +194,7 @@
     theStringSize = [content sizeWithFont:[UIFont systemFontOfSize:[self getContentFontSize]] maxSize:CGSizeMake(infoW, MAXFLOAT)];
     cellHeight = theStringSize.height+cellHeight;
     
-    content = [NSString stringWithFormat:@"主 办 单 位:  %@",[dic objectForKey:@"organizer"]];
+    content = [NSString stringWithFormat:@"主 办 单 位:  %@",[dic objectForKey:@"organizers"]];
     theStringSize = [content sizeWithFont:[UIFont systemFontOfSize:[self getContentFontSize]] maxSize:CGSizeMake(infoW, MAXFLOAT)];
     cellHeight = theStringSize.height+cellHeight;
     
@@ -229,23 +242,150 @@
 #pragma mark - 获取数据
 -(void)getData:(int)type
 {
-   
-    for (int i=0; i<5; i++) {
-        if (type==1) {
-            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"招聘会标招聘会标题招聘会招聘招聘会标招聘会标题招聘会招聘招聘会标招聘会标题招聘会招聘",@"title",@"2015年9月1日-9月5日",@"time",@"北京市石景山古城大街海特花园",@"address",@"可乐易考教育科技有限公司",@"organizer",[NSString stringWithFormat:@"%d",i-1],@"status", nil];
-            [allArray addObject:dic];
-
+    [self requestJobFairList:NO];
+//    for (int i=0; i<5; i++) {
+//        if (type==1) {
+//            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"招聘会标招聘会标题招聘会招聘招聘会标招聘会标题招聘会招聘招聘会标招聘会标题招聘会招聘",@"title",@"2015年9月1日-9月5日",@"time",@"北京市石景山古城大街海特花园",@"address",@"可乐易考教育科技有限公司",@"organizers",[NSString stringWithFormat:@"%d",i-1],@"status", nil];
+//            [allArray addObject:dic];
+//
+//        }else
+//        {
+//            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"我参与的招聘会标招聘会标题招聘会招",@"title",@"2015年9月1日-9月5日",@"time",@"北京市石景山古城大街海特花园",@"address",@"可乐易考教育科技有限公司",@"organizers",[NSString stringWithFormat:@"%d",i],@"status", nil];
+//            [myArray addObject:dic];
+//
+//        }
+//        
+//    }
+}
+-(void)requestJobFairList:(BOOL)isMore
+{
+    int page = 1;
+    int status = 0;
+    switch (categaryType) {
+        case 1:
+            page = currentPage1;
+            status = 0;
+            break;
+        case 2:
+            page = currentPage2;
+            status = 1;
+            break;
+        default:
+            break;
+    }
+    NSString *listJson = [CombiningData getFairList:[NSString stringWithFormat:@"%d",status] Page:page];
+    if (!isMore) {
+        [self showHUD:@"正在加载数据"];
+    }
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                //加载首页数据
+                NSArray *dataArr = [result objectForKey:@"data"];
+               
+                [self dealWithResponeData:dataArr];
+                //将提示视图取消
+                if (!isMore) {
+                    [self hideHUD];
+                }else
+                {
+                    [dataTableView stopRefresh];
+                    isLoading = NO;
+                }
+                
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                
+                if (!isMore) {
+                    if ([message length]==0||[message isEqualToString:@"该企业暂无职位"]) {
+                        
+                        if (categaryType ==1) {
+                            allArray = [NSMutableArray array];
+                            
+                        }else
+                        {
+                            myArray = [NSMutableArray array];
+                        }
+                        message = @"暂无招聘会数据";
+                        [dataTableView reloadData];
+                    }
+                    [self hideHUDFaild:message];
+                }else
+                {
+                    NSString *msg = [result objectForKey:@"message"];
+                    if ([msg length]==0) {
+                        [dataTableView changeProText:YES];
+                        [self performSelector:@selector(stopRefreshLoading) withObject:nil afterDelay:0.5];
+                    }else
+                    {
+                        [self stopRefreshLoading];
+                    }
+                }
+            }
         }else
         {
-            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"我参与的招聘会标招聘会标题招聘会招",@"title",@"2015年9月1日-9月5日",@"time",@"北京市石景山古城大街海特花园",@"address",@"可乐易考教育科技有限公司",@"organizer",[NSString stringWithFormat:@"%d",i],@"status", nil];
-            [myArray addObject:dic];
-
+            if (!isMore) {
+                [self hideHUDFaild:@"服务器请求失败"];
+            }else
+            {
+                [dataTableView stopRefresh];
+                isLoading = NO;
+            }
         }
         
+    }];
+ 
+}
+-(void)dealWithResponeData:(NSArray*)tarray
+{
+    
+    NSArray *array = tarray;
+    switch (categaryType) {
+        case 1:
+        {
+            if (currentPage1>1) {
+                [allArray addObjectsFromArray:array];
+            }else
+            {
+                allArray = [NSMutableArray arrayWithArray:array];
+            }
+            currentPage1++;
+        }
+            break;
+        case 2:
+        {
+            if (currentPage2>1) {
+                [myArray addObjectsFromArray:array];
+            }else
+            {
+                myArray = [NSMutableArray arrayWithArray:array];
+            }
+            currentPage2++;
+        }
+            break;
+        
+        default:
+            break;
     }
+    [dataTableView reloadData];
+}
+#pragma mark - 下拉加载更多
+- (void)refreshData
+{
+    isLoading = YES;
+    //请求数据
+    [self requestJobFairList:YES];
 }
 
-
+//停止刷新
+-(void)stopRefreshLoading
+{
+    [dataTableView stopRefresh];
+    isLoading = NO;
+    [dataTableView changeProText:NO];
+}
 #pragma mark - 字体大小
 -(float)getLabFontSize
 {

@@ -356,6 +356,15 @@
                             @"{\"token\":\"%@\",\"type\":\"%@\"}",kToken,kPictureList];
     return jsonString;
 }
+// 获取招聘会的json
++(NSString*)getFairList:(NSString*)type Page:(int)page
+{
+    NSString *pageString = [NSString stringWithFormat:@"%d",page];
+    NSString *statusString = [NSString stringWithFormat:@"%@",type];
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"ent_user_id\":\"%@\",\"page\":\"%@\",\"filter_my\":\"%@\"}",kToken,kJobFairList,KGETOBJ(kUID),pageString,statusString];
+    return jsonString;
+}
 +(NSString*)getUIDInfo:(NSString*)type
 {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];

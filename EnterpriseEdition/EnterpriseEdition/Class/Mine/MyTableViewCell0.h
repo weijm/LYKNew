@@ -36,6 +36,11 @@
     __weak IBOutlet UILabel *enterpriseNameLab;
     
     __weak IBOutlet UIImageView *statusImg;
+    
+    __weak IBOutlet UIImageView *arrowImg;
+    
 }
+
+@property (nonatomic) BOOL isInQRCode;
 -(void)loadSubView:(NSDictionary*)dictionary;
 @end

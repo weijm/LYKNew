@@ -34,20 +34,20 @@
     int index = (int)self.tag;
     iconImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"my_cell_icon%d",index]];
     switch (index) {
-//        case 2:
-//            titleLab.text = @"信       息";
-//            break;
         case 2:
-            titleLab.text = @"版本说明";
+            titleLab.text = @"我的二维码";
             break;
         case 3:
+            titleLab.text = @"版本说明";
+            break;
+        case 4:
             titleLab.text = @"客服电话";
             phoneLab.hidden = NO;
             break;
-        case 4:
+        case 5:
             titleLab.text = @"修改密码";
             break;
-        case 5:
+        case 6:
             titleLab.text = @"信       息";
             break;
 
@@ -56,13 +56,13 @@
             break;
     }
     
-    if (index == 3) {
+    if (index == 4) {
         phoneLab.hidden = NO;
     }else
     {
         phoneLab.hidden = YES;
     }
-    if (index == 4) {
+    if (index == 5) {
         lineToLeft.constant = 0;
     }else
     {

@@ -7,6 +7,7 @@
 //
 
 #import "JobFairListTableViewCell.h"
+#import "UIImageView+WebCache.h"
 
 @implementation JobFairListTableViewCell
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -44,10 +45,31 @@
     tlab.font = [UIFont fontWithName:@"Helvetica-Bold" size:[self getLabFontSize]];
     tlab.font = [UIFont systemFontOfSize:[self getLabFontSize]];
     tlab.numberOfLines = 0;
-
     tlab.text = titStr;
     [self.contentView addSubview:tlab];
-    NSArray *keyArr = [NSArray arrayWithObjects:@"time",@"address",@"organizer", nil];
+    //校园招聘会的标志
+    if ([[dictionary objectForKey:@"show_type"] intValue]==1) {
+        CGPoint pot =[self getLastPoint:titStr Size:theStringSize ContentLab:tlab];
+        UIColor *borderColor = Rgb(255, 112, 0, 1.0);
+        float lHeight = 15;
+        float lWidth = 30;
+        if (kIphone4||kIphone5) {
+            lHeight = 13;
+            lWidth = 25;
+        }
+        UILabel *bLab = [[UILabel alloc] initWithFrame:CGRectMake(pot.x+10, pot.y, lWidth, lHeight)];
+        bLab.text = @"校园";
+        bLab.textColor = borderColor;
+        bLab.textAlignment = NSTextAlignmentCenter;
+        bLab.font = [UIFont systemFontOfSize:[self getMarkFontSize]];
+        bLab.layer.cornerRadius = 2;
+        bLab.layer.borderColor = borderColor.CGColor;
+        bLab.layer.borderWidth = 1;
+        bLab.layer.masksToBounds = YES;
+        [self.contentView addSubview:bLab];
+    }
+    
+    NSArray *keyArr = [NSArray arrayWithObjects:@"time",@"address",@"organizers", nil];
     NSArray *titArr = [NSArray arrayWithObjects:@"招聘会时间:  ",@"具 体 地 点:  ",@"主 办 单 位:  ", nil];
     //具体信息
     float imgW = [Util myYOrHeight:10];
@@ -98,9 +120,6 @@
         }else if (state==0)
         {
             btTit = @"审核成功";
-        }else if (state==2)
-        {
-            btTit = @"已开始";
         }else
         {
             btTit = @"已结束";
@@ -116,7 +135,7 @@
     bt.enabled = btEnable;
     [self.contentView addSubview:bt];
     
-    if(_isMy&&state>=2)
+    if(_isMy&&(state==0||state==2))
     {
         bt.frame = CGRectMake(0, infoFrame.origin.y+infoFrame.size.height+[Util myYOrHeight:10], kWidth-[Util myXOrWidth:80], [Util myYOrHeight:32]);
         UIButton *getBt = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -159,10 +178,32 @@
     tlab.font = [UIFont fontWithName:@"Helvetica-Bold" size:[self getLabFontSize]];
     tlab.font = [UIFont systemFontOfSize:[self getLabFontSize]];
     tlab.numberOfLines = 0;
-    
     tlab.text = titStr;
     [self.contentView addSubview:tlab];
-    NSArray *keyArr = [NSArray arrayWithObjects:@"time",@"address",@"organizer", nil];
+    
+    //校园招聘会的标志
+    if ([[dictionary objectForKey:@"show_type"] intValue]==1) {
+        CGPoint pot =[self getLastPoint:titStr Size:theStringSize ContentLab:tlab];
+        UIColor *borderColor = Rgb(255, 112, 0, 1.0);
+        float lHeight = 15;
+        float lWidth = 30;
+        if (kIphone4||kIphone5) {
+            lHeight = 13;
+            lWidth = 25;
+        }
+        UILabel *bLab = [[UILabel alloc] initWithFrame:CGRectMake(pot.x+10, pot.y, lWidth, lHeight)];
+        bLab.text = @"校园";
+        bLab.textColor = borderColor;
+        bLab.textAlignment = NSTextAlignmentCenter;
+        bLab.font = [UIFont systemFontOfSize:[self getMarkFontSize]];
+        bLab.layer.cornerRadius = 2;
+        bLab.layer.borderColor = borderColor.CGColor;
+        bLab.layer.borderWidth = 1;
+        bLab.layer.masksToBounds = YES;
+        [self.contentView addSubview:bLab];
+    }
+    
+    NSArray *keyArr = [NSArray arrayWithObjects:@"time",@"address",@"organizers", nil];
     NSArray *titArr = [NSArray arrayWithObjects:@"招聘会时间:  ",@"具 体 地 点:  ",@"主 办 单 位:  ", nil];
     //具体信息
     float imgW = [Util myYOrHeight:10];
@@ -202,9 +243,13 @@
     float viewY = [Util myYOrHeight:10]*2+18;
     float imgW = [Util myXOrWidth:200];
     float imgH = [Util myYOrHeight:140];
-    UIImageView *locationImg = [[UIImageView alloc] initWithFrame:CGRectMake((kWidth-imgW)/2, viewY, imgW, imgH)];
-    locationImg.backgroundColor = Rgb(188, 188, 188, 0.5);
+    locationImg = [[UIImageView alloc] initWithFrame:CGRectMake((kWidth-imgW)/2, viewY, imgW, imgH)];
+    locationImg.image = [UIImage imageNamed:@"homepage_jobfair_default"];
+    locationImg.userInteractionEnabled = YES;
     [self.contentView addSubview:locationImg];
+    
+    UITapGestureRecognizer *imgTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lookBigImg)];
+    [locationImg addGestureRecognizer:imgTap];
     
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, viewY+imgH+[Util myYOrHeight:10], kWidth, 0.5)];
     line.backgroundColor = [UIColor grayColor];
@@ -284,7 +329,15 @@
     {
         return 12;
     }
-
+}
+-(float)getMarkFontSize
+{
+    if (kIphone6||kIphone6plus) {
+        return 11;
+    }else
+    {
+        return 9;
+    }
 }
 -(void)clickedAction:(id)sender
 {
@@ -293,5 +346,68 @@
 -(void)getResumeList
 {
     self.clickedAction((int)self.tag,YES);
+}
+#pragma mark - 查看大图
+-(void)lookBigImg
+{
+    NSLog(@"查看大图");
+    UIWindow * window=[[[UIApplication sharedApplication] delegate] window];
+    CGRect rect=[locationImg convertRect:locationImg.bounds toView:window];
+    UIView *bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, kHeight)];
+    bg.alpha = 0;
+    bg.backgroundColor = [UIColor blackColor];
+    bg.tag = 10000;
+    [self.window addSubview:bg];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closeAction)];
+    [bg addGestureRecognizer:tap];
+    UIImageView *bigView = [[UIImageView alloc] initWithFrame:rect];
+    [bigView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"homepage_jobfair_default"]];
+    bigView.tag = 10001;
+    bigView.userInteractionEnabled = YES;
+    [self.window addSubview:bigView];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        CGRect frame = CGRectMake(10, (kHeight-(kWidth-20))/2, kWidth-20, kWidth-100);
+        bigView.frame = frame;
+        bg.alpha = 0.5;
+        
+    }];
+
+}
+-(void)closeAction
+{
+    UIWindow * window=[[[UIApplication sharedApplication] delegate] window];
+    CGRect rect=[locationImg convertRect: locationImg.bounds toView:window];
+    UIView *bg = [self.window viewWithTag:10000];
+    UIImageView *bigView = (UIImageView *)[self.window viewWithTag:10001];
+    [UIView animateWithDuration:0.5 animations:^{
+        bg.alpha = 0.0;
+        bigView.frame = rect;
+    } completion:^(BOOL finished) {
+        [bigView removeFromSuperview];
+        [bg removeFromSuperview];
+    }];
+    
+    
+}
+-(CGPoint)getLastPoint:(NSString*)titStr Size:(CGSize)size ContentLab:(UILabel*)lab
+{
+    //获取UILabel上最后一个字符串的位置。
+    CGPoint lastPoint;
+    
+    CGSize sz = [titStr sizeWithFont:[UIFont fontWithName:@"Helvetica-Bold" size:[self getLabFontSize]] constrainedToSize:CGSizeMake(MAXFLOAT, size.height)];
+
+    CGSize linesSz = [titStr sizeWithFont:[UIFont fontWithName:@"Helvetica-Bold" size:[self getLabFontSize]] constrainedToSize:CGSizeMake(size.width, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
+   
+    if(sz.width <= linesSz.width) //判断是否折行
+        {
+            lastPoint = CGPointMake(lab.frame.origin.x + sz.width, lab.frame.origin.y+3);
+        }
+    else
+        {
+             lastPoint = CGPointMake(lab.frame.origin.x + (int)sz.width % (int)linesSz.width,linesSz.height-3);
+            
+    }
+    return lastPoint;
 }
 @end

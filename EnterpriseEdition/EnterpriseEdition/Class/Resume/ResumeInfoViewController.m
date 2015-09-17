@@ -16,6 +16,7 @@
 #import "CertificateTableViewCell.h"
 #import "UIButton+Custom.h"
 #import "FirstInfoTableViewCell.h"
+#import "ScanCodeViewController.h"
 
 //#define MAXFLOATCUSTOM [Util myYOrHeight:400]
 
@@ -79,6 +80,19 @@
 {
     [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
 
+}
+-(void)leftAction
+{
+    NSArray *array = self.navigationController.viewControllers;
+    for (int i =0; i< [array count]; i++) {
+        UIViewController *vc = [array objectAtIndex:i];
+        if ([vc isKindOfClass:[ScanCodeViewController class]]) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }else if (i==[array count]-1)
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
 }
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

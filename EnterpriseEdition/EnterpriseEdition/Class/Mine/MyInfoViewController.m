@@ -14,6 +14,7 @@
 #import "ChangePasswordViewController.h"
 #import "InfoViewController.h"
 #import "EnterpriseInfoViewController.h"
+#import "MyCodeViewController.h"
 
 
 
@@ -49,7 +50,7 @@
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 6;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -140,16 +141,22 @@
         enterpriseInfoVC.entStatus = [[resumeInfoDic objectForKey:@"ent_status"] intValue];
         [self.navigationController pushViewController:enterpriseInfoVC animated:YES];
     }
-    else if (indexPath.row == 2) {
+    else if (indexPath.row == 2) {//我的二维码
+        MyCodeViewController *codeVC = [[MyCodeViewController alloc] init];
+        codeVC.infoDic = resumeInfoDic;
+        codeVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:codeVC animated:YES];
+    }
+    else if (indexPath.row == 3) {//版本说明
         VersionViewController *versionVC = [[VersionViewController alloc] init];
         versionVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:versionVC animated:YES];
-    }else if (indexPath.row == 4)
+    }else if (indexPath.row == 5)//修改密码
     {
         ChangePasswordViewController *changPVC = [[ChangePasswordViewController alloc] init];
         changPVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:changPVC animated:YES];
-    }else if (indexPath.row == 3)
+    }else if (indexPath.row == 4)
     {
         //客服电话
         if ([Util checkDevice:@"iPod"]||[Util checkDevice:@"iPad"]){

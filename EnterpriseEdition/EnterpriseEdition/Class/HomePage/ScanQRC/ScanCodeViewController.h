@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface ScanCodeViewController : BaseViewController<AVCaptureMetadataOutputObjectsDelegate>
+@interface ScanCodeViewController : BaseViewController<AVCaptureMetadataOutputObjectsDelegate,UIAlertViewDelegate>
 {
     int num;
     BOOL upOrdown;

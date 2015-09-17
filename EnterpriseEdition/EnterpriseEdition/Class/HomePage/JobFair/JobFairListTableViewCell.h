@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface JobFairListTableViewCell : UITableViewCell
+{
+    UIImageView *locationImg;
+}
 //报名事件
 @property(nonatomic,copy) void(^clickedAction)(int index,BOOL isResume);
 //是否是我的里面的cell
