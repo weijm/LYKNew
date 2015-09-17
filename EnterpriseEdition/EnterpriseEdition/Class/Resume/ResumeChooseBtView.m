@@ -259,6 +259,22 @@
             break;
     }
 }
+// 初始化招聘会中的按钮
+-(void)loadSubViewInJobFair
+{
+    switch (self.tag) {
+        case 0:
+            [_chooseBt setTitle:@"全  部" forState:UIControlStateNormal];
+            _chooseBt.backgroundColor = Rgb(2, 139, 230, 1.0);
+            [_chooseBt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            break;
+        case 1:
+            [_chooseBt setTitle:@"我  的" forState:UIControlStateNormal];
+            break;
+        default:
+            break;
+    }
+}
 
 // 点击事件
 - (IBAction)clickedAction:(id)sender {

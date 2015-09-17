@@ -109,6 +109,12 @@
  获取首页数据
  */
 +(NSString*)getUIDInfo:(NSString*)type;
+
+/**
+ 获取招聘会的json
+ */
++(NSString*)getFairList:(NSString*)type Page:(int)page;
+
 #pragma mark - 信息
 /**
  获取信息列表

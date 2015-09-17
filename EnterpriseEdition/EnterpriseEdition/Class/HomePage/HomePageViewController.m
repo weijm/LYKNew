@@ -18,6 +18,7 @@
 #import "ResumeInfoViewController.h"
 #import "WebSourceViewController.h"
 #import "ScanCodeViewController.h"
+#import "JobFairListViewController.h"
 
 #define kBannerViewHeight [Util myYOrHeight:180]
 #define kHireViewHeight [Util myYOrHeight:174]
@@ -204,17 +205,22 @@
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
     self.navigationItem.leftBarButtonItem = leftItem;
     
-//    UIButton *rightBt = [UIButton buttonWithType:UIButtonTypeCustom];//[[UIButton alloc] initWithFrame:frame];
-//    rightBt.frame = frame;
-//    [rightBt setImage:[UIImage imageNamed:@"home_edit_btn"] forState:UIControlStateNormal];
-//    imageInsets = rightBt.imageEdgeInsets;
+    UIButton *rightBt = [UIButton buttonWithType:UIButtonTypeCustom];//[[UIButton alloc] initWithFrame:frame];
+//    if (kIphone6plus) {
+//    }else
+//    {
+//        frame = CGRectMake(0, 0, 4, 20);
+//    }
+    rightBt.frame = frame;
+    [rightBt setImage:[UIImage imageNamed:@"home_scan_bt"] forState:UIControlStateNormal];
+    imageInsets = rightBt.imageEdgeInsets;
 //    rightBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left+20, imageInsets.bottom, imageInsets.right-20);
-//    rightBt.titleLabel.font = [UIFont systemFontOfSize:14];
-//    UIEdgeInsets titleInsets = rightBt.titleEdgeInsets;
-//    rightBt.titleEdgeInsets = UIEdgeInsetsMake(titleInsets.top, titleInsets.left+20, titleInsets.bottom, titleInsets.right-20);
-//    [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
-//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
-//    self.navigationItem.rightBarButtonItem = rightItem;
+    rightBt.titleLabel.font = [UIFont systemFontOfSize:14];
+    UIEdgeInsets titleInsets = rightBt.titleEdgeInsets;
+    rightBt.titleEdgeInsets = UIEdgeInsetsMake(titleInsets.top, titleInsets.left+20, titleInsets.bottom, titleInsets.right-20);
+    [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
+    self.navigationItem.rightBarButtonItem = rightItem;
 }
 #pragma mark -- item Action
 -(void)leftAction
@@ -332,9 +338,13 @@
         }
             break;
         case 5:
-            NSLog(@"收藏");
+            NSLog(@"招聘会");
         {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"SelectedVC" object:@"12"];
+            //收藏
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"SelectedVC" object:@"12"];
+            JobFairListViewController *jobFairListVC = [[JobFairListViewController alloc] init];
+            jobFairListVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:jobFairListVC animated:YES];
         }
             break;
             
@@ -487,7 +497,7 @@
 #pragma mark - 应聘信息数组
 -(NSMutableArray*)getHireData:(NSDictionary*)dataDic
 {
-    NSArray *titleArray = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"职位",@"string", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"急招",@"string", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"已下载",@"string", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"已收到",@"string",nil],[NSDictionary dictionaryWithObjectsAndKeys:@"发布职位",@"string",nil],[NSDictionary dictionaryWithObjectsAndKeys:@"收藏",@"string",nil], nil];
+    NSArray *titleArray = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"职位",@"string", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"急招",@"string", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"已下载",@"string", nil],[NSDictionary dictionaryWithObjectsAndKeys:@"已收到",@"string",nil],[NSDictionary dictionaryWithObjectsAndKeys:@"发布职位",@"string",nil],[NSDictionary dictionaryWithObjectsAndKeys:@"招聘会",@"string",nil], nil];
     if (dataDic==nil) {
         return (NSMutableArray*)titleArray;
     }else
@@ -526,7 +536,7 @@
                        
                     }
                     
-                }else if(i==4)
+                }else if(i==4||i==5)
                 {
                     NSString *string = [NSString stringWithFormat:@"%@",[dic objectForKey:@"string"]];
                     [newDic setObject:string forKey:@"string"];

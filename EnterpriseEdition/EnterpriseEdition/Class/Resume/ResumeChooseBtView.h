@@ -60,4 +60,8 @@
  初始化职位中的按钮
  */
 -(void)loadSubViewInPosition;
+/**
+ 初始化招聘会中的按钮
+ */
+-(void)loadSubViewInJobFair;
 @end

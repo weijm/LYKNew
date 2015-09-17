@@ -18,21 +18,45 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"二维码扫描";
-    self.view.backgroundColor = [UIColor grayColor];
     [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.translucent = NO;
-    
-    UILabel * labIntroudction= [[UILabel alloc] initWithFrame:CGRectMake((kWidth-290)/2, 40, 290, 50)];
-    labIntroudction.backgroundColor = [UIColor clearColor];
-    labIntroudction.numberOfLines=2;
-    labIntroudction.textColor=[UIColor whiteColor];
-    labIntroudction.text=@"将二维码图像置于矩形方框内，离手机摄像头10CM左右，系统会自动识别。";
-    [self.view addSubview:labIntroudction];
-    
-    
-    UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake((kWidth-300)/2, 100, 300, 300)];
+    float imgW = [Util myXOrWidth:250];
+    float imgX = (kWidth-imgW)/2;
+    float imgY = [Util myYOrHeight:80];
+    UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(imgX,imgY ,imgW,imgW)];
     imageView.image = [UIImage imageNamed:@"home_pick_bg"];
     [self.view addSubview:imageView];
+    
+    //遮罩视图
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, imgY)];
+    bgView.backgroundColor = [UIColor blackColor];
+    bgView.alpha = 0.5;
+    [self.view addSubview:bgView];
+    
+    bgView = [[UIView alloc] initWithFrame:CGRectMake(0, imgY, imgX, imgW)];
+    bgView.backgroundColor = [UIColor blackColor];
+    bgView.alpha = 0.5;
+    [self.view addSubview:bgView];
+    
+    bgView = [[UIView alloc] initWithFrame:CGRectMake(imgX+imgW, imgY, imgX, imgW)];
+    bgView.backgroundColor = [UIColor blackColor];
+    bgView.alpha = 0.5;
+    [self.view addSubview:bgView];
+    bgView = [[UIView alloc] initWithFrame:CGRectMake(0, imgY+imgW, kWidth, kHeight-(imgY+imgW+topBarheight))];
+    bgView.backgroundColor = [UIColor blackColor];
+    bgView.alpha = 0.5;
+    [self.view addSubview:bgView];
+
+
+    UILabel * labIntroudction= [[UILabel alloc] initWithFrame:CGRectMake(imgX, imgY+imgW+[Util myYOrHeight:10], imgW, 50)];
+    labIntroudction.font = [UIFont systemFontOfSize:14];
+    labIntroudction.backgroundColor = [UIColor clearColor];
+    labIntroudction.numberOfLines=2;
+    labIntroudction.textColor=[UIColor greenColor];
+    labIntroudction.text=@"请将简历id或签到二维码放置框内";
+    labIntroudction.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:labIntroudction];
+    
     
     upOrdown = NO;
     num =0;
@@ -60,14 +84,14 @@
 {
     if (upOrdown == NO) {
         num ++;
-        _line.frame = CGRectMake(50, 110+2*num, kWidth-100, 2);
+        _line.frame = CGRectMake(50, 100+2*num, kWidth-100, 2);
         if (2*num == 280) {
             upOrdown = YES;
         }
     }
     else {
         num --;
-        _line.frame = CGRectMake(50, 110+2*num, kWidth-100, 2);
+        _line.frame = CGRectMake(50, 100+2*num, kWidth-100, 2);
         if (num == 0) {
             upOrdown = NO;
         }
@@ -106,7 +130,7 @@
     // Preview
     _preview =[AVCaptureVideoPreviewLayer layerWithSession:self.session];
     _preview.videoGravity = AVLayerVideoGravityResizeAspectFill;
-    _preview.frame =CGRectMake((kWidth-280)/2,110,280,280);
+    _preview.frame =CGRectMake(0,0,kWidth,kHeight-topBarheight);
     [self.view.layer insertSublayer:self.preview atIndex:0];
     
     

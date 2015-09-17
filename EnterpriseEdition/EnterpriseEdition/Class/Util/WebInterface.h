@@ -12,11 +12,11 @@
 //登录的token码
 #define kToken @"0a20ece95e098dd38621410f5a3f8dda"
 //开发服务器地址
-//#define kWEB_BASE_URL @"http://ezz.teiit.com:88/interface_ent/"
+#define kWEB_BASE_URL @"http://ezz.teiit.com/interface_ent/"
 //测试服务器地址
 //#define kWEB_BASE_URL @"http://192.168.2.226/interface_ent/"
 //线上
-#define kWEB_BASE_URL @"http://interface.ezz2.1zhaozhao.com/interface_ent/"
+//#define kWEB_BASE_URL @"http://interface.ezz2.1zhaozhao.com/interface_ent/"
 #pragma mark - 登录
 //登录接口
 #define kLogin @"ent_login"
@@ -112,11 +112,15 @@
 //简历推荐
 #define kCommendList @"ent_index_recommend_list"
 
+#pragma mark - 招聘会
+//招聘会列表
+#define kJobFairList @"ent_fair_list"
+
 
 //上传图片 
-//#define kUploadImg [NSString stringWithFormat:@"http://42.62.92.59:88/interface_ent/upload_file_0a20ece95e098dd38621410f5a3f8dda.php"]
+#define kUploadImg [NSString stringWithFormat:@"http://42.62.92.59:88/interface_ent/upload_file_0a20ece95e098dd38621410f5a3f8dda.php"]
 //线上
-#define kUploadImg [NSString stringWithFormat:@"http://interface.ezz2.1zhaozhao.com/upload_file_0a20ece95e098dd38621410f5a3f8dda.php"]
+//#define kUploadImg [NSString stringWithFormat:@"http://interface.ezz2.1zhaozhao.com/upload_file_0a20ece95e098dd38621410f5a3f8dda.php"]
 
 
 #pragma mark - 信息
