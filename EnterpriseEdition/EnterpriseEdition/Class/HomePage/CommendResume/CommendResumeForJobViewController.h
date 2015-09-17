@@ -21,6 +21,7 @@
     //选中状态的标志
     NSMutableArray *chooseArray;
 }
-@property (nonatomic) BOOL isForPisition;//职位收到的简历进入
+@property (nonatomic) int isForPisition;//0推荐更多简历  1职位收到的简历进入 2招聘会进入的简历
+
 @property (nonatomic) NSString *jobId;
 @end

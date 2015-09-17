@@ -243,6 +243,10 @@
         }
         
         resumeCategory = (int)index +1;
+        if (resumeCategory == 4) {
+            [Util showPrompt:@"暂未完成"];
+            return;
+        }
         //获取服务器的数据
         [self performSelector:@selector(getData) withObject:nil afterDelay:0.0];
 //        [filtrateView changeTitleArray:resumeCategory];

@@ -200,7 +200,7 @@
 -(void)rightAction
 {
     CommendResumeForJobViewController *resumeVC = [[CommendResumeForJobViewController alloc] init];
-    resumeVC.isForPisition = YES;
+    resumeVC.isForPisition = 1;//从职位详情中进入该职位下对应的简历
     resumeVC.jobId = _jobId;
     resumeVC.title = [Util getPositionTitle:[infoDictionary objectForKey:@"job_type_name"]];
     [self.navigationController pushViewController:resumeVC animated:YES];

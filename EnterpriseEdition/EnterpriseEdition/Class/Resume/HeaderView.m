@@ -12,6 +12,7 @@
 
 #define kEdgeWidth 25
 #define kBTHeight 28
+#define kBTCOUNT 4
 
 @implementation HeaderView
 
@@ -43,8 +44,8 @@
 }
 - (void)initButtonView
 {
-    for (int i =0; i <3; i++) {
-        float btW = subbg.frame.size.width/3;
+    for (int i =0; i <kBTCOUNT; i++) {
+        float btW = subbg.frame.size.width/kBTCOUNT;
         CGRect frame = CGRectMake(btW*i, 0, btW, subbg.frame.size.height);
         ResumeChooseBtView *bt = [[ResumeChooseBtView alloc] initWithFrame:frame];
         bt.tag = i;

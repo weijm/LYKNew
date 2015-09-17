@@ -115,6 +115,10 @@
  */
 +(NSString*)getFairList:(NSString*)type Page:(int)page;
 
+/**
+ 通过招聘会id获取收到的简历的json
+ */
++(NSString*)getResumeListByFair:(NSString*)fairId Page:(int)page;
 #pragma mark - 信息
 /**
  获取信息列表

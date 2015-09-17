@@ -108,12 +108,12 @@
     BOOL btEnable = NO;
     int state = [[dictionary objectForKey:@"status"] intValue];
     if (state==-1) {
-        btbg = Rgb(69, 170, 253, 1.0);
+        btbg = Rgb(84, 187, 255, 1.0);
         btTit = @"立即报名";
         btEnable = YES;
     }else
     {
-        btbg = Rgb(188, 189, 190, 1.0);
+        btbg = Rgb(201, 201, 201, 1.0);
         btEnable = NO;
         if (state==1) {
             btTit = @"审核中...";
@@ -140,7 +140,7 @@
         bt.frame = CGRectMake(0, infoFrame.origin.y+infoFrame.size.height+[Util myYOrHeight:10], kWidth-[Util myXOrWidth:80], [Util myYOrHeight:32]);
         UIButton *getBt = [UIButton buttonWithType:UIButtonTypeCustom];
         getBt.frame = CGRectMake(kWidth-[Util myXOrWidth:80], bt.frame.origin.y, [Util myXOrWidth:80], [Util myYOrHeight:32]);
-        getBt.backgroundColor = Rgb(69, 170, 253, 1.0);
+        getBt.backgroundColor = Rgb(84, 187, 255, 1.0);
         [getBt setTitle:@"收到的简历" forState:UIControlStateNormal];
         [getBt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         getBt.titleLabel.font = [UIFont systemFontOfSize:[self getLabFontSize]];

@@ -11,6 +11,7 @@
 #import "BaseTableView.h"
 #import "JobFairListTableViewCell.h"
 #import "JobFairInfoViewController.h"
+#import "CommendResumeForJobViewController.h"
 
 #define kJHeaderViewHeight [Util myYOrHeight:65]
 
@@ -63,7 +64,7 @@
     currentPage1 = 1;
     currentPage2 =1;
     [self getData:categaryType];
-//    [self getData:2];
+    [self getData:2];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,7 +100,7 @@
     currentPage2 = 1;
     categaryType = (int)index+1;
     
-    
+//    [self requestJobFairList:NO];
 }
 
 #pragma mark - 初始化数据列表
@@ -233,6 +234,17 @@
 {
     if (isResume) {
         NSLog(@"查看简历");
+        NSDictionary *dic = nil;
+        if (categaryType==1) {
+            dic = [allArray objectAtIndex:index];
+        }else
+        {
+            dic = [myArray objectAtIndex:index];
+        }
+        CommendResumeForJobViewController *resumeListVC = [[CommendResumeForJobViewController alloc] init];
+        resumeListVC.isForPisition = 2;//招聘会进入简历列表
+        resumeListVC.jobId = [NSString stringWithFormat:@"%@",[dic objectForKey:@"fair_id"]];
+        [self.navigationController pushViewController:resumeListVC animated:YES];
     }else
     {
         NSLog(@"立即报名%d",index);
@@ -242,20 +254,20 @@
 #pragma mark - 获取数据
 -(void)getData:(int)type
 {
-    [self requestJobFairList:NO];
-//    for (int i=0; i<5; i++) {
-//        if (type==1) {
-//            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"招聘会标招聘会标题招聘会招聘招聘会标招聘会标题招聘会招聘招聘会标招聘会标题招聘会招聘",@"title",@"2015年9月1日-9月5日",@"time",@"北京市石景山古城大街海特花园",@"address",@"可乐易考教育科技有限公司",@"organizers",[NSString stringWithFormat:@"%d",i-1],@"status", nil];
-//            [allArray addObject:dic];
-//
-//        }else
-//        {
-//            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"我参与的招聘会标招聘会标题招聘会招",@"title",@"2015年9月1日-9月5日",@"time",@"北京市石景山古城大街海特花园",@"address",@"可乐易考教育科技有限公司",@"organizers",[NSString stringWithFormat:@"%d",i],@"status", nil];
-//            [myArray addObject:dic];
-//
-//        }
-//        
-//    }
+//    [self requestJobFairList:NO];
+    for (int i=0; i<5; i++) {
+        if (type==1) {
+            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"招聘会标招聘会标题招聘会招聘招聘会标招聘会标题招聘会招聘招聘会标招聘会标题招聘会招聘",@"title",@"2015年9月1日-9月5日",@"time",@"北京市石景山古城大街海特花园",@"address",@"可乐易考教育科技有限公司",@"organizers",[NSString stringWithFormat:@"%d",i-1],@"status", [NSString stringWithFormat:@"%d",i],@"fair_id",nil];
+            [allArray addObject:dic];
+
+        }else
+        {
+            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"我参与的招聘会标招聘会标题招聘会招",@"title",@"2015年9月1日-9月5日",@"time",@"北京市石景山古城大街海特花园",@"address",@"可乐易考教育科技有限公司",@"organizers",[NSString stringWithFormat:@"%d",i],@"status",[NSString stringWithFormat:@"%d",i],@"fair_id", nil];
+            [myArray addObject:dic];
+
+        }
+        
+    }
 }
 -(void)requestJobFairList:(BOOL)isMore
 {
@@ -299,7 +311,7 @@
                 NSString *message = [result objectForKey:@"message"];
                 
                 if (!isMore) {
-                    if ([message length]==0||[message isEqualToString:@"该企业暂无职位"]) {
+                    if ([message length]==0||[message isEqualToString:@"暂无招聘会"]) {
                         
                         if (categaryType ==1) {
                             allArray = [NSMutableArray array];
@@ -308,7 +320,7 @@
                         {
                             myArray = [NSMutableArray array];
                         }
-                        message = @"暂无招聘会数据";
+                        message = @"暂无招聘会";
                         [dataTableView reloadData];
                     }
                     [self hideHUDFaild:message];

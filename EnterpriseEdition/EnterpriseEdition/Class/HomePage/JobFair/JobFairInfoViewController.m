@@ -55,11 +55,11 @@
     int state = [[infoDic objectForKey:@"status"] intValue];
     NSString *titStr = nil;
     BOOL btEnabled = NO;
-    UIColor *btBg = Rgb(188, 189, 190, 1.0);;
+    UIColor *btBg = Rgb(201, 201, 201, 1.0);;
     if (state == -1) {
         titStr = @"立即报名";
         btEnabled = YES;
-        btBg = Rgb(69, 170, 253, 1.0);
+        btBg = Rgb(84, 187, 255, 1.0);
     }else if (state ==0)
     {
         titStr = @"审核成功";

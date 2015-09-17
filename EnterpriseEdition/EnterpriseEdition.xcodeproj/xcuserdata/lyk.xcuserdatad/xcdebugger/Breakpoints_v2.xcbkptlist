@@ -67,22 +67,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EnterpriseEdition/Class/HomePage/CommendResume/CommendResumeForJobViewController.m"
-            timestampString = "462793536.598418"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "409"
-            endingLineNumber = "409"
-            landmarkName = "-requestInfoFromWeb:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "EnterpriseEdition/Class/HomePage/Search/SearchResumeViewController.m"
             timestampString = "463455551.825674"
             startingColumnNumber = "9223372036854775807"
@@ -132,12 +116,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EnterpriseEdition/Class/Resume/ResumeViewController.m"
-            timestampString = "464168160.150555"
+            timestampString = "464172499.602339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "765"
-            endingLineNumber = "765"
+            startingLineNumber = "769"
+            endingLineNumber = "769"
             landmarkName = "-requestResumeList:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnterpriseEdition/Class/HomePage/JobFair/JobFairListViewController.m"
+            timestampString = "464175351.072411"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
+            landmarkName = "-requestJobFairList:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
