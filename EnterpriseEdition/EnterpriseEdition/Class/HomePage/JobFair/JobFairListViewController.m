@@ -61,17 +61,21 @@
     allArray = [NSMutableArray array];
     myArray = [NSMutableArray array];
     
-    currentPage1 = 1;
-    currentPage2 =1;
-    [self getData:categaryType];
-    [self getData:2];
+    
+//    [self getData:categaryType];
+//    [self getData:2];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    currentPage1 = 1;
+    currentPage2 =1;
+    [self performSelector:@selector(getData) withObject:nil afterDelay:0.0];
+}
 #pragma mark - 招聘会列表的headerView
 -(void)initHeaderView
 {
@@ -100,7 +104,7 @@
     currentPage2 = 1;
     categaryType = (int)index+1;
     
-//    [self requestJobFairList:NO];
+    [self requestJobFairList:NO];
 }
 
 #pragma mark - 初始化数据列表
@@ -211,7 +215,7 @@
         dic = [myArray objectAtIndex:indexPath.row];
     }
     JobFairInfoViewController *infoVC = [[JobFairInfoViewController alloc] init];
-    infoVC.jobFairInfoDic = dic;
+    infoVC.jobFairId = [NSString stringWithFormat:@"%@",[dic objectForKey:@"fair_id"]];
     [self.navigationController pushViewController:infoVC animated:YES];
 }
 #pragma mark - 拨打热线
@@ -232,42 +236,49 @@
 #pragma mark - cell上的按钮的触发事件
 -(void)clickedAction:(int)index Resume:(BOOL)isResume
 {
+    NSDictionary *dic = nil;
+    if (categaryType==1) {
+        dic = [allArray objectAtIndex:index];
+    }else
+    {
+        dic = [myArray objectAtIndex:index];
+    }
+
     if (isResume) {
         NSLog(@"查看简历");
-        NSDictionary *dic = nil;
-        if (categaryType==1) {
-            dic = [allArray objectAtIndex:index];
-        }else
-        {
-            dic = [myArray objectAtIndex:index];
-        }
-        CommendResumeForJobViewController *resumeListVC = [[CommendResumeForJobViewController alloc] init];
+               CommendResumeForJobViewController *resumeListVC = [[CommendResumeForJobViewController alloc] init];
         resumeListVC.isForPisition = 2;//招聘会进入简历列表
         resumeListVC.jobId = [NSString stringWithFormat:@"%@",[dic objectForKey:@"fair_id"]];
         [self.navigationController pushViewController:resumeListVC animated:YES];
     }else
     {
         NSLog(@"立即报名%d",index);
+        [self requestJobFairApply:[NSString stringWithFormat:@"%@",[dic objectForKey:@"fair_id"]]];
+        
     }
     
 }
 #pragma mark - 获取数据
+-(void)getData
+{
+    [self requestJobFairList:NO];
+}
 -(void)getData:(int)type
 {
-//    [self requestJobFairList:NO];
-    for (int i=0; i<5; i++) {
-        if (type==1) {
-            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"招聘会标招聘会标题招聘会招聘招聘会标招聘会标题招聘会招聘招聘会标招聘会标题招聘会招聘",@"title",@"2015年9月1日-9月5日",@"time",@"北京市石景山古城大街海特花园",@"address",@"可乐易考教育科技有限公司",@"organizers",[NSString stringWithFormat:@"%d",i-1],@"status", [NSString stringWithFormat:@"%d",i],@"fair_id",nil];
-            [allArray addObject:dic];
-
-        }else
-        {
-            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"我参与的招聘会标招聘会标题招聘会招",@"title",@"2015年9月1日-9月5日",@"time",@"北京市石景山古城大街海特花园",@"address",@"可乐易考教育科技有限公司",@"organizers",[NSString stringWithFormat:@"%d",i],@"status",[NSString stringWithFormat:@"%d",i],@"fair_id", nil];
-            [myArray addObject:dic];
-
-        }
-        
-    }
+    
+//    for (int i=0; i<5; i++) {
+//        if (type==1) {
+//            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"招聘会标招聘会标题招聘会招聘招聘会标招聘会标题招聘会招聘招聘会标招聘会标题招聘会招聘",@"title",@"2015年9月1日-9月5日",@"time",@"北京市石景山古城大街海特花园",@"address",@"可乐易考教育科技有限公司",@"organizers",[NSString stringWithFormat:@"%d",i-1],@"status", [NSString stringWithFormat:@"%d",i],@"fair_id",nil];
+//            [allArray addObject:dic];
+//
+//        }else
+//        {
+//            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"我参与的招聘会标招聘会标题招聘会招",@"title",@"2015年9月1日-9月5日",@"time",@"北京市石景山古城大街海特花园",@"address",@"可乐易考教育科技有限公司",@"organizers",[NSString stringWithFormat:@"%d",i],@"status",[NSString stringWithFormat:@"%d",i],@"fair_id", nil];
+//            [myArray addObject:dic];
+//
+//        }
+//        
+//    }
 }
 -(void)requestJobFairList:(BOOL)isMore
 {
@@ -398,6 +409,34 @@
     isLoading = NO;
     [dataTableView changeProText:NO];
 }
+//招聘会报名
+-(void)requestJobFairApply:(NSString*)jobFairId
+{
+    NSString *listJson = [CombiningData getFairInfoById:jobFairId Type:kJobFairApply];
+    [self showHUD:@"正在提交"];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUD];
+                //加载首页数据
+                UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"报名成功" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+                alterView.tag = 250;
+                [alterView show];
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                [self hideHUDFaild:message];
+            }
+        }else
+        {
+            [self hideHUDFaild:@"服务器请求失败"];
+        }
+        
+    }];
+    
+}
+
 #pragma mark - 字体大小
 -(float)getLabFontSize
 {

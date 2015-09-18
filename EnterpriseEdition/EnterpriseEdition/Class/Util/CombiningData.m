@@ -365,8 +365,15 @@
                             @"{\"token\":\"%@\",\"type\":\"%@\",\"ent_user_id\":\"%@\",\"page\":\"%@\",\"filter_my\":\"%@\"}",kToken,kJobFairList,KGETOBJ(kUID),pageString,statusString];
     return jsonString;
 }
-//通过招聘会id获取收到的简历的json
+//通过招聘会id获取招聘会详情的json
++(NSString*)getFairInfoById:(NSString*)fairId Type:(NSString*)type
+{
 
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"ent_user_id\":\"%@\",\"fair_id\":\"%@\"}",kToken,type,KGETOBJ(kUID),fairId];
+    return jsonString;
+}
+//通过招聘会id获取收到的简历的json
 +(NSString*)getResumeListByFair:(NSString*)fairId Page:(int)page
 {
     NSString *pageString = [NSString stringWithFormat:@"%d",page];

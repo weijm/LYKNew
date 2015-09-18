@@ -155,15 +155,18 @@
     for (UIView *view in [self.contentView subviews]) {
         [view removeFromSuperview];
     }
-    if (self.tag ==0) {
-        [self initFirstCell:dictionary];
-    }else if(self.tag ==1)
-    {
-        [self initSecondCell:dictionary];
-    }else
-    {
-        [self initThirdOrFourCell:dictionary];
+    if (dictionary!=nil) {
+        if (self.tag ==0) {
+            [self initFirstCell:dictionary];
+        }else if(self.tag ==1)
+        {
+            [self initSecondCell:dictionary];
+        }else
+        {
+            [self initThirdOrFourCell:dictionary];
+        }
     }
+    
 }
 -(void)initFirstCell:(NSDictionary*)dictionary
 {
@@ -243,8 +246,15 @@
     float viewY = [Util myYOrHeight:10]*2+18;
     float imgW = [Util myXOrWidth:200];
     float imgH = [Util myYOrHeight:140];
+    NSString *imgStr = [Util getCorrectString:[dictionary objectForKey:@"show_img"]];
     locationImg = [[UIImageView alloc] initWithFrame:CGRectMake((kWidth-imgW)/2, viewY, imgW, imgH)];
-    locationImg.image = [UIImage imageNamed:@"homepage_jobfair_default"];
+    if ([imgStr length]>0) {
+        [locationImg sd_setImageWithURL:[NSURL URLWithString:imgStr] placeholderImage:[UIImage imageNamed:@"homepage_jobfair_default"]];
+    }else
+    {
+        locationImg.image = [UIImage imageNamed:@"homepage_jobfair_default"];
+    }
+    //;
     locationImg.userInteractionEnabled = YES;
     [self.contentView addSubview:locationImg];
     
@@ -264,10 +274,10 @@
     
     NSString *content = nil;
     if (self.tag == 2) {
-        content = [dictionary objectForKey:@"info"];
+        content = [dictionary objectForKey:@"ent_intro"];
     }else
     {
-        content = [dictionary objectForKey:@"note"];
+        content = [dictionary objectForKey:@"ent_tips"];
     }
     
     CGSize theStringSize = [content sizeWithFont:[UIFont systemFontOfSize:[self getContentFontSize]] maxSize:CGSizeMake(viewW, MAXFLOAT)];

@@ -72,6 +72,8 @@
     [self.view addSubview:_line];
     
     timer = [NSTimer scheduledTimerWithTimeInterval:.02 target:self selector:@selector(animation1) userInfo:nil repeats:YES];
+    
+    jobFairId = @"";
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -166,8 +168,11 @@
     if ([subArr count]==2) {
         NSString *markStr = [subArr firstObject];
         if ([markStr isEqualToString:@"EZZ_FAIR"]) {
+            jobFairId = [subArr lastObject];
             UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"签到成功" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
             [alterView show];
+            
+            
             
         }else if ([markStr isEqualToString:@"EZZ_RES"])
         {
@@ -204,6 +209,7 @@
         }else
         {
             JobFairInfoViewController *infoVC = [[JobFairInfoViewController alloc] init];
+            infoVC.jobFairId = jobFairId;
             [self.navigationController pushViewController:infoVC animated:YES];
         }
     }

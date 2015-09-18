@@ -28,6 +28,8 @@
     NSMutableArray *colledtedArray;
     //已下载的简历数据数组
     NSMutableArray *downloadArray;
+    //招聘会简历
+    NSMutableArray *fairArray;
     //当前操作的cell
 //    ResumeTableViewCell *currentCell;
     //点击事件
@@ -46,6 +48,7 @@
     int currentPage1;
     int currentPage2;
     int currentPage3;
+    int currentPage4;
     
     //是否正在加载数据
     BOOL isLoading;
@@ -94,6 +97,7 @@
         dataArray = nil;
         colledtedArray = nil;
         downloadArray = nil;
+        fairArray = nil;
         chooseArray = nil;
         self.navigationItem.rightBarButtonItem.enabled = NO;
         [dataTableView reloadData];
@@ -113,6 +117,7 @@
     currentPage1 = 1;
     currentPage2 = 1;
     currentPage3 = 1;
+    currentPage4 = 1;
     searchingCurrentPage =1;
     [self getData];
 }
@@ -169,9 +174,12 @@
         }else if (resumeCategory == 2)
         {
             tempArray = colledtedArray;
-        }else
+        }else if (resumeCategory == 3)
         {
             tempArray = downloadArray;
+        }else
+        {
+             tempArray = fairArray;
         }
         if (chooseArray) {
             [chooseArray removeAllObjects];
@@ -236,6 +244,7 @@
         currentPage1 = 1;
         currentPage2 = 1;
         currentPage3 = 1;
+        currentPage4 = 1;
         isSearching = NO;
         
         if (index ==0) {
@@ -304,9 +313,12 @@
     }else if (resumeCategory == 2)
     {
         tempArray = colledtedArray;
-    }else
+    }else if (resumeCategory == 3)
     {
         tempArray = downloadArray;
+    }else
+    {
+        tempArray = fairArray;
     }
     NSMutableArray *dealArray = [NSMutableArray array];
     for (int i = 0; i < [chooseArray count]; i++) {
@@ -375,9 +387,12 @@
     }else if (resumeCategory == 2)
     {
         return [colledtedArray count];
-    }else
+    }else if (resumeCategory == 3)
     {
         return [downloadArray count];
+    }else
+    {
+        return [fairArray count];
     }
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -397,11 +412,15 @@
     {
         cell.isShowTopBg = 1;
         dictionary = [colledtedArray objectAtIndex:indexPath.row];
-    }else
+    }else if (resumeCategory ==3)
     {
         cell.isShowTopBg = 1;
         dictionary = [downloadArray objectAtIndex:indexPath.row];
    
+    }else
+    {
+        cell.isShowTopBg = 0;
+        dictionary = [fairArray objectAtIndex:indexPath.row];
     }
     [cell loadSubView:dictionary];
     //全部选中按钮使用
@@ -441,9 +460,12 @@
     {
         dic = [colledtedArray objectAtIndex:indexPath.row];
         infoVC.fromCollected = YES;
-    }else
+    }else if (resumeCategory == 3)
     {
         dic = [downloadArray objectAtIndex:indexPath.row];
+    }else
+    {
+         dic = [fairArray objectAtIndex:indexPath.row];
     }
     infoVC.resumeID = [dic objectForKey:@"stu_resume_id"] ;
     infoVC.jobID = [Util getCorrectString:[dic objectForKey:@"ent_job_id"]];
@@ -642,6 +664,18 @@
                 tempArray = downloadArray;
             }
                 break;
+            case 4:
+            {
+                if (searchingCurrentPage>1) {
+                    [fairArray addObjectsFromArray:array];
+                }else
+                {
+                    fairArray = [NSMutableArray arrayWithArray:array];
+                }
+                searchingCurrentPage++;
+                tempArray = fairArray;
+            }
+                break;
             default:
                 break;
         }
@@ -684,6 +718,18 @@
                 }
                 currentPage3++;
                 tempArray = downloadArray;
+            }
+                break;
+            case 4:
+            {
+                if (currentPage4>1) {
+                    [fairArray addObjectsFromArray:array];
+                }else
+                {
+                    fairArray = [NSMutableArray arrayWithArray:array];
+                }
+                currentPage4++;
+                tempArray = fairArray;
             }
                 break;
             default:
@@ -744,6 +790,11 @@
             page = currentPage3;
             status = 3;
             break;
+        case 4:
+            page = currentPage4;
+            status = 3;
+            break;
+
         default:
             break;
     }
@@ -791,10 +842,14 @@
                         {
                             message = @"该企业暂无收藏简历";
                             colledtedArray = [NSMutableArray array];
-                        }else
+                        }else  if (resumeCategory ==3)
                         {
                             message = @"该企业暂无下载简历";
                             downloadArray = [NSMutableArray array];
+                        }else
+                        {
+                            message = @"该企业招聘会暂无简历";
+                            fairArray = [NSMutableArray array];
                         }
                         [dataTableView reloadData];
                         self.navigationItem.rightBarButtonItem.enabled = NO;
@@ -861,6 +916,7 @@
         currentPage1 = 1;
         currentPage2 = 1;
         currentPage3 = 1;
+        currentPage4 = 1;
         if (status == 1) {//收藏成功
             [self hideHUDWithComplete:@"收藏成功"];
         }else if (status == 2)//取消收藏

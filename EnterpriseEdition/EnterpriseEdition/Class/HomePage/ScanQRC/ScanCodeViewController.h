@@ -14,6 +14,8 @@
     int num;
     BOOL upOrdown;
     NSTimer * timer;
+    
+    NSString *jobFairId;
 }
 @property (strong,nonatomic)AVCaptureDevice * device;
 @property (strong,nonatomic)AVCaptureDeviceInput * input;

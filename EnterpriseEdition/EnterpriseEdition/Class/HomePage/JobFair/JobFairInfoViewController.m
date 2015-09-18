@@ -12,7 +12,7 @@
 
 #define kFooterBtH [Util myYOrHeight:35]
 
-@interface JobFairInfoViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface JobFairInfoViewController ()<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 {
     BaseTableView *dataTableView;
     NSMutableDictionary *infoDic;
@@ -26,12 +26,13 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"招聘会详情";
     
-    infoDic = [NSMutableDictionary dictionaryWithDictionary:_jobFairInfoDic];
-    [infoDic setObject:@"招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介" forKey:@"info"];
-    [infoDic setObject:@"特别提示特别提示特别提示特别提示特别提示特别提示特别提示特别提示特别提示特别提示" forKey:@"note"];
+//    infoDic = [NSMutableDictionary dictionaryWithDictionary:_jobFairInfoDic];
+//    [infoDic setObject:@"招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介招聘会简介" forKey:@"ent_intro"];
+//    [infoDic setObject:@"特别提示特别提示特别提示特别提示特别提示特别提示特别提示特别提示特别提示特别提示" forKey:@"ent_tips"];
     [self initTableView];
     
-    [self initFooterView];
+//
+    [self performSelector:@selector(requestJobFairInfo) withObject:nil afterDelay:0.0];
 }
 -(void)leftAction
 {
@@ -87,6 +88,7 @@
 -(void)clickedAction
 {
     NSLog(@"详情中 立即报名");
+    [self requestJobFairApply];
 }
 #pragma mark - 初始化数据列表
 -(void)initTableView
@@ -115,9 +117,6 @@
     cell.tag = indexPath.row;
     //加载数据
     [cell loadSubViewInInfo:infoDic];
-    
-    
-    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
@@ -174,7 +173,7 @@
     theStringSize = [content sizeWithFont:[UIFont systemFontOfSize:[self getContentFontSize]] maxSize:CGSizeMake(infoW, MAXFLOAT)];
     cellHeight = theStringSize.height+cellHeight;
     
-    content = [NSString stringWithFormat:@"主 办 单 位:  %@",[infoDic objectForKey:@"organizer"]];
+    content = [NSString stringWithFormat:@"主 办 单 位:  %@",[infoDic objectForKey:@"organizers"]];
     theStringSize = [content sizeWithFont:[UIFont systemFontOfSize:[self getContentFontSize]] maxSize:CGSizeMake(infoW, MAXFLOAT)];
     cellHeight = theStringSize.height+cellHeight;
     
@@ -190,14 +189,81 @@
     NSString *content = nil;
     float viewW = kWidth - [Util myXOrWidth:10]*2;
     if (index == 2) {
-        content = [infoDic objectForKey:@"info"];
+        content = [infoDic objectForKey:@"ent_intro"];
     }else
     {
-        content = [infoDic objectForKey:@"note"];
+        content = [infoDic objectForKey:@"ent_tips"];
     }
     
     CGSize theStringSize = [content sizeWithFont:[UIFont systemFontOfSize:[self getContentFontSize]] maxSize:CGSizeMake(viewW, MAXFLOAT)];
     return theStringSize.height+[Util myYOrHeight:10]*3+18;
+    
+}
+#pragma mark - 从服务器获取数据
+//招聘会详情
+-(void)requestJobFairInfo
+{
+    NSString *listJson = [CombiningData getFairInfoById:_jobFairId Type:kJobFairInfo];
+    [self showHUD:@"正在加载数据"];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUD];
+                //加载首页数据
+                NSArray *dataArr = [result objectForKey:@"data"];
+                if ([dataArr count]>0) {
+                    infoDic = [dataArr firstObject];
+                    [dataTableView reloadData];
+                    //加载按钮
+                    [self initFooterView];
+                }
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                [self hideHUDFaild:message];
+            }
+        }else
+        {
+            [self hideHUDFaild:@"服务器请求失败"];
+        }
+        
+    }];
+
+}
+//招聘会报名
+-(void)requestJobFairApply
+{
+    NSString *listJson = [CombiningData getFairInfoById:_jobFairId Type:kJobFairApply];
+    [self showHUD:@"正在提交"];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUD];
+                //加载首页数据
+                UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"报名成功" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+                alterView.tag = 250;
+                [alterView show];
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                [self hideHUDFaild:message];
+            }
+        }else
+        {
+            [self hideHUDFaild:@"服务器请求失败"];
+        }
+        
+    }];
+    
+}
+#pragma mark - UIAlterViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 250) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
     
 }
 @end

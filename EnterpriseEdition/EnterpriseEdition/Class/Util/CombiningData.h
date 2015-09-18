@@ -114,6 +114,10 @@
  获取招聘会的json
  */
 +(NSString*)getFairList:(NSString*)type Page:(int)page;
+/**
+ 通过招聘会id获取招聘会详情和报名的json
+ */
++(NSString*)getFairInfoById:(NSString*)fairId Type:(NSString*)type;
 
 /**
  通过招聘会id获取收到的简历的json

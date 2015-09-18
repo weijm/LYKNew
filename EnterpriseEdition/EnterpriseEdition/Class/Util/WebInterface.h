@@ -115,6 +115,10 @@
 #pragma mark - 招聘会
 //招聘会列表
 #define kJobFairList @"ent_fair_list"
+//招聘会详情
+#define kJobFairInfo @"ent_fair_view"
+//招聘会报名
+#define kJobFairApply @"ent_fair_apply"
 
 
 //上传图片 

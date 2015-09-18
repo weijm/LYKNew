@@ -402,6 +402,7 @@
 		20E9E16F1B5F8ECD0013A865 /* PositionInfoTableViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E16D1B5F8ECD0013A865 /* PositionInfoTableViewCell2.xib */; };
 		20E9E1741B5F97960013A865 /* ItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E9E1731B5F97960013A865 /* ItemView.m */; };
 		20E9E1761B5F97A50013A865 /* ItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E1751B5F97A50013A865 /* ItemView.xib */; };
+		20ED73C01BABE64900162EBC /* libUMessage_Sdk_1.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20ED73BE1BABE64900162EBC /* libUMessage_Sdk_1.1.0.a */; };
 		20EE178F1BA90DFD00167CBD /* JobFairListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20EE178E1BA90DFD00167CBD /* JobFairListTableViewCell.m */; };
 		20EE17911BA9181E00167CBD /* home_scan_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20EE17901BA9181E00167CBD /* home_scan_bt@2x.png */; };
 		20EE17931BA9182700167CBD /* home_scan_bt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20EE17921BA9182700167CBD /* home_scan_bt@3x.png */; };
@@ -978,6 +979,8 @@
 		20E9E1721B5F97960013A865 /* ItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemView.h; sourceTree = "<group>"; };
 		20E9E1731B5F97960013A865 /* ItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemView.m; sourceTree = "<group>"; };
 		20E9E1751B5F97A50013A865 /* ItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemView.xib; sourceTree = "<group>"; };
+		20ED73BE1BABE64900162EBC /* libUMessage_Sdk_1.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.1.0.a; sourceTree = "<group>"; };
+		20ED73BF1BABE64900162EBC /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		20EE178D1BA90DFD00167CBD /* JobFairListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobFairListTableViewCell.h; sourceTree = "<group>"; };
 		20EE178E1BA90DFD00167CBD /* JobFairListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobFairListTableViewCell.m; sourceTree = "<group>"; };
 		20EE17901BA9181E00167CBD /* home_scan_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_scan_bt@2x.png"; sourceTree = "<group>"; };
@@ -1030,6 +1033,7 @@
 				20D58BAD1B54F841007B2A3F /* SystemConfiguration.framework in Frameworks */,
 				20D58BAB1B54F834007B2A3F /* CoreLocation.framework in Frameworks */,
 				20D58BA91B54F82C007B2A3F /* QuartzCore.framework in Frameworks */,
+				20ED73C01BABE64900162EBC /* libUMessage_Sdk_1.1.0.a in Frameworks */,
 				208EBDA01B4A7F4C00AB0730 /* CoreText.framework in Frameworks */,
 				2097D3201B463D1300611432 /* UIKit.framework in Frameworks */,
 			);
@@ -1415,6 +1419,7 @@
 		208EBDAE1B4A82C000AB0730 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				20ED73BD1BABE64200162EBC /* UMessagePushSDK */,
 				200A576C1B9E7356003FF9FD /* StatisticsSDK */,
 				203D993D1B735E6E00A39F46 /* MJRefresh */,
 				200077731B71ED690015E261 /* SDWebImage */,
@@ -2134,6 +2139,15 @@
 			name = infoCell;
 			sourceTree = "<group>";
 		};
+		20ED73BD1BABE64200162EBC /* UMessagePushSDK */ = {
+			isa = PBXGroup;
+			children = (
+				20ED73BE1BABE64900162EBC /* libUMessage_Sdk_1.1.0.a */,
+				20ED73BF1BABE64900162EBC /* UMessage.h */,
+			);
+			path = UMessagePushSDK;
+			sourceTree = "<group>";
+		};
 		20EE178C1BA90DDF00167CBD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -2847,8 +2861,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Qing Yin (HAUT46K9ZD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Qing Yin (HAUT46K9ZD)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2870,7 +2884,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "5d413e6f-6aaa-406e-9cfc-2449e415e18e";
+				PROVISIONING_PROFILE = "86b8984f-61c8-423c-a47b-496ce4061bf9";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2893,8 +2907,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Qing Yin (HAUT46K9ZD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Qing Yin (HAUT46K9ZD)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -2909,7 +2923,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "5d413e6f-6aaa-406e-9cfc-2449e415e18e";
+				PROVISIONING_PROFILE = "86b8984f-61c8-423c-a47b-496ce4061bf9";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -2931,10 +2945,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EnterpriseEdition/Class/Third/StatisticsSDK",
+					"$(PROJECT_DIR)/EnterpriseEdition/Class/Third/UMessagePushSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5d413e6f-6aaa-406e-9cfc-2449e415e18e";
+				PROVISIONING_PROFILE = "86b8984f-61c8-423c-a47b-496ce4061bf9";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2954,10 +2969,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EnterpriseEdition/Class/Third/StatisticsSDK",
+					"$(PROJECT_DIR)/EnterpriseEdition/Class/Third/UMessagePushSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5d413e6f-6aaa-406e-9cfc-2449e415e18e";
+				PROVISIONING_PROFILE = "86b8984f-61c8-423c-a47b-496ce4061bf9";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

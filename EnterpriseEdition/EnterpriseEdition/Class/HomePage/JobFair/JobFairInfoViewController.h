@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface JobFairInfoViewController : BaseViewController
-@property(nonatomic,strong) NSDictionary *jobFairInfoDic;
+@property (nonatomic,strong) NSString *jobFairId;
 @end
