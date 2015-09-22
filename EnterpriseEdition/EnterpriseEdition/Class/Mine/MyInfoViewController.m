@@ -18,12 +18,13 @@
 
 
 
-#define kFooterViewH kHeight -[Util myYOrHeight:78]-[Util myYOrHeight:87]-[Util myYOrHeight:37.5]*4-kFOOTERVIEWH-topBarheight
+#define kFooterViewH kHeight -[Util myYOrHeight:78]-[Util myYOrHeight:87]-[Util myYOrHeight:37.5]*5-kFOOTERVIEWH-topBarheight
 
 @interface MyInfoViewController ()
 {
     NSDictionary * resumeInfoDic;
     UIWebView *phoneWebView;
+    NSString *newMsgCount;
 }
 @end
 
@@ -35,6 +36,10 @@
     
     self.view.backgroundColor = kCVBackgroundColor;
     self.navigationItem.leftBarButtonItem = nil;
+    
+    if (kIphone4) {
+        dataTableView.scrollEnabled = YES;
+    }
 
     
 }
@@ -46,11 +51,12 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [self performSelector:@selector(requestMineInfo) withObject:nil afterDelay:0.0];
+    [self performSelector:@selector(requestMsgCount) withObject:nil afterDelay:0.0];
 }
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return 8;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -75,7 +81,25 @@
         //取消点击cell选中效果
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
-    }else
+    }else if (indexPath.row == 7)
+    {
+        static NSString *cellId = @"CellID";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+        if (cell==nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+        }
+        UIView *tempView = [cell.contentView viewWithTag:10];
+        if (tempView) {
+            [tempView removeFromSuperview];
+        }
+        UIView *footerView = [self getFooterView];
+        footerView.tag = 10;
+        [cell.contentView addSubview:footerView];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor = [UIColor clearColor];
+        return cell;
+    }
+    else
     {
         static NSString *cellid=@"MyTableViewCell2ID";
         MyTableViewCell2 *cell = (MyTableViewCell2 *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
@@ -83,7 +107,7 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"MyTableViewCell2" owner:self options:nil] lastObject];
         }
         cell.tag = indexPath.row;
-        [cell loadSubView];
+        [cell loadSubView:newMsgCount];
         //取消点击cell选中效果
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -99,21 +123,32 @@
     }else if (indexPath.row ==1)
     {
         return [Util myYOrHeight:87];
-    }else
+    }
+    else if (indexPath.row ==7)
+    {
+        if (kIphone4) {
+            return kFooterViewH + [Util myYOrHeight:37.5];
+        }
+        return kFooterViewH;
+    }
+    else
     {
         
         return [Util myYOrHeight:37.5];
     }
 }
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+
+-(UIView*)getFooterView
 {
-    return kFooterViewH;
-}
--(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, kFooterViewH)];
+    float fH = kFooterViewH;
+    if (kIphone4) {
+        fH = kFooterViewH + [Util myYOrHeight:37.5];
+    }
+    
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, fH)];
     footerView.userInteractionEnabled = YES;
     UIButton *bt = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, [Util myXOrWidth:100], [Util myYOrHeight:30])];
+    
     bt.center = footerView.center;
     [bt setTitle:@"退出账号" forState:UIControlStateNormal];
     [bt setTitleColor:Rgb(0, 0, 0, 0.8) forState:UIControlStateNormal];
@@ -128,11 +163,45 @@
     bt.backgroundColor = Rgb(255, 255, 255, 1.0);
     bt.layer.borderWidth = 0.25;
     bt.layer.cornerRadius = 3;
-   
+    
     bt.layer.borderColor = [UIColor colorWithRed:0.694 green:0.694 blue:0.714 alpha:1.0].CGColor;
     [footerView addSubview:bt];
     return footerView;
+    
 }
+//-(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+//{
+//    float fH = kFooterViewH;
+//
+//    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, fH)];
+//    footerView.userInteractionEnabled = YES;
+//    UIButton *bt = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, [Util myXOrWidth:100], [Util myYOrHeight:30])];
+//    if (kIphone4) {
+//        
+//    }else
+//    {
+//        bt.center = footerView.center;
+//    }
+//    
+//    [bt setTitle:@"退出账号" forState:UIControlStateNormal];
+//    [bt setTitleColor:Rgb(0, 0, 0, 0.8) forState:UIControlStateNormal];
+//    if (kIphone6plus) {
+//        bt.titleLabel.font = [UIFont systemFontOfSize:15];
+//    }else
+//    {
+//        bt.titleLabel.font = [UIFont systemFontOfSize:13];
+//    }
+//    
+//    [bt addTarget:self action:@selector(exitApplication) forControlEvents:UIControlEventTouchUpInside];
+//    bt.backgroundColor = Rgb(255, 255, 255, 1.0);
+//    bt.layer.borderWidth = 0.25;
+//    bt.layer.cornerRadius = 3;
+//   
+//    bt.layer.borderColor = [UIColor colorWithRed:0.694 green:0.694 blue:0.714 alpha:1.0].CGColor;
+//    [footerView addSubview:bt];
+//    footerView.backgroundColor = [UIColor redColor];
+//    return footerView;
+//}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
@@ -147,16 +216,21 @@
         codeVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:codeVC animated:YES];
     }
-    else if (indexPath.row == 3) {//版本说明
+    else if (indexPath.row == 3) {
+        InfoViewController *infoVC = [[InfoViewController alloc] init];
+        infoVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:infoVC animated:YES];
+    }
+    else if (indexPath.row == 4) {//版本说明
         VersionViewController *versionVC = [[VersionViewController alloc] init];
         versionVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:versionVC animated:YES];
-    }else if (indexPath.row == 5)//修改密码
+    }else if (indexPath.row == 6)//修改密码
     {
         ChangePasswordViewController *changPVC = [[ChangePasswordViewController alloc] init];
         changPVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:changPVC animated:YES];
-    }else if (indexPath.row == 4)
+    }else if (indexPath.row == 5)
     {
         //客服电话
         if ([Util checkDevice:@"iPod"]||[Util checkDevice:@"iPad"]){
@@ -169,11 +243,7 @@
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel:4008907977"]];
         [phoneWebView loadRequest:[NSURLRequest requestWithURL:url]];
     }
-        else if (indexPath.row == 5) {
-            InfoViewController *infoVC = [[InfoViewController alloc] init];
-            infoVC.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:infoVC animated:YES];
-        }
+   
 }
 -(void)exitApplication
 {
@@ -214,7 +284,28 @@
         }
     }];
 }
-
+-(void)requestMsgCount
+{
+    NSString *infoJson = [CombiningData getMineInfo:kMsgUnReadCount];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:infoJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                NSArray *dataArray = [result objectForKey:@"data"];
+                if ([dataArray count]>0) {
+                    NSDictionary *dic = [dataArray firstObject];
+                    newMsgCount = [dic objectForKey:@"new_total"];
+                    if ([newMsgCount intValue]>0) {
+                        //将消息数量显示到界面上
+                        [dataTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForItem:3 inSection:0], nil] withRowAnimation:UITableViewRowAnimationNone];
+                    }
+                }
+            }
+        }else
+        {
+        }
+    }];
+}
 #pragma mark - 退出确认
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {

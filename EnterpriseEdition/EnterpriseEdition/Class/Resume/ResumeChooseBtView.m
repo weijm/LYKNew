@@ -219,7 +219,7 @@
     NSInteger index = self.tag;
     switch (index) {
         case 100:
-            [_chooseBt setTitle:@"全部已读" forState:UIControlStateNormal];
+            [_chooseBt setTitle:@"置为已读" forState:UIControlStateNormal];
             break;
         case 200:
             [_chooseBt setTitle:@"删    除" forState:UIControlStateNormal];

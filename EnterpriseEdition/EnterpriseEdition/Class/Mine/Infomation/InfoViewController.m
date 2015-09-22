@@ -25,7 +25,6 @@
     InfoFiltrateView *infoFiltrateView;
     int currentPage;
     
-    BOOL isMore;
     
     BOOL isLoading;
     
@@ -53,16 +52,20 @@
     };
     currentPage = 1;
     selectedFilter = 0;
-    [self performSelector:@selector(requestData) withObject:nil afterDelay:0.0];
+    
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self performSelector:@selector(requestData) withObject:nil afterDelay:0.0];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 -(void)requestData
 {
-    [self requestMsgList:selectedFilter];
+    [self requestMsgList:NO];
 }
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -105,10 +108,12 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (rightBt.specialMark ==1) {
-        [self rightAction];
+        return;
     }
     InfoDetailViewController *infoDetailVC = [[InfoDetailViewController alloc] init];
-    infoDetailVC.infoDictionary = [dataArray objectAtIndex:indexPath.row];
+    NSDictionary *dic = [dataArray objectAtIndex:indexPath.row];
+    infoDetailVC.infoId = [NSString stringWithFormat:@"%@",[dic objectForKey:@"id"]];
+    infoDetailVC.infoStatus = [NSString stringWithFormat:@"%@",[dic objectForKey:@"status"]];
     [self.navigationController pushViewController:infoDetailVC animated:YES];
     
 }
@@ -125,12 +130,12 @@
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBt];
     self.navigationItem.leftBarButtonItem = leftItem;
     
-    filtrateBt = [[UIButton_Custom alloc] initWithFrame:frame];
-    [filtrateBt setImage:[UIImage imageNamed:@"my_info_filtrate_bt"] forState:UIControlStateNormal];
-    imageInsets = filtrateBt.imageEdgeInsets;
-    filtrateBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left+20, imageInsets.bottom, imageInsets.right-20);
-    [filtrateBt addTarget:self action:@selector(filtrateAction) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightItem1 = [[UIBarButtonItem alloc] initWithCustomView:filtrateBt];
+//    filtrateBt = [[UIButton_Custom alloc] initWithFrame:frame];
+//    [filtrateBt setImage:[UIImage imageNamed:@"my_info_filtrate_bt"] forState:UIControlStateNormal];
+//    imageInsets = filtrateBt.imageEdgeInsets;
+//    filtrateBt.imageEdgeInsets = UIEdgeInsetsMake(imageInsets.top, imageInsets.left+20, imageInsets.bottom, imageInsets.right-20);
+//    [filtrateBt addTarget:self action:@selector(filtrateAction) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *rightItem1 = [[UIBarButtonItem alloc] initWithCustomView:filtrateBt];
     
     rightBt = [[UIButton_Custom alloc] initWithFrame:frame];
     [rightBt setImage:[UIImage imageNamed:@"home_edit_btn"] forState:UIControlStateNormal];
@@ -141,9 +146,9 @@
     rightBt.titleEdgeInsets = UIEdgeInsetsMake(titleInsets.top, titleInsets.left+20, titleInsets.bottom, titleInsets.right-20);
     [rightBt addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:rightItem,rightItem1, nil];
-    filtrateBt.enabled = NO;
-    rightBt.enabled = NO;
+    self.navigationItem.rightBarButtonItem = rightItem;
+//    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:rightItem,rightItem1, nil];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     
 }
 -(void)leftAction
@@ -154,29 +159,29 @@
     }
     [self.navigationController popViewControllerAnimated:YES];
 }
--(void)filtrateAction
-{
-    if (filtrateBt.specialMark == 0) {//出现筛选页面
-        float viewX = kWidth - 130-[Util myXOrWidth:25];
-        CGRect  frame = CGRectMake(viewX, 0, 130, 101);
-        infoFiltrateView = [[InfoFiltrateView alloc] initWithFrame:frame];
-        __weak InfoViewController *wself = self;
-        infoFiltrateView.touchAction = ^(int index){
-            InfoViewController *sself = wself;
-            [sself filtrateViewAction:index];
-        };
-        [infoFiltrateView showInView:self.view];
-        
-        filtrateBt.specialMark = 1;
-        rightBt.enabled = NO;
-    }else
-    {
-        [infoFiltrateView cancelView];
-        filtrateBt.specialMark = 0;
-        
-        rightBt.enabled = YES;
-    }
-}
+//-(void)filtrateAction
+//{
+//    if (filtrateBt.specialMark == 0) {//出现筛选页面
+//        float viewX = kWidth - 130-[Util myXOrWidth:25];
+//        CGRect  frame = CGRectMake(viewX, 0, 130, 101);
+//        infoFiltrateView = [[InfoFiltrateView alloc] initWithFrame:frame];
+//        __weak InfoViewController *wself = self;
+//        infoFiltrateView.touchAction = ^(int index){
+//            InfoViewController *sself = wself;
+//            [sself filtrateViewAction:index];
+//        };
+//        [infoFiltrateView showInView:self.view];
+//        
+//        filtrateBt.specialMark = 1;
+//        rightBt.enabled = NO;
+//    }else
+//    {
+//        [infoFiltrateView cancelView];
+//        filtrateBt.specialMark = 0;
+//        
+//        rightBt.enabled = YES;
+//    }
+//}
 -(void)rightAction
 {
     if (rightBt.specialMark ==0) {//出现选择按钮
@@ -187,6 +192,9 @@
         [self initFooerView];
         
         filtrateBt.enabled = NO;
+        for (int i =0; i < [dataArray count]; i++) {
+            [chooseArray replaceObjectAtIndex:i withObject:@"0"];
+        }
         
     }else
     {//隐藏选中按钮
@@ -197,25 +205,26 @@
         [footerView cancelFooterView];
         filtrateBt.enabled = YES;
         
+        
     }
     [dataTableView reloadData];
 }
--(void)filtrateViewAction:(int)index
-{
-    if (index == 0) {//点击任何地方时取消了筛选视图
-        filtrateBt.specialMark = 0;
-        
-        rightBt.enabled = YES;
-    }else if (index == 1)
-    {
-        NSLog(@"消息");
-    }else
-    {
-        NSLog(@"通知");
-    }
-    
-    
-}
+//-(void)filtrateViewAction:(int)index
+//{
+//    if (index == 0) {//点击任何地方时取消了筛选视图
+//        filtrateBt.specialMark = 0;
+//        
+//        rightBt.enabled = YES;
+//    }else if (index == 1)
+//    {
+//        NSLog(@"消息");
+//    }else
+//    {
+//        NSLog(@"通知");
+//    }
+//    
+//    
+//}
 #pragma mark - 初始化footerView
 -(void)initFooerView
 {
@@ -243,14 +252,27 @@
 #pragma mark - headerView和fooerView上的选择不同按钮的触发事件
 -(void)chooseAction:(NSInteger)index isChooseAll:(BOOL)isAll
 {
+    NSMutableArray *idsArr = [NSMutableArray array];
+    for (int i =0; i < [chooseArray count]; i++) {
+        NSString *value = [chooseArray objectAtIndex:i];
+        if ([value intValue]==1) {
+            NSDictionary *dic = [dataArray objectAtIndex:i];
+            [idsArr addObject:[dic objectForKey:@"id"]];
+        }
+    }
+    NSString *ids = [CombiningData getIdsByArray:idsArr];
     switch (index) {
         case 100:
         {
-            
+            //置为已读
+            [self requestSetMsg:ids Type:1];
         }
             break;
         case 200:
-            NSLog(@"选中简历类型 2 取消收藏选中的简历");
+        {
+            //删除
+            [self requestSetMsg:ids Type:2];
+        }
             break;
             
         default:
@@ -307,14 +329,14 @@
     [dataTableView stopRefresh];
 }
 #pragma mark - 请求服务器
--(void)requestMsgList:(int)filter
+-(void)requestMsgList:(BOOL)isMore
 {
     int page = currentPage;
     
     if (!isMore) {
         [self showHUD:@"正在加载数据"];
     }
-    NSString *listJson = [CombiningData getMsgList:filter Page:currentPage];
+    NSString *listJson = [CombiningData getMsgList:page];
     
     //请求服务器
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
@@ -330,22 +352,32 @@
                 for (int i=0; i< [dataArr count]; i++) {
                     [chooseArray addObject:@""];
                 }
-//                [self dealWithResponeData:dataArr];
                 //将提示视图取消
                 if (!isMore) {
                     [self hideHUD];
+                    dataArray = [NSMutableArray arrayWithArray:dataArr];
+                    
                 }else
                 {
-                    [dataTableView stopRefresh];
                     isLoading = NO;
-//                    [self subViewEnabled:YES];
+                    [dataTableView stopRefresh];
+                    [dataArray addObjectsFromArray:dataArr];
+                   
                 }
+                if ([dataArray count]>0) {
+                    [self subViewEnabled:YES];
+                }else
+                {
+                    [self subViewEnabled:NO];
+                }
+                
+                 [dataTableView reloadData];
                 
             }else
             {
                 NSString *message = [result objectForKey:@"message"];
                 if ([message length]==0) {
-                    message = @"数据为空";
+                    message = @"暂无信息";
                 }
                 if (!isMore) {
                     dataArray = nil;
@@ -379,7 +411,8 @@
 -(void)subViewEnabled:(BOOL)enable
 {
     self.navigationItem.rightBarButtonItem.enabled = enable;
-    self.navigationItem.leftBarButtonItem.enabled = enable;
+    
+    
 }
 //停止刷新
 -(void)stopRefreshLoading
@@ -388,5 +421,39 @@
     isLoading = NO;
     [self subViewEnabled:YES];
     [dataTableView changeProText:NO];
+}
+
+-(void)requestSetMsg:(NSString*)ids Type:(int)type
+{
+    if (type==1) {
+        [self showHUD:@"正在请求置为已读"];
+    }else
+    {
+        [self showHUD:@"正在请求删除"];
+    }
+    NSString *listJson = [CombiningData setMsg:ids Type:type];
+    
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                if (type==1) {
+                    [self hideHUDWithComplete:@"置为已读完成"];
+                }else
+                {
+                    [self hideHUDWithComplete:@"删除成功"];
+                }
+                [self performSelector:@selector(requestData) withObject:nil afterDelay:0.5];
+            }else
+            {
+                [self hideHUDFaild:[result objectForKey:@"message"]];
+            }
+        }else
+        {
+             [self hideHUDFaild:@"请求服务器失败"];
+        }
+        
+    }];
+
 }
 @end

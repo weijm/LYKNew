@@ -9,9 +9,13 @@
 #import "ScanCodeViewController.h"
 #import "JobFairInfoViewController.h"
 #import "ResumeInfoViewController.h"
+#import "JobFairListView.h"
+#import "UIDevice+Extensions.h"
+
+
 #define kScanWidth [Util myXOrWidth:250]
 #define kScanY [Util myYOrHeight:80]
-@interface ScanCodeViewController ()
+@interface ScanCodeViewController ()<JobFairListViewDelegate>
 
 @end
 
@@ -23,6 +27,25 @@
     self.title = @"二维码扫描";
     [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:kNavigationBgColor] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.translucent = NO;
+    if ([UIDevice isSimulator]) {
+        
+    }else
+    {
+        [self initScanView];
+    }
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    if ([UIDevice isSimulator]) {
+        [Util showPrompt:@"模拟器不可以扫描二维码"];
+    }else
+    {
+        [self setupCamera];
+    }
+    
+}
+-(void)initScanView
+{
     float imgW = kScanWidth;
     float imgX = (kWidth-imgW)/2;
     float imgY = kScanY;
@@ -49,8 +72,8 @@
     bgView.backgroundColor = [UIColor blackColor];
     bgView.alpha = 0.8;
     [self.view addSubview:bgView];
-
-
+    
+    
     float fontSize = 17;
     if (kIphone5||kIphone4) {
         fontSize = 14;
@@ -74,10 +97,6 @@
     timer = [NSTimer scheduledTimerWithTimeInterval:.02 target:self selector:@selector(animation1) userInfo:nil repeats:YES];
     
     jobFairId = @"";
-}
--(void)viewWillAppear:(BOOL)animated
-{
-    [self setupCamera];
 }
 -(void)leftAction
 {
@@ -169,20 +188,16 @@
         NSString *markStr = [subArr firstObject];
         if ([markStr isEqualToString:@"EZZ_FAIR"]) {
             jobFairId = [subArr lastObject];
-            UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"签到成功" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-            [alterView show];
+            //签到请求服务器
+            [self requestSign:jobFairId];
             
             
             
         }else if ([markStr isEqualToString:@"EZZ_RES"])
         {
-            ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
-            infoVC.resumeID = [NSString stringWithFormat:@"%@",[subArr lastObject]] ;
-            infoVC.jobID = @"0";
-//            infoVC.internships = [[Util getCorrectString:[dic objectForKey:@"internships"]] intValue];
-            infoVC.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:infoVC animated:YES];
-            NSLog(@"进入简历详情%@",[subArr lastObject]);
+            resumeId = [NSString stringWithFormat:@"%@",[subArr lastObject]] ;
+            [self requestResumeCodeStep1];
+           
         }else
         {
             UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"扫描的二维码格式错误" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
@@ -197,7 +212,7 @@
     }
 
 }
-#pragma mark -
+#pragma mark - UIAlterViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView.tag == 10) {
@@ -215,5 +230,154 @@
     }
     
 }
+#pragma mark - 签到请求服务器
+-(void)requestSign:(NSString*)fairID
+{
+    NSString *listJson = [CombiningData getFairInfoById:fairID Type:kQRCodeSign];
+    [self showHUD:@"正在提交签到数据"];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUD];
+                //签到成功的提示视图
+                UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"签到成功" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+                [alterView show];
 
+
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self cancelButtonTitle:nil
+                    otherButtonTitles:@"确定", nil];
+                alterView.tag = 10;
+                [alterView show];
+//                [self hideHUDFaild:message];
+                [self hideHUD];
+            }
+        }else
+        {
+//            [self hideHUDFaild:@"服务器请求失败"];
+            UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"服务器请求失败" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+            alterView.tag = 10;
+            [alterView show];
+            [self hideHUD];
+        }
+        
+    }];
+
+}
+#pragma mark - 扫描服务器请求服务器
+-(void)requestResumeCodeStep1
+{
+    NSString *listJson = [CombiningData getMineInfo:kQRCodeResumeStep1];
+    [self showHUD:@"正在获取数据"];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                [self hideHUD];
+                //获取该企业招聘列表
+                NSArray *arr = [result objectForKey:@"data"];
+                if ([arr count]>1) {
+                    [self showJobFairListView:arr];
+                }else
+                {
+                    if ([arr count]==1) {
+                        NSDictionary *dic = [arr firstObject];
+                        [self makeSureAction:[dic objectForKey:@"id"]];
+                    }else
+                    {
+                        UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"该企业暂无招聘会" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+                        alterView.tag = 10;
+                        [alterView show];
+                    }
+                    
+               
+                }
+                
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self cancelButtonTitle:nil
+                                                          otherButtonTitles:@"确定", nil];
+                alterView.tag = 10;
+                [alterView show];
+                [self hideHUD];
+            }
+        }else
+        {
+            [self hideHUD];
+            UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"服务器请求失败" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+            alterView.tag = 10;
+            [alterView show];
+        }
+    }];
+}
+-(void)requestResumeCodeStep2:(NSString*)fairId
+{
+    NSString *listJson = [CombiningData getReceivedResumeByQRCode:fairId ResumeID:resumeId];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                //获取该企业招聘列表
+                [self nextResumeInfo];
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self cancelButtonTitle:nil
+                                                          otherButtonTitles:@"确定", nil];
+                alterView.tag = 10;
+                [alterView show];
+            }
+        }else
+        {
+            UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"服务器请求失败" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+            alterView.tag = 10;
+            [alterView show];
+        }
+    }];
+}
+#pragma mark - 扫描后显示 招聘会列表
+-(void)showJobFairListView:(NSArray*)array
+{
+    NSArray *arr = nil;
+    if (array==nil) {
+        arr = [NSArray arrayWithObjects:@"招聘会标题1",@"招聘会标题1", nil];
+    }else
+    {
+        arr = array;
+    }
+    float viewH = [Util myYOrHeight:35]*[arr count]+[Util myYOrHeight:40]*2;
+    float viewY = (kHeight-viewH-topBarheight)/2;
+    float viewX = [Util myXOrWidth:10];
+    float viewW = kWidth - viewX*2;
+    JobFairListView *jobView = [[JobFairListView alloc] initWithFrame:CGRectMake(viewX, viewY, viewW, viewH) AndData:arr];
+    jobView.delegate = self;
+    [jobView showView:self.view];
+
+}
+#pragma mark - JobFairListViewDelegate
+//取消视图
+-(void)cancelAction
+{
+    [self leftAction];
+}
+//选择某个招聘会
+-(void)makeSureAction:(NSString*)fairId
+{
+    [self requestResumeCodeStep2:fairId];
+}
+-(void)nextResumeInfo
+{
+    ResumeInfoViewController *infoVC = [[ResumeInfoViewController alloc] init];
+    infoVC.resumeID = resumeId ;
+    infoVC.jobID = @"0";
+    //            infoVC.internships = [[Util getCorrectString:[dic objectForKey:@"internships"]] intValue];
+    infoVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:infoVC animated:YES];
+    NSLog(@"进入简历详情%@",resumeId);
+
+}
 @end

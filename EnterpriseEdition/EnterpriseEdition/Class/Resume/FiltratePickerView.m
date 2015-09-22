@@ -389,6 +389,11 @@
             leftArray = [NSArray arrayWithObjects:@"小于15人",@"15-49人", @"50-149人",@"150-499人",@"500-2000人",@"2000人以上",nil];
             self.locate.country = [leftArray objectAtIndex:0];
             break;
+        case 10:
+            _titleLab.text = @"期望城市";
+            leftArray = [NSArray arrayWithContentsOfFile:[Util getBundlePath:@"province.plist"]];
+            self.locate.country = [leftArray objectAtIndex:0];
+            break;
 
         default:
             break;

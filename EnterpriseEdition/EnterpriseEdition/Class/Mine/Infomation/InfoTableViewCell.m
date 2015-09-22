@@ -27,15 +27,30 @@
 //加载数据
 -(void)loadInfoData:(NSDictionary*)dictionary
 {
-    if ([[dictionary objectForKey:@"type"] intValue]==1) {
-        iconImg.image = [UIImage imageNamed:@"my_info_icon"];
-    }else
-    {
-        iconImg.image = [UIImage imageNamed:@"my_notification_icon"];
-    }
+//    if ([[dictionary objectForKey:@"type"] intValue]==1) {
+//        iconImg.image = [UIImage imageNamed:@"my_info_icon"];
+//    }else
+//    {
+//        iconImg.image = [UIImage imageNamed:@"my_notification_icon"];
+//    }
+    iconImg.image = [UIImage imageNamed:@"my_info_icon"];
     titleLab.text = [dictionary objectForKey:@"title"];
-    infoLab.text = [dictionary objectForKey:@"info"];
-    timeLab.text = [dictionary objectForKey:@"time"];
+    infoLab.text = [dictionary objectForKey:@"summary"];
+    timeLab.text = [dictionary objectForKey:@"add_time"];
+    
+    UIView *tempView = [iconImg viewWithTag:10];
+    if (tempView) {
+        [tempView removeFromSuperview];
+    }
+    
+    if ([[dictionary objectForKey:@"status"] intValue]==0) {
+        UIView *unreadView = [[UIView alloc] initWithFrame:CGRectMake(iconWidth.constant-7, 0, 6, 6)];
+        unreadView.layer.cornerRadius = 3;
+        unreadView.layer.masksToBounds = YES;
+        unreadView.backgroundColor = [UIColor redColor];
+        unreadView.tag = 10;
+        [iconImg addSubview:unreadView];
+    }
     
 
 }

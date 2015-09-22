@@ -292,7 +292,8 @@
     int style = 0;
     if(row == 5)//地区
     {
-        style = 2;
+        style = 0;
+        row = 10;
     }else if(row == 3||row==0)//专业 此处修改[self showConditions: Content:]随着修改
     {
         style = 1;
@@ -329,20 +330,27 @@
 #pragma mark -将筛选条件显示到界面
 -(void)showConditions:(int)row Content:(NSDictionary*)dictionary
 {
-    if (row == 5 || row == 3 || row ==0) {//地区 此处可以查询对应的id
+    if (row==10|| row == 3 || row ==0) {//地区 此处可以查询对应的id
         NSDictionary *idsDic = [self getIdByContent:dictionary Index:row];
         NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:idsDic];
-        NSString *province = [dictionary objectForKey:@"province"];
-        NSString *city = [dictionary objectForKey:@"city"];
-        NSString *district = [dictionary objectForKey:@"district"];
-        NSString *content;
-        if ([province isEqualToString:city]) {
-            content = [NSString stringWithFormat:@"%@ %@",province,district];
+        if (row == 10) {
+            [dic setObject:[dictionary objectForKey:@"content"] forKey:@"content"];
+            row = 5;
         }else
         {
-            content = [NSString stringWithFormat:@"%@ %@ %@",province,city,district];
+            NSString *province = [dictionary objectForKey:@"province"];
+            NSString *city = [dictionary objectForKey:@"city"];
+            NSString *district = [dictionary objectForKey:@"district"];
+            NSString *content;
+            if ([province isEqualToString:city]) {
+                content = [NSString stringWithFormat:@"%@ %@",province,district];
+            }else
+            {
+                content = [NSString stringWithFormat:@"%@ %@ %@",province,city,district];
+            }
+            [dic setObject:content forKey:@"content"];
         }
-        [dic setObject:content forKey:@"content"];
+       
         [filtrateView reloadTableView:row withContent:dic];
     }else
     {//其他
@@ -368,7 +376,11 @@
             idsDic = [CombiningData getMajorIDsByContent:dictionary];
         }
             break;
-            
+        case 10://省份
+        {
+            idsDic = [CombiningData getProvinceIDsByContent:dictionary];
+        }
+            break;
         default:
             break;
     }

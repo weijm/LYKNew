@@ -252,10 +252,7 @@
         }
         
         resumeCategory = (int)index +1;
-        if (resumeCategory == 4) {
-            [Util showPrompt:@"暂未完成"];
-            return;
-        }
+        
         //获取服务器的数据
         [self performSelector:@selector(getData) withObject:nil afterDelay:0.0];
 //        [filtrateView changeTitleArray:resumeCategory];
@@ -791,8 +788,10 @@
             status = 3;
             break;
         case 4:
-            page = currentPage4;
-            status = 3;
+        {
+            [self requestResumeFromFair:isMore];
+            return;
+        }
             break;
 
         default:
@@ -879,6 +878,78 @@
 
     }];
     
+}
+//获取招聘会的简历
+-(void)requestResumeFromFair:(BOOL)isMore
+{
+    int page = currentPage4;
+    NSString *listJson = [CombiningData getResumeListByFair:@"" Page:page];
+    if (!isMore) {
+        [self showHUD:@"正在加载数据"];
+    }
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                //加载首页数据
+                NSArray *dataArr = [result objectForKey:@"data"];
+                //全选数组标记
+                if(page==1)
+                {   //如果第一页 加载的时候 初始化 chooseArray 否则直接增加到数组中
+                    chooseArray = [NSMutableArray array];
+                }
+                for (int i=0; i< [dataArr count]; i++) {
+                    [chooseArray addObject:@""];
+                }
+                [self dealWithResponeData:dataArr];
+                //将提示视图取消
+                if (!isMore) {
+                    [self hideHUD];
+                }else
+                {
+                    [dataTableView stopRefresh];
+                    isLoading = NO;
+                    [self subViewEnabled:YES];
+                }
+                
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                if ([message length]==0) {
+                    message = @"数据为空";
+                }
+                if (!isMore) {
+                    if ([message isEqualToString:@"该企业暂无投递简历"]||[message isEqualToString:@"该职位下暂无投递简历"]) {
+                        message = @"该企业招聘会暂无简历";
+                        fairArray = [NSMutableArray array];
+                        [dataTableView reloadData];
+                        self.navigationItem.rightBarButtonItem.enabled = NO;
+                    }
+                    [self hideHUDFaild:message];
+                }else
+                {
+                    //                    NSString *msg = [result objectForKey:@"message"];
+                    [dataTableView changeProText:YES];
+                    [self performSelector:@selector(stopRefreshLoading) withObject:nil afterDelay:0.5];
+                }
+                
+                
+            }
+        }else
+        {
+            if (!isMore) {
+                [self hideHUDFaild:@"服务器请求失败"];
+            }else
+            {
+                [dataTableView stopRefresh];
+                isLoading = NO;
+                [self subViewEnabled:YES];
+            }
+            
+        }
+        
+    }];
+
 }
 #pragma mark - 批量编辑简历
 -(void)requesBatchDealWithResume:(NSArray*)array type:(int)type

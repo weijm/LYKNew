@@ -24,7 +24,7 @@
 -(void)resetEditTextField
 {
     if (self.tag == 5) {
-         _contentTextFiled.placeholder = @"省/市/区（县）";
+         _contentTextFiled.placeholder = @"省份";
     }else
     {
          _contentTextFiled.placeholder = @"不限";
@@ -36,7 +36,7 @@
 -(void)loadDefaultInfo
 {
     if (self.tag == 5) {
-        _contentTextFiled.placeholder = @"省/市/区（县）";
+        _contentTextFiled.placeholder = @"省份";
     }else
     {
         _contentTextFiled.placeholder = @"不限";

@@ -10,10 +10,10 @@
 
 @interface InfoDetailTableViewCell : UITableViewCell
 {
-    __weak IBOutlet UIView *bg;
+    UIView *bg;
 
     
-    __weak IBOutlet UITextView *contentTextView;
+    UITextView *contentTextView;
 
 }
 @property(nonatomic) int infoType;

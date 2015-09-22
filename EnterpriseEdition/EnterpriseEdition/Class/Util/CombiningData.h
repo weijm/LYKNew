@@ -87,6 +87,7 @@
  获取简历详情
  */
 +(NSString*)getResumeInfo:(NSString*)type keyString:(NSString*)key Value:(NSString*)value;
+
 #pragma mark - 企业资料
 /**
  上传企业资料
@@ -115,21 +116,35 @@
  */
 +(NSString*)getFairList:(NSString*)type Page:(int)page;
 /**
- 通过招聘会id获取招聘会详情和报名的json
+ 通过招聘会id获取招聘会详情和报名的json  签到
  */
 +(NSString*)getFairInfoById:(NSString*)fairId Type:(NSString*)type;
-
 /**
  通过招聘会id获取收到的简历的json
  */
 +(NSString*)getResumeListByFair:(NSString*)fairId Page:(int)page;
+/**
+ 扫描简历二维码 接收简历
+ */
++(NSString*)getReceivedResumeByQRCode:(NSString*)fairId ResumeID:(NSString*)resumeID;
 #pragma mark - 信息
 /**
  获取信息列表
  */
-+(NSString*)getMsgList:(int)filter Page:(int)page;
-
++(NSString*)getMsgList:(int)page;
+/**
+ 获取消息详情
+ */
++(NSString*)getMsgInfo:(NSString*)infoId;
+/**
+ 标志已读或删除
+ */
++(NSString*)setMsg:(NSString*)ids Type:(int)type;
 #pragma mark - 从本地数据库中转换id
+/**
+ 获取省份对应的ids字典
+ */
++(NSMutableDictionary*)getProvinceIDsByContent:(NSDictionary*)dictionary;
 /**
  获取地区对应的ids字典
  */

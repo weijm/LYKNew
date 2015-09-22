@@ -25,5 +25,5 @@
     __weak IBOutlet NSLayoutConstraint *arrowWidth;
     __weak IBOutlet NSLayoutConstraint *arrowHeight;
 }
--(void)loadSubView;
+-(void)loadSubView:(NSString*)msgCount;
 @end

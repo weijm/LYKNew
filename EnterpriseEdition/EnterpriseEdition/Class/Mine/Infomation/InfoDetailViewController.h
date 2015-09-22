@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InfoDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface InfoDetailViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 {
+    NSDictionary *_infoDictionary;
     
+    __weak IBOutlet UITableView *dataTableView;
 }
-
-@property(nonatomic,strong) NSDictionary *infoDictionary;
+@property (nonatomic,strong) NSString *infoId;
+@property (nonatomic,strong) NSString *infoStatus;
 @end

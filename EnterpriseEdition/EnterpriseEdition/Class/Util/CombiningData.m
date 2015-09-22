@@ -378,9 +378,15 @@
 {
     NSString *pageString = [NSString stringWithFormat:@"%d",page];
     NSString *jsonString = [NSString stringWithFormat:
-                            @"{\"token\":\"%@\",\"type\":\"%@\",\"ent_user_id\":\"%@\",\"page\":\"%@\",\"fair_id\":\"%@\"}",kToken,kJobFairList,KGETOBJ(kUID),pageString,fairId];
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"ent_user_id\":\"%@\",\"page\":\"%@\",\"fair_id\":\"%@\"}",kToken,kResumeFromFair,KGETOBJ(kUID),pageString,fairId];
     return jsonString;
     
+}
++(NSString*)getReceivedResumeByQRCode:(NSString*)fairId ResumeID:(NSString*)resumeID
+{
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"ent_user_id\":\"%@\",\"resume_id\":\"%@\",\"fair_id\":\"%@\"}",kToken,kQRCodeResumeStep2,KGETOBJ(kUID),resumeID,fairId];
+    return jsonString;
 }
 +(NSString*)getUIDInfo:(NSString*)type
 {
@@ -391,16 +397,33 @@
     return jsonString;
 }
 #pragma mark - 信息
-+(NSString*)getMsgList:(int)filter Page:(int)page
++(NSString*)getMsgList:(int)page
 {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     NSString *uid = [userDefault objectForKey:kUID];
-    NSString *filterStr = [NSString stringWithFormat:@"%d",filter];
     NSString *pagestr = [NSString stringWithFormat:@"%d",page];
     NSString *jsonString = [NSString stringWithFormat:
-                            @"{\"token\":\"%@\",\"type\":\"%@\",\"filter\":\"%@\",\"page\":\"%@\",\"ent_user_id\":\"%@\"}",kToken,kMsgList,filterStr,pagestr,uid];
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"summary_limit\":\"\",\"page\":\"%@\",\"ent_user_id\":\"%@\"}",kToken,kMsgList,pagestr,uid];
     return jsonString;
     
+}
+// 获取消息详情
++(NSString*)getMsgInfo:(NSString*)infoId
+{
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"id\":\"%@\"}",kToken,kMsgInfo,infoId];
+    return jsonString;
+}
+//标志已读或删除
++(NSString*)setMsg:(NSString*)ids Type:(int)type
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userDefault objectForKey:kUID];
+    NSString *typestr = [NSString stringWithFormat:@"%d",type];
+    NSString *jsonString = [NSString stringWithFormat:
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"ids\":\"%@\",\"action_type\":\"%@\",\"ent_user_id\":\"%@\"}",kToken,kMsgSet,ids,typestr,uid];
+    return jsonString;
+
 }
 //md5加密
 + (NSString *)md5HexDigest:(NSString *)password
@@ -418,6 +441,25 @@
     return mdfiveString;
 }
 #pragma mark - 根据内容获取id
+// 获取省份对应的ids字典
++(NSMutableDictionary*)getProvinceIDsByContent:(NSDictionary*)dictionary
+{
+    NSMutableDictionary * idsDic = [[NSMutableDictionary alloc] init];
+    NSString *province = [Util getCorrectString:[dictionary objectForKey:@"content"]];
+    if ([province length]>0) {
+        int cityID = 1;
+        int oldId = cityID;
+        cityID = [[PositionObject shareInstance] getProvinceOrCityOrAreas:cityID Name:province];
+        
+        if (cityID >oldId) {
+            [idsDic setObject:[NSNumber numberWithInt:cityID] forKey:@"city_id_1"];
+            [idsDic setObject:@"" forKey:@"city_id_2"];
+            [idsDic setObject:@"" forKey:@"city_id_3"];
+        }
+        
+    }
+    return idsDic;
+}
 // 获取地区对应的ids字典
 +(NSMutableDictionary*)getCityIDsByContent:(NSDictionary*)dictionary
 {

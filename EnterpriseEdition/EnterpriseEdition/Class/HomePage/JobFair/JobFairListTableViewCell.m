@@ -246,10 +246,11 @@
     float viewY = [Util myYOrHeight:10]*2+18;
     float imgW = [Util myXOrWidth:200];
     float imgH = [Util myYOrHeight:140];
-    NSString *imgStr = [Util getCorrectString:[dictionary objectForKey:@"show_img"]];
+    picUrl = [Util getCorrectString:[dictionary objectForKey:@"show_img"]];
     locationImg = [[UIImageView alloc] initWithFrame:CGRectMake((kWidth-imgW)/2, viewY, imgW, imgH)];
-    if ([imgStr length]>0) {
-        [locationImg sd_setImageWithURL:[NSURL URLWithString:imgStr] placeholderImage:[UIImage imageNamed:@"homepage_jobfair_default"]];
+    if ([picUrl length]>0) {
+        [locationImg sd_setImageWithURL:[NSURL URLWithString:picUrl] placeholderImage:[UIImage imageNamed:@"homepage_jobfair_default"]];
+        
     }else
     {
         locationImg.image = [UIImage imageNamed:@"homepage_jobfair_default"];
@@ -371,7 +372,7 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closeAction)];
     [bg addGestureRecognizer:tap];
     UIImageView *bigView = [[UIImageView alloc] initWithFrame:rect];
-    [bigView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"homepage_jobfair_default"]];
+    [bigView sd_setImageWithURL:[NSURL URLWithString:picUrl] placeholderImage:[UIImage imageNamed:@"homepage_jobfair_default"]];
     bigView.tag = 10001;
     bigView.userInteractionEnabled = YES;
     [self.window addSubview:bigView];

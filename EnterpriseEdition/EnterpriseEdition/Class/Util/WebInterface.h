@@ -65,8 +65,10 @@
 #define kResumeList @"ent_resume_list"
 //筛选简历
 #define kSearchResume @"ent_resume_search_list"
-
+//批量操作简历
 #define kBatchDealResume @"ent_resume_favorites"
+//招聘会收到的简历
+#define kResumeFromFair @"ent_fair_resume_list"
 
 #pragma mark - 简历详情
 //简历详情剩余次数
@@ -119,7 +121,12 @@
 #define kJobFairInfo @"ent_fair_view"
 //招聘会报名
 #define kJobFairApply @"ent_fair_apply"
-
+//招聘会签到
+#define kQRCodeSign @"ent_fair_qrcode_checkin"
+//扫描简历二维码第一步
+#define kQRCodeResumeStep1 @"ent_fair_qrcode_resume_step1"
+//扫描简历二维码第二步
+#define kQRCodeResumeStep2 @"ent_fair_qrcode_resume_step2"
 
 //上传图片 
 #define kUploadImg [NSString stringWithFormat:@"http://42.62.92.59/interface_ent/upload_file_0a20ece95e098dd38621410f5a3f8dda.php"]

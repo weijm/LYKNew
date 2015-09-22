@@ -134,5 +134,6 @@
 + (BOOL)stringContainsEmoji:(NSString *)string;
 
 
+
 @end
 

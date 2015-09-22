@@ -16,6 +16,8 @@
     NSTimer * timer;
     
     NSString *jobFairId;
+    
+    NSString *resumeId;
 }
 @property (strong,nonatomic)AVCaptureDevice * device;
 @property (strong,nonatomic)AVCaptureDeviceInput * input;

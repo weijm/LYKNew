@@ -157,6 +157,10 @@
 		204168A81B8AED3600263B83 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 204168A71B8AED3600263B83 /* NSString+Extension.m */; };
 		204168AF1B8B0C7B00263B83 /* resume_cer_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204168AE1B8B0C7B00263B83 /* resume_cer_default@2x.png */; };
 		204168B11B8B0C8700263B83 /* resume_cer_default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204168B01B8B0C8700263B83 /* resume_cer_default@3x.png */; };
+		20486E1C1BAFCFCE004D899F /* JobFairListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20486E1B1BAFCFCE004D899F /* JobFairListView.m */; };
+		20486E1F1BAFEF5C004D899F /* UIDevice+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 20486E1E1BAFEF5C004D899F /* UIDevice+Extensions.m */; };
+		20486E211BB00E4C004D899F /* my_cell_icon6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20486E201BB00E4C004D899F /* my_cell_icon6@2x.png */; };
+		20486E231BB00E87004D899F /* my_cell_icon6@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20486E221BB00E87004D899F /* my_cell_icon6@3x.png */; };
 		205CA9C31B4BD9F4007BAC89 /* UIButton+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 205CA9C21B4BD9F4007BAC89 /* UIButton+Custom.m */; };
 		207334B41BAA93FB00EA3A61 /* MyCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207334B21BAA93FB00EA3A61 /* MyCodeViewController.m */; };
 		207334B51BAA93FB00EA3A61 /* MyCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 207334B31BAA93FB00EA3A61 /* MyCodeViewController.xib */; };
@@ -402,6 +406,7 @@
 		20E9E16F1B5F8ECD0013A865 /* PositionInfoTableViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E16D1B5F8ECD0013A865 /* PositionInfoTableViewCell2.xib */; };
 		20E9E1741B5F97960013A865 /* ItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E9E1731B5F97960013A865 /* ItemView.m */; };
 		20E9E1761B5F97A50013A865 /* ItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20E9E1751B5F97A50013A865 /* ItemView.xib */; };
+		20EC6A6F1BB140E300DCB192 /* province.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20EC6A6E1BB140E300DCB192 /* province.plist */; };
 		20ED73C01BABE64900162EBC /* libUMessage_Sdk_1.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20ED73BE1BABE64900162EBC /* libUMessage_Sdk_1.1.0.a */; };
 		20EE178F1BA90DFD00167CBD /* JobFairListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20EE178E1BA90DFD00167CBD /* JobFairListTableViewCell.m */; };
 		20EE17911BA9181E00167CBD /* home_scan_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20EE17901BA9181E00167CBD /* home_scan_bt@2x.png */; };
@@ -663,6 +668,12 @@
 		204168A71B8AED3600263B83 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		204168AE1B8B0C7B00263B83 /* resume_cer_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_cer_default@2x.png"; sourceTree = "<group>"; };
 		204168B01B8B0C8700263B83 /* resume_cer_default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resume_cer_default@3x.png"; sourceTree = "<group>"; };
+		20486E1A1BAFCFCE004D899F /* JobFairListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobFairListView.h; sourceTree = "<group>"; };
+		20486E1B1BAFCFCE004D899F /* JobFairListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobFairListView.m; sourceTree = "<group>"; };
+		20486E1D1BAFEF5C004D899F /* UIDevice+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Extensions.h"; sourceTree = "<group>"; };
+		20486E1E1BAFEF5C004D899F /* UIDevice+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Extensions.m"; sourceTree = "<group>"; };
+		20486E201BB00E4C004D899F /* my_cell_icon6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my_cell_icon6@2x.png"; sourceTree = "<group>"; };
+		20486E221BB00E87004D899F /* my_cell_icon6@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my_cell_icon6@3x.png"; sourceTree = "<group>"; };
 		205CA9C11B4BD9F4007BAC89 /* UIButton+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Custom.h"; sourceTree = "<group>"; };
 		205CA9C21B4BD9F4007BAC89 /* UIButton+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Custom.m"; sourceTree = "<group>"; };
 		207334B11BAA93FB00EA3A61 /* MyCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCodeViewController.h; sourceTree = "<group>"; };
@@ -979,6 +990,7 @@
 		20E9E1721B5F97960013A865 /* ItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemView.h; sourceTree = "<group>"; };
 		20E9E1731B5F97960013A865 /* ItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemView.m; sourceTree = "<group>"; };
 		20E9E1751B5F97A50013A865 /* ItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemView.xib; sourceTree = "<group>"; };
+		20EC6A6E1BB140E300DCB192 /* province.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = province.plist; sourceTree = "<group>"; };
 		20ED73BE1BABE64900162EBC /* libUMessage_Sdk_1.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.1.0.a; sourceTree = "<group>"; };
 		20ED73BF1BABE64900162EBC /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		20EE178D1BA90DFD00167CBD /* JobFairListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobFairListTableViewCell.h; sourceTree = "<group>"; };
@@ -1155,21 +1167,10 @@
 		2008976A1B902DDA00B155EC /* Infomation */ = {
 			isa = PBXGroup;
 			children = (
-				2008976B1B902DDA00B155EC /* InfoDetailTableViewCell.h */,
-				2008976C1B902DDA00B155EC /* InfoDetailTableViewCell.m */,
-				2008976D1B902DDA00B155EC /* InfoDetailTableViewCell.xib */,
-				2008976E1B902DDA00B155EC /* InfoDetailTitleAndImgTableViewCell.h */,
-				2008976F1B902DDA00B155EC /* InfoDetailTitleAndImgTableViewCell.m */,
-				200897701B902DDA00B155EC /* InfoDetailTitleAndImgTableViewCell.xib */,
+				2043E94F1BB0E48700666E42 /* View */,
 				200897711B902DDA00B155EC /* InfoDetailViewController.h */,
 				200897721B902DDA00B155EC /* InfoDetailViewController.m */,
 				200897731B902DDA00B155EC /* InfoDetailViewController.xib */,
-				200897741B902DDA00B155EC /* InfoFiltrateView.h */,
-				200897751B902DDA00B155EC /* InfoFiltrateView.m */,
-				200897761B902DDA00B155EC /* InfoFiltrateView.xib */,
-				200897771B902DDA00B155EC /* InfoTableViewCell.h */,
-				200897781B902DDA00B155EC /* InfoTableViewCell.m */,
-				200897791B902DDA00B155EC /* InfoTableViewCell.xib */,
 				2008977A1B902DDA00B155EC /* InfoViewController.h */,
 				2008977B1B902DDA00B155EC /* InfoViewController.m */,
 				2008977C1B902DDA00B155EC /* InfoViewController.xib */,
@@ -1244,6 +1245,8 @@
 				20EE178C1BA90DDF00167CBD /* Cell */,
 				2030B9901BA8FE2A00C9739A /* JobFairHeaderView.h */,
 				2030B9911BA8FE2A00C9739A /* JobFairHeaderView.m */,
+				20486E1A1BAFCFCE004D899F /* JobFairListView.h */,
+				20486E1B1BAFCFCE004D899F /* JobFairListView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1372,6 +1375,33 @@
 				203FEFE11B7EF16F00B5D3CF /* WebSourceViewController.xib */,
 			);
 			name = WebSource;
+			sourceTree = "<group>";
+		};
+		2043E94F1BB0E48700666E42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				200897741B902DDA00B155EC /* InfoFiltrateView.h */,
+				200897751B902DDA00B155EC /* InfoFiltrateView.m */,
+				200897761B902DDA00B155EC /* InfoFiltrateView.xib */,
+				2043E9501BB0E49100666E42 /* Cell */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2043E9501BB0E49100666E42 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2008976B1B902DDA00B155EC /* InfoDetailTableViewCell.h */,
+				2008976C1B902DDA00B155EC /* InfoDetailTableViewCell.m */,
+				2008976D1B902DDA00B155EC /* InfoDetailTableViewCell.xib */,
+				2008976E1B902DDA00B155EC /* InfoDetailTitleAndImgTableViewCell.h */,
+				2008976F1B902DDA00B155EC /* InfoDetailTitleAndImgTableViewCell.m */,
+				200897701B902DDA00B155EC /* InfoDetailTitleAndImgTableViewCell.xib */,
+				200897771B902DDA00B155EC /* InfoTableViewCell.h */,
+				200897781B902DDA00B155EC /* InfoTableViewCell.m */,
+				200897791B902DDA00B155EC /* InfoTableViewCell.xib */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		2076B2B61B5C99E300BC7D97 /* Search */ = {
@@ -1621,6 +1651,8 @@
 				20D44F0A1B844CC900DB9550 /* NdUncaughtExceptionHandler.m */,
 				204168A61B8AED3600263B83 /* NSString+Extension.h */,
 				204168A71B8AED3600263B83 /* NSString+Extension.m */,
+				20486E1D1BAFEF5C004D899F /* UIDevice+Extensions.h */,
+				20486E1E1BAFEF5C004D899F /* UIDevice+Extensions.m */,
 				200A57811B9EDE7B003FF9FD /* QrCode */,
 			);
 			path = Util;
@@ -1667,6 +1699,7 @@
 				203A302A1B8716DC0058E40E /* qiyexieyi.html */,
 				20E9E1461B5F47880013A865 /* data.sqlite */,
 				20F0F2691B5E476200CB1D71 /* industry.plist */,
+				20EC6A6E1BB140E300DCB192 /* province.plist */,
 				20F0F2671B5E3D9E00CB1D71 /* position.plist */,
 				20054E951B661703009FA771 /* enterpriseInfo.plist */,
 				20A32A1B1B58E49600E1B5F8 /* jobType.plist */,
@@ -1768,6 +1801,7 @@
 				20B43D091B85CC1A0067E37C /* my_cell_icon3@2x.png */,
 				20B43D0A1B85CC1A0067E37C /* my_cell_icon4@2x.png */,
 				20B43D0B1B85CC1A0067E37C /* my_cell_icon5@2x.png */,
+				20486E201BB00E4C004D899F /* my_cell_icon6@2x.png */,
 				20B43D001B85CBFD0067E37C /* my_info_icon@2x.png */,
 				20B43D011B85CBFD0067E37C /* my_notification_icon@2x.png */,
 				20B43D1A1B85CD730067E37C /* my_check_nopass@2x.png */,
@@ -2062,6 +2096,7 @@
 				20C93F621B68A1EA0050514B /* my_cell_icon3@3x.png */,
 				20C93F631B68A1EA0050514B /* my_cell_icon4@3x.png */,
 				20C93F641B68A1EA0050514B /* my_cell_icon5@3x.png */,
+				20486E221BB00E87004D899F /* my_cell_icon6@3x.png */,
 				20C93F691B68A2820050514B /* my_info_filtrate_bt@3x.png */,
 				20C93F6A1B68A2820050514B /* my_info_filtrate_item@3x.png */,
 				20C93F6D1B68A8470050514B /* my_info_icon@3x.png */,
@@ -2414,6 +2449,7 @@
 				20B43D2A1B85D1FD0067E37C /* my_enterprise_left_line@2x.png in Resources */,
 				20B43D031B85CBFD0067E37C /* my_notification_icon@2x.png in Resources */,
 				20C93F4E1B6861600050514B /* position_item_icon3@3x.png in Resources */,
+				20486E211BB00E4C004D899F /* my_cell_icon6@2x.png in Resources */,
 				201EDB111B575F0F0080A12A /* JobIntensionTableViewCell.xib in Resources */,
 				201EDB1B1B5795AB0080A12A /* HobbiesTableViewCell.xib in Resources */,
 				20054EA81B663536009FA771 /* EnterpriseContactViewController.xib in Resources */,
@@ -2423,6 +2459,7 @@
 				20A4D5D31BAAA22200C0D265 /* ScanCodeViewController.xib in Resources */,
 				20B43D411B85D2D60067E37C /* position_claim_close_bt@2x.png in Resources */,
 				20B43CF31B85C8AC0067E37C /* homepage_hire_icon1@2x.png in Resources */,
+				20486E231BB00E87004D899F /* my_cell_icon6@3x.png in Resources */,
 				20B43D431B85D2D60067E37C /* position_invalid_mark@2x.png in Resources */,
 				20E9E14E1B5F4B3C0013A865 /* PositionHeaderView.xib in Resources */,
 				202A6F471B6348C8003DF241 /* RegisterTableViewCell.xib in Resources */,
@@ -2586,6 +2623,7 @@
 				20B43D0E1B85CC1A0067E37C /* my_cell_icon4@2x.png in Resources */,
 				20F0F26A1B5E476200CB1D71 /* industry.plist in Resources */,
 				20D468C61B6F670D008A7B78 /* homepage_nopass@3x.png in Resources */,
+				20EC6A6F1BB140E300DCB192 /* province.plist in Resources */,
 				20054EAD1B663DAD009FA771 /* ReferenceView.xib in Resources */,
 				20BA85CC1B676E4500757788 /* my_person_icon@3x.png in Resources */,
 				20C93F8E1B68D1B20050514B /* login_password_mark@3x.png in Resources */,
@@ -2758,6 +2796,7 @@
 				2008977F1B902DDA00B155EC /* InfoDetailTitleAndImgTableViewCell.m in Sources */,
 				2030B98D1BA8FAAA00C9739A /* JobFairInfoViewController.m in Sources */,
 				2097D3121B462F0A00611432 /* RootViewController.m in Sources */,
+				20486E1C1BAFCFCE004D899F /* JobFairListView.m in Sources */,
 				20F0F2551B5E242E00CB1D71 /* MyInfoViewController.m in Sources */,
 				20A4D5D21BAAA22200C0D265 /* ScanCodeViewController.m in Sources */,
 				2000779A1B71ED690015E261 /* SDWebImageDownloader.m in Sources */,
@@ -2777,6 +2816,7 @@
 				2000779D1B71ED690015E261 /* SDWebImagePrefetcher.m in Sources */,
 				20D468971B6F12AB008A7B78 /* AFSecurityPolicy.m in Sources */,
 				200077971B71ED690015E261 /* SDImageCache.m in Sources */,
+				20486E1F1BAFEF5C004D899F /* UIDevice+Extensions.m in Sources */,
 				200077A31B71ED690015E261 /* UIView+WebCacheOperation.m in Sources */,
 				20D6F4191B608B0200AC0394 /* PositionOperationView.m in Sources */,
 				20E9E1591B5F886F0013A865 /* PositionInfoViewController.m in Sources */,
@@ -2884,7 +2924,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "86b8984f-61c8-423c-a47b-496ce4061bf9";
+				PROVISIONING_PROFILE = "456cde4e-9b6f-416a-a42b-365d280dd147";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2923,7 +2963,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "86b8984f-61c8-423c-a47b-496ce4061bf9";
+				PROVISIONING_PROFILE = "456cde4e-9b6f-416a-a42b-365d280dd147";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -2949,7 +2989,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "86b8984f-61c8-423c-a47b-496ce4061bf9";
+				PROVISIONING_PROFILE = "456cde4e-9b6f-416a-a42b-365d280dd147";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2973,7 +3013,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "86b8984f-61c8-423c-a47b-496ce4061bf9";
+				PROVISIONING_PROFILE = "456cde4e-9b6f-416a-a42b-365d280dd147";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

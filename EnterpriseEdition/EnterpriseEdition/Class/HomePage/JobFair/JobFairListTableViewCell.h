@@ -11,6 +11,7 @@
 @interface JobFairListTableViewCell : UITableViewCell
 {
     UIImageView *locationImg;
+    NSString *picUrl;
 }
 //报名事件
 @property(nonatomic,copy) void(^clickedAction)(int index,BOOL isResume);

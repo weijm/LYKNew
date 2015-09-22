@@ -12,7 +12,6 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    [self setTextViewParagraphStyle];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -23,22 +22,47 @@
 //加载数据 及视图
 -(void)loadsubView:(NSDictionary*)dictionary
 {
-    if (_infoType == 1) {//普通消息 设置连个圆角
-//        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:bg.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(5, 5)];
-//        CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-//        maskLayer.frame = bg.bounds;
-//        maskLayer.path = maskPath.CGPath;
-//        bg.layer.mask = maskLayer;
-    }else
-    {
+    for (UIView *view in [self.contentView subviews]) {
+        [view removeFromSuperview];
+    }
+    if (dictionary!=nil) {
+        
+        NSString *content = [Util getCorrectString:[dictionary objectForKey:@"content"]];
+        float viewW = kWidth - [Util myXOrWidth:5]*2;
+        
+         CGSize theStringSize = [content sizeWithFont:[UIFont systemFontOfSize:[self getLabFontSize]] maxSize:CGSizeMake(viewW, MAXFLOAT)];
+        
+        float bgH = theStringSize.height+[Util myYOrHeight:40];
+        if (kIphone4||kIphone5) {
+            bgH = theStringSize.height+65;
+        }
+        bg = [[UIView alloc] initWithFrame:CGRectMake([Util myXOrWidth:5], [Util myYOrHeight:5], viewW, bgH)];
+        bg.backgroundColor = [UIColor whiteColor];
         bg.layer.cornerRadius = 5.0;
         bg.layer.masksToBounds = YES;
+        [self.contentView addSubview:bg];
+        
+        contentTextView = [[UITextView alloc] initWithFrame:bg.frame];
+        contentTextView.text = content;
+        contentTextView.scrollEnabled = NO;
+        contentTextView.backgroundColor = [UIColor clearColor];
+        [self.contentView addSubview:contentTextView];
+        [self setTextViewParagraphStyle];
+    }
+}
+-(float)getLabFontSize
+{
+    if (kIphone6||kIphone6plus) {
+        return 15;
+    }else
+    {
+        return 14;
     }
 }
 -(void)setTextViewParagraphStyle
 {
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.lineSpacing = 6;// 字体的行间距
+    paragraphStyle.lineSpacing = 4;// 字体的行间距
     
     NSDictionary *attributes = @{
                                  NSFontAttributeName:[UIFont systemFontOfSize:14],

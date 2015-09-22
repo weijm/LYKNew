@@ -42,7 +42,7 @@
     jobTitLab.hidden = NO;
     jobLab.hidden = NO;
     [self showRateViewBg];
-    NSString *titleContent = [Util getCorrectString:[dictionary objectForKey:@"title"]];
+    NSString *titleContent = [Util getCorrectString:[dictionary objectForKey:@"job_type"]];
     if (_type!=0) {
         infoBg.hidden = YES;
 //        titleContent = [Util getCorrectString:[dictionary objectForKey:@"job_type"]];
@@ -55,7 +55,10 @@
     }
     jobLab.text = titleContent;
     NSString *timeString = [dictionary objectForKey:@"add_time"];
-    
+    NSArray *timeArr = [timeString componentsSeparatedByString:@" "];
+    if ([timeArr count]>1) {
+        timeString = [timeArr firstObject];
+    }
     NSRange range = [timeString rangeOfString:@"2015-"];
     if (range.length>0) {
          timeString = [timeString substringFromIndex:(range.length+range.location)];
