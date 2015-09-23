@@ -23,6 +23,8 @@
     UIView *editView;
     //区分营业执照 企业logo图片的变量
     int imgType;
+    
+    UIWebView *phoneWebView;
 }
 @end
 
@@ -47,11 +49,26 @@
         [self performSelector:@selector(getEntInfoFromWeb) withObject:nil afterDelay:0.0];
     }
 
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(makeCall)];
+    [promptLab addGestureRecognizer:tap];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)makeCall
+{
+    //客服电话
+    if ([Util checkDevice:@"iPod"]||[Util checkDevice:@"iPad"]){
+        [Util showPrompt:@"该设备不支持打电话的功能"];
+        return;
+    }
+    if (phoneWebView==nil) {
+        phoneWebView = [[UIWebView alloc] init];
+    }
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel:4008907977"]];
+    [phoneWebView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 #pragma mark - 设置提示字体颜色
 -(void)setPromptTextColor

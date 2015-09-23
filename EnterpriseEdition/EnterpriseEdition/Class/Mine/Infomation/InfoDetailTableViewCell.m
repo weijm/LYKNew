@@ -44,7 +44,7 @@
         
         contentTextView = [[UITextView alloc] initWithFrame:bg.frame];
         contentTextView.text = content;
-        contentTextView.scrollEnabled = NO;
+        contentTextView.userInteractionEnabled = NO;
         contentTextView.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:contentTextView];
         [self setTextViewParagraphStyle];
