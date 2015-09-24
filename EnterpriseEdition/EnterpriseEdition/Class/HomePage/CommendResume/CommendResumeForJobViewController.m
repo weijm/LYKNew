@@ -632,7 +632,11 @@
    
     }else//招聘会中的简历
     {
-        
+        isLoading = YES;
+        //请求数据
+        [self requestResumeListFromJobFair:YES];
+        //本页其他事件不可触发
+        [self subViewEnabled:NO];
     }
 }
 

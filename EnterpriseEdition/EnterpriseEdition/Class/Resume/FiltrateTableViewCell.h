@@ -10,7 +10,7 @@
 
 @interface FiltrateTableViewCell : UITableViewCell
 {
-    __weak IBOutlet UIView *contentBg;
+//    __weak IBOutlet UIView *contentBg;
    
 }
 //编辑的内容

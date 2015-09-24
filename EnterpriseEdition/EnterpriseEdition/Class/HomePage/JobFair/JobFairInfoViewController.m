@@ -9,6 +9,7 @@
 #import "JobFairInfoViewController.h"
 #import "JobFairListTableViewCell.h"
 #import "ScanCodeViewController.h"
+#import "CommendResumeForJobViewController.h"
 
 #define kFooterBtH [Util myYOrHeight:35]
 
@@ -56,6 +57,7 @@
     int state = [[infoDic objectForKey:@"status"] intValue];
     NSString *titStr = nil;
     BOOL btEnabled = NO;
+    CGRect frame = CGRectMake(0, kHeight-topBarheight-kFooterBtH, kWidth, kFooterBtH);
     UIColor *btBg = Rgb(201, 201, 201, 1.0);;
     if (state == -1) {
         titStr = @"立即报名";
@@ -64,6 +66,7 @@
     }else if (state ==0)
     {
         titStr = @"审核成功";
+        frame = CGRectMake(0, kHeight-topBarheight-kFooterBtH, kWidth-[Util myXOrWidth:80], kFooterBtH);
     }
     else if (state ==1)
     {
@@ -71,15 +74,29 @@
     }else
     {
         titStr = @"已结束";
+        frame = CGRectMake(0, kHeight-topBarheight-kFooterBtH, kWidth-[Util myXOrWidth:80], kFooterBtH);
     }
     UIButton *footerView = [UIButton buttonWithType:UIButtonTypeCustom];
-    footerView.frame = CGRectMake(0, kHeight-topBarheight-kFooterBtH, kWidth, kFooterBtH);
+    footerView.frame = frame;
     [footerView setTitle:titStr forState:UIControlStateNormal];
     [footerView addTarget:self action:@selector(clickedAction) forControlEvents:UIControlEventTouchUpInside];
     footerView.enabled = btEnabled;
     footerView.backgroundColor = btBg;
     footerView.titleLabel.font = [UIFont systemFontOfSize:[self getLabFontSize]];
     [self.view addSubview:footerView];
+    
+    if (state==-1||state==1) {
+    }else
+    {
+        UIButton *resumeBt = [UIButton buttonWithType:UIButtonTypeCustom];
+        resumeBt.frame = CGRectMake(frame.origin.x+frame.size.width, kHeight-topBarheight-kFooterBtH, [Util myXOrWidth:80], kFooterBtH);;
+        [resumeBt setTitle:@"查看简历" forState:UIControlStateNormal];
+        [resumeBt addTarget:self action:@selector(lookResume) forControlEvents:UIControlEventTouchUpInside];
+        resumeBt.backgroundColor = Rgb(84, 187, 255, 1.0);
+        resumeBt.titleLabel.font = [UIFont systemFontOfSize:[self getLabFontSize]];
+        [self.view addSubview:resumeBt];
+   
+    }
     
     
     
@@ -89,6 +106,13 @@
 {
     NSLog(@"详情中 立即报名");
     [self requestJobFairApply];
+}
+-(void)lookResume
+{
+    CommendResumeForJobViewController *resumeListVC = [[CommendResumeForJobViewController alloc] init];
+    resumeListVC.isForPisition = 2;//招聘会进入简历列表
+    resumeListVC.jobId = [NSString stringWithFormat:@"%@",_jobFairId];
+    [self.navigationController pushViewController:resumeListVC animated:YES];
 }
 #pragma mark - 初始化数据列表
 -(void)initTableView

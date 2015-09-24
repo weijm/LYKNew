@@ -65,7 +65,7 @@
 /**
  还原左右滑动视图
  */
--(void)revertView;
+//-(void)revertView;
 /**
  全选时 出现选择按钮
  */

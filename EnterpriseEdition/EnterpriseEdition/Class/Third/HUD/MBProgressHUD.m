@@ -228,7 +228,7 @@
     
     if (hud == nil) {
         
-#warning 修改透明背景视图的大小
+//#warning 修改透明背景视图的大小
 //        hud = [[MBProgressHUD alloc] initWithView:view];
         hud = [[MBProgressHUD alloc] initWithFrame:CGRectMake(0,0, kWidth, kHeight)];
     }
@@ -319,7 +319,7 @@
 		
         // Transparent background
         self.opaque = NO;
-#warning 改变背景色
+//#warning 改变背景色
 //        self.backgroundColor = [UIColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:0.1];
         self.backgroundColor = [UIColor clearColor];
 		
@@ -661,7 +661,7 @@
         //Gradient colours
         size_t gradLocationsNum = 2;
         CGFloat gradLocations[2] = {0.0f, 1.0f};
-#warning 背景渐变
+//#warning 背景渐变
 //        CGFloat gradColors[8] = {0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.75f};// 原
         CGFloat gradColors[8] = {0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.1f};// 改
         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();

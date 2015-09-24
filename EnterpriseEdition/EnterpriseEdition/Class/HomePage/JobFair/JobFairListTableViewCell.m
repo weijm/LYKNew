@@ -141,7 +141,7 @@
         UIButton *getBt = [UIButton buttonWithType:UIButtonTypeCustom];
         getBt.frame = CGRectMake(kWidth-[Util myXOrWidth:80], bt.frame.origin.y, [Util myXOrWidth:80], [Util myYOrHeight:32]);
         getBt.backgroundColor = Rgb(84, 187, 255, 1.0);
-        [getBt setTitle:@"收到的简历" forState:UIControlStateNormal];
+        [getBt setTitle:@"查看简历" forState:UIControlStateNormal];
         [getBt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         getBt.titleLabel.font = [UIFont systemFontOfSize:[self getLabFontSize]];
         [getBt addTarget:self action:@selector(getResumeList) forControlEvents:UIControlEventTouchUpInside];
