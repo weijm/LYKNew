@@ -2977,6 +2977,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Qing Yin (HAUT46K9ZD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Qing Yin (HAUT46K9ZD)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EnterpriseEdition/PrefixHeader.pch";
 				INFOPLIST_FILE = EnterpriseEdition/Info.plist;
@@ -3001,6 +3002,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Qing Yin (HAUT46K9ZD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Qing Yin (HAUT46K9ZD)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EnterpriseEdition/PrefixHeader.pch";
 				INFOPLIST_FILE = EnterpriseEdition/Info.plist;
