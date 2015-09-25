@@ -727,7 +727,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                 content = [NSString stringWithFormat:@"%@%@",str1,str3];
             }else
             {
-                content = [NSString stringWithFormat:@"%@%@%@",str1,str2,[dic objectForKey:@"city_id_3"]];
+                content = [NSString stringWithFormat:@"%@%@%@",str1,str2,str3];
             }
             //获取对应的id
             NSDictionary *contentDictionry = [NSDictionary dictionaryWithObjectsAndKeys:str1,@"province",str2,@"city",[dic objectForKey:@"city_id_3"],@"district", nil];

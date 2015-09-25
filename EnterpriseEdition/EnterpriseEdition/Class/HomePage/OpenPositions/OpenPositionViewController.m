@@ -128,11 +128,23 @@
                 NSString *content = nil;
                 NSString *str1 = [Util getCorrectString:[dic objectForKey:@"city_name_1"]];
                 NSString *str2 = [Util getCorrectString:[dic objectForKey:@"city_name_2"]];
+                NSString *str3 = [Util getCorrectString:[dic objectForKey:@"city_id_3"]];
+                
+                if ([str1 isEqualToString:@"0"]) {
+                    str1 = @"";
+                }
+                if ([str2 isEqualToString:@"0"]) {
+                    str2 = @"";
+                }
+                if ([str3 isEqualToString:@"0"]) {
+                    str3 = @"";
+                }
+                
                 if ([str2 isEqualToString:str1]) {
-                    content = [NSString stringWithFormat:@"%@%@",str1,[Util getCorrectString:[dic objectForKey:@"city_name_3"]]];
+                    content = [NSString stringWithFormat:@"%@%@",str1,str3];
                 }else
                 {
-                    content = [NSString stringWithFormat:@"%@%@%@",str1,str2,[Util getCorrectString:[dic objectForKey:@"city_name_3"]]];
+                    content = [NSString stringWithFormat:@"%@%@%@",str1,str2,str3];
                 }
                 //获取对应的id
                 NSDictionary *contentDictionry = [NSDictionary dictionaryWithObjectsAndKeys:str1,@"province",str2,@"city",[dic objectForKey:@"city_name_3"],@"district", nil];
