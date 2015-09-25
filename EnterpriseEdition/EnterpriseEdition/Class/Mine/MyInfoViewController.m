@@ -297,6 +297,7 @@
                     newMsgCount = [dic objectForKey:@"new_total"];
                     if ([newMsgCount intValue]>0) {
                         //将消息数量显示到界面上
+                        [self setMsgCountBadge];
                         [dataTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForItem:3 inSection:0], nil] withRowAnimation:UITableViewRowAnimationNone];
                     }
                 }
@@ -319,5 +320,10 @@
         
         [self performSelector:@selector(reloadView) withObject:nil afterDelay:1.5];
     }
+}
+#pragma mark -下标的消息数
+-(void)setMsgCountBadge
+{
+    self.tabBarItem.badgeValue = newMsgCount;
 }
 @end

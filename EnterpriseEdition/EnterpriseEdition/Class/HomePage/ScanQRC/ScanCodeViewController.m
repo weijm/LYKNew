@@ -56,21 +56,21 @@
     //遮罩视图
     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, imgY)];
     bgView.backgroundColor = [UIColor blackColor];
-    bgView.alpha = 0.8;
+    bgView.alpha = 0.35;
     [self.view addSubview:bgView];
     
     bgView = [[UIView alloc] initWithFrame:CGRectMake(0, imgY, imgX, imgW)];
     bgView.backgroundColor = [UIColor blackColor];
-    bgView.alpha = 0.8;
+    bgView.alpha = 0.35;
     [self.view addSubview:bgView];
     
     bgView = [[UIView alloc] initWithFrame:CGRectMake(imgX+imgW, imgY, imgX, imgW)];
     bgView.backgroundColor = [UIColor blackColor];
-    bgView.alpha = 0.8;
+    bgView.alpha = 0.35;
     [self.view addSubview:bgView];
     bgView = [[UIView alloc] initWithFrame:CGRectMake(0, imgY+imgW, kWidth, kHeight-(imgY+imgW+topBarheight))];
     bgView.backgroundColor = [UIColor blackColor];
-    bgView.alpha = 0.8;
+    bgView.alpha = 0.35;
     [self.view addSubview:bgView];
     
     
@@ -200,13 +200,13 @@
            
         }else
         {
-            UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"扫描的二维码格式错误" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+            UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"请扫描简历或招聘会二维码" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
             alterView.tag = 10;
             [alterView show];
         }
     }else
     {
-        UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"扫描的二维码格式错误" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"请扫描简历或招聘会二维码" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
         alterView.tag = 10;
         [alterView show];
     }

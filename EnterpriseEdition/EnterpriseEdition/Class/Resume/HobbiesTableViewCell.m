@@ -47,34 +47,48 @@
 }
 -(void)getContent:(NSObject*)object key:(NSString*)key
 {
+    UILabel *tempLab = (UILabel*)[self.contentView viewWithTag:100];
+    if (tempLab) {
+        [tempLab removeFromSuperview];
+    }
     if ([object isKindOfClass:[NSArray class]]) {
         NSArray *dataArray = (NSArray*)object;
         if ([dataArray count]>0) {
             NSDictionary* dic = [dataArray firstObject];
             NSString *content = [Util getCorrectString:[dic objectForKey:key]];
             content = [content stringByReplacingOccurrencesOfString:@"\\n" withString:@""];
+            float labX = titleView.frame.origin.x + titleView.frame.size.width+[Util myXOrWidth:5];
+            float labY = [Util myYOrHeight:20];
+            float labW = kWidth - labX-[Util myXOrWidth:5];
+            
             if ([content length]>0) {
-                contentLab.text = content;
+                
+                CGSize textSize = [content sizeWithFont:[UIFont systemFontOfSize:14] maxSize:CGSizeMake(labW, MAXFLOAT)];
+                
+                UILabel *conLab = [[UILabel alloc] initWithFrame:CGRectMake(labX, labY, labW, textSize.height)];
+                conLab.text = content;
+                conLab.font = [UIFont systemFontOfSize:14];
+                conLab.backgroundColor = [UIColor clearColor];
+                conLab.tag = 100;
+                conLab.numberOfLines = 0;
+                conLab.alpha = 0.7;
+                [self.contentView addSubview:conLab];
+                
+                
+                
+                
                 emptyView.hidden = YES;
-                contentLab.hidden = NO;
-                
-                CGSize textSize = [contentLab.text sizeWithFont:[UIFont systemFontOfSize:14] maxSize:CGSizeMake([self getLabWidth], MAXFLOAT)];
-                
-                contentLab.frame = CGRectMake(contentLab.frame.origin.x, contentLab.frame.origin.y, textSize.width, textSize.height+100);
             }else
             {
                 emptyView.hidden = NO;
-                contentLab.hidden = YES;
             }
         }else
         {
             emptyView.hidden = NO;
-            contentLab.hidden = YES;
         }
     }else
     {
         emptyView.hidden = NO;
-        contentLab.hidden = YES;
     }
 }
 -(float)getLabWidth

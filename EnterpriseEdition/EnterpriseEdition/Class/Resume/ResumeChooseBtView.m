@@ -32,27 +32,27 @@
 // 初始化按钮
 -(void)loadSubView
 {
-    if (kIphone4||kIphone5) {
-        _chooseBt.titleLabel.font = [UIFont systemFontOfSize:12];
-    }else
-    {
-        _chooseBt.titleLabel.font = [UIFont systemFontOfSize:14];
-    }
+//    if (kIphone4||kIphone5) {
+//        _chooseBt.titleLabel.font = [UIFont systemFontOfSize:12];
+//    }else
+//    {
+//        _chooseBt.titleLabel.font = [UIFont systemFontOfSize:14];
+//    }
     
     switch (self.tag) {
         case 0:
-            [_chooseBt setTitle:@"收到的简历" forState:UIControlStateNormal];
+            [_chooseBt setTitle:@"收到" forState:UIControlStateNormal];
             _chooseBt.backgroundColor = Rgb(2, 139, 230, 1.0);
             [_chooseBt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             break;
         case 1:
-            [_chooseBt setTitle:@"收藏的简历" forState:UIControlStateNormal];
+            [_chooseBt setTitle:@"收藏" forState:UIControlStateNormal];
             break;
         case 2:
-            [_chooseBt setTitle:@"已下载简历" forState:UIControlStateNormal];
+            [_chooseBt setTitle:@"已下载" forState:UIControlStateNormal];
             break;
         case 3:
-            [_chooseBt setTitle:@"招聘会简历" forState:UIControlStateNormal];
+            [_chooseBt setTitle:@"招聘会" forState:UIControlStateNormal];
             break;
 
         default:
