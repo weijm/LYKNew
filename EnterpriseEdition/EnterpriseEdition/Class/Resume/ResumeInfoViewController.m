@@ -327,10 +327,13 @@
 
 #pragma mark - 点击事件
 - (IBAction)makeCall:(id)sender {
-    if ([[statusDic objectForKey:@"download"] intValue]==0) {
-        [Util showPrompt:@"对不起，您还未下载该简历"];
-        return;
+    if (!showIndentityInfo) {
+        if ([[statusDic objectForKey:@"download"] intValue]==0) {
+            [Util showPrompt:@"对不起，您还未下载该简历"];
+            return;
+        }
     }
+    
     //客服电话
     if ([Util checkDevice:@"iPod"]||[Util checkDevice:@"iPad"]){
         [Util showPrompt:@"该设备不支持打电话的功能"];
