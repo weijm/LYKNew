@@ -8,6 +8,7 @@
 
 #import "CellHeaderView.h"
 #import "UIButton+Custom.h"
+#import "UIDevice+Extensions.h"
 
 @implementation CellHeaderView
 - (instancetype)initWithFrame:(CGRect)frame
@@ -79,8 +80,10 @@
     if (_showRateView) {
         rateView.hidden = NO;
         if (kIphone4) {
-            rateLabToLeft.constant = -10;
-            rateLabToTop.constant = -5;
+            if (![UIDevice isSimulator]) {
+                rateLabToLeft.constant = -10;
+                rateLabToTop.constant = -8;
+            }
         }
         
         infobgToLeft.constant = 30;
