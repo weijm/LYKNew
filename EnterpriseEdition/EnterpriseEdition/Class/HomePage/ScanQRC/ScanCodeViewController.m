@@ -31,7 +31,13 @@
         
     }else
     {
-        [self initScanView];
+        if ([self enableCamera]) {
+            [self initScanView];
+        }else
+        {
+            [Util showPrompt:@"请到设置中打开照相机访问权限"];
+        }
+        
     }
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -40,7 +46,10 @@
         [Util showPrompt:@"模拟器不可以扫描二维码"];
     }else
     {
-        [self setupCamera];
+        if ([self enableCamera]) {
+            [self setupCamera];
+        }
+        
     }
     
 }
@@ -129,6 +138,7 @@
 
 - (void)setupCamera
 {
+   
     // Device
     _device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     
@@ -379,5 +389,20 @@
     [self.navigationController pushViewController:infoVC animated:YES];
     NSLog(@"进入简历详情%@",resumeId);
 
+}
+#pragma mark -判断照相机是否授权
+-(BOOL)enableCamera
+{
+    NSString *mediaType = AVMediaTypeVideo;
+    
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+    
+    if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
+        
+        NSLog(@"相机权限受限");
+        
+        return NO;
+    }
+    return YES;
 }
 @end

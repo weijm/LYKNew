@@ -16,6 +16,9 @@
     __weak IBOutlet UIView *chooseBg;
     
     __weak IBOutlet UIButton *filtrateBt;
+    __weak IBOutlet UIView *arrowBg;
+    
+    
 }
 
 @property (nonatomic,copy)void(^chooseHeaderBtAction)(NSInteger index);

@@ -557,7 +557,7 @@
                 }else
                 {
                     NSString *msg = [result objectForKey:@"message"];
-                    if ([msg isEqualToString:@"该职位下暂无投递简历"]) {
+                    if ([msg isEqualToString:@"暂无简历"]) {
                         [dataTableView changeProText:YES];
                         [self performSelector:@selector(stopRefreshLoading) withObject:nil afterDelay:0.25];
                     }else

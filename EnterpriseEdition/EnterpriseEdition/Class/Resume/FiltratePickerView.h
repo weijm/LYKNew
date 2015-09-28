@@ -46,6 +46,9 @@ typedef enum {
 
 -(void)cancelPicker;
 
+//加载特殊的picker
+-(void)loadDataFair:(NSArray*)array;
+
 - (IBAction)finishedAction:(id)sender;
 
 @end

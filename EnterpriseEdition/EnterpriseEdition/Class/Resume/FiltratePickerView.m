@@ -400,6 +400,16 @@
     }
     [_pickerView reloadAllComponents];
 }
+-(void)loadDataFair:(NSArray*)array
+{
+    currentIndex = 11;
+    _titleLab.text = @"选择招聘会";
+    leftArray = [NSArray arrayWithArray:array];
+    self.locate.country = [leftArray objectAtIndex:0];
+    
+    [_pickerView reloadAllComponents];
+
+}
 #pragma mark - animation
 -(void)showInView:(UIView *)view
 {

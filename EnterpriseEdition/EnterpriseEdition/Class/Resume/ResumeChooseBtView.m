@@ -97,6 +97,9 @@
                 [_chooseBt setTitle:@"删除选中简历" forState:UIControlStateNormal];
                 vline.hidden = YES;
                 break;
+            case 40:
+                [_chooseBt setTitle:@"收藏选中简历" forState:UIControlStateNormal];
+                break;
                 
             default:
                 break;

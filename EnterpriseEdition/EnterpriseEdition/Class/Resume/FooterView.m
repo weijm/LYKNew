@@ -66,6 +66,9 @@
             case 3:
                 [self initButtonView:2 index:index];
                 break;
+            case 4:
+                [self initButtonView:2 index:index];
+                break;
             default:
                 break;
         }

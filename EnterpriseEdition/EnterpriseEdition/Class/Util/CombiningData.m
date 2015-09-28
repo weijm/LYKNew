@@ -378,7 +378,7 @@
 {
     NSString *pageString = [NSString stringWithFormat:@"%d",page];
     NSString *jsonString = [NSString stringWithFormat:
-                            @"{\"token\":\"%@\",\"type\":\"%@\",\"ent_user_id\":\"%@\",\"page\":\"%@\",\"fair_id\":\"%@\"}",kToken,kResumeFromFair,KGETOBJ(kUID),pageString,fairId];
+                            @"{\"token\":\"%@\",\"type\":\"%@\",\"ent_user_id\":\"%@\",\"page\":\"%@\",\"filter_fair_id\":\"%@\"}",kToken,kResumeFromFair,KGETOBJ(kUID),pageString,fairId];
     return jsonString;
     
 }

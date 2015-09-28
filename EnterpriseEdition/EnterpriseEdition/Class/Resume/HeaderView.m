@@ -75,6 +75,15 @@
                 view.chooseBt.backgroundColor = Rgb(2, 139, 230, 1.0);
                 [view.chooseBt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             }
+            //是否显示综合筛选
+            if (index == 3) {
+                filtrateBt.hidden = NO;
+                arrowBg.hidden = NO;
+            }else
+            {
+                filtrateBt.hidden = YES;
+                arrowBg.hidden = YES;
+            }
         }
     }
     

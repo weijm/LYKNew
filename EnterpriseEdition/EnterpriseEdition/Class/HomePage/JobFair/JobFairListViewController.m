@@ -15,7 +15,7 @@
 
 #define kJHeaderViewHeight [Util myYOrHeight:65]
 
-@interface JobFairListViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface JobFairListViewController ()<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 {
     //headerView
     JobFairHeaderView *headerView;
@@ -454,6 +454,14 @@
     }else
     {
         return 12;
+    }
+}
+#pragma mark - 报名成功后刷新列表
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 250) {
+        currentPage1 = 1;
+        [self getData];
     }
 }
 @end

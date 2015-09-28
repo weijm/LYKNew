@@ -13,7 +13,7 @@
 #import "ResumeInfoViewController.h"
 
 
-#define kHeaderViewHeight [Util myYOrHeight:55]
+#define kHeaderViewHeight [Util myYOrHeight:65]
 
 @interface ResumeViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -56,6 +56,15 @@
     BOOL isSearching;
     int searchingCurrentPage;
     
+    //招聘会名称数组
+    NSMutableArray *fairTitleArray;
+    
+    //是否是招聘会筛选
+    BOOL isFairFilter;
+    
+    //招聘会id
+    NSString *selectedFairID;
+    
 }
 @end
 @implementation ResumeViewController
@@ -87,7 +96,7 @@
     
     //退出登录
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginOut:) name:kLoginOut object:nil];
-    
+    isFairFilter = NO;
 }
 //退出登录
 -(void)loginOut:(NSNotification*)notifiCation
@@ -233,6 +242,10 @@
         ResumeViewController *sself = wself;
         [sself chooseAction:index isChooseAll:NO];
     };
+    headerView.clickedFiltrateAction = ^{
+        ResumeViewController *sself = wself;
+        [sself filtrateAction];
+    };
     [headerView changeButtonBgAndTextColor:resumeCategory-1];
 
     [self.view addSubview:headerView];
@@ -246,6 +259,7 @@
         currentPage3 = 1;
         currentPage4 = 1;
         isSearching = NO;
+        isFairFilter = NO;
         
         if (index ==0) {
             resumeCategory = 1;
@@ -256,6 +270,10 @@
         //获取服务器的数据
         [self performSelector:@selector(getData) withObject:nil afterDelay:0.0];
 //        [filtrateView changeTitleArray:resumeCategory];
+        if (resumeCategory==4) {//招聘会 请求招聘会得名称
+            fairTitleArray = nil;
+            [self requestJobFairList];
+        }
     }else
     {
         switch (index) {
@@ -330,8 +348,19 @@
 }
 
 #pragma mark - 筛选按钮触发的事件
-//-(void)filtrateAction
-//{
+-(void)filtrateAction
+{
+    if ([fairTitleArray count]>0) {
+        //出现筛选视图
+        CGRect frame = CGRectMake(0, kHeight, kWidth, 258);
+        FiltratePickerView *pickerView = [[FiltratePickerView alloc] initWithFrame:frame pickerStyle:0];
+        pickerView.didSelectedPickerRow = ^(int index,NSDictionary *dictionary){
+            [self filterResumeByFair:dictionary];
+            //                    [self showConditions:index Content:dictionary];
+        };
+        [pickerView loadDataFair:[self getFairName:fairTitleArray]];
+        [pickerView showInView:self.view.window];
+    }
 //    self.navigationItem.rightBarButtonItem.enabled = NO;
 //    self.tabBarController.tabBar.hidden = YES;
 //    float filtrateH = headerView.frame.origin.y+kHeaderViewHeight-[Util myYOrHeight:22];
@@ -341,7 +370,7 @@
 //    //根据所选简历分类 加载的筛选内容不同
 //    [filtrateView changeTitleArray:resumeCategory];
 //    [self.view addSubview:filtrateView];
-//}
+}
 #pragma mark - 可点或不可点击的按钮数组
 -(NSArray*)getEnableBtArray
 {
@@ -749,7 +778,13 @@
     {
         isLoading = YES;
         //请求数据
-        [self requestResumeList:YES];
+        if (isFairFilter) {//招聘会筛选 加载更多
+            [self requestResumeListFromJobFair:YES];
+        }else
+        {
+            [self requestResumeList:YES];
+        }
+        
         //本页其他事件不可触发
         [self subViewEnabled:NO];
     }
@@ -879,7 +914,7 @@
     }];
     
 }
-//获取招聘会的简历
+//获取招聘会的简历 所有的招聘会简历
 -(void)requestResumeFromFair:(BOOL)isMore
 {
     int page = currentPage4;
@@ -951,6 +986,29 @@
     }];
 
 }
+//招聘会简历筛选 的招聘会名称列表
+-(void)requestJobFairList
+{
+    NSString *listJson = [CombiningData getFairList:@"1" Page:1];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                //加载首页数据
+                fairTitleArray = [NSMutableArray arrayWithArray:[result objectForKey:@"data"]];
+            }else
+            {
+                fairTitleArray = [NSMutableArray array];
+            }
+        }else
+        {
+            fairTitleArray = [NSMutableArray array];
+        }
+        
+    }];
+    
+}
+
 #pragma mark - 批量编辑简历
 -(void)requesBatchDealWithResume:(NSArray*)array type:(int)type
 {
@@ -1007,5 +1065,102 @@
 -(void)afterSecondsGetData
 {
     [self requestResumeList:NO];
+}
+#pragma mark - 获取某个招聘会下收到的简历
+-(void)requestResumeListFromJobFair:(BOOL)isMore{
+    int page = currentPage4;
+    NSString *jsonString = nil;
+    if (!isMore) {
+        [self showHUD:@"正在加载数据"];
+    }
+    jsonString = [CombiningData getResumeListByFair:selectedFairID  Page:page];
+    //请求服务器
+    [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:jsonString httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
+        if (result!=nil) {
+            if ([[result objectForKey:@"result"] intValue]>0) {
+                //加载首页数据
+                NSArray *dataArr = [result objectForKey:@"data"];
+                //全选数组标记
+                if(page==1)
+                {   //如果第一页 加载的时候 初始化 chooseArray 否则直接增加到数组中
+                    chooseArray = [NSMutableArray array];
+                }
+                for (int i=0; i< [dataArr count]; i++) {
+                    [chooseArray addObject:@""];
+                }
+                [self dealWithResponeData:dataArr];
+                //将提示视图取消
+                if (!isMore) {
+                    [self hideHUD];
+                }else
+                {
+                    [dataTableView stopRefresh];
+                    isLoading = NO;
+                    [self subViewEnabled:YES];
+                }
+                
+            }else
+            {
+                NSString *message = [result objectForKey:@"message"];
+                
+                if (!isMore) {
+                    fairArray = [NSMutableArray array];
+                    [self hideHUDFaild:message];
+                    [dataTableView reloadData];
+                }else
+                {
+                    NSString *msg = [result objectForKey:@"message"];
+                    if ([msg isEqualToString:@"暂无简历"]) {
+                        [dataTableView changeProText:YES];
+                        [self performSelector:@selector(stopRefreshLoading) withObject:nil afterDelay:0.25];
+                    }else
+                    {
+                        [self stopRefreshLoading];
+                    }
+                }
+            }
+        }else
+        {
+            
+            if (!isMore) {
+                [self hideHUDFaild:@"服务器请求失败"];
+                fairArray = [NSMutableArray array];
+                [dataTableView reloadData];
+            }else
+            {
+                [dataTableView stopRefresh];
+                isLoading = NO;
+                [self subViewEnabled:YES];
+            }
+            
+        }
+        
+    }];
+    
+}
+
+#pragma mark - 获取招聘会名称的数据
+-(NSMutableArray*)getFairName:(NSMutableArray*)array
+{
+    NSMutableArray *newArr = [NSMutableArray array];
+    for (int i =0; i < [array count]; i++) {
+        NSDictionary *dic = [array objectAtIndex:i];
+        [newArr addObject:[Util getCorrectString:[dic objectForKey:@"title"]]];
+        
+    }
+    return newArr;
+}
+#pragma mark - 筛选招聘会
+-(void)filterResumeByFair:(NSDictionary*)fairDic
+{
+    currentPage4 = 1;
+    isFairFilter = YES; //处于筛选页面
+    NSLog(@"filterResumeByFair index == %@",fairDic);
+    int index = [[fairDic objectForKey:@"selectedId"] intValue];
+    NSDictionary *dic = [fairTitleArray objectAtIndex:index];
+    selectedFairID = [dic objectForKey:@"fair_id"];
+    [self requestResumeListFromJobFair:NO];
+    
+    
 }
 @end
