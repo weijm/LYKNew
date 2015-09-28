@@ -62,7 +62,7 @@
             }
             NSString *uidStr = [[NSUserDefaults standardUserDefaults] objectForKey:kUID];
             UIImageView *qrcodeImg = [[UIImageView alloc] initWithFrame:CGRectMake((kWidth-imgw)/2, imgY, imgw, imgw)];
-            qrcodeImg.image = [[QrCodeGenerated sharedInstance] generatedQrCodeImageByContent:[NSString stringWithFormat:@"EZZ_RES:%@",uidStr]];
+            qrcodeImg.image = [[QrCodeGenerated sharedInstance] generatedQrCodeImageByContent:[NSString stringWithFormat:@"EZZ_ENT:%@",uidStr]];
 //             qrcodeImg.image = [[QrCodeGenerated sharedInstance] generatedQrCodeImageByContent:[NSString stringWithFormat:@"EZZ_RES:117467"]];
             
             [cell.contentView addSubview:qrcodeImg];

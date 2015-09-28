@@ -35,7 +35,7 @@
             [self initScanView];
         }else
         {
-            [Util showPrompt:@"请到设置中打开照相机访问权限"];
+            [Util showPrompt:@"请到“设置-隐私-相机”开启访问权限"];
         }
         
     }

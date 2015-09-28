@@ -286,7 +286,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView.tag == 250) {
-        [self.navigationController popViewControllerAnimated:YES];
+        [self requestJobFairInfo];
     }
     
 }
