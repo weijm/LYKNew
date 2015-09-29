@@ -43,7 +43,10 @@
     jobTitLab.hidden = NO;
     jobLab.hidden = NO;
     [self showRateViewBg];
-    NSString *titleContent = [Util getCorrectString:[dictionary objectForKey:@"job_type"]];
+    NSString *titleContent = [Util getCorrectString:[dictionary objectForKey:@"title"]];
+    if ([titleContent length]==0) {
+        titleContent = [Util getCorrectString:[dictionary objectForKey:@"fair_title"]];
+    }
     if (_type!=0) {
         infoBg.hidden = YES;
 //        titleContent = [Util getCorrectString:[dictionary objectForKey:@"job_type"]];

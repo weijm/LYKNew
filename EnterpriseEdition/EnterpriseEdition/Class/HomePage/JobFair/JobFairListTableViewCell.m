@@ -335,10 +335,10 @@
 -(float)getContentFontSize
 {
     if (kIphone6||kIphone6plus) {
-        return 13;
+        return 12;
     }else
     {
-        return 12;
+        return 11;
     }
 }
 -(float)getMarkFontSize

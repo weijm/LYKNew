@@ -450,10 +450,10 @@
 -(float)getContentFontSize
 {
     if (kIphone6||kIphone6plus) {
-        return 13;
+        return 12;
     }else
     {
-        return 12;
+        return 11;
     }
 }
 #pragma mark - 报名成功后刷新列表
