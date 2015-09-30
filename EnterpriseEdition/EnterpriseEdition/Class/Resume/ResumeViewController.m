@@ -482,19 +482,23 @@
     NSDictionary *dic = nil;
     if (resumeCategory ==1) {
         dic = [dataArray objectAtIndex:indexPath.row];
+        infoVC.jobID = [Util getCorrectString:[dic objectForKey:@"ent_job_id"]];
     }else if (resumeCategory == 2)
     {
         dic = [colledtedArray objectAtIndex:indexPath.row];
         infoVC.fromCollected = YES;
+        infoVC.jobID = [Util getCorrectString:[dic objectForKey:@"ent_job_id"]];
     }else if (resumeCategory == 3)
     {
         dic = [downloadArray objectAtIndex:indexPath.row];
+        infoVC.jobID = [Util getCorrectString:[dic objectForKey:@"ent_job_id"]];
     }else
     {
          dic = [fairArray objectAtIndex:indexPath.row];
+        infoVC.jobID = @"0";
     }
     infoVC.resumeID = [dic objectForKey:@"stu_resume_id"] ;
-    infoVC.jobID = [Util getCorrectString:[dic objectForKey:@"ent_job_id"]];
+    
     infoVC.internships = [[Util getCorrectString:[dic objectForKey:@"internships"]] intValue];
  
     infoVC.hidesBottomBarWhenPushed = YES;

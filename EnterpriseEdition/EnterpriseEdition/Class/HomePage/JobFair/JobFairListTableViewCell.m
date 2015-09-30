@@ -376,6 +376,8 @@
     bigView.tag = 10001;
     bigView.userInteractionEnabled = YES;
     [self.window addSubview:bigView];
+    tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closeAction)];
+    [bigView addGestureRecognizer:tap];
     
     [UIView animateWithDuration:0.5 animations:^{
         CGRect frame = CGRectMake(10, (kHeight-(kWidth-20))/2, kWidth-20, kWidth-100);
