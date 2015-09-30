@@ -56,7 +56,7 @@
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 8;
+    return 7;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -81,7 +81,7 @@
         //取消点击cell选中效果
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
-    }else if (indexPath.row == 7)
+    }else if (indexPath.row == 6)
     {
         static NSString *cellId = @"CellID";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
@@ -124,7 +124,7 @@
     {
         return [Util myYOrHeight:87];
     }
-    else if (indexPath.row ==7)
+    else if (indexPath.row ==6)
     {
         if (kIphone4) {
             return kFooterViewH + [Util myYOrHeight:37.5];
@@ -216,21 +216,21 @@
         codeVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:codeVC animated:YES];
     }
-    else if (indexPath.row == 3) {
-        InfoViewController *infoVC = [[InfoViewController alloc] init];
-        infoVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:infoVC animated:YES];
-    }
-    else if (indexPath.row == 4) {//版本说明
+//    else if (indexPath.row == 3) {
+//        InfoViewController *infoVC = [[InfoViewController alloc] init];
+//        infoVC.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:infoVC animated:YES];
+//    }
+    else if (indexPath.row == 3) {//版本说明
         VersionViewController *versionVC = [[VersionViewController alloc] init];
         versionVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:versionVC animated:YES];
-    }else if (indexPath.row == 6)//修改密码
+    }else if (indexPath.row == 5)//修改密码
     {
         ChangePasswordViewController *changPVC = [[ChangePasswordViewController alloc] init];
         changPVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:changPVC animated:YES];
-    }else if (indexPath.row == 5)
+    }else if (indexPath.row == 4)
     {
         //客服电话
         if ([Util checkDevice:@"iPod"]||[Util checkDevice:@"iPad"]){
@@ -295,10 +295,14 @@
                 if ([dataArray count]>0) {
                     NSDictionary *dic = [dataArray firstObject];
                     newMsgCount = [dic objectForKey:@"new_total"];
+                    
                     if ([newMsgCount intValue]>0) {
                         //将消息数量显示到界面上
                         [self setMsgCountBadge];
                         [dataTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForItem:3 inSection:0], nil] withRowAnimation:UITableViewRowAnimationNone];
+                    }else
+                    {
+                        self.tabBarItem.badgeValue = nil;
                     }
                 }
             }

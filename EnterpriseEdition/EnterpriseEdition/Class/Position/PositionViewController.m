@@ -629,22 +629,19 @@
                 NSString *message = [result objectForKey:@"message"];
                 
                 if (!isMore) {
-                    if ([message length]==0||[message isEqualToString:@"该企业暂无职位"]) {
-                        
-                        if (categaryType ==1) {
-                            validArray = [NSMutableArray array];
-                            message = @"该企业暂无有效职位";
-                        }else if (categaryType ==2)
-                        {
-                            offlineArray = [NSMutableArray array];
-                            message = @"该企业暂无下线的职位";
-                        }else
-                        {
-                            toAuditArray = [NSMutableArray array];
-                             message = @"该企业暂无待审核的职位";
-                        }
-                        [dataTableView reloadData];
+                    if (categaryType ==1) {
+                        validArray = [NSMutableArray array];
+//                        message = @"该企业暂无有效职位";
+                    }else if (categaryType ==2)
+                    {
+                        offlineArray = [NSMutableArray array];
+//                        message = @"该企业暂无下线的职位";
+                    }else
+                    {
+                        toAuditArray = [NSMutableArray array];
+//                        message = @"该企业暂无待审核的职位";
                     }
+                    [dataTableView reloadData];
                     [self hideHUDFaild:message];
                 }else
                 {

@@ -419,7 +419,7 @@
      newSize = CGSizeMake(size.width, MAXFLOAT);
      paragraph = [[NSMutableParagraphStyle alloc] init];
     paragraph.alignment = NSLineBreakByWordWrapping;
-    attribute = @{NSFontAttributeName: [UIFont fontWithName:@"Helvetica-Bold" size:[self getLabFontSize]], NSParagraphStyleAttributeName: paragraph};
+    attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:[self getLabFontSize] weight:1.0], NSParagraphStyleAttributeName: paragraph};
     
     CGSize linesSz = [titStr boundingRectWithSize:newSize options: NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
    

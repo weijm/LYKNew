@@ -37,51 +37,51 @@
         case 2:
             titleLab.text = @"我的二维码";
             break;
+//        case 3:
+//        {
+//            UILabel *tempLab = (UILabel*)[iconImg viewWithTag:10];
+//            if (tempLab) {
+//                [tempLab removeFromSuperview];
+//            }
+//            titleLab.text = @"信       息";
+//            NSString *newCount = [Util getCorrectString:msgCount];
+//            if ([newCount intValue]>0) {
+////                CGRect iconFrame = iconImg.frame;
+//                float labX = itemIconWdith.constant-6;
+//                float labY = 0;
+//                float labH = 13;
+//                float labW = 13;
+//                if ([newCount intValue]>=10&&[newCount intValue]<100) {
+//                    labW = 13;
+//                    
+//                }else if ([newCount intValue]>=100)
+//                {
+//                    labW = 18;
+//                    newCount = @"99+";
+//                }
+//                UILabel *countLab = [[UILabel alloc] initWithFrame:CGRectMake(labX, labY, labW, labH)];
+//                countLab.text = newCount;
+//                countLab.font = [UIFont systemFontOfSize:9];
+//                countLab.backgroundColor = [UIColor redColor];
+//                countLab.textColor = [UIColor whiteColor];
+//                countLab.textAlignment = NSTextAlignmentCenter;
+//                countLab.tag = 10;
+//                [iconImg addSubview:countLab];
+//                countLab.clipsToBounds = YES;
+//                countLab.layer.cornerRadius = 6.5;
+//                countLab.layer.masksToBounds = YES;
+//            }
+//        }
+//            
+//            break;
         case 3:
-        {
-            UILabel *tempLab = (UILabel*)[iconImg viewWithTag:10];
-            if (tempLab) {
-                [tempLab removeFromSuperview];
-            }
-            titleLab.text = @"信       息";
-            NSString *newCount = [Util getCorrectString:msgCount];
-            if ([newCount intValue]>0) {
-//                CGRect iconFrame = iconImg.frame;
-                float labX = itemIconWdith.constant-6;
-                float labY = 0;
-                float labH = 13;
-                float labW = 13;
-                if ([newCount intValue]>=10&&[newCount intValue]<100) {
-                    labW = 13;
-                    
-                }else if ([newCount intValue]>=100)
-                {
-                    labW = 18;
-                    newCount = @"99+";
-                }
-                UILabel *countLab = [[UILabel alloc] initWithFrame:CGRectMake(labX, labY, labW, labH)];
-                countLab.text = newCount;
-                countLab.font = [UIFont systemFontOfSize:9];
-                countLab.backgroundColor = [UIColor redColor];
-                countLab.textColor = [UIColor whiteColor];
-                countLab.textAlignment = NSTextAlignmentCenter;
-                countLab.tag = 10;
-                [iconImg addSubview:countLab];
-                countLab.clipsToBounds = YES;
-                countLab.layer.cornerRadius = 6.5;
-                countLab.layer.masksToBounds = YES;
-            }
-        }
-            
-            break;
-        case 4:
             titleLab.text = @"版本说明";
             break;
-        case 5:
+        case 4:
             titleLab.text = @"客服电话";
             phoneLab.hidden = NO;
             break;
-        case 6:
+        case 5:
             titleLab.text = @"修改密码";
             break;
        
@@ -91,13 +91,13 @@
             break;
     }
     
-    if (index == 5) {
+    if (index == 4) {
         phoneLab.hidden = NO;
     }else
     {
         phoneLab.hidden = YES;
     }
-    if (index == 6) {
+    if (index == 5) {
         lineToLeft.constant = 0;
     }else
     {
