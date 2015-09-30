@@ -25,6 +25,9 @@
     
     __weak IBOutlet UIButton *commitBt;
     
+    
+    __weak IBOutlet NSLayoutConstraint *proToBottom;
+    
 }
 @property (nonatomic) BOOL isEditAgain;//是否再次编辑
 @property (nonatomic) BOOL fromPositionManager;//是否从职位管理里面进入的添加

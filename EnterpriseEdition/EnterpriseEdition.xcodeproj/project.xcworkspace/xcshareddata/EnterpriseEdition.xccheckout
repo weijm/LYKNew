@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>C22D709E-16CB-456A-9544-82625B5FAE02</string>
 	<key>IDESourceControlProjectName</key>
-	<string>EnterpriseEdition</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>12879EE0696AC8C92604DD41B216A618A5B72F0E</key>
 		<string>https://github.com/weijm/LYKNew.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>EnterpriseEdition/EnterpriseEdition.xcodeproj</string>
+	<string>EnterpriseEdition/EnterpriseEdition.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>12879EE0696AC8C92604DD41B216A618A5B72F0E</key>

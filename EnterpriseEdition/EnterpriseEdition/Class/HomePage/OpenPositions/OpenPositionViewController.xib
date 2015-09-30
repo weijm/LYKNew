@@ -12,7 +12,7 @@
                 <outlet property="dataTableViewToBottom" destination="F9T-De-lDp" id="96j-JJ-Yjg"/>
                 <outlet property="dataTableViewToTop" destination="Yet-q8-J6B" id="mPc-RN-Fjr"/>
                 <outlet property="lineWidth" destination="q4i-b8-pSK" id="nJb-Af-5zh"/>
-                <outlet property="promptTotop" destination="Bdi-5z-N75" id="Mju-zq-S6R"/>
+                <outlet property="proToBottom" destination="Qjx-Tj-FFF" id="A2m-ie-L6K"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -113,9 +113,9 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="qE9-9i-JkL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Bdi-5z-N75"/>
                 <constraint firstAttribute="trailing" secondItem="frT-41-B7k" secondAttribute="trailing" id="EHf-6E-ZFF"/>
                 <constraint firstItem="VUe-sO-YmA" firstAttribute="top" secondItem="frT-41-B7k" secondAttribute="bottom" id="F9T-De-lDp"/>
+                <constraint firstAttribute="bottom" secondItem="qE9-9i-JkL" secondAttribute="bottom" constant="570" id="Qjx-Tj-FFF"/>
                 <constraint firstItem="frT-41-B7k" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Sgb-mM-G2z"/>
                 <constraint firstAttribute="trailing" secondItem="qE9-9i-JkL" secondAttribute="trailing" id="Xzf-9B-5Yp"/>
                 <constraint firstItem="frT-41-B7k" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="Yet-q8-J6B"/>

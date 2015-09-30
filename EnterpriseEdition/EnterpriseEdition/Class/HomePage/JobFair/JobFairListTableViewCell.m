@@ -39,10 +39,10 @@
     float edgeY = [Util myYOrHeight:10];
     float viewW = kWidth-edgeX*2;
     NSString *titStr = [dictionary objectForKey:@"title"];
-     CGSize theStringSize = [titStr sizeWithFont:[UIFont systemFontOfSize:[self getLabFontSize]] maxSize:CGSizeMake(viewW, MAXFLOAT)];
+     CGSize theStringSize = [titStr sizeWithFont:[UIFont systemFontOfSize:[self getLabFontSize] weight:1.0] maxSize:CGSizeMake(viewW, MAXFLOAT)];
     CGRect frame = CGRectMake(edgeX, edgeY, viewW, theStringSize.height);
     UILabel *tlab = [[UILabel alloc] initWithFrame:frame];
-    tlab.font = [UIFont fontWithName:@"Helvetica-Bold" size:[self getLabFontSize]];
+    tlab.font = [UIFont systemFontOfSize:[self getLabFontSize] weight:1.0];//[UIFont fontWithName:@"Helvetica-Bold" size:[self getLabFontSize]];
     tlab.font = [UIFont systemFontOfSize:[self getLabFontSize]];
     tlab.numberOfLines = 0;
     tlab.text = titStr;
@@ -175,10 +175,10 @@
     float edgeY = [Util myYOrHeight:10];
     float viewW = kWidth-edgeX*2;
     NSString *titStr = [dictionary objectForKey:@"title"];
-    CGSize theStringSize = [titStr sizeWithFont:[UIFont systemFontOfSize:[self getLabFontSize]] maxSize:CGSizeMake(viewW, MAXFLOAT)];
+    CGSize theStringSize = [titStr sizeWithFont:[UIFont systemFontOfSize:[self getLabFontSize] weight:1.0] maxSize:CGSizeMake(viewW, MAXFLOAT)];
     CGRect frame = CGRectMake(edgeX, edgeY, viewW, theStringSize.height);
     UILabel *tlab = [[UILabel alloc] initWithFrame:frame];
-    tlab.font = [UIFont fontWithName:@"Helvetica-Bold" size:[self getLabFontSize]];
+    tlab.font = [UIFont systemFontOfSize:[self getLabFontSize] weight:1.0];//[UIFont fontWithName:@"Helvetica-Bold" size:[self getLabFontSize]];
     tlab.font = [UIFont systemFontOfSize:[self getLabFontSize]];
     tlab.numberOfLines = 0;
     tlab.text = titStr;
@@ -405,10 +405,23 @@
 {
     //获取UILabel上最后一个字符串的位置。
     CGPoint lastPoint;
+    CGSize newSize = CGSizeMake(MAXFLOAT, size.height);
+    NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+    paragraph.alignment = NSLineBreakByWordWrapping;
+    NSDictionary *attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:[self getLabFontSize] weight:1.0], NSParagraphStyleAttributeName: paragraph};
     
-    CGSize sz = [titStr sizeWithFont:[UIFont fontWithName:@"Helvetica-Bold" size:[self getLabFontSize]] constrainedToSize:CGSizeMake(MAXFLOAT, size.height)];
+//    CGSize sz = [titStr sizeWithFont:[UIFont fontWithName:@"Helvetica-Bold" size:[self getLabFontSize]] constrainedToSize:CGSizeMake(MAXFLOAT, size.height)];
+    CGSize sz = [titStr boundingRectWithSize:newSize options: NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
 
-    CGSize linesSz = [titStr sizeWithFont:[UIFont fontWithName:@"Helvetica-Bold" size:[self getLabFontSize]] constrainedToSize:CGSizeMake(size.width, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
+//    CGSize linesSz = [titStr sizeWithFont:[UIFont fontWithName:@"Helvetica-Bold" size:[self getLabFontSize]] constrainedToSize:CGSizeMake(size.width, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
+    
+    //修改后
+     newSize = CGSizeMake(size.width, MAXFLOAT);
+     paragraph = [[NSMutableParagraphStyle alloc] init];
+    paragraph.alignment = NSLineBreakByWordWrapping;
+    attribute = @{NSFontAttributeName: [UIFont fontWithName:@"Helvetica-Bold" size:[self getLabFontSize]], NSParagraphStyleAttributeName: paragraph};
+    
+    CGSize linesSz = [titStr boundingRectWithSize:newSize options: NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
    
     if(sz.width <= linesSz.width) //判断是否折行
         {

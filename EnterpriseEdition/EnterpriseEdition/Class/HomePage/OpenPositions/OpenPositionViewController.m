@@ -29,7 +29,7 @@
     self.view.backgroundColor = kCVBackgroundColor;
     if (_isEditAgain) {
         self.title = @"编辑职位";
-        promptTotop.constant = topBarheight;
+       
     }else
     {
         self.title = @"发布职位";
@@ -39,7 +39,7 @@
             self.navigationController.navigationBar.translucent = NO;
         }else
         {
-            promptTotop.constant = topBarheight;
+           
         }
         
     }
@@ -65,6 +65,8 @@
         commitBt.alpha = 1;
     }
 
+    proToBottom.constant = kHeight - topBarheight - 30;
+    
 }
 
 - (void)didReceiveMemoryWarning {

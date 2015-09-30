@@ -350,6 +350,14 @@
         }else
         {
             if (!isMore) {
+                if (categaryType ==1) {
+                    allArray = [NSMutableArray array];
+                    
+                }else
+                {
+                    myArray = [NSMutableArray array];
+                }
+                [dataTableView reloadData];
                 [self hideHUDFaild:@"服务器请求失败"];
             }else
             {
