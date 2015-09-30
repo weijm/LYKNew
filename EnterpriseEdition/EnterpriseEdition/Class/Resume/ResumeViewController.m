@@ -950,16 +950,10 @@
             }else
             {
                 NSString *message = [result objectForKey:@"message"];
-                if ([message length]==0) {
-                    message = @"数据为空";
-                }
                 if (!isMore) {
-                    if ([message isEqualToString:@"该企业暂无投递简历"]||[message isEqualToString:@"该职位下暂无投递简历"]) {
-                        message = @"该企业招聘会暂无简历";
-                        fairArray = [NSMutableArray array];
-                        [dataTableView reloadData];
-                        self.navigationItem.rightBarButtonItem.enabled = NO;
-                    }
+                    fairArray = [NSMutableArray array];
+                    [dataTableView reloadData];
+                    self.navigationItem.rightBarButtonItem.enabled = NO;
                     [self hideHUDFaild:message];
                 }else
                 {
@@ -989,7 +983,7 @@
 //招聘会简历筛选 的招聘会名称列表
 -(void)requestJobFairList
 {
-    NSString *listJson = [CombiningData getFairList:@"1" Page:1];
+    NSString *listJson = [CombiningData getResumeFairList:@"1"];
     //请求服务器
     [AFHttpClient asyncHTTPWithURl:kWEB_BASE_URL params:listJson httpMethod:HttpMethodPost finishDidBlock:^(id result, NSError *error) {
         if (result!=nil) {

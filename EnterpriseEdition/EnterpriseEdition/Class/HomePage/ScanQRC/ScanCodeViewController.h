@@ -18,6 +18,8 @@
     NSString *jobFairId;
     
     NSString *resumeId;
+    
+    AVCaptureSession * _AVSession;//调用闪光灯的时候创建的类  
 }
 @property (strong,nonatomic)AVCaptureDevice * device;
 @property (strong,nonatomic)AVCaptureDeviceInput * input;

@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EnterpriseEdition/Class/Resume/ResumeViewController.m"
-            timestampString = "465113155.048218"
+            timestampString = "465271767.930081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1161"
-            endingLineNumber = "1161"
+            startingLineNumber = "1155"
+            endingLineNumber = "1155"
             landmarkName = "-filterResumeByFair:"
             landmarkType = "5">
          </BreakpointContent>
@@ -196,27 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EnterpriseEdition/Class/Resume/ResumeViewController.m"
-            timestampString = "465113155.048218"
+            timestampString = "465271767.930081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "932"
-            endingLineNumber = "932"
-            landmarkName = "-requestResumeFromFair:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EnterpriseEdition/Class/Resume/ResumeViewController.m"
-            timestampString = "465113155.048218"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1156"
-            endingLineNumber = "1156"
+            startingLineNumber = "1150"
+            endingLineNumber = "1150"
             landmarkName = "-filterResumeByFair:"
             landmarkType = "5">
          </BreakpointContent>
@@ -228,11 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EnterpriseEdition/Class/Resume/ResumeViewController.m"
-            timestampString = "465113213.135733"
+            timestampString = "465271767.930081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1125"
-            endingLineNumber = "1125"
+            startingLineNumber = "1119"
+            endingLineNumber = "1119"
             landmarkName = "-requestResumeListFromJobFair:"
             landmarkType = "5">
          </BreakpointContent>
@@ -243,13 +227,45 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EnterpriseEdition/Class/Resume/CellHeaderView.m"
-            timestampString = "465201283.205328"
+            filePath = "EnterpriseEdition/Class/HomePage/OpenPositions/OpenPositionViewController.m"
+            timestampString = "465276469.134657"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "-loadData:"
+            startingLineNumber = "497"
+            endingLineNumber = "497"
+            landmarkName = "-requestSaveOrCommitInfo:Prompt:jobId:ActionType:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnterpriseEdition/Class/HomePage/ScanQRC/ScanCodeViewController.m"
+            timestampString = "465292499.81264"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
+            landmarkName = "-requestResumeCodeStep1"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnterpriseEdition/Class/HomePage/ScanQRC/ScanCodeViewController.m"
+            timestampString = "465292499.81264"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "357"
+            endingLineNumber = "357"
+            landmarkName = "-showJobFairListView:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

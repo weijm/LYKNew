@@ -55,7 +55,7 @@
 }
 -(void)initDataView
 {
-    dataTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, [Util myXOrWidth:40], self.frame.size.width, [Util myYOrHeight:35]*2)];
+    dataTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, [Util myXOrWidth:40], self.frame.size.width, [Util myYOrHeight:35]*[dataArray count])];
     dataTableView.delegate = self;
     dataTableView.dataSource = self;
     dataTableView.backgroundColor = [UIColor clearColor];
@@ -147,7 +147,7 @@
     areaBg.tag = 250;
     [view addSubview:areaBg];
     
-    UIView *alphBg = [[UIView alloc] initWithFrame:view.frame];
+    UIView *alphBg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, view.frame.size.height)];
     alphBg.backgroundColor = [UIColor blackColor];
     alphBg.alpha = 0;
     [areaBg addSubview:alphBg];

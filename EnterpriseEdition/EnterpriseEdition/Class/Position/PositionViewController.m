@@ -633,15 +633,15 @@
                         
                         if (categaryType ==1) {
                             validArray = [NSMutableArray array];
-                            message = @"该企业暂无收到的简历";
+                            message = @"该企业暂无有效职位";
                         }else if (categaryType ==2)
                         {
                             offlineArray = [NSMutableArray array];
-                            message = @"该企业暂无下线的简历";
+                            message = @"该企业暂无下线的职位";
                         }else
                         {
                             toAuditArray = [NSMutableArray array];
-                             message = @"该企业暂无待审核的简历";
+                             message = @"该企业暂无待审核的职位";
                         }
                         [dataTableView reloadData];
                     }

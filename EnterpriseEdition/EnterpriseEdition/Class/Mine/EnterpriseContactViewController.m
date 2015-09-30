@@ -10,6 +10,7 @@
 #import "ReferenceView.h"
 #import "SDWebImageManager.h"
 #import "ExpViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface EnterpriseContactViewController ()
 {
@@ -225,7 +226,12 @@
             break;
         case 1:
         {
-            [self addOfCamera];
+            if ([self enableCamera]) {
+                [self addOfCamera];
+            }else
+            {
+                [Util showPrompt:@"请到“设置-隐私-相机”开启访问权限"];
+            }
         }
             break;
         default:
@@ -509,5 +515,19 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     }
     [infoTableView reloadData];
 }
-
+#pragma mark -判断照相机是否授权
+-(BOOL)enableCamera
+{
+    NSString *mediaType = AVMediaTypeVideo;
+    
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+    
+    if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
+        
+        NSLog(@"相机权限受限");
+        
+        return NO;
+    }
+    return YES;
+}
 @end

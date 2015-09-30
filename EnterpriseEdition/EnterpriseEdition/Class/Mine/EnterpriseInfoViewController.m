@@ -10,6 +10,7 @@
 #import "EnterpriseContactViewController.h"
 #import "SDWebImageManager.h"
 #import "PositionObject.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface EnterpriseInfoViewController ()
 {
@@ -363,6 +364,7 @@
 #pragma mark -EnterpriseImgTableViewCellDelegate
 -(void)addPicture:(int)index
 {
+    [self cancelKey];
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"从相册选取",@"拍张新照片", nil];
     imgType = index;
     [sheet showInView:self.view];
@@ -374,11 +376,18 @@
         case 0:
         {
             [self addOfAlbum];
+            
         }
             break;
         case 1:
         {
-            [self addOfCamera];
+            if ([self enableCamera]) {
+                [self addOfCamera];
+            }else
+            {
+                [Util showPrompt:@"请到“设置-隐私-相机”开启访问权限"];
+            }
+            
         }
             break;
         default:
@@ -389,7 +398,7 @@
 #pragma mark - 添加照片的方式
 - (void) addOfCamera
 {
-    ;
+
     //先设定sourceType为相机，然后判断相机是否可用（ipod）没相机，不可用将sourceType设定为相片库
     UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
     if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
@@ -800,5 +809,20 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         return newDic;
     }
     return nil;
+}
+#pragma mark -判断照相机是否授权
+-(BOOL)enableCamera
+{
+    NSString *mediaType = AVMediaTypeVideo;
+    
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+    
+    if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
+        
+        NSLog(@"相机权限受限");
+        
+        return NO;
+    }
+    return YES;
 }
 @end

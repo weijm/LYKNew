@@ -202,7 +202,7 @@
     CommendResumeForJobViewController *resumeVC = [[CommendResumeForJobViewController alloc] init];
     resumeVC.isForPisition = 1;//从职位详情中进入该职位下对应的简历
     resumeVC.jobId = _jobId;
-    resumeVC.title = [Util getPositionTitle:[infoDictionary objectForKey:@"job_type_name"]];
+    resumeVC.title = [Util getPositionTitle:[infoDictionary objectForKey:@"title"]];
     [self.navigationController pushViewController:resumeVC animated:YES];
 }
 #pragma mark - 初始化footerView
@@ -269,6 +269,9 @@
 {
     _positionStatus = [Util getCorrectString:_positionStatus];
     if ([_positionStatus length]==0) {
+        NSArray *enableArray = [NSArray arrayWithObjects:@"10",@"20",@"30", nil];
+        //设置除了全选按钮可点击 其余按钮不可点击
+        [footerView setButton:enableArray Enable:NO];
         return;
     }
     if ([_positionStatus isEqualToString:@"正常"]) {

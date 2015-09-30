@@ -53,6 +53,7 @@
     }
     
 }
+
 -(void)initScanView
 {
     float imgW = kScanWidth;
@@ -92,7 +93,7 @@
     labIntroudction.backgroundColor = [UIColor clearColor];
     labIntroudction.numberOfLines=2;
     labIntroudction.textColor=[UIColor greenColor];
-    labIntroudction.text=@"请将简历id或签到二维码放置框内";
+    labIntroudction.text=@"请将简历或签到二维码放置框内";
     labIntroudction.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:labIntroudction];
     
@@ -141,7 +142,7 @@
    
     // Device
     _device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    
+    NSLog(@"_device == %ld",(long)_device.torchMode);
     // Input
     _input = [AVCaptureDeviceInput deviceInputWithDevice:self.device error:nil];
     
@@ -210,13 +211,13 @@
            
         }else
         {
-            UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"请扫描简历或招聘会二维码" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+            UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"请扫描简历或签到二维码" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
             alterView.tag = 10;
             [alterView show];
         }
     }else
     {
-        UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"请扫描简历或招聘会二维码" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"请扫描简历或签到二维码" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
         alterView.tag = 10;
         [alterView show];
     }
@@ -405,4 +406,6 @@
     }
     return YES;
 }
+
+
 @end

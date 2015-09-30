@@ -87,6 +87,11 @@
                 rateLabToLeft.constant = -10;
                 rateLabToTop.constant = -8;
             }
+            
+            if ([[UIDevice currentDevice].systemVersion floatValue]>8.0) {
+                rateLabToLeft.constant = -10;
+                rateLabToTop.constant = -8;
+            }
         }
         
         infobgToLeft.constant = 30;

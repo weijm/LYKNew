@@ -81,12 +81,23 @@
         {
             str3 = @"";
         }
-        if ([str1 length]>0&&[str2 length]>0&&[str3 length]>0) {
+        if ([str1 length]>0&&[str2 length]>0) {
             if ([str1 isEqualToString:str2]) {
-                locationLab.text = [NSString stringWithFormat:@"%@|%@",str2,str3];
+                if ([str3 length]>0) {
+                    locationLab.text = [NSString stringWithFormat:@"%@|%@",str2,str3];
+                }else
+                {
+                    locationLab.text = [NSString stringWithFormat:@"%@",str1];
+                }
             }else
             {
-                locationLab.text = [NSString stringWithFormat:@"%@|%@|%@",str1,str2,str3];
+                if ([str3 length]>0) {
+                    locationLab.text = [NSString stringWithFormat:@"%@|%@|%@",str1,str2,str3];
+                }else
+                {
+                    locationLab.text = [NSString stringWithFormat:@"%@|%@",str1,str2];
+                }
+                
             }
             
         }else
